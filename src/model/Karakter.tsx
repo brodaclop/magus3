@@ -65,7 +65,7 @@ export const Karakter = {
         return {
             kepessegek,
             fp: Calculation.plusz(Calculation.value('Alap FP', karakter.fp), Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom')),
-            ep: Calculation.plusz(Calculation.value('Alap ÉP', karakter.fp), Calculation.tizFolottiResz(kepessegek, 'egeszseg')),
+            ep: Calculation.plusz(Calculation.value('Alap ÉP', karakter.ep), Calculation.tizFolottiResz(kepessegek, 'egeszseg')),
             harcertek: transformRecord(karakter.harcertek, (name, he) => {
                 switch (name) {
                     case 'ke': return Calculation.plusz(Calculation.value('Alap', he), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'));
