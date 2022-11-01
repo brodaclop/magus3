@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Calculation } from '../model/Calculation';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kepessegek, KepessegKategoria } from '../model/Kepessegek';
+import { HarcertekWidget } from './HarcertekWidget';
 
 export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Karakter) => unknown, template: KarakterTemplate, setTemplate: (t: KarakterTemplate) => unknown }> = ({ karakter, setKarakter, template, setTemplate }) => {
     const karakterCalc = useMemo(() => Karakter.calc(karakter), [karakter]);
@@ -55,10 +56,10 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
                 <th style={{ textAlign: 'left' }}>
                     <p>ÉP <i>({Calculation.print(karakterCalc.ep)})</i>: {Calculation.calculate(karakterCalc.ep)}</p>
                     <p>FP <i>({Calculation.print(karakterCalc.fp)})</i>: {Calculation.calculate(karakterCalc.fp)}</p>
-                    <p>KÉ <i>({Calculation.print(karakterCalc.harcertek.ke)})</i>: {Calculation.calculate(karakterCalc.harcertek.ke)}</p>
-                    <p>TÉ <i>({Calculation.print(karakterCalc.harcertek.te)})</i>: {Calculation.calculate(karakterCalc.harcertek.te)}</p>
-                    <p>VÉ <i>({Calculation.print(karakterCalc.harcertek.ve)})</i>: {Calculation.calculate(karakterCalc.harcertek.ve)}</p>
-                    <p>CÉ <i>({Calculation.print(karakterCalc.harcertek.ce)})</i>: {Calculation.calculate(karakterCalc.harcertek.ce)}</p>
+                    <p>Szint: {karakter.szint} <button onClick={() => setKarakter({ ...Karakter.levelUp(karakter) })}>+</button></p>
+                </th>
+                <th>
+                    <HarcertekWidget karakter={karakter} setKarakter={setKarakter} />
                 </th>
             </tr>
         </thead>

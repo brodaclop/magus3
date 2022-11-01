@@ -49,7 +49,7 @@ export const Karakter = {
         const ret: Karakter = {
             faj: template.faj,
             kaszt: template.kaszt,
-            szint: template.szint,
+            szint: 0,
             kepessegek: Kepessegek.newErtekRecord(),
             fp: template.kaszt.fpAlap,
             ep: template.kaszt.ep,
