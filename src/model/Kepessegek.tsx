@@ -3,6 +3,8 @@ import { NamedEntity, namedEntityArray } from "./util";
 
 export type KepessegKategoria = 'Fizikum' | 'Ügyesség' | 'Mentál' | 'Asztrál';
 
+
+
 export interface Kepesseg extends NamedEntity {
     kategoria: KepessegKategoria;
 }

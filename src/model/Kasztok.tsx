@@ -27,10 +27,10 @@ export interface KasztInfo extends NamedEntity {
     id: Kaszt,
     name: Kaszt,
     kepessegDobas: Record<KepessegKategoria, KasztKepesseg>,
-    fp: number;
+    fpPerSzint: number;
     fpAlap: number;
-    ep: number;
-    harcertekAlap: Harcertek;
+    epAlap: number;
+    harcertekAlap: Partial<Harcertek>;
     harcertek: Partial<Harcertek>;
     hm: number;
     kasztSpec?: Array<KasztSpecFlags>;
@@ -46,8 +46,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Átlagos'
         },
-        fp: 4,
-        ep: 7,
+        fpPerSzint: 4,
+        epAlap: 7,
         fpAlap: 6,
         harcertekAlap: {
             ke: 9,
@@ -70,8 +70,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Jó'
         },
-        fp: 5,
-        ep: 7,
+        fpPerSzint: 5,
+        epAlap: 7,
         fpAlap: 6,
         harcertekAlap: {
             ke: 5,
@@ -94,8 +94,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Átlagos'
         },
-        fp: 5,
-        ep: 6,
+        fpPerSzint: 5,
+        epAlap: 6,
         fpAlap: 7,
         harcertekAlap: {
             ke: 10,
@@ -119,8 +119,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Gyenge',
             Asztrál: 'Átlagos'
         },
-        fp: 5,
-        ep: 8,
+        fpPerSzint: 5,
+        epAlap: 8,
         fpAlap: 7,
         harcertekAlap: {
             ke: 9,
@@ -144,8 +144,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Gyenge',
             Asztrál: 'Gyenge'
         },
-        fp: 5,
-        ep: 8,
+        fpPerSzint: 5,
+        epAlap: 8,
         fpAlap: 7,
         harcertekAlap: {
             ke: 10,
@@ -168,8 +168,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Átlagos'
         },
-        fp: 3,
-        ep: 4,
+        fpPerSzint: 3,
+        epAlap: 4,
         fpAlap: 5,
         harcertekAlap: {
             ke: 8,
@@ -193,8 +193,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Átlagos'
         },
-        fp: 3,
-        ep: 5,
+        fpPerSzint: 3,
+        epAlap: 5,
         fpAlap: 6,
         harcertekAlap: {
             ke: 10,
@@ -217,8 +217,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Legendás'
         },
-        fp: 2,
-        ep: 6,
+        fpPerSzint: 2,
+        epAlap: 6,
         fpAlap: 6,
         harcertekAlap: {
             ke: 5,
@@ -241,8 +241,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Jó'
         },
-        fp: 5,
-        ep: 8,
+        fpPerSzint: 5,
+        epAlap: 8,
         fpAlap: 7,
         harcertekAlap: {
             ke: 5,
@@ -265,8 +265,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Átlagos'
         },
-        fp: 5,
-        ep: 4,
+        fpPerSzint: 5,
+        epAlap: 4,
         fpAlap: 8,
         harcertekAlap: {
             ke: 10,
@@ -289,8 +289,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Átlagos',
             Asztrál: 'Jó'
         },
-        fp: 5,
-        ep: 4,
+        fpPerSzint: 5,
+        epAlap: 4,
         fpAlap: 8,
         harcertekAlap: {
             ke: 10,
@@ -313,8 +313,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Jó'
         },
-        fp: 0,
-        ep: 3,
+        fpPerSzint: 0,
+        epAlap: 3,
         fpAlap: 1,
         harcertekAlap: {
             ke: 6,
@@ -337,8 +337,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Jó'
         },
-        fp: 1,
-        ep: 3,
+        fpPerSzint: 1,
+        epAlap: 3,
         fpAlap: 4,
         harcertekAlap: {
             ke: 7,
@@ -362,8 +362,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Jó',
             Asztrál: 'Átlagos'
         },
-        fp: 1,
-        ep: 5,
+        fpPerSzint: 1,
+        epAlap: 5,
         fpAlap: 4,
         harcertekAlap: {
             ke: 6,
@@ -386,8 +386,8 @@ const KASZTOK: Array<KasztInfo> = [
             Mentál: 'Legendás',
             Asztrál: 'Jó'
         },
-        fp: 0,
-        ep: 3,
+        fpPerSzint: 0,
+        epAlap: 3,
         fpAlap: 2,
         harcertekAlap: {
             ke: 2,

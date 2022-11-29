@@ -1,4 +1,4 @@
-import { Calculation, CalculationArgument } from "./Calculation";
+import { Calculation, CalculationArgument, CalculationValue } from "./Calculation";
 import { Faj, Fajok } from "./Fajok";
 import { Harcertek } from "./Harcertek";
 import { KasztInfo, Kasztok } from "./Kasztok";
@@ -13,14 +13,17 @@ export interface KarakterTemplate {
     kepessegKategoriak: Record<KepessegKategoria, number>;
 }
 
+interface SzintInfo {
+    kaszt: KasztInfo,
+    harcertek: Harcertek,
+    fp: number,
+};
+
 export interface Karakter {
     readonly faj: Faj;
-    kaszt: KasztInfo;
-    szint: number;
+    szint: Array<SzintInfo>;
     kepessegek: Record<string, number>;
-    fp: number;
     ep: number;
-    harcertek: Harcertek;
     hm: number;
 }
 
@@ -31,32 +34,38 @@ export interface KarakterCalcResult {
     harcertek: Record<keyof Harcertek, CalculationArgument>;
 }
 
-const levelUp = (karakter: Karakter, szintek: number = 1): Karakter => {
-    for (let i = 0; i < szintek; i++) {
-        karakter.szint++;
-        const dobas = karakter.szint === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
-        karakter.fp += dobas + karakter.kaszt.fp;
-        karakter.hm += karakter.kaszt.hm;
-        karakter.harcertek = Harcertek.add(karakter.harcertek, karakter.kaszt.harcertek);
-        karakter.hm += karakter.kaszt.hm;
-    }
+const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
+    const szintKaszt = kaszt ?? karakter.szint[karakter.szint.length - 1].kaszt;
+    const dobas = karakter.szint.length === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
+    karakter.szint.push({
+        kaszt: szintKaszt,
+        fp: dobas + szintKaszt.fpPerSzint,
+        harcertek: Harcertek.add(szintKaszt.harcertek)
+    });
+    karakter.hm += szintKaszt.hm;
     return karakter;
 };
+
+const szintCalc = (karakter: Karakter, fn: (szint: SzintInfo) => number): Array<CalculationValue> =>
+    karakter.szint.map((sz, i) => Calculation.value(`${sz.kaszt.name} ${i}. szint`, fn(sz)));
 
 export const Karakter = {
     createTemplate: (options?: { faj?: Faj, kaszt?: KasztInfo }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0], szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 } }),
     create: (template: KarakterTemplate): Karakter => {
         const ret: Karakter = {
             faj: template.faj,
-            kaszt: template.kaszt,
-            szint: 0,
+            szint: [
+                {
+                    kaszt: template.kaszt,
+                    harcertek: Harcertek.add(template.kaszt.harcertekAlap),
+                    fp: template.kaszt.fpAlap,
+                }
+            ],
             kepessegek: Kepessegek.newErtekRecord(),
-            fp: template.kaszt.fpAlap,
-            ep: template.kaszt.ep,
-            harcertek: Harcertek.add(template.kaszt.harcertekAlap, template.faj.harcertekAlap),
+            ep: template.kaszt.epAlap,
             hm: 0
         };
-        levelUp(ret, template.szint);
+        levelUp(ret, template.kaszt);
         return ret;
     },
     levelUp,
@@ -64,16 +73,16 @@ export const Karakter = {
         const kepessegek = transformRecord(karakter.kepessegek, (k, v) => v + (karakter.faj.kepessegek[k] ?? 0));
         return {
             kepessegek,
-            fp: Calculation.plusz(Calculation.value('Alap FP', karakter.fp), Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom')),
+            fp: Calculation.plusz(...szintCalc(karakter, sz => sz.fp), Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom')),
             ep: Calculation.plusz(Calculation.value('Alap ÉP', karakter.ep), Calculation.tizFolottiResz(kepessegek, 'egeszseg')),
-            harcertek: transformRecord(karakter.harcertek, (name, he) => {
-                switch (name) {
-                    case 'ke': return Calculation.plusz(Calculation.value('Alap', he), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'));
-                    case 'te': return Calculation.plusz(Calculation.value('Alap', he), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'izom'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'));
-                    case 've': return Calculation.plusz(Calculation.value('Alap', he), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'));
-                    case 'ce': return Calculation.plusz(Calculation.value('Alap', he), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'));
-                }
-            })
+            harcertek: {
+                ke: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.ke ?? 0), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas')),
+                te: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.te ?? 0), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'izom'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio')),
+                ve: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.ve ?? 0), Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio')),
+                ce: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.ce ?? 0), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas')),
+                sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
+
+            }
         }
     }
 }

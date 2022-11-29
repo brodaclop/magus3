@@ -16,6 +16,8 @@ export interface DobasEredmeny {
     osszeg: number;
 }
 
+const PATTERN = /(?<numDice>\d+)?[kd](?<die>\d+)(?:\/(?<div>\d+))?(?<plus>[+-]\d+)?/;
+
 let random = Math.random;
 
 export const initTestSeed = (seed: string) => random = seedrandom(seed);
@@ -64,3 +66,14 @@ export const kockaDobas = (d: Partial<KockaDobas>): DobasEredmeny => {
         osszeg
     };
 }
+
+export const parseKocka = (str: string): KockaDobas => {
+    const res = String(str).replace(/\s/g, '').match(PATTERN);
+    return {
+        darab: Number(res?.groups?.numDice ?? 1),
+        kocka: Number(res?.groups?.die ?? 0),
+        plusz: Number(res?.groups?.plus ?? 0),
+        eldobKicsi: 0,
+        eldobNagy: 0
+    }
+};

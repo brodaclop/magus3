@@ -37,21 +37,6 @@ const calculateOperation = (op: CalculationOperation): number => {
     }
 }
 
-const printArgument = (op: CalculationArgument): string => {
-    if ('opType' in op) {
-        return printOperation(op);
-    } else {
-        return op.label;
-    }
-}
-
-const printOperation = (op: CalculationOperation): string => {
-    switch (op.opType) {
-        case 'add': return op.args.map(printArgument).join(' + ');
-        case 'tizfolott': return `${printArgument(op.arg)} 10 fölötti része`;
-    }
-}
-
 
 export const Calculation = {
     value: (label: string, value: number): CalculationValue => ({ label, value }),
@@ -59,6 +44,5 @@ export const Calculation = {
     plusz: (...args: Array<CalculationArgument>): CalculationAdd => ({ opType: 'add', args }),
     tizFolottiResz: (kepessegek: Record<string, number>, id: string): CalculationTizfolott => ({ opType: 'tizfolott', arg: Calculation.kepesseg(kepessegek, id) }),
     calculate: (op: CalculationArgument): number => calculateArgument(op),
-    print: (op: CalculationArgument): string => printArgument(op)
 }
 
