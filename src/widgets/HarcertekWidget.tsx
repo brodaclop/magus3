@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Calculation } from '../model/Calculation';
 import { Harcertek } from '../model/Harcertek';
 import { Karakter } from '../model/Karakter';
+import { KarakterCalculator } from '../model/KarakterCalculator';
 import { CalculationWidget } from './CalculationWidget';
 
 
@@ -14,7 +15,7 @@ const HARCERTEKEK: Record<keyof Harcertek, string> = {
 };
 
 export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Karakter) => unknown }> = ({ karakter, setKarakter }) => {
-    const karakterCalc = useMemo(() => Karakter.calc(karakter), [karakter]);
+    const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
 
     const [maradekHm, setMaradekHm] = useState<number>(0);
     const [elosztott, setElosztott] = useState<Harcertek>({ ke: 0, te: 0, ve: 0, ce: 0, sebzes: 0 });

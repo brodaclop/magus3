@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react';
 import { Calculation } from '../model/Calculation';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
+import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kepessegek, KepessegKategoria } from '../model/Kepessegek';
 import { CalculationWidget } from './CalculationWidget';
 import { HarcertekWidget } from './HarcertekWidget';
+import { KombatWidget } from './KombatWidget';
 
 export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Karakter) => unknown, template: KarakterTemplate, setTemplate: (t: KarakterTemplate) => unknown }> = ({ karakter, setKarakter, template, setTemplate }) => {
-    const karakterCalc = useMemo(() => Karakter.calc(karakter), [karakter]);
+    const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
 
     const commit = () => {
         setKarakter({ ...karakter });
@@ -77,6 +79,11 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
                     <button onClick={e => plusz(rd.id)}>+</button>
                 </td>
             </tr>)}
+            <tr>
+                <td colSpan={5}>
+                    <KombatWidget calc={karakterCalc} karakter={karakter} onChange={k => setKarakter({ ...k })} />
+                </td>
+            </tr>
         </tbody>
     </table>;
 }

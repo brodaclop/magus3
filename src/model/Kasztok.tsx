@@ -405,5 +405,16 @@ const KASZTOK: Array<KasztInfo> = [
 
 export const Kasztok = {
     ...namedEntityArray(KASZTOK),
+    kasztInfo: (kasztId: string, szint: number): KasztInfo => {
+        //TODO: more compatible cloning
+        const ret = structuredClone(Kasztok.find(kasztId)) as KasztInfo;
+        if (ret.kasztSpec?.includes('ketSzintenkentKe') && szint % 2 === 0) {
+            ret.harcertek.ke = (ret.harcertek.ke ?? 0) + 1
+        }
+        if (ret.kasztSpec?.includes('ketSzintenkentSebzes') && szint % 2 === 0) {
+            ret.harcertek.sebzes = (ret.harcertek.sebzes ?? 0) + 1
+        }
+        return ret;
+    },
     kidob: (kaszt: KasztInfo): Record<KepessegKategoria, DobasEredmeny> => Object.fromEntries(Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas]) => [kategoria, kockaDobas(KEPESSEG_DOBAS[dobas])])) as Record<KepessegKategoria, DobasEredmeny>
 }
