@@ -34,6 +34,9 @@ export interface KasztInfo extends NamedEntity {
     harcertek: Partial<Harcertek>;
     hm: number;
     kasztSpec?: Array<KasztSpecFlags>;
+    kpAlap: number;
+    kpPerSzint: number;
+    szazalekPerSzint: number;
 }
 
 const KASZTOK: Array<KasztInfo> = [
@@ -59,7 +62,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 5
+        hm: 5,
+        kpAlap: 10,
+        kpPerSzint: 14,
+        szazalekPerSzint: 0
     },
     {
         id: 'Lovag',
@@ -83,7 +89,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 5,
             ve: 5
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 4,
+        kpPerSzint: 7,
+        szazalekPerSzint: 0
     },
     {
         id: 'Fejvadász',
@@ -109,6 +118,9 @@ const KASZTOK: Array<KasztInfo> = [
         },
         hm: 3,
         kasztSpec: ['ketSzintenkentKe', 'ketSzintenkentSebzes'],
+        kpAlap: 3,
+        kpPerSzint: 5,
+        szazalekPerSzint: 20
     },
     {
         id: 'Gladiátor',
@@ -132,8 +144,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 4,
             ve: 4
         },
-        hm: 4
-
+        hm: 4,
+        kpAlap: 3,
+        kpPerSzint: 6,
+        szazalekPerSzint: 0
     },
     {
         id: 'Barbár',
@@ -157,7 +171,10 @@ const KASZTOK: Array<KasztInfo> = [
             ke: 3,
             te: 5,
         },
-        hm: 4
+        hm: 4,
+        kpAlap: 7,
+        kpPerSzint: 10,
+        szazalekPerSzint: 0
     },
     {
         id: 'Tolvaj',
@@ -182,7 +199,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 1,
             ve: 1
         },
-        hm: 4
+        hm: 4,
+        kpAlap: 8,
+        kpPerSzint: 10,
+        szazalekPerSzint: 62
     },
     {
         id: 'Bárd',
@@ -206,7 +226,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 2,
             ve: 2
         },
-        hm: 5
+        hm: 5,
+        kpAlap: 4,
+        kpPerSzint: 6,
+        szazalekPerSzint: 45
     },
     {
         id: 'Pap',
@@ -230,7 +253,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 6,
+        kpPerSzint: 10,
+        szazalekPerSzint: 0
     },
     {
         id: 'Paplovag',
@@ -254,7 +280,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 3
+        hm: 3,
+        kpAlap: 5,
+        kpPerSzint: 5,
+        szazalekPerSzint: 0
     },
     {
         id: 'Harcművész',
@@ -278,7 +307,11 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 4,
+        kpPerSzint: 5,
+        szazalekPerSzint: 22
+
     },
     {
         id: 'Kardművész',
@@ -302,7 +335,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 4,
+        kpPerSzint: 5,
+        szazalekPerSzint: 18
     },
     {
         id: 'Boszorkány',
@@ -326,7 +362,11 @@ const KASZTOK: Array<KasztInfo> = [
             te: 1,
             ve: 1
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 8,
+        kpPerSzint: 12,
+        szazalekPerSzint: 0
+
     },
     {
         id: 'Boszorkánymester',
@@ -351,7 +391,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 1,
             ve: 1
         },
-        hm: 5
+        hm: 5,
+        kpAlap: 7,
+        kpPerSzint: 8,
+        szazalekPerSzint: 15
     },
     {
         id: 'Tűzvarázsló',
@@ -375,7 +418,11 @@ const KASZTOK: Array<KasztInfo> = [
             te: 3,
             ve: 3
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 3,
+        kpPerSzint: 5,
+        szazalekPerSzint: 0
+
     },
     {
         id: 'Varázsló',
@@ -399,7 +446,10 @@ const KASZTOK: Array<KasztInfo> = [
             te: 1,
             ve: 1
         },
-        hm: 2
+        hm: 2,
+        kpAlap: 7,
+        kpPerSzint: 7,
+        szazalekPerSzint: 0
     },
 ];
 

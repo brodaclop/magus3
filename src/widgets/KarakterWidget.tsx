@@ -59,7 +59,7 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
                 <th style={{ textAlign: 'left' }}>
                     <p><CalculationWidget calculation={karakterCalc.ep}>ÉP</CalculationWidget>: {Calculation.calculate(karakterCalc.ep)}</p>
                     <p><CalculationWidget calculation={karakterCalc.fp}>FP</CalculationWidget>: {Calculation.calculate(karakterCalc.fp)}</p>
-                    <p>Szint: {karakter.szint.length - 1} <button onClick={() => setKarakter({ ...Karakter.levelUp(karakter) })}>+</button></p>
+                    <p>Szint: {karakter.szint.length - 1} <button disabled={!!karakter.hm} onClick={() => setKarakter({ ...Karakter.levelUp(karakter) })}>+</button></p>
                 </th>
                 <th>
                     <HarcertekWidget karakter={karakter} setKarakter={setKarakter} />
@@ -82,6 +82,12 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
             <tr>
                 <td colSpan={5}>
                     <KombatWidget calc={karakterCalc} karakter={karakter} onChange={k => setKarakter({ ...k })} />
+                </td>
+            </tr>
+            <tr>
+                <td colSpan={5}>
+                    <p>KP: {karakter.kp}</p>
+                    <p>%: {karakter.szazalek}</p>
                 </td>
             </tr>
         </tbody>

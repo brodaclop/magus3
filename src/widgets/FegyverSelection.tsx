@@ -1,9 +1,9 @@
 import React from 'react';
-import { KozelharcFegyver, KOZELHARCI_FEGYVEREK } from '../model/Fegyver';
+import { KozelharcFegyver } from '../model/Fegyver';
 
-export const FegyverSelection: React.FC<{ enabled: boolean, current: KozelharcFegyver | undefined, onChange: (fegyver: KozelharcFegyver | undefined) => unknown }> = ({ enabled, current, onChange }) => {
-    return <select disabled={!enabled} onChange={e => onChange(KOZELHARCI_FEGYVEREK.find(f => f.nev === e.target.value))} value={current?.nev ?? ''}>
-        <option value=''>Üres kéz</option>
-        {KOZELHARCI_FEGYVEREK.map(f => <option value={f.nev}>{f.nev}</option>)}
+export const FegyverSelection: React.FC<{ fegyverek: Array<KozelharcFegyver>, emptyEnabled: boolean, current: KozelharcFegyver | undefined, onChange: (fegyver: KozelharcFegyver | undefined) => unknown }> = ({ fegyverek, emptyEnabled, current, onChange }) => {
+    return <select onChange={e => onChange(fegyverek.find(f => f.nev === e.target.value))} value={current?.nev ?? ''}>
+        {emptyEnabled && <option value=''>Üres kéz</option>}
+        {fegyverek.map(f => <option value={f.nev}>{f.nev}</option>)}
     </select>
 }

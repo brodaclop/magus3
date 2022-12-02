@@ -19,7 +19,8 @@ export interface KarakterCalcResult {
         ke: CalculationArgument,
         ve: CalculationArgument,
         kezek: [CalcFegyver?, CalcFegyver?]
-    }
+    },
+    kepzettsegek: SzintInfo['kepzettsegek']
 };
 
 
@@ -53,12 +54,27 @@ export const KarakterCalculator = {
                 return { ke, te, ve, sebzes };
             }
         }
+
+        const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
+            curr.kepzettsegek.normal.forEach(kepz => {
+                const eddigi = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
+                if (!eddigi || eddigi.fok < kepz.fok) {
+                    acc.push(kepz);
+                }
+            });
+            return acc;
+        }, [] as SzintInfo['kepzettsegek']['normal']);
+
         return {
             kepessegek,
             fp: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp)),
             ep: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', karakter.ep)),
             harcertek,
-            fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)])
+            fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)]),
+            kepzettsegek: {
+                normal: normalKepzettsegek,
+                szazalekos: []
+            }
         }
     }
 }

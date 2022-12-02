@@ -1,9 +1,10 @@
 import { Faj, Fajok } from "./Fajok";
-import { KozelharcFegyver } from "./Fegyver";
+import { KozelharcFegyver, KOZELHARCI_FEGYVEREK } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
 import { KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
-import { kockaDobas, parseKocka } from "./Kocka";
+import { NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
+import { kockaDobas } from "./Kocka";
 
 export interface KarakterTemplate {
     faj: Faj,
@@ -13,7 +14,6 @@ export interface KarakterTemplate {
 }
 
 
-
 export interface Karakter {
     readonly faj: Faj;
     szint: Array<SzintInfo>;
@@ -21,12 +21,24 @@ export interface Karakter {
     ep: number;
     hm: number;
     kezek: [KozelharcFegyver?, KozelharcFegyver?];
+    kp: number;
+    szazalek: number;
 }
 
 export interface SzintInfo {
     kaszt: KasztInfo,
     harcertek: Harcertek,
     fp: number,
+    kepzettsegek: {
+        normal: Array<{
+            kepzettseg: NormalKepzettseg;
+            fok: number;
+        }>,
+        szazalekos: Array<{
+            kepzettseg: SzazalekosKepzettseg;
+            szazalek: number;
+        }>
+    }
 };
 
 const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
@@ -36,9 +48,15 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
     karakter.szint.push({
         kaszt: szintKaszt,
         fp: dobas + szintKaszt.fpPerSzint,
-        harcertek: Harcertek.add(szintKaszt.harcertek)
+        harcertek: Harcertek.add(szintKaszt.harcertek),
+        kepzettsegek: {
+            normal: [],
+            szazalekos: []
+        }
     });
     karakter.hm += szintKaszt.hm;
+    karakter.kp += szintKaszt.kpPerSzint;
+    karakter.szazalek += szintKaszt.szazalekPerSzint;
     return karakter;
 };
 
@@ -53,26 +71,39 @@ export const Karakter = {
                     kaszt: template.kaszt,
                     harcertek: Harcertek.add(template.kaszt.harcertekAlap),
                     fp: template.kaszt.fpAlap,
+                    kepzettsegek: {
+                        normal: [],
+                        szazalekos: []
+                    }
                 }
             ],
             kepessegek: Kepessegek.newErtekRecord(),
             ep: template.kaszt.epAlap,
             hm: 0,
-            kezek: [{
-                nev: 'Kard, Slan',
-                kepesseg: 'osszpontositas',
-                kez: 1.5,
-                sebesseg: 'atlagos',
-                ke: 8,
-                te: 20,
-                ve: 12,
-                flags: 'slan-kard',
-                sebzes: parseKocka('1k10+2'),
-                sebzestipus: ['vago', 'szuro']
-            }, undefined]
+            kezek: [KOZELHARCI_FEGYVEREK.find(f => f.flags?.includes('pusztakez')), undefined],
+            kp: template.kaszt.kpAlap,
+            szazalek: 0
         };
         levelUp(ret, template.kaszt);
         return ret;
+    },
+    megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {
+        if (kez === 0) {
+            if (!fegyver) {
+                return !karakter.kezek[1];
+            } else {
+                return (karakter.kezek[1]?.kez ?? 0) + fegyver.kez <= 2;
+            }
+        } else {
+            return !fegyver || (karakter.kezek[0]?.kez ?? 0) + fegyver.kez <= 2;
+        }
+    },
+    megfog: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {
+        if (Karakter.megfoghato(karakter, kez, fegyver)) {
+            karakter.kezek[kez] = fegyver;
+            return true;
+        }
+        return false;
     },
     levelUp
 }

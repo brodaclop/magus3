@@ -15,7 +15,7 @@ export interface FegyverBase {
     sebzes: KockaDobas;
     sebzestipus: SebzesTipus | Array<SebzesTipus>;
     alapFegyver?: string;
-    flags?: undefined | 'buckler' | 'nagy-pajzs' | 'slan-kard' | 'slan-tor';
+    flags?: undefined | 'buckler' | 'nagy-pajzs' | 'slan-kard' | 'slan-tor' | 'pusztakez';
     mgt?: number;
     kez: 0.5 | 1 | 1.5 | 2;
 }
@@ -74,6 +74,18 @@ export const FEGYVER_KATEGORIAK: Record<string, FegyverKategoria> = {
     }
 };
 export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
+    {
+        nev: 'Ökölharc',
+        kez: 2,
+        kepesseg: 'izom',
+        sebesseg: 'gyors',
+        ke: 10,
+        te: 6,
+        ve: 5,
+        flags: 'pusztakez',
+        sebzes: parseKocka('1k2'),
+        sebzestipus: 'zuzo'
+    },
     {
         nev: 'Alabárd',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
