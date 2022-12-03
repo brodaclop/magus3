@@ -116,6 +116,9 @@ const calculateFegyverrel = (
         if (harcmodorHatasok.mindketTE) {
             kezek[0].te = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség'));
             kezek[1].te = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség'));
+        } else if (harcmodorHatasok.shiensuTE) {
+            kezek[0].te = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül'));
+            kezek[1].te = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül'));
         }
     } else if (kezek[0]) {
         ke = kezek[0].ke;

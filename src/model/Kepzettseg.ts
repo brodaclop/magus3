@@ -251,11 +251,36 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
             `A karakter levonások nélkül forgathatja egyszerre a kardot és a tőrt, de támadni és védekezni is csak a karddal tud,
             a tőr mindig a kardművész karddal ellentétes oldala fele mozog, így semlegesítve bármilyen túlerőből adódó levonást.`,
             `A kardművész ezen a fokon már védekezni is tud a tőrrel, a tőr VÉ-jét hozzáadhatja a teljes VÉ-jéhez.`,
-            `A kardművész ezen a fokon már támadni is tud a Slan tőrrel, körönként kétszer.`,
+            `A kardművész ezen a fokon már támadni is tud a Slan tőrrel.`,
             `A tőr és a kard teljes harmóniában mozog, mindkét fegyver TÉ-je hozzáadódik minden támadáshoz.`,
             `A kardművész immár a fegyverhasználat fokából adódó bónuszokat is hozzáadhatja a másik fegyveréhez.`,
         ]
+    },
+    {
+        ...HARCMODOR_BASE,
+        name: 'Egykezes fegyver',
+        id: 'harcmodor:egykezes',
+        kepesseg: 'mozgaskoordinacio',
+        leiras: `Természetesen egykezes fegyver használatához elég megtanulni a vonatkozó képzettséget, ez a harcmodor kizárólag
+        azoknak szól, akik ki is akarják használni a szabadon maradó kézből adódó előnyöket.`,
+        szintleiras: [
+            `A karakter levonások nélkül hajthat végre egyszerűbb feladatokat a szabad kezével, pl. gyógyital elfogyasztása,
+            ajtónyitás, vassulyom szórása.`,
+            `A karakter homokot vagy egyéb irritáló port szórhat ellenfele arcába. Az ellenfél reflexpróbát kénytelen dobni
+            (ha meglepetésként éri a támadás, -50-nel), különben 1 körig a harc vakon módosítói érvényesek rá.`,
+            `Rejtett fegyver előrántás: a karakter egy megfelelően előkészített és álcázott kisméretű közelharci vagy dobófegyvert
+            előrántva plusz egy támadást adhat le. Ha még nem alkalmazta ezt a manővert a csata során, jó eséllyel a meglepetés
+            módosítói járnak a támadásra, de minimum +10 TÉ. Természetesen ha pl. tőrt rántott a karakter, dönthet úgy, hogy a
+            következő körtől kétfegyveres harcot folytat.`,
+            `A karakter a szabad kezével tudja manipulálni az ellenfél ütéstávolságát: amennyiben ellenfele belharcot kezdeményezni,
+            külön próba nélkül is el tudja tolni magával, vagy fordítva, a karakter "beránthatja" ellenfelét belharcba megelőző támadás esélye
+            nélkül `,
+            `A karakter ezzel a manőverrel egykezes fegyvert forgató ellenfelet fegyverezhet le. Ehhez az kell, hogy megnyerje a
+            kezdeményezést és feladjon egy támadást. Ha ezután az ellenfél ütését sikerül hárítania, reflex ellenpróbára kerül sor,
+            amennyiben ez sikeres, az ellenfél elejti fegyverét.`,
+        ]
     }
+
 ];
 
 export const HARCI_KEPZETTSEGEK: Array<NormalKepzettseg> = [

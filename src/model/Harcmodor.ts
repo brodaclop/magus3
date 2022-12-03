@@ -1,17 +1,17 @@
 import { KozelharcFegyver } from "./Fegyver";
 
-export type HarcmodorEffect = 'kez0minusz3' | 'kez0minusz2' | 'kez0minusz1' | 'kez1minusz3' | 'kez1minusz2' | 'kez1minusz1' | 'kez1pont2' | 'mindketVE' | 'mindketTE' | 'kez1NoAttack' | 'noMGT' | 'kez1SingleAttack';
+export type HarcmodorEffect = 'kez0minusz3' | 'kez0minusz2' | 'kez0minusz1' | 'kez1minusz3' | 'kez1minusz2' | 'kez1minusz1' | 'kez1pont2' | 'mindketVE' | 'mindketTE' | 'shiensuTE' | 'kez1NoAttack' | 'noMGT' | 'kez1SingleAttack';
 
 export interface HarcmodorCalculation {
     id: string;
-    isAvailable: (kezek: [KozelharcFegyver?, KozelharcFegyver?]) => boolean;
+    isAvailable: (kezek: [KozelharcFegyver?, KozelharcFegyver?]) => boolean | undefined;
     szintek: [Array<HarcmodorEffect>, Array<HarcmodorEffect>, Array<HarcmodorEffect>, Array<HarcmodorEffect>, Array<HarcmodorEffect>, Array<HarcmodorEffect>,];
 }
 
 export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     {
         id: 'pajzs',
-        isAvailable: kezek => kezek[1]?.flags?.includes('nagy-pajzs') ?? false,
+        isAvailable: kezek => kezek[1]?.flags?.includes('nagy-pajzs'),
         szintek: [
             ['kez0minusz2', 'kez1NoAttack', 'kez1pont2'],
             ['kez0minusz1', 'kez1NoAttack', 'kez1pont2'],
@@ -35,7 +35,7 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     },
     {
         id: 'kispajzs',
-        isAvailable: kezek => kezek[1]?.flags?.includes('buckler') ?? false,
+        isAvailable: kezek => kezek[1]?.flags?.includes('buckler'),
         szintek: [
             ['kez0minusz2', 'kez1NoAttack', 'kez1pont2'],
             ['kez1NoAttack', 'kez1pont2'],
@@ -45,6 +45,43 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
             ['mindketVE', 'kez1pont2', 'mindketTE'],
         ]
     },
+    {
+        id: 'shiensu',
+        isAvailable: kezek => kezek[0]?.flags?.includes('slan-kard') && kezek[1]?.flags?.includes('slan-tor'),
+        szintek: [
+            ['kez0minusz3', 'kez1minusz3', 'kez1SingleAttack'],
+            ['kez1NoAttack'],
+            ['kez1NoAttack', 'mindketVE'],
+            ['mindketVE'],
+            ['mindketVE', 'mindketTE'],
+            ['mindketVE', 'shiensuTE'],
+        ]
+    },
+    {
+        id: 'ketkezes',
+        isAvailable: kezek => kezek[0]?.kez === 2 && !kezek[0].flags?.includes('pusztakez'),
+        szintek: [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        ]
+    },
+    {
+        id: 'egykezes',
+        isAvailable: kezek => kezek[0] && kezek[0].kez <= 1 && !kezek[1],
+        szintek: [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        ]
+    },
+
 ];
 
 export const convertHarcmodorEffect = (input: Array<HarcmodorEffect>): Record<HarcmodorEffect, boolean> => ({
@@ -60,4 +97,5 @@ export const convertHarcmodorEffect = (input: Array<HarcmodorEffect>): Record<Ha
     kez1pont2: input.includes('kez1pont2'),
     noMGT: input.includes('noMGT'),
     kez1SingleAttack: input.includes('kez1SingleAttack'),
+    shiensuTE: input.includes('shiensuTE'),
 });
