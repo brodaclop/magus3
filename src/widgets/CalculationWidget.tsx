@@ -17,6 +17,12 @@ const printOperation = (op: CalculationOperation) => {
             {op.args.map(printArgument).map(x => <li>{x}</li>)}
         </ul>;
         case 'tizfolott': return <span>{printArgument(op.arg)} 10 fölötti része</span>;
+        case 'max': return <ul style={{ listStyleType: '"> "' }}>
+            {op.args.map(printArgument).map(x => <li>{x}</li>)}
+        </ul>
+        case 'min': return <ul style={{ listStyleType: '"< "' }}>
+            {op.args.map(printArgument).map(x => <li>{x}</li>)}
+        </ul>
     }
 }
 

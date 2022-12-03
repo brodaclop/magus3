@@ -24,7 +24,7 @@ export interface NormalKepzettseg {
 export interface SzazalekosKepzettseg {
     fajta: 'szazalekos';
     id: string;
-    nev: string;
+    name: string;
     leiras: string;
 }
 
@@ -62,7 +62,7 @@ const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => Obje
     kepesseg: k.kepesseg,
     linked: [],
     kp: [5, 14, 50, 125, 200],
-    leiras: 'Egy adott fegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30',
+    leiras: 'Egy egész fegyvercsaláddal való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30',
     szintleiras: [
         'KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15',
         'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
@@ -153,7 +153,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
         ...HARCMODOR_BASE,
         name: 'Nagypajzsos harc',
         id: 'harcmodor:pajzs',
-        kepesseg: 'ugyesseg',
+        kepesseg: 'mozgaskoordinacio',
         leiras: `Ez a harcmodor egykezes fegyver és karra szíjazott, közepes vagy nagy pajzzsal való harchoz szükséges.
         E képzettség nélkül a pajzs leginkább csak hátrány harc közben, bár valamennyi védelmet biztosít.
         Ez a gyakorlatban annyit tesz, hogy a képzetlen karakter a pajzs VÉ-jét ugyan megkapja, de a fegyverét nem,
@@ -175,13 +175,13 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
         ...HARCMODOR_BASE,
         name: 'Kispajzsos harc',
         id: 'harcmodor:kispajzs',
-        kepesseg: 'gyorsasag',
+        kepesseg: 'reflex',
         leiras: `Ez a harcmodor egy egy- vagy másfélkezes fegyvert és egy kézben fogott kicsi, kerek pajzzsal való harcot jelenti.
         Magasabb fokokon a karakter egy tőrt is foghat a pajzsos kezében, és támadhat vele. Ehhez nem kell képzettnek lenni a tőr
         használatában, hiszen teljesen más technikáról van szó. Fontos megjegyezni, hogy a tőr VÉ-je semmilyen esetben nem adódik
         hozzá a karakter VÉ-jéhez.
-        E képzettség nélkül a pajzs leginkább csak hátrány harc közben, VÉ-je csak akkor számít vele a karakter VÉ-jébe, ha az adott
-        körben fegyverrel nem támad, és ilyenkor is a fegyver helyett védekezik a pajzzsal.`,
+        E képzettség nélkül a pajzs leginkább csak hátrány harc közben, VÉ-je ugyan beleszámít a karakter VÉ-jébe, de a fegyverrel
+        csak 2 fokkal alacsonyabban tud harcolni.`,
         szintleiras: [
             `A képzettség 1. fokán a karakter már fegyverrel támadás közben is tud a pajzzsal védekezni, a fegyverrel viszont
             továbbra sem, így a karakter VÉ-jéhez csak a pajzs VÉ-je járul, a fegyveré nem.`,
@@ -196,7 +196,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
         ...HARCMODOR_BASE,
         name: 'Kétkezes fegyver',
         id: 'harcmodor:ketkezes',
-        kepesseg: 'ero',
+        kepesseg: 'izom',
         leiras: `A kétkezes fegyverek lassúnak és nehézkesnek tűnnek a felületes szemlélő számára, ami jórészt persze igaz is,
         ugyanakkor avatott forgatójuk jópár trükköt elsajátíthat, amelyekkel ez ellensúlyozható, sőt helyenként előnnyé
         kovácsolható. Minden fok egy újabb manőverrel gazdagítja a karakter trükktárát.`,
@@ -220,7 +220,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
         ...HARCMODOR_BASE,
         name: 'Két fegyver',
         id: 'harcmodor:ketfegyver',
-        kepesseg: 'ugyesseg',
+        kepesseg: 'mozgaskoordinacio',
         leiras: `E képzettség híján a két fegyverrel harcolni kívánó karakter igencsak nehéz helyzetben van, ami annyit tesz, hogy mindkét fegyverével
         való jártassága hárommal alacsonyabbnak számít. A fő fegyverrel annyiszor támadhat körönként, amennyit támadna, ha nem fogna másik fegyvert a
         kezébe, de a másodlagos fegyverrel csak legfeljebb körönként egyszer. Fontos továbbá, hogy bármennyire is képzett ebben a harcmodorban, a
@@ -241,7 +241,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
         ...HARCMODOR_BASE,
         name: 'Shien-su',
         id: 'harcmodor:shiensu',
-        kepesseg: 'akaratero',
+        kepesseg: 'osszpontositas',
         leiras: `A Shien-su a kardmúvészek által kidolgozott kétfegyveres technika, amely a Slan-kard és a Slan-tőr teljes
         harmóniában való mozgását szolgálja. Fontos megjegyezni, hogy Chi-harcban minden esetben az ott feltüntetett számú
         támadást lehet csak leadni a két fegyverrel összesen, nem jár több támadás, akármennyire is képzett e 
@@ -279,6 +279,7 @@ const KEPZETTSEGEK: Array<NormalKepzettseg> = [
     ...HARCMODOROK
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Kepzettseg = {
     ...namedEntityArray(KEPZETTSEGEK),
     kpFokhoz: (kepessegek: Record<string, number>, kepzettseg: NormalKepzettseg, fok: number): number => {

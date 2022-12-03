@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
+import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
@@ -33,7 +34,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
             </tr>
             {calc.kepzettsegek.normal.map(k => <tr>
                 <td style={{ border: '1px solid black' }}>
-                    {k.kepzettseg.name}: {k.fok} ({k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp)
+                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} /> ({k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp)
                 </td>
             </tr>)}
 

@@ -3,9 +3,11 @@ import { Calculation } from '../model/Calculation';
 import { KOZELHARCI_FEGYVEREK, SebzesTipus } from '../model/Fegyver';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
+import { Kepzettseg } from '../model/Kepzettseg';
 import { printKocka } from '../model/Kocka';
 import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
+import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
 const SEBZESTIPUS_LABEL: Record<SebzesTipus, string> = {
@@ -20,6 +22,8 @@ export const formatSebzesTipus = (t: SebzesTipus | Array<SebzesTipus>): string =
 
 
 export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
+    const harcmodorKepzettseg = calc.harcmodor && Kepzettseg.find(`harcmodor:${calc.harcmodor?.id}`);
+    const harcmodorFok = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === harcmodorKepzettseg?.id)?.fok ?? 0;
     return <table style={{ border: '3px solid black', borderCollapse: 'collapse', textAlign: 'center' }}>
         <thead>
             <tr>
@@ -81,6 +85,12 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                     <CalculationWidget calculation={calc.fegyverrel.ve}>{Calculation.calculate(calc.fegyverrel.ve)}</CalculationWidget>
                 </td>
             </tr>
+            {harcmodorKepzettseg && <tr style={{ textAlign: 'center' }}>
+                <th>Harcmodor</th>
+                <td style={{ border: '1px solid black' }} colSpan={2}>
+                    <KepzettsegLeiras kepzettseg={harcmodorKepzettseg} fok={harcmodorFok} />
+                </td>
+            </tr>}
         </tbody>
     </table>;
 }

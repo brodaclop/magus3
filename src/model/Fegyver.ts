@@ -791,7 +791,7 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
 // 'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
 
 
-const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
+export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
     {
         ke: -10,
         te: -25,
@@ -837,12 +837,12 @@ const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 ];
 
 export const Fegyver = {
-    kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver): Harcertek => {
+    kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver, minusz = 0): Harcertek => {
         const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.nev}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);
-        return FEGYVER_KEPZETTSEG_HARCERTEKEK[fok];
+        return FEGYVER_KEPZETTSEG_HARCERTEKEK[Math.max(fok - minusz, 0)];
 
     }
 }
