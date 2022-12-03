@@ -33,6 +33,7 @@ export interface SzintInfo {
         normal: Array<{
             kepzettseg: NormalKepzettseg;
             fok: number;
+            kp: number;
         }>,
         szazalekos: Array<{
             kepzettseg: SzazalekosKepzettseg;

@@ -20,49 +20,66 @@ export const formatSebzesTipus = (t: SebzesTipus | Array<SebzesTipus>): string =
 
 
 export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
-    return <table>
+    return <table style={{ border: '3px solid black', borderCollapse: 'collapse', textAlign: 'center' }}>
+        <thead>
+            <tr>
+                <th colSpan={3}>Fegyverek</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <td>
-                    <p><FegyverSelection
+                <th style={{ border: '1px solid black', width: '20%' }}>&nbsp;</th>
+                <td style={{ border: '1px solid black', width: '40%' }}>
+                    <FegyverSelection
                         fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 0, f))}
                         emptyEnabled={false}
                         current={karakter.kezek[0]}
                         onChange={f => {
                             karakter.kezek[0] = f;
                             onChange(karakter);
-                        }} /></p>
+                        }} />
                 </td>
-                <td>
-                    <p><FegyverSelection
+                <td style={{ border: '1px solid black', width: '40%' }}>
+                    <FegyverSelection
                         fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 1, f))}
                         emptyEnabled={Karakter.megfoghato(karakter, 1, undefined)}
                         current={karakter.kezek[1]}
                         onChange={f => {
                             karakter.kezek[1] = f;
                             onChange(karakter);
-                        }} /></p>
+                        }} />
                 </td>
-            </tr>
-            <tr style={{ textAlign: 'center' }}>
-                <td colSpan={2}><CalculationWidget calculation={calc.fegyverrel.ke}>KÉ</CalculationWidget>: {Calculation.calculate(calc.fegyverrel.ke)}</td>
             </tr>
             <tr>
-                <td>
-                    {calc.fegyverrel.kezek[0] && <>
-                        <p><CalculationWidget calculation={calc.fegyverrel.kezek[0].te}>TÉ</CalculationWidget>: {Calculation.calculate(calc.fegyverrel.kezek[0].te)} </p>
-                        <p>Sebzés: {printKocka(calc.fegyverrel.kezek[0].sebzes)} {formatSebzesTipus(karakter.kezek[0]?.sebzestipus ?? [])}</p>
-                    </>}
+                <th>KÉ</th>
+                <td style={{ border: '1px solid black', textAlign: 'center' }} colSpan={2}>
+                    <CalculationWidget calculation={calc.fegyverrel.ke}>{Calculation.calculate(calc.fegyverrel.ke)}</CalculationWidget>
                 </td>
-                <td>
-                    {calc.fegyverrel.kezek[1] && <>
-                        <p><CalculationWidget calculation={calc.fegyverrel.kezek[1].te}>TÉ</CalculationWidget>: {Calculation.calculate(calc.fegyverrel.kezek[1].te)} </p>
-                        <p>Sebzés: {printKocka(calc.fegyverrel.kezek[1].sebzes)} {formatSebzesTipus(karakter.kezek[1]?.sebzestipus ?? [])} </p>
-                    </>}
+            </tr>
+            <tr>
+                <th>TÉ</th>
+                <td style={{ border: '1px solid black' }}>
+                    {calc.fegyverrel.kezek[0] && <CalculationWidget calculation={calc.fegyverrel.kezek[0].te}>{Calculation.calculate(calc.fegyverrel.kezek[0].te)}</CalculationWidget>}
+
+                </td>
+                <td style={{ border: '1px solid black' }}>
+                    {calc.fegyverrel.kezek[1] && <CalculationWidget calculation={calc.fegyverrel.kezek[1].te}>{Calculation.calculate(calc.fegyverrel.kezek[1].te)}</CalculationWidget>}
+                </td>
+            </tr>
+            <tr>
+                <th>Sebzés</th>
+                <td style={{ border: '1px solid black' }}>
+                    {calc.fegyverrel.kezek[0] && <>{printKocka(calc.fegyverrel.kezek[0].sebzes)} {formatSebzesTipus(karakter.kezek[0]?.sebzestipus ?? [])}</>}
+                </td>
+                <td style={{ border: '1px solid black' }}>
+                    {calc.fegyverrel.kezek[1] && <>{printKocka(calc.fegyverrel.kezek[1].sebzes)} {formatSebzesTipus(karakter.kezek[1]?.sebzestipus ?? [])}</>}
                 </td>
             </tr>
             <tr style={{ textAlign: 'center' }}>
-                <td colSpan={2}><CalculationWidget calculation={calc.fegyverrel.ve}>VÉ</CalculationWidget>: {Calculation.calculate(calc.fegyverrel.ve)}</td>
+                <th>VÉ</th>
+                <td style={{ border: '1px solid black' }} colSpan={2}>
+                    <CalculationWidget calculation={calc.fegyverrel.ve}>{Calculation.calculate(calc.fegyverrel.ve)}</CalculationWidget>
+                </td>
             </tr>
         </tbody>
     </table>;

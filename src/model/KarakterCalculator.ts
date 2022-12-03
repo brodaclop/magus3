@@ -1,8 +1,9 @@
 import { Calculation, CalculationArgument, CalculationValue } from "./Calculation";
+import { Fegyver } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
 import { Karakter, SzintInfo } from "./Karakter";
 import { KockaDobas } from "./Kocka";
-import { transformRecord } from "./util";
+import { mergeToArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
     te: CalculationArgument,
@@ -37,14 +38,21 @@ export const KarakterCalculator = {
             ce: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ce ?? 0)),
             sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
         };
+
+        const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
+            curr.kepzettsegek.normal.forEach(kepz => mergeToArray(acc, kepz, i => i.kepzettseg.id));
+            return acc;
+        }, [] as SzintInfo['kepzettsegek']['normal']);
+
         const fegyverCalc = (idx: 0 | 1): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
             const fegyver = karakter.kezek[idx];
             if (!fegyver) {
                 return undefined;
             } else {
-                const ke = Calculation.plusz(Calculation.value('Alap KÉ', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.nev, fegyver.ke));
-                const te = Calculation.plusz(Calculation.value('Alap TÉ', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.nev, fegyver.te));
-                const ve = Calculation.plusz(Calculation.value('Alap VÉ', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.nev, fegyver.ve));
+                const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, fegyver);
+                const ke = Calculation.plusz(Calculation.value('Alap KÉ', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.nev, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke));
+                const te = Calculation.plusz(Calculation.value('Alap TÉ', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.nev, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
+                const ve = Calculation.plusz(Calculation.value('Alap VÉ', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.nev, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve));
                 //TODO: kockadobas calculation
                 //TODO: erobonusz
                 const sebzes: KockaDobas = {
@@ -53,17 +61,7 @@ export const KarakterCalculator = {
                 }
                 return { ke, te, ve, sebzes };
             }
-        }
-
-        const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
-            curr.kepzettsegek.normal.forEach(kepz => {
-                const eddigi = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
-                if (!eddigi || eddigi.fok < kepz.fok) {
-                    acc.push(kepz);
-                }
-            });
-            return acc;
-        }, [] as SzintInfo['kepzettsegek']['normal']);
+        };
 
         return {
             kepessegek,

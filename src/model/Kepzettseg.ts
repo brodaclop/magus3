@@ -1,4 +1,6 @@
 import { FEGYVER_KATEGORIAK, KOZELHARCI_FEGYVEREK } from "./Fegyver";
+import { SzintInfo } from "./Karakter";
+import { mergeToArray, namedEntityArray } from "./util";
 
 export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci';
 
@@ -10,7 +12,7 @@ interface KepzettsegLink {
 export interface NormalKepzettseg {
     fajta: 'normal';
     id: string;
-    nev: string;
+    name: string;
     tipus: KepzettsegTipus;
     kepesseg: string,
     linked: Array<KepzettsegLink>;
@@ -36,7 +38,7 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
         return {
             fajta: 'normal',
             id: `fegyver:${f.nev}`,
-            nev: `Fegyver (${f.nev})`,
+            name: `Fegyver (${f.nev})`,
             tipus: 'fegyver',
             kepesseg: (f.kategoria?.kepesseg ?? f.kepesseg) as string,
             linked: linked,
@@ -47,7 +49,7 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
                 'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
                 'KÉ: +2, TÉ: +5, VÉ: +5, CÉ: +5',
                 'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10',
-                'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10, túlütés határ -10'
+                'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
             ]
         }
     });
@@ -55,18 +57,18 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
 const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => Object.values(FEGYVER_KATEGORIAK).map(k => ({
     fajta: 'normal',
     id: `fegyverkat:${k.id}`,
-    nev: `Fegyverkategória (${k.nev})`,
+    name: `Fegyverkategória (${k.nev})`,
     tipus: 'fegyverkategoria',
     kepesseg: k.kepesseg,
     linked: [],
-    kp: [4, 12, 40, 100, 160],
+    kp: [5, 14, 50, 125, 200],
     leiras: 'Egy adott fegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30',
     szintleiras: [
         'KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15',
         'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
         'KÉ: +2, TÉ: +5, VÉ: +5, CÉ: +5',
         'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10',
-        'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10, túlütés határ -10'
+        'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
     ]
 }));
 
@@ -74,9 +76,9 @@ const TUDOMANYOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'sebgyogyitas',
-        nev: 'Sebgyógyítás',
+        name: 'Sebgyógyítás',
         tipus: 'tudomanyos',
-        kepesseg: 'intelligencia',
+        kepesseg: 'emlekezet',
         linked: [],
         kp: [5, 10, 15, 20, 30],
         leiras: 'A Sebgyógyítás mind a sebesülések azonnali, csatatéren való ellátását, mind a hosszabb távú ápolást magában foglalja.',
@@ -85,9 +87,9 @@ const TUDOMANYOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'herbalizmus',
-        nev: 'Herbalizmus',
+        name: 'Herbalizmus',
         tipus: 'tudomanyos',
-        kepesseg: 'intelligencia',
+        kepesseg: 'emlekezet',
         linked: [{
             id: 'sebgyogyitas',
             strength: 1 / 2
@@ -102,9 +104,9 @@ const TUDOMANYOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'meregkeveres',
-        nev: 'Méregkeverés/Semlegesítés',
+        name: 'Méregkeverés/Semlegesítés',
         tipus: 'tudomanyos',
-        kepesseg: 'intelligencia',
+        kepesseg: 'emlekezet',
         linked: [],
         kp: [5, 10, 25, 40, 60],
         leiras: 'Ez a képzettség szükséges nemcsak a mérgek előállításához, de a biztonságos kezeléséhez is. A képzetlen méregkeverőnek minden egyes alkalommal, amikor mérget használ, intelligencia-próbát kell dobnia, hogy nem éri-e baleset. A baleset lehet elpocsékolt, szennyezett méreg vagy extrém esetben akár önmaga megmérgezése is.',
@@ -113,9 +115,9 @@ const TUDOMANYOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'alkimia',
-        nev: 'Alkímia',
+        name: 'Alkímia',
         tipus: 'tudomanyos',
-        kepesseg: 'intelligencia',
+        kepesseg: 'gondolkodas',
         linked: [{
             id: 'meregkeveres',
             strength: 1 / 2
@@ -127,9 +129,9 @@ const TUDOMANYOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'elettan',
-        nev: 'Élettan',
+        name: 'Élettan',
         tipus: 'tudomanyos',
-        kepesseg: 'intelligencia',
+        kepesseg: 'emlekezet',
         linked: [{
             id: 'sebgyogyitas',
             strength: 1 / 2
@@ -149,7 +151,7 @@ const HARCMODOR_BASE: Pick<NormalKepzettseg, 'kp' | 'tipus' | 'linked' | 'fajta'
 export const HARCMODOROK: Array<NormalKepzettseg> = [
     {
         ...HARCMODOR_BASE,
-        nev: 'Nagypajzsos harc',
+        name: 'Nagypajzsos harc',
         id: 'harcmodor:pajzs',
         kepesseg: 'ugyesseg',
         leiras: `Ez a harcmodor egykezes fegyver és karra szíjazott, közepes vagy nagy pajzzsal való harchoz szükséges.
@@ -171,7 +173,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        nev: 'Kispajzsos harc',
+        name: 'Kispajzsos harc',
         id: 'harcmodor:kispajzs',
         kepesseg: 'gyorsasag',
         leiras: `Ez a harcmodor egy egy- vagy másfélkezes fegyvert és egy kézben fogott kicsi, kerek pajzzsal való harcot jelenti.
@@ -192,7 +194,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        nev: 'Kétkezes fegyver',
+        name: 'Kétkezes fegyver',
         id: 'harcmodor:ketkezes',
         kepesseg: 'ero',
         leiras: `A kétkezes fegyverek lassúnak és nehézkesnek tűnnek a felületes szemlélő számára, ami jórészt persze igaz is,
@@ -216,7 +218,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        nev: 'Két fegyver',
+        name: 'Két fegyver',
         id: 'harcmodor:ketfegyver',
         kepesseg: 'ugyesseg',
         leiras: `E képzettség híján a két fegyverrel harcolni kívánó karakter igencsak nehéz helyzetben van, ami annyit tesz, hogy mindkét fegyverével
@@ -237,7 +239,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        nev: 'Shien-su',
+        name: 'Shien-su',
         id: 'harcmodor:shiensu',
         kepesseg: 'akaratero',
         leiras: `A Shien-su a kardmúvészek által kidolgozott kétfegyveres technika, amely a Slan-kard és a Slan-tőr teljes
@@ -260,7 +262,7 @@ export const HARCI_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
         id: 'vertviselet',
-        nev: 'Vértviselet',
+        name: 'Vértviselet',
         tipus: 'harci',
         kepesseg: 'allokepesseg',
         linked: [],
@@ -270,16 +272,42 @@ export const HARCI_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     },
 ]
 
-export const KEPZETTSEGEK: Array<NormalKepzettseg> = [
+const KEPZETTSEGEK: Array<NormalKepzettseg> = [
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
     ...TUDOMANYOS_KEPZETTSEGEK,
     ...HARCMODOROK
 ];
 
+export const Kepzettseg = {
+    ...namedEntityArray(KEPZETTSEGEK),
+    kpFokhoz: (kepessegek: Record<string, number>, kepzettseg: NormalKepzettseg, fok: number): number => {
+        const kepesseg = kepessegek[kepzettseg.kepesseg];
+        return Math.ceil(kepzettseg.kp[fok - 1] * KP_SZORZOK[kepesseg]);
+    },
+    kpEloszt: (
+        osszes: SzintInfo['kepzettsegek']['normal'],
+        current: SzintInfo['kepzettsegek']['normal'],
+        kepessegek: Record<string, number>,
+        kepzettseg: NormalKepzettseg,
+        pluszKp: number,
+        transitive = false
+    ): void => {
+        let { fok = 0, kp = 0 } = osszes.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
+        kp += pluszKp;
+        //TODO: type
+        while (fok < 5 && kp >= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any)) {
+            kp -= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any);
+            fok++;
+        }
+        mergeToArray(current, { kepzettseg, kp, fok }, i => i.kepzettseg.id);
+        if (transitive) {
+            kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(osszes, current, kepessegek, Kepzettseg.find(l.id) as NormalKepzettseg, pluszKp * l.strength, false));
+        }
+    },
+}
 
-export const getKepzettseg = (id: string): NormalKepzettseg | undefined => KEPZETTSEGEK.find(k => k.id === id);
-export const KP_SZORZOK: Array<number> = [
+const KP_SZORZOK: Array<number> = [
     3, 3, 3, 3, 3, 2.5, // 0-5
     2.5, 2.5, 2, 2, 1.5, // 6-10
     1.4, 1.3, 1.2, 1.1, 1, // 11-15

@@ -39,24 +39,48 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
         }
     }
 
-    const HmLine: React.FC<{ line: keyof Harcertek }> = ({ line }) => <p>
-        <CalculationWidget calculation={karakterCalc.harcertek[line]}>{HARCERTEKEK[line]}</CalculationWidget>
-        <button onClick={() => minusz(line)}>-</button>
-        {Calculation.calculate(karakterCalc.harcertek[line]) + elosztott[line]}
-        <button onClick={() => plusz(line)}>+</button>
-    </p>;
+    const HmLine: React.FC<{ line: keyof Harcertek }> = ({ line }) => <tr>
+        <th style={{ border: '1px solid black' }}>{HARCERTEKEK[line]}</th>
+        <td style={{ border: '1px solid black' }}>
+            <button onClick={() => minusz(line)}>-</button>
+        </td>
+        <td style={{ border: '1px solid black' }}>
+            <CalculationWidget calculation={karakterCalc.harcertek[line]}>{Calculation.calculate(karakterCalc.harcertek[line]) + elosztott[line]}</CalculationWidget>
+        </td>
+        <td style={{ border: '1px solid black' }}>
+            <button onClick={() => plusz(line)}>+</button>
+        </td>
+    </tr >;
 
 
-    return <div style={{ textAlign: 'left' }}>
-        <p>HM: {maradekHm}</p>
-        <HmLine line='ke' />
-        <HmLine line='te' />
-        <HmLine line='ve' />
-        <HmLine line='ce' />
-        <button onClick={() => {
-            karakter.szint[karakter.szint.length - 1].harcertek = Harcertek.add(karakter.szint[karakter.szint.length - 1].harcertek, elosztott);
-            karakter.hm = maradekHm;
-            setKarakter({ ...karakter });
-        }}>Hozzáad</button>
-    </div>;
+    return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
+        <thead>
+            <tr>
+                <th colSpan={3}>
+                    HM
+                </th>
+                <th>
+                    {maradekHm}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <HmLine line='ke' />
+            <HmLine line='te' />
+            <HmLine line='ve' />
+            <HmLine line='ce' />
+            <tr>
+                <td colSpan={4} style={{ textAlign: 'center' }}>
+                    <button
+                        disabled={karakter.hm - maradekHm < 1}
+                        onClick={() => {
+                            karakter.szint[karakter.szint.length - 1].harcertek = Harcertek.add(karakter.szint[karakter.szint.length - 1].harcertek, elosztott);
+                            karakter.hm = maradekHm;
+                            setKarakter({ ...karakter });
+                        }}>Hozzáad</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
 }

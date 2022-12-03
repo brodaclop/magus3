@@ -1,3 +1,5 @@
+import { Harcertek } from "./Harcertek";
+import { SzintInfo } from "./Karakter";
 import { KockaDobas, parseKocka } from "./Kocka";
 
 export type SebzesTipus = 'szuro' | 'vago' | 'zuzo';
@@ -781,3 +783,66 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
     },
 ];
 
+// KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30
+// 'KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15',
+// 'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
+// 'KÉ: +2, TÉ: +5, VÉ: +5, CÉ: +5',
+// 'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10',
+// 'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
+
+
+const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
+    {
+        ke: -10,
+        te: -25,
+        ve: -20,
+        ce: -30,
+        sebzes: 0
+    },
+    {
+        ke: -5,
+        te: -5,
+        ve: -10,
+        ce: -15,
+        sebzes: 0
+    },
+    {
+        ke: 0,
+        te: 0,
+        ve: 0,
+        ce: 0,
+        sebzes: 0
+    },
+    {
+        ke: 2,
+        te: 5,
+        ve: 5,
+        ce: 5,
+        sebzes: 0
+    },
+    {
+        ke: 5,
+        te: 10,
+        ve: 10,
+        ce: 10,
+        sebzes: 0
+    },
+    {
+        ke: 10,
+        te: 20,
+        ve: 20,
+        ce: 20,
+        sebzes: 0
+    },
+];
+
+export const Fegyver = {
+    kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver): Harcertek => {
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.nev}`);
+        const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
+
+        const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);
+        return FEGYVER_KEPZETTSEG_HARCERTEKEK[fok];
+
+    }
+}
