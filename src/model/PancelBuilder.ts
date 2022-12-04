@@ -77,9 +77,9 @@ const PANCEL_ALAPOK: Array<PancelAlap> = [
         anyag: 'fem',
         mgt: 2,
         sfe: {
-            szuro: 2,
+            szuro: 1,
             vago: 4,
-            zuzo: 2
+            zuzo: 1
         }
     },
     {
@@ -233,8 +233,8 @@ export const PancelBuilder = {
         }, structuredClone(alap));
         tulajdonsagok.mgt = Math.max(0, tulajdonsagok.mgt);
         tulajdonsagok.sfe.szuro = Math.max(0, tulajdonsagok.sfe.szuro);
-        tulajdonsagok.sfe.vago = Math.max(0, tulajdonsagok.sfe.zuzo);
-        tulajdonsagok.sfe.vago = Math.max(0, tulajdonsagok.sfe.zuzo);
+        tulajdonsagok.sfe.vago = Math.max(0, tulajdonsagok.sfe.vago);
+        tulajdonsagok.sfe.zuzo = Math.max(0, tulajdonsagok.sfe.zuzo);
         return {
             id,
             ...tulajdonsagok,
