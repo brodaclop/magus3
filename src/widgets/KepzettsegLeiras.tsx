@@ -1,13 +1,13 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
+import { Kepzettseg } from '../model/Kepzettseg';
 
 export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }> = ({ kepzettseg, fok = 0 }) => {
     const kepzettsegTable = <table style={{ width: '20rem' }}>
         <thead>
             <tr style={{ textAlign: 'center' }}>
                 <th colSpan={2}>
-                    {kepzettseg.name} {fok > 0 && <>{fok}. fok</>}
+                    {kepzettseg.name} {kepzettseg.fajta === 'normal' && fok > 0 && <>{fok}. fok</>}
                 </th>
             </tr>
             <tr style={{ textAlign: 'justify' }}>
@@ -17,7 +17,7 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }>
             </tr>
         </thead>
         <tbody>
-            {(kepzettseg as NormalKepzettseg).szintleiras.map((l, idx) => <tr>
+            {kepzettseg.fajta === 'normal' && kepzettseg.szintleiras.map((l, idx) => <tr>
                 <th>{idx + 1}. fok</th>
                 <td style={{ textAlign: 'justify', fontWeight: idx < fok ? 'bold' : 'normal' }}>
                     {l}
@@ -27,6 +27,6 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }>
     </table>;
 
     return <Tooltip placement='right' overlay={kepzettsegTable}>
-        <span>{kepzettseg.name} {fok}. fok</span>
+        <span>{kepzettseg.name} {fok}{kepzettseg.fajta === 'normal' ? <>. fok</> : <>%</>}</span>
     </Tooltip>;
 }

@@ -330,6 +330,57 @@ export const HARCI_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     },
 ];
 
+const SZAZALEKOS_KEPZETTSEGEK: Array<SzazalekosKepzettseg> = [
+    {
+        fajta: 'szazalekos',
+        id: 'maszas',
+        name: 'Mászás',
+        leiras: 'Tudsz mászni.',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'eses',
+        name: 'Esés',
+        leiras: 'Tudsz esni.',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'ugras',
+        name: 'Ugrás',
+        leiras: 'Hopp!',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'zarnyitas',
+        name: 'Zárnyitás',
+        leiras: 'Szezám tárulj',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'lopozas',
+        name: 'Lopózás',
+        leiras: 'Lopótökkel való borkimérés',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'rejtozes',
+        name: 'Rejtőzés',
+        leiras: 'Aki bújt, aki nem',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'zsebmetszes',
+        name: 'Zsebmetszes',
+        leiras: 'Átenszion pikpokecc',
+    },
+    {
+        fajta: 'szazalekos',
+        id: 'csapdafelfedezes',
+        name: 'Csapdafelfedezés',
+        leiras: 'Kitaláltam egy újfajta csapdát',
+    },
+];
+
 export const ALTALANOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
     {
         fajta: 'normal',
@@ -364,16 +415,56 @@ export const ALTALANOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
         leiras: '',
         szintleiras: ['', '', '', '', '']
     },
+    {
+        fajta: 'normal',
+        id: 'ertekbecsles',
+        name: 'Értékbecslés',
+        tipus: 'vilagi',
+        kepesseg: 'erzekeles',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+    {
+        fajta: 'normal',
+        id: 'kocsmai_verekedes',
+        name: 'Kocsmai verekedés',
+        tipus: 'vilagi',
+        kepesseg: 'reflex',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
 ];
 
+const NYELVEK = ['pyarroni', 'dzsad', 'erv', 'kráni', 'shadoni', 'gorviki', 'toroni', 'aszisz'];
 
-const KEPZETTSEGEK: Array<NormalKepzettseg> = [
+const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
+    return NYELVEK.map(ny => ({
+        fajta: 'normal',
+        id: `nyelv:${ny}`,
+        name: `Nyelvtudás (${ny})`,
+        tipus: 'vilagi',
+        kepesseg: 'emlekezet',
+        linked: [],
+        kp: [1, 3, 5, 20, 35],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    }
+    ));
+}
+
+const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
     ...TUDOMANYOS_KEPZETTSEGEK,
     ...HARCI_KEPZETTSEGEK,
     ...ALTALANOS_KEPZETTSEGEK,
-    ...HARCMODOROK
+    ...HARCMODOROK,
+    ...SZAZALEKOS_KEPZETTSEGEK,
+    ...generateNyelvKepzettsegek()
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare

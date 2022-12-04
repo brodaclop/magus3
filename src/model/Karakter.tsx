@@ -52,14 +52,24 @@ const updateKepzettsegekForLevel = (karakter: Karakter, kaszt: KasztInfo, szint:
     kaszt.kepzettsegek?.[szint]?.forEach(k => {
         const kepzettsegek = Kepzettseg.keres(k.kepzettsegId);
         if (kepzettsegek.length === 1) {
-            const kepzettseg = kepzettsegek[0] as NormalKepzettseg;
-            const current = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === kepzettseg.id)?.fok ?? 0;
-            if (current >= (k.honnan ?? 0) && current < k.fok) {
-                szintInfo.kepzettsegek.normal.push({
-                    kepzettseg,
-                    fok: k.fok,
-                    kp: 0
-                });
+            const kepzettseg = kepzettsegek[0];
+            if (kepzettseg.fajta === 'normal') {
+                const current = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === kepzettseg.id)?.fok ?? 0;
+                if (current >= (k.honnan ?? 0) && current < k.fok) {
+                    szintInfo.kepzettsegek.normal.push({
+                        kepzettseg,
+                        fok: k.fok,
+                        kp: 0
+                    });
+                }
+            } else {
+                const current = calc.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id)?.szazalek ?? 0;
+                if (current < k.fok) {
+                    szintInfo.kepzettsegek.szazalekos.push({
+                        kepzettseg,
+                        szazalek: k.fok,
+                    });
+                }
             }
         } else if (kepzettsegek.length > 1) {
             szintInfo.pendingKepzettsegek.push({ ...k, id: String(Math.random()) });
@@ -128,7 +138,7 @@ export const Karakter = {
             szazalek: 0
         };
         levelUp(ret, template.kaszt);
-        updateKepzettsegekForLevel(ret, template.kaszt, 0, ret.szint[1]);
+        updateKepzettsegekForLevel(ret, template.kaszt, 0, ret.szint[0]);
         return ret;
     },
     megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {

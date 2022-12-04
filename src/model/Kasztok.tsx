@@ -104,6 +104,18 @@ const KASZTOK: Array<KasztInfo> = [
                     kepzettsegId: 'futas',
                     fok: 2,
                 },
+                {
+                    kepzettsegId: 'maszas',
+                    fok: 15
+                },
+                {
+                    kepzettsegId: 'eses',
+                    fok: 20,
+                },
+                {
+                    kepzettsegId: 'ugras',
+                    fok: 10,
+                }
             ],
             [],
             [],
@@ -242,6 +254,14 @@ const KASZTOK: Array<KasztInfo> = [
                     kepzettsegId: 'fegyvertores',
                     fok: 2,
                 },
+                {
+                    kepzettsegId: 'eses',
+                    fok: 30
+                },
+                {
+                    kepzettsegId: 'ugras',
+                    fok: 20
+                }
             ],
             [],
             [
@@ -358,7 +378,81 @@ const KASZTOK: Array<KasztInfo> = [
         hm: 4,
         kpAlap: 8,
         kpPerSzint: 10,
-        szazalekPerSzint: 62
+        szazalekPerSzint: 50,
+        kepzettsegek: [
+            [
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'nyelv:',
+                    fok: 3,
+                    name: 'Nyelvtudás'
+                },
+                {
+                    kepzettsegId: 'nyelv:',
+                    fok: 2,
+                    name: 'Nyelvtudás'
+                },
+                {
+                    kepzettsegId: 'nyelv:',
+                    fok: 2,
+                    name: 'Nyelvtudás'
+                },
+                {
+                    kepzettsegId: 'ertekbecsles',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'kocsmai_verekedes',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'maszas',
+                    fok: 45,
+                },
+                {
+                    kepzettsegId: 'eses',
+                    fok: 15
+                },
+                {
+                    kepzettsegId: 'ugras',
+                    fok: 10
+                },
+                {
+                    kepzettsegId: 'zarnyitas',
+                    fok: 25
+                },
+                {
+                    kepzettsegId: 'lopozas',
+                    fok: 30
+                },
+                {
+                    kepzettsegId: 'rejtozes',
+                    fok: 15
+                },
+                {
+                    kepzettsegId: 'zsebmetszes',
+                    fok: 35
+                },
+                {
+                    kepzettsegId: 'csapdafelfedezes',
+                    fok: 25
+                },
+            ]
+        ]
     },
     {
         id: 'Bárd',

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Karakter } from '../model/Karakter';
+import { Karakter, SzintInfo } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
-import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
+import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
 import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
@@ -34,11 +34,61 @@ const PendingSelector: React.FC<{
 export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
 
-    const felvesz = () => {
-        Kepzettseg.kpEloszt(calc.kepzettsegek.normal, karakter.szint[karakter.szint.length - 1].kepzettsegek.normal, calc.kepessegek, Kepzettseg.find(ujkepzettseg), 1, true);
-        karakter.kp--;
-        onChange(karakter);
+    const pluszKP = () => {
+        const kepzettseg = Kepzettseg.find(ujkepzettseg)
+        if (kepzettseg.fajta === 'normal') {
+            Kepzettseg.kpEloszt(
+                calc.kepzettsegek.normal,
+                karakter.szint[karakter.szint.length - 1].kepzettsegek.normal,
+                calc.kepessegek,
+                kepzettseg,
+                1,
+                true
+            );
+            karakter.kp--;
+            onChange(karakter);
+        } else {
+            const current = previousSzazalekos(kepzettseg);
+            if (current !== 'max' && (current === undefined || current.szazalek <= 12)) {
+                if (addSzazalek(kepzettseg, 3)) {
+                    karakter.kp--;
+                    onChange(karakter);
+                }
+            }
+        }
     };
+
+    const previousSzazalekos = (kepzettseg: SzazalekosKepzettseg): SzintInfo['kepzettsegek']['szazalekos'][0] | undefined | 'max' => {
+        const current = karakter.szint.at(-1)?.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id);
+        if (current && current.szazalek >= 15) {
+            return 'max';
+        }
+        return current;
+    }
+
+    const addSzazalek = (kepzettseg: SzazalekosKepzettseg, count: number): boolean => {
+        const curr = previousSzazalekos(kepzettseg);
+        if (curr === 'max') {
+            return false;
+        }
+        if (curr === undefined) {
+            karakter.szint[karakter.szint.length - 1].kepzettsegek.szazalekos.push({
+                kepzettseg,
+                szazalek: count
+            });
+        } else {
+            curr.szazalek += count;
+        }
+        return true;
+    }
+
+    const pluszSzazalek = (kepzettseg: SzazalekosKepzettseg, count = 1) => {
+        if (addSzazalek(kepzettseg, count)) {
+            karakter.szazalek--;
+            onChange(karakter);
+        }
+    }
+
     return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
         <thead>
             <tr>
@@ -46,25 +96,6 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    KP: {karakter.kp} <select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
-                        {!ujkepzettseg && <option value=''></option>}
-                        {Kepzettseg.lista.map(k => <option value={k.id}>{k.name}</option>)}
-                    </select>
-                    <button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={felvesz}>+1 KP</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>%: {karakter.szazalek}</p>
-                </td>
-            </tr>
-            {calc.kepzettsegek.normal.map(k => <tr>
-                <td style={{ border: '1px solid black' }}>
-                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} /> ({k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp)
-                </td>
-            </tr>)}
             {calc.pendingKepzettsegekCount > 0 && <tr>
                 <th>Választható képzettségek</th>
             </tr>}
@@ -86,6 +117,32 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                     </td>
                 </tr>)}
             </>)};
+            <tr>
+                <td>
+                    KP: {karakter.kp} <select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
+                        {!ujkepzettseg && <option value=''></option>}
+                        {Kepzettseg.lista.map(k => <option value={k.id}>{k.name}</option>)}
+                    </select>
+                    <button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={pluszKP}>+1 KP</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>%: {karakter.szazalek}</p>
+                </td>
+            </tr>
+            {calc.kepzettsegek.szazalekos.map(k => <tr>
+                <td style={{ border: '1px solid black' }}>
+                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
+                    <button disabled={karakter.szazalek < 1 || previousSzazalekos(k.kepzettseg) === 'max'} onClick={() => pluszSzazalek(k.kepzettseg)}>+</button>
+                </td>
+            </tr>)}
+
+            {calc.kepzettsegek.normal.map(k => <tr>
+                <td style={{ border: '1px solid black' }}>
+                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} /> ({k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp)
+                </td>
+            </tr>)}
         </tbody>
     </table>;
 }

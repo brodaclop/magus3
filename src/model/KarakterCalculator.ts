@@ -45,6 +45,19 @@ export const KarakterCalculator = {
             return acc;
         }, [] as SzintInfo['kepzettsegek']['normal']);
 
+        const szazalekosKepzettsegek = karakter.szint.reduce((acc, curr) => {
+            curr.kepzettsegek.szazalekos.forEach(kepz => {
+                const previous = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
+                if (previous === undefined) {
+                    acc.push(structuredClone(kepz));
+                } else {
+                    console.log('osszead', kepz.kepzettseg.name, previous.szazalek, kepz.szazalek);
+                    previous.szazalek += kepz.szazalek;
+                }
+            });
+            return acc;
+        }, [] as SzintInfo['kepzettsegek']['szazalekos']);
+
         const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(karakter.kezek));
         const harcmodorKepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `harcmodor:${harcmodor?.id}`);
         const harcmodorHatasok = convertHarcmodorEffect(harcmodor?.szintek[harcmodorKepzettseg?.fok ?? 0] ?? []);
@@ -128,7 +141,7 @@ export const KarakterCalculator = {
             fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)], harcmodorHatasok),
             kepzettsegek: {
                 normal: normalKepzettsegek,
-                szazalekos: []
+                szazalekos: szazalekosKepzettsegek,
             },
             sfe: karakter.pancel?.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
             mgt,
