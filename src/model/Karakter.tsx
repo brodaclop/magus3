@@ -1,9 +1,10 @@
 import { Faj, Fajok } from "./Fajok";
 import { KozelharcFegyver, KOZELHARCI_FEGYVEREK } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
-import { KasztInfo, Kasztok } from "./Kasztok";
+import { KarakterCalculator } from "./KarakterCalculator";
+import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
-import { NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
+import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
 import { Pancel } from "./Pancel";
 import { PancelBuilder } from "./PancelBuilder";
@@ -42,22 +43,48 @@ export interface SzintInfo {
             kepzettseg: SzazalekosKepzettseg;
             szazalek: number;
         }>
-    }
+    },
+    pendingKepzettsegek: Array<KapottKepzettseg>;
+};
+
+const updateKepzettsegekForLevel = (karakter: Karakter, kaszt: KasztInfo, szint: number, szintInfo: SzintInfo) => {
+    const calc = KarakterCalculator.calc(karakter);
+    kaszt.kepzettsegek?.[szint]?.forEach(k => {
+        const kepzettsegek = Kepzettseg.keres(k.kepzettsegId);
+        if (kepzettsegek.length === 1) {
+            const kepzettseg = kepzettsegek[0] as NormalKepzettseg;
+            const current = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === kepzettseg.id)?.fok ?? 0;
+            if (current >= (k.honnan ?? 0) && current < k.fok) {
+                szintInfo.kepzettsegek.normal.push({
+                    kepzettseg,
+                    fok: k.fok,
+                    kp: 0
+                });
+            }
+        } else if (kepzettsegek.length > 1) {
+            szintInfo.pendingKepzettsegek.push({ ...k, id: String(Math.random()) });
+        }
+    });
 };
 
 const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
     const kasztId = kaszt ?? karakter.szint[karakter.szint.length - 1].kaszt;
     const szintKaszt = Kasztok.kasztInfo(kasztId.id, karakter.szint.length);
+    const szint = karakter.szint.slice(1).filter(k => k.kaszt.id === szintKaszt.id).length + 1;
     const dobas = karakter.szint.length === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
-    karakter.szint.push({
+    const szintInfo: SzintInfo = {
         kaszt: szintKaszt,
         fp: dobas + szintKaszt.fpPerSzint,
         harcertek: Harcertek.add(szintKaszt.harcertek),
         kepzettsegek: {
             normal: [],
             szazalekos: []
-        }
-    });
+        },
+        pendingKepzettsegek: []
+    };
+    updateKepzettsegekForLevel(karakter, szintKaszt, szint, szintInfo);
+
+    karakter.szint.push(szintInfo);
     karakter.hm += szintKaszt.hm;
     karakter.kp += szintKaszt.kpPerSzint;
     karakter.szazalek += szintKaszt.szazalekPerSzint;
@@ -78,7 +105,8 @@ export const Karakter = {
                     kepzettsegek: {
                         normal: [],
                         szazalekos: []
-                    }
+                    },
+                    pendingKepzettsegek: [],
                 }
             ],
             pancel: {
@@ -100,6 +128,7 @@ export const Karakter = {
             szazalek: 0
         };
         levelUp(ret, template.kaszt);
+        updateKepzettsegekForLevel(ret, template.kaszt, 0, ret.szint[1]);
         return ret;
     },
     megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {

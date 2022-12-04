@@ -916,11 +916,10 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 
 export const Fegyver = {
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver, minusz = 0): Harcertek => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.name}`);
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);
         return FEGYVER_KEPZETTSEG_HARCERTEKEK[Math.max(fok - minusz, 0)];
-
     }
 }

@@ -17,7 +17,7 @@ export const LifeWidget: React.FC<{ calc: KarakterCalcResult, karakter: Karakter
             </tr>
             <tr>
                 <th>Szint</th>
-                <td>{karakter.szint.length - 1} <button disabled={!!karakter.hm} onClick={levelUp}>+</button></td>
+                <td>{karakter.szint.length - 1} <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0} onClick={levelUp}>+</button></td>
             </tr>
         </tbody>
     </table>;

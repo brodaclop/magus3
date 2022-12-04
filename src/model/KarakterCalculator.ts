@@ -27,6 +27,8 @@ export interface KarakterCalcResult {
     kepzettsegek: SzintInfo['kepzettsegek'],
     sfe: Record<SebzesTipus, number>;
     mgt: CalculationArgument;
+    findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][0] | undefined;
+    pendingKepzettsegekCount: number;
 };
 
 
@@ -35,6 +37,7 @@ const szintCalc = (karakter: Karakter, fn: (szint: SzintInfo) => number): Array<
 
 export const KarakterCalculator = {
     calc: (karakter: Karakter): KarakterCalcResult => {
+        console.log('Karakter:', karakter);
         const kepessegek = transformRecord(karakter.kepessegek, (k, v) => v + (karakter.faj.kepessegek[k] ?? 0));
 
         const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
@@ -129,8 +132,10 @@ export const KarakterCalculator = {
             },
             sfe: karakter.pancel?.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
             mgt,
-            pillanatnyiKepessegek
-        }
+            pillanatnyiKepessegek,
+            findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
+            pendingKepzettsegekCount: karakter.szint.map(sz => sz.pendingKepzettsegek.length).reduce((acc, curr) => acc + curr, 0),
+        };
     }
 }
 

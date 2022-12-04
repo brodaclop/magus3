@@ -21,6 +21,14 @@ const KEPESSEG_DOBAS: Record<KasztKepesseg, Partial<KockaDobas>> = {
     Gyenge: { darab: 10, kocka: 6 },
 }
 
+export interface KapottKepzettseg {
+    id: string;
+    kepzettsegId: string;
+    name?: string;
+    fok: number;
+    honnan?: number;
+}
+
 export type KasztSpecFlags = 'ketSzintenkentKe' | 'ketSzintenkentSebzes';
 
 export interface KasztInfo extends NamedEntity {
@@ -37,6 +45,7 @@ export interface KasztInfo extends NamedEntity {
     kpAlap: number;
     kpPerSzint: number;
     szazalekPerSzint: number;
+    kepzettsegek?: Array<Array<Omit<KapottKepzettseg, 'id'>>>;
 }
 
 const KASZTOK: Array<KasztInfo> = [
@@ -65,7 +74,49 @@ const KASZTOK: Array<KasztInfo> = [
         hm: 5,
         kpAlap: 10,
         kpPerSzint: 14,
-        szazalekPerSzint: 0
+        szazalekPerSzint: 0,
+        kepzettsegek: [
+            [
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'lovaglas',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'uszas',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'futas',
+                    fok: 2,
+                },
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    kepzettsegId: 'hadvezetes',
+                    fok: 2
+                }
+            ]
+        ]
     },
     {
         id: 'Lovag',
@@ -147,7 +198,112 @@ const KASZTOK: Array<KasztInfo> = [
         hm: 4,
         kpAlap: 3,
         kpPerSzint: 6,
-        szazalekPerSzint: 0
+        szazalekPerSzint: 0,
+        kepzettsegek: [
+            [
+                {
+                    kepzettsegId: 'birkozas',
+                    fok: 2
+                },
+                {
+                    kepzettsegId: 'fegyver:okolharc',
+                    fok: 2
+                },
+                {
+                    kepzettsegId: 'harcmodor:ketfegyver',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'vertviselet',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'harcmodor:kispajzs',
+                    fok: 2,
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                }, {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                }, {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                }, {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyvertores',
+                    fok: 2,
+                },
+            ],
+            [],
+            [
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+            ],
+            [],
+            [
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 4,
+                    honnan: 2,
+                    name: 'Fegyverhasználat'
+                },
+            ],
+            [
+                {
+                    kepzettsegId: 'harcmodor:ketfegyver',
+                    honnan: 2,
+                    fok: 4,
+                },
+            ],
+            [
+                {
+                    kepzettsegId: 'vakharc',
+                    fok: 2,
+                },
+            ],
+            [
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'fegyver:',
+                    fok: 2,
+                    name: 'Fegyverhasználat'
+                },
+                {
+                    kepzettsegId: 'harcmodor:kispajzs',
+                    honnan: 2,
+                    fok: 4,
+                },
+            ],
+            [],
+            [
+                {
+                    kepzettsegId: 'fegyvertores',
+                    honnan: 2,
+                    fok: 4,
+                },
+            ]
+        ]
     },
     {
         id: 'Barbár',

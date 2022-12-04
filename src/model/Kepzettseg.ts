@@ -2,7 +2,7 @@ import { FEGYVER_KATEGORIAK, KOZELHARCI_FEGYVEREK } from "./Fegyver";
 import { SzintInfo } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 
-export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci';
+export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci' | 'vilagi';
 
 interface KepzettsegLink {
     id: string;
@@ -37,7 +37,7 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
         const linked: Array<KepzettsegLink> = f.kategoria ? [{ id: `fegyverkat:${f.kategoria.id}`, strength: 1 }] : [];
         return {
             fajta: 'normal',
-            id: `fegyver:${f.name}`,
+            id: `fegyver:${f.id}`,
             name: `Fegyver (${f.name})`,
             tipus: 'fegyver',
             kepesseg: (f.kategoria?.kepesseg ?? f.kepesseg) as string,
@@ -151,7 +151,7 @@ const HARCMODOR_BASE: Pick<NormalKepzettseg, 'kp' | 'tipus' | 'linked' | 'fajta'
 export const HARCMODOROK: Array<NormalKepzettseg> = [
     {
         ...HARCMODOR_BASE,
-        name: 'Nagypajzsos harc',
+        name: 'Harcmodor (Nagypajzsos harc)',
         id: 'harcmodor:pajzs',
         kepesseg: 'mozgaskoordinacio',
         leiras: `Ez a harcmodor egykezes fegyver és karra szíjazott, közepes vagy nagy pajzzsal való harchoz szükséges.
@@ -173,7 +173,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        name: 'Kispajzsos harc',
+        name: 'Harcmodor (Kispajzsos harc)',
         id: 'harcmodor:kispajzs',
         kepesseg: 'reflex',
         leiras: `Ez a harcmodor egy egy- vagy másfélkezes fegyvert és egy kézben fogott kicsi, kerek pajzzsal való harcot jelenti.
@@ -194,7 +194,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        name: 'Kétkezes fegyver',
+        name: 'Harcmodor (Kétkezes fegyver)',
         id: 'harcmodor:ketkezes',
         kepesseg: 'izom',
         leiras: `A kétkezes fegyverek lassúnak és nehézkesnek tűnnek a felületes szemlélő számára, ami jórészt persze igaz is,
@@ -218,7 +218,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        name: 'Két fegyver',
+        name: 'Harcmodor (Két fegyver)',
         id: 'harcmodor:ketfegyver',
         kepesseg: 'mozgaskoordinacio',
         leiras: `E képzettség híján a két fegyverrel harcolni kívánó karakter igencsak nehéz helyzetben van, ami annyit tesz, hogy mindkét fegyverével
@@ -239,7 +239,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        name: 'Shien-su',
+        name: 'Harcmodor (Shien-su)',
         id: 'harcmodor:shiensu',
         kepesseg: 'osszpontositas',
         leiras: `A Shien-su a kardmúvészek által kidolgozott kétfegyveres technika, amely a Slan-kard és a Slan-tőr teljes
@@ -258,7 +258,7 @@ export const HARCMODOROK: Array<NormalKepzettseg> = [
     },
     {
         ...HARCMODOR_BASE,
-        name: 'Egykezes fegyver',
+        name: 'Harcmodor (Egykezes fegyver)',
         id: 'harcmodor:egykezes',
         kepesseg: 'mozgaskoordinacio',
         leiras: `Természetesen egykezes fegyver használatához elég megtanulni a vonatkozó képzettséget, ez a harcmodor kizárólag
@@ -295,13 +295,84 @@ export const HARCI_KEPZETTSEGEK: Array<NormalKepzettseg> = [
         leiras: 'Páncélt hatékonyan viselni csak gyakorlással lehet. Minden egyes fok 1-gyel cs0kkenti a páncél MGT-jét',
         szintleiras: ['-1 MGT', '-2 MGT', '-3 MGT', '-4 MGT', '-5 MGT']
     },
-]
+    {
+        fajta: 'normal',
+        id: 'birkozas',
+        name: 'Birkózás',
+        tipus: 'harci',
+        kepesseg: 'izom',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+    {
+        fajta: 'normal',
+        id: 'fegyvertores',
+        name: 'Fegyvertörés',
+        tipus: 'harci',
+        kepesseg: 'izom',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+    {
+        fajta: 'normal',
+        id: 'vakharc',
+        name: 'Vakharc',
+        tipus: 'harci',
+        kepesseg: 'erzekeles',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+];
+
+export const ALTALANOS_KEPZETTSEGEK: Array<NormalKepzettseg> = [
+    {
+        fajta: 'normal',
+        id: 'uszas',
+        name: 'Úszás',
+        tipus: 'vilagi',
+        kepesseg: 'allokepesseg',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+    {
+        fajta: 'normal',
+        id: 'futas',
+        name: 'Futás',
+        tipus: 'vilagi',
+        kepesseg: 'allokepesseg',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+    {
+        fajta: 'normal',
+        id: 'lovaglas',
+        name: 'Lovaglás',
+        tipus: 'vilagi',
+        kepesseg: 'mozgaskoordinacio',
+        linked: [],
+        kp: [3, 10, 20, 40, 50],
+        leiras: '',
+        szintleiras: ['', '', '', '', '']
+    },
+];
+
 
 const KEPZETTSEGEK: Array<NormalKepzettseg> = [
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
     ...TUDOMANYOS_KEPZETTSEGEK,
     ...HARCI_KEPZETTSEGEK,
+    ...ALTALANOS_KEPZETTSEGEK,
     ...HARCMODOROK
 ];
 
@@ -312,6 +383,7 @@ export const Kepzettseg = {
         const kepesseg = kepessegek[kepzettseg.kepesseg];
         return Math.ceil(kepzettseg.kp[fok - 1] * KP_SZORZOK[kepesseg]);
     },
+    keres: (prefix: string): Array<Kepzettseg> => Kepzettseg.lista.filter(k => k.id.startsWith(prefix)),
     kpEloszt: (
         osszes: SzintInfo['kepzettsegek']['normal'],
         current: SzintInfo['kepzettsegek']['normal'],
