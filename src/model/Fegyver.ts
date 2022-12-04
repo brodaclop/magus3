@@ -1,18 +1,25 @@
 import { Harcertek } from "./Harcertek";
 import { SzintInfo } from "./Karakter";
 import { KockaDobas, parseKocka } from "./Kocka";
+import { NamedEntity } from "./util";
 
 export type SebzesTipus = 'szuro' | 'vago' | 'zuzo';
+
+export const SEBZESTIPUS_LABEL: Record<SebzesTipus, string> = {
+    szuro: 'Szúró',
+    vago: 'Vágó',
+    zuzo: 'Zúzó'
+};
 export type Sebesseg = 'gyors' | 'atlagos' | 'lassu' | 3 | 4 | 5;
 
 export interface FegyverKategoria {
     id: string;
     nev: string;
     kepesseg: string;
+    erobonusz: number;
 }
 
-export interface FegyverBase {
-    nev: string;
+export interface FegyverBase extends NamedEntity {
     sebesseg: Sebesseg;
     sebzes: KockaDobas;
     sebzestipus: SebzesTipus | Array<SebzesTipus>;
@@ -25,11 +32,13 @@ export interface FegyverBase {
 export interface Kategorizalt {
     kategoria: FegyverKategoria;
     kepesseg?: undefined;
+    erobonusz?: undefined;
 }
 
 export interface NemKategorizalt {
     kategoria?: undefined;
     kepesseg: string;
+    erobonusz: number;
 }
 
 export interface KozelharcHarcertekek {
@@ -40,44 +49,51 @@ export interface KozelharcHarcertekek {
 
 export type KozelharcFegyver = (Kategorizalt | NemKategorizalt) & FegyverBase & KozelharcHarcertekek;
 
-export const getFegyver = (nev: string): KozelharcFegyver => KOZELHARCI_FEGYVEREK.find(f => f.nev === nev) as KozelharcFegyver;
+export const getFegyver = (nev: string): KozelharcFegyver => KOZELHARCI_FEGYVEREK.find(f => f.name === nev) as KozelharcFegyver;
 
 
 export const FEGYVER_KATEGORIAK: Record<string, FegyverKategoria> = {
     szalfegyver: {
         id: 'szalfegyver',
+        erobonusz: 16,
         nev: 'Szál',
         kepesseg: 'izom'
     },
     egykezes_vago: {
         id: 'egykezes_vago',
         nev: 'Egykezes vágó',
+        erobonusz: 16,
         kepesseg: 'mozgaskoordinacio'
     },
     egykezes_szuro: {
         id: 'egykezes_szuro',
         nev: 'Egykezes szúró',
+        erobonusz: 16,
         kepesseg: 'reflex'
     },
     zuzo: {
         id: 'zuzo',
         nev: 'Zúzó',
+        erobonusz: 14,
         kepesseg: 'izom'
     },
     dobo: {
         id: 'dobo',
         nev: 'Dobó',
+        erobonusz: 16,
         kepesseg: 'mozgaskoordinacio'
     },
     csatabard: {
         id: 'csatabard',
+        erobonusz: 14,
         nev: 'Csatabárd',
         kepesseg: 'izom'
     }
 };
 export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
     {
-        nev: 'Ökölharc',
+        id: 'okolharc',
+        name: 'Ökölharc',
         kez: 2,
         kepesseg: 'izom',
         sebesseg: 'gyors',
@@ -86,10 +102,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         ve: 5,
         flags: 'pusztakez',
         sebzes: parseKocka('1k2'),
+        erobonusz: 16,
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Alabárd',
+        id: 'alabard',
+        name: 'Alabárd',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 2,
         sebesseg: 'lassu',
@@ -100,19 +118,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'vago'
     },
     {
-        nev: 'Alabárd +1',
-        kategoria: FEGYVER_KATEGORIAK.szalfegyver,
-        kez: 2,
-        sebesseg: 'lassu',
-        ke: 3,
-        te: 19,
-        ve: 20,
-        sebzes: parseKocka('2k6+3'),
-        sebzestipus: 'vago',
-        alapFegyver: 'Alabárd',
-    },
-    {
-        nev: 'Béltépő',
+        id: 'beltepo',
+        name: 'Béltépő',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'gyors',
@@ -123,7 +130,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'szuro'
     },
     {
-        nev: 'Bola',
+        id: 'bola',
+        name: 'Bola',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
         sebesseg: 'atlagos',
@@ -131,10 +139,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 10,
         ve: 2,
         sebzes: parseKocka('1k5'),
+        erobonusz: 0,
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Bot, furkós',
+        id: 'bot_furkos',
+        name: 'Bot, furkós',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -145,7 +155,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Bot, hosszú',
+        id: 'bot_hosszu',
+        name: 'Bot, hosszú',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -156,7 +167,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Bot, rövid',
+        id: 'bot_rovid',
+        name: 'Bot, rövid',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -167,7 +179,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Buzogány, egykezes',
+        id: 'buzogany_egykezes',
+        name: 'Buzogány, egykezes',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -178,7 +191,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Buzogány, kétkezes',
+        id: 'buzogany_ketkezes',
+        name: 'Buzogány, kétkezes',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 2,
         sebesseg: 'lassu',
@@ -189,7 +203,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Buzogány, láncos',
+        id: 'buzogany_lancos',
+        name: 'Buzogány, láncos',
         kez: 1,
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         sebesseg: 'atlagos',
@@ -200,7 +215,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Buzogány, shadleki',
+        id: 'buzogany_shadleki',
+        name: 'Buzogány, shadleki',
         kez: 1,
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         sebesseg: 'atlagos',
@@ -211,7 +227,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'vago'
     },
     {
-        nev: 'Buzogány, tollas',
+        id: 'buzogany_tollas',
+        name: 'Buzogány, tollas',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -222,7 +239,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Buzogány, tüskés',
+        id: 'buzogany_tuskes',
+        name: 'Buzogány, tüskés',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -233,7 +251,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'szuro'
     },
     {
-        nev: 'Csatabárd, egykezes',
+        id: 'csatabard_egykezes',
+        name: 'Csatabárd, egykezes',
         kategoria: FEGYVER_KATEGORIAK.csatabard,
         kez: 1,
         sebesseg: 'atlagos',
@@ -244,7 +263,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'vago'
     },
     {
-        nev: 'Csatabárd, kétkezes',
+        id: 'csatabard_ketkezes',
+        name: 'Csatabárd, kétkezes',
         kategoria: FEGYVER_KATEGORIAK.csatabard,
         kez: 2,
         sebesseg: 'lassu',
@@ -255,7 +275,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'vago'
     },
     {
-        nev: 'Csatacsákány',
+        id: 'csatacsakany',
+        name: 'Csatacsákány',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'lassu',
@@ -266,7 +287,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'szuro'
     },
     {
-        nev: 'Cséphadaró',
+        id: 'csephadaro',
+        name: 'Cséphadaró',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -277,7 +299,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Dárda',
+        id: 'darda',
+        name: 'Dárda',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -288,7 +311,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'szuro'
     },
     {
-        nev: 'Dobóháló',
+        id: 'dobohalo',
+        name: 'Dobóháló',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
         sebesseg: 3,
@@ -296,10 +320,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 8,
         ve: 4,
         sebzes: parseKocka('0'),
+        erobonusz: 0,
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Domvik hadijogar',
+        id: 'domvik_hadijogar',
+        name: 'Domvik hadijogar',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -310,7 +336,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Dzsambia',
+        id: 'dzsambia',
+        name: 'Dzsambia',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'gyors',
@@ -321,7 +348,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Garott',
+        id: 'garott',
+        name: 'Garott',
         kepesseg: 'reflex',
         kez: 2,
         sebesseg: 'atlagos',
@@ -329,10 +357,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 5,
         ve: -20,
         sebzes: parseKocka('1k10'),
+        erobonusz: 0,
         sebzestipus: 'vago'
     },
     {
-        nev: 'Hajitóbárd',
+        id: 'hajitobard',
+        name: 'Hajitóbárd',
         kategoria: FEGYVER_KATEGORIAK.dobo,
         kez: 1,
         sebesseg: 'gyors',
@@ -343,7 +373,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'vago'
     },
     {
-        nev: 'Harcikalapács',
+        id: 'harcikalapacs',
+        name: 'Harcikalapács',
         kategoria: FEGYVER_KATEGORIAK.zuzo,
         kez: 1,
         sebesseg: 'atlagos',
@@ -354,7 +385,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: 'zuzo'
     },
     {
-        nev: 'Kard, dzsenn szablya',
+        id: 'dzsenn_szablya',
+        name: 'Kard, dzsenn szablya',
         kepesseg: 'osszpontositas',
         kez: 1,
         sebesseg: 'atlagos',
@@ -362,10 +394,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 20,
         ve: 17,
         sebzes: parseKocka('1k6+3'),
+        erobonusz: 0,
         sebzestipus: 'vago'
     },
     {
-        nev: 'Kard, fejvadász',
+        id: 'kard_fejvadasz',
+        name: 'Kard, fejvadász',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
         sebesseg: 'atlagos',
@@ -373,10 +407,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 16,
         ve: 16,
         sebzes: parseKocka('1k6+2'),
+        erobonusz: 16,
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, handzsár',
+        id: 'handzsar',
+        name: 'Kard, handzsár',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -387,7 +423,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, hosszú',
+        id: 'kard_hosszu',
+        name: 'Kard, hosszú',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -398,7 +435,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, jatagán',
+        id: 'jatagan',
+        name: 'Kard, jatagán',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -409,7 +447,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago']
     },
     {
-        nev: 'Kard, kígyó',
+        id: 'kard_kigyo',
+        name: 'Kard, kígyó',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -420,7 +459,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago']
     },
     {
-        nev: 'Kard, lovagi',
+        id: 'kard_lovagi',
+        name: 'Kard, lovagi',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -431,7 +471,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago']
     },
     {
-        nev: 'Kard, másfélkezes',
+        id: 'kard_masfelkezes',
+        name: 'Kard, másfélkezes',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -442,7 +483,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, pallos',
+        id: 'pallos',
+        name: 'Kard, pallos',
         kepesseg: 'izom',
         kez: 2,
         sebesseg: 'lassu',
@@ -450,10 +492,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 8,
         ve: 2,
         sebzes: parseKocka('3k6+2'),
+        erobonusz: 14,
         sebzestipus: ['vago', 'szuro', 'zuzo']
     },
     {
-        nev: 'Kard, rövid',
+        id: 'kard_rovid',
+        name: 'Kard, rövid',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'atlagos',
@@ -464,7 +508,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, Slan',
+        id: 'kard_slan',
+        name: 'Kard, Slan',
         kepesseg: 'osszpontositas',
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -473,10 +518,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         ve: 12,
         flags: 'slan-kard',
         sebzes: parseKocka('1k10+2'),
+        erobonusz: 16,
         sebzestipus: ['vago', 'szuro']
     },
     {
-        nev: 'Kard, szablya',
+        id: 'szablya',
+        name: 'Kard, szablya',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -487,7 +534,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['vago']
     },
     {
-        nev: 'Kés',
+        id: 'kes',
+        name: 'Kés',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'atlagos',
@@ -498,7 +546,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Kopja, könnyű',
+        id: 'kopja_konnyu',
+        name: 'Kopja, könnyű',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 2,
         sebesseg: 'atlagos',
@@ -509,7 +558,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Kopja, lovas',
+        id: 'kopja_lovas',
+        name: 'Kopja, lovas',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 2,
         sebesseg: 'lassu',
@@ -520,7 +570,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Kopja, nehézlovas',
+        id: 'kopja_nehezlovas',
+        name: 'Kopja, nehézlovas',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 2,
         sebesseg: 3,
@@ -531,7 +582,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Korbács',
+        id: 'korbacs',
+        name: 'Korbács',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
         sebesseg: 'lassu',
@@ -539,10 +591,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 6,
         ve: 0,
         sebzes: parseKocka('1k3'),
+        erobonusz: 0,
         sebzestipus: ['zuzo']
     },
     {
-        nev: 'Lagoss',
+        id: 'lagoss',
+        name: 'Lagoss',
         kepesseg: 'reflex',
         kez: 1,
         sebesseg: 'gyors',
@@ -550,10 +604,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 14,
         ve: 14,
         sebzes: parseKocka('1k6+4'),
+        erobonusz: 16,
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Lándzsa',
+        id: 'landzsa',
+        name: 'Lándzsa',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -564,7 +620,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Lasszó',
+        id: 'lasszo',
+        name: 'Lasszó',
         kepesseg: 'mozgaskoordinacio',
         kez: 2,
         sebesseg: 3,
@@ -572,10 +629,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 1,
         ve: 0,
         sebzes: parseKocka('0'),
+        erobonusz: 0,
         sebzestipus: ['zuzo']
     },
     {
-        nev: 'Mara-sequor',
+        id: 'mara_sequor',
+        name: 'Mara-sequor',
         kepesseg: 'mozgaskoordinacio',
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -583,10 +642,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 16,
         ve: 14,
         sebzes: parseKocka('2k6+2'),
+        erobonusz: 16,
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Mesterkard',
+        id: 'mesterkard',
+        name: 'Mesterkard',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -597,7 +658,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Ostor',
+        id: 'ostor',
+        name: 'Ostor',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
         sebesseg: 'gyors',
@@ -605,10 +667,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 6,
         ve: 0,
         sebzes: parseKocka('1k2'),
+        erobonusz: 0,
         sebzestipus: ['zuzo']
     },
     {
-        nev: 'Predoci egyeneskard',
+        id: 'predoci_egyeneskard',
+        name: 'Predoci egyeneskard',
         kategoria: FEGYVER_KATEGORIAK.egykezes_vago,
         kez: 1,
         sebesseg: 'atlagos',
@@ -619,7 +683,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Pugoss',
+        id: 'pugoss',
+        name: 'Pugoss',
         kepesseg: 'reflex',
         kez: 1,
         sebesseg: 'gyors',
@@ -627,10 +692,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 6,
         ve: 12,
         sebzes: parseKocka('1k6'),
+        erobonusz: 16,
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Ramiera',
+        id: 'ramiera',
+        name: 'Ramiera',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'atlagos',
@@ -641,7 +708,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Sequor',
+        id: 'sequor',
+        name: 'Sequor',
         kepesseg: 'mozgaskoordinacio',
         kez: 0.5,
         sebesseg: 'gyors',
@@ -649,10 +717,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 16,
         ve: 13,
         sebzes: parseKocka('1k6+2'),
+        erobonusz: 16,
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Slan csillag',
+        id: 'slan_csillag',
+        name: 'Slan csillag',
         kategoria: FEGYVER_KATEGORIAK.dobo,
         kez: 1,
         sebesseg: 'gyors',
@@ -663,7 +733,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Szigony',
+        id: 'szigony',
+        name: 'Szigony',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 1.5,
         sebesseg: 'atlagos',
@@ -674,7 +745,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Tahdzsi',
+        id: 'tahdzsi',
+        name: 'Tahdzsi',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'atlagos',
@@ -685,7 +757,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Tőr',
+        id: 'tor',
+        name: 'Tőr',
         kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
         kez: 1,
         sebesseg: 'gyors',
@@ -696,7 +769,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Tőr, dobó',
+        id: 'tor_dobo',
+        name: 'Tőr, dobó',
         kategoria: FEGYVER_KATEGORIAK.dobo,
         kez: 1,
         sebesseg: 'gyors',
@@ -707,7 +781,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Tőr, Slan',
+        id: 'tor_slan',
+        name: 'Tőr, Slan',
         kepesseg: 'osszpontositas',
         kez: 0.5,
         sebesseg: 'gyors',
@@ -716,11 +791,14 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         ve: 6,
         flags: 'slan-tor',
         sebzes: parseKocka('1k6+2'),
+        erobonusz: 16,
         sebzestipus: ['szuro', 'vago']
     },
     {
-        nev: 'Tőrkard',
-        kategoria: FEGYVER_KATEGORIAK.egykezes_szuro,
+        id: 'torkard',
+        name: 'Tőrkard',
+        kepesseg: 'reflex',
+        erobonusz: 0,
         kez: 1,
         sebesseg: 'gyors',
         ke: 9,
@@ -730,7 +808,8 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Pajzs, közepes',
+        id: 'pajzs_kozepes',
+        name: 'Pajzs, közepes',
         kepesseg: 'izom',
         flags: 'nagy-pajzs',
         kez: 1,
@@ -740,10 +819,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 0,
         ve: 35,
         sebzes: parseKocka('1k6'),
+        erobonusz: 16,
         sebzestipus: ['zuzo']
     },
     {
-        nev: 'Pajzs, nagy',
+        id: 'pajzs_nagy',
+        name: 'Pajzs, nagy',
         flags: 'nagy-pajzs',
         kepesseg: 'izom',
         kez: 1,
@@ -753,10 +834,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 0,
         ve: 50,
         sebzes: parseKocka('1k6'),
+        erobonusz: 16,
         sebzestipus: ['zuzo']
     },
     {
-        nev: 'Pajzs, kicsi',
+        id: 'pajzs_kicsi',
+        name: 'Pajzs, kicsi',
         kepesseg: 'mozgaskoordinacio',
         flags: 'buckler',
         kez: 0.5,
@@ -766,10 +849,12 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 4,
         ve: 20,
         sebzes: parseKocka('1k6'),
+        erobonusz: 16,
         sebzestipus: ['szuro']
     },
     {
-        nev: 'Alkarvédő',
+        id: 'alkarvedo',
+        name: 'Alkarvédő',
         kepesseg: 'reflex',
         flags: 'buckler',
         kez: 0.5,
@@ -779,17 +864,10 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         te: 7,
         ve: 18,
         sebzes: parseKocka('1k6'),
+        erobonusz: 16,
         sebzestipus: ['szuro']
     },
 ];
-
-// KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30
-// 'KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15',
-// 'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
-// 'KÉ: +2, TÉ: +5, VÉ: +5, CÉ: +5',
-// 'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10',
-// 'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
-
 
 export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
     {
@@ -838,7 +916,7 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 
 export const Fegyver = {
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver, minusz = 0): Harcertek => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.nev}`);
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.name}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);

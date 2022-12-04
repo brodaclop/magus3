@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calculation } from '../model/Calculation';
-import { KOZELHARCI_FEGYVEREK, SebzesTipus } from '../model/Fegyver';
+import { KOZELHARCI_FEGYVEREK, SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
@@ -9,12 +9,6 @@ import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
 import { KepzettsegLeiras } from './KepzettsegLeiras';
 
-
-const SEBZESTIPUS_LABEL: Record<SebzesTipus, string> = {
-    szuro: 'Szúró',
-    vago: 'Vágó',
-    zuzo: 'Zúzó'
-};
 
 export const formatSebzesTipus = (t: SebzesTipus | Array<SebzesTipus>): string =>
     (typeof t === 'string' ? [t] : t).sort().map(o => SEBZESTIPUS_LABEL[o]).join('/') || '-';
@@ -27,7 +21,7 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
     return <table style={{ border: '3px solid black', borderCollapse: 'collapse', textAlign: 'center' }}>
         <thead>
             <tr>
-                <th colSpan={3}>Fegyverek</th>
+                <th colSpan={3}>Harc</th>
             </tr>
         </thead>
         <tbody>
@@ -83,6 +77,12 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <th>VÉ</th>
                 <td style={{ border: '1px solid black' }} colSpan={2}>
                     <CalculationWidget calculation={calc.fegyverrel.ve}>{Calculation.calculate(calc.fegyverrel.ve)}</CalculationWidget>
+                </td>
+            </tr>
+            <tr style={{ textAlign: 'center' }}>
+                <th>MGT</th>
+                <td style={{ border: '1px solid black' }} colSpan={2}>
+                    <CalculationWidget calculation={calc.mgt} />
                 </td>
             </tr>
             {harcmodorKepzettseg && <tr style={{ textAlign: 'center' }}>

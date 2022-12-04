@@ -2,6 +2,7 @@ import React from 'react';
 import { KarakterTemplate } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
+import { CalculationWidget } from './CalculationWidget';
 
 export const KepessegWidget: React.FC<{
     kategoriak: KarakterTemplate['kepessegKategoriak'],
@@ -33,6 +34,8 @@ export const KepessegWidget: React.FC<{
                     <td>
                         <button onClick={e => minusz(rd)}>-</button>
                         <span style={{ marginLeft: '0.5rem', marginRight: '0.5rem' }}>{karakterCalc.kepessegek[rd.id]}</span>
+                        /
+                        <span style={{ marginLeft: '0.5rem', marginRight: '0.5rem' }}><CalculationWidget calculation={karakterCalc.pillanatnyiKepessegek[rd.id]} /></span>
                         <button onClick={e => plusz(rd)}>+</button>
                     </td>
                 </tr>)}

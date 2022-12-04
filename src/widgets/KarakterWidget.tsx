@@ -1,14 +1,13 @@
 import React, { useMemo } from 'react';
-import { Calculation } from '../model/Calculation';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
-import { CalculationWidget } from './CalculationWidget';
 import { HarcertekWidget } from './HarcertekWidget';
 import { KepessegWidget } from './KepessegWidget';
 import { KepzettsegWidget } from './KepzettsegWidget';
 import { KombatWidget } from './KombatWidget';
 import { LifeWidget } from './LifeWidget';
+import { PancelWidget } from './PancelWidget';
 
 export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Karakter) => unknown, template: KarakterTemplate, setTemplate: (t: KarakterTemplate) => unknown }> = ({ karakter, setKarakter, template, setTemplate }) => {
     const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
@@ -60,11 +59,14 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
                     <LifeWidget karakter={karakter} calc={karakterCalc} levelUp={() => setKarakter({ ...Karakter.levelUp(karakter) })} />
                 </td>
                 <td>
-                    <HarcertekWidget karakter={karakter} setKarakter={setKarakter} />
+                    <PancelWidget karakter={karakter} calc={karakterCalc} onChange={k => setKarakter({ ...k })} />
+                </td>
+                <td>
+                    <HarcertekWidget karakter={karakter} setKarakter={k => setKarakter({ ...k })} />
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colSpan={2}>
                     <KepessegWidget kategoriak={template.kepessegKategoriak} eloszt={eloszt} minusz={minusz} plusz={plusz} karakterCalc={karakterCalc} />
                 </td>
                 <td>

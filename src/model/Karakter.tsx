@@ -5,6 +5,8 @@ import { KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
 import { NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
+import { Pancel } from "./Pancel";
+import { PancelBuilder } from "./PancelBuilder";
 
 export interface KarakterTemplate {
     faj: Faj,
@@ -21,6 +23,7 @@ export interface Karakter {
     ep: number;
     hm: number;
     kezek: [KozelharcFegyver?, KozelharcFegyver?];
+    pancel?: Pancel;
     kp: number;
     szazalek: number;
 }
@@ -78,6 +81,17 @@ export const Karakter = {
                     }
                 }
             ],
+            pancel: {
+                id: 'pelda',
+                name: 'Példa páncél',
+                mgt: 4,
+                sfe: {
+                    zuzo: 3,
+                    vago: 6,
+                    szuro: 5
+                },
+                igazitas: PancelBuilder.igazitas[3]
+            },
             kepessegek: Kepessegek.newErtekRecord(),
             ep: template.kaszt.epAlap,
             hm: 0,

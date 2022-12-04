@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalculationArgument, CalculationOperation } from '../model/Calculation';
+import { Calculation, CalculationArgument, CalculationOperation } from '../model/Calculation';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap_white.css';
 
@@ -26,8 +26,8 @@ const printOperation = (op: CalculationOperation) => {
     }
 }
 
-export const CalculationWidget: React.FC<{ calculation: CalculationArgument, children: React.ReactNode }> = ({ calculation, children }) => {
+export const CalculationWidget: React.FC<{ calculation: CalculationArgument, children?: React.ReactNode }> = ({ calculation, children }) => {
     return <Tooltip placement='right' overlay={printArgument(calculation)}>
-        <span>{children}</span>
+        <span>{children ?? Calculation.calculate(calculation)}</span>
     </Tooltip>;
 }

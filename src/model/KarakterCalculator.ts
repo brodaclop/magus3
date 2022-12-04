@@ -1,5 +1,5 @@
 import { Calculation, CalculationArgument, CalculationBinary, CalculationValue } from "./Calculation";
-import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK } from "./Fegyver";
+import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, SebzesTipus } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Karakter, SzintInfo } from "./Karakter";
@@ -16,6 +16,7 @@ export interface KarakterCalcResult {
     fp: CalculationArgument;
     ep: CalculationArgument;
     kepessegek: Record<string, number>;
+    pillanatnyiKepessegek: Record<string, CalculationArgument>;
     harcertek: Record<keyof Harcertek, CalculationArgument>;
     harcmodor?: HarcmodorCalculation;
     fegyverrel: {
@@ -23,7 +24,9 @@ export interface KarakterCalcResult {
         ve: CalculationArgument,
         kezek: [CalcFegyver?, CalcFegyver?]
     },
-    kepzettsegek: SzintInfo['kepzettsegek']
+    kepzettsegek: SzintInfo['kepzettsegek'],
+    sfe: Record<SebzesTipus, number>;
+    mgt: CalculationArgument;
 };
 
 
@@ -33,13 +36,6 @@ const szintCalc = (karakter: Karakter, fn: (szint: SzintInfo) => number): Array<
 export const KarakterCalculator = {
     calc: (karakter: Karakter): KarakterCalcResult => {
         const kepessegek = transformRecord(karakter.kepessegek, (k, v) => v + (karakter.faj.kepessegek[k] ?? 0));
-        const harcertek: KarakterCalcResult['harcertek'] = {
-            ke: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ke ?? 0)),
-            te: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'izom'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.te ?? 0)),
-            ve: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'reflex'), Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.ve ?? 0)),
-            ce: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'mozgaskoordinacio'), Calculation.tizFolottiResz(kepessegek, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ce ?? 0)),
-            sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
-        };
 
         const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
             curr.kepzettsegek.normal.forEach(kepz => mergeToArray(acc, kepz, i => i.kepzettseg.id));
@@ -49,6 +45,42 @@ export const KarakterCalculator = {
         const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(karakter.kezek));
         const harcmodorKepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `harcmodor:${harcmodor?.id}`);
         const harcmodorHatasok = convertHarcmodorEffect(harcmodor?.szintek[harcmodorKepzettseg?.fok ?? 0] ?? []);
+
+        const pancelMgt = karakter.pancel?.mgt ?? 0;
+        const pajzsMgt = karakter.kezek[1]?.mgt ?? 0;
+        const vertviselet = normalKepzettsegek.find(k => k.kepzettseg.id === 'vertviselet')?.fok ?? 0;
+        const mgtCalc: Array<CalculationValue> = [];
+        if (pancelMgt) {
+            mgtCalc.push(Calculation.value('Páncél', pancelMgt));
+        }
+        if (pajzsMgt) {
+            mgtCalc.push(Calculation.value('Pajzs', pajzsMgt));
+        }
+        if (vertviselet > 0 && pancelMgt > 0) {
+            mgtCalc.push(Calculation.value('Vértviselet', - Math.min(vertviselet, pancelMgt)));
+        }
+        if (harcmodorHatasok.noMGT) {
+            mgtCalc.push(Calculation.value('Harcmodor', - pajzsMgt));
+        }
+
+        const mgt = Calculation.plusz(...mgtCalc);
+
+        const pillanatnyiKepessegek = transformRecord(kepessegek, k => {
+            if (k === 'mozgaskoordinacio' || k === 'reflex') {
+                return Calculation.max(Calculation.value('Minimum', 10), Calculation.plusz(Calculation.value('Normál', kepessegek[k]), Calculation.value('MGT', -Calculation.calculate(mgt))));
+            }
+            return Calculation.value('Normál', kepessegek[k]);
+        });
+
+        const pillKep = transformRecord(pillanatnyiKepessegek, k => Calculation.calculate(pillanatnyiKepessegek[k]));
+
+        const harcertek: KarakterCalcResult['harcertek'] = {
+            ke: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ke ?? 0)),
+            te: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'izom'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.te ?? 0)),
+            ve: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.ve ?? 0)),
+            ce: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ce ?? 0)),
+            sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
+        };
 
         const fegyverCalc = (idx: 0 | 1): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
             const fegyver = karakter.kezek[idx];
@@ -68,13 +100,17 @@ export const KarakterCalculator = {
                 const kepzettseg = (idx === 1 && harcmodorHatasok.kez1pont2)
                     ? FEGYVER_KEPZETTSEG_HARCERTEKEK[2]
                     : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz);
-                const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.nev, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke));
-                const te = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.nev, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
-                const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.nev, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve));
+                const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke));
+                const te = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
+                const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.name, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve));
                 //TODO: erobonusz
+
+                const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
+                const erobonusz = erobonuszHatar === 0 ? 0 : Math.max(0, pillKep.izom - erobonuszHatar);
+
                 const sebzes: KockaDobas = {
                     ...fegyver.sebzes,
-                    plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes)
+                    plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes) + erobonusz
                 }
                 return { ke, te, ve, sebzes };
             }
@@ -90,7 +126,10 @@ export const KarakterCalculator = {
             kepzettsegek: {
                 normal: normalKepzettsegek,
                 szazalekos: []
-            }
+            },
+            sfe: karakter.pancel?.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
+            mgt,
+            pillanatnyiKepessegek
         }
     }
 }

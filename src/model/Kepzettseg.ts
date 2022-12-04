@@ -37,8 +37,8 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
         const linked: Array<KepzettsegLink> = f.kategoria ? [{ id: `fegyverkat:${f.kategoria.id}`, strength: 1 }] : [];
         return {
             fajta: 'normal',
-            id: `fegyver:${f.nev}`,
-            name: `Fegyver (${f.nev})`,
+            id: `fegyver:${f.name}`,
+            name: `Fegyver (${f.name})`,
             tipus: 'fegyver',
             kepesseg: (f.kategoria?.kepesseg ?? f.kepesseg) as string,
             linked: linked,
@@ -301,6 +301,7 @@ const KEPZETTSEGEK: Array<NormalKepzettseg> = [
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
     ...TUDOMANYOS_KEPZETTSEGEK,
+    ...HARCI_KEPZETTSEGEK,
     ...HARCMODOROK
 ];
 
