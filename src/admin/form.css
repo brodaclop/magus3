@@ -1,0 +1,15 @@
+.objectEditor>*,
+.arrayEditor>* {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.objectEditor textarea {
+    width: 15rem;
+    height: 6rem;
+}
+
+/* .objectEditor>*:nth-child(even),
+.arrayEditor>*:nth-child(even) {
+    background-color: lightgray;
+} */

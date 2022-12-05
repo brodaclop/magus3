@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import ReactModal from 'react-modal';
+import { KasztEditor } from './admin/KasztEditor';
+import { KepzettsegEditor } from './admin/KepzettsegEditor';
 
 import { Karakter, KarakterTemplate } from './model/Karakter';
 import { KarakterTemplateWdiget } from './widgets/KarakterTemplateWidget';
@@ -18,6 +20,8 @@ const App: React.FC<{}> = () => {
       <KarakterTemplateWdiget onCreate={setKarakter} template={template} onChange={setTemplate} />
       <button onClick={() => setOpen(false)}>OK</button>
     </ReactModal>
+    <KepzettsegEditor />
+    <KasztEditor />
     {karakter &&
       <KarakterWidget karakter={karakter} setKarakter={setKarakter} template={template} setTemplate={setTemplate} />
     }

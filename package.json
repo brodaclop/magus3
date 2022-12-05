@@ -11,8 +11,6 @@
     "@types/node": "^16.11.68",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "ag-grid-community": "^28.2.0",
-    "ag-grid-react": "^28.2.0",
     "rc-tooltip": "^5.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
