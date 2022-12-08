@@ -1,0 +1,1449 @@
+[
+    {
+        "id": "okolharc",
+        "name": "Ökölharc",
+        "kez": 2,
+        "kepesseg": "izom",
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 6,
+        "ve": 5,
+        "flags": "pusztakez",
+        "sebzes": {
+            "darab": 1,
+            "kocka": 2,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "alabard",
+        "name": "Alabárd",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "lassu",
+        "ke": 1,
+        "te": 14,
+        "ve": 15,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "beltepo",
+        "name": "Béltépő",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 8,
+        "ve": 2,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "szuro"
+    },
+    {
+        "id": "bola",
+        "name": "Bola",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 2,
+        "te": 10,
+        "ve": 2,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 5,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "bot_furkos",
+        "name": "Bot, furkós",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 2,
+        "te": 7,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "bot_hosszu",
+        "name": "Bot, hosszú",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 4,
+        "te": 10,
+        "ve": 16,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 5,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "bot_rovid",
+        "name": "Bot, rövid",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 9,
+        "te": 9,
+        "ve": 17,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 3,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "buzogany_egykezes",
+        "name": "Buzogány, egykezes",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 11,
+        "ve": 12,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "buzogany_ketkezes",
+        "name": "Buzogány, kétkezes",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "lassu",
+        "ke": 0,
+        "te": 7,
+        "ve": 6,
+        "sebzes": {
+            "darab": 3,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "buzogany_lancos",
+        "name": "Buzogány, láncos",
+        "kez": 1,
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "sebesseg": "atlagos",
+        "ke": 4,
+        "te": 13,
+        "ve": 11,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 3,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "buzogany_shadleki",
+        "name": "Buzogány, shadleki",
+        "kez": 1,
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 13,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "buzogany_tollas",
+        "name": "Buzogány, tollas",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 12,
+        "ve": 13,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "buzogany_tuskes",
+        "name": "Buzogány, tüskés",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 12,
+        "ve": 13,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "szuro"
+    },
+    {
+        "id": "csatabard_egykezes",
+        "name": "Csatabárd, egykezes",
+        "kategoria": {
+            "id": "csatabard",
+            "erobonusz": 14,
+            "nev": "Csatabárd",
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 5,
+        "te": 12,
+        "ve": 11,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "csatabard_ketkezes",
+        "name": "Csatabárd, kétkezes",
+        "kategoria": {
+            "id": "csatabard",
+            "erobonusz": 14,
+            "nev": "Csatabárd",
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "lassu",
+        "ke": 0,
+        "te": 8,
+        "ve": 6,
+        "sebzes": {
+            "darab": 3,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "csatacsakany",
+        "name": "Csatacsákány",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "lassu",
+        "ke": 5,
+        "te": 11,
+        "ve": 8,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "szuro"
+    },
+    {
+        "id": "csephadaro",
+        "name": "Cséphadaró",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 1,
+        "te": 6,
+        "ve": 5,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "darda",
+        "name": "Dárda",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 13,
+        "ve": 5,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "szuro"
+    },
+    {
+        "id": "dobohalo",
+        "name": "Dobóháló",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1,
+        "sebesseg": "3",
+        "ke": 1,
+        "te": 8,
+        "ve": 4,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 0,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "domvik_hadijogar",
+        "name": "Domvik hadijogar",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 11,
+        "ve": 12,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "dzsambia",
+        "name": "Dzsambia",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 8,
+        "ve": 4,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "garott",
+        "name": "Garott",
+        "kepesseg": "reflex",
+        "kez": 2,
+        "sebesseg": "atlagos",
+        "ke": 0,
+        "te": 5,
+        "ve": -20,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "hajitobard",
+        "name": "Hajitóbárd",
+        "kategoria": {
+            "id": "dobo",
+            "nev": "Dobó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 9,
+        "te": 10,
+        "ve": 4,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "harcikalapacs",
+        "name": "Harcikalapács",
+        "kategoria": {
+            "id": "zuzo",
+            "nev": "Zúzó",
+            "erobonusz": 14,
+            "kepesseg": "izom"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 5,
+        "te": 8,
+        "ve": 10,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo"
+    },
+    {
+        "id": "dzsenn_szablya",
+        "name": "Kard, dzsenn szablya",
+        "kepesseg": "osszpontositas",
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 9,
+        "te": 20,
+        "ve": 17,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 3,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": "vago"
+    },
+    {
+        "id": "kard_fejvadasz",
+        "name": "Kard, fejvadász",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 16,
+        "ve": 16,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "handzsar",
+        "name": "Kard, handzsár",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 14,
+        "ve": 15,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 3,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "kard_hosszu",
+        "name": "Kard, hosszú",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 6,
+        "te": 14,
+        "ve": 16,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "jatagan",
+        "name": "Kard, jatagán",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 14,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago"
+        ]
+    },
+    {
+        "id": "kard_kigyo",
+        "name": "Kard, kígyó",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 6,
+        "te": 14,
+        "ve": 15,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago"
+        ]
+    },
+    {
+        "id": "kard_lovagi",
+        "name": "Kard, lovagi",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 2,
+        "te": 10,
+        "ve": 7,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago"
+        ]
+    },
+    {
+        "id": "kard_masfelkezes",
+        "name": "Kard, másfélkezes",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 4,
+        "te": 13,
+        "ve": 12,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "pallos",
+        "name": "Kard, pallos",
+        "kepesseg": "izom",
+        "kez": 2,
+        "sebesseg": "lassu",
+        "ke": 0,
+        "te": 8,
+        "ve": 2,
+        "sebzes": {
+            "darab": 3,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 14,
+        "sebzestipus": [
+            "vago",
+            "szuro",
+            "zuzo"
+        ]
+    },
+    {
+        "id": "kard_rovid",
+        "name": "Kard, rövid",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 9,
+        "te": 12,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "kard_slan",
+        "name": "Kard, Slan",
+        "kepesseg": "osszpontositas",
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 20,
+        "ve": 12,
+        "flags": "slan-kard",
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "vago",
+            "szuro"
+        ]
+    },
+    {
+        "id": "szablya",
+        "name": "Kard, szablya",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 15,
+        "ve": 17,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "vago"
+        ]
+    },
+    {
+        "id": "kes",
+        "name": "Kés",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 10,
+        "te": 4,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 5,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "kopja_konnyu",
+        "name": "Kopja, könnyű",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "atlagos",
+        "ke": 2,
+        "te": 11,
+        "ve": 12,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "kopja_lovas",
+        "name": "Kopja, lovas",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "lassu",
+        "ke": 1,
+        "te": 15,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "kopja_nehezlovas",
+        "name": "Kopja, nehézlovas",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 2,
+        "sebesseg": "3",
+        "ke": 0,
+        "te": 15,
+        "ve": 0,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "korbacs",
+        "name": "Korbács",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1,
+        "sebesseg": "lassu",
+        "ke": 4,
+        "te": 6,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 3,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": [
+            "zuzo"
+        ]
+    },
+    {
+        "id": "lagoss",
+        "name": "Lagoss",
+        "kepesseg": "reflex",
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 8,
+        "te": 14,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 4,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "landzsa",
+        "name": "Lándzsa",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 4,
+        "te": 12,
+        "ve": 12,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "lasszo",
+        "name": "Lasszó",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 2,
+        "sebesseg": "3",
+        "ke": 0,
+        "te": 1,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 0,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": [
+            "zuzo"
+        ]
+    },
+    {
+        "id": "mara_sequor",
+        "name": "Mara-sequor",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 16,
+        "ve": 14,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "mesterkard",
+        "name": "Mesterkard",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 16,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "ostor",
+        "name": "Ostor",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 3,
+        "te": 6,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 2,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 0,
+        "sebzestipus": [
+            "zuzo"
+        ]
+    },
+    {
+        "id": "predoci_egyeneskard",
+        "name": "Predoci egyeneskard",
+        "kategoria": {
+            "id": "egykezes_vago",
+            "nev": "Egykezes vágó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 7,
+        "te": 16,
+        "ve": 15,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "pugoss",
+        "name": "Pugoss",
+        "kepesseg": "reflex",
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 4,
+        "te": 6,
+        "ve": 12,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "ramiera",
+        "name": "Ramiera",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 8,
+        "te": 17,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "sequor",
+        "name": "Sequor",
+        "kepesseg": "mozgaskoordinacio",
+        "kez": 0.5,
+        "sebesseg": "gyors",
+        "ke": 8,
+        "te": 16,
+        "ve": 13,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "slan_csillag",
+        "name": "Slan csillag",
+        "kategoria": {
+            "id": "dobo",
+            "nev": "Dobó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 4,
+        "ve": 0,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 3,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "szigony",
+        "name": "Szigony",
+        "kategoria": {
+            "id": "szalfegyver",
+            "erobonusz": 16,
+            "nev": "Szál",
+            "kepesseg": "izom"
+        },
+        "kez": 1.5,
+        "sebesseg": "atlagos",
+        "ke": 4,
+        "te": 15,
+        "ve": 10,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 10,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "tahdzsi",
+        "name": "Tahdzsi",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "ke": 9,
+        "te": 11,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "tor",
+        "name": "Tőr",
+        "kategoria": {
+            "id": "egykezes_szuro",
+            "nev": "Egykezes szúró",
+            "erobonusz": 16,
+            "kepesseg": "reflex"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 8,
+        "ve": 2,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "tor_dobo",
+        "name": "Tőr, dobó",
+        "kategoria": {
+            "id": "dobo",
+            "nev": "Dobó",
+            "erobonusz": 16,
+            "kepesseg": "mozgaskoordinacio"
+        },
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 10,
+        "te": 11,
+        "ve": 2,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "tor_slan",
+        "name": "Tőr, Slan",
+        "kepesseg": "osszpontositas",
+        "kez": 0.5,
+        "sebesseg": "gyors",
+        "ke": 9,
+        "te": 14,
+        "ve": 6,
+        "flags": "slan-tor",
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro",
+            "vago"
+        ]
+    },
+    {
+        "id": "torkard",
+        "name": "Tőrkard",
+        "kepesseg": "reflex",
+        "erobonusz": 0,
+        "kez": 1,
+        "sebesseg": "gyors",
+        "ke": 9,
+        "te": 12,
+        "ve": 14,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "pajzs_kozepes",
+        "name": "Pajzs, közepes",
+        "kepesseg": "izom",
+        "flags": "nagy-pajzs",
+        "kez": 1,
+        "sebesseg": "atlagos",
+        "mgt": 1,
+        "ke": 0,
+        "te": 0,
+        "ve": 35,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "zuzo"
+        ]
+    },
+    {
+        "id": "pajzs_nagy",
+        "name": "Pajzs, nagy",
+        "flags": "nagy-pajzs",
+        "kepesseg": "izom",
+        "kez": 1,
+        "mgt": 5,
+        "sebesseg": "lassu",
+        "ke": 0,
+        "te": 0,
+        "ve": 50,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "zuzo"
+        ]
+    },
+    {
+        "id": "pajzs_kicsi",
+        "name": "Pajzs, kicsi",
+        "kepesseg": "mozgaskoordinacio",
+        "flags": "buckler",
+        "kez": 0.5,
+        "sebesseg": "atlagos",
+        "mgt": 0,
+        "ke": 4,
+        "te": 4,
+        "ve": 20,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro"
+        ]
+    },
+    {
+        "id": "alkarvedo",
+        "name": "Alkarvédő",
+        "kepesseg": "reflex",
+        "flags": "buckler",
+        "kez": 0.5,
+        "sebesseg": "gyors",
+        "mgt": 0,
+        "ke": 7,
+        "te": 7,
+        "ve": 18,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "erobonusz": 16,
+        "sebzestipus": [
+            "szuro"
+        ]
+    }
+]

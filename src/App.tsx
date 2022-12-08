@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactModal from 'react-modal';
+import { FegyverEditor } from './admin/FegyverEditor';
 import { KasztEditor } from './admin/KasztEditor';
 import { KepzettsegEditor } from './admin/KepzettsegEditor';
 
@@ -22,6 +23,7 @@ const App: React.FC<{}> = () => {
     </ReactModal>
     <KepzettsegEditor />
     <KasztEditor />
+    <FegyverEditor />
     {karakter &&
       <KarakterWidget karakter={karakter} setKarakter={setKarakter} template={template} setTemplate={setTemplate} />
     }

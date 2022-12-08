@@ -1,3 +1,4 @@
+import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import { KasztInfo, Kasztok } from '../model/Kasztok';
@@ -9,9 +10,9 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
     name: Editor.string('Név'),
     kepessegDobas: Editor.object('Képességek', {
         Fizikum: Editor.picklist('Fizikum', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Ügyesség: Editor.picklist('Fizikum', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Mentál: Editor.picklist('Fizikum', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Asztrál: Editor.picklist('Fizikum', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
+        Ügyesség: Editor.picklist('Ügyesség', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
+        Mentál: Editor.picklist('Mentál', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
+        Asztrál: Editor.picklist('Asztrál', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
     }),
     epAlap: Editor.number('ÉP alap'),
     fpAlap: Editor.number('FP alap'),
@@ -29,7 +30,7 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
         ce: Editor.number('CÉ'),
     }),
     hm: Editor.number('Szabad HM'),
-    kasztSpec: Editor.array('Speciális tulajdonságok', Editor.picklist('spec', ['ketSzintenkentKe', 'ketSzintenkentSebzes']), 1),
+    kasztSpec: Editor.multiPicklist('Speciális tulajdonságok', ['ketSzintenkentKe', 'ketSzintenkentSebzes']),
     kpAlap: Editor.number('Alap KP'),
     kpPerSzint: Editor.number('KP/szint'),
     szazalekPerSzint: Editor.number('Százalékos képzettség/szint'),
@@ -64,7 +65,7 @@ export const KasztEditor: React.FC<{}> = () => {
     const [idToEdit, setIdToEdit] = useState('');
 
     const exportLista = () => {
-        console.log(JSON.stringify(Kasztok.lista));
+        fileDownload(JSON.stringify(Kasztok.lista, null, '\t'), 'kasztok.json', 'text/json');
     }
 
     const startEdit = () => {

@@ -1,3 +1,4 @@
+import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import { Kepessegek } from '../model/Kepessegek';
@@ -24,7 +25,7 @@ export const KepzettsegEditor: React.FC<{}> = () => {
     const [idToEdit, setIdToEdit] = useState('');
 
     const exportLista = () => {
-        console.log(JSON.stringify(Kepzettseg.__taroltLista()));
+        fileDownload(JSON.stringify(Kepzettseg.__taroltLista(), null, '\t'), 'kepzettsegek.json', 'text/json');
     }
 
     const startEdit = () => {

@@ -1,7 +1,7 @@
 import { Harcertek } from "./Harcertek";
 import { SzintInfo } from "./Karakter";
 import { KockaDobas, parseKocka } from "./Kocka";
-import { NamedEntity } from "./util";
+import { NamedEntity, namedEntityArray } from "./util";
 
 export type SebzesTipus = 'szuro' | 'vago' | 'zuzo';
 
@@ -10,7 +10,7 @@ export const SEBZESTIPUS_LABEL: Record<SebzesTipus, string> = {
     vago: 'Vágó',
     zuzo: 'Zúzó'
 };
-export type Sebesseg = 'gyors' | 'atlagos' | 'lassu' | 3 | 4 | 5;
+export type Sebesseg = 'gyors' | 'atlagos' | 'lassu' | '3' | '4' | '5';
 
 export interface FegyverKategoria {
     id: string;
@@ -315,7 +315,7 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         name: 'Dobóháló',
         kepesseg: 'mozgaskoordinacio',
         kez: 1,
-        sebesseg: 3,
+        sebesseg: '3',
         ke: 1,
         te: 8,
         ve: 4,
@@ -574,7 +574,7 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         name: 'Kopja, nehézlovas',
         kategoria: FEGYVER_KATEGORIAK.szalfegyver,
         kez: 2,
-        sebesseg: 3,
+        sebesseg: '3',
         ke: 0,
         te: 15,
         ve: 0,
@@ -624,7 +624,7 @@ export const KOZELHARCI_FEGYVEREK: Array<KozelharcFegyver> = [
         name: 'Lasszó',
         kepesseg: 'mozgaskoordinacio',
         kez: 2,
-        sebesseg: 3,
+        sebesseg: '3',
         ke: 0,
         te: 1,
         ve: 0,
@@ -914,7 +914,10 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
     },
 ];
 
+console.log('FEGYVEREK', JSON.stringify(KOZELHARCI_FEGYVEREK));
+
 export const Fegyver = {
+    ...namedEntityArray(KOZELHARCI_FEGYVEREK),
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver, minusz = 0): Harcertek => {
         const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);

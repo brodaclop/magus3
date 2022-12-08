@@ -16,6 +16,7 @@ interface NumberEditorDescriptor {
 interface PicklistEditorDescriptor {
     type: 'picklist';
     label: string;
+    multiple: boolean;
     values: Array<string>;
 }
 
@@ -48,7 +49,8 @@ export const Editor = {
     string: (label: string): StringEditorDescriptor => ({ label, type: 'string' }),
     longString: (label: string): StringEditorDescriptor => ({ label, long: true, type: 'string' }),
     number: (label: string): NumberEditorDescriptor => ({ label, type: 'number' }),
-    picklist: (label: string, values: Array<string>): PicklistEditorDescriptor => ({ label, values, type: 'picklist' }),
+    picklist: (label: string, values: Array<string>): PicklistEditorDescriptor => ({ label, values, multiple: false, type: 'picklist' }),
+    multiPicklist: (label: string, values: Array<string>): PicklistEditorDescriptor => ({ label, values, multiple: true, type: 'picklist' }),
     array: (label: string, children: EditorDescriptor, idxStart?: number): ArrayEditorDescriptor => ({ label, children, idxStart, type: 'array' }),
     fixArray: (label: string, children: EditorDescriptor, fix: number, idxStart?: number): ArrayEditorDescriptor => ({ label, children, fix, idxStart, type: 'array' }),
     object: (label: string, children: Record<string, EditorDescriptor>): ObjectEditorDescriptor => ({ label, children, type: 'object' }),
@@ -69,10 +71,13 @@ export const NumberEditor: React.FC<{ desc: NumberEditorDescriptor, value: numbe
     </div>;
 }
 
-export const PicklistEditor: React.FC<{ desc: PicklistEditorDescriptor, value: string | undefined, onChange: (value: string) => unknown }> = ({ desc, value, onChange }) => {
+export const PicklistEditor: React.FC<{ desc: PicklistEditorDescriptor, value: string | string[] | undefined, onChange: (value: string | string[]) => unknown }> = ({ desc, value, onChange }) => {
+    const selectValue = desc.multiple ? (typeof value === 'string' ? [value] : (value ?? [])) : (value ?? '');
     return <div>
         <label>{desc.label}: </label>
-        <select value={value ?? ''} onChange={e => onChange(e.target.value)}>
+        <select multiple={desc.multiple} value={selectValue} onChange={e => {
+            onChange(desc.multiple ? Array.from(e.target.selectedOptions, o => o.value) : e.target.value);
+        }}>
             <option disabled value={''}></option>
             {desc.values.map(v => <option value={v}>{v}</option>)}
         </select>
@@ -104,6 +109,7 @@ export const ArrayEditor: React.FC<{ desc: ArrayEditorDescriptor, value: Array<u
 
 export const ObjectEditor: React.FC<{ desc: ObjectEditorDescriptor, value: Record<string, unknown>, onChange: (value: Record<string, unknown>) => unknown }> = ({ desc, value, onChange }) => {
     const childOnChange = useCallback((key: string, v: unknown) => {
+        console.log('childOnChange', key, v);
         value[key] = v;
         onChange(value);
     }, [value, onChange]);
@@ -130,7 +136,7 @@ export const ChoiceEditor: React.FC<{ desc: ChoiceEditorDescriptor, value: Recor
     return <div style={{ display: 'flex', flexFlow: 'row' }}>
         <div>
             {Object.keys(desc.choices).map(label => <div>
-                <input type='radio' disabled={fixed} value={label} checked={label === selected} onChange={e => setSelected(e.currentTarget.value)} />{label}
+                <input key={label} type='radio' disabled={fixed} value={label} checked={label === selected} onChange={e => setSelected(e.currentTarget.value)} />{label}
             </div>)}
         </div>
         <div>
