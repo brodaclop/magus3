@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
+import { Kasztok } from '../model/Kasztok';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
 import { HarcertekWidget } from './HarcertekWidget';
 import { KepessegWidget } from './KepessegWidget';
@@ -56,7 +57,7 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
         <tbody>
             <tr>
                 <td>
-                    <LifeWidget karakter={karakter} calc={karakterCalc} levelUp={() => setKarakter({ ...Karakter.levelUp(karakter) })} />
+                    <LifeWidget karakter={karakter} calc={karakterCalc} levelUp={kasztId => setKarakter({ ...Karakter.levelUp(karakter, Kasztok.find(kasztId)) })} />
                 </td>
                 <td>
                     <PancelWidget karakter={karakter} calc={karakterCalc} onChange={k => setKarakter({ ...k })} />

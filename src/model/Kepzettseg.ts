@@ -1,4 +1,4 @@
-import { Fegyver, FEGYVER_KATEGORIAK, KOZELHARCI_FEGYVEREK, NYILPUSKA_KATEGORIA } from "./Fegyver";
+import { Fegyver, FEGYVER_KATEGORIAK, NYILPUSKA_KATEGORIA } from "./Fegyver";
 import { SzintInfo } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
