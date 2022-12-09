@@ -1,7 +1,8 @@
-import { FEGYVER_KATEGORIAK, KOZELHARCI_FEGYVEREK } from "./Fegyver";
+import { Fegyver, FEGYVER_KATEGORIAK, KOZELHARCI_FEGYVEREK, NYILPUSKA_KATEGORIA } from "./Fegyver";
 import { SzintInfo } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
+import { Lofegyver } from "./Lofegyver";
 
 export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci' | 'vilagi';
 
@@ -33,8 +34,8 @@ export interface SzazalekosKepzettseg {
 export type Kepzettseg = NormalKepzettseg | SzazalekosKepzettseg;
 
 
-const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FEGYVEREK
-    .filter(f => f.alapFegyver === undefined && f.flags !== 'nagy-pajzs' && f.flags !== 'buckler')
+const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => Fegyver.lista
+    .filter(f => f.flags !== 'nagy-pajzs' && f.flags !== 'buckler')
     .map(f => {
         const linked: Array<KepzettsegLink> = f.kategoria ? [{ id: `fegyverkat:${f.kategoria.id}`, strength: 1 }] : [];
         return {
@@ -57,7 +58,32 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => KOZELHARCI_FE
         }
     });
 
-const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => Object.values(FEGYVER_KATEGORIAK).map(k => ({
+const generateLoFegyverKepzettsegek = (): Array<NormalKepzettseg> => Lofegyver.lista
+    .map(f => {
+        const linked: Array<KepzettsegLink> = f.tipus === 'nyilpuska' ? [{ id: NYILPUSKA_KATEGORIA.id, strength: 1 }] : [];
+        const kepesseg = f.tipus === 'ij' ? 'mozgaskoordinacio' : (f.tipus === 'nyilpuska' ? NYILPUSKA_KATEGORIA.kepesseg : f.kepesseg);
+        return {
+            fajta: 'normal',
+            id: `fegyver:${f.id}`,
+            name: `Fegyver (${f.name})`,
+            tipus: 'fegyver',
+            kepesseg,
+            linked,
+            kp: [1, 3, 10, 25, 40],
+            leiras: 'Egy adott lőfegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, CÉ: -30',
+            szintleiras: [
+                'KÉ: -5, CÉ: -15',
+                'KÉ: 0, CÉ: 0',
+                'KÉ: +2, CÉ: +5',
+                'KÉ: +5, CÉ: +10',
+                'KÉ: +10, CÉ: +20'
+            ],
+            __generated: true
+        }
+    });
+
+
+const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => [...Object.values(FEGYVER_KATEGORIAK), NYILPUSKA_KATEGORIA].map(k => ({
     fajta: 'normal',
     id: `fegyverkat:${k.id}`,
     name: `Fegyverkategória (${k.nev})`,
@@ -148,6 +174,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...taroltKepzettsegek as Array<Kepzettseg>,
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
+    ...generateLoFegyverKepzettsegek(),
     ...generateNyelvKepzettsegek(),
     ...SZAZALEKOS_KEPZETTSEGEK,
 ]

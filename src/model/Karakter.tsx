@@ -6,6 +6,7 @@ import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
 import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
+import { Lofegyver } from "./Lofegyver";
 import { Pancel } from "./Pancel";
 import { PancelBuilder } from "./PancelBuilder";
 
@@ -25,6 +26,7 @@ export interface Karakter {
     hm: number;
     kezek: [KozelharcFegyver?, KozelharcFegyver?];
     pancel?: Pancel;
+    lofegyver?: Lofegyver;
     kp: number;
     szazalek: number;
 }

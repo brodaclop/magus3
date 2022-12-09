@@ -4,8 +4,8 @@ export interface KockaDobas {
     darab: number;
     kocka: number;
     plusz: number;
-    eldobNagy: number;
-    eldobKicsi: number;
+    eldobNagy?: number;
+    eldobKicsi?: number;
 }
 
 export interface DobasEredmeny {
@@ -37,10 +37,10 @@ export const kockaDobas = (d: Partial<KockaDobas>): DobasEredmeny => {
     };
     const dobasok = kockak(dobas.darab, dobas.kocka);
     const eldobando: Array<number> = [];
-    if (dobas.eldobNagy > 0) {
+    if ((dobas.eldobNagy ?? 0) > 0) {
         eldobando.push(...[...dobasok].sort((a, b) => b - a).slice(0, dobas.eldobNagy));
     }
-    if (dobas.eldobKicsi > 0) {
+    if ((dobas.eldobKicsi ?? 0) > 0) {
         eldobando.push(...[...dobasok].sort((a, b) => a - b).slice(0, dobas.eldobKicsi));
     }
     const eldobottak: Array<number> = [];

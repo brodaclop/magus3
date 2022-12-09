@@ -1,6 +1,7 @@
 import { Harcertek } from "./Harcertek";
 import { SzintInfo } from "./Karakter";
 import { KockaDobas, parseKocka } from "./Kocka";
+import { Lofegyver } from "./Lofegyver";
 import { NamedEntity, namedEntityArray } from "./util";
 
 export type SebzesTipus = 'szuro' | 'vago' | 'zuzo';
@@ -10,7 +11,7 @@ export const SEBZESTIPUS_LABEL: Record<SebzesTipus, string> = {
     vago: 'Vágó',
     zuzo: 'Zúzó'
 };
-export type Sebesseg = 'gyors' | 'atlagos' | 'lassu' | '3' | '4' | '5';
+export type FegyverSebesseg = 'gyors' | 'atlagos' | 'lassu' | '3' | '4' | '5';
 
 export interface FegyverKategoria {
     id: string;
@@ -20,7 +21,7 @@ export interface FegyverKategoria {
 }
 
 export interface FegyverBase extends NamedEntity {
-    sebesseg: Sebesseg;
+    sebesseg: FegyverSebesseg;
     sebzes: KockaDobas;
     sebzestipus: SebzesTipus | Array<SebzesTipus>;
     alapFegyver?: string;
@@ -51,6 +52,12 @@ export type KozelharcFegyver = (Kategorizalt | NemKategorizalt) & FegyverBase & 
 
 export const getFegyver = (nev: string): KozelharcFegyver => KOZELHARCI_FEGYVEREK.find(f => f.name === nev) as KozelharcFegyver;
 
+export const NYILPUSKA_KATEGORIA: FegyverKategoria = {
+    id: 'nyilpuska',
+    nev: 'Nyílpuska',
+    erobonusz: 0,
+    kepesseg: 'erzekeles'
+};
 
 export const FEGYVER_KATEGORIAK: Record<string, FegyverKategoria> = {
     szalfegyver: {
@@ -914,15 +921,13 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
     },
 ];
 
-console.log('FEGYVEREK', JSON.stringify(KOZELHARCI_FEGYVEREK));
-
 export const Fegyver = {
     ...namedEntityArray(KOZELHARCI_FEGYVEREK),
-    kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver, minusz = 0): Harcertek => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.id}`);
+    kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver | Lofegyver, minusz = 0): [Harcertek, number] => {
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.alapFegyver ?? fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);
-        return FEGYVER_KEPZETTSEG_HARCERTEKEK[Math.max(fok - minusz, 0)];
+        return [FEGYVER_KEPZETTSEG_HARCERTEKEK[Math.max(fok - minusz, 0)], fok];
     }
 }

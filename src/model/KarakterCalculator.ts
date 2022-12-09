@@ -4,6 +4,7 @@ import { Harcertek } from "./Harcertek";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Karakter, SzintInfo } from "./Karakter";
 import { KockaDobas } from "./Kocka";
+import { Lofegyver } from "./Lofegyver";
 import { mergeToArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
@@ -23,6 +24,12 @@ export interface KarakterCalcResult {
         ke: CalculationArgument,
         ve: CalculationArgument,
         kezek: [CalcFegyver?, CalcFegyver?]
+    },
+    lofegyverrel?: {
+        ke: CalculationArgument,
+        ce: CalculationArgument,
+        sebzes: KockaDobas,
+        lotav: number,
     },
     kepzettsegek: SzintInfo['kepzettsegek'],
     sfe: Record<SebzesTipus, number>;
@@ -115,11 +122,10 @@ export const KarakterCalculator = {
                 }
                 const kepzettseg = (idx === 1 && harcmodorHatasok.kez1pont2)
                     ? FEGYVER_KEPZETTSEG_HARCERTEKEK[2]
-                    : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz);
+                    : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz)[0];
                 const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke));
                 const te = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
                 const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.name, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve));
-                //TODO: erobonusz
 
                 const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
                 const erobonusz = erobonuszHatar === 0 ? 0 : Math.max(0, pillKep.izom - erobonuszHatar);
@@ -132,6 +138,21 @@ export const KarakterCalculator = {
             }
         };
 
+        const lofegyverCalc = (): KarakterCalcResult['lofegyverrel'] | undefined => {
+            if (!karakter.lofegyver) {
+                return;
+            }
+            const fegyver = karakter.lofegyver;
+            const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, karakter.lofegyver, 0);
+            const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke));
+            const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce));
+            const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
+            const lotav = fegyver.tipus !== 'ij' ? fegyver.lotav : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).lotav;
+            return {
+                ke, ce, sebzes, lotav
+            }
+        }
+
         return {
             kepessegek,
             fp: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp)),
@@ -139,6 +160,7 @@ export const KarakterCalculator = {
             harcertek,
             harcmodor,
             fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)], harcmodorHatasok),
+            lofegyverrel: lofegyverCalc(),
             kepzettsegek: {
                 normal: normalKepzettsegek,
                 szazalekos: szazalekosKepzettsegek,
