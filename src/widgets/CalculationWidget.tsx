@@ -27,7 +27,7 @@ const printOperation = (op: CalculationOperation) => {
 }
 
 export const CalculationWidget: React.FC<{ calculation: CalculationArgument, children?: React.ReactNode }> = ({ calculation, children }) => {
-    return <Tooltip placement='right' overlay={printArgument(calculation)}>
+    return <Tooltip placement='top' overlay={printArgument(calculation)}>
         <span>{children ?? Calculation.calculate(calculation)}</span>
     </Tooltip>;
 }

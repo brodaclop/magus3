@@ -149,6 +149,16 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 </tr>
             </tbody>
             <tbody>
+                {calc.kepzettsegek.normal.map(k => <tr>
+                    <td>
+                        <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
+                    </td>
+                    <td>
+                        {k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
+                    </td>
+                </tr>)}
+            </tbody>
+            <tbody>
                 {calc.kepzettsegek.szazalekos.map(k => <tr>
                     <td>
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
@@ -158,14 +168,6 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                     </td>
                 </tr>)}
 
-                {calc.kepzettsegek.normal.map(k => <tr>
-                    <td>
-                        <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
-                    </td>
-                    <td>
-                        {k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
-                    </td>
-                </tr>)}
             </tbody>
         </table>
     </div>;

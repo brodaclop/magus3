@@ -42,12 +42,14 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
     }
 
     const HmLine: React.FC<{ line: keyof Harcertek }> = ({ line }) => <tr>
-        <th style={{ border: '1px solid black' }}>{HARCERTEKEK[line]}</th>
-        <td style={{ border: '1px solid black' }}>
+        <th>{HARCERTEKEK[line]}</th>
+        <td>
             <button onClick={() => minusz(line)}>-</button>
         </td>
-        <td style={{ border: '1px solid black' }}>
-            <CalculationWidget calculation={karakterCalc.harcertek[line]}>{Calculation.calculate(karakterCalc.harcertek[line]) + elosztott[line]}</CalculationWidget>
+        <td>
+            <div style={{ marginLeft: '0.5em', marginRight: '0.5em' }}>
+                <CalculationWidget calculation={karakterCalc.harcertek[line]}>{Calculation.calculate(karakterCalc.harcertek[line]) + elosztott[line]}</CalculationWidget>
+            </div>
         </td>
         <td style={{ border: '1px solid black' }}>
             <button onClick={() => plusz(line)}>+</button>

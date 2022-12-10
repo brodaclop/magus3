@@ -124,7 +124,7 @@ export const Karakter = {
                     fp: template.kaszt.fpAlap,
                     kepzettsegek: {
                         normal: [],
-                        szazalekos: []
+                        szazalekos: Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => ({ kepzettseg: k as SzazalekosKepzettseg, szazalek: 0 }))
                     },
                     pendingKepzettsegek: [],
                 }
