@@ -21,6 +21,14 @@ export const KarakterTemplateWdiget: React.FC<{
         setTemplate({ ...t });
     }
 
+    const onNameChange = (name: string): void => {
+        setTemplate({ ...template, name });
+        if (karakter) {
+            setKarakter({ ...karakter, name });
+        }
+    }
+
+
     const karakterDob = () => {
         const r = Kasztok.kidob(template.kaszt);
         template.kepessegKategoriak = {
@@ -42,7 +50,7 @@ export const KarakterTemplateWdiget: React.FC<{
                     <tr>
                         <th>Név</th>
                         <td colSpan={2}>
-                            <input type='text' value={template.name} onChange={e => onFieldChange({ ...template, name: e.target.value })} />
+                            <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
                         </td>
                     </tr>
                     <tr>

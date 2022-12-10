@@ -20,6 +20,8 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
     const [maradekHm, setMaradekHm] = useState<number>(0);
     const [elosztott, setElosztott] = useState<Harcertek>({ ke: 0, te: 0, ve: 0, ce: 0, sebzes: 0 });
 
+    const sumElosztott = useMemo(() => elosztott.ke + elosztott.te + elosztott.ve + elosztott.ce, [elosztott]);
+
     useEffect(() => {
         setMaradekHm(karakter.hm);
         setElosztott({ ke: 0, te: 0, ve: 0, ce: 0, sebzes: 0 });
@@ -53,16 +55,18 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
     </tr >;
 
 
-    return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
+    return <table className='bordered'>
         <thead>
-            <tr>
-                <th colSpan={3}>
-                    HM
-                </th>
-                <th>
-                    {maradekHm}
-                </th>
-            </tr>
+            {maradekHm + sumElosztott > 0 &&
+                <tr style={{ backgroundColor: 'lightpink' }}>
+                    <th>
+                        HM
+                    </th>
+                    <th colSpan={3}>
+                        {maradekHm}
+                    </th>
+                </tr>
+            }
         </thead>
         <tbody>
             <HmLine line='ke' />

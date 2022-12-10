@@ -19,7 +19,7 @@ export const formatSebzesTipus = (t: SebzesTipus | Array<SebzesTipus>): string =
 export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
     const harcmodorKepzettseg = calc.harcmodor && Kepzettseg.find(`harcmodor:${calc.harcmodor?.id}`);
     const harcmodorFok = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === harcmodorKepzettseg?.id)?.fok ?? 0;
-    return <table style={{ border: '3px solid black', borderCollapse: 'collapse', textAlign: 'center' }}>
+    return <table className='bordered' style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
         <thead>
             <tr>
                 <th colSpan={5}>Harc</th>
@@ -27,8 +27,8 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
         </thead>
         <tbody>
             <tr>
-                <th style={{ border: '1px solid black', width: '20%' }}>&nbsp;</th>
-                <td style={{ border: '1px solid black', width: '40%' }}>
+                <th>&nbsp;</th>
+                <td>
                     <FegyverSelection
                         fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 0, f))}
                         emptyEnabled={false}
@@ -38,7 +38,7 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                             onChange(karakter);
                         }} />
                 </td>
-                <td style={{ border: '1px solid black', width: '40%' }}>
+                <td>
                     <FegyverSelection
                         fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 1, f))}
                         emptyEnabled={Karakter.megfoghato(karakter, 1, undefined)}
@@ -48,7 +48,7 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                             onChange(karakter);
                         }} />
                 </td>
-                <td style={{ border: '1px solid black', width: '40%' }} colSpan={2}>
+                <td colSpan={2}>
                     <select value={karakter.lofegyver?.id ?? ''} onChange={e => {
                         karakter.lofegyver = e.target.value === '' ? undefined : Lofegyver.find(e.target.value);
                         onChange(karakter);
@@ -60,58 +60,58 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             </tr>
             <tr>
                 <th>KÉ</th>
-                <td style={{ border: '1px solid black', textAlign: 'center' }} colSpan={2}>
+                <td style={{ textAlign: 'center' }} colSpan={2}>
                     <CalculationWidget calculation={calc.fegyverrel.ke} />
                 </td>
                 <th>KÉ</th>
-                <td style={{ border: '1px solid black', textAlign: 'center' }}>
+                <td style={{ textAlign: 'center' }}>
                     {calc.lofegyverrel ? <CalculationWidget calculation={calc.lofegyverrel.ke} /> : '-'}
                 </td>
             </tr>
             <tr>
                 <th>TÉ</th>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.fegyverrel.kezek[0] && <CalculationWidget calculation={calc.fegyverrel.kezek[0].te} />}
 
                 </td>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.fegyverrel.kezek[1] && <CalculationWidget calculation={calc.fegyverrel.kezek[1].te} />}
                 </td>
                 <th>CÉ</th>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.lofegyverrel && <CalculationWidget calculation={calc.lofegyverrel.ce} />}
                 </td>
             </tr>
             <tr>
                 <th>Sebzés</th>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.fegyverrel.kezek[0] && <>{printKocka(calc.fegyverrel.kezek[0].sebzes)} {formatSebzesTipus(karakter.kezek[0]?.sebzestipus ?? [])}</>}
                 </td>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.fegyverrel.kezek[1] && <>{printKocka(calc.fegyverrel.kezek[1].sebzes)} {formatSebzesTipus(karakter.kezek[1]?.sebzestipus ?? [])}</>}
                 </td>
                 <th>Sebzés</th>
-                <td style={{ border: '1px solid black' }}>
+                <td>
                     {calc.lofegyverrel && <>{printKocka(calc.lofegyverrel.sebzes)} {formatSebzesTipus(karakter.lofegyver?.sebzestipus ?? [])}</>}
                 </td>
             </tr>
-            <tr style={{ textAlign: 'center' }}>
+            <tr>
                 <th>VÉ</th>
-                <td style={{ border: '1px solid black' }} colSpan={2}>
+                <td style={{ textAlign: 'center' }} colSpan={2}>
                     <CalculationWidget calculation={calc.fegyverrel.ve}>{Calculation.calculate(calc.fegyverrel.ve)}</CalculationWidget>
                 </td>
                 <th>Lőtáv</th>
                 <td>{calc.lofegyverrel?.lotav ?? '-'}</td>
             </tr>
-            <tr style={{ textAlign: 'center' }}>
+            <tr>
                 <th>MGT</th>
-                <td style={{ border: '1px solid black' }} colSpan={2}>
+                <td style={{ textAlign: 'center' }} colSpan={2}>
                     <CalculationWidget calculation={calc.mgt} />
                 </td>
             </tr>
-            {harcmodorKepzettseg && <tr style={{ textAlign: 'center' }}>
+            {harcmodorKepzettseg && <tr>
                 <th>Harcmodor</th>
-                <td style={{ border: '1px solid black' }} colSpan={2}>
+                <td style={{ textAlign: 'center' }} colSpan={2}>
                     <KepzettsegLeiras kepzettseg={harcmodorKepzettseg} fok={harcmodorFok} />
                 </td>
             </tr>}

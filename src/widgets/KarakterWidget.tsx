@@ -56,28 +56,30 @@ export const KarakterWidget: React.FC<{
         commit();
     }
 
-    return <table style={{ borderCollapse: 'collapse' }}>
-        <tbody>
-            <tr>
-                <td>
-                    <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
-                </td>
-                <td>
-                    <PancelWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
-                </td>
-                <td>
-                    <HarcertekWidget karakter={karakter} setKarakter={commit} />
-                </td>
-            </tr>
-            <tr>
-                <td colSpan={2}>
-                    <KepessegWidget kategoriak={karakter.kepessegKategoriak} eloszt={eloszt} minusz={minusz} plusz={plusz} karakterCalc={karakterCalc} />
-                </td>
-                <td>
-                    <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-                    <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-                </td>
-            </tr>
-        </tbody>
-    </table>;
+    const lezar = () => {
+        karakter.elosztva = true;
+        commit();
+    }
+
+    return <div className='karakterLap'>
+        <div>
+            <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
+        </div>
+        <div>
+            <PancelWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
+        </div>
+        <div>
+            <HarcertekWidget karakter={karakter} setKarakter={commit} />
+        </div>
+        <div>
+            <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} />
+        </div>
+        <div>
+            <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+        </div>
+        <div className='fullWidth'>
+            <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+        </div>
+    </div>
+
 }

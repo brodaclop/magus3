@@ -32,6 +32,7 @@ export interface Karakter extends NamedEntity {
     lofegyver?: Lofegyver;
     kp: number;
     kepessegKategoriak: Record<KepessegKategoria, number>;
+    elosztva?: boolean;
     szazalek: number;
 }
 

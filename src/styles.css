@@ -1,0 +1,57 @@
+table.bordered {
+    border: 3px solid black;
+    border-collapse: collapse;
+    margin: 0.5em;
+}
+
+table.bordered td {
+    /*   border: 1px solid black; */
+}
+
+table.bordered tbody:not(.unstriped) tr:nth-child(odd) {
+    background-color: #d3d8db;
+}
+
+table.bordered tbody+tbody {
+    border-top: 2px solid black;
+}
+
+table.bordered thead {
+    text-align: center;
+}
+
+table.bordered tbody th {
+    text-align: left;
+    border-right: 1px solid black;
+}
+
+button.fullWidth {
+    width: 100%
+}
+
+div.karakterLap {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50em;
+    justify-content: space-between;
+    padding: 1em;
+    border: 5px groove lightgray;
+}
+
+div.karakterLap>div {
+    flex-basis: content;
+}
+
+div.karakterLap>div.fullWidth {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+ul.simpleList {
+    margin: 0;
+    padding: 0;
+}
+
+ul.simpleList li {
+    list-style-type: none;
+}

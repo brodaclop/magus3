@@ -7,7 +7,7 @@ import { PancelBuilderWidget } from './PancelBuilderWidget';
 
 export const PancelWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (k: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
 
-    return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
+    return <table className='bordered'>
         <thead>
             <tr>
                 <th>

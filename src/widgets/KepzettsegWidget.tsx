@@ -89,60 +89,84 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
         }
     }
 
-    return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
-        <thead>
-            <tr>
-                <th>Képzettségek</th>
-            </tr>
-        </thead>
-        <tbody>
-            {calc.pendingKepzettsegekCount > 0 && <tr>
-                <th>Választható képzettségek</th>
-            </tr>}
-            {karakter.szint.map((sz, szintIdx) => <>
-                {sz.pendingKepzettsegek.length > 0 && <tr>
-                    <th>{szintIdx}. szint: {sz.kaszt.name}</th>
-                </tr>}
-                {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
-                    <td>{pk.name ?? Kepzettseg.find(pk.kepzettsegId).name} {pk.fok}. fok:
-                        <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
-                            sz.pendingKepzettsegek.splice(pkIdx, 1);
-                            sz.kepzettsegek.normal.push({
-                                kepzettseg,
-                                fok: pk.fok,
-                                kp: 0
-                            });
-                            onChange(karakter);
-                        }} />
+    return <div>
+        {calc.pendingKepzettsegekCount > 0 && <table className='bordered'>
+            <thead>
+                <tr>
+                    <th>Választható képzettségek</th>
+                </tr>
+                <tbody>
+                    {karakter.szint.map((sz, szintIdx) => <>
+                        {sz.pendingKepzettsegek.length > 0 && <tr>
+                            <th>{szintIdx}. szint: {sz.kaszt.name}</th>
+                        </tr>}
+                        {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
+                            <td>{pk.name ?? Kepzettseg.find(pk.kepzettsegId).name} {pk.fok}. fok:
+                                <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
+                                    sz.pendingKepzettsegek.splice(pkIdx, 1);
+                                    sz.kepzettsegek.normal.push({
+                                        kepzettseg,
+                                        fok: pk.fok,
+                                        kp: 0
+                                    });
+                                    onChange(karakter);
+                                }} />
+                            </td>
+                        </tr>)}
+                    </>)}
+                </tbody>
+
+            </thead>
+        </table>}
+        <table className='bordered'>
+            <thead>
+                <tr>
+                    <th>Képzettségek</th>
+                </tr>
+            </thead>
+            <tbody className='unstriped'>
+                <tr>
+                    <th>
+                        KP
+                    </th>
+                    <td>
+                        {karakter.kp}
                     </td>
-                </tr>)}
-            </>)};
-            <tr>
-                <td>
-                    KP: {karakter.kp} <select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
+                </tr>
+                <tr>
+                    <th>%</th>
+                    <td>
+                        {karakter.szazalek}
+                    </td>
+                </tr>
+                <tr>
+                    <td><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
                         {!ujkepzettseg && <option value=''></option>}
                         {Kepzettseg.lista.map(k => <option value={k.id}>{k.name}</option>)}
                     </select>
-                    <button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={pluszKP}>+1 KP</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>%: {karakter.szazalek}</p>
-                </td>
-            </tr>
-            {calc.kepzettsegek.szazalekos.map(k => <tr>
-                <td style={{ border: '1px solid black' }}>
-                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
-                    <button disabled={karakter.szazalek < 1 || previousSzazalekos(k.kepzettseg) === 'max'} onClick={() => pluszSzazalek(k.kepzettseg)}>+</button>
-                </td>
-            </tr>)}
+                    </td>
+                    <td><button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={pluszKP}>+1 KP</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                {calc.kepzettsegek.szazalekos.map(k => <tr>
+                    <td>
+                        <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
+                    </td>
+                    <td>
+                        <button disabled={karakter.szazalek < 1 || previousSzazalekos(k.kepzettseg) === 'max'} onClick={() => pluszSzazalek(k.kepzettseg)}>+</button>
+                    </td>
+                </tr>)}
 
-            {calc.kepzettsegek.normal.map(k => <tr>
-                <td style={{ border: '1px solid black' }}>
-                    <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} /> ({k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp)
-                </td>
-            </tr>)}
-        </tbody>
-    </table>;
+                {calc.kepzettsegek.normal.map(k => <tr>
+                    <td>
+                        <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
+                    </td>
+                    <td>
+                        {k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
+                    </td>
+                </tr>)}
+            </tbody>
+        </table>
+    </div>;
 }

@@ -16,7 +16,7 @@ export const LifeWidget: React.FC<{
 
     const kasztok = Karakter.szintek(karakter);
 
-    return <table style={{ border: '3px solid black', borderCollapse: 'collapse' }}>
+    return <table className='bordered'>
         <tbody>
             <tr>
                 <th>Név</th>
@@ -29,7 +29,7 @@ export const LifeWidget: React.FC<{
             <tr>
                 <th>Szint</th>
                 <td>
-                    <ul style={{ margin: 0 }}>
+                    <ul className='simpleList'>
                         {Object.entries(kasztok).map(([kasztId, kaszt]) => <li>
                             {kaszt.name}: {kaszt.szint}
                             <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0} onClick={() => levelUp(kasztId)}>+</button>
@@ -56,7 +56,7 @@ export const LifeWidget: React.FC<{
                 <td><CalculationWidget calculation={calc.fp}>{Calculation.calculate(calc.fp)}</CalculationWidget></td>
             </tr>
             <tr>
-                <td colSpan={2}><button onClick={deleteKarakter}>Töröl</button></td>
+                <td colSpan={2}><button className='fullWidth' onClick={deleteKarakter}>Töröl</button></td>
             </tr>
         </tbody>
     </table>;
