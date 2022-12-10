@@ -109,7 +109,6 @@ export const ArrayEditor: React.FC<{ desc: ArrayEditorDescriptor, value: Array<u
 
 export const ObjectEditor: React.FC<{ desc: ObjectEditorDescriptor, value: Record<string, unknown>, onChange: (value: Record<string, unknown>) => unknown }> = ({ desc, value, onChange }) => {
     const childOnChange = useCallback((key: string, v: unknown) => {
-        console.log('childOnChange', key, v);
         value[key] = v;
         onChange(value);
     }, [value, onChange]);

@@ -6,6 +6,7 @@ export interface Harcertek {
     sebzes: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Harcertek = {
     add: (...terms: Array<Partial<Harcertek> | undefined>): Harcertek => terms.reduce<Harcertek>(
         (acc, curr) => {

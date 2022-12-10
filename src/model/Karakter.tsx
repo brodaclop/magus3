@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import { Faj, Fajok } from "./Fajok";
 import { KozelharcFegyver, KOZELHARCI_FEGYVEREK } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
@@ -9,8 +10,10 @@ import { kockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
 import { Pancel } from "./Pancel";
 import { PancelBuilder } from "./PancelBuilder";
+import { NamedEntity } from "./util";
 
 export interface KarakterTemplate {
+    name: string,
     faj: Faj,
     kaszt: KasztInfo,
     szint: number,
@@ -18,7 +21,7 @@ export interface KarakterTemplate {
 }
 
 
-export interface Karakter {
+export interface Karakter extends NamedEntity {
     readonly faj: Faj;
     szint: Array<SzintInfo>;
     kepessegek: Record<string, number>;
@@ -28,6 +31,7 @@ export interface Karakter {
     pancel?: Pancel;
     lofegyver?: Lofegyver;
     kp: number;
+    kepessegKategoriak: Record<KepessegKategoria, number>;
     szazalek: number;
 }
 
@@ -105,10 +109,13 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Karakter = {
-    createTemplate: (options?: { faj?: Faj, kaszt?: KasztInfo }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0], szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 } }),
+    createTemplate: (options?: { faj?: Faj, kaszt?: KasztInfo, name: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0], szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '' }),
     create: (template: KarakterTemplate): Karakter => {
         const ret: Karakter = {
+            id: v4(),
+            name: template.name,
             faj: template.faj,
+            kepessegKategoriak: template.kepessegKategoriak,
             szint: [
                 {
                     kaszt: template.kaszt,
@@ -161,5 +168,12 @@ export const Karakter = {
         }
         return false;
     },
+    szintek: (karakter: Karakter): Record<string, { name: string, szint: number }> => karakter.szint.slice(1).reduce((acc, curr) => {
+        if (!acc[curr.kaszt.id]) {
+            acc[curr.kaszt.id] = { name: curr.kaszt.name, szint: 0 };
+        }
+        acc[curr.kaszt.id].szint++;
+        return acc;
+    }, {} as Record<string, { name: string, szint: number }>),
     levelUp
 }

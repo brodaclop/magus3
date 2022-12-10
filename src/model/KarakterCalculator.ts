@@ -44,7 +44,6 @@ const szintCalc = (karakter: Karakter, fn: (szint: SzintInfo) => number): Array<
 
 export const KarakterCalculator = {
     calc: (karakter: Karakter): KarakterCalcResult => {
-        console.log('Karakter:', karakter);
         const kepessegek = transformRecord(karakter.kepessegek, (k, v) => v + (karakter.faj.kepessegek[k] ?? 0));
 
         const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
@@ -58,7 +57,6 @@ export const KarakterCalculator = {
                 if (previous === undefined) {
                     acc.push(structuredClone(kepz));
                 } else {
-                    console.log('osszead', kepz.kepzettseg.name, previous.szazalek, kepz.szazalek);
                     previous.szazalek += kepz.szazalek;
                 }
             });

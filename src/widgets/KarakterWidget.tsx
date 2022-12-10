@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Karakter, KarakterTemplate } from '../model/Karakter';
+import { Karakter } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
@@ -10,19 +10,22 @@ import { KombatWidget } from './KombatWidget';
 import { LifeWidget } from './LifeWidget';
 import { PancelWidget } from './PancelWidget';
 
-export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Karakter) => unknown, template: KarakterTemplate, setTemplate: (t: KarakterTemplate) => unknown }> = ({ karakter, setKarakter, template, setTemplate }) => {
+export const KarakterWidget: React.FC<{
+    karakter: Karakter,
+    setKarakter: (k: Karakter) => unknown,
+    deleteKarakter: () => unknown
+}> = ({ karakter, setKarakter, deleteKarakter }) => {
     const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
 
-    const commit = () => {
-        setKarakter({ ...karakter });
-        setTemplate({ ...template });
+    const commit = (k?: Karakter) => {
+        setKarakter(k ? { ...k } : { ...karakter });
     }
 
     const plusz = (k: Kepesseg, shouldCommit = true): boolean => {
         const kategoria = k.kategoria;
-        if (template.kepessegKategoriak[kategoria] > 0 && karakter.kepessegek[k.id] < 20) {
+        if (karakter.kepessegKategoriak[kategoria] > 0 && karakter.kepessegek[k.id] < 20) {
             karakter.kepessegek[k.id]++;
-            template.kepessegKategoriak[kategoria]--;
+            karakter.kepessegKategoriak[kategoria]--;
             if (shouldCommit) {
                 commit();
             }
@@ -35,7 +38,7 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
         const kategoria = k.kategoria;
         if (karakter.kepessegek[k.id] > 0) {
             karakter.kepessegek[k.id]--;
-            template.kepessegKategoriak[kategoria]++;
+            karakter.kepessegKategoriak[kategoria]++;
             if (shouldCommit) {
                 commit();
             }
@@ -57,22 +60,22 @@ export const KarakterWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Kar
         <tbody>
             <tr>
                 <td>
-                    <LifeWidget karakter={karakter} calc={karakterCalc} levelUp={kasztId => setKarakter({ ...Karakter.levelUp(karakter, Kasztok.find(kasztId)) })} />
+                    <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
                 </td>
                 <td>
-                    <PancelWidget karakter={karakter} calc={karakterCalc} onChange={k => setKarakter({ ...k })} />
+                    <PancelWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
                 </td>
                 <td>
-                    <HarcertekWidget karakter={karakter} setKarakter={k => setKarakter({ ...k })} />
+                    <HarcertekWidget karakter={karakter} setKarakter={commit} />
                 </td>
             </tr>
             <tr>
                 <td colSpan={2}>
-                    <KepessegWidget kategoriak={template.kepessegKategoriak} eloszt={eloszt} minusz={minusz} plusz={plusz} karakterCalc={karakterCalc} />
+                    <KepessegWidget kategoriak={karakter.kepessegKategoriak} eloszt={eloszt} minusz={minusz} plusz={plusz} karakterCalc={karakterCalc} />
                 </td>
                 <td>
-                    <KombatWidget calc={karakterCalc} karakter={karakter} onChange={k => setKarakter({ ...k })} />
-                    <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={k => setKarakter({ ...k })} />
+                    <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                    <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
                 </td>
             </tr>
         </tbody>
