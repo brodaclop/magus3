@@ -118,39 +118,7 @@ export const Karakter = {
             name: template.name,
             faj: template.faj,
             kepessegKategoriak: template.kepessegKategoriak,
-            inventory: [
-                {
-                    tipus: 'fegyver',
-                    id: v4(),
-                    quantity: 1,
-                    ob: Fegyver.find('kard_rovid')
-                },
-                {
-                    tipus: 'lofegyver',
-                    id: v4(),
-                    quantity: 1,
-                    ob: Lofegyver.find('nyilpuska_kezi')
-                },
-                {
-                    tipus: 'lofegyver',
-                    id: v4(),
-                    quantity: 1,
-                    ob: {
-                        tipus: 'ij',
-                        id: 'xij',
-                        name: 'Visszacsapó íj',
-                        kepesseg: 'mozgaskoordinacio',
-                        ke: 5,
-                        ce: 8,
-                        minimumEro: 10,
-                        maximumEro: 25,
-                        alternativKepzettseg: 'ij',
-                        sebesseg: 'atlagos',
-                        eroPlusz: 0,
-                        sebzestipus: 'szuro'
-                    }
-                },
-            ],
+            inventory: [],
             szint: [
                 {
                     kaszt: template.kaszt,
