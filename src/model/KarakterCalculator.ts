@@ -63,12 +63,12 @@ export const KarakterCalculator = {
             return acc;
         }, [] as SzintInfo['kepzettsegek']['szazalekos']);
 
-        const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(karakter.kezek));
+        const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(karakter.kezek.map(k => k?.ob) as any));
         const harcmodorKepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `harcmodor:${harcmodor?.id}`);
         const harcmodorHatasok = convertHarcmodorEffect(harcmodor?.szintek[harcmodorKepzettseg?.fok ?? 0] ?? []);
 
-        const pancelMgt = karakter.pancel?.mgt ?? 0;
-        const pajzsMgt = karakter.kezek[1]?.mgt ?? 0;
+        const pancelMgt = karakter.pancel?.ob.mgt ?? 0;
+        const pajzsMgt = karakter.kezek[1]?.ob.mgt ?? 0;
         const vertviselet = normalKepzettsegek.find(k => k.kepzettseg.id === 'vertviselet')?.fok ?? 0;
         const mgtCalc: Array<CalculationValue> = [];
         if (pancelMgt) {
@@ -104,7 +104,7 @@ export const KarakterCalculator = {
         };
 
         const fegyverCalc = (idx: 0 | 1): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
-            const fegyver = karakter.kezek[idx];
+            const fegyver = karakter.kezek[idx]?.ob;
             if (!fegyver) {
                 return undefined;
             } else {
@@ -137,11 +137,11 @@ export const KarakterCalculator = {
         };
 
         const lofegyverCalc = (): KarakterCalcResult['lofegyverrel'] | undefined => {
-            if (!karakter.lofegyver) {
+            if (!karakter.lofegyver?.ob) {
                 return;
             }
-            const fegyver = karakter.lofegyver;
-            const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, karakter.lofegyver, 0);
+            const fegyver = karakter.lofegyver.ob;
+            const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, fegyver, 0);
             const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke));
             const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce));
             const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
@@ -163,7 +163,7 @@ export const KarakterCalculator = {
                 normal: normalKepzettsegek,
                 szazalekos: szazalekosKepzettsegek,
             },
-            sfe: karakter.pancel?.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
+            sfe: karakter.pancel?.ob.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
             mgt,
             pillanatnyiKepessegek,
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Calculation } from '../model/Calculation';
-import { KOZELHARCI_FEGYVEREK, SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
+import { SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
+import { InventoryLofegyver } from '../model/Inventory';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { printKocka } from '../model/Kocka';
-import { Lofegyver } from '../model/Lofegyver';
 import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
+import { InventorySelector } from './InventorySelector';
 import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
@@ -30,32 +31,28 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <th>&nbsp;</th>
                 <td>
                     <FegyverSelection
-                        fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 0, f))}
-                        emptyEnabled={false}
-                        current={karakter.kezek[0]}
-                        onChange={f => {
-                            karakter.kezek[0] = f;
-                            onChange(karakter);
-                        }} />
+                        karakter={karakter}
+                        kez={0}
+                        onChange={onChange} />
                 </td>
                 <td>
                     <FegyverSelection
-                        fegyverek={KOZELHARCI_FEGYVEREK.filter(f => Karakter.megfoghato(karakter, 1, f))}
-                        emptyEnabled={Karakter.megfoghato(karakter, 1, undefined)}
-                        current={karakter.kezek[1]}
-                        onChange={f => {
-                            karakter.kezek[1] = f;
-                            onChange(karakter);
-                        }} />
+                        karakter={karakter}
+                        kez={1}
+                        onChange={onChange} />
                 </td>
                 <td colSpan={2}>
-                    <select value={karakter.lofegyver?.id ?? ''} onChange={e => {
-                        karakter.lofegyver = e.target.value === '' ? undefined : Lofegyver.find(e.target.value);
-                        onChange(karakter);
-                    }}>
-                        <option value=''>Lőfegyver nélkül</option>
-                        {Lofegyver.lista.map(l => <option value={l.id}>{l.name}</option>)}
-                    </select>
+                    <InventorySelector
+                        karakter={karakter}
+                        tipus='lofegyver'
+                        value={karakter.lofegyver}
+                        canBeEmpty
+                        emptyName='Lőfegyver nélkül'
+                        onChange={i => {
+                            karakter.lofegyver = i as InventoryLofegyver;
+                            onChange(karakter);
+                        }}
+                    />
                 </td>
             </tr>
             <tr>
@@ -85,14 +82,14 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             <tr>
                 <th>Sebzés</th>
                 <td>
-                    {calc.fegyverrel.kezek[0] && <>{printKocka(calc.fegyverrel.kezek[0].sebzes)} {formatSebzesTipus(karakter.kezek[0]?.sebzestipus ?? [])}</>}
+                    {calc.fegyverrel.kezek[0] && <>{printKocka(calc.fegyverrel.kezek[0].sebzes)} {formatSebzesTipus(karakter.kezek[0]?.ob.sebzestipus ?? [])}</>}
                 </td>
                 <td>
-                    {calc.fegyverrel.kezek[1] && <>{printKocka(calc.fegyverrel.kezek[1].sebzes)} {formatSebzesTipus(karakter.kezek[1]?.sebzestipus ?? [])}</>}
+                    {calc.fegyverrel.kezek[1] && <>{printKocka(calc.fegyverrel.kezek[1].sebzes)} {formatSebzesTipus(karakter.kezek[1]?.ob.sebzestipus ?? [])}</>}
                 </td>
                 <th>Sebzés</th>
                 <td>
-                    {calc.lofegyverrel && <>{printKocka(calc.lofegyverrel.sebzes)} {formatSebzesTipus(karakter.lofegyver?.sebzestipus ?? [])}</>}
+                    {calc.lofegyverrel && <>{printKocka(calc.lofegyverrel.sebzes)} {formatSebzesTipus(karakter.lofegyver?.ob.sebzestipus ?? [])}</>}
                 </td>
             </tr>
             <tr>

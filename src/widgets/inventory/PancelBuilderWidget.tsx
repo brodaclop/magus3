@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import { Karakter } from '../model/Karakter';
-import { PancelBlokk, PancelBuilder } from '../model/PancelBuilder';
+import { v4 } from 'uuid';
+import { Inventory } from '../../model/Inventory';
+import { Karakter } from '../../model/Karakter';
+import { PancelBlokk, PancelBuilder } from '../../model/PancelBuilder';
 
 export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter) => unknown }> = ({ karakter, onChange }) => {
     const [open, setOpen] = useState(false);
 
+    const [name, setName] = useState('');
     const [alap, setAlap] = useState<number>(0);
     const [minoseg, setMinoseg] = useState<number>(0);
     const [fem, setFem] = useState<number>(0);
@@ -20,11 +23,11 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
         if (alapBlokk.anyag === 'fem') {
             egyebek.push(PancelBuilder.femek[fem]);
         }
-        return PancelBuilder.combine('ujpancel', alapBlokk, igazitasBlokk, egyebek);
+        return PancelBuilder.combine(v4(), name, alapBlokk, igazitasBlokk, egyebek);
     }
 
     const build = () => {
-        karakter.pancel = createPancel();
+        Inventory.addPancel(karakter, createPancel());
         onChange(karakter);
         setOpen(false);
     };
@@ -34,10 +37,14 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
     </td>
 
     return <>
-        <button onClick={() => setOpen(true)}>Szerkeszt</button>
-        <ReactModal style={{ content: { width: '650px', height: '120px' } }} isOpen={open} onRequestClose={() => setOpen(false)} >
-            <table style={{ border: '3px solid black', borderCollapse: 'collapse', textAlign: 'justify' }}>
+        <button onClick={() => setOpen(true)}>Új páncél</button>
+        <ReactModal style={{ content: { width: '50em', height: '10em' } }} isOpen={open} onRequestClose={() => setOpen(false)} >
+            <table className='bordered' style={{ textAlign: 'justify' }}>
                 <tbody>
+                    <tr>
+                        <th>Név</th>
+                        <td colSpan={2}><input type='text' value={name} style={{ width: '95%' }} onChange={e => setName(e.target.value)} /> </td>
+                    </tr>
                     <tr>
                         <th>Alap:</th>
                         <td>

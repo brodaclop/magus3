@@ -223,7 +223,7 @@ export const PancelBuilder = {
     femek: FEMEK,
     minoseg: MINOSEG,
     alapok: PANCEL_ALAPOK,
-    combine: (id: string, alap: PancelAlap, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
+    combine: (id: string, name: string, alap: PancelAlap, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
         const tulajdonsagok: PancelBlokk = [igazitas, ...egyebek].reduce((acc, curr) => {
             acc.mgt += curr.mgt;
             acc.sfe.szuro += curr.sfe.szuro;
@@ -236,8 +236,9 @@ export const PancelBuilder = {
         tulajdonsagok.sfe.vago = Math.max(0, tulajdonsagok.sfe.vago);
         tulajdonsagok.sfe.zuzo = Math.max(0, tulajdonsagok.sfe.zuzo);
         return {
-            id,
             ...tulajdonsagok,
+            id,
+            name,
             igazitas
         };
     }

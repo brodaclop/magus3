@@ -1,15 +1,14 @@
 import { v4 } from "uuid";
 import { Faj, Fajok } from "./Fajok";
-import { KozelharcFegyver, KOZELHARCI_FEGYVEREK } from "./Fegyver";
+import { Fegyver, KozelharcFegyver } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
+import { InventoryFegyver, InventoryItem, InventoryLofegyver, InventoryPancel } from "./Inventory";
 import { KarakterCalculator } from "./KarakterCalculator";
 import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
 import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
-import { Pancel } from "./Pancel";
-import { PancelBuilder } from "./PancelBuilder";
 import { NamedEntity } from "./util";
 
 export interface KarakterTemplate {
@@ -20,6 +19,7 @@ export interface KarakterTemplate {
     kepessegKategoriak: Record<KepessegKategoria, number>;
 }
 
+export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: 'okolharc' } | InventoryFegyver;
 
 export interface Karakter extends NamedEntity {
     readonly faj: Faj;
@@ -27,11 +27,12 @@ export interface Karakter extends NamedEntity {
     kepessegek: Record<string, number>;
     ep: number;
     hm: number;
-    kezek: [KozelharcFegyver?, KozelharcFegyver?];
-    pancel?: Pancel;
-    lofegyver?: Lofegyver;
+    kezek: [MegfogottFegyver?, MegfogottFegyver?];
+    pancel?: InventoryPancel;
+    lofegyver?: InventoryLofegyver;
     kp: number;
     kepessegKategoriak: Record<KepessegKategoria, number>;
+    inventory: Array<InventoryItem>;
     elosztva?: boolean;
     szazalek: number;
 }
@@ -117,6 +118,38 @@ export const Karakter = {
             name: template.name,
             faj: template.faj,
             kepessegKategoriak: template.kepessegKategoriak,
+            inventory: [
+                {
+                    tipus: 'fegyver',
+                    id: v4(),
+                    quantity: 1,
+                    ob: Fegyver.find('kard_rovid')
+                },
+                {
+                    tipus: 'lofegyver',
+                    id: v4(),
+                    quantity: 1,
+                    ob: Lofegyver.find('nyilpuska_kezi')
+                },
+                {
+                    tipus: 'lofegyver',
+                    id: v4(),
+                    quantity: 1,
+                    ob: {
+                        tipus: 'ij',
+                        id: 'xij',
+                        name: 'Visszacsapó íj',
+                        kepesseg: 'mozgaskoordinacio',
+                        ke: 5,
+                        ce: 8,
+                        minimumEro: 10,
+                        maximumEro: 25,
+                        alternativKepzettseg: 'ij',
+                        sebesseg: 'atlagos',
+                        sebzestipus: 'szuro'
+                    }
+                },
+            ],
             szint: [
                 {
                     kaszt: template.kaszt,
@@ -129,21 +162,11 @@ export const Karakter = {
                     pendingKepzettsegek: [],
                 }
             ],
-            pancel: {
-                id: 'pelda',
-                name: 'Példa páncél',
-                mgt: 4,
-                sfe: {
-                    zuzo: 3,
-                    vago: 6,
-                    szuro: 5
-                },
-                igazitas: PancelBuilder.igazitas[3]
-            },
+            pancel: undefined,
             kepessegek: Kepessegek.newErtekRecord(),
             ep: template.kaszt.epAlap,
             hm: 0,
-            kezek: [KOZELHARCI_FEGYVEREK.find(f => f.flags?.includes('pusztakez')), undefined],
+            kezek: [Karakter.okolharc(), undefined],
             kp: template.kaszt.kpAlap,
             szazalek: 0
         };
@@ -151,23 +174,27 @@ export const Karakter = {
         updateKepzettsegekForLevel(ret, template.kaszt, 0, ret.szint[0]);
         return ret;
     },
-    megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {
+    megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: MegfogottFegyver): boolean => {
         if (kez === 0) {
             if (!fegyver) {
+                return false;
+            } else if (fegyver.tipus === 'pusztakez') {
                 return !karakter.kezek[1];
             } else {
-                return (karakter.kezek[1]?.kez ?? 0) + fegyver.kez <= 2;
+                const available = fegyver.quantity - (karakter.kezek[1]?.id === fegyver.id ? 1 : 0);
+                return (karakter.kezek[1]?.ob.kez ?? 0) + fegyver.ob.kez <= 2 && available > 0;
             }
         } else {
-            return !fegyver || (karakter.kezek[0]?.kez ?? 0) + fegyver.kez <= 2;
+            if (!fegyver) {
+                return true;
+            } else if (fegyver.tipus === 'pusztakez') {
+                return false;
+            } else {
+                const available = fegyver.quantity - (karakter.kezek[0]?.id === fegyver.id ? 1 : 0);
+                return (karakter.kezek[0]?.ob.kez ?? 0) + fegyver.ob.kez <= 2 && available > 0;
+
+            }
         }
-    },
-    megfog: (karakter: Karakter, kez: 0 | 1, fegyver?: KozelharcFegyver): boolean => {
-        if (Karakter.megfoghato(karakter, kez, fegyver)) {
-            karakter.kezek[kez] = fegyver;
-            return true;
-        }
-        return false;
     },
     szintek: (karakter: Karakter): Record<string, { name: string, szint: number }> => karakter.szint.slice(1).reduce((acc, curr) => {
         if (!acc[curr.kaszt.id]) {
@@ -176,5 +203,6 @@ export const Karakter = {
         acc[curr.kaszt.id].szint++;
         return acc;
     }, {} as Record<string, { name: string, szint: number }>),
+    okolharc: (): MegfogottFegyver => ({ id: 'okolharc', tipus: 'pusztakez', ob: Fegyver.find('okolharc') }),
     levelUp
 }

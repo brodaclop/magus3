@@ -1,4 +1,4 @@
-import { FegyverSebesseg, SebzesTipus } from "./Fegyver";
+import { FegyverKategoria, FegyverSebesseg, NYILPUSKA_KATEGORIA, SebzesTipus } from "./Fegyver";
 import { KockaDobas, parseKocka } from "./Kocka";
 import { NamedEntity, namedEntityArray } from "./util";
 
@@ -6,14 +6,14 @@ export interface LofegyverBase extends NamedEntity {
     sebesseg: FegyverSebesseg;
     ke: number;
     ce: number;
-    kategoria?: undefined;
     sebzestipus: SebzesTipus;
-    alapFegyver?: string;
+    alternativKepzettseg?: string;
 };
 
 export interface NyilpuskaLofegyver extends LofegyverBase {
     tipus: 'nyilpuska';
     sebzes: KockaDobas;
+    kategoria: FegyverKategoria;
     lotav: number;
 
 }
@@ -21,12 +21,16 @@ export interface NyilpuskaLofegyver extends LofegyverBase {
 export interface EgyebLofegyver extends LofegyverBase {
     tipus: 'egyeb';
     sebzes: KockaDobas;
+    kategoria?: undefined;
+
     lotav: number;
     kepesseg: string;
 }
 
 export interface IjLofegyver extends LofegyverBase {
     tipus: 'ij';
+    kategoria?: undefined;
+    kepesseg: 'mozgaskoordinacio';
     minimumEro: number;
     maximumEro: number;
 };
@@ -38,6 +42,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         id: 'nyilpuska_kezi',
         name: 'Nyílpuska, kézi',
         tipus: 'nyilpuska',
+        kategoria: NYILPUSKA_KATEGORIA,
         sebzestipus: 'szuro',
         sebesseg: 'atlagos',
         ke: 3,
@@ -49,6 +54,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         id: 'nyilpuska_kahrei',
         name: 'Nyílpuska, kahrei',
         tipus: 'nyilpuska',
+        kategoria: NYILPUSKA_KATEGORIA,
         sebzestipus: 'szuro',
         sebesseg: 'gyors',
         ke: 9,
@@ -60,6 +66,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         id: 'nyilpuska_konnyu',
         name: 'Nyílpuska, konnyu',
         tipus: 'nyilpuska',
+        kategoria: NYILPUSKA_KATEGORIA,
         sebzestipus: 'szuro',
         sebesseg: 'lassu',
         ke: 2,
@@ -71,6 +78,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         id: 'nyilpuska_nehez',
         name: 'Nyílpuska, nehez',
         tipus: 'nyilpuska',
+        kategoria: NYILPUSKA_KATEGORIA,
         sebzestipus: 'szuro',
         sebesseg: '3',
         ke: 0,
@@ -82,6 +90,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         id: 'nyilpuska_shadoni',
         name: 'Nyílpuska, shadoni páncéltörő',
         tipus: 'nyilpuska',
+        kategoria: NYILPUSKA_KATEGORIA,
         sebzestipus: 'szuro',
         sebesseg: '5',
         ke: 0,
@@ -133,7 +142,7 @@ export const Lofegyver = {
             return { sebzes: parseKocka('1d3'), lotav };
         };
         const plusz = (ero - 13) % 5 - 2;
-        const darab = (ero - 13) / 5 + 1;
+        const darab = Math.floor((ero - 13) / 5 + 1);
         return { sebzes: { darab, kocka: 6, plusz }, lotav };
     }
 };

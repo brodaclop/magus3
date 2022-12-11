@@ -24,7 +24,7 @@ export interface FegyverBase extends NamedEntity {
     sebesseg: FegyverSebesseg;
     sebzes: KockaDobas;
     sebzestipus: SebzesTipus | Array<SebzesTipus>;
-    alapFegyver?: string;
+    alternativKepzettseg?: string;
     flags?: undefined | 'buckler' | 'nagy-pajzs' | 'slan-kard' | 'slan-tor' | 'pusztakez';
     mgt?: number;
     kez: 0.5 | 1 | 1.5 | 2;
@@ -924,7 +924,7 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 export const Fegyver = {
     ...namedEntityArray(KOZELHARCI_FEGYVEREK),
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver | Lofegyver, minusz = 0): [Harcertek, number] => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.alapFegyver ?? fegyver.id}`);
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.alternativKepzettseg ?? fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);

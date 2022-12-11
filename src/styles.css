@@ -32,7 +32,7 @@ button.fullWidth {
 div.karakterLap {
     display: flex;
     flex-wrap: wrap;
-    max-width: 50em;
+    max-width: 52em;
     justify-content: space-between;
     padding: 1em;
     border: 5px groove lightgray;
@@ -43,7 +43,7 @@ div.karakterLap>div {
 }
 
 div.karakterLap>div.fullWidth {
-    flex-basis: auto;
+    flex-basis: 100%;
     flex-grow: 1;
 }
 

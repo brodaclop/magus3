@@ -4,6 +4,7 @@ import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
 import { HarcertekWidget } from './HarcertekWidget';
+import { InventoryWidget } from './InventoryWidget';
 import { KepessegWidget } from './KepessegWidget';
 import { KepzettsegWidget } from './KepzettsegWidget';
 import { KombatWidget } from './KombatWidget';
@@ -66,10 +67,10 @@ export const KarakterWidget: React.FC<{
             <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
         </div>
         <div>
-            <PancelWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
+            <HarcertekWidget karakter={karakter} setKarakter={commit} />
         </div>
         <div>
-            <HarcertekWidget karakter={karakter} setKarakter={commit} />
+            <PancelWidget karakter={karakter} onChange={commit} />
         </div>
         <div>
             <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} />
@@ -77,9 +78,11 @@ export const KarakterWidget: React.FC<{
         <div>
             <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
         </div>
+        <div>
+            <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
+        </div>
         <div className='fullWidth'>
             <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
         </div>
     </div>
-
-}
+};
