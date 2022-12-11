@@ -22,7 +22,6 @@ export interface EgyebLofegyver extends LofegyverBase {
     tipus: 'egyeb';
     sebzes: KockaDobas;
     kategoria?: undefined;
-
     lotav: number;
     kepesseg: string;
 }
@@ -33,9 +32,11 @@ export interface IjLofegyver extends LofegyverBase {
     kepesseg: 'mozgaskoordinacio';
     minimumEro: number;
     maximumEro: number;
+    eroPlusz: number;
 };
 
 export type Lofegyver = NyilpuskaLofegyver | EgyebLofegyver | IjLofegyver;
+export type FixSebzesuLofegyver = NyilpuskaLofegyver | EgyebLofegyver;
 
 const LOFEGYVEREK: Array<Lofegyver> = [
     {
@@ -122,6 +123,59 @@ const LOFEGYVEREK: Array<Lofegyver> = [
         sebzes: parseKocka('1'),
         lotav: 30
     },
+    {
+        id: 'ij_rovid',
+        name: 'Íj, rövid',
+        tipus: 'ij',
+        eroPlusz: 0,
+        sebzestipus: 'szuro',
+        sebesseg: 'atlagos',
+        ke: 5,
+        ce: 8,
+        kepesseg: 'mozgaskoordinacio',
+        minimumEro: 13,
+        maximumEro: 18
+    },
+    {
+        id: 'ij_hosszu',
+        name: 'Íj, hosszú',
+        tipus: 'ij',
+        eroPlusz: 0,
+        sebzestipus: 'szuro',
+        sebesseg: 'atlagos',
+        ke: 5,
+        ce: 8,
+        kepesseg: 'mozgaskoordinacio',
+        minimumEro: 15,
+        maximumEro: 20
+    },
+    {
+        id: 'ij_visszacsapó',
+        name: 'Íj, visszacsapó',
+        tipus: 'ij',
+        eroPlusz: 0,
+        sebzestipus: 'szuro',
+        sebesseg: 'atlagos',
+        ke: 5,
+        ce: 8,
+        kepesseg: 'mozgaskoordinacio',
+        minimumEro: 10,
+        maximumEro: 20
+    },
+    {
+        id: 'ij_elf',
+        name: 'Íj, elf',
+        tipus: 'ij',
+        eroPlusz: 2,
+        sebzestipus: 'szuro',
+        sebesseg: 'atlagos',
+        ke: 7,
+        ce: 10,
+        kepesseg: 'mozgaskoordinacio',
+        minimumEro: 10,
+        maximumEro: 20
+    },
+
 ];
 
 
@@ -130,7 +184,7 @@ const LOFEGYVEREK: Array<Lofegyver> = [
 export const Lofegyver = {
     ...namedEntityArray(LOFEGYVEREK),
     calculateIj: (izom: number, fok: number, ij: IjLofegyver): { sebzes: KockaDobas, lotav: number } => {
-        const ero = Math.min(izom, ij.maximumEro) + fok;
+        const ero = Math.min(izom + fok + ij.eroPlusz, ij.maximumEro);
         const lotav = Math.max(45, ero * 15 - 105);
         if (ero <= 10 || izom < ij.minimumEro) {
             return { sebzes: parseKocka('1'), lotav };

@@ -223,7 +223,12 @@ export const PancelBuilder = {
     femek: FEMEK,
     minoseg: MINOSEG,
     alapok: PANCEL_ALAPOK,
-    combine: (id: string, name: string, alap: PancelAlap, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
+    runak: Array(5).fill(null).map((_, idx) => ({
+        mgt: -idx,
+        sfe: { szuro: idx, vago: idx, zuzo: idx },
+        name: idx === 0 ? 'Rúna nélkül' : `+${idx}`
+    })) as Array<PancelBlokk>,
+    build: (id: string, name: string, alap: PancelAlap, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
         const tulajdonsagok: PancelBlokk = [igazitas, ...egyebek].reduce((acc, curr) => {
             acc.mgt += curr.mgt;
             acc.sfe.szuro += curr.sfe.szuro;

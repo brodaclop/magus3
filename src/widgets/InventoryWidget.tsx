@@ -8,7 +8,9 @@ import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepessegek } from '../model/Kepessegek';
 import { printKocka } from '../model/Kocka';
 import { Lofegyver } from '../model/Lofegyver';
+import { EgyebBuilderWidget } from './inventory/EgyebBuilderWidget';
 import { FegyverBuilderWidget } from './inventory/FegyverBuilderWidget';
+import { LofegyverBuilderWidget } from './inventory/LofegyverBuilderWidget';
 import { PancelBuilderWidget } from './inventory/PancelBuilderWidget';
 import { formatSebzesTipus } from './KombatWidget';
 
@@ -31,7 +33,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
             </tr>
             {item.notes && <tr>
                 <th>Leírás</th>
-                <td>{item.notes}</td>
+                <td style={{ whiteSpace: 'pre-wrap' }}>{item.notes}</td>
             </tr>}
             {item.tipus === 'pancel' && <>
                 <tr>
@@ -106,7 +108,6 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
                 </tr>
                 <tr>
                     <th>Sebzés</th>
-                    {/* TODO: ij sebzes / ijnak kell sebzesbonsz is */}
                     <td>{printKocka(item.ob.tipus !== 'ij' ? item.ob.sebzes : ijTulajdonsagok!.sebzes)} {formatSebzesTipus(item.ob.sebzestipus ?? [])}</td>
                 </tr>
                 <tr>
@@ -129,9 +130,17 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
                         <td>{Kepessegek.find(item.ob.kepesseg).name}</td>
                     </tr>
                 }
-
+                {item.ob.tipus === 'ij' && <>
+                    <tr>
+                        <th>Minimum lövőerő (Izom+Képzettség foka+lövőerő bónusz)</th>
+                        <td>{item.ob.minimumEro}</td>
+                    </tr>
+                    <tr>
+                        <th>Maximum lövőerő (Izom+Képzettség foka+lövőerő bónusz)</th>
+                        <td>{item.ob.maximumEro}</td>
+                    </tr>
+                </>}
             </>}
-
         </tbody>
     </table>
 }
@@ -186,6 +195,8 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 <td colSpan={2}>
                     <PancelBuilderWidget karakter={karakter} onChange={onChange} />
                     <FegyverBuilderWidget karakter={karakter} onChange={onChange} />
+                    <LofegyverBuilderWidget karakter={karakter} onChange={onChange} />
+                    <EgyebBuilderWidget karakter={karakter} onChange={onChange} />
                 </td>
             </tr>
         </tbody>

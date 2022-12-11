@@ -58,7 +58,7 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => Fegyver.lista
         }
     });
 
-const generateLoFegyverKepzettsegek = (): Array<NormalKepzettseg> => [...Lofegyver.lista, { tipus: 'ij', id: 'ij', name: 'Íj' }]
+const generateLoFegyverKepzettsegek = (): Array<NormalKepzettseg> => [...Lofegyver.lista.filter(l => l.tipus !== 'ij'), { tipus: 'ij', id: 'ij', name: 'Íj' }]
     .map(f => {
         const linked: Array<KepzettsegLink> = f.tipus === 'nyilpuska' ? [{ id: NYILPUSKA_KATEGORIA.id, strength: 1 }] : [];
         const kepesseg = f.tipus === 'ij' ? 'mozgaskoordinacio' : (f.tipus === 'nyilpuska' ? NYILPUSKA_KATEGORIA.kepesseg : (f as EgyebLofegyver).kepesseg);

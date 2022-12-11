@@ -1,46 +1,54 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import { v4 } from 'uuid';
-import { Fegyver, KozelharcFegyver, FEGYVER_KATEGORIAK } from '../../model/Fegyver';
+import { NYILPUSKA_KATEGORIA } from '../../model/Fegyver';
 import { Inventory } from '../../model/Inventory';
 import { Karakter } from '../../model/Karakter';
 import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { parseKocka, printKocka } from '../../model/Kocka';
+import { FixSebzesuLofegyver, Lofegyver } from '../../model/Lofegyver';
 
-const EMPTY_FEGYVER: Partial<KozelharcFegyver> = {
+const EMPTY_LOFEGYVER: Partial<Lofegyver> = {
     ke: 0,
-    te: 0,
-    ve: 0,
-    erobonusz: 16,
-    kez: 1,
-    mgt: 0,
+    ce: 0,
+    eroPlusz: 0,
+    lotav: 0,
     sebesseg: 'atlagos',
+    minimumEro: 0,
+    maximumEro: 0,
+    sebzestipus: 'szuro',
 };
 
-export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter) => unknown }> = ({ karakter, onChange }) => {
+export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter) => unknown }> = ({ karakter, onChange }) => {
     const [open, setOpen] = useState<boolean>(false);
-    const [fegyver, setFegyver] = useState<Partial<KozelharcFegyver>>({ ...EMPTY_FEGYVER });
+    const [fegyver, setFegyver] = useState<Partial<Lofegyver>>({ ...EMPTY_LOFEGYVER });
     const [sebzes, setSebzes] = useState<string>();
     const [note, setNote] = useState<string>();
 
     const build = () => {
-
-        if (!fegyver.id) {
-            fegyver.id = v4();
+        switch (fegyver.tipus) {
+            case 'nyilpuska': {
+                fegyver.sebzes = parseKocka(sebzes ?? '0');
+                fegyver.kategoria = NYILPUSKA_KATEGORIA;
+                break;
+            }
+            case 'egyeb': {
+                fegyver.sebzes = parseKocka(sebzes ?? '0');
+                break;
+            }
+            case 'ij': {
+                fegyver.kepesseg = 'mozgaskoordinacio';
+                fegyver.alternativKepzettseg = 'ij';
+            }
         }
-
-        Inventory.addFegyver(karakter, {
-            ...fegyver,
-            sebzes: parseKocka(sebzes ?? '0')
-        } as KozelharcFegyver, note);
+        Inventory.addLofegyver(karakter, fegyver as Lofegyver, note);
 
         onChange(karakter);
         setOpen(false);
     };
 
     return <>
-        <button onClick={() => setOpen(true)}>Új fegyver</button>
+        <button onClick={() => setOpen(true)}>Új lőfegyver</button>
         <ReactModal style={{ content: { width: '50em', height: '30em' } }} isOpen={open} onRequestClose={() => setOpen(false)} >
             <table className='bordered' style={{ textAlign: 'justify' }}>
                 <tbody>
@@ -49,16 +57,18 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                         <td>
                             <select value={fegyver.id ?? ''} onChange={e => {
                                 if (e.target.value) {
-                                    const alapFegyver = Fegyver.find(e.target.value);
+                                    const alapFegyver = Lofegyver.find(e.target.value);
                                     setFegyver(structuredClone(alapFegyver));
-                                    setSebzes(printKocka(alapFegyver.sebzes));
+                                    if (alapFegyver.tipus !== 'ij') {
+                                        setSebzes(printKocka(alapFegyver.sebzes));
+                                    }
                                 } else {
-                                    setFegyver({ ...EMPTY_FEGYVER });
+                                    setFegyver({ ...EMPTY_LOFEGYVER });
                                     setSebzes('0');
                                 }
                             }}>
                                 <option value=''>Nincs</option>
-                                {Fegyver.lista.filter(f => f.flags !== 'pusztakez').map(f => <option value={f.id}>{f.name}</option>)}
+                                {Lofegyver.lista.map(f => <option value={f.id}>{f.name}</option>)}
                             </select>
                         </td>
                     </tr>
@@ -80,41 +90,62 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                         <th>Leírás</th>
                         <td><textarea rows={10} value={note} style={{ width: '95%' }} onChange={e => setNote(e.target.value)} /> </td>
                     </tr>
+
+                    <tr>
+                        <th>Tipus</th>
+                        <td>
+                            <select value={fegyver.tipus ?? ''} onChange={e => setFegyver({ ...fegyver, tipus: e.target.value as any })}>
+                                {!fegyver.tipus && <option disabled value=''>Nincs</option>}
+                                <option value='ij'>Íj</option>
+                                <option value='nyilpuska'>Nyílpuska</option>
+                                <option value='egyeb'>Egyéb</option>
+                            </select>
+                        </td>
+                    </tr>
                     <tr>
                         <th>KÉ</th>
                         <td><input type='number' value={fegyver.ke ?? 0} onChange={e => setFegyver({ ...fegyver, ke: Number(e.target.value) })} /> </td>
                     </tr>
                     <tr>
-                        <th>TÉ</th>
-                        <td><input type='number' value={fegyver.te ?? 0} onChange={e => setFegyver({ ...fegyver, te: Number(e.target.value) })} /> </td>
+                        <th>CÉ</th>
+                        <td><input type='number' value={fegyver.ce ?? 0} onChange={e => setFegyver({ ...fegyver, ce: Number(e.target.value) })} /> </td>
                     </tr>
-                    <tr>
-                        <th>VÉ</th>
-                        <td><input type='number' value={fegyver.ve ?? 0} onChange={e => setFegyver({ ...fegyver, ve: Number(e.target.value) })} /> </td>
-                    </tr>
-                    <tr>
-                        <th>Sebzés</th>
-                        <td><input type='text' value={sebzes ?? ''} onChange={e => setSebzes(e.target.value)} /> </td>
-                    </tr>
+                    {fegyver.tipus !== 'ij' && <>
+                        <tr>
+                            <th>Sebzés</th>
+                            <td><input type='text' value={sebzes ?? ''} onChange={e => setSebzes(e.target.value)} /> </td>
+                        </tr>
+                        <tr>
+                            <th>Lőtáv</th>
+                            <td><input type='number' value={(fegyver as FixSebzesuLofegyver).lotav ?? 0} onChange={e => setFegyver({ ...fegyver as FixSebzesuLofegyver, lotav: Number(e.target.value) })} /></td>
+                        </tr>
+                    </>}
+                    {fegyver.tipus === 'ij' && <>
+                        <tr>
+                            <th>Minimum lövőerő</th>
+                            <td><input type='number' value={fegyver.minimumEro ?? 0} onChange={e => setFegyver({ ...fegyver, minimumEro: Number(e.target.value) })} /></td>
+                        </tr>
+                        <tr>
+                            <th>Maximum lövőerő</th>
+                            <td><input type='number' value={fegyver.maximumEro ?? 0} onChange={e => setFegyver({ ...fegyver, maximumEro: Number(e.target.value) })} /></td>
+                        </tr>
+                        <tr>
+                            <th>Lövőerő bónusz</th>
+                            <td><input type='number' value={fegyver.eroPlusz ?? 0} onChange={e => setFegyver({ ...fegyver, eroPlusz: Number(e.target.value) })} /></td>
+                        </tr>
+                    </>}
+
                     <tr>
                         <th>Sebzéstipus</th>
-                        <td><select multiple value={typeof fegyver.sebzestipus === 'string' ? [fegyver.sebzestipus] : fegyver.sebzestipus ?? []} onChange={e => setFegyver({ ...fegyver, sebzestipus: Array.from(e.target.selectedOptions, o => o.value) as any })}>
+                        <td><select value={fegyver.sebzestipus ?? ''} onChange={e => setFegyver({ ...fegyver, sebzestipus: e.target.value as any })}>
+                            {!fegyver.sebzestipus && <option disabled value=''></option>}
                             <option value='szuro'>Szúró</option>
                             <option value='vago'>Vágó</option>
                             <option value='zuzo'>Zúzó</option>
                         </select>
                         </td>
                     </tr>
-                    {!fegyver.kepesseg && <tr>
-                        <th>Kategória</th>
-                        <td>
-                            <select value={fegyver.kategoria?.id ?? ''} onChange={e => setFegyver({ ...fegyver, kategoria: FEGYVER_KATEGORIAK[e.target.value] as any })}>
-                                <option value=''>Nincs</option>
-                                {Object.entries(FEGYVER_KATEGORIAK).map(([id, kat]) => <option value={id}>{kat.nev}</option>)}
-                            </select>
-                        </td>
-                    </tr>}
-                    {!fegyver.kategoria && <tr>
+                    {fegyver.tipus === 'egyeb' && <tr>
                         <th>Képesség</th>
                         <td>
                             <select value={fegyver.kepesseg ?? ''} onChange={e => setFegyver({ ...fegyver, kepesseg: e.target.value === '' ? undefined : e.target.value } as any)}>
@@ -123,27 +154,6 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                             </select>
                         </td>
                     </tr>}
-                    {fegyver.kepesseg && <tr>
-                        <th>Erőbónusz Izom minimum</th>
-                        <td>
-                            <td><input type='number' value={fegyver.erobonusz ?? 0} onChange={e => setFegyver({ ...fegyver, erobonusz: Number(e.target.value) })} /> </td>
-                        </td>
-                    </tr>}
-                    <tr>
-                        <th>MGT</th>
-                        <td><input type='number' value={fegyver.mgt ?? 0} onChange={e => setFegyver({ ...fegyver, mgt: Number(e.target.value) })} /> </td>
-                    </tr>
-                    <tr>
-                        <th>Kéz</th>
-                        <td>
-                            <select value={fegyver.kez ?? 1} onChange={e => setFegyver({ ...fegyver, kez: Number(e.target.value) as any })} >
-                                <option value='0.5'>0.5</option>
-                                <option value='1'>1</option>
-                                <option value='1.5'>1.5</option>
-                                <option value='2'>2</option>
-                            </select>
-                        </td>
-                    </tr>
                     <tr>
                         <th>Sebesség</th>
                         <td>
@@ -154,18 +164,6 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                                 <option value='3'>3 körönként</option>
                                 <option value='4'>4 körönként</option>
                                 <option value='5'>5 körönként</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Specialitás</th>
-                        <td>
-                            <select value={fegyver.flags ?? ''} onChange={e => setFegyver({ ...fegyver, flags: e.target.value || undefined as any })} >
-                                <option value=''>Nincs</option>
-                                <option value='buckler'>Kis pajzs/Hárítófegyver</option>
-                                <option value='nagy-pajzs'>Nagy pajzs</option>
-                                <option value='slan-kard'>Slan kard</option>
-                                <option value='slan-tor'>Slan tőr</option>
                             </select>
                         </td>
                     </tr>

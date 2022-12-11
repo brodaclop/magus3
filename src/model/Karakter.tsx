@@ -146,6 +146,7 @@ export const Karakter = {
                         maximumEro: 25,
                         alternativKepzettseg: 'ij',
                         sebesseg: 'atlagos',
+                        eroPlusz: 0,
                         sebzestipus: 'szuro'
                     }
                 },

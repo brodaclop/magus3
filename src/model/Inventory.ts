@@ -38,8 +38,31 @@ export const Inventory = {
     addPancel: (karakter: Karakter, pancel: Pancel, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'pancel',
-        ob: pancel,
+        ob: structuredClone(pancel),
         quantity: 1,
         notes
-    })
+    }),
+    addFegyver: (karakter: Karakter, fegyver: KozelharcFegyver, notes?: string) => karakter.inventory.push({
+        id: v4(),
+        tipus: 'fegyver',
+        ob: structuredClone(fegyver),
+        quantity: 1,
+        notes
+    }),
+    addLofegyver: (karakter: Karakter, fegyver: Lofegyver, notes?: string) => karakter.inventory.push({
+        id: v4(),
+        tipus: 'lofegyver',
+        ob: structuredClone(fegyver),
+        quantity: 1,
+        notes
+    }),
+    addEgyeb: (karakter: Karakter, name: string, notes?: string) => karakter.inventory.push({
+        id: v4(),
+        tipus: 'egyeb',
+        ob: { name },
+        quantity: 1,
+        notes
+    }),
+
+
 }
