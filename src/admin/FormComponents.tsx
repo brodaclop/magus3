@@ -61,14 +61,14 @@ export const Editor = {
 export const StringEditor: React.FC<{ desc: StringEditorDescriptor, value: string | undefined, onChange: (value: string) => unknown }> = ({ desc, value, onChange }) => {
     return <div className='stringEditor'>
         <label style={{ verticalAlign: 'top' }}>{desc.label}: </label>
-        {desc.long ? <textarea value={value} onChange={e => onChange(e.target.value)} /> : <input type='text' value={value} onChange={e => onChange(e.target.value)} />}
+        {desc.long ? <textarea value={value ?? ''} onChange={e => onChange(e.target.value)} /> : <input type='text' value={value ?? ''} onChange={e => onChange(e.target.value)} />}
     </div>;
 }
 
 export const NumberEditor: React.FC<{ desc: NumberEditorDescriptor, value: number | undefined, onChange: (value: number) => unknown }> = ({ desc, value, onChange }) => {
     return <div className='numberEditor'>
         <label>{desc.label}: </label>
-        <input type='number' value={value} onChange={e => onChange(Number(e.target.value))} />
+        <input type='number' value={value ?? ''} onChange={e => onChange(Number(e.target.value))} />
     </div>;
 }
 
