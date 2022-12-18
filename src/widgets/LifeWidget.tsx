@@ -3,6 +3,7 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { CalculationWidget } from './CalculationWidget';
+import { KasztSelectorWidget } from './KasztSelectorWidget';
 
 export const LifeWidget: React.FC<{
     calc: KarakterCalcResult,
@@ -34,10 +35,7 @@ export const LifeWidget: React.FC<{
                             <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0} onClick={() => levelUp(kasztId)}>+</button>
                         </li>)}
                         <li>
-                            <select value={ujKaszt} onChange={e => setUjKaszt(e.target.value)}>
-                                {ujKaszt === '' && <option value=''>Másik kaszt</option>}
-                                {Kasztok.lista.filter(k => !Object.keys(kasztok).includes(k.id)).map(k => <option value={k.id}>{k.name}</option>)}
-                            </select>
+                            <KasztSelectorWidget kaszt={ujKaszt} onChange={setUjKaszt} />
                             <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || ujKaszt === ''} onClick={() => {
                                 levelUp(ujKaszt);
                                 setUjKaszt('');

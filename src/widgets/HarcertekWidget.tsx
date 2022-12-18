@@ -22,6 +22,8 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
 
     const sumElosztott = useMemo(() => elosztott.ke + elosztott.te + elosztott.ve + elosztott.ce, [elosztott]);
 
+    const editing = maradekHm + sumElosztott > 0;
+
     useEffect(() => {
         setMaradekHm(karakter.hm);
         setElosztott({ ke: 0, te: 0, ve: 0, ce: 0, sebzes: 0 });
@@ -44,7 +46,7 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
     const HmLine: React.FC<{ line: keyof Harcertek }> = ({ line }) => <tr>
         <th>{HARCERTEKEK[line]}</th>
         <td>
-            <button onClick={() => minusz(line)}>-</button>
+            {editing && <button onClick={() => minusz(line)}>-</button>}
         </td>
         <td>
             <div style={{ marginLeft: '0.5em', marginRight: '0.5em' }}>
@@ -52,7 +54,7 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
             </div>
         </td>
         <td style={{ border: '1px solid black' }}>
-            <button onClick={() => plusz(line)}>+</button>
+            {editing && <button onClick={() => plusz(line)}>+</button>}
         </td>
     </tr >;
 

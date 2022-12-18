@@ -54,7 +54,7 @@ export const Editor = {
     multiPicklist: (label: string, values: readonly string[] | readonly NamedEntity[]): PicklistEditorDescriptor => ({ label, values, multiple: true, type: 'picklist' }),
     array: (label: string, children: EditorDescriptor, idxStart?: number): ArrayEditorDescriptor => ({ label, children, idxStart, type: 'array' }),
     fixArray: (label: string, children: EditorDescriptor, fix: number, idxStart?: number): ArrayEditorDescriptor => ({ label, children, fix, idxStart, type: 'array' }),
-    object: (label: string, children: Record<string, EditorDescriptor>): ObjectEditorDescriptor => ({ label, children, type: 'object' }),
+    object: <T,>(label: string, children: Record<keyof T, EditorDescriptor>): ObjectEditorDescriptor => ({ label, children, type: 'object' }),
     or: (choices: Record<string, EditorDescriptor>, autoSelector: (value: unknown) => string): ChoiceEditorDescriptor => ({ label: '', choices, type: 'choice', autoSelector }),
 }
 

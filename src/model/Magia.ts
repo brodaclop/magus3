@@ -49,6 +49,7 @@ export const MagiaKategoriak = [
     { name: 'Élet', id: 'szfera_elet' },
     { name: 'Lélek', id: 'szfera_lelek' },
     { name: 'Természet', id: 'szfera_termeszet' },
+    { name: 'Fénymágia', id: 'bard_fenymagia' }
 ] as const;
 
 export interface VarazslatBase extends NamedEntity {

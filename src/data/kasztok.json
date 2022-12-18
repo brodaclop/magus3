@@ -438,7 +438,6 @@
         "szazalekPerSzint": 45,
         "mana": {
             "kepesseg": "empatia",
-            "magiaTipus": "bárd",
             "mennyiseg": "normál"
         }
     },
@@ -467,7 +466,6 @@
         "hm": 2,
         "mana": {
             "mennyiseg": "normál",
-            "magiaTipus": "pap",
             "kepesseg": "hit"
         },
         "kpAlap": 6,
@@ -509,7 +507,6 @@
         "szazalekPerSzint": 0,
         "mana": {
             "kepesseg": "hit",
-            "magiaTipus": "pap",
             "mennyiseg": "normál"
         },
         "magiaKategoriak": [
@@ -601,7 +598,6 @@
         "szazalekPerSzint": 0,
         "mana": {
             "kepesseg": "emlekezet",
-            "magiaTipus": "boszorkány",
             "mennyiseg": "normál"
         }
     },
@@ -634,7 +630,6 @@
         "szazalekPerSzint": 15,
         "mana": {
             "kepesseg": "emlekezet",
-            "magiaTipus": "boszmester",
             "mennyiseg": "normál"
         }
     },
@@ -666,7 +661,6 @@
         "szazalekPerSzint": 0,
         "mana": {
             "kepesseg": "emlekezet",
-            "magiaTipus": "tűz",
             "mennyiseg": "normál"
         }
     },
@@ -698,8 +692,68 @@
         "szazalekPerSzint": 0,
         "mana": {
             "kepesseg": "gondolkodas",
-            "magiaTipus": "mozaik",
             "mennyiseg": "normál"
         }
+    },
+    {
+        "id": "adron_pap",
+        "name": "Adron pap",
+        "fokaszt": "Pap",
+        "kepessegDobas": {
+            "Fizikum": "Gyenge",
+            "Ügyesség": "Átlagos",
+            "Mentál": "Jó",
+            "Asztrál": "Legendás"
+        },
+        "harcertekAlap": {
+            "ke": 4,
+            "te": 15,
+            "ve": 70,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 2,
+            "ve": 2
+        },
+        "hm": 2,
+        "magiaKategoriak": [
+            "szfera_elet",
+            "szfera_lelek",
+            "bard_fenymagia"
+        ],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "sok"
+        }
+    },
+    {
+        "fajta": "normal",
+        "id": "solyomcsor_arel_pap",
+        "name": "Arel pap (Sólyomcsőr)",
+        "fokaszt": "Pap",
+        "magiaKategoriak": [
+            "szfera_elet",
+            "szfera_termeszet"
+        ],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "normál"
+        },
+        "kepessegDobas": {
+            "Asztrál": "Jó",
+            "Mentál": "Jó",
+            "Ügyesség": "Átlagos",
+            "Fizikum": "Átlagos"
+        },
+        "harcertekAlap": {
+            "ke": 9,
+            "te": 18,
+            "ve": 73,
+            "ce": 20
+        },
+        "harcertek": {
+            "te": 4
+        },
+        "hm": 5
     }
 ]

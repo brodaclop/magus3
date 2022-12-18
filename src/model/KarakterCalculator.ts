@@ -37,7 +37,7 @@ export interface KarakterCalcResult {
     kepzettsegek: SzintInfo['kepzettsegek'],
     sfe: Record<typeof SebzesTipus[number]['id'], number>;
     mgt: CalculationArgument;
-    findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][0] | undefined;
+    findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][number] | undefined;
     pendingKepzettsegekCount: number;
     mana: CalculationArgument;
     pszi: CalculationArgument;

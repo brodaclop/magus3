@@ -1,16 +1,17 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 
-import { KasztInfo, KasztKepesseg, Kasztok, KasztSpecFlags, MagiaTipus, ManaMennyiseg } from '../model/Kasztok';
+import { KasztInfo, KasztKepesseg, Kasztok, KasztSpecFlags, ManaMennyiseg } from '../model/Kasztok';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { MagiaKategoriak } from '../model/Magia';
 import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
-const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
+const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object<KasztInfo>('Kaszt', {
     id: Editor.string('ID'),
     name: Editor.string('Név'),
+    fokaszt: Editor.picklist('Főkaszt', Kasztok.lista),
     kepessegDobas: Editor.object('Képességek', {
         Fizikum: Editor.picklist('Fizikum', KasztKepesseg),
         Ügyesség: Editor.picklist('Ügyesség', KasztKepesseg),
@@ -60,9 +61,8 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
             return '';
         }
     ), 1)),
-    mana: Editor.object('Mana', {
+    mana: Editor.object<KasztInfo['mana']>('Mana', {
         kepesseg: Editor.picklist('Képesség', Kepessegek.lista),
-        magiaTipus: Editor.picklist('Mágia típusa', MagiaTipus),
         mennyiseg: Editor.picklist('Mana mennyisége', ManaMennyiseg),
     }),
     magiaKategoriak: Editor.multiPicklist('Mágia kategóriák', MagiaKategoriak)

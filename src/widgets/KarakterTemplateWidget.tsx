@@ -5,6 +5,7 @@ import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kasztok } from '../model/Kasztok';
 import { DobasEredmeny } from '../model/Kocka';
 import { DobasEredmenyWidget } from './DobasEredmenyWidget';
+import { KasztSelectorWidget } from './KasztSelectorWidget';
 import { ModalWindow } from './ModalWindow';
 import { NamedEntitySelector } from './NamedEntitySelector';
 
@@ -31,7 +32,7 @@ export const KarakterTemplateWdiget: React.FC<{
 
 
     const karakterDob = () => {
-        const r = Kasztok.kidob(template.kaszt);
+        const r = Kasztok.kidob(Kasztok.kasztInfo(template.kaszt, 0));
         template.kepessegKategoriak = {
             Fizikum: r.Fizikum.osszeg,
             Ügyesség: r.Ügyesség.osszeg,
@@ -42,6 +43,8 @@ export const KarakterTemplateWdiget: React.FC<{
         setDobasok([r.Fizikum, r.Ügyesség, r.Mentál, r.Asztrál]);
         setKarakter(Karakter.create(template));
     };
+
+    const kaszt = Kasztok.kasztInfo(template.kaszt, 0);
 
     return <ModalWindow button='Új karakter' open={open} setOpen={setOpen}>
         <table>
@@ -55,9 +58,8 @@ export const KarakterTemplateWdiget: React.FC<{
                 <tr>
                     <th>Kaszt/Faj</th>
                     <td>
-                        <NamedEntitySelector nea={Kasztok} value={template.kaszt} onChange={kaszt => {
+                        <KasztSelectorWidget kaszt='kaszt' onChange={kaszt => {
                             onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
-
                         }} />
                     </td>
                     <td>
@@ -66,7 +68,7 @@ export const KarakterTemplateWdiget: React.FC<{
                         }} />
                     </td>
                 </tr>
-                {Object.entries(template.kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
+                {Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
                     <th>{kategoria}</th>
                     <td>{dobas}</td>
                     <td><DobasEredmenyWidget {...dobasok[idx]} /></td>

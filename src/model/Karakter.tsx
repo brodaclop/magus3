@@ -13,7 +13,7 @@ import { NamedEntity } from "./util";
 export interface KarakterTemplate {
     name: string,
     faj: Faj,
-    kaszt: KasztInfo,
+    kaszt: string,
     szint: number,
     kepessegKategoriak: Record<KepessegKategoria, number>;
 }
@@ -116,8 +116,9 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Karakter = {
-    createTemplate: (options?: { faj?: Faj, kaszt?: KasztInfo, name: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0], szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '' }),
+    createTemplate: (options?: { faj?: Faj, kaszt?: string, name: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0].id, szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '' }),
     create: (template: KarakterTemplate): Karakter => {
+        const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);
         const ret: Karakter = {
             id: v4(),
             name: template.name,
@@ -126,9 +127,9 @@ export const Karakter = {
             inventory: [],
             szint: [
                 {
-                    kaszt: template.kaszt,
-                    harcertek: Harcertek.add(template.kaszt.harcertekAlap),
-                    fp: template.kaszt.fpAlap,
+                    kaszt: kasztInfo,
+                    harcertek: Harcertek.add(kasztInfo.harcertekAlap),
+                    fp: kasztInfo.fpAlap,
                     kepzettsegek: {
                         normal: [],
                         szazalekos: Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => ({ kepzettseg: k as SzazalekosKepzettseg, szazalek: 0 }))
@@ -140,14 +141,14 @@ export const Karakter = {
             ],
             pancel: undefined,
             kepessegek: Kepessegek.newErtekRecord(),
-            ep: template.kaszt.epAlap,
+            ep: kasztInfo.epAlap,
             hm: 0,
             kezek: [Karakter.okolharc(), undefined],
-            kp: template.kaszt.kpAlap,
+            kp: kasztInfo.kpAlap,
             szazalek: 0
         };
-        levelUp(ret, template.kaszt);
-        updateKepzettsegekForLevel(ret, template.kaszt, 0, ret.szint[0]);
+        levelUp(ret, kasztInfo);
+        updateKepzettsegekForLevel(ret, kasztInfo, 0, ret.szint[0]);
         return ret;
     },
     megfoghato: (karakter: Karakter, kez: 0 | 1, fegyver?: MegfogottFegyver): boolean => {

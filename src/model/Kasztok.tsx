@@ -6,7 +6,6 @@ import KASZTOK from '../data/kasztok.json';
 import { MagiaKategoriak } from "./Magia";
 
 export const KasztKepesseg = ['Legendás', 'Jó', 'Átlagos', 'Gyenge'] as const;
-export const MagiaTipus = ['mozaik', 'tűz', 'pap', 'bárd', 'boszorkány', 'boszmester'] as const;
 export const ManaMennyiseg = ['normál', 'sok', 'kevés'] as const;
 
 // const KEPESSEG_DOBAS: Record<KasztKepesseg, Partial<KockaDobas>> = {
@@ -38,6 +37,7 @@ export interface KasztInfo extends NamedEntity {
     name: string,
     kepessegDobas: Record<KepessegKategoria, typeof KasztKepesseg[number]>,
     fpPerSzint: number;
+    fokaszt?: string;
     fpAlap: number;
     epAlap: number;
     harcertekAlap: Partial<Harcertek>;
@@ -48,7 +48,6 @@ export interface KasztInfo extends NamedEntity {
     kpPerSzint: number;
     mana?: {
         kepesseg: string;
-        magiaTipus: typeof MagiaTipus[number];
         mennyiseg: typeof ManaMennyiseg[number];
     };
     szazalekPerSzint: number;
@@ -59,8 +58,14 @@ export interface KasztInfo extends NamedEntity {
 export const Kasztok = {
     ...namedEntityArray(KASZTOK as Array<KasztInfo>),
     kasztInfo: (kasztId: string, szint: number): KasztInfo => {
-        //TODO: more compatible cloning
-        const ret = structuredClone(Kasztok.find(kasztId)) as KasztInfo;
+        let ret = structuredClone(Kasztok.find(kasztId)) as KasztInfo;
+        if (ret.fokaszt) {
+            const alkaszt: Partial<KasztInfo> = ret;
+            const fokaszt = Kasztok.find(ret.fokaszt);
+            ret = { ...fokaszt, ...alkaszt };
+            ret.magiaKategoriak = [...(ret.magiaKategoriak ?? []), ...(alkaszt.magiaKategoriak ?? [])];
+            ret.kasztSpec = [...(ret.kasztSpec ?? []), ...(alkaszt.kasztSpec ?? [])]
+        }
         if (ret.kasztSpec?.includes('ketSzintenkentKe') && szint % 2 === 0) {
             ret.harcertek.ke = (ret.harcertek.ke ?? 0) + 1
         }
