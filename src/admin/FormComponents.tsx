@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
+import { NamedEntity } from '../model/util';
 import './form.css';
 
 interface StringEditorDescriptor {
@@ -17,7 +18,7 @@ interface PicklistEditorDescriptor {
     type: 'picklist';
     label: string;
     multiple: boolean;
-    values: Array<string>;
+    values: readonly string[] | readonly NamedEntity[];
 }
 
 
@@ -49,8 +50,8 @@ export const Editor = {
     string: (label: string): StringEditorDescriptor => ({ label, type: 'string' }),
     longString: (label: string): StringEditorDescriptor => ({ label, long: true, type: 'string' }),
     number: (label: string): NumberEditorDescriptor => ({ label, type: 'number' }),
-    picklist: (label: string, values: Array<string>): PicklistEditorDescriptor => ({ label, values, multiple: false, type: 'picklist' }),
-    multiPicklist: (label: string, values: Array<string>): PicklistEditorDescriptor => ({ label, values, multiple: true, type: 'picklist' }),
+    picklist: (label: string, values: readonly string[] | readonly NamedEntity[]): PicklistEditorDescriptor => ({ label, values, multiple: false, type: 'picklist' }),
+    multiPicklist: (label: string, values: readonly string[] | readonly NamedEntity[]): PicklistEditorDescriptor => ({ label, values, multiple: true, type: 'picklist' }),
     array: (label: string, children: EditorDescriptor, idxStart?: number): ArrayEditorDescriptor => ({ label, children, idxStart, type: 'array' }),
     fixArray: (label: string, children: EditorDescriptor, fix: number, idxStart?: number): ArrayEditorDescriptor => ({ label, children, fix, idxStart, type: 'array' }),
     object: (label: string, children: Record<string, EditorDescriptor>): ObjectEditorDescriptor => ({ label, children, type: 'object' }),
@@ -58,14 +59,14 @@ export const Editor = {
 }
 
 export const StringEditor: React.FC<{ desc: StringEditorDescriptor, value: string | undefined, onChange: (value: string) => unknown }> = ({ desc, value, onChange }) => {
-    return <div>
+    return <div className='stringEditor'>
         <label style={{ verticalAlign: 'top' }}>{desc.label}: </label>
         {desc.long ? <textarea value={value} onChange={e => onChange(e.target.value)} /> : <input type='text' value={value} onChange={e => onChange(e.target.value)} />}
     </div>;
 }
 
 export const NumberEditor: React.FC<{ desc: NumberEditorDescriptor, value: number | undefined, onChange: (value: number) => unknown }> = ({ desc, value, onChange }) => {
-    return <div>
+    return <div className='numberEditor'>
         <label>{desc.label}: </label>
         <input type='number' value={value} onChange={e => onChange(Number(e.target.value))} />
     </div>;
@@ -73,32 +74,33 @@ export const NumberEditor: React.FC<{ desc: NumberEditorDescriptor, value: numbe
 
 export const PicklistEditor: React.FC<{ desc: PicklistEditorDescriptor, value: string | string[] | undefined, onChange: (value: string | string[]) => unknown }> = ({ desc, value, onChange }) => {
     const selectValue = desc.multiple ? (typeof value === 'string' ? [value] : (value ?? [])) : (value ?? '');
-    return <div>
+    return <div className='picklistEditor'>
         <label>{desc.label}: </label>
-        <select multiple={desc.multiple} value={selectValue} onChange={e => {
+        <select multiple={desc.multiple} size={desc.multiple ? desc.values.length : undefined} value={selectValue} onChange={e => {
             onChange(desc.multiple ? Array.from(e.target.selectedOptions, o => o.value) : e.target.value);
         }}>
-            <option disabled value={''}></option>
-            {desc.values.map(v => <option value={v}>{v}</option>)}
+            {!desc.multiple && <option disabled value={''}></option>}
+            {desc.values.map(v => <option value={typeof v === 'string' ? v : v.id}>{typeof v === 'string' ? v : v.name}</option>)}
         </select>
     </div>;
 }
 
 export const ArrayEditor: React.FC<{ desc: ArrayEditorDescriptor, value: Array<unknown>, onChange: (value: Array<unknown>) => unknown }> = ({ desc, value, onChange }) => {
-    return <div>
+    return <div className='arrayEditor'>
         <label>{desc.label}</label>
-        <div className='arrayEditor' style={{ display: 'flex', flexFlow: 'column', border: '1px solid black', padding: '0.5em' }}>
-            {value.map((v, idx) => <div><AnyEditor desc={{ ...desc.children, label: `${idx + (desc.idxStart ?? 0)}. ${desc.children.label}` }} value={v} onChange={newValue => {
-                value[idx] = newValue;
-                onChange(value);
-            }} />
+        <div>
+            {value.map((v, idx) => <div>
+                <AnyEditor desc={{ ...desc.children, label: `${idx + (desc.idxStart ?? 0)}. ${desc.children.label}` }} value={v} onChange={newValue => {
+                    value[idx] = newValue;
+                    onChange(value);
+                }} />
                 {!desc.fix && <button onClick={() => {
                     value.splice(idx, 1);
                     onChange(value);
                 }}>x</button>}
             </div>)}
 
-            {!desc.fix && <button onClick={() => {
+            {!desc.fix && <button className='addButton' onClick={() => {
                 value.push(undefined);
                 onChange(value);
             }}>+</button>}
@@ -112,9 +114,9 @@ export const ObjectEditor: React.FC<{ desc: ObjectEditorDescriptor, value: Recor
         value[key] = v;
         onChange(value);
     }, [value, onChange]);
-    return <div>
+    return <div className='objectEditor'>
         <label>{desc.label}</label>
-        <div className='objectEditor' style={{ display: 'flex', width: '100%', flexFlow: 'row wrap', border: '1px solid black', padding: '0.5em' }}>
+        <div>
             {Object.entries(desc.children).map(([key, childDescriptor]) => <AnyEditor desc={childDescriptor} value={value[key]} onChange={v => childOnChange(key, v)} />)}
         </div>
     </div>;
@@ -132,7 +134,7 @@ export const ChoiceEditor: React.FC<{ desc: ChoiceEditorDescriptor, value: Recor
             setFixed(false);
         }
     }, [value, desc]);
-    return <div style={{ display: 'flex', flexFlow: 'row' }}>
+    return <div className='choiceEditor'>
         <div>
             {Object.keys(desc.choices).map(label => <div>
                 <input key={label} type='radio' disabled={fixed} value={label} checked={label === selected} onChange={e => setSelected(e.currentTarget.value)} />{label}

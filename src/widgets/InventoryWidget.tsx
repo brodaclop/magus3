@@ -1,7 +1,7 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
 import { Calculation } from '../model/Calculation';
-import { SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
+import { SebzesTipus } from '../model/Fegyver';
 import { InventoryItem } from '../model/Inventory';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
@@ -10,9 +10,10 @@ import { printKocka } from '../model/Kocka';
 import { Lofegyver } from '../model/Lofegyver';
 import { EgyebBuilderWidget } from './inventory/EgyebBuilderWidget';
 import { FegyverBuilderWidget } from './inventory/FegyverBuilderWidget';
+import { InventorySzerkesztWidget } from './inventory/InventorySzerkesztWidget';
 import { LofegyverBuilderWidget } from './inventory/LofegyverBuilderWidget';
 import { PancelBuilderWidget } from './inventory/PancelBuilderWidget';
-import { PancelIgazitasWidget } from './inventory/PancelIgazitasWidget';
+import { PancelSzerkesztWidget } from './inventory/PancelSzerkesztWidget';
 import { formatSebzesTipus } from './KombatWidget';
 
 export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: InventoryItem }> = ({ calc, item }) => {
@@ -39,7 +40,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
             {item.tipus === 'pancel' && <>
                 <tr>
                     <th>SFÉ</th>
-                    <td>{Object.entries(item.ob.sfe).map(([sebzesTipus, sfe]) => `${sfe} ${SEBZESTIPUS_LABEL[sebzesTipus as SebzesTipus]}`).join('/')}</td>
+                    <td>{Object.entries(item.ob.sfe).map(([sebzesTipus, sfe]) => `${sfe} ${formatSebzesTipus(sebzesTipus as typeof SebzesTipus[number]['id'])}`).join('/')}</td>
                 </tr>
                 <tr>
                     <th>MGT</th>
@@ -164,7 +165,7 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
     return <table className='bordered'>
         <thead>
             <tr>
-                <th colSpan={2}>Felszerelés</th>
+                <th colSpan={4}>Felszerelés</th>
             </tr>
         </thead>
         <tbody>
@@ -173,7 +174,9 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                     <Tooltip placement='top' overlay={<InventoryTooltip calc={calc} item={i} />}>
                         <span>{i.ob.name}</span>
                     </Tooltip>
-                    {i.tipus === 'pancel' && <PancelIgazitasWidget karakter={karakter} onChange={onChange} pancel={i} />}
+                </td>
+                <td>
+                    {i.tipus === 'pancel' ? <PancelSzerkesztWidget karakter={karakter} onChange={onChange} pancel={i} /> : <InventorySzerkesztWidget karakter={karakter} onChange={onChange} item={i} />}
                 </td>
                 <td style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <button disabled={i.quantity === 0 || (worn[i.id] ?? 0) === i.quantity} onClick={() => {
@@ -185,6 +188,8 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                         i.quantity++;
                         onChange(karakter);
                     }}>+</button>
+                </td>
+                <td>
                     <button disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
                         karakter.inventory.splice(idx, 1);
                         onChange(karakter);
@@ -192,15 +197,17 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 </td>
             </tr>)}
         </tbody>
-        <tbody>
+        <tfoot>
             <tr>
-                <td colSpan={2}>
-                    <PancelBuilderWidget karakter={karakter} onChange={onChange} />
-                    <FegyverBuilderWidget karakter={karakter} onChange={onChange} />
-                    <LofegyverBuilderWidget karakter={karakter} onChange={onChange} />
-                    <EgyebBuilderWidget karakter={karakter} onChange={onChange} />
+                <td colSpan={4}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <PancelBuilderWidget karakter={karakter} onChange={onChange} />
+                        <FegyverBuilderWidget karakter={karakter} onChange={onChange} />
+                        <LofegyverBuilderWidget karakter={karakter} onChange={onChange} />
+                        <EgyebBuilderWidget karakter={karakter} onChange={onChange} />
+                    </div>
                 </td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>;
 }

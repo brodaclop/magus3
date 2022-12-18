@@ -91,7 +91,7 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
     const szintKaszt = Kasztok.kasztInfo(kasztId.id, karakter.szint.length);
     const szint = karakter.szint.slice(1).filter(k => k.kaszt.id === szintKaszt.id).length + 1;
     const dobas = karakter.szint.length === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
-    let mana = szintKaszt.mana ? ((szintKaszt.mana.type === 'sok' || karakter.szint.length === 1) ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg) : 0;
+    let mana = szintKaszt.mana ? ((szintKaszt.mana.mennyiseg === 'sok' || karakter.szint.length === 1) ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg) : 0;
 
     const szintInfo: SzintInfo = {
         kaszt: szintKaszt,

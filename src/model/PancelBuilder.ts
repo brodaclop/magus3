@@ -3,7 +3,7 @@ import { Pancel } from './Pancel';
 
 export interface PancelBlokk {
     name: string;
-    sfe: Record<SebzesTipus, number>;
+    sfe: Record<typeof SebzesTipus[number]['id'], number>;
     mgt: number;
 }
 

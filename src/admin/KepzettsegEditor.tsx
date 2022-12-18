@@ -1,8 +1,8 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg } from '../model/Kepzettseg';
+import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
 const NORMAL_KEPZETTSEG_SCHEMA: ObjectEditorDescriptor = Editor.object('Képzettség', {
@@ -45,19 +45,16 @@ export const KepzettsegEditor: React.FC<{}> = () => {
         }
     }
 
-    return <>
-        <button onClick={() => setOpen(true)}>Képzettség szerkesztő</button>
-        <ReactModal isOpen={open} onRequestClose={() => setOpen(false)}>
-            <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
-                <option value=''>Új</option>
-                {Kepzettseg.__taroltLista().map(k => <option value={k.id}>{k.name}</option>)}
-            </select>
-            <button onClick={startEdit}>Szerkeszt</button>
-            <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {
-                setObject(structuredClone(ob));
-            }} />
-            <button onClick={ment}>Ment</button>
-            <button onClick={exportLista}>Export</button>
-        </ReactModal>
-    </>
+    return <ModalWindow open={open} setOpen={setOpen} button='Képzettség szerkesztő'>
+        <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
+            <option value=''>Új</option>
+            {Kepzettseg.__taroltLista().map(k => <option value={k.id}>{k.name}</option>)}
+        </select>
+        <button onClick={startEdit}>Szerkeszt</button>
+        <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {
+            setObject(structuredClone(ob));
+        }} />
+        <button onClick={ment}>Ment</button>
+        <button onClick={exportLista}>Export</button>
+    </ModalWindow>;
 }

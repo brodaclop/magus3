@@ -8,7 +8,7 @@ import { KarakterTemplateWdiget } from './widgets/KarakterTemplateWidget';
 import { KarakterWidget } from './widgets/KarakterWidget';
 import './styles.css';
 import './dropdownmenu.css';
-
+import 'react-responsive-modal/styles.css';
 
 const App: React.FC<{}> = () => {
 

@@ -435,7 +435,12 @@
         "hm": 5,
         "kpAlap": 4,
         "kpPerSzint": 6,
-        "szazalekPerSzint": 45
+        "szazalekPerSzint": 45,
+        "mana": {
+            "kepesseg": "empatia",
+            "magiaTipus": "bárd",
+            "mennyiseg": "normál"
+        }
     },
     {
         "id": "Pap",
@@ -461,7 +466,7 @@
         },
         "hm": 2,
         "mana": {
-            "type": "normal",
+            "mennyiseg": "normál",
             "magiaTipus": "pap",
             "kepesseg": "hit"
         },
@@ -501,7 +506,18 @@
         "hm": 3,
         "kpAlap": 5,
         "kpPerSzint": 5,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "mana": {
+            "kepesseg": "hit",
+            "magiaTipus": "pap",
+            "mennyiseg": "normál"
+        },
+        "magiaKategoriak": [
+            "kis_arkanum",
+            "litania",
+            "rituale",
+            "szfera_altalanos"
+        ]
     },
     {
         "id": "Harcművész",
@@ -582,7 +598,12 @@
         "hm": 2,
         "kpAlap": 8,
         "kpPerSzint": 12,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "mana": {
+            "kepesseg": "emlekezet",
+            "magiaTipus": "boszorkány",
+            "mennyiseg": "normál"
+        }
     },
     {
         "id": "Boszorkánymester",
@@ -610,7 +631,12 @@
         "hm": 5,
         "kpAlap": 7,
         "kpPerSzint": 8,
-        "szazalekPerSzint": 15
+        "szazalekPerSzint": 15,
+        "mana": {
+            "kepesseg": "emlekezet",
+            "magiaTipus": "boszmester",
+            "mennyiseg": "normál"
+        }
     },
     {
         "id": "Tűzvarázsló",
@@ -637,7 +663,12 @@
         "hm": 2,
         "kpAlap": 3,
         "kpPerSzint": 5,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "mana": {
+            "kepesseg": "emlekezet",
+            "magiaTipus": "tűz",
+            "mennyiseg": "normál"
+        }
     },
     {
         "id": "Varázsló",
@@ -664,6 +695,11 @@
         "hm": 2,
         "kpAlap": 7,
         "kpPerSzint": 7,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "mana": {
+            "kepesseg": "gondolkodas",
+            "magiaTipus": "mozaik",
+            "mennyiseg": "normál"
+        }
     }
 ]

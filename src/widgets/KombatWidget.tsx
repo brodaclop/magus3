@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calculation } from '../model/Calculation';
-import { SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
+import { SebzesTipus } from '../model/Fegyver';
 import { InventoryLofegyver } from '../model/Inventory';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
@@ -12,8 +12,8 @@ import { InventorySelector } from './InventorySelector';
 import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
-export const formatSebzesTipus = (t: SebzesTipus | Array<SebzesTipus>): string =>
-    (typeof t === 'string' ? [t] : t).sort().map(o => SEBZESTIPUS_LABEL[o]).join('/') || '-';
+export const formatSebzesTipus = (t: typeof SebzesTipus[number]['id'] | Array<typeof SebzesTipus[number]['id']>): string =>
+    (typeof t === 'string' ? [t] : t).sort().map(o => SebzesTipus.find(st => o === st.id)).join('/') || '-';
 
 
 
@@ -98,7 +98,7 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                     <CalculationWidget calculation={calc.fegyverrel.ve}>{Calculation.calculate(calc.fegyverrel.ve)}</CalculationWidget>
                 </td>
                 <th>Lőtáv</th>
-                <td>{calc.lofegyverrel?.lotav ?? '-'}</td>
+                <td style={{ textAlign: 'center' }}>{calc.lofegyverrel?.lotav ?? '-'}</td>
             </tr>
             <tr>
                 <th>MGT</th>

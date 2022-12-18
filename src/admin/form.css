@@ -1,7 +1,9 @@
-.objectEditor>*,
-.arrayEditor>* {
-    margin: 0.5rem;
-    padding: 0.5rem;
+.objectEditor>div>*,
+.arrayEditor>div>* {
+    margin: 0;
+    padding: 0;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .objectEditor textarea {
@@ -9,7 +11,40 @@
     height: 6rem;
 }
 
-/* .objectEditor>*:nth-child(even),
-.arrayEditor>*:nth-child(even) {
-    background-color: lightgray;
-} */
+.arrayEditor>div>div {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 0.5em
+}
+
+.objectEditor>div {
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid black;
+    padding: 0.5em
+}
+
+.stringEditor>label,
+.numberEditor>label,
+.picklistEditor>label {
+    display: block;
+    font-size: xx-small;
+}
+
+.objectEditor>label,
+.arrayEditor>label {
+    display: inline-block;
+    border: 1px solid black;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    margin: 0;
+    padding: 2px;
+    font-size: xx-small;
+}
+
+.choiceEditor {
+    display: flex;
+    flex-flow: row;
+}

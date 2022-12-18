@@ -3,10 +3,10 @@ import { KockaDobas, parseKocka } from "./Kocka";
 import { NamedEntity, namedEntityArray } from "./util";
 
 export interface LofegyverBase extends NamedEntity {
-    sebesseg: FegyverSebesseg;
+    sebesseg: typeof FegyverSebesseg[number];
     ke: number;
     ce: number;
-    sebzestipus: SebzesTipus;
+    sebzestipus: typeof SebzesTipus[number]['id'];
     alternativKepzettseg?: string;
 };
 

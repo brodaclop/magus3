@@ -43,7 +43,7 @@ export const MagiaKategoriak = [
     { name: 'Kis Arkánum', id: 'kis_arkanum' },
     { name: 'Nagy Arkánum', id: 'nagy_arkanum' },
     { name: 'Litánia', id: 'litania' },
-    { name: 'Rituálé', id: 'Rituálé' },
+    { name: 'Rituálé', id: 'rituale' },
     { name: 'Általános Papi', id: 'szfera_altalanos' },
     { name: 'Halál', id: 'szfera_halal' },
     { name: 'Élet', id: 'szfera_elet' },

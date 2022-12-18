@@ -1,18 +1,21 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
-import { KasztInfo, Kasztok } from '../model/Kasztok';
+
+import { KasztInfo, KasztKepesseg, Kasztok, KasztSpecFlags, MagiaTipus, ManaMennyiseg } from '../model/Kasztok';
+import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg } from '../model/Kepzettseg';
+import { MagiaKategoriak } from '../model/Magia';
+import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
 const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
     id: Editor.string('ID'),
     name: Editor.string('Név'),
     kepessegDobas: Editor.object('Képességek', {
-        Fizikum: Editor.picklist('Fizikum', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Ügyesség: Editor.picklist('Ügyesség', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Mentál: Editor.picklist('Mentál', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
-        Asztrál: Editor.picklist('Asztrál', ['Legendás', 'Jó', 'Átlagos', 'Gyenge']),
+        Fizikum: Editor.picklist('Fizikum', KasztKepesseg),
+        Ügyesség: Editor.picklist('Ügyesség', KasztKepesseg),
+        Mentál: Editor.picklist('Mentál', KasztKepesseg),
+        Asztrál: Editor.picklist('Asztrál', KasztKepesseg),
     }),
     epAlap: Editor.number('ÉP alap'),
     fpAlap: Editor.number('FP alap'),
@@ -30,13 +33,13 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
         ce: Editor.number('CÉ'),
     }),
     hm: Editor.number('Szabad HM'),
-    kasztSpec: Editor.multiPicklist('Speciális tulajdonságok', ['ketSzintenkentKe', 'ketSzintenkentSebzes']),
+    kasztSpec: Editor.multiPicklist('Speciális tulajdonságok', KasztSpecFlags),
     kpAlap: Editor.number('Alap KP'),
     kpPerSzint: Editor.number('KP/szint'),
     szazalekPerSzint: Editor.number('Százalékos képzettség/szint'),
     kepzettsegek: Editor.array('Képzettségek', Editor.array('Szint', Editor.or({
         'Fix': Editor.object('képzettség', {
-            kepzettsegId: Editor.picklist('Képzettség', Kepzettseg.keys),
+            kepzettsegId: Editor.picklist('Képzettség', Kepzettseg.lista),
             fok: Editor.number('Fok'),
             honnan: Editor.number('Minimum fok')
         }),
@@ -56,7 +59,13 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object('Kaszt', {
             }
             return '';
         }
-    ), 1))
+    ), 1)),
+    mana: Editor.object('Mana', {
+        kepesseg: Editor.picklist('Képesség', Kepessegek.lista),
+        magiaTipus: Editor.picklist('Mágia típusa', MagiaTipus),
+        mennyiseg: Editor.picklist('Mana mennyisége', ManaMennyiseg),
+    }),
+    magiaKategoriak: Editor.multiPicklist('Mágia kategóriák', MagiaKategoriak)
 });
 
 export const KasztEditor: React.FC<{}> = () => {
@@ -85,19 +94,17 @@ export const KasztEditor: React.FC<{}> = () => {
         }
     }
 
-    return <>
-        <button onClick={() => setOpen(true)}>Kaszt szerkesztő</button>
-        <ReactModal isOpen={open} onRequestClose={() => setOpen(false)}>
-            <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
-                <option value=''>Új</option>
-                {Kasztok.lista.map(k => <option value={k.id}>{k.name}</option>)}
-            </select>
-            <button onClick={startEdit}>Szerkeszt</button>
-            <ObjectEditor desc={KASZT_SCHEMA} value={object} onChange={ob => {
-                setObject(structuredClone(ob));
-            }} />
-            <button onClick={ment}>Ment</button>
-            <button onClick={exportLista}>Export</button>
-        </ReactModal>
-    </>
+    return <ModalWindow open={open} setOpen={setOpen} button='Kaszt szerkesztő'>
+        <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
+            <option value=''>Új</option>
+            {Kasztok.lista.map(k => <option value={k.id}>{k.name}</option>)}
+        </select>
+        <button onClick={startEdit}>Szerkeszt</button>
+        <ObjectEditor desc={KASZT_SCHEMA} value={object} onChange={ob => {
+            setObject(structuredClone(ob));
+        }} />
+        <button onClick={ment}>Ment</button>
+        <button onClick={exportLista}>Export</button>
+    </ModalWindow>;
+
 }

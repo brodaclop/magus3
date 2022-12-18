@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
+
 import { v4 } from 'uuid';
 import { Inventory } from '../../model/Inventory';
 import { Karakter } from '../../model/Karakter';
 import { Pancel } from '../../model/Pancel';
 import { PancelBlokk, PancelBuilder } from '../../model/PancelBuilder';
+import { ModalWindow } from '../ModalWindow';
+import { GiAbdominalArmor } from 'react-icons/gi';
 
 export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter) => unknown }> = ({ karakter, onChange }) => {
     const [open, setOpen] = useState(false);
@@ -54,98 +56,95 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
         MGT: {blokk.mgt} SFÉ: {blokk.sfe.szuro} Szúró / {blokk.sfe.vago} Vágó / {blokk.sfe.zuzo} Zúzó
     </td>
 
-    return <>
-        <button onClick={() => setOpen(true)}>Új páncél</button>
-        <ReactModal style={{ content: { width: '50em', height: '30em' } }} isOpen={open} onRequestClose={() => setOpen(false)} >
-            <table className='bordered' style={{ textAlign: 'justify' }}>
-                <tbody>
+    return <ModalWindow open={open} setOpen={setOpen} button={<GiAbdominalArmor />} buttonAlt='Új páncél'>
+        <table className='bordered' style={{ textAlign: 'justify' }}>
+            <tbody>
+                <tr>
+                    <th>Név</th>
+                    <td colSpan={2}><input type='text' value={name} style={{ width: '95%' }} onChange={e => setName(e.target.value)} /> </td>
+                </tr>
+                <tr>
+                    <th>Leírás</th>
+                    <td colSpan={2}><textarea rows={10} value={note} style={{ width: '95%' }} onChange={e => setNote(e.target.value)} /> </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>Kirakós: <input type='radio' checked={mode === 'assemble'} onChange={() => setMode('assemble')} /></td>
+                    <td>Fix: <input type='radio' checked={mode === 'fixed'} onChange={() => setMode('fixed')} /></td>
+                </tr>
+                {mode === 'fixed' && <>
                     <tr>
-                        <th>Név</th>
-                        <td colSpan={2}><input type='text' value={name} style={{ width: '95%' }} onChange={e => setName(e.target.value)} /> </td>
+                        <th rowSpan={4}>Értékek</th>
+                        <td>MGT</td>
+                        <td><input type='number' value={fixed.mgt} onChange={e => setFixed({ ...fixed, mgt: Number(e.target.value) })} /></td>
                     </tr>
                     <tr>
-                        <th>Leírás</th>
-                        <td colSpan={2}><textarea rows={10} value={note} style={{ width: '95%' }} onChange={e => setNote(e.target.value)} /> </td>
+                        <td rowSpan={3}>SFÉ</td>
+                        <td>Szúró <input type='number' value={fixed.sfe.szuro} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, szuro: Number(e.target.value) } })} /></td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td>Kirakós: <input type='radio' checked={mode === 'assemble'} onChange={() => setMode('assemble')} /></td>
-                        <td>Fix: <input type='radio' checked={mode === 'fixed'} onChange={() => setMode('fixed')} /></td>
+                        <td>Vágó <input type='number' value={fixed.sfe.vago} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, vago: Number(e.target.value) } })} /></td>
                     </tr>
-                    {mode === 'fixed' && <>
-                        <tr>
-                            <th rowSpan={4}>Értékek</th>
-                            <td>MGT</td>
-                            <td><input type='number' value={fixed.mgt} onChange={e => setFixed({ ...fixed, mgt: Number(e.target.value) })} /></td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={3}>SFÉ</td>
-                            <td>Szúró <input type='number' value={fixed.sfe.szuro} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, szuro: Number(e.target.value) } })} /></td>
-                        </tr>
-                        <tr>
-                            <td>Vágó <input type='number' value={fixed.sfe.vago} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, vago: Number(e.target.value) } })} /></td>
-                        </tr>
-                        <tr>
-                            <td>Zúzó <input type='number' value={fixed.sfe.zuzo} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, zuzo: Number(e.target.value) } })} /></td>
-                        </tr>
+                    <tr>
+                        <td>Zúzó <input type='number' value={fixed.sfe.zuzo} onChange={e => setFixed({ ...fixed, sfe: { ...fixed.sfe, zuzo: Number(e.target.value) } })} /></td>
+                    </tr>
 
-                    </>}
-                    {mode === 'assemble' && <>
-                        <tr>
-                            <th>Alap:</th>
-                            <td>
-                                <select value={alap} onChange={e => setAlap(Number(e.target.value))}>
-                                    {PancelBuilder.alapok.map((a, i) => <option value={i}>{a.name}</option>)}
-                                </select>
-                            </td>
-                            {renderBlokk(PancelBuilder.alapok[alap])}
-                        </tr>
-                        <tr>
-                            <th>Minőség:</th>
-                            <td>
-                                <select value={minoseg} onChange={e => setMinoseg(Number(e.target.value))}>
-                                    {PancelBuilder.minoseg.map((a, i) => <option value={i}>{a.name}</option>)}
-                                </select>
-                            </td>
-                            {renderBlokk(PancelBuilder.minoseg[minoseg])}
-                        </tr>
-                        {PancelBuilder.alapok[alap].anyag === 'fem' && <tr>
-                            <th>Fém</th>
-                            <td>
-                                <select value={fem} onChange={e => setFem(Number(e.target.value))}>
-                                    {PancelBuilder.femek.map((a, i) => <option value={i}>{a.name}</option>)}
-                                </select>
-                            </td>
-                            {renderBlokk(PancelBuilder.femek[fem])}
-                        </tr>}
-                    </>}
+                </>}
+                {mode === 'assemble' && <>
                     <tr>
-                        <th>Rúna:</th>
+                        <th>Alap:</th>
                         <td>
-                            <select value={runa} onChange={e => setRuna(Number(e.target.value))}>
-                                {PancelBuilder.runak.map((a, i) => <option value={i}>{a.name}</option>)}
+                            <select value={alap} onChange={e => setAlap(Number(e.target.value))}>
+                                {PancelBuilder.alapok.map((a, i) => <option value={i}>{a.name}</option>)}
                             </select>
                         </td>
-                        {renderBlokk(PancelBuilder.runak[runa])}
+                        {renderBlokk(PancelBuilder.alapok[alap])}
                     </tr>
                     <tr>
-                        <th>Méretre igazítás</th>
+                        <th>Minőség:</th>
                         <td>
-                            <select value={igazitas} onChange={e => setIgazitas(Number(e.target.value))}>
-                                {PancelBuilder.igazitas.map((a, i) => <option value={i}>{a.name}</option>)}
+                            <select value={minoseg} onChange={e => setMinoseg(Number(e.target.value))}>
+                                {PancelBuilder.minoseg.map((a, i) => <option value={i}>{a.name}</option>)}
                             </select>
                         </td>
-                        {renderBlokk(PancelBuilder.igazitas[igazitas])}
+                        {renderBlokk(PancelBuilder.minoseg[minoseg])}
                     </tr>
-                    <tr>
-                        <th>Összesen</th>
+                    {PancelBuilder.alapok[alap].anyag === 'fem' && <tr>
+                        <th>Fém</th>
                         <td>
-                            <button onClick={build}>Elkészít</button>
+                            <select value={fem} onChange={e => setFem(Number(e.target.value))}>
+                                {PancelBuilder.femek.map((a, i) => <option value={i}>{a.name}</option>)}
+                            </select>
                         </td>
-                        {renderBlokk(createPancel()[0])}
-                    </tr>
-                </tbody>
-            </table>
-        </ReactModal>
-    </>;
+                        {renderBlokk(PancelBuilder.femek[fem])}
+                    </tr>}
+                </>}
+                <tr>
+                    <th>Rúna:</th>
+                    <td>
+                        <select value={runa} onChange={e => setRuna(Number(e.target.value))}>
+                            {PancelBuilder.runak.map((a, i) => <option value={i}>{a.name}</option>)}
+                        </select>
+                    </td>
+                    {renderBlokk(PancelBuilder.runak[runa])}
+                </tr>
+                <tr>
+                    <th>Méretre igazítás</th>
+                    <td>
+                        <select value={igazitas} onChange={e => setIgazitas(Number(e.target.value))}>
+                            {PancelBuilder.igazitas.map((a, i) => <option value={i}>{a.name}</option>)}
+                        </select>
+                    </td>
+                    {renderBlokk(PancelBuilder.igazitas[igazitas])}
+                </tr>
+                <tr>
+                    <th>Összesen</th>
+                    <td>
+                        <button onClick={build}>Elkészít</button>
+                    </td>
+                    {renderBlokk(createPancel()[0])}
+                </tr>
+            </tbody>
+        </table>
+    </ModalWindow>;
 }

@@ -1,18 +1,19 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
-import { Fegyver, FEGYVER_KATEGORIAK, KozelharcFegyver } from '../model/Fegyver';
+
+import { Fegyver, FegyverFlags, FegyverSebesseg, FEGYVER_KATEGORIAK, KozelharcFegyver, SebzesTipus } from '../model/Fegyver';
 import { Kepessegek } from '../model/Kepessegek';
+import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
 const FEGYVER_SCHEMA: ObjectEditorDescriptor = Editor.object('Fegyver', {
     fegyver: Editor.or({
-        kategorizalt: Editor.object('Kategorizált', {
+        Kategorizált: Editor.object('Kategorizált', {
             id: Editor.string('ID'),
             name: Editor.string('Név'),
-            sebesseg: Editor.picklist('Sebesség', ['gyors', 'átlagos', 'lassú', '3', '4', '5']),
-            sebzestipus: Editor.multiPicklist('Sebzéstipus', ['szuro', 'vago', 'zuzo']),
-            flags: Editor.picklist('Fegyvertipus', ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez']),
+            sebesseg: Editor.picklist('Sebesség', FegyverSebesseg),
+            sebzestipus: Editor.multiPicklist('Sebzéstipus', SebzesTipus),
+            flags: Editor.picklist('Fegyvertipus', FegyverFlags),
             mgt: Editor.number('MGT'),
             kez: Editor.number('Kéz'),
             ke: Editor.number('KÉ'),
@@ -20,27 +21,27 @@ const FEGYVER_SCHEMA: ObjectEditorDescriptor = Editor.object('Fegyver', {
             ve: Editor.number('VÉ'),
             kategoria: Editor.picklist('Kategória', Object.keys(FEGYVER_KATEGORIAK))
         }),
-        nemKategorizalt: Editor.object('Nem kategorizált', {
+        Egyedi: Editor.object('Nem kategorizált', {
             id: Editor.string('ID'),
             name: Editor.string('Név'),
-            sebesseg: Editor.picklist('Sebesség', ['gyors', 'átlagos', 'lassú', '3', '4', '5']),
-            sebzestipus: Editor.multiPicklist('Sebzéstipus', ['szuro', 'vago', 'zuzo']),
-            flags: Editor.picklist('Fegyvertipus', ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez']),
+            sebesseg: Editor.picklist('Sebesség', FegyverSebesseg),
+            sebzestipus: Editor.multiPicklist('Sebzéstipus', SebzesTipus),
+            flags: Editor.picklist('Fegyvertipus', FegyverFlags),
             mgt: Editor.number('MGT'),
             kez: Editor.number('Kéz'),
             ke: Editor.number('KÉ'),
             te: Editor.number('TÉ'),
             ve: Editor.number('VÉ'),
-            kepesseg: Editor.picklist('Képesség', Kepessegek.keys),
+            kepesseg: Editor.picklist('Képesség', Kepessegek.lista),
             erobonusz: Editor.number('Sebzésbónusz minimum Izom képesség')
         })
     },
         (value: any) => {
             if ('kategoria' in value) {
-                return 'kategorizalt';
+                return 'Kategorizált';
             }
             if ('kepesseg' in value) {
-                return 'nemKategorizalt';
+                return 'Egyedi';
             }
             return '';
         }
@@ -74,19 +75,16 @@ export const FegyverEditor: React.FC<{}> = () => {
         }
     }
 
-    return <>
-        <button onClick={() => setOpen(true)}>Fegyver szerkesztő</button>
-        <ReactModal isOpen={open} onRequestClose={() => setOpen(false)}>
-            <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
-                <option value=''>Új</option>
-                {Fegyver.lista.map(k => <option value={k.id}>{k.name}</option>)}
-            </select>
-            <button onClick={startEdit}>Szerkeszt</button>
-            <ObjectEditor desc={FEGYVER_SCHEMA} value={object} onChange={ob => {
-                setObject(structuredClone(ob));
-            }} />
-            <button onClick={ment}>Ment</button>
-            <button onClick={exportLista}>Export</button>
-        </ReactModal>
-    </>
+    return <ModalWindow open={open} setOpen={setOpen} button='Fegyver szerkesztő'>
+        <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
+            <option value=''>Új</option>
+            {Fegyver.lista.map(k => <option value={k.id}>{k.name}</option>)}
+        </select>
+        <button onClick={startEdit}>Szerkeszt</button>
+        <ObjectEditor desc={FEGYVER_SCHEMA} value={object} onChange={ob => {
+            setObject(structuredClone(ob));
+        }} />
+        <button onClick={ment}>Ment</button>
+        <button onClick={exportLista}>Export</button>
+    </ModalWindow>;
 }

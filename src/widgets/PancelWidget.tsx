@@ -1,5 +1,5 @@
 import React from 'react';
-import { SebzesTipus, SEBZESTIPUS_LABEL } from '../model/Fegyver';
+import { SebzesTipus } from '../model/Fegyver';
 import { InventoryPancel } from '../model/Inventory';
 import { Karakter } from '../model/Karakter';
 import { InventorySelector } from './InventorySelector';
@@ -35,9 +35,9 @@ export const PancelWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter
             <tr>
                 <th rowSpan={4}>SFÉ</th>
             </tr>
-            {Object.keys(SEBZESTIPUS_LABEL).map(st => <tr>
-                <th>{SEBZESTIPUS_LABEL[st as SebzesTipus]}</th>
-                <td>{karakter.pancel?.ob.sfe[st as SebzesTipus] ?? 0}</td>
+            {SebzesTipus.map(st => <tr>
+                <th>{st.name}</th>
+                <td>{karakter.pancel?.ob.sfe[st.id] ?? 0}</td>
             </tr>
             )}
 

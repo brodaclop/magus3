@@ -5,8 +5,9 @@ import { NamedEntity, namedEntityArray } from "./util";
 import KASZTOK from '../data/kasztok.json';
 import { MagiaKategoriak } from "./Magia";
 
-export type KasztKepesseg = 'Legendás' | 'Jó' | 'Átlagos' | 'Gyenge';
-export type MagiaTipus = 'mozaik' | 'tuz' | 'pap' | 'bard' | 'boszorkany' | 'boszmester';
+export const KasztKepesseg = ['Legendás', 'Jó', 'Átlagos', 'Gyenge'] as const;
+export const MagiaTipus = ['mozaik', 'tűz', 'pap', 'bárd', 'boszorkány', 'boszmester'] as const;
+export const ManaMennyiseg = ['normál', 'sok', 'kevés'] as const;
 
 // const KEPESSEG_DOBAS: Record<KasztKepesseg, Partial<KockaDobas>> = {
 //     Legendás: { darab: 8, kocka: 10, eldobKicsi: 2 },
@@ -15,7 +16,7 @@ export type MagiaTipus = 'mozaik' | 'tuz' | 'pap' | 'bard' | 'boszorkany' | 'bos
 //     Gyenge: { darab: 7, kocka: 10, eldobNagy: 1 },
 // }
 
-const KEPESSEG_DOBAS: Record<KasztKepesseg, Partial<KockaDobas>> = {
+const KEPESSEG_DOBAS: Record<typeof KasztKepesseg[number], Partial<KockaDobas>> = {
     Legendás: { darab: 3, kocka: 6, plusz: 42 },
     Jó: { darab: 5, kocka: 6, plusz: 30 },
     Átlagos: { darab: 8, kocka: 6, plusz: 12 },
@@ -30,25 +31,25 @@ export interface KapottKepzettseg {
     honnan?: number;
 }
 
-export type KasztSpecFlags = 'ketSzintenkentKe' | 'ketSzintenkentSebzes';
+export const KasztSpecFlags = ['ketSzintenkentKe', 'ketSzintenkentSebzes'] as const;
 
 export interface KasztInfo extends NamedEntity {
     id: string,
     name: string,
-    kepessegDobas: Record<KepessegKategoria, KasztKepesseg>,
+    kepessegDobas: Record<KepessegKategoria, typeof KasztKepesseg[number]>,
     fpPerSzint: number;
     fpAlap: number;
     epAlap: number;
     harcertekAlap: Partial<Harcertek>;
     harcertek: Partial<Harcertek>;
     hm: number;
-    kasztSpec?: Array<KasztSpecFlags>;
+    kasztSpec?: Array<typeof KasztSpecFlags[number]>;
     kpAlap: number;
     kpPerSzint: number;
     mana?: {
         kepesseg: string;
-        magiaTipus: MagiaTipus;
-        type: 'normal' | 'sok' | 'keves';
+        magiaTipus: typeof MagiaTipus[number];
+        mennyiseg: typeof ManaMennyiseg[number];
     };
     szazalekPerSzint: number;
     kepzettsegek?: Array<Array<Omit<KapottKepzettseg, 'id'>>>;

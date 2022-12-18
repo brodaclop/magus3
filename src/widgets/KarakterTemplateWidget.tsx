@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import ReactModal from 'react-modal';
+
 import { Fajok } from '../model/Fajok';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kasztok } from '../model/Kasztok';
 import { DobasEredmeny } from '../model/Kocka';
 import { DobasEredmenyWidget } from './DobasEredmenyWidget';
+import { ModalWindow } from './ModalWindow';
 import { NamedEntitySelector } from './NamedEntitySelector';
 
 export const KarakterTemplateWdiget: React.FC<{
@@ -42,47 +43,44 @@ export const KarakterTemplateWdiget: React.FC<{
         setKarakter(Karakter.create(template));
     };
 
-    return <>
-        <button onClick={() => setOpen(true)}>Új karakter</button>
-        <ReactModal style={{ content: { width: '400px', height: '200px' } }} isOpen={open} onRequestClose={() => setOpen(false)}>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Név</th>
-                        <td colSpan={2}>
-                            <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Kaszt/Faj</th>
-                        <td>
-                            <NamedEntitySelector nea={Kasztok} value={template.kaszt} onChange={kaszt => {
-                                onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
+    return <ModalWindow button='Új karakter' open={open} setOpen={setOpen}>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Név</th>
+                    <td colSpan={2}>
+                        <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Kaszt/Faj</th>
+                    <td>
+                        <NamedEntitySelector nea={Kasztok} value={template.kaszt} onChange={kaszt => {
+                            onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
 
-                            }} />
-                        </td>
-                        <td>
-                            <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
-                                onFieldChange(Karakter.createTemplate({ ...template, faj }));
-                            }} />
-                        </td>
-                    </tr>
-                    {Object.entries(template.kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
-                        <th>{kategoria}</th>
-                        <td>{dobas}</td>
-                        <td><DobasEredmenyWidget {...dobasok[idx]} /></td>
-                    </tr>)}
-                </tbody>
-            </table>
-            <button onClick={karakterDob}>Dob</button>
-            <button onClick={() => {
-                if (karakter) {
-                    onCreate(karakter);
-                    setTemplate(Karakter.createTemplate());
-                    setDobasok(Array(4).fill({ kocka: [], max: 0, osszeg: 0, eldobottak: [], plusz: 0 } as DobasEredmeny));
-                }
-                setOpen(false);
-            }}>OK</button>
-        </ReactModal>
-    </>;
+                        }} />
+                    </td>
+                    <td>
+                        <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
+                            onFieldChange(Karakter.createTemplate({ ...template, faj }));
+                        }} />
+                    </td>
+                </tr>
+                {Object.entries(template.kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
+                    <th>{kategoria}</th>
+                    <td>{dobas}</td>
+                    <td><DobasEredmenyWidget {...dobasok[idx]} /></td>
+                </tr>)}
+            </tbody>
+        </table>
+        <button onClick={karakterDob}>Dob</button>
+        <button onClick={() => {
+            if (karakter) {
+                onCreate(karakter);
+                setTemplate(Karakter.createTemplate());
+                setDobasok(Array(4).fill({ kocka: [], max: 0, osszeg: 0, eldobottak: [], plusz: 0 } as DobasEredmeny));
+            }
+            setOpen(false);
+        }}>OK</button>
+    </ModalWindow>;
 };

@@ -84,7 +84,7 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
                                 karakter.szint[karakter.szint.length - 1].harcertek = Harcertek.add(karakter.szint[karakter.szint.length - 1].harcertek, elosztott);
                                 karakter.hm = maradekHm;
                                 setKarakter({ ...karakter });
-                            }}>Hozzáad</button>
+                            }}>Eloszt</button>
 
                     </td>
                 </tr>

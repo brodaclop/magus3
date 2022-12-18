@@ -35,7 +35,7 @@ export interface KarakterCalcResult {
         lotav: number,
     },
     kepzettsegek: SzintInfo['kepzettsegek'],
-    sfe: Record<SebzesTipus, number>;
+    sfe: Record<typeof SebzesTipus[number]['id'], number>;
     mgt: CalculationArgument;
     findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][0] | undefined;
     pendingKepzettsegekCount: number;
@@ -168,7 +168,7 @@ export const KarakterCalculator = {
             if (szint.kaszt.mana && szint.mana > 0) {
                 pontok += szint.mana;
                 pontok += Math.max(pillKep[szint.kaszt.mana.kepesseg] - 10, 0);
-                if (szint.kaszt.mana.type === 'keves') {
+                if (szint.kaszt.mana.mennyiseg === 'kevés') {
                     pontok /= 2;
                 }
             }
