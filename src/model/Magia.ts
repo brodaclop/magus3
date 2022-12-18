@@ -1,13 +1,35 @@
 import { NamedEntity, namedEntityArray } from "./util";
 
-type GyorsVarazslat = { ke: number };
-type LassuVarazslat = { varazslasIdeje: string };
+export type GyorsVarazslat = { ke: number } & VarazslatBase;
+export type LassuVarazslat = { varazslasIdeje: string } & VarazslatBase;
 
-const VarazslatKepzettsegek = [{
-    id: 'pap_kis_arkanum',
-    name: 'Kis Arkánum',
-    kepesseg: 'hit'
-}] as const;
+const VarazslatKepzettsegek = [
+    {
+        id: 'pap_szfera_altalanos',
+        name: 'Általános Szféra',
+        kepesseg: 'hit'
+    },
+    {
+        id: 'pap_szfera_termeszet',
+        name: 'Természet Szféra',
+        kepesseg: 'hit'
+    },
+    {
+        id: 'pap_szfera_elet',
+        name: 'Élet Szféra',
+        kepesseg: 'hit'
+    },
+    {
+        id: 'pap_szfera_lelek',
+        name: 'Lélek Szféra',
+        kepesseg: 'hit'
+    },
+    {
+        id: 'pap_szfera_halal',
+        name: 'Halál Szféra',
+        kepesseg: 'hit'
+    },
+] as const;
 
 const Mentodobasok = [
     { name: 'Mentál', id: 'mental' },
@@ -17,7 +39,7 @@ const Mentodobasok = [
     { name: '', id: 'nincs' },
 ] as const;
 
-const MagiaKategoriak = [
+export const MagiaKategoriak = [
     { name: 'Kis Arkánum', id: 'kis_arkanum' },
     { name: 'Nagy Arkánum', id: 'nagy_arkanum' },
     { name: 'Litánia', id: 'litania' },
@@ -41,7 +63,7 @@ export interface VarazslatBase extends NamedEntity {
 
 }
 
-export type Varazslat = VarazslatBase & (GyorsVarazslat | LassuVarazslat);
+export type Varazslat = (GyorsVarazslat | LassuVarazslat);
 
 const PAPI_VARAZSLATOK: Array<Varazslat> = [
     {
@@ -54,7 +76,7 @@ const PAPI_VARAZSLATOK: Array<Varazslat> = [
         save: 'nincs',
         leiras: 'Ezzel az áldással a pap istene hosszú távú jóindulatát kérheti valakire. Az illetőnek legalább egy istencsaládot kell tisztelnie mint a pap, és a jelleme nem lehet gyökeresen ellentétes a pap istenével. A pap biztosítja istene jóindulatát, mint például ilyenkor könnyebben létrejöhet a gyógyítás varázslat, de más esetekben is haszna lehet. Egy pap megérzi egy emberen (5 méternél közelebb kell lennie), ha a saját istenének az áldása van rajta. E módon tárgyakat is meg lehet áldani. Ekkor a tárgy mágikusnak minősül, és ellenállóbbá válik a hosszú távú romboló környezeti hatásoknak (mint például rozsdásodás), azonban más módon nem válik keményebbé, stabilabbá. Ha a megáldott személy valami olyat cselekszik, ami erősen ellentétes az isten elveivel, akkor az áldás egyszerűen lefoszlik róla. Ez a megkötés tárgyak esetén is igaz, bár ott akkor érvényesül, ha szentségtelen dologra akarják felhasználni azokat.',
         kategoriak: ['kis_arkanum', 'litania', 'szfera_altalanos'],
-        kepzettseg: 'pap_kis_arkanum',
+        kepzettseg: 'pap_szfera_altalanos',
         fok: 1
     },
     {
@@ -67,7 +89,7 @@ const PAPI_VARAZSLATOK: Array<Varazslat> = [
         save: 'nincs',
         leiras: 'A varázslattal a pap „láthatja” a mágiát. Az időtartam alatt minden mágikus tárgy illetve varázslat, aminek a leplezése kisebb erősítésű, vörös fénnyel dereng a pap számára.',
         kategoriak: ['kis_arkanum', 'litania', 'szfera_altalanos'],
-        kepzettseg: 'pap_kis_arkanum',
+        kepzettseg: 'pap_szfera_altalanos',
         fok: 1
     },
     {
@@ -80,7 +102,20 @@ const PAPI_VARAZSLATOK: Array<Varazslat> = [
         save: 'mental',
         leiras: 'A pap a valódi hatalmát mutathatja meg ezzel a varázslattal. Aki az időtartam alatt ránéz a papra a hatótávon belül és elrontja a mágiaellenálását, az szembesül ezzel. Megismeri tapasztalati szintjét, főbb harcértékei nagyságrendjét - de nem pontos értékét ), és tudatára ébred annak, hogy mi mindenre képes az, menyire áll a pap istene kegyében. A varázslat sohasem hazudik, mindig a valóság szerint mutatja be a mágia végrehajtóját. A Hatalom szavának nincs kényszerítő ereje. Ha mondjuk a támadók, kötekedők a valódi mivoltot megpillantva sem riadnak meg, a papnak más eszközöket kell keresnie megfékezésükre.',
         kategoriak: ['kis_arkanum', 'litania', 'szfera_altalanos'],
-        kepzettseg: 'pap_kis_arkanum',
+        kepzettseg: 'pap_szfera_altalanos',
+        fok: 2
+    },
+    {
+        id: 'vizlegzes',
+        name: 'Vízlégzés',
+        mp: 21,
+        ke: -20,
+        range: 'self',
+        idotartam: '1 perc/szint',
+        save: 'nincs',
+        leiras: '...',
+        kategoriak: ['kis_arkanum', 'litania', 'szfera_termeszet'],
+        kepzettseg: 'pap_szfera_termeszet',
         fok: 2
     }
 ];

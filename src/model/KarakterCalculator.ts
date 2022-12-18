@@ -5,7 +5,7 @@ import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODO
 import { Karakter, SzintInfo } from "./Karakter";
 import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
-import { Magia, Varazslat } from "./Magia";
+import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak } from "./Magia";
 import { mergeToArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
@@ -13,6 +13,8 @@ export interface CalcFegyver {
     //TODO: kocka calculation?
     sebzes: KockaDobas,
 }
+
+export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
 
 export interface KarakterCalcResult {
     fp: CalculationArgument;
@@ -39,7 +41,8 @@ export interface KarakterCalcResult {
     pendingKepzettsegekCount: number;
     mana: CalculationArgument;
     pszi: CalculationArgument;
-    varazslatok: Array<Varazslat>;
+    varazslatok: Array<CalcVarazslat>;
+    magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>;
 };
 
 
@@ -155,6 +158,11 @@ export const KarakterCalculator = {
             }
         }
 
+        const magiaKategoriak = karakter.szint.reduce((acc, curr) => {
+            curr.kaszt.magiaKategoriak?.forEach(k => acc.add(k));
+            return acc;
+        }, new Set<typeof MagiaKategoriak[number]['id']>());
+
         const mana = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => {
             let pontok = 0;
             if (szint.kaszt.mana && szint.mana > 0) {
@@ -172,7 +180,19 @@ export const KarakterCalculator = {
         const varazslatok = Magia.lista.filter(v => {
             const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
             const fok = kepzettseg?.fok ?? 0;
-            return v.fok <= fok;
+            const kategoriaOK = v.kategoriak.every(k => magiaKategoriak.has(k))
+            return kategoriaOK && v.fok <= fok;
+        }).map(v => {
+            if ('ke' in v) {
+                const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
+                const fok = kepzettseg?.fok ?? 0;
+                return {
+                    ...v,
+                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Varázslat', v.ke))
+                }
+            } else {
+                return v;
+            }
         });
 
         return {
@@ -194,7 +214,8 @@ export const KarakterCalculator = {
             mana,
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
             pendingKepzettsegekCount: karakter.szint.map(sz => sz.pendingKepzettsegek.length).reduce((acc, curr) => acc + curr, 0),
-            varazslatok
+            varazslatok,
+            magiaKategoriak
         };
     }
 }

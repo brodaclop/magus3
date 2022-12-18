@@ -3,6 +3,7 @@ import { KepessegKategoria } from "./Kepessegek";
 import { DobasEredmeny, kockaDobas, KockaDobas } from "./Kocka";
 import { NamedEntity, namedEntityArray } from "./util";
 import KASZTOK from '../data/kasztok.json';
+import { MagiaKategoriak } from "./Magia";
 
 export type KasztKepesseg = 'Legendás' | 'Jó' | 'Átlagos' | 'Gyenge';
 export type MagiaTipus = 'mozaik' | 'tuz' | 'pap' | 'bard' | 'boszorkany' | 'boszmester';
@@ -51,6 +52,7 @@ export interface KasztInfo extends NamedEntity {
     };
     szazalekPerSzint: number;
     kepzettsegek?: Array<Array<Omit<KapottKepzettseg, 'id'>>>;
+    magiaKategoriak?: Array<typeof MagiaKategoriak[number]['id']>;
 }
 
 export const Kasztok = {

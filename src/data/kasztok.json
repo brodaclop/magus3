@@ -467,7 +467,14 @@
         },
         "kpAlap": 6,
         "kpPerSzint": 10,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "magiaKategoriak": [
+            "kis_arkanum",
+            "nagy_arkanum",
+            "litania",
+            "rituale",
+            "szfera_altalanos"
+        ]
     },
     {
         "id": "Paplovag",
