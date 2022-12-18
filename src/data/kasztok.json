@@ -460,6 +460,11 @@
             "ve": 3
         },
         "hm": 2,
+        "mana": {
+            "type": "normal",
+            "magiaTipus": "pap",
+            "kepesseg": "hit"
+        },
         "kpAlap": 6,
         "kpPerSzint": 10,
         "szazalekPerSzint": 0

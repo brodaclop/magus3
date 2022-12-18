@@ -8,7 +8,6 @@ import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
 import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
-import { Lofegyver } from "./Lofegyver";
 import { NamedEntity } from "./util";
 
 export interface KarakterTemplate {
@@ -53,6 +52,8 @@ export interface SzintInfo {
         }>
     },
     pendingKepzettsegek: Array<KapottKepzettseg>;
+    mana: number;
+    pszi: number;
 };
 
 const updateKepzettsegekForLevel = (karakter: Karakter, kaszt: KasztInfo, szint: number, szintInfo: SzintInfo) => {
@@ -90,6 +91,8 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
     const szintKaszt = Kasztok.kasztInfo(kasztId.id, karakter.szint.length);
     const szint = karakter.szint.slice(1).filter(k => k.kaszt.id === szintKaszt.id).length + 1;
     const dobas = karakter.szint.length === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
+    let mana = szintKaszt.mana ? ((szintKaszt.mana.type === 'sok' || karakter.szint.length === 1) ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg) : 0;
+
     const szintInfo: SzintInfo = {
         kaszt: szintKaszt,
         fp: dobas + szintKaszt.fpPerSzint,
@@ -98,6 +101,8 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
             normal: [],
             szazalekos: []
         },
+        mana,
+        pszi: 0,
         pendingKepzettsegek: []
     };
     updateKepzettsegekForLevel(karakter, szintKaszt, szint, szintInfo);
@@ -128,6 +133,8 @@ export const Karakter = {
                         normal: [],
                         szazalekos: Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => ({ kepzettseg: k as SzazalekosKepzettseg, szazalek: 0 }))
                     },
+                    mana: 0,
+                    pszi: 0,
                     pendingKepzettsegek: [],
                 }
             ],

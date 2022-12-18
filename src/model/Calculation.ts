@@ -32,7 +32,7 @@ const calculateArgument = (op: CalculationArgument): number => {
 const calculateOperation = (op: CalculationOperation): number => {
     switch (op.opType) {
         case 'add': return op.args.map(calculateArgument).reduce((acc, curr) => acc + curr, 0);
-        case 'tizfolott': const n = calculateArgument(op.arg); return n > 10 ? n - 10 : 0;
+        case 'tizfolott': return Math.max(calculateArgument(op.arg) - 10, 0);
         case 'max': return Math.max(...op.args.map(calculateArgument));
         case 'min': return Math.min(...op.args.map(calculateArgument));
     }

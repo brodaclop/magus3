@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Calculation } from '../model/Calculation';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
@@ -49,11 +48,19 @@ export const LifeWidget: React.FC<{
             </tr>
             <tr>
                 <th>ÉP</th>
-                <td><CalculationWidget calculation={calc.ep}>{Calculation.calculate(calc.ep)}</CalculationWidget></td>
+                <td><CalculationWidget calculation={calc.ep} /></td>
             </tr>
             <tr>
                 <th>FP</th>
-                <td><CalculationWidget calculation={calc.fp}>{Calculation.calculate(calc.fp)}</CalculationWidget></td>
+                <td><CalculationWidget calculation={calc.fp} /></td>
+            </tr>
+            <tr>
+                <th>Mana</th>
+                <td><CalculationWidget calculation={calc.mana} /></td>
+            </tr>
+            <tr>
+                <th>Pszi</th>
+                <td><CalculationWidget calculation={calc.pszi} /></td>
             </tr>
             <tr>
                 <td colSpan={2}><button className='fullWidth' onClick={deleteKarakter}>Töröl</button></td>

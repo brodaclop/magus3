@@ -19,7 +19,7 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }>
         <tbody>
             {kepzettseg.fajta === 'normal' && kepzettseg.szintleiras.map((l, idx) => <tr>
                 <th>{idx + 1}. fok</th>
-                <td style={{ textAlign: 'justify', fontWeight: idx < fok ? 'bold' : 'normal' }}>
+                <td style={{ whiteSpace: 'pre-wrap', textAlign: 'justify', fontWeight: idx < fok ? 'bold' : 'normal' }}>
                     {l}
                 </td>
             </tr>)}

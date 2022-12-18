@@ -5,6 +5,7 @@ import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODO
 import { Karakter, SzintInfo } from "./Karakter";
 import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
+import { Magia, Varazslat } from "./Magia";
 import { mergeToArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
@@ -36,6 +37,9 @@ export interface KarakterCalcResult {
     mgt: CalculationArgument;
     findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][0] | undefined;
     pendingKepzettsegekCount: number;
+    mana: CalculationArgument;
+    pszi: CalculationArgument;
+    varazslatok: Array<Varazslat>;
 };
 
 
@@ -151,6 +155,26 @@ export const KarakterCalculator = {
             }
         }
 
+        const mana = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => {
+            let pontok = 0;
+            if (szint.kaszt.mana && szint.mana > 0) {
+                pontok += szint.mana;
+                pontok += Math.max(pillKep[szint.kaszt.mana.kepesseg] - 10, 0);
+                if (szint.kaszt.mana.type === 'keves') {
+                    pontok /= 2;
+                }
+            }
+            return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
+        }));
+
+        const pszi = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, szint.pszi)));
+
+        const varazslatok = Magia.lista.filter(v => {
+            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
+            const fok = kepzettseg?.fok ?? 0;
+            return v.fok <= fok;
+        });
+
         return {
             kepessegek,
             fp: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp)),
@@ -166,8 +190,11 @@ export const KarakterCalculator = {
             sfe: karakter.pancel?.ob.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
             mgt,
             pillanatnyiKepessegek,
+            pszi,
+            mana,
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
             pendingKepzettsegekCount: karakter.szint.map(sz => sz.pendingKepzettsegek.length).reduce((acc, curr) => acc + curr, 0),
+            varazslatok
         };
     }
 }

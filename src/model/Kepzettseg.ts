@@ -3,8 +3,9 @@ import { SzintInfo } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
+import { Magia } from "./Magia";
 
-export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci' | 'vilagi';
+export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci' | 'vilagi' | 'magia';
 
 interface KepzettsegLink {
     id: string;
@@ -102,6 +103,19 @@ const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => [...
     __generated: true
 }));
 
+const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettsegek().map(k => ({
+    fajta: 'normal',
+    id: `magia:${k.id}`,
+    name: `Mágia (${k.name})`,
+    tipus: 'magia',
+    kepesseg: k.kepesseg,
+    linked: [],
+    kp: [5, 15, 25, 50, 100],
+    leiras: `A mágia ${k.name} iskolájának ismerete.`,
+    szintleiras: k.varazslatok.map(lista => lista.map(v => v.name).join('\n')) as any,
+    __generated: true
+}));
+
 const SZAZALEKOS_KEPZETTSEGEK: Array<SzazalekosKepzettseg> = [
     {
         fajta: 'szazalekos',
@@ -176,6 +190,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...generateFegyverKepzettsegek(),
     ...generateLoFegyverKepzettsegek(),
     ...generateNyelvKepzettsegek(),
+    ...generateMagiaKepzettsegek(),
     ...SZAZALEKOS_KEPZETTSEGEK,
 ]
     .sort((a, b) => a.name.localeCompare(b.name))

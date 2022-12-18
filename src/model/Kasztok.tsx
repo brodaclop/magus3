@@ -5,6 +5,7 @@ import { NamedEntity, namedEntityArray } from "./util";
 import KASZTOK from '../data/kasztok.json';
 
 export type KasztKepesseg = 'Legendás' | 'Jó' | 'Átlagos' | 'Gyenge';
+export type MagiaTipus = 'mozaik' | 'tuz' | 'pap' | 'bard' | 'boszorkany' | 'boszmester';
 
 // const KEPESSEG_DOBAS: Record<KasztKepesseg, Partial<KockaDobas>> = {
 //     Legendás: { darab: 8, kocka: 10, eldobKicsi: 2 },
@@ -43,6 +44,11 @@ export interface KasztInfo extends NamedEntity {
     kasztSpec?: Array<KasztSpecFlags>;
     kpAlap: number;
     kpPerSzint: number;
+    mana?: {
+        kepesseg: string;
+        magiaTipus: MagiaTipus;
+        type: 'normal' | 'sok' | 'keves';
+    };
     szazalekPerSzint: number;
     kepzettsegek?: Array<Array<Omit<KapottKepzettseg, 'id'>>>;
 }
