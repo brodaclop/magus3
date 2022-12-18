@@ -12,6 +12,7 @@ import { EgyebBuilderWidget } from './inventory/EgyebBuilderWidget';
 import { FegyverBuilderWidget } from './inventory/FegyverBuilderWidget';
 import { LofegyverBuilderWidget } from './inventory/LofegyverBuilderWidget';
 import { PancelBuilderWidget } from './inventory/PancelBuilderWidget';
+import { PancelIgazitasWidget } from './inventory/PancelIgazitasWidget';
 import { formatSebzesTipus } from './KombatWidget';
 
 export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: InventoryItem }> = ({ calc, item }) => {
@@ -172,6 +173,7 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                     <Tooltip placement='top' overlay={<InventoryTooltip calc={calc} item={i} />}>
                         <span>{i.ob.name}</span>
                     </Tooltip>
+                    {i.tipus === 'pancel' && <PancelIgazitasWidget karakter={karakter} onChange={onChange} pancel={i} />}
                 </td>
                 <td style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <button disabled={i.quantity === 0 || (worn[i.id] ?? 0) === i.quantity} onClick={() => {

@@ -46,7 +46,7 @@ export const KepessegWidget: React.FC<{
             </tbody>
             {!karakter.elosztva && <tbody>
                 <tr>
-                    <td colSpan={4}>
+                    <td colSpan={4} style={{ backgroundColor: 'lightpink' }}>
                         <button
                             onClick={lezar}
                             disabled={karakter.kepessegKategoriak.Fizikum + karakter.kepessegKategoriak.Ügyesség + karakter.kepessegKategoriak.Asztrál + karakter.kepessegKategoriak.Mentál > 0}

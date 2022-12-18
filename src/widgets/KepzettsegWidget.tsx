@@ -93,7 +93,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
         {calc.pendingKepzettsegekCount > 0 && <table className='bordered'>
             <thead>
                 <tr>
-                    <th>Választható képzettségek</th>
+                    <th style={{ backgroundColor: 'lightpink' }}>Választható képzettségek</th>
                 </tr>
                 <tbody>
                     {karakter.szint.map((sz, szintIdx) => <>

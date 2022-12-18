@@ -60,7 +60,7 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
     return <table className='bordered'>
         <thead>
             {maradekHm + sumElosztott > 0 &&
-                <tr style={{ backgroundColor: 'lightpink' }}>
+                <tr>
                     <th>
                         HM
                     </th>
@@ -75,18 +75,20 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
             <HmLine line='te' />
             <HmLine line='ve' />
             <HmLine line='ce' />
-            <tr>
-                <td colSpan={4} style={{ textAlign: 'center' }}>
-                    <button
-                        disabled={karakter.hm - maradekHm < 1}
-                        onClick={() => {
-                            karakter.szint[karakter.szint.length - 1].harcertek = Harcertek.add(karakter.szint[karakter.szint.length - 1].harcertek, elosztott);
-                            karakter.hm = maradekHm;
-                            setKarakter({ ...karakter });
-                        }}>Hozzáad</button>
+            {karakter.hm >= 1 &&
+                <tr>
+                    <td colSpan={4} style={{ textAlign: 'center', backgroundColor: 'lightpink' }}>
+                        <button
+                            disabled={karakter.hm - maradekHm < 1}
+                            onClick={() => {
+                                karakter.szint[karakter.szint.length - 1].harcertek = Harcertek.add(karakter.szint[karakter.szint.length - 1].harcertek, elosztott);
+                                karakter.hm = maradekHm;
+                                setKarakter({ ...karakter });
+                            }}>Hozzáad</button>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 }

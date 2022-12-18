@@ -218,6 +218,13 @@ const FEMEK: Array<PancelBlokk> = [
     },
 ];
 
+const normalize = (pancel: PancelBlokk) => {
+    pancel.mgt = Math.max(0, pancel.mgt);
+    pancel.sfe.szuro = Math.max(0, pancel.sfe.szuro);
+    pancel.sfe.vago = Math.max(0, pancel.sfe.vago);
+    pancel.sfe.zuzo = Math.max(0, pancel.sfe.zuzo);
+}
+
 export const PancelBuilder = {
     igazitas: MERETRE_IGAZITAS,
     femek: FEMEK,
@@ -228,7 +235,25 @@ export const PancelBuilder = {
         sfe: { szuro: idx, vago: idx, zuzo: idx },
         name: idx === 0 ? 'Rúna nélkül' : `+${idx}`
     })) as Array<PancelBlokk>,
-    build: (id: string, name: string, alap: PancelAlap, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
+    removeIgazit: (pancel: Pancel): Pancel => {
+        const ret = structuredClone(pancel) as Pancel;
+        ret.mgt = ret.mgt - ret.igazitas.mgt;
+        ret.sfe.szuro = ret.sfe.szuro - ret.igazitas.sfe.szuro;
+        ret.sfe.vago = ret.sfe.vago - ret.igazitas.sfe.vago;
+        ret.sfe.zuzo = ret.sfe.zuzo - ret.igazitas.sfe.zuzo;
+        return ret;
+    },
+    igazit: (alap: Pancel, igazitas: PancelBlokk): Pancel => {
+        const ret = PancelBuilder.removeIgazit(alap);
+        ret.mgt = ret.mgt + igazitas.mgt;
+        ret.sfe.szuro = ret.sfe.szuro + igazitas.sfe.szuro;
+        ret.sfe.vago = ret.sfe.vago + igazitas.sfe.vago;
+        ret.sfe.zuzo = ret.sfe.zuzo + igazitas.sfe.zuzo;
+        normalize(ret);
+        ret.igazitas = igazitas;
+        return ret;
+    },
+    build: (id: string, name: string, alap: PancelBlokk, igazitas: PancelBlokk, egyebek: Array<PancelBlokk>): Pancel => {
         const tulajdonsagok: PancelBlokk = [igazitas, ...egyebek].reduce((acc, curr) => {
             acc.mgt += curr.mgt;
             acc.sfe.szuro += curr.sfe.szuro;
@@ -236,10 +261,9 @@ export const PancelBuilder = {
             acc.sfe.zuzo += curr.sfe.zuzo;
             return acc;
         }, structuredClone(alap));
-        tulajdonsagok.mgt = Math.max(0, tulajdonsagok.mgt);
-        tulajdonsagok.sfe.szuro = Math.max(0, tulajdonsagok.sfe.szuro);
-        tulajdonsagok.sfe.vago = Math.max(0, tulajdonsagok.sfe.vago);
-        tulajdonsagok.sfe.zuzo = Math.max(0, tulajdonsagok.sfe.zuzo);
+
+        normalize(tulajdonsagok);
+
         return {
             ...tulajdonsagok,
             id,
