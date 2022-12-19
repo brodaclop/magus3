@@ -58,7 +58,7 @@ export const KarakterTemplateWdiget: React.FC<{
                 <tr>
                     <th>Kaszt/Faj</th>
                     <td>
-                        <KasztSelectorWidget kaszt='kaszt' onChange={kaszt => {
+                        <KasztSelectorWidget kaszt={template.kaszt} onChange={kaszt => {
                             onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
                         }} />
                     </td>
