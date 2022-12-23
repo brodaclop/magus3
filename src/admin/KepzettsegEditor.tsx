@@ -1,20 +1,20 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
-import { Kepzettseg } from '../model/Kepzettseg';
+import { Kepzettseg, KepzettsegTipus } from '../model/Kepzettseg';
 import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
 const NORMAL_KEPZETTSEG_SCHEMA: ObjectEditorDescriptor = Editor.object('Képzettség', {
     id: Editor.string('ID'),
     name: Editor.string('Név'),
-    tipus: Editor.picklist('Tipus', ['fegyver', 'fegyverkategoria', 'tudomanyos', 'harcmodor', 'harci', 'vilagi']),
-    kepesseg: Editor.picklist('Képesség', Kepessegek.keys),
+    tipus: Editor.picklist('Tipus', KepzettsegTipus),
+    kepesseg: Editor.picklist('Képesség', Kepessegek.lista),
     leiras: Editor.longString('Leírás'),
     szintleiras: Editor.fixArray('Fokok leírása', Editor.longString('fok'), 5, 1),
     kp: Editor.fixArray('KPk', Editor.number('fok'), 5, 1),
     linked: Editor.array('Másodlagos hatás', Editor.object('Képzettség', {
-        id: Editor.picklist('ID', Kepzettseg.keys),
+        id: Editor.picklist('ID', Kepzettseg.lista),
         strength: Editor.number('KP szorzó')
     })),
 })
@@ -30,7 +30,7 @@ export const KepzettsegEditor: React.FC<{}> = () => {
 
     const startEdit = () => {
         if (idToEdit === '') {
-            setObject({ fajta: 'normal ' });
+            setObject({ fajta: 'normal' });
         } else {
             setObject(Kepzettseg.find(idToEdit) as unknown as Record<string, unknown>);
         }

@@ -5,7 +5,48 @@ import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
 import { Magia } from "./Magia";
 
-export type KepzettsegTipus = 'fegyver' | 'fegyverkategoria' | 'tudomanyos' | 'harcmodor' | 'harci' | 'vilagi' | 'magia';
+export const KepzettsegTipus = [
+    {
+        id: 'fegyver',
+        name: 'Fegyver'
+    },
+    {
+        id: 'fegyverkategoria',
+        name: 'Fegyverkategória'
+    },
+    {
+        id: 'tudomanyos',
+        name: 'Tudományos'
+    },
+    {
+        id: 'harcmodor',
+        name: 'Harcmodor'
+    },
+    {
+        id: 'harci',
+        name: 'Harci'
+    },
+    {
+        id: 'vilagi',
+        name: 'Világi'
+    },
+    {
+        id: 'alvilagi',
+        name: 'Alilági'
+    },
+    {
+        id: 'magia',
+        name: 'Mágia'
+    },
+    {
+        id: 'nyelv',
+        name: 'Nyelv'
+    },
+    {
+        id: 'osi_nyelv',
+        name: 'Ősi nyelv'
+    }
+] as const;
 
 interface KepzettsegLink {
     id: string;
@@ -16,7 +57,7 @@ export interface NormalKepzettseg {
     fajta: 'normal';
     id: string;
     name: string;
-    tipus: KepzettsegTipus;
+    tipus: typeof KepzettsegTipus[number]['id'];
     kepesseg: string,
     linked: Array<KepzettsegLink>;
     kp: [number, number, number, number, number],
@@ -174,7 +215,7 @@ const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
         fajta: 'normal',
         id: `nyelv:${ny}`,
         name: `Nyelvtudás (${ny})`,
-        tipus: 'vilagi',
+        tipus: 'nyelv',
         kepesseg: 'emlekezet',
         linked: [],
         kp: [1, 3, 5, 20, 35],

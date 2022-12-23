@@ -1,84 +1,6 @@
 [
     {
         "fajta": "normal",
-        "id": "sebgyogyitas",
-        "name": "Sebgyógyítás",
-        "tipus": "tudomanyos",
-        "kepesseg": "emlekezet",
-        "linked": [],
-        "kp": [
-            5,
-            10,
-            15,
-            20,
-            30
-        ],
-        "leiras": "A Sebgyógyítás mind a sebesülések azonnali, csatatéren való ellátását, mind a hosszabb távú ápolást magában foglalja.",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "herbalizmus",
-        "name": "Herbalizmus",
-        "tipus": "tudomanyos",
-        "kepesseg": "emlekezet",
-        "linked": [
-            {
-                "id": "sebgyogyitas",
-                "strength": 0.5
-            },
-            {
-                "id": "meregkeveres",
-                "strength": 0.25
-            }
-        ],
-        "kp": [
-            2,
-            3,
-            15,
-            25,
-            40
-        ],
-        "leiras": "A Herbalizmus a gyógy- vagy épp mérgező növények ismeretét, azok gyakorlati felhasználását takarja.",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "meregkeveres",
-        "name": "Méregkeverés/Semlegesítés",
-        "tipus": "tudomanyos",
-        "kepesseg": "emlekezet",
-        "linked": [],
-        "kp": [
-            5,
-            10,
-            25,
-            40,
-            60
-        ],
-        "leiras": "Ez a képzettség szükséges nemcsak a mérgek előállításához, de a biztonságos kezeléséhez is. A képzetlen méregkeverőnek minden egyes alkalommal, amikor mérget használ, intelligencia-próbát kell dobnia, hogy nem éri-e baleset. A baleset lehet elpocsékolt, szennyezett méreg vagy extrém esetben akár önmaga megmérgezése is.",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
         "id": "alkimia",
         "name": "Alkímia",
         "tipus": "tudomanyos",
@@ -95,6 +17,29 @@
             25,
             40,
             60
+        ],
+        "leiras": "",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "birkozas",
+        "name": "Birkózás",
+        "tipus": "harci",
+        "kepesseg": "izom",
+        "linked": [],
+        "kp": [
+            3,
+            10,
+            20,
+            40,
+            50
         ],
         "leiras": "",
         "szintleiras": [
@@ -135,33 +80,10 @@
     },
     {
         "fajta": "normal",
-        "id": "vertviselet",
-        "name": "Vértviselet",
-        "tipus": "harci",
-        "kepesseg": "allokepesseg",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "Páncélt hatékonyan viselni csak gyakorlással lehet. Minden egyes fok 1-gyel cs0kkenti a páncél MGT-jét",
-        "szintleiras": [
-            "-1 MGT",
-            "-2 MGT",
-            "-3 MGT",
-            "-4 MGT",
-            "-5 MGT"
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "birkozas",
-        "name": "Birkózás",
-        "tipus": "harci",
-        "kepesseg": "izom",
+        "id": "ertekbecsles",
+        "name": "Értékbecslés",
+        "tipus": "vilagi",
+        "kepesseg": "erzekeles",
         "linked": [],
         "kp": [
             3,
@@ -204,52 +126,6 @@
     },
     {
         "fajta": "normal",
-        "id": "vakharc",
-        "name": "Vakharc",
-        "tipus": "harci",
-        "kepesseg": "erzekeles",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "uszas",
-        "name": "Úszás",
-        "tipus": "vilagi",
-        "kepesseg": "allokepesseg",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
         "id": "futas",
         "name": "Futás",
         "tipus": "vilagi",
@@ -273,140 +149,25 @@
     },
     {
         "fajta": "normal",
-        "id": "lovaglas",
-        "name": "Lovaglás",
-        "tipus": "vilagi",
+        "kp": [
+            5,
+            10,
+            20,
+            30,
+            40
+        ],
+        "tipus": "harcmodor",
+        "linked": [],
+        "name": "Harcmodor (Egykezes fegyver)",
+        "id": "harcmodor:egykezes",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
+        "leiras": "Természetesen egykezes fegyver használatához elég megtanulni a vonatkozó képzettséget, ez a harcmodor kizárólag\n azoknak szól, akik ki is akarják használni a szabadon maradó kézből adódó előnyöket.",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "ertekbecsles",
-        "name": "Értékbecslés",
-        "tipus": "vilagi",
-        "kepesseg": "erzekeles",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "id": "kocsmai_verekedes",
-        "name": "Kocsmai verekedés",
-        "tipus": "vilagi",
-        "kepesseg": "reflex",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
-        "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
-        ],
-        "tipus": "harcmodor",
-        "linked": [],
-        "name": "Harcmodor (Nagypajzsos harc)",
-        "id": "harcmodor:pajzs",
-        "kepesseg": "mozgaskoordinacio",
-        "leiras": "Ez a harcmodor egykezes fegyver és karra szíjazott, közepes vagy nagy pajzzsal való harchoz szükséges.\n E képzettség nélkül a pajzs leginkább csak hátrány harc közben, bár valamennyi védelmet biztosít.\n Ez a gyakorlatban annyit tesz, hogy a képzetlen karakter a pajzs VÉ-jét ugyan megkapja, de a fegyverét nem,\n továbbá a fegyverével való jártassága 2 fokkal alacsonyabbnak számít a normálnál.",
-        "szintleiras": [
-            "A képzettség 1. fokán már kevésbé van útban a pajzs, ezért a karakter a fegyver VÉ-jét továbbra sem kapja meg,\n viszont a fegyverével való jártassága csak 1 fokkal romlik.",
-            "A képzettség 2. fokán már a fegyver és a pajzs mozgása jól koordinált, bár a karakter továbbra is csak a pajzsot\n használja védekezésre, ezért a fegyver VÉ-je nem adódik hozzá a teljes VÉ-hez, de egyéb levonások nem sújtják.",
-            "A képzettség 3. fokán a pajzzsal való védekezés már ösztönös, így a karakter a fegyverével ugyanúgy támad és\n védekezik, mint pajzs nélkül. A karakter mind a pajzs, mind a fegyver VÉ-jét hozzáadhatja a VÉ-jéhez",
-            "A képzettség 4. fokán a pajzs már nem akadályoz a mozgásban, így MGT-je 0, és a karakter támadni is képes a\n pajzzsal, körönként egyszer.",
-            "A képzettség 5. fokán a pajzs a karakter óvó karjának kiterjesztésévé válik, így önmagán kívül még egy közelálló\n bajtársat is képes védeni vele (tehát ő is megkapja a pajzs VÉ-jét, ha mindketten ugyanazon ellenfél ellen küzdenek)"
-        ]
-    },
-    {
-        "fajta": "normal",
-        "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
-        ],
-        "tipus": "harcmodor",
-        "linked": [],
-        "name": "Harcmodor (Kispajzsos harc)",
-        "id": "harcmodor:kispajzs",
-        "kepesseg": "reflex",
-        "leiras": "Ez a harcmodor egy egy- vagy másfélkezes fegyvert és egy kézben fogott kicsi, kerek pajzzsal való harcot jelenti.\n Magasabb fokokon a karakter egy tőrt is foghat a pajzsos kezében, és támadhat vele. Ehhez nem kell képzettnek lenni a tőr\n használatában, hiszen teljesen más technikáról van szó. Fontos megjegyezni, hogy a tőr VÉ-je semmilyen esetben nem adódik\n hozzá a karakter VÉ-jéhez.\n E képzettség nélkül a pajzs leginkább csak hátrány harc közben, VÉ-je ugyan beleszámít a karakter VÉ-jébe, de a fegyverrel\n csak 2 fokkal alacsonyabban tud harcolni.",
-        "szintleiras": [
-            "A képzettség 1. fokán a karakter már fegyverrel támadás közben is tud a pajzzsal védekezni, a fegyverrel viszont\n továbbra sem, így a karakter VÉ-jéhez csak a pajzs VÉ-je járul, a fegyveré nem.",
-            "A képzettség 2. fokán már mind a pajzs, mind a fegyver VÉ-je hozzáadható a karakter VÉ-jéhez",
-            "A képzettség 3. fokán a pajzs alatt/alkarvédőhöz szorított tőrrel is tud támadni a karakter, körönként egyszer",
-            "A képzettség 4. fokán a tőrrel körönként már kétszer is lehet támadni.",
-            "A képzettség 5. fokán a két kéz teljes harmóniában mozog, mind a fő fegyverrel, mind a tőrrel leadott támadásokhoz\n hozzáadható mindkét fegyver TÉ-je."
-        ]
-    },
-    {
-        "fajta": "normal",
-        "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
-        ],
-        "tipus": "harcmodor",
-        "linked": [],
-        "name": "Harcmodor (Kétkezes fegyver)",
-        "id": "harcmodor:ketkezes",
-        "kepesseg": "izom",
-        "leiras": "A kétkezes fegyverek lassúnak és nehézkesnek tűnnek a felületes szemlélő számára, ami jórészt persze igaz is,\n ugyanakkor avatott forgatójuk jópár trükköt elsajátíthat, amelyekkel ez ellensúlyozható, sőt helyenként előnnyé\n kovácsolható. Minden fok egy újabb manőverrel gazdagítja a karakter trükktárát.",
-        "szintleiras": [
-            "A karakter egy ellenfelet tud távol tartani magától; amennyiben az mégis közelíteni próbál,\n egy soron kívüli támadás intézhető ellene. A manőver nem használható több ellenfél ellen, és addig nem\n ismételhető meg, amíg az ellenfél valamilyen módon ismét nem kerül távolabb.",
-            "A fegyvert rövidebbre fogva kisebb a karakter hátrányt szenved el Belharc ellen (mintha egykezes hosszú fegyver\n lenne a kezében), és szűkebb területen is tud harcolni a következő módosítókkal: KÉ: +5, TÉ: -5, VÉ: -5,\n sebzés feleződik.",
-            "A kétkezes harcmodort ezen a fokon űző karakter egy jól irányzott csapással vagy akasztással kibillentheti ellenfelét\n az egyensúlyából. Ehhez először sikeres támadó dobást kell tenni, és ha az ellenfél ezt követően elvéti\n ügyességpróbáját, földre kerül. Ugyanilyen módon az ellenfél közepes vagy nagy pajzsa is kirántható/üthető egy körre.",
-            "Mint az 1. fok, de tetszőleges számú ellenfél ellen alkalmazható, akár úgy is, ha a karaktert teljesen\n körbeveszik.",
-            "A kétkezes harcmodor magasiskolája: a karakter két, nem közvetlenül egymás mellett álló ellenfél ellen felváltva\n tud támadni, összesen duplaannyi támadást leadva, mint amennyit a fegyver sebessége engedne."
+            "A karakter levonások nélkül hajthat végre egyszerűbb feladatokat a szabad kezével, pl. gyógyital elfogyasztása,\n ajtónyitás, vassulyom szórása.",
+            "A karakter homokot vagy egyéb irritáló port szórhat ellenfele arcába. Az ellenfél reflexpróbát kénytelen dobni\n (ha meglepetésként éri a támadás, -50-nel), különben 1 körig a harc vakon módosítói érvényesek rá.",
+            "Rejtett fegyver előrántás: a karakter egy megfelelően előkészített és álcázott kisméretű közelharci vagy dobófegyvert\n előrántva plusz egy támadást adhat le. Ha még nem alkalmazta ezt a manővert a csata során, jó eséllyel a meglepetés\n módosítói járnak a támadásra, de minimum +10 TÉ. Természetesen ha pl. tőrt rántott a karakter, dönthet úgy, hogy a\n következő körtől kétfegyveres harcot folytat.",
+            "A karakter a szabad kezével tudja manipulálni az ellenfél ütéstávolságát: amennyiben ellenfele belharcot kezdeményezni,\n külön próba nélkül is el tudja tolni magával, vagy fordítva, a karakter \"beránthatja\" ellenfelét belharcba megelőző támadás esélye\n nélkül ",
+            "A karakter ezzel a manőverrel egykezes fegyvert forgató ellenfelet fegyverezhet le. Ehhez az kell, hogy megnyerje a\n kezdeményezést és feladjon egy támadást. Ha ezután az ellenfél ütését sikerül hárítania, reflex ellenpróbára kerül sor,\n amennyiben ez sikeres, az ellenfél elejti fegyverét."
         ]
     },
     {
@@ -443,6 +204,75 @@
         ],
         "tipus": "harcmodor",
         "linked": [],
+        "name": "Harcmodor (Kétkezes fegyver)",
+        "id": "harcmodor:ketkezes",
+        "kepesseg": "izom",
+        "leiras": "A kétkezes fegyverek lassúnak és nehézkesnek tűnnek a felületes szemlélő számára, ami jórészt persze igaz is,\n ugyanakkor avatott forgatójuk jópár trükköt elsajátíthat, amelyekkel ez ellensúlyozható, sőt helyenként előnnyé\n kovácsolható. Minden fok egy újabb manőverrel gazdagítja a karakter trükktárát.",
+        "szintleiras": [
+            "A karakter egy ellenfelet tud távol tartani magától; amennyiben az mégis közelíteni próbál,\n egy soron kívüli támadás intézhető ellene. A manőver nem használható több ellenfél ellen, és addig nem\n ismételhető meg, amíg az ellenfél valamilyen módon ismét nem kerül távolabb.",
+            "A fegyvert rövidebbre fogva kisebb a karakter hátrányt szenved el Belharc ellen (mintha egykezes hosszú fegyver\n lenne a kezében), és szűkebb területen is tud harcolni a következő módosítókkal: KÉ: +5, TÉ: -5, VÉ: -5,\n sebzés feleződik.",
+            "A kétkezes harcmodort ezen a fokon űző karakter egy jól irányzott csapással vagy akasztással kibillentheti ellenfelét\n az egyensúlyából. Ehhez először sikeres támadó dobást kell tenni, és ha az ellenfél ezt követően elvéti\n ügyességpróbáját, földre kerül. Ugyanilyen módon az ellenfél közepes vagy nagy pajzsa is kirántható/üthető egy körre.",
+            "Mint az 1. fok, de tetszőleges számú ellenfél ellen alkalmazható, akár úgy is, ha a karaktert teljesen\n körbeveszik.",
+            "A kétkezes harcmodor magasiskolája: a karakter két, nem közvetlenül egymás mellett álló ellenfél ellen felváltva\n tud támadni, összesen duplaannyi támadást leadva, mint amennyit a fegyver sebessége engedne."
+        ]
+    },
+    {
+        "fajta": "normal",
+        "kp": [
+            5,
+            10,
+            20,
+            30,
+            40
+        ],
+        "tipus": "harcmodor",
+        "linked": [],
+        "name": "Harcmodor (Kispajzsos harc)",
+        "id": "harcmodor:kispajzs",
+        "kepesseg": "reflex",
+        "leiras": "Ez a harcmodor egy egy- vagy másfélkezes fegyvert és egy kézben fogott kicsi, kerek pajzzsal való harcot jelenti.\n Magasabb fokokon a karakter egy tőrt is foghat a pajzsos kezében, és támadhat vele. Ehhez nem kell képzettnek lenni a tőr\n használatában, hiszen teljesen más technikáról van szó. Fontos megjegyezni, hogy a tőr VÉ-je semmilyen esetben nem adódik\n hozzá a karakter VÉ-jéhez.\n E képzettség nélkül a pajzs leginkább csak hátrány harc közben, VÉ-je ugyan beleszámít a karakter VÉ-jébe, de a fegyverrel\n csak 2 fokkal alacsonyabban tud harcolni.",
+        "szintleiras": [
+            "A képzettség 1. fokán a karakter már fegyverrel támadás közben is tud a pajzzsal védekezni, a fegyverrel viszont\n továbbra sem, így a karakter VÉ-jéhez csak a pajzs VÉ-je járul, a fegyveré nem.",
+            "A képzettség 2. fokán már mind a pajzs, mind a fegyver VÉ-je hozzáadható a karakter VÉ-jéhez",
+            "A képzettség 3. fokán a pajzs alatt/alkarvédőhöz szorított tőrrel is tud támadni a karakter, körönként egyszer",
+            "A képzettség 4. fokán a tőrrel körönként már kétszer is lehet támadni.",
+            "A képzettség 5. fokán a két kéz teljes harmóniában mozog, mind a fő fegyverrel, mind a tőrrel leadott támadásokhoz\n hozzáadható mindkét fegyver TÉ-je."
+        ]
+    },
+    {
+        "fajta": "normal",
+        "kp": [
+            5,
+            10,
+            20,
+            30,
+            40
+        ],
+        "tipus": "harcmodor",
+        "linked": [],
+        "name": "Harcmodor (Nagypajzsos harc)",
+        "id": "harcmodor:pajzs",
+        "kepesseg": "mozgaskoordinacio",
+        "leiras": "Ez a harcmodor egykezes fegyver és karra szíjazott, közepes vagy nagy pajzzsal való harchoz szükséges.\n E képzettség nélkül a pajzs leginkább csak hátrány harc közben, bár valamennyi védelmet biztosít.\n Ez a gyakorlatban annyit tesz, hogy a képzetlen karakter a pajzs VÉ-jét ugyan megkapja, de a fegyverét nem,\n továbbá a fegyverével való jártassága 2 fokkal alacsonyabbnak számít a normálnál.",
+        "szintleiras": [
+            "A képzettség 1. fokán már kevésbé van útban a pajzs, ezért a karakter a fegyver VÉ-jét továbbra sem kapja meg,\n viszont a fegyverével való jártassága csak 1 fokkal romlik.",
+            "A képzettség 2. fokán már a fegyver és a pajzs mozgása jól koordinált, bár a karakter továbbra is csak a pajzsot\n használja védekezésre, ezért a fegyver VÉ-je nem adódik hozzá a teljes VÉ-hez, de egyéb levonások nem sújtják.",
+            "A képzettség 3. fokán a pajzzsal való védekezés már ösztönös, így a karakter a fegyverével ugyanúgy támad és\n védekezik, mint pajzs nélkül. A karakter mind a pajzs, mind a fegyver VÉ-jét hozzáadhatja a VÉ-jéhez",
+            "A képzettség 4. fokán a pajzs már nem akadályoz a mozgásban, így MGT-je 0, és a karakter támadni is képes a\n pajzzsal, körönként egyszer.",
+            "A képzettség 5. fokán a pajzs a karakter óvó karjának kiterjesztésévé válik, így önmagán kívül még egy közelálló\n bajtársat is képes védeni vele (tehát ő is megkapja a pajzs VÉ-jét, ha mindketten ugyanazon ellenfél ellen küzdenek)"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "kp": [
+            5,
+            10,
+            20,
+            30,
+            40
+        ],
+        "tipus": "harcmodor",
+        "linked": [],
         "name": "Harcmodor (Shien-su)",
         "id": "harcmodor:shiensu",
         "kepesseg": "osszpontositas",
@@ -457,25 +287,1184 @@
     },
     {
         "fajta": "normal",
+        "id": "herbalizmus",
+        "name": "Herbalizmus",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [
+            {
+                "id": "sebgyogyitas",
+                "strength": 0.5
+            },
+            {
+                "id": "meregkeveres",
+                "strength": 0.25
+            }
+        ],
+        "kp": [
+            2,
+            3,
+            15,
+            25,
+            40
+        ],
+        "leiras": "A Herbalizmus a gyógy- vagy épp mérgező növények ismeretét, azok gyakorlati felhasználását takarja.",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "kocsmai_verekedes",
+        "name": "Kocsmai verekedés",
+        "tipus": "vilagi",
+        "kepesseg": "reflex",
+        "linked": [],
+        "kp": [
+            3,
+            10,
+            20,
+            40,
+            50
+        ],
+        "leiras": "",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "lovaglas",
+        "name": "Lovaglás",
+        "tipus": "vilagi",
+        "kepesseg": "allokepesseg",
+        "linked": [],
+        "kp": [
+            3,
+            10,
+            20,
+            40,
+            50
+        ],
+        "leiras": "",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "meregkeveres",
+        "name": "Méregkeverés/Semlegesítés",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
         "kp": [
             5,
             10,
+            25,
+            40,
+            60
+        ],
+        "leiras": "Ez a képzettség szükséges nemcsak a mérgek előállításához, de a biztonságos kezeléséhez is. A képzetlen méregkeverőnek minden egyes alkalommal, amikor mérget használ, intelligencia-próbát kell dobnia, hogy nem éri-e baleset. A baleset lehet elpocsékolt, szennyezett méreg vagy extrém esetben akár önmaga megmérgezése is.",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "sebgyogyitas",
+        "name": "Sebgyógyítás",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            5,
+            10,
+            15,
             20,
-            30,
+            30
+        ],
+        "leiras": "A Sebgyógyítás mind a sebesülések azonnali, csatatéren való ellátását, mind a hosszabb távú ápolást magában foglalja.",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "uszas",
+        "name": "Úszás",
+        "tipus": "vilagi",
+        "kepesseg": "izom",
+        "linked": [],
+        "kp": [
+            3,
+            10,
+            20,
+            40,
+            50
+        ],
+        "leiras": "",
+        "szintleiras": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "vertviselet",
+        "name": "Vértviselet",
+        "tipus": "harci",
+        "kepesseg": "allokepesseg",
+        "linked": [],
+        "kp": [
+            3,
+            10,
+            20,
+            40,
+            50
+        ],
+        "leiras": "Páncélt hatékonyan viselni csak gyakorlással lehet. Minden egyes fok 1-gyel cs0kkenti a páncél MGT-jét",
+        "szintleiras": [
+            "-1 MGT",
+            "-2 MGT",
+            "-3 MGT",
+            "-4 MGT",
+            "-5 MGT"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "vakharc",
+        "name": "Vakharc",
+        "tipus": "harci",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Mindazok akik - vagy mert vakok, vagy bármely más okból - nem látják ellenfelüket, nem érzékelik pontosan a környezetüket, jelentős hátránnyal képesek csak harcolni.\n\nKÉ: -20, TÉ: -60, VÉ: -70, CÉ: -150\n\nA képzettséget elsajátítva a karakter eleinte csak hangok alapján és a levegő rezdülését követve, majd egyre inkább belső megérzéseire és harci tapasztalatára hagyatkozva harcol.",
+        "szintleiras": [
+            "KÉ: -15, TÉ: -30, VÉ: -40, CÉ: -150",
+            "KÉ: -10, TÉ: -15, VÉ: -20, CÉ: -60",
+            "KÉ: -10, TÉ: -10, VÉ: -15, CÉ: -50",
+            "KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -30",
+            "CÉ: -20"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "birkozas",
+        "name": "Birkózás",
+        "tipus": "harci",
+        "kepesseg": "izom",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "A képzettség rokon az Ökölharccal, ám a birkózó kezét nem öklözésre, hanem ellenfelienk  lefogására, leszorítására használja. Ahhoz, hogy ezt megtehesse, természetesen sikeres támadó  dobást kell tennie. Sebzés nincs, ellenben az áldozat körökre mozgásképtelenné tehető, ezalatt  támadni sem képes. Ha a képzettség alkalmazója egyszer már megragadta ellenfelét, és erősebb is  nála, annak kevés az esélye a szorításból szabadulni. A birkozó minden körben köteles erőpróbát  tenni, s az áldozatnak csak akkor nyílik egyáltalán lehetősége a szabadulásra, ha elvéti. Még  ilyenkor sincs semmi veszve, mert a lefogott csak akkor menekülhet, ha az ő erőpróbája ellenben  sikeres. Ha az áldozat ereje nagyobb a lefogónál, ő tehet minden körben erőpróbát, s ha sikerrel  jár, nyomban ki is bontakozik a marasztaló karok közül.\n\n Ha a támadás, amivel a birkózó megragadta áldozatát, túlütés, a lefogott személy a szorításban  nagy eséllyel elveszíti eszméletét. Ez akkor következhet be, ha a birkózó, közvetlen a túlütést  követő körben sikeres erőpróbát tesz.\n\nA birkózó - hacsak ellenfele nem folyamodik szintén birkózáshoz - önműködően elveszíti jogát a  kezdeményezésre; továbbá a Birkózás képzettség nem alkalmazható harcművész kasztúak ellen. A  Birkózás legavatottabb gyakorlói általában gladiátorok.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "belharc",
+        "name": "Belharc",
+        "tipus": "harci",
+        "kepesseg": "reflex",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Belharcnak nevezik Ynev-szerte a teljes testközelben folytatott közelharcot. Két rövid fegyvert  forgató, de még két puszta kézzel verekedő ellenfél sem folytat igazi Belharcot. Ennek fogásait  külön oktatják, s aki járatlan bennük, alaposan megjárhatja, ha a képzett belharcost közel engedi  magához. A hosszú fegyvereknek ugyanis - a hagyományos technikákat alkalmazva - nem sok  hasznát veszi; a Belharc fegyverei a puszta kéz és a különféle tőrök.\n\nA Belharc megkezdéséhez először is sikeres Közelkerülés szükséges. Ettől kezdve az ellenfelek a  kör végéig Belharcot folytatnak (az erre vonatkozó szabályok szerint). Amennyiben mindkét fél  folytatni kívánja a küzdelemnek e formáját, akár körökön át is együtt maradhatnak, ahogyan közös  elhatározással bármikor szét is válhatnak. Ha azonban csak az egyik fél igyekszik eltávolodni, míg  a másik a Belharc megőrzésére törekszik - üldözi, próbál testközelben maradni -, kétséges a  folytatás. Mindkét fél minden körben Gyorsaság-próbát dob, ha a menekülő megdobja vagy az  üldöző elvéti azt, a Belharc félbeszakad. Vannak olyan harci helyzetek, amikor a belharc  megszakítása nem lehetséges. Ilyen például az igen szűk helyen való küzdés. Az, hogy a harci  helyzetből lehetséges-e kikerülni, és ha igen milyen módon, minden esetben a KM dönti el.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "celzas",
+        "name": "Célzás",
+        "tipus": "harci",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Az íjászat magasiskolája. Számtalan gyakorlással töltött év, istenek adta tehetség és egy  kiváló mester szükséges, hogy a Célzás képzettséges valaki elsajátítsa. (Csak olyan  karakter választhatja a Célzást, aki már rendelkezik az íj használat mesterfokával.)\n\nA képzettség segítségével az íjász 1-2 körön keresztül, erősen koncentrálva céloz egy mozdulatlan,  vagy kiszámíthatóan mozgó célpontot, és ekkor jelentősen megnő a célzóértéke.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "fegyverismeret",
+        "name": "Fegyverismeret",
+        "tipus": "harci",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            3,
+            5,
+            12,
+            20,
+            30
+        ],
+        "leiras": "A Fegyverismeret Képzettség birtokában a karakter képes megállapítani a kezébe kerülő fegyverekről azok minőségét.",
+        "szintleiras": [
+            "A karakter ismeri az alapvető fegyvertipusokat, alapanyagokat, és meg tudja különböztetni a jó munkát a rossztól",
+            "A karakter jó ismerője a fegyvereknek. A fegyver súlyát, anyagát megvizsgálva, ítéletet tud  mondani a fegyver minőségéről.",
+            "A karakter gyakran képes felvilágosítást adni egy fegyver készítőjének származásáról, ismertebb mesterember esetén akár még a nevéről is.",
+            "A karakter ismeri a különleges fegyvereket is, pl. ramiera, mara-sequor, meneth, és hogy milyen kultúrákban/szervezetekben használják őket.",
+            "A karakter nem csak a fegyver készítőjét tudja jó eséllyel beazonosítani, de pl. fejvadász vagy lovagi fegyver esetén azt is, hogy pontosan melyik klán/lovagrend fegyveréről van szó."
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "foldharc",
+        "name": "Földharc",
+        "tipus": "harci",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "A küzdelem során földre kerülő csak jelentős hátrányokkal képes folytatni a harcot. KÉ-je és VÉ-je  10-zel, TÉ-je 20-szal csökken, s csak akkor képes felállni, ha az adott körben lemond a támadásról,  s őt sem éri egyetlen sikeres támadás sem. A Földharcban képzett karakter nem szenvei el ezeket a  hátrányokat, sőt képes helyzetéből előnyt kovácsolni.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "harc_helyhez_kotve",
+        "name": "Harc helyhez kötve",
+        "tipus": "harci",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Ennek a képzettségnek a segítségével a harcos olyan technikákat képes elsajátítani támadás és  védekezés terén, melyek segítségével akkor is könnyen harcol, ha helyváltoztatásában valami  akadályozza. Az eredményes fegyverforgatás ekkor is megköveteli a karok mozgásterét, de a lábak  alig vagy egyáltalán nem változtatnak helyzetet. A különleges technika mély állásokra épül,  melyek segítenek megőrizni a küzdő stabilitását, ugyanakkor lehetővé teszik, hogy a test sokféle  mozgást végezhessen anélkül, hogy egyensúlyának megtartásáért a lábnak ki kellene lépnie  valamilyen irányba.\n\nA különleges harci stílus kialakulásának természetesen jó oka volt. Olyan embercsoportok  dolgozták ki az alapokat, akik víz vagy mocsár környékén éltek. Az ingoványban két oka is volt a  kényszerű helyhezkötöttségnek: szerencse kell ahhoz, hogy egy hirtelen lépés a mocsár szilárd  pontjára, és ne gyorsan süppedő területre történjék, így a küzdő megpróbált a lehető legkevesebbet mozogni. A másik helyzet akkor adódott, mikor a rossz lépés már megtörtént, és a harcos térdig  süllyedt a sárba. Ekkor - mivel nem kászálódhatott ki a csata hevében - kénytelen volt egyhelyben  harcolni. A víz mellett lakók akkor voltak kénytelenek megalkotni a módszer alapjait, mikor vízi  ütközetekben és a part mentén az ellenfelek csónakokon harcoltak. Ezek a könnyen boruló  alkalmatosságok nem tették lehetővé a laza ide-oda ugrálást, a harcosnak mindent meg kellett  tennie annak érdekében, hogy a lélekvesztő egyensúlya megmaradjon, ha nem akart a vízben  kikötni.\n\nA helyhez kötve tanult harc természetesen jelentős előnyt biztosít a fenti helyzetekben, különösen  akkor, ha az ellenfél nem rendelkezik hasonló tudással. Akkor is fontos lehet, ha a másik fél nincs  helyhez kötve - ekkor segít csökkenteni a harci helyzetből eredő hátrányokat. A Harc helyhez  kötve módosítói képzetlenek számára a következők: KÉ -20, TÉ -15, VÉ -5.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "harci_laz",
+        "name": "Harci láz",
+        "tipus": "harci",
+        "kepesseg": "onuralom",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "kinokozas",
+        "name": "Kínokozás",
+        "tipus": "harci",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "A képzettség lehetővé teszi, hogy a harcos fájdalom okozására használja inkább a fegyverét, és ne  a másik gyors megölésére. A képzettség használata nagy gyakorlatot igényel, célja, hogy az illető ne mély sebeket ejtsen, hanem hosszú, felszíni vágásokat, melyek szörnyen fájdalmasak, de  viszonylag csekély vérveszteséget okoznak, és nem jelentenek halálos fenyegetést. Az ilyen harcra  legjobb a vágófegyver; szúró- vagy zúzóeszközökkel a módszert korántsem lehet olyan tökéletesen  alkalmazni. Ez érthető, mivel a szúrást nehéz felszínessé tenni, ilyenkor legfeljebb a jó hely  megválasztását jelenti a képzettség használata - tehát nem szíven vagy nyakon kell szúrni az  áldozatot, ha csak fájdalmat akarunk okozni neki. Zúzófegyverekkel hasonlóak a nehézségek. Bár  az ütéseket vissza lehet fogni, ilyen esetekben a fájdalom sem lesz különösen nagy - hacsak meg  nem találjuk a különösen érzékeny pontokat. A képzettség ebben, és az ezekre történő támadásban  nyújt segítséget. Jó célpont lehet szinte mindegyik ízület, a combok és a kar belső felszíne. A  képzettség természetéből adódóan csak humanoidok ellen alkalmazható, hiszen más anatómiájú  szörnyek, lények ellen teljesen más módszerek vezetnének hasonló eredményhez. A képzettség  csak olyan fegyverrel alkalmazható, aminek használatában a karakter legalább 3. fokon jártas.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "lovas_ijaszat",
+        "name": "Lovas íjászat",
+        "tipus": "harci",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Elsősorban Ilanor és Yllinor könnyűlovasai, csikósai, valamint a nomádok rendelkeznek ezzel a  képzettséggel. A kalandozó leginkább tőlük tanulhatja meg (persze kellőképpen hosszú idő ráfordításával) a lovas íjászat művészetét. Vágtató lóról, különböző testhelyzeteket felvéve  igencsak nehéznek bizonyulhat célbatalálni. Számításba kell venni a ló mozgását, az ellenszél erősségét és irányát: mindez csak hosszú gyakorlással és kiváló képességekkel rendelkezők számára adatott meg.",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "pusztitas",
+        "name": "Pusztítás",
+        "tipus": "harci",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "epiteszet",
+        "name": "Építészet",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "heraldika",
+        "name": "Heraldika",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "idojoslas",
+        "name": "Időjóslás",
+        "tipus": "tudomanyos",
+        "kepesseg": "gondolkodas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "iras_olvasas",
+        "name": "Írás/olvasás",
+        "tipus": "tudomanyos",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "jogismeret",
+        "name": "Jogismeret",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "legendaismeret",
+        "name": "Legendaismeret",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "magiahasznalat",
+        "name": "Mágiahasználat",
+        "tipus": "magia",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            10,
+            22,
+            25,
+            33,
             40
         ],
-        "tipus": "harcmodor",
-        "linked": [],
-        "name": "Harcmodor (Egykezes fegyver)",
-        "id": "harcmodor:egykezes",
-        "kepesseg": "mozgaskoordinacio",
-        "leiras": "Természetesen egykezes fegyver használatához elég megtanulni a vonatkozó képzettséget, ez a harcmodor kizárólag\n azoknak szól, akik ki is akarják használni a szabadon maradó kézből adódó előnyöket.",
+        "leiras": "A mágiahasználat képzettség képessé teszi a nem varázshasználó karaktert arra, hogy manát kössön meg a testében. Ezt naponta egyszer, pihenés után tudja megtenni, tíz percnyi meditáció segítségével. A képzettség mindössze a mana begyűjtését és tárolását teszi lehetővé, nem tesz képessé a varázslásra. Utóbbihoz a megfelelő mágiaiskola valamilyen fokú ismerete is szükséges.\n\nFontos, hogy szakrális mágia ilyen módon egyáltalán nem hozható létre, hiszen ott a rituálék és litániák a karakter istenéhez való fohászok, a varázslat létrejötte minden esetben az adott isten jóindulatán múlik.",
         "szintleiras": [
-            "A karakter levonások nélkül hajthat végre egyszerűbb feladatokat a szabad kezével, pl. gyógyital elfogyasztása,\n ajtónyitás, vassulyom szórása.",
-            "A karakter homokot vagy egyéb irritáló port szórhat ellenfele arcába. Az ellenfél reflexpróbát kénytelen dobni\n (ha meglepetésként éri a támadás, -50-nel), különben 1 körig a harc vakon módosítói érvényesek rá.",
-            "Rejtett fegyver előrántás: a karakter egy megfelelően előkészített és álcázott kisméretű közelharci vagy dobófegyvert\n előrántva plusz egy támadást adhat le. Ha még nem alkalmazta ezt a manővert a csata során, jó eséllyel a meglepetés\n módosítói járnak a támadásra, de minimum +10 TÉ. Természetesen ha pl. tőrt rántott a karakter, dönthet úgy, hogy a\n következő körtől kétfegyveres harcot folytat.",
-            "A karakter a szabad kezével tudja manipulálni az ellenfél ütéstávolságát: amennyiben ellenfele belharcot kezdeményezni,\n külön próba nélkül is el tudja tolni magával, vagy fordítva, a karakter \"beránthatja\" ellenfelét belharcba megelőző támadás esélye\n nélkül ",
-            "A karakter ezzel a manőverrel egykezes fegyvert forgató ellenfelet fegyverezhet le. Ehhez az kell, hogy megnyerje a\n kezdeményezést és feladjon egy támadást. Ha ezután az ellenfél ütését sikerül hárítania, reflex ellenpróbára kerül sor,\n amennyiben ez sikeres, az ellenfél elejti fegyverét."
+            "5 MP",
+            "8 MP",
+            "11 MP",
+            "14 MP",
+            "17 MP"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "emberismeret",
+        "name": "Emberismeret",
+        "tipus": "tudomanyos",
+        "kepesseg": "empatia",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "mechanika",
+        "name": "Mechanika",
+        "tipus": "tudomanyos",
+        "kepesseg": "gondolkodas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "runamagia",
+        "name": "Rúnamágia",
+        "tipus": "tudomanyos",
+        "kepesseg": "gondolkodas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "terkepeszet",
+        "name": "Térképészet",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "vallasismeret",
+        "name": "Vallásismeret",
+        "tipus": "tudomanyos",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "allatismeret",
+        "name": "Állatismeret",
+        "tipus": "vilagi",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "csapdaallitas",
+        "name": "Csapdaállítás",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "csomozas",
+        "name": "Csomózás",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "enek_zene",
+        "name": "Éneklés/Zenélés",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "tuleles",
+        "name": "Túlélés",
+        "tipus": "vilagi",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "etikett",
+        "name": "Etikett",
+        "tipus": "vilagi",
+        "kepesseg": "emlekezet",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "festeszet",
+        "name": "Festészet",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "hajozas",
+        "name": "Hajózás",
+        "tipus": "vilagi",
+        "kepesseg": "gondolkodas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "idomitas",
+        "name": "Idomítás",
+        "tipus": "vilagi",
+        "kepesseg": "empatia",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "kocsihajtas",
+        "name": "Kocsihajtás",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "mellebeszeles",
+        "name": "Mellébeszélés",
+        "tipus": "vilagi",
+        "kepesseg": "empatia",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "nyomolvasas",
+        "name": "Nyomolvasás/Eltüntetés",
+        "tipus": "vilagi",
+        "kepesseg": "erzekeles",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "tanc",
+        "name": "Tánc",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "zsonglorkodes",
+        "name": "Zsonglőrködés",
+        "tipus": "vilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "alcazas_alruha",
+        "name": "Álcázás/Álruha",
+        "tipus": "alvilagi",
+        "kepesseg": "erzekeles",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "hamisitas",
+        "name": "Hamisítás",
+        "tipus": "alvilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "hamiskartya",
+        "name": "Hamiskártya",
+        "tipus": "alvilagi",
+        "kepesseg": "empatia",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "hasbeszeles",
+        "name": "Hasbeszélés",
+        "tipus": "alvilagi",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "orvtamadas",
+        "name": "Orvtámadás",
+        "tipus": "alvilagi",
+        "kepesseg": "osszpontositas",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "kotelekbol_szabadulas",
+        "name": "Kötelékből szabadulás",
+        "tipus": "alvilagi",
+        "kepesseg": "mozgaskoordinacio",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "szajrol_olvasas",
+        "name": "Szájról olvasás",
+        "tipus": "alvilagi",
+        "kepesseg": "erzekeles",
+        "linked": [],
+        "kp": [
+            6,
+            12,
+            20,
+            32,
+            50
+        ],
+        "leiras": "Leírás/kp",
+        "szintleiras": [
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp",
+            "TODO: leiras/kp"
         ]
     }
 ]

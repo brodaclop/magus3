@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Karakter, SzintInfo } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
-import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
+import { Kepzettseg, KepzettsegTipus, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
 import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
@@ -142,7 +142,12 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 <tr>
                     <td><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
                         {!ujkepzettseg && <option value=''></option>}
-                        {Kepzettseg.lista.map(k => <option value={k.id}>{k.name}</option>)}
+                        {KepzettsegTipus.map(kt => <optgroup label={kt.name}>
+                            {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id).map(k => <option value={k.id}>{k.name}</option>)}
+                        </optgroup>)}
+                        <optgroup label='Százalékos'>
+                            {Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => <option value={k.id}>{k.name}</option>)}
+                        </optgroup>
                     </select>
                     </td>
                     <td><button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={pluszKP}>+1 KP</button></td>

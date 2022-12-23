@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
-import { Kasztok } from '../model/Kasztok';
 import { CalculationWidget } from './CalculationWidget';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 
