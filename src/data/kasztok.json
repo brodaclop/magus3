@@ -541,7 +541,103 @@
         "hm": 2,
         "kpAlap": 4,
         "kpPerSzint": 5,
-        "szazalekPerSzint": 22
+        "szazalekPerSzint": 22,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "vakharc",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "name": "Fegyverhasználat",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "name": "Fegyverhasználat",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "name": "Fegyverhasználat",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "name": "Fegyverhasználat",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyvertores",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "uszas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 20,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 35,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 30,
+                    "honnan": 0
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 2,
+                    "honnan": 0
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "fegyvertores",
+                    "fok": 4,
+                    "honnan": 0
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "vakharc",
+                    "fok": 4,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 4,
+                    "honnan": 0
+                }
+            ]
+        ]
     },
     {
         "id": "Kardművész",

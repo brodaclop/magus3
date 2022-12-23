@@ -13,7 +13,7 @@ import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 
 export const formatSebzesTipus = (t: typeof SebzesTipus[number]['id'] | Array<typeof SebzesTipus[number]['id']>): string =>
-    (typeof t === 'string' ? [t] : t).sort().map(o => SebzesTipus.find(st => o === st.id)).join('/') || '-';
+    (Array.isArray(t) ? t : [t]).sort().map(o => SebzesTipus.find(st => o === st.id)?.name).join('/') || '-';
 
 
 

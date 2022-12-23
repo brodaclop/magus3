@@ -1,6 +1,8 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
+import ReactMarkdown from "react-markdown";
 import { Kepzettseg } from '../model/Kepzettseg';
+import remarkGfm from "remark-gfm";
 
 export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }> = ({ kepzettseg, fok = 0 }) => {
     const kepzettsegTable = <table style={{ width: '20rem' }}>
@@ -12,7 +14,9 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }>
             </tr>
             <tr style={{ textAlign: 'justify' }}>
                 <th colSpan={2}>
-                    {kepzettseg.leiras}
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {kepzettseg.leiras}
+                    </ReactMarkdown>
                 </th>
             </tr>
         </thead>
@@ -20,7 +24,9 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok: number }>
             {kepzettseg.fajta === 'normal' && kepzettseg.szintleiras.map((l, idx) => <tr>
                 <th>{idx + 1}. fok</th>
                 <td style={{ whiteSpace: 'pre-wrap', textAlign: 'justify', fontWeight: idx < fok ? 'bold' : 'normal' }}>
-                    {l}
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {l}
+                    </ReactMarkdown>
                 </td>
             </tr>)}
         </tbody>

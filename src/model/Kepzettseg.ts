@@ -210,6 +210,8 @@ const SZAZALEKOS_KEPZETTSEGEK: Array<SzazalekosKepzettseg> = [
 
 const NYELVEK = ['pyarroni', 'dzsad', 'erv', 'kráni', 'shadoni', 'gorviki', 'toroni', 'aszisz'];
 
+const OSI_NYELVEK = ['amund', 'aquir', 'kyr', 'godoni', 'dzsenn'];
+
 const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
     return NYELVEK.map(ny => ({
         fajta: 'normal',
@@ -225,6 +227,22 @@ const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
     }));
 }
 
+const generateOsiNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
+    return OSI_NYELVEK.map(ny => ({
+        fajta: 'normal',
+        id: `osi_nyelv:${ny}`,
+        name: `Ősi nyelv (${ny})`,
+        tipus: 'osi_nyelv',
+        kepesseg: 'emlekezet',
+        linked: [],
+        kp: [8, 12, 30, 40, 55],
+        leiras: '',
+        szintleiras: ['', '', '', '', ''],
+        __generated: true
+    }));
+}
+
+
 const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...taroltKepzettsegek as Array<Kepzettseg>,
     ...generateFegyverKategoriaKepzettsegek(),
@@ -232,6 +250,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...generateLoFegyverKepzettsegek(),
     ...generateNyelvKepzettsegek(),
     ...generateMagiaKepzettsegek(),
+    ...generateOsiNyelvKepzettsegek(),
     ...SZAZALEKOS_KEPZETTSEGEK,
 ]
     .sort((a, b) => a.name.localeCompare(b.name))
