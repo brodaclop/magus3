@@ -607,6 +607,12 @@
                     "kepzettsegId": "ugras",
                     "fok": 30,
                     "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:harcmuveszet:",
+                    "name": "Harcművészet stílus",
+                    "fok": 2,
+                    "honnan": 0
                 }
             ],
             null,

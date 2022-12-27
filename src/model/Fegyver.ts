@@ -4,6 +4,7 @@ import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
 import { NamedEntity, namedEntityArray } from "./util";
 import fegyverek from '../data/fegyverek.json';
+import { Harcmuveszet } from "./Harcmuveszet";
 
 export const SebzesTipus = [
     { id: 'szuro', name: 'Szúró' },
@@ -146,7 +147,7 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 ];
 
 export const Fegyver = {
-    ...namedEntityArray(fegyverek as Array<KozelharcFegyver>),
+    ...namedEntityArray([...fegyverek as Array<KozelharcFegyver>, ...Harcmuveszet.fegyverek]),
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver | Lofegyver, minusz = 0): [Harcertek, number] => {
         const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.alternativKepzettseg ?? fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);

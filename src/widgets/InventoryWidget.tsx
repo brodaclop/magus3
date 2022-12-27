@@ -152,10 +152,10 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
     if (karakter.pancel) {
         worn[karakter.pancel.id] = 1;
     }
-    if (karakter.kezek[0]) {
+    if (karakter.kezek[0]?.tipus === 'fegyver') {
         worn[karakter.kezek[0].id] = 1;
     }
-    if (karakter.kezek[1]) {
+    if (karakter.kezek[1]?.tipus === 'fegyver') {
         worn[karakter.kezek[1].id] = (worn[karakter.kezek[1].id] ?? 0) + 1;
     }
     if (karakter.lofegyver) {

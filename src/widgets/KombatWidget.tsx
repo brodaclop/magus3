@@ -32,12 +32,14 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <td>
                     <FegyverSelection
                         karakter={karakter}
+                        calc={calc}
                         kez={0}
                         onChange={onChange} />
                 </td>
                 <td>
                     <FegyverSelection
                         karakter={karakter}
+                        calc={calc}
                         kez={1}
                         onChange={onChange} />
                 </td>

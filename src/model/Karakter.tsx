@@ -18,7 +18,7 @@ export interface KarakterTemplate {
     kepessegKategoriak: Record<KepessegKategoria, number>;
 }
 
-export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: 'okolharc' } | InventoryFegyver;
+export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: string } | InventoryFegyver;
 
 export interface Karakter extends NamedEntity {
     readonly faj: Faj;
@@ -158,7 +158,7 @@ export const Karakter = {
             } else if (fegyver.tipus === 'pusztakez') {
                 return !karakter.kezek[1];
             } else {
-                const available = fegyver.quantity - (karakter.kezek[1]?.id === fegyver.id ? 1 : 0);
+                const available = fegyver.quantity - ((karakter.kezek[1] as InventoryFegyver)?.id === fegyver.id ? 1 : 0);
                 return (karakter.kezek[1]?.ob.kez ?? 0) + fegyver.ob.kez <= 2 && available > 0;
             }
         } else {
@@ -167,7 +167,7 @@ export const Karakter = {
             } else if (fegyver.tipus === 'pusztakez') {
                 return false;
             } else {
-                const available = fegyver.quantity - (karakter.kezek[0]?.id === fegyver.id ? 1 : 0);
+                const available = fegyver.quantity - ((karakter.kezek[0] as InventoryFegyver)?.id === fegyver.id ? 1 : 0);
                 return (karakter.kezek[0]?.ob.kez ?? 0) + fegyver.ob.kez <= 2 && available > 0;
 
             }
