@@ -24,7 +24,7 @@ const PendingSelector: React.FC<{
 
         return <>
             <select value={selected} onChange={e => setSelected(Number(e.target.value))}>
-                {options.map((o, idx) => <option value={idx}>{o.name}</option>)}
+                {options.map((o, idx) => <option key={idx} value={idx}>{o.name}</option>)}
             </select>
             <button onClick={() => onSelected(options[selected] as NormalKepzettseg)}>+</button>
         </>
@@ -141,12 +141,12 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 </tr>
                 <tr>
                     <td><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
-                        {!ujkepzettseg && <option value=''></option>}
-                        {KepzettsegTipus.map(kt => <optgroup label={kt.name}>
-                            {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id).map(k => <option value={k.id}>{k.name}</option>)}
+                        {!ujkepzettseg && <option key='' value=''></option>}
+                        {KepzettsegTipus.map(kt => <optgroup key={kt.name} label={kt.name}>
+                            {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id).map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </optgroup>)}
                         <optgroup label='Százalékos'>
-                            {Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => <option value={k.id}>{k.name}</option>)}
+                            {Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </optgroup>
                     </select>
                     </td>

@@ -57,8 +57,8 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                                 setSebzes('0');
                             }
                         }}>
-                            <option value=''>Nincs</option>
-                            {Fegyver.lista.filter(f => f.flags !== 'pusztakez').map(f => <option value={f.id}>{f.name}</option>)}
+                            <option key='' value=''>Nincs</option>
+                            {Fegyver.lista.filter(f => f.flags !== 'pusztakez').map(f => <option key={f.id} value={f.id}>{f.name}</option>)}
                         </select>
                     </td>
                 </tr>
@@ -67,8 +67,8 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                         <th>Képzettség</th>
                         <td>
                             <select value={fegyver.alternativKepzettseg ?? ''} onChange={e => setFegyver({ ...fegyver, alternativKepzettseg: e.target.value })} >
-                                <option disabled={!!fegyver.id} value=''>Nincs</option>
-                                {Kepzettseg.keres('fegyver:').map(k => <option value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
+                                <option disabled={!!fegyver.id} key='' value=''>Nincs</option>
+                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
                             </select>
                         </td>
                     </tr>}
@@ -110,7 +110,7 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                     <td>
                         <select value={fegyver.kategoria?.id ?? ''} onChange={e => setFegyver({ ...fegyver, kategoria: FEGYVER_KATEGORIAK[e.target.value] as any })}>
                             <option value=''>Nincs</option>
-                            {Object.entries(FEGYVER_KATEGORIAK).map(([id, kat]) => <option value={id}>{kat.nev}</option>)}
+                            {Object.entries(FEGYVER_KATEGORIAK).map(([id, kat]) => <option key={id} value={id}>{kat.nev}</option>)}
                         </select>
                     </td>
                 </tr>}
@@ -118,8 +118,8 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                     <th>Képesség</th>
                     <td>
                         <select value={fegyver.kepesseg ?? ''} onChange={e => setFegyver({ ...fegyver, kepesseg: e.target.value === '' ? undefined : e.target.value } as any)}>
-                            <option value=''>Nincs</option>
-                            {Kepessegek.lista.map(k => <option value={k.id}>{k.name}</option>)}
+                            <option key='' value=''>Nincs</option>
+                            {Kepessegek.lista.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </select>
                     </td>
                 </tr>}

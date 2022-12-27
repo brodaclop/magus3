@@ -250,6 +250,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...generateLoFegyverKepzettsegek(),
     ...generateNyelvKepzettsegek(),
     ...generateMagiaKepzettsegek(),
+    Magia.hasznalatKepzettseg,
     ...generateOsiNyelvKepzettsegek(),
     ...SZAZALEKOS_KEPZETTSEGEK,
 ]

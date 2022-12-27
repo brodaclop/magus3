@@ -163,7 +163,7 @@ export const KarakterCalculator = {
             return acc;
         }, new Set<typeof MagiaKategoriak[number]['id']>());
 
-        const mana = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => {
+        const mana = Calculation.max(Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => {
             let pontok = 0;
             if (szint.kaszt.mana && szint.mana > 0) {
                 pontok += szint.mana;
@@ -173,7 +173,7 @@ export const KarakterCalculator = {
                 }
             }
             return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
-        }));
+        })), Calculation.value(Magia.hasznalatKepzettseg.name, Magia.magiaHasznalatMana(normalKepzettsegek)));
 
         const pszi = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, szint.pszi)));
 

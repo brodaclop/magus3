@@ -79,8 +79,8 @@ export const PicklistEditor: React.FC<{ desc: PicklistEditorDescriptor, value: s
         <select multiple={desc.multiple} size={desc.multiple ? desc.values.length : undefined} value={selectValue} onChange={e => {
             onChange(desc.multiple ? Array.from(e.target.selectedOptions, o => o.value) : e.target.value);
         }}>
-            {!desc.multiple && <option disabled value={''}></option>}
-            {desc.values.map(v => <option value={typeof v === 'string' ? v : v.id}>{typeof v === 'string' ? v : v.name}</option>)}
+            {!desc.multiple && <option key='' disabled value={''}></option>}
+            {desc.values.map(v => <option key={typeof v === 'string' ? v : v.id} value={typeof v === 'string' ? v : v.id}>{typeof v === 'string' ? v : v.name}</option>)}
         </select>
     </div>;
 }

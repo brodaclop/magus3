@@ -66,8 +66,8 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
                                 setSebzes('0');
                             }
                         }}>
-                            <option value=''>Nincs</option>
-                            {Lofegyver.lista.map(f => <option value={f.id}>{f.name}</option>)}
+                            <option key='' value=''>Nincs</option>
+                            {Lofegyver.lista.map(f => <option key={f.id} value={f.id}>{f.name}</option>)}
                         </select>
                     </td>
                 </tr>
@@ -76,8 +76,8 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
                         <th>Képzettség</th>
                         <td>
                             <select value={fegyver.alternativKepzettseg ?? ''} onChange={e => setFegyver({ ...fegyver, alternativKepzettseg: e.target.value })} >
-                                <option disabled={!!fegyver.id} value=''>Nincs</option>
-                                {Kepzettseg.keres('fegyver:').map(k => <option value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
+                                <option key='' disabled={!!fegyver.id} value=''>Nincs</option>
+                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
                             </select>
                         </td>
                     </tr>}
@@ -148,8 +148,8 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
                     <th>Képesség</th>
                     <td>
                         <select value={fegyver.kepesseg ?? ''} onChange={e => setFegyver({ ...fegyver, kepesseg: e.target.value === '' ? undefined : e.target.value } as any)}>
-                            <option value=''>Nincs</option>
-                            {Kepessegek.lista.map(k => <option value={k.id}>{k.name}</option>)}
+                            <option key='' value=''>Nincs</option>
+                            {Kepessegek.lista.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </select>
                     </td>
                 </tr>}

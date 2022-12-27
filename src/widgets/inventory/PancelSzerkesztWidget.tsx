@@ -45,7 +45,7 @@ export const PancelSzerkesztWidget: React.FC<{ karakter: Karakter, onChange: (k:
                     <th>Méretre igazítás</th>
                     <td>
                         <select value={igazitas} onChange={e => setIgazitas(Number(e.target.value))}>
-                            {PancelBuilder.igazitas.map((a, i) => <option value={i}>{a.name}</option>)}
+                            {PancelBuilder.igazitas.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                         </select>
                     </td>
                     {renderBlokk(PancelBuilder.igazitas[igazitas])}

@@ -95,7 +95,7 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
                         <th>Alap:</th>
                         <td>
                             <select value={alap} onChange={e => setAlap(Number(e.target.value))}>
-                                {PancelBuilder.alapok.map((a, i) => <option value={i}>{a.name}</option>)}
+                                {PancelBuilder.alapok.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                             </select>
                         </td>
                         {renderBlokk(PancelBuilder.alapok[alap])}
@@ -104,7 +104,7 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
                         <th>Minőség:</th>
                         <td>
                             <select value={minoseg} onChange={e => setMinoseg(Number(e.target.value))}>
-                                {PancelBuilder.minoseg.map((a, i) => <option value={i}>{a.name}</option>)}
+                                {PancelBuilder.minoseg.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                             </select>
                         </td>
                         {renderBlokk(PancelBuilder.minoseg[minoseg])}
@@ -113,7 +113,7 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
                         <th>Fém</th>
                         <td>
                             <select value={fem} onChange={e => setFem(Number(e.target.value))}>
-                                {PancelBuilder.femek.map((a, i) => <option value={i}>{a.name}</option>)}
+                                {PancelBuilder.femek.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                             </select>
                         </td>
                         {renderBlokk(PancelBuilder.femek[fem])}
@@ -123,7 +123,7 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
                     <th>Rúna:</th>
                     <td>
                         <select value={runa} onChange={e => setRuna(Number(e.target.value))}>
-                            {PancelBuilder.runak.map((a, i) => <option value={i}>{a.name}</option>)}
+                            {PancelBuilder.runak.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                         </select>
                     </td>
                     {renderBlokk(PancelBuilder.runak[runa])}
@@ -132,7 +132,7 @@ export const PancelBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: K
                     <th>Méretre igazítás</th>
                     <td>
                         <select value={igazitas} onChange={e => setIgazitas(Number(e.target.value))}>
-                            {PancelBuilder.igazitas.map((a, i) => <option value={i}>{a.name}</option>)}
+                            {PancelBuilder.igazitas.map((a, i) => <option key={i} value={i}>{a.name}</option>)}
                         </select>
                     </td>
                     {renderBlokk(PancelBuilder.igazitas[igazitas])}

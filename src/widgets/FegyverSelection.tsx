@@ -19,7 +19,7 @@ export const FegyverSelection: React.FC<{
         karakter.kezek[kez] = fegyver;
         onChange(karakter);
     }} value={current?.id ?? ''}>
-        {emptyEnabled && <option value=''>Üres kéz</option>}
-        {available.map(f => <option value={f.id}>{f.ob.name}</option>)}
+        {emptyEnabled && <option key='' value=''>Üres kéz</option>}
+        {available.map(f => <option key={f.id} value={f.id}>{f.ob.name}</option>)}
     </select>
 }

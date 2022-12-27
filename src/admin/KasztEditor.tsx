@@ -96,8 +96,8 @@ export const KasztEditor: React.FC<{}> = () => {
 
     return <ModalWindow open={open} setOpen={setOpen} button='Kaszt szerkesztő'>
         <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
-            <option value=''>Új</option>
-            {Kasztok.lista.map(k => <option value={k.id}>{k.name}</option>)}
+            <option key='' value=''>Új</option>
+            {Kasztok.lista.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
         </select>
         <button onClick={startEdit}>Szerkeszt</button>
         <ObjectEditor desc={KASZT_SCHEMA} value={object} onChange={ob => {

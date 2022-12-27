@@ -6,10 +6,10 @@ export const KasztSelectorWidget: React.FC<{ kaszt: string, onChange: (kaszt: st
         {Kasztok.lista.filter(k => k.fokaszt === undefined).map(k => {
             const alkasztok = Kasztok.lista.filter(kaszt => kaszt.fokaszt === k.id);
             if (alkasztok.length === 0) {
-                return <option value={k.id}>{k.name}</option>
+                return <option key={k.id} value={k.id}>{k.name}</option>
             } else {
-                return <optgroup label={k.name}>
-                    <option value={k.id}>{k.name}</option>
+                return <optgroup key={k.name} label={k.name}>
+                    <option key={k.id} value={k.id}>{k.name}</option>
                     {alkasztok.map(ak => <option value={ak.id}>{ak.name}</option>)}
                 </optgroup>
             }

@@ -47,8 +47,8 @@ export const KepzettsegEditor: React.FC<{}> = () => {
 
     return <ModalWindow open={open} setOpen={setOpen} button='Képzettség szerkesztő'>
         <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
-            <option value=''>Új</option>
-            {Kepzettseg.__taroltLista().map(k => <option value={k.id}>{k.name}</option>)}
+            <option key='' value=''>Új</option>
+            {Kepzettseg.__taroltLista().map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
         </select>
         <button onClick={startEdit}>Szerkeszt</button>
         <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {

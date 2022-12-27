@@ -31,8 +31,8 @@ const App: React.FC<{}> = () => {
         <li>
           <span className='noselect'>
             {Object.keys(karakterek).length > 0 && <select value={karakter?.id ?? ''} onChange={e => setKarakter(karakterek[e.target.value])}>
-              {!karakter && <option disabled value=''>Válassz karaktert</option>}
-              {Object.entries(karakterek).map(([id, karakter]) => <option value={id}>{karakter.name} ({Object.values(Karakter.szintek(karakter)).map(sz => `${sz.name} ${sz.szint}`).join('/')})</option>)}
+              {!karakter && <option key='' disabled value=''>Válassz karaktert</option>}
+              {Object.entries(karakterek).map(([id, karakter]) => <option key={id} value={id}>{karakter.name} ({Object.values(Karakter.szintek(karakter)).map(sz => `${sz.name} ${sz.szint}`).join('/')})</option>)}
             </select>}
             <KarakterTemplateWdiget onCreate={save} />
           </span>

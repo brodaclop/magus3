@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Calculation } from '../model/Calculation';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { CalculationWidget } from './CalculationWidget';
