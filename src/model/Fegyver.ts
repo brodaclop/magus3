@@ -149,7 +149,7 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 export const Fegyver = {
     ...namedEntityArray([...fegyverek as Array<KozelharcFegyver>, ...Harcmuveszet.fegyverek]),
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver | Lofegyver, minusz = 0): [Harcertek, number] => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyver:${fegyver.alternativKepzettseg ?? fegyver.id}`);
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === fegyver.alternativKepzettseg ?? `fegyver:${fegyver.id}`);
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);

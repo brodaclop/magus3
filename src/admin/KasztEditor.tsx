@@ -45,7 +45,7 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object<KasztInfo>('Kaszt', {
             honnan: Editor.number('Minimum fok')
         }),
         'Választható': Editor.object('képzettség', {
-            kepzettsegId: Editor.string('Képzettség ID'),
+            kepzettsegId: Editor.picklist('Képzettség prefix', [...new Set(Kepzettseg.keys.filter(id => id.includes(':')).map(id => id.split(':')[0]))]),
             name: Editor.string('Név'),
             fok: Editor.number('Fok'),
             honnan: Editor.number('Minimum fok')

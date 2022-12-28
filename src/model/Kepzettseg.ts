@@ -4,11 +4,16 @@ import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
 import { Magia } from "./Magia";
+import { Harcmuveszet } from "./Harcmuveszet";
 
 export const KepzettsegTipus = [
     {
         id: 'fegyver',
         name: 'Fegyver'
+    },
+    {
+        id: 'harcmuveszet',
+        name: 'Harcművészet'
     },
     {
         id: 'fegyverkategoria',
@@ -32,7 +37,7 @@ export const KepzettsegTipus = [
     },
     {
         id: 'alvilagi',
-        name: 'Alilági'
+        name: 'Alvilági'
     },
     {
         id: 'magia',
@@ -75,9 +80,17 @@ export interface SzazalekosKepzettseg {
 
 export type Kepzettseg = NormalKepzettseg | SzazalekosKepzettseg;
 
+export const FEGYVER_KPK: [number, number, number, number, number] = [1, 3, 10, 25, 40];
+export const FEGYVER_SZINTLEIRASOK: [string, string, string, string, string] = [
+    'KÉ: -5, TÉ: -5, VÉ: -10',
+    'KÉ: 0, TÉ: 0, VÉ: 0',
+    'KÉ: +2, TÉ: +5, VÉ: +5',
+    'KÉ: +5, TÉ: +10, VÉ: +10',
+    'KÉ: +10, TÉ: +20, VÉ: +20'
+];
 
 const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => Fegyver.lista
-    .filter(f => f.flags !== 'nagy-pajzs' && f.flags !== 'buckler')
+    .filter(f => f.flags !== 'nagy-pajzs' && f.flags !== 'buckler' && f.alternativKepzettseg === undefined)
     .map(f => {
         const linked: Array<KepzettsegLink> = f.kategoria ? [{ id: `fegyverkat:${f.kategoria.id}`, strength: 1 }] : [];
         return {
@@ -87,15 +100,9 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => Fegyver.lista
             tipus: 'fegyver',
             kepesseg: (f.kategoria?.kepesseg ?? f.kepesseg) as string,
             linked: linked,
-            kp: [1, 3, 10, 25, 40],
-            leiras: 'Egy adott fegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30',
-            szintleiras: [
-                'KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15',
-                'KÉ: 0, TÉ: 0, VÉ: 0, CÉ: 0',
-                'KÉ: +2, TÉ: +5, VÉ: +5, CÉ: +5',
-                'KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10',
-                'KÉ: +10, TÉ: +20, VÉ: +20, CÉ: +20'
-            ],
+            kp: FEGYVER_KPK,
+            leiras: 'Egy adott fegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, TÉ: -25, VÉ: -20',
+            szintleiras: FEGYVER_SZINTLEIRASOK,
             __generated: true
         }
     });
@@ -111,7 +118,7 @@ const generateLoFegyverKepzettsegek = (): Array<NormalKepzettseg> => [...Lofegyv
             tipus: 'fegyver',
             kepesseg,
             linked,
-            kp: [1, 3, 10, 25, 40],
+            kp: FEGYVER_KPK,
             leiras: 'Egy adott lőfegyverrel való harc. A képzetlen fegyverhasználat módosítói: KÉ: -10, CÉ: -30',
             szintleiras: [
                 'KÉ: -5, CÉ: -15',
@@ -247,6 +254,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...taroltKepzettsegek as Array<Kepzettseg>,
     ...generateFegyverKategoriaKepzettsegek(),
     ...generateFegyverKepzettsegek(),
+    ...Harcmuveszet.kepzettsegek,
     ...generateLoFegyverKepzettsegek(),
     ...generateNyelvKepzettsegek(),
     ...generateMagiaKepzettsegek(),

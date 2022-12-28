@@ -68,7 +68,7 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                         <td>
                             <select value={fegyver.alternativKepzettseg ?? ''} onChange={e => setFegyver({ ...fegyver, alternativKepzettseg: e.target.value })} >
                                 <option disabled={!!fegyver.id} key='' value=''>Nincs</option>
-                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
+                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                             </select>
                         </td>
                     </tr>}

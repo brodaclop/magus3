@@ -1,4 +1,4 @@
-import { FegyverKategoria, FegyverSebesseg, NYILPUSKA_KATEGORIA, SebzesTipus } from "./Fegyver";
+import { FegyverKategoria, FegyverSebesseg, SebzesTipus } from "./Fegyver";
 import { KockaDobas, parseKocka } from "./Kocka";
 import { NamedEntity, namedEntityArray } from "./util";
 
@@ -37,6 +37,14 @@ export interface IjLofegyver extends LofegyverBase {
 
 export type Lofegyver = NyilpuskaLofegyver | EgyebLofegyver | IjLofegyver;
 export type FixSebzesuLofegyver = NyilpuskaLofegyver | EgyebLofegyver;
+
+const NYILPUSKA_KATEGORIA: FegyverKategoria = {
+    id: 'nyilpuska',
+    nev: 'Nyílpuska',
+    erobonusz: 0,
+    kepesseg: 'erzekeles'
+};
+
 
 const LOFEGYVEREK: Array<Lofegyver> = [
     {

@@ -609,7 +609,7 @@
                     "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyver:harcmuveszet:",
+                    "kepzettsegId": "harcmuveszet:",
                     "name": "Harcművészet stílus",
                     "fok": 2,
                     "honnan": 0

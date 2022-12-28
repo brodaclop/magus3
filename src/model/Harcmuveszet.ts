@@ -1,6 +1,16 @@
 import { FegyverBase, KozelharcFegyver, KozelharcHarcertekek, NemKategorizalt } from "./Fegyver";
+import { NormalKepzettseg } from "./Kepzettseg";
 import { parseKocka } from "./Kocka";
 import { NamedEntity } from "./util";
+
+const FEGYVER_KPK: [number, number, number, number, number] = [1, 3, 10, 25, 40];
+const FEGYVER_SZINTLEIRASOK: [string, string, string, string, string] = [
+    'KÉ: -5, TÉ: -5, VÉ: -10',
+    'KÉ: 0, TÉ: 0, VÉ: 0',
+    'KÉ: +2, TÉ: +5, VÉ: +5',
+    'KÉ: +5, TÉ: +10, VÉ: +10',
+    'KÉ: +10, TÉ: +20, VÉ: +20'
+];
 
 interface HarcmuveszStilus extends NamedEntity {
     leiras: string;
@@ -147,10 +157,20 @@ export const STILUSOK: Array<HarcmuveszStilus> = [
 export const Harcmuveszet = {
     fegyverek: STILUSOK.map(s => ({
         ...s.tamadas,
-        id: `harcmuveszet:${s.id}`,
+        id: `${s.id}`,
         name: `Harcművészet: ${s.name}`,
-
+        alternativKepzettseg: `harcmuveszet:${s.id}`,
         flags: 'pusztakez',
         kez: 2
-    }) as KozelharcFegyver)
+    }) as KozelharcFegyver),
+    kepzettsegek: STILUSOK.map(s => ({
+        id: `harcmuveszet:${s.id}`,
+        name: `Harcművészet: ${s.name}`,
+        leiras: s.leiras,
+        tipus: 'harcmuveszet',
+        fajta: 'normal',
+        kepesseg: s.tamadas.kepesseg,
+        kp: FEGYVER_KPK,
+        szintleiras: FEGYVER_SZINTLEIRASOK
+    }) as NormalKepzettseg),
 }

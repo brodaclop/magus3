@@ -39,7 +39,7 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
             }
             case 'ij': {
                 fegyver.kepesseg = 'mozgaskoordinacio';
-                fegyver.alternativKepzettseg = 'ij';
+                fegyver.alternativKepzettseg = 'fegyver:ij';
             }
         }
         Inventory.addLofegyver(karakter, fegyver as Lofegyver, note);
@@ -77,7 +77,7 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
                         <td>
                             <select value={fegyver.alternativKepzettseg ?? ''} onChange={e => setFegyver({ ...fegyver, alternativKepzettseg: e.target.value })} >
                                 <option key='' disabled={!!fegyver.id} value=''>Nincs</option>
-                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id.replace('fegyver:', '')}>{k.name}</option>)}
+                                {Kepzettseg.keres('fegyver:').map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                             </select>
                         </td>
                     </tr>}

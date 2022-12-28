@@ -125,5 +125,7 @@ const FAJOK: Array<Faj> = [
 
 ];
 
+console.log('mi ez');
+
 export const Fajok = namedEntityArray(FAJOK);
 
