@@ -5,6 +5,7 @@ import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
 import { Magia } from "./Magia";
 import { Harcmuveszet } from "./Harcmuveszet";
+import { Pszi } from "./Pszi";
 
 export const KepzettsegTipus = [
     {
@@ -50,6 +51,10 @@ export const KepzettsegTipus = [
     {
         id: 'osi_nyelv',
         name: 'Ősi nyelv'
+    },
+    {
+        id: 'pszi',
+        name: 'Pszi'
     }
 ] as const;
 
@@ -260,6 +265,7 @@ const KEPZETTSEGEK: Array<Kepzettseg> = [
     ...generateMagiaKepzettsegek(),
     Magia.hasznalatKepzettseg,
     ...generateOsiNyelvKepzettsegek(),
+    ...Pszi.kepzettsegek(),
     ...SZAZALEKOS_KEPZETTSEGEK,
 ]
     .sort((a, b) => a.name.localeCompare(b.name))
@@ -297,6 +303,8 @@ export const Kepzettseg = {
         }
     },
 }
+
+console.log(Kepzettseg.lista.map(k => k.name).join('\n'));
 
 const KP_SZORZOK: Array<number> = [
     3, 3, 3, 3, 3, 2.5, // 0-5

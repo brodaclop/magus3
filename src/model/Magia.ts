@@ -1,32 +1,33 @@
-import { KarakterCalcResult } from "./KarakterCalculator";
-import { NormalKepzettseg } from "./Kepzettseg";
-import { NamedEntity, namedEntityArray } from "./util";
+import { KarakterCalcResult } from './KarakterCalculator';
+import { NormalKepzettseg } from './Kepzettseg';
+import { NamedEntity, namedEntityArray } from './util';
 
 export type GyorsVarazslat = { ke: number } & VarazslatBase;
 export type LassuVarazslat = { varazslasIdeje: string } & VarazslatBase;
 
 const MagiaHasznalat: NormalKepzettseg = {
-    "fajta": "normal",
-    "id": "magiahasznalat",
-    "name": "Mágiahasználat",
-    "tipus": "magia",
-    "kepesseg": "osszpontositas",
-    "linked": [],
-    "kp": [
+    fajta: 'normal',
+    id: 'magiahasznalat',
+    name: 'Mágiahasználat',
+    tipus: 'magia',
+    kepesseg: 'osszpontositas',
+    linked: [],
+    kp: [
         10,
         22,
         25,
         33,
         40
     ],
-    "leiras": "A mágiahasználat képzettség képessé teszi a nem varázshasználó karaktert arra, hogy manát kössön meg a testében. Ezt naponta egyszer, pihenés után tudja megtenni, tíz percnyi meditáció segítségével. A képzettség mindössze a mana begyűjtését és tárolását teszi lehetővé, nem tesz képessé a varázslásra. Utóbbihoz a megfelelő mágiaiskola valamilyen fokú ismerete is szükséges.\n\nFontos, hogy szakrális mágia ilyen módon egyáltalán nem hozható létre, hiszen ott a rituálék és litániák a karakter istenéhez való fohászok, a varázslat létrejötte minden esetben az adott isten jóindulatán múlik.",
-    "szintleiras": [
-        "5 MP",
-        "8 MP",
-        "11 MP",
-        "14 MP",
-        "17 MP"
-    ]
+    leiras: 'A mágiahasználat képzettség képessé teszi a nem varázshasználó karaktert arra, hogy manát kössön meg a testében. Ezt naponta egyszer, pihenés után tudja megtenni, tíz percnyi meditáció segítségével. A képzettség mindössze a mana begyűjtését és tárolását teszi lehetővé, nem tesz képessé a varázslásra. Utóbbihoz a megfelelő mágiaiskola valamilyen fokú ismerete is szükséges.\n\nFontos, hogy szakrális mágia ilyen módon egyáltalán nem hozható létre, hiszen ott a rituálék és litániák a karakter istenéhez való fohászok, a varázslat létrejötte minden esetben az adott isten jóindulatán múlik.',
+    szintleiras: [
+        '5 MP',
+        '8 MP',
+        '11 MP',
+        '14 MP',
+        '17 MP'
+    ],
+    __generated: true
 };
 
 const VarazslatKepzettsegek = [
@@ -57,7 +58,7 @@ const VarazslatKepzettsegek = [
     },
 ] as const;
 
-const Mentodobasok = [
+export const Mentodobasok = [
     { name: 'Mentál', id: 'mental' },
     { name: 'Asztrál', id: 'asztral' },
     { name: 'Asztrál+Mentál', id: 'asztral+mental' },
@@ -162,7 +163,7 @@ export const Magia = {
     hasznalatKepzettseg: MagiaHasznalat,
     magiaHasznalatMana: (kepzettsegek: KarakterCalcResult['kepzettsegek']['normal']): number => {
         const fok = kepzettsegek.find(k => k.kepzettseg.id === MagiaHasznalat.id)?.fok;
-        if (fok === undefined) {
+        if (fok === undefined || fok === 0) {
             return 0;
         }
         return 2 + fok * 3;
