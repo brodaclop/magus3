@@ -1,7 +1,7 @@
 import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
-import { Kepzettseg, KepzettsegTipus } from '../model/Kepzettseg';
+import { Kepzettseg, KepzettsegTipus, NormalKepzettseg } from '../model/Kepzettseg';
 import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
@@ -45,15 +45,41 @@ export const KepzettsegEditor: React.FC<{}> = () => {
         }
     }
 
+    const kepesseg = (object as unknown as NormalKepzettseg).kepesseg;
+    const kpk = (object as unknown as NormalKepzettseg).kp;
+
+    const osszKp = (kepessegErtek: number, fok: number): number => {
+        return Array(fok + 1).fill(undefined)
+            .reduce((acc, curr, idx) => acc + Kepzettseg.kpFokhoz({ [kepesseg]: kepessegErtek }, object as unknown as NormalKepzettseg, idx + 1), 0);
+    }
+
     return <ModalWindow open={open} setOpen={setOpen} button='Képzettség szerkesztő'>
         <select value={idToEdit} onChange={e => setIdToEdit(e.target.value)}>
             <option key='' value=''>Új</option>
             {Kepzettseg.__taroltLista().map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
         </select>
         <button onClick={startEdit}>Szerkeszt</button>
-        <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {
-            setObject(structuredClone(ob));
-        }} />
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {
+                setObject(structuredClone(ob));
+            }} />
+            {kepesseg && kpk && <table className='bordered'>
+                <thead>
+                    <tr>
+                        <th>Képesség: {Kepessegek.find(kepesseg)?.name}</th>
+                        {Array(5).fill(undefined).map((_, i) => <th>{i + 1}. fok</th>)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {Array(24).fill(undefined).map((_, i) => <tr>
+                        <th>{i}</th>
+                        {Array(5).fill(undefined).map((_, fok) => <td>{osszKp(i, fok)}</td>)}
+                    </tr>)}
+
+                </tbody>
+            </table>}
+        </div>
+
         <button onClick={ment}>Ment</button>
         <button onClick={exportLista}>Export</button>
     </ModalWindow>;

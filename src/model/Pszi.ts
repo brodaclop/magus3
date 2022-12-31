@@ -536,6 +536,7 @@ export const Pszi = {
         leiras: 'Pszi',
         kp: [10, 15, 27, 39, 52],
         szintleiras: ['', '', '', '', ''],
+        __generated: true,
         fajta: 'normal',
         tipus: 'pszi'
     } as NormalKepzettseg,
@@ -547,6 +548,7 @@ export const Pszi = {
         kp: [10, 15, 27, 39, 52],
         szintleiras: ['', '', '', '', ''],
         fajta: 'normal',
+        __generated: true,
         tipus: 'pszi',
         linked: [
             {

@@ -304,13 +304,13 @@
             40,
             50
         ],
-        "leiras": "",
+        "leiras": "Az értékbecslés tudománya általában az ékszerészek, aranyművesek, tolvajok képessége, de némi  gyakorlással és tanulással bárki elsajátíthatja. A Képzettség segítségével az értő szemű karakter rögvest megállapíthatja a drágaságok értékét, és könnyen elkülöníti a hamist a valóstól.  ",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter tisztában van az arany és ezüst gyakoribb hamisítási módjaival, illetve hogy miként lehet őket felismerni.",
+            "A karakter képes meghatározni a drágakövek, arany- és ezüsttárgyak értékét.  Felismeri a megmunkáltság minőségéből eredő különbségeket és a neves mesterek keze munkáját. Egy ilyen karaktert bizony nehezen vernek át, mikor vásárol vagy elad.  ",
+            "A karakter ismeretlen tárgyakról is meg tudja mondani, mely kultúra vagy múltbeli birodalom stílusjegyeit viseli, és hogy hasonló tárgyak nagyjából mennyiért cserélnek gazdát.",
+            "A karakter már a régiségek, mi több, a varázsos tárgyak értékét is meg  tudja becsülni. Távoli tájak rég elhunyt kézműveseinek munkáit is felismeri, és tisztában van azok valós árával.  ",
+            "A karakter képes általa ismeretlen kultúrák tárgyait is azonosítani, és értéküket megbecsülni."
         ]
     },
     {
@@ -327,13 +327,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ez a képzettség főképp az udvari és udvarias társaságban való viselkedés ismeretét jelenti, bár kevésbé előkelő környezetben (kikötői késdobáló, dzsad piac) nem kevésbé szigorú viselkedési szabályainak ismerete is beletartozik.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter tisztában van azzal, hogy kell megszólítani az embereket, és el tudja kerülni a legnagyobb hibákat, leginkább úgy, hogy csak akkor szólal meg, ha muszáj.",
+            "A karakter ismeri a legtöbb általános illemszabályt az adott társaságban, és képes társalogni is, bár erősen koncentrálnia kell hozzá.",
+            "A karakter otthonosan mozog úri társaságban, ismer pár külhoni szokást is, és ha nem is \"odavaló\", az átlagos szemlélőnek nem szúr szemet.",
+            "A karakter akár királyi audiencián is megállja a helyét, a formális ceremóniát nem csak követni tud, de irányítani is, az általa rendezett események minden szempontból elfogadhatónak minősülnek.",
+            "A karakter alkalmas arra, hogy általa ismeretlen kultúráknál diplomáciai küldetést teljesítsen, méghozzá különösebb felkészültség nélkül.\n\nVagy fogadhat diplomáciai küldöttségeket több különböző, akár ellenséges országból is úgy, hogy a találkozó mindenféle incidens nélkül folyjon."
         ]
     },
     {
@@ -396,13 +396,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A festészet és a rajzolás művészete, valamint az így készült tárgyak ismerete.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes felismerhető portrékat rajzolni olyanokról, akik modellt ülnek neki.\n\nIsmeri továbbá hazájának híresebb festményeit, festőit.",
+            "A karakter már emlékezetből is elfogadható tanulmányt tud készíteni olyan témákról, személyekről, amiket előzőleg sokáig vizsgált.\n\nIsmeri a távolabbi vidékek leghíresebb festőit is.",
+            "A karakter festményeit már akár pénzért is eladhatja.\n\nIsmeretlen festmények festőit is jó eséllyel be tudja azonosítani stílusjegyek alapján, de a kultúrát és korszakot mindenképpen.",
+            "A karakter mesterien fest bármilyen technikával. Képes felskiccelni egy portrét futólag látott emberekről, ismeri Ynev szinte összes nevesebb festőjét, a híresebbek stílusát akár utánozni is képes.",
+            "A karakter bármelyik, általa ismert festő stílusában képes festeni úgy, hogy csak szakértő szem ismeri fel, hogy nem eredetiről van szó."
         ]
     },
     {
@@ -419,13 +419,13 @@
             32,
             50
         ],
-        "leiras": "A küzdelem során földre kerülő csak jelentős hátrányokkal képes folytatni a harcot. KÉ-je és VÉ-je  10-zel, TÉ-je 20-szal csökken, s csak akkor képes felállni, ha az adott körben lemond a támadásról,  s őt sem éri egyetlen sikeres támadás sem. A Földharcban képzett karakter nem szenvei el ezeket a  hátrányokat, sőt képes helyzetéből előnyt kovácsolni.",
+        "leiras": "A küzdelem során földre kerülő csak jelentős hátrányokkal képes folytatni a harcot. KÉ-je és VÉ-je  10-zel, TÉ-je 20-szal csökken, s csak akkor képes felállni, ha az adott körben lemond a támadásról,  s őt sem éri egyetlen sikeres támadás sem. A Földharcban magasan képzett karakter nem szenvedi el ezeket a  hátrányokat, sőt képes helyzetéből előnyt kovácsolni.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A földharcban ezen a fokon képzett karakter képes azonnal felpattanni a földről, amennyiben nem szorítják le.",
+            "A fentieken kívül a karakter már levonások nélkül tud a földön is harcolni olyan ellenfél ellen, akit fegyverével elér.",
+            "A földre kerülő karakter megpróbálhatja ellenfelét is földrevinni, méghozzá Közelkerülés nélkül.",
+            "A fentieken felül a karakter földharc közben +10-et kap a TÉ-jére.",
+            "A karakter tetszőleges pillanatban képes földharcot kezdeményezni, vagy megszüntetni azt."
         ]
     },
     {
@@ -442,13 +442,13 @@
             40,
             50
         ],
-        "leiras": "",
+        "leiras": "A Futás Képzettség sokkal inkább jelent kitartó, mint szélsebes futást.  ",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter képes egy órán át futni megszakítás nélkül.",
+            "A karakter képes négy órán át futni megszakítás nélkül.",
+            "A karakter képes egy egész napot végigfutni gyakorlatilag megállás nélkül. Megfelelő pihenés, alvás és táplálék birtokában ezt a tempót heteken át képes tartani.",
+            "A karakter képes napokon át megszakítás nélkül futni, vagy egy napig könnyű páncélban.",
+            "A karakter könnyebb páncélban megszakítás nélkül képes napokig futni, csak az szab határt, hogy mennyi időt tud alvás nélkül eltölteni.\n\nSőt, adott esetben még nehézvértezetben is képes egy egész napon át futni."
         ]
     },
     {
@@ -465,13 +465,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ynev világának beltengerein, tavain és folyamain jelentős hajózás folyik. Használnak tutajokat,  gályákat, vitorlás hajókat, de még acélból épített mágikus hajtású vízijárműveket is. A három  legjelentősebb vízi kereskedelmi útvonal: az úgynevezett Bíbor ⁄t a Quiron-tengeren, mely  Toronból Abasziszba vezet, a szintén ugyanezen tengert átszelő Tiadlan kikötőiből a  Városállamokba vezető útvonal, valamint az egész Gályák Tengere.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "Tutajos",
+            "Matróz",
+            "Halász",
+            "Kapitány",
+            "Tengernagy"
         ]
     },
     {
@@ -488,13 +488,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Sokak által elítélt alvilági képzettség, amely ugyan hősi kalandozók számára nem sok haszonnal  kecsegtet, ám egyetlen igazi tolvaj sincs, aki alábecsülné a benne rejlő lehetőségeket. Minden  államban büntetik, mégis sokan folyamodnak hozzá. Leggyakrabban olyan tolvajok tanulják, akik  álcázás képzettségükkel együtt szélhámosként, mások becsapásával akarnak hasznot húzni.  \nA hamisításnak rengeteg formája ismert. Vannak, akik iratokat, papírokat (megbízóleveleket) hamisítanak. Ez főleg a fejlettebb országokban - mint Pyarron vagy az Északi Szövetség - lehet  jövedelmező, ahol a kereskedelemmel és a pénzügyletekkel szorosan összefonódtak az okiratok.  (Persze a kalandozóknak is jól jöhet a képzettség, amikor királyi mentelmi levelet, netán ajánló  sorokat vetnek papírra saját kezűleg.) \nMások különböző tárgyakat hamisítanak - ékszereket, drágaköveket, művészi alkotásokat. Csupa  olyan dolgot, amit azután magas áron lehet továbbadni gazdag, gyanútlan kereskedőknek. Az  értékes tárgyak, anyagok utánzása néha nagyon különleges lehet, példa erre a predoci borok  hamisítása is.  \nMegint mások magát a pénzt hamisítják. Ez veszélyes foglalkozás, mivel a királyok, uralkodók és  pénzverési joggal rendelkező nemesek vasszigorral büntetnek minden efféle tettet. Ott pedig, ahol  nem ekkora a törvény hatalma, (kevésbé civilizáltak a viszonyok, gyanakvóbbak az emberek) nem  is igazán érdemes pénzt hamisítani. A pénzhamisítást rengeteg módon űzik. Azokban az  államokban, ahol nem ellenőrzik elég alaposan az érmék méretét és súlyát, gyakran lefaragják a  pénz szélét, és az így nyert forgácsból új érmét vernek. Természetesen egy új érméhez sok régit  kell \"megnyúzni\", de megéri a fáradság. Mások egyenesen ólomból verik a pénzt, azután bevonják  aranyréteggel. Létezik ennek egy sokkal bonyolultabb, költségesebb változata is, mikor az aranyat  sok ónnal vagy ólommal ötvözik. Így nagyjából megmarad az érme mérete és súlya, a benne  foglalt arany viszont kevesebb lesz. Ez utóbbi esetben nehéz felismerni a hamis érmét.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes egyszerű hamisítványok készítésére, pl. le tud másolni egy pecsétet, hogy egy levelet kibonthasson és újra lepecsételje, de hivatalos iratot vagy hamis pénzt előállítani nem igazán, hacsak nem az adott kultúrában teljesen járatlan és nem túl gyanakvó áldozatot próbál megtéveszteni.",
+            "A karakter képes egyszerűbb iratok, papírok, netán a pénz hamisítására, ám ha valaki netán kételkedne, komoly esélye van rá, hogy felfedezi a csalást. Egy tudatlan katonát  talán meg lehet téveszteni egy ilyen módon készült menlevéllel, de egy alaposabb vizsgálatot nem  áll ki az irat. Értékbecslésben képzett karakterek mindenképp felfedezik a hamis pénzt, ha élnek a  gyanúval és van lehetőségük megvizsgálni a hamisítványt.  ",
+            "A karakter a hamisítás egy ágát már egész magas fokon ismeri. Lehet ez iratok hamisítása,  ékszerhamisítás (ha valamennyire ért az ékszerészethez amúgy), pénzhamisítás, stb. Ha a karakter az irathamisítást választotta, már egész magas szintű hamisítványokat tud készíteni, ha a  drágakövek hamisításának tudományában merült el, akkor esetleg képes komolyabb értékűnek látszó tárgyakat előállítani. De ezen értéktárgyak semmiképpen tévesztik meg a magasabb fokú értékbecslőt, és kevésbé rutinos vagy különösen gyanakvó áldozatoknál is fennáll a lebukás veszélye.  ",
+            "A karakter képes olyan hamisítványt készíteni, ami szinte mindenkit becsap, kivéve a legjobb értékbecslőket. Készíthet továbbá olyan értéktárgyakat,  drágaköveket is, amelyek könnyen biztosíthatják megélhetését.",
+            "A karakter hamisítványai gyakorlatilag megkülönböztethetetlenek az eredetiektől. Az ilyen hamisítványok persze igen drágák is, "
         ]
     },
     {
@@ -522,6 +522,21 @@
     },
     {
         "fajta": "normal",
+        "id": "hangutánzás",
+        "name": "Hangutánzás",
+        "leiras": "Sokrétű képzettségről van szó; ide soroljuk a vadászok állathang utánzó képességét, mellyel  magukhoz csalogatják a vadat, de ide tartozik a komédiások tudománya is, mellyel ismert  személyek, főurak, papok, királyok hangját utánozzák, közönségük épülésére.  ",
+        "tipus": "vilagi",
+        "kepesseg": "empatia",
+        "szintleiras": [
+            "A karakter képes egyszerűbb állathangokat meggyőzően utánozni.",
+            "A karakter képes sokféle állathang utánzására, valamint az általa sokat hallott emberek hangszínét, akcentusát és hanglejtését utánozni annyira, hogy egy, a célpontot felszínesen ismerő személyt megtévesszen.",
+            "A karakter már rövid ideig képes a célpontot jól ismerő embereket is megtéveszteni hangjával.\n\nEgy fogadóban vagy cirkuszban már akár meg is élhet művészetéből.",
+            "A karakter képes szinte bárkinek a hangját utánozni, miután hallotta az illetőt beszélni egy-két percig.",
+            "A karakter élettelen tárgyak hangjait is tökéletesen tudja utánozni, pl. nyikorgó padló, ajtónyílás, lódobogás, lánccsörgés, tűzropogás, hóba lépés."
+        ]
+    },
+    {
+        "fajta": "normal",
         "id": "harc_helyhez_kotve",
         "name": "Harc helyhez kötve",
         "tipus": "harci",
@@ -536,11 +551,11 @@
         ],
         "leiras": "Ennek a képzettségnek a segítségével a harcos olyan technikákat képes elsajátítani támadás és  védekezés terén, melyek segítségével akkor is könnyen harcol, ha helyváltoztatásában valami  akadályozza. Az eredményes fegyverforgatás ekkor is megköveteli a karok mozgásterét, de a lábak  alig vagy egyáltalán nem változtatnak helyzetet. A különleges technika mély állásokra épül,  melyek segítenek megőrizni a küzdő stabilitását, ugyanakkor lehetővé teszik, hogy a test sokféle  mozgást végezhessen anélkül, hogy egyensúlyának megtartásáért a lábnak ki kellene lépnie  valamilyen irányba.\n\nA különleges harci stílus kialakulásának természetesen jó oka volt. Olyan embercsoportok  dolgozták ki az alapokat, akik víz vagy mocsár környékén éltek. Az ingoványban két oka is volt a  kényszerű helyhezkötöttségnek: szerencse kell ahhoz, hogy egy hirtelen lépés a mocsár szilárd  pontjára, és ne gyorsan süppedő területre történjék, így a küzdő megpróbált a lehető legkevesebbet mozogni. A másik helyzet akkor adódott, mikor a rossz lépés már megtörtént, és a harcos térdig  süllyedt a sárba. Ekkor - mivel nem kászálódhatott ki a csata hevében - kénytelen volt egyhelyben  harcolni. A víz mellett lakók akkor voltak kénytelenek megalkotni a módszer alapjait, mikor vízi  ütközetekben és a part mentén az ellenfelek csónakokon harcoltak. Ezek a könnyen boruló  alkalmatosságok nem tették lehetővé a laza ide-oda ugrálást, a harcosnak mindent meg kellett  tennie annak érdekében, hogy a lélekvesztő egyensúlya megmaradjon, ha nem akart a vízben  kikötni.\n\nA helyhez kötve tanult harc természetesen jelentős előnyt biztosít a fenti helyzetekben, különösen  akkor, ha az ellenfél nem rendelkezik hasonló tudással. Akkor is fontos lehet, ha a másik fél nincs  helyhez kötve - ekkor segít csökkenteni a harci helyzetből eredő hátrányokat. A Harc helyhez  kötve módosítói képzetlenek számára a következők: KÉ -20, TÉ -15, VÉ -5.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter csak egy ellenféllel küzhet KÉ: -10, TÉ: -10 módosítókkal.  ",
+            "A karakter legfeljebb két ellenfél ellen a következő módosítókat  használhatja: KÉ: -10, TÉ: -5.  ",
+            "A karakter legfeljebb három ellenfél ellen küzdhet a következő módosítókkal: KÉ: -5, TÉ: -2  ",
+            "A karakter bármennyi ellenfél ellen tud küzdeni a helyhez kötött harcból adódó levonások nélkül. De a túlerő módosítói továbbra is érvényesülnek.",
+            "A karakter ellen a túlerőből adódó levonások sem érvényesülnek."
         ]
     },
     {
@@ -705,94 +720,6 @@
         ]
     },
     {
-        "id": "harcmuveszet:Avad-ka-kinito",
-        "name": "Harcművészet: Avad-ka-kinito",
-        "leiras": "Eredeti Niaréből származó stílus,\n        változtatás nélkül tanítja a Sárga Kolostorok\n        technikai anyagát. Gyakran ma is Niaréből\n        érkezett mesterek oktatják, igen magas\n        színvonalon. A női tanítványok igen ritkák, hisz\n        elsősorban a fizikai erőre és állóképességre\n        épülő technikákból áll.\n\n        Jelképük a Sidar hegy stilizált körvonala,\n        ezt általában a tunikájukra hímezve viselik.\n        Meglehetősen stabil állásokat tartalmaz,\n        romboló erejű ütésekkel. A harcművész nem\n        csak karjának erejét, hanem szinte egész\n        testsúlyát beleadja a jól kiszámított pillanatban\n        leadott ütésbe. Ezért a technika sebzése\n        nagyobb a többiénél, nem k6, hanem 2k6+1,\n        viszont körönként csak egy támadásra nyílik\n        lehetőség, mivel a sebzés nagysága a jó\n        időzítésen múlik.",
-        "tipus": "harcmuveszet",
-        "fajta": "normal",
-        "kepesseg": "izom",
-        "kp": [
-            1,
-            3,
-            10,
-            25,
-            40
-        ],
-        "szintleiras": [
-            "KÉ: -5, TÉ: -5, VÉ: -10",
-            "KÉ: 0, TÉ: 0, VÉ: 0",
-            "KÉ: +2, TÉ: +5, VÉ: +5",
-            "KÉ: +5, TÉ: +10, VÉ: +10",
-            "KÉ: +10, TÉ: +20, VÉ: +20"
-        ]
-    },
-    {
-        "id": "harcmuveszet:Dart-nid-kinito",
-        "name": "Harcművészet: Dart-nid-kinito",
-        "leiras": "Szimbólumuk a víz, s mesterektől,\n        iskolától függően, a víz valamely stilizált\n        ábrázolását hordják ruhájukon.\n        \n        A stílusok között ez a leglágyabb. Egyetlen szögletes\n        mozdulatot sem találhatunk benne, a kezek és\n        lábak - mi több, maga a test - inkább körívek\n        mentén mozog. A technika nagy hangsúlyt\n        fektet a védelemre, az ellenfél saját\n        támadásának lendületét próbálja elvezetni, ezt a\n        maga javára kihasználni. A Dart-nid-kinito\n        megtanulása meglehetősen időigényes feladat,\n        kevés harcművész választja. Miután technikáik\n        egyaránt használják a kezet és lábat, gyakran\n        ugyanabban a mozdulatsorban, így nincs\n        értelme a kéz vagy láb harcértékeit\n        különbontani.",
-        "tipus": "harcmuveszet",
-        "fajta": "normal",
-        "kepesseg": "osszpontositas",
-        "kp": [
-            1,
-            3,
-            10,
-            25,
-            40
-        ],
-        "szintleiras": [
-            "KÉ: -5, TÉ: -5, VÉ: -10",
-            "KÉ: 0, TÉ: 0, VÉ: 0",
-            "KÉ: +2, TÉ: +5, VÉ: +5",
-            "KÉ: +5, TÉ: +10, VÉ: +10",
-            "KÉ: +10, TÉ: +20, VÉ: +20"
-        ]
-    },
-    {
-        "id": "harcmuveszet:Nisen-nid-to",
-        "name": "Harcművészet: Nisen-nid-to",
-        "leiras": "Vien wri Dara, tiadlani Dorcha által\n        kidolgozott stílus, azóta is a Dorcha\n        testőrségének fő irányzata. Megtanulására\n        egyedül Par-Elyaban vagy Di'Maremben\n        van mód. A gyengébbik nem körében talán\n        ez a leginkább kedvelt harci metódus, ám a\n        Nisen-nid-to iskolák jó néhány férfi\n        hírességet is adtak Ynevnek. A\n        legharcosabbnak tartott stílus, elegáns,\n        látványos és igen hatékony. Oktatását\n        némely mester egybeköti - egy Niaréből\n        származó, igen ritka és igen speciális -\n        mágiafajta tanításával, s ezért a Nisen-nidto tanítványairól kering a legtöbb legenda.\n        E stílus a kilenc alapfegyvert\n        használatát is oktatja, a legnagyobb\n        hangsúlyt azonban egy különlegesen\n        kiképzett, egykezes, ún. Nisen-kard\n        forgatásának tanítására fordítja. A Nisenkardot a tanítványok Chi-harc közben is\n        képesek használni.\n        A Nisen-nid-to jelképéül a szelet\n        választották, ám a tanítványok nem\n        hordanak ruházatukon jeleket, mégis\n        jellegzetes láb és kéztartásukról azonnal\n        felismerhető stílusuk.",
-        "tipus": "harcmuveszet",
-        "fajta": "normal",
-        "kepesseg": "reflex",
-        "kp": [
-            1,
-            3,
-            10,
-            25,
-            40
-        ],
-        "szintleiras": [
-            "KÉ: -5, TÉ: -5, VÉ: -10",
-            "KÉ: 0, TÉ: 0, VÉ: 0",
-            "KÉ: +2, TÉ: +5, VÉ: +5",
-            "KÉ: +5, TÉ: +10, VÉ: +10",
-            "KÉ: +10, TÉ: +20, VÉ: +20"
-        ]
-    },
-    {
-        "id": "harcmuveszet:Shien-ka-to",
-        "name": "Harcművészet: Shien-ka-to",
-        "leiras": "Szimbólumuk sárga kör alapon fekete\n        lángnyelv, s ezt előszeretettel viselik fejkötőiken,\n        vagy tunikájuk hátán. \n        \n        A technikák sokkal inkább támadás-, semmint\n        védelem centrikusak. A cél minél gyorsabban\n        ártalmatlanná tenni az ellenfelet, könnyed\n        mozgással, mintha a harcművész valóban szélben\n        lobogó lángnyelvként táncolna. Viszonylag széles,\n        lendületes mozdulatok jellemzik, az ütések és\n        rúgások erejét inkább gyorsaságuk és pontosságuk\n        adja. Szeretik távol tartani ellenfeleiket, a közelharc\n        idegen a Shien-ka-to-tól. Kezüket és lábukat közel\n        azonos arányban használják harc közben, állásaik\n        magasak, s kiváló az egyensúlyérzékük. ",
-        "tipus": "harcmuveszet",
-        "fajta": "normal",
-        "kepesseg": "reflex",
-        "kp": [
-            1,
-            3,
-            10,
-            25,
-            40
-        ],
-        "szintleiras": [
-            "KÉ: -5, TÉ: -5, VÉ: -10",
-            "KÉ: 0, TÉ: 0, VÉ: 0",
-            "KÉ: +2, TÉ: +5, VÉ: +5",
-            "KÉ: +5, TÉ: +10, VÉ: +10",
-            "KÉ: +10, TÉ: +20, VÉ: +20"
-        ]
-    },
-    {
         "fajta": "normal",
         "id": "hasbeszeles",
         "name": "Hasbeszélés",
@@ -806,13 +733,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "E jártassággal rendelkező karakterek képesek hangjukat \"áthelyezni\". Valójában nem tudnak  másik irányból hangokat hallatni, de képesek ezt másokkal elhitetni.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes egy-két szót kimondani úgy, mintha máshonnan jönne beszéde. Bár a megtévesztés csak pár másodpercig tart, sokszor ez is elég.",
+            "A karakter képes ajkai alig észrevehető mozgásával beszélni, de hangját csak 1 méterre tudja \"kihelyezni\".  ",
+            "A karakter már egész hosszú párbeszédeket tud folytatni saját magával anélkül, hogy bárki gyanút fogna.",
+            "A karakter már szinte észrevehetetlen szájmozgással beszél, ezért áldozatai csak igen nehezen fedezik fel a turpisságot.",
+            "A karakter hangja már szinte bárhonnan megszólalhat, akár varázsolni is képes mindenféle látható szájmozgás nélkül."
         ]
     },
     {
@@ -829,13 +756,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Heraldika tudománya a címerek, családi, kláni és rendi jelek ismeretét jelenti. Nem  lebecsülendő tudomány ez: megvannak a maga törvényszerűségei és szabályai. Milyen alapon  milyen figurák szerepelhetnek, milyen színek párosulhatnak, milyen minták alkalmazhatóak.  ",
         "szintleiras": [
             "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter tisztában van országa, tájegysége jelentősebb címereit, nagyjából ismeri a  kisebbeket is. Van némi esélye a távolabbi tájak jelentős címereinek felismerésére is.  ",
+            "A karakter tisztában van a heraldikai szabályokkal, és bármikor képes tökéletes címerek  megalkotására. Ismeri országa, tájegysége címereit, környezetében még a legjelentéktelenebbeket  is, mi több, Ynev távoli vidékeinek kiemelkedően fontos címereit is.\n\nIsmeri továbbá a jelentősebb alvilági szervezetek klántetoválásait is.",
+            "A karakter előtt nem ismeretlenek a távoli tájak címerei sem,  még akkor sem, ha azok nem túl jelentősek. Saját országában a legapróbb családokéit is ismeri, mi  több, a régmúlt korok címereire és jeleire is emlékszik.\n\nIsmeretlen címerekből is tud továbbá következtetéseket levonni a tulajdonos származásáról, családjának történetéről.",
+            "A karakter ismeri Ynev szinte összes címerét, klánszimbólumait, és a múlt számtalan címerét is."
         ]
     },
     {
@@ -863,11 +790,11 @@
         ],
         "leiras": "A Herbalizmus a gyógy- vagy épp mérgező növények ismeretét, azok gyakorlati felhasználását takarja.",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter megismeri a főbb mérgező ill. ehető növényeket azokon a környékeken, ahol otthonosan mozog.",
+            "A karakter képes egyszerűbb gyógyító vagy éppen kábító főzetek elkészítésére. Ezek betegségekkel szembeni egészségpróbára adhatnak bónuszt (nagyjából +30%-ig), sebekre kenve kétszeresére gyorsíthatják azok gyógyulását, vagy elfogyasztva enyhe rosszullétet, émelygést okozhatnak.",
+            "A karakter már erősebb mérgeket és gyógyfőzeteket is készíthet (maximum +50%, komolyabb betegségekre is, a gyógyulás háromszorosára gyorsul.\n\nIsmeri a környék szinte összes növényét, és Ynev távolabbi vidékein is a főbb gyógy- ill. mérgező növényeket.",
+            "A karakter már halálos ételmérgeket vagy görcsöt okozó fegyvermérgeket is tud készíteni. A gyógyulás négyszeresére gyorsul, a karakter ismeri továbbá Ynev legtöbb így vagy úgy hasznosítható növényét.",
+            "A karakter által kezelt sebek nyom nélkül gyógyulnak be, méghozzá ötszörös sebességgel. Képes előre bevehető ellenmérgek készítésére is, és még szénéra ismeretlen növényeket is könnyedén és biztonságosan ki tud elemezni."
         ]
     },
     {
@@ -884,13 +811,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Az időjóslás ezer szempontból elengedhetetlen fontosságú Ynev világán is. A tengerészek életében  a biztonság, hadjáratok esetén a győzelem, az utazók számára pedig a kényelem biztosítéka. Nem  csoda hát, ha sokan igyekeznek kifürkészni szeszélyeit, hogy megjósolhassák az eljövendőt. Ezer  módszer létezik erre: az egyszerű, tapasztalatokon alapuló találgatástól egészen a misztikus  megoldásokig - mint amilyen a kártyavetés, vagy a madarak belső szerveinek bűbájos  megolvasása. Egyet azonban le kell szögeznünk. Ezek a módszerek igenis - működnek.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter 50 százalékos biztonsággal képes megjósolni a másnapi időjárást. (Tehát hogy napos, felhős vagy esős, esetleg havas lesz)",
+            "A karakter 60 százalékos biztonsággal képes jóslatot készíteni az  elkövetkező két nap időjárására nézvést.  ",
+            "A karakter 75 százalékos biztonsággal készít előrejelzést az  elkövetkezendő 2-4 (1d3+1) nap időjárásáról.",
+            "A karakter 95 százalékos biztonsággal készít előrejelzést az elkövetkező 2-7 (1d6+1) nap időjárásáról.  ",
+            "A karakter képes nagy vonalakban megjósolni, hogy milyen lesz a termés jővőre vagy két év múlva, "
         ]
     },
     {
@@ -907,13 +834,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ynev világán rengeteg olyan állat akad, amely betanítható az ember szolgálatára. Ezeknek csak  jelentős, de nem kizárólagos hányadát jelentik a lovak, ökrök, kutyák. Hiszen vannak, akik  farkasokat, madarakat édesgetnek magukhoz. Az Idomítás Képzettség felruházza a karaktert annak  képességével, hogy állatokat tanítson be különféle feladatok végrehajtására.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes bánni egy más által már beidomított állattal, illetve elkerülni azt, hogy a nem idomított háziállatok megtámadják.",
+            "A karakter képes egy idomítható állatot az adott állatfajtól megszokott cselekedetekre betanítani. A ló idomítható lovaglásra, a kutya alapvető engedelmességre szoktatható stb.",
+            "A karakter már kevésbé hagyományosan idomítható állatokkal is tud bánni (pl. disznó, elefánt, majom)",
+            "A karakter állatait már mindenféle különleges feladatok végrehajtására  is képes betanítani. Remek példája ennek az, ami a vándorcirkuszokban történik. ",
+            "A karakter szinte bármilyen, megfelelő intelligenciával rendelkező állatot be tud idomítani, képes továbbá a más által már beidomított viselkedést megakadályozni/megváltoztatni."
         ]
     },
     {
@@ -930,13 +857,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Egy afféle - túlnyomórészt feudális - világban, amilyen Ynev, korántsem természetes, hogy valaki  bírja az írás és az olvasás képességét. Ez a tanult, művelt emberek sajátja.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes, némi nehézséggel kisilabizálni az írott szöveget, de csak fennhangon. Írni lassan és pontatlanul, de azért érthetően tud.",
+            "A karakter képes normál sebességgel írni-olvasni, bár előbbit továbbra is csak fennhangon.",
+            "A karakter már csendben is tud olvasni.",
+            "A karakter képzett a kalligráfia művészetében.",
+            "A karakter a leghalványabb macskakaparást is könnyedén kiolvassa, írni pedig képes tetszőleges stílusban, még ismeretlen nyelvű szöveget is emlékezetből."
         ]
     },
     {
@@ -953,13 +880,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Leírás/kpYneven, mint általában egy feudális jellegű világban, a hatalmi ágak elkülönülése nem jellemző,  ugyanazok a személyek ítélkeznek, akik a közigazgatásban is fontos szerepet játszanak, és gyakran  a törvényeket is ők hozzák. Gyakran még az alacsonyabb rangú nemesek is szabadon  rendelkezhetnek jobbágyaik életével, az ügyvéd fogalmát általában nem ismerik, a jogi  könyvekből csak könyvtárakban, egyházi központokban, nagyobb udvarházakban található egy \negy. A perek akár nemzedékeken át is elhúzódhatnak. Egy ilyen világban perdöntő lehet az  emberek jogismerete.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter tisztában van azzal, hogy milyen bűncselekmények léteznek a saját országában, tájegységében, és nagyjából a büntetések súlyosságával is.",
+            "A karakter ismeri a saját országában, tájegységében használt jogot, főleg  azt, amely az ő társadalmi osztályára vonatkozik (megjegyzendő, a parasztok általában nem  rendelkeznek ilyen ismeretekkel). Nemeseknél ez főleg magánjog és bűntetőjog - a városi  polgárok városi és kötelmi jog. Ezt az ismeretszintet (bár természetesen könyvből, vagy mester  segítségével is lehetséges) általában tapasztalatból szerzik meg. ",
+            "A karakter ismeri a saját országában, tájegységében használt jogot. Ismer bizonyos kiskapukat,  de korántsem az összest.",
+            "karakter kitűnően ismeri tájegysége, országa jogrendszerét,  jogszabályait - és az ezekben található jogi kiskapukkal is tisztában van. Egy peres eljárás  folyamán, a perrendtartás és a jogszabályok ügyes felhasználásával, könnyedén a maga oldalára  billentheti az igazság mérlegét - kivéve, ha teljesen nyilvánvaló a másik fél igaza. A karakter emellett nagyvonalakban tisztában van a fontosabb jogrendszerek (pyarroni, shadoni,  toroni, stb.) főbb elveivel, eltéréseivel is. Ez a képzettség bölcsek, tanácsadók, bírósági  alkalmazottak, Dreinapapok sajátja - no, meg néhány megrögzött pereskedőé.  \n",
+            "A karakter képes egy új ország jogrendszerét a semmiből megalkotni, vagy egy létezőét gyökeresen átalakítani."
         ]
     },
     {
@@ -978,11 +905,11 @@
         ],
         "leiras": "A képzettség lehetővé teszi, hogy a harcos fájdalom okozására használja inkább a fegyverét, és ne  a másik gyors megölésére. A képzettség használata nagy gyakorlatot igényel, célja, hogy az illető ne mély sebeket ejtsen, hanem hosszú, felszíni vágásokat, melyek szörnyen fájdalmasak, de  viszonylag csekély vérveszteséget okoznak, és nem jelentenek halálos fenyegetést. Az ilyen harcra  legjobb a vágófegyver; szúró- vagy zúzóeszközökkel a módszert korántsem lehet olyan tökéletesen  alkalmazni. Ez érthető, mivel a szúrást nehéz felszínessé tenni, ilyenkor legfeljebb a jó hely  megválasztását jelenti a képzettség használata - tehát nem szíven vagy nyakon kell szúrni az  áldozatot, ha csak fájdalmat akarunk okozni neki. Zúzófegyverekkel hasonlóak a nehézségek. Bár  az ütéseket vissza lehet fogni, ilyen esetekben a fájdalom sem lesz különösen nagy - hacsak meg  nem találjuk a különösen érzékeny pontokat. A képzettség ebben, és az ezekre történő támadásban  nyújt segítséget. Jó célpont lehet szinte mindegyik ízület, a combok és a kar belső felszíne. A  képzettség természetéből adódóan csak humanoidok ellen alkalmazható, hiszen más anatómiájú  szörnyek, lények ellen teljesen más módszerek vezetnének hasonló eredményhez. A képzettség  csak olyan fegyverrel alkalmazható, aminek használatában a karakter legalább 3. fokon jártas.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A képzettség alkalmazója, ha egykezes vágó fegyvert használ, túlütés esetén legfeljebb 4 SP-t csúsztathat át ÉP sebzésbe, a többi FP-ként vonandó le. \n\nMinden találatnak a sebzéséhez 1k3 adható, túlütés esetén 1k6.\n\nEgyéb fegyverekkel a manőver nem hajtható végre.",
+            "Egykezes vágófegyver: maximum ÉP sebzés 3, plusz FP sebzés 1k6, túlütésnél 2k6.\n\nEgyéb fegyverekkel a maximális ÉP sebzés 6.",
+            "Egykezes vágófegyver: maximum ÉP sebzés 2, plusz FP sebzés 1k10, túlütésnél 2k10.\n\nEgyéb fegyverekkel a maximális ÉP sebzés 4.",
+            "Egykezes vágófegyver: maximum ÉP sebzés 1, plusz FP sebzés 2k6, túlütésnél 4k6.\n\nEgyéb fegyverekkel a maximális ÉP sebzés 2.",
+            "Egykezes vágófegyver: nincs ÉP sebzés, plusz FP sebzés 2k10, túlütésnél 4k10.\n\nEgyéb fegyverekkel a maximális ÉP sebzés 1."
         ]
     },
     {
@@ -999,13 +926,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Bár a képzettség alapvetően lovaskocsik kezelését takarja, de a tudás könnyen alkalmazható másféle igásállatok irányítására is.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter be és ki tudja fogni az igásállatokat a kocsiba, el tudja látni őket, de a kocsi irányítását hosszabb távon rábízni még elég rizikós.",
+            "A karakter gond nélkül hajt egyes vagy kettesfogatot, tudja, miként kell  ki- és befogni a lovakat, ismeri a különböző kocsik, hintók teherbírását.  ",
+            "A karakter elboldogul a négyes- vagy akár a hatosfogattal is, mi  több, harci kocsihajtásban is megállja a helyét.",
+            "A karakter mesterien hajt bármilyen kocsit. Még harcolni is tud közben, mégpedig ostorral vagy egykezes lőfegyverrel (fúvócső, kézi ill. kahrei nyílpuska).",
+            "A karakter bármilyen állat vontatta járművet gond nélkül elhajt, a kutyaszántól a pegazus-vontatta repülő szekérig. Két kézzel, egy kézzel, kéz nélkül. Bármilyen lőfegyvert tud használni közben."
         ]
     },
     {
@@ -1022,13 +949,13 @@
             40,
             50
         ],
-        "leiras": "",
+        "leiras": "A karakter gyakorlott kocsmai verekedő. Képes bármilyen kezébe akadó, fegyverként használható  tárggyal verekedni. Korsóval, székkel, asztallábbal. Az efféle Képzettségeket általában saját kárán  okulva sajátítja el, esetleg valamely \"mester\" útmutatásai alapján. Ilyesmit oktató iskolák, tárgyaló  könyvek nemigen akadnak.  ",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter képes egyszerű fegyvereket rögtönözni, amelyek legfeljebb a következő harcértékkel bírnak:\n\nKÉ: 5, TÉ: 5, VÉ: 5, Sebesség: lassú Sebzés: 1k5 zúzó vagy szúró, kizárólag FP (túlütés esetén dupla FP)",
+            "A karakter által rögtönzött fegyver már jobb harcértékekkel bír, maximum:\n\nKÉ: 10, TÉ: 10, VÉ: 10, Sebzés: 1k6+1 zúzó vagy szúró, kizárólag FP (túlütés esetén dupla FP)",
+            "A karakter már \"átlagos\" sebességű fegyvert is tud rögtönözni.",
+            "A karakter már \"gyors\" sebességű fegyvert is tud rögtönözni.",
+            "A karaktert már nem sújtják a hátulról-félhátulról támadás negatív módosítói sem."
         ]
     },
     {
@@ -1045,13 +972,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Képzettséggel bíró karakter rövid idő alatt képes kiszabadulni, ha megkötözik. Sok erre irányuló  trükkhöz folyamodhat: kötelékeit eldörzsöli valamin, ügyesen kezeli apró, elrejtett pengéit, netán  kígyószerűen hajlékonnyá edzi testét, és egy óvatlan pillanatban kibújik a hurokból.\n\nEzt akkor tudja megtenni, ha e képzettségben való jártassága meghaladja a fogvatartója Csomózás képzettségét.\n\nAmennyiben a kettejük képzettsége egyenlő, úgy a szabadulás esélye 50% és több percen át kell próbálkozni, a gyors menekülés kizárt.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     {
@@ -1068,13 +995,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A legendák Ynev múltjának és jelenének történetei. Némelyik erősen tényszerű, más teljesen kitalált, de többnyire valahol a kettő között alakul.\n\nEz a képzettség nem csak a legendák ismeretét teszi lehetővé a karakternek, hanem elemzésüket is, a valóságtartalmuk megbecsülését, az ismétlődő motívumok felismerését, azok vélhető eredetének megtalálását.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter ismeri kultúrája híresebb legendáit, de kritikai elemzésükre képtelen.",
+            "A karakter ismeri saját kultúrájának egészen távoli múltba menő legendáit is, és tisztában van vele, ha egy legendának több variánsa is létezik.",
+            "A karakter ismeri saját kultúrájának helyi legendáit is, Ynev távolabbi tájainak főbb történeteivel együtt.\n\nÍgy már sokkal inkább felismeri, hogy mi az, ami tényleg igaz lehetett, és mi az, ami csak visszatérő díszítőelem.",
+            "A karakter ismeri Ynev őskultúráinak legendáit is, és a legendák általános felépítését, így elég jól meg tudja tippelni, mely elemek teljesen kitaláltak.",
+            "A karakter a legendák világhírű ismerője (és mesélője), alig van olyan történet, amit ne hallott volna már, és még szinte teljesen kitalált történetekből is ki tudja szűrni a valóságalapot."
         ]
     },
     {
@@ -1093,11 +1020,11 @@
         ],
         "leiras": "",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter nem esik le egy jól idomított ló hátáról, bár a vágtázás így is ellenjavallott.",
+            "A karakter magabiztosan lovagol bármilyen sebességgel, komótos tempóban akár napokon át is.",
+            "A karakter már ugratni is tud a lóval, és gyakorlatilag mindent meg tud csinálni lóháton, a harcot kivéve. Ugyanakkor egy kör alatt könnyedén le tud ugrani, még páncélban is, harcra készen.",
+            "A karakter már egy kézzel is magabiztosan irányítja a lovat, miközben a másik kezével akár harcolhat is. Sőt, a lovas íjászatot is kitanulhatja.",
+            "A karakter kétkezes fegyverekkel is könnyedén tud harcolni lóhátról, a fel- ill leugrás egy körnél kevesebb idejét veszi igénybe, mindössze -25 KÉ-t jelent számára."
         ]
     },
     {
@@ -1116,11 +1043,11 @@
         ],
         "leiras": "Elsősorban Ilanor és Yllinor könnyűlovasai, csikósai, valamint a nomádok rendelkeznek ezzel a  képzettséggel. A kalandozó leginkább tőlük tanulhatja meg (persze kellőképpen hosszú idő ráfordításával) a lovas íjászat művészetét. Vágtató lóról, különböző testhelyzeteket felvéve  igencsak nehéznek bizonyulhat célbatalálni. Számításba kell venni a ló mozgását, az ellenszél erősségét és irányát: mindez csak hosszú gyakorlással és kiváló képességekkel rendelkezők számára adatott meg.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "Ezen a fokon a karakter még csak álló lóról tud íjazni, vagyis amelyik körben lő, nem mozoghat.",
+            "A karakter már mozgó lóról is tud lőni, de csak egyenesen előre vagy hátra, oldalra nem. A karaktert továbbra is sújtják a lóról való harc negatív módosítói.  ",
+            "A karakter már minden irányba tud lőni lóhátról, de a lóról való harc negatív módosítói még mindig sújtják.",
+            "A karakter lóhátról épp ugyanolyan pontosan tud lőni, mint a saját lábán állva.",
+            "A karakter már roham közben is levonások nélkül tud lőni, a legkitekertebb pozíciókból is. Ez utóbbi miatt VÉ: +50 módosítót kap, ha valaki közelharci fegyverrel próbálja megtámadni, ha pedig lőfegyverrel, akkor VÉ: +20-at (\"kutya\" méretű célpont)"
         ]
     },
     {
@@ -1137,13 +1064,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Tudományos képzettség, mely geometriai és mechanikai ismeretekből, valamint azok  felhasználásából áll. A képzett karakter megmérheti egy torony magasságát, ha bír egy ismert  hosszúságú bottal; feltérképzeheti a tájat, jó becslést adva a távolságokra és magasságokra.  Mechanikai ismeretei segítségével szerkezeteket tervezhet és építhet. A Képzettség nem keverendő \nössze a más jellegű, mérnöki ismereteket kívánó Építészettel, vagy a mértani tudást is igénylő Térképészettel, bár kétségkívül rokon \"szakmák\".",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter tisztában van a geometria és a mechanika elméleti alapjaival, de alkalmazni még csak igen korlátozott formában tudja azokat. Szét tudja például szedni és összerakni egy bonyolultabb nyílpuska elsütőszerkezetét, de tervezni, építeni egyet nem tudna.\n\nCsapdakereséshez +10, Zárnyitáshoz +5 százalékot kap.",
+            "A karakter már tud egyszerűbb szerkezeteket, pl. mechanikus csapdákat tervezni.\n\nCsapdakereséshez +20, Zárnyitáshoz +10 százalékot kap.",
+            "A karakter már tud bonyolultabb csapdákat, avatatlan próbálkozásoknak ellenálló zárakat tervezni.\n\nCsapdakereséshez +40, Zárnyitáshoz +20 százalékot kap.",
+            "A karakter képes összetett ostromgépek, kerekeken elmozduló falak, és bonyolult mechanikus zárak ill. csapdák építésére.\n\nCsapdakereséshez +60, Zárnyitáshoz +30 százalékot kap.\n\nA karakter által tervezett/épített csapdák felfedezéséhez vagy zárak kinyításához -20% módosító járul.",
+            "A karakter már önműködő ostromgépeket és önjáró szobrokat, repülő szerkezeteket is tud építeni (természetesen csak amennyiben a megfelelő energiaforrás rendelkezésre áll).\n\nCsapdakereséshez +80, Zárnyitáshoz +40 százalékot kap.\n\nA karakter által tervezett/épített csapdák felfedezéséhez vagy zárak kinyításához -50% módosító járul."
         ]
     },
     {
@@ -1160,13 +1087,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Mellébeszélésben járatos karakter sokszor gyakorlottabban forgatja a szót, mint a fegyvert. A  gyakorlott mellébeszélő nem jön zavarba, a legkényesebb helyzetekben is mindig megtalálja a  helyes szavakat, a legmegfelelőbb hazugságokat. A Képzettséget sok KM nem alkalmazza,  mondván: a szerepjáték döntse el, képes-e egy karakter ekként kivágni magát a bajból. Általában a  kettős megoldás a célravezető: a Játékos mutassa be karaktere színjátékát, majd a KM döntsön a  Képzettség ismeretében. A Képzettség ezenkívül remek szolgálatot tehet valamely NJK  képességeinek meghatározásakor.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter könnyedén lyukat beszél az Emberismerettel nem rendelkező, nem túl gyanakvó NJK-k hasába.",
+            "A karakter már képes egy városőrt meggyőzni, hogy valójában nem őt keresik.",
+            "A karakter már képes egy városőrt meggyőzni, hogy ő maga is álruhás városőr.",
+            "A karakter már képes egy városőrt meggyőzni, hogy ő a városőrség titkos főnöke.",
+            "A karakter nagystílű szélhámos, vagy akár az is lehet, ha akar. Azt rebesgetik, egyszer sikeresen eladta az abadanai Kufraad nagymecsetet egy erioni kereskedőnek."
         ]
     },
     {
@@ -1183,13 +1110,13 @@
             40,
             60
         ],
-        "leiras": "Ez a képzettség szükséges nemcsak a mérgek előállításához, de a biztonságos kezeléséhez is. A képzetlen méregkeverőnek minden egyes alkalommal, amikor mérget használ, intelligencia-próbát kell dobnia, hogy nem éri-e baleset. A baleset lehet elpocsékolt, szennyezett méreg vagy extrém esetben akár önmaga megmérgezése is.",
+        "leiras": "Ez a képzettség szükséges nemcsak a mérgek előállításához, de a biztonságos kezeléséhez is. A képzetlen méregkeverőnek minden egyes alkalommal, amikor mérget használ, Összpontosítás-próbát kell dobnia, hogy nem éri-e baleset. A baleset lehet elpocsékolt, szennyezett méreg vagy extrém esetben akár önmaga megmérgezése is.\n\nA méreg - vagy ellenméreg - előállításához minden esetben megfelelő alapanyagok, felszerelés (lásd Alkímia képzettségnél) és idő kell. ",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter nem képes méreg keverésére, de biztonságosan tud kezelni mindenféle mérget, ételméregtől kezdve fegyvermérgen át a többkomponensű légmérgekig.",
+            "A karakter képes legfeljebb 4. szintű méreg előállítására, amely azonban  ritkán okoz halált vagy ájulást. Kínmérgei legfeljebb 15 FP veszteséget okozhatnak. Többkomponensű és kontaktméreg nem keverhető. Képes ezenkívül az általa ismert mérgek  ellenszerét is elkészíteni, ezek +10-30 módosítót jelentenek Egészségpróba esetén.",
+            "A karakter képes legfeljebb 6. szintű méreg alállítására, amik azonban  ritkán okoznak halált, vagy ájulást. Kínmérgei legfeljebb 22 Fp veszetséget okozhatnak.  Többkomponensű méreg előállítására nem képes. Képes ezenkívül az általa ismert mérgek  ellenszerét is elkészíteni, ezek +20-40 módosítót jelentenek Egészségpróba esetén.  \n",
+            "A karakter már képes bármilyen méreg előállítására, bár egyes esetekben  ez igen költséges és egy alkimista vagy herbalista mester közreműködését igényli. A karakter képes bármilyen, általa ismert méreg ellenszerét elkészíteni, ami +30-70 módosítót jelent  Egészségpróbánál.\n",
+            "A fentieken felül a karakter képes olyan mérgeket is kreálni, amelyek csak egy kiválasztott személyre hatnak, továbbá hosszan ható ellenmérgeket, illetve olyanokat is, amelyek még a méreg \"gyengébbik\" hatását is semlegesítik."
         ]
     },
     {
@@ -1206,13 +1133,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Nyomolvasásban járatos karakter képes követni mások nyomait, pusztán a nyomokból  kiolvassa, hányan jártak arra őelőtte és nagyjából mi is történt a helyszínen. Természetesen az eső és a talaj megnehezítheti a nyomolvasást.\n\nA Nyomeltűntetés alapvető Képessége a Nyomolvasáshoz értő karakternek. Így az képes arra,  hogy hátrahagyott nyomait mások elől elrejtse. Erre csak azonos fokon képzett Nyomolvasóval  szemben képes, magasabb minősítésűvel szemben semmiképp. Sőt, erre is csak akkor, ha a  leplezésre több alaposságot szán, mint amennyit a Nyomolvasó az utólagos vizsgálódásra.\n\nMegjegyzendő, hogy nem feltétlenül szükséges a képzettség a nyilvánvaló nyomok követésére.  Hogy egy szélsőséges példát említsek, egy húszfős lovascsapat könnyű vágtában hagyott félórás  nyomait az erdőben bárki tudja követni a letarolt bokrok, letört ágak, és a széttaposott föld alapján.  \n",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "Tereptől függően 1-3 nap távlatából képes olvasni a nyomokat.",
+            "Tereptől függően 1-6 nap távlatából képes olvasni a nyomokat.",
+            "Tereptől függően 1-12 nap távlatából képes olvasni a nyomokat.",
+            "Tereptől függően akár 1 hónap távlatából képes olvasni a nyomokat.",
+            "Tereptől függően akár 3 hónap távlatából képes olvasni a nyomokat.\n\nAz általa hagyott nyomokat nem csak eltűntetni képes, hanem akár mások által hagyott nyomoknak is álcázni, amivel még a tapasztalt nyomolvasókat is megtéveszti."
         ]
     },
     {
@@ -1229,331 +1156,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A leggyakrabban Fejvadászok vagy Boszorkánymesterek által ismert és oktatott Képzettség. Ma már azonban más kasztokba tartozó személyek, olykor egész klánok és rendek folyamodnak  használatához. A Képzettséggel bíró karakter halálos pontossággal támad hátulról: tudja, hova,  milyen erővel kell döfnie, vágnia, ütnie - hogy ezzel áldozatán a lehető legsúlyosabb sebet ejtse.  Hátbatámadára (Orvtámadásra) csak olyan egykezes fegyvert lehet használni, melynek  forgatásában a karakter legalább 2. fokon képzett.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
-        ]
-    },
-    {
-        "id": "pszi:dzsenn",
-        "name": "Pszi (Dzsenn)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:dzsenn",
-        "name": "Pszi (Dzsenn)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:dzsenn",
-        "name": "Pszi (Dzsenn)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:kyr",
-        "name": "Pszi (Kyr)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:kyr",
-        "name": "Pszi (Kyr)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:kyr",
-        "name": "Pszi (Kyr)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:pyarroni",
-        "name": "Pszi (Pyarroni)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi"
-    },
-    {
-        "id": "pszi:pyarroni",
-        "name": "Pszi (Pyarroni)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi"
-    },
-    {
-        "id": "pszi:pyarroni",
-        "name": "Pszi (Pyarroni)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi"
-    },
-    {
-        "id": "pszi:slan",
-        "name": "Pszi (Slan)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:slan",
-        "name": "Pszi (Slan)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
-        ]
-    },
-    {
-        "id": "pszi:slan",
-        "name": "Pszi (Slan)",
-        "kepesseg": "osszpontositas",
-        "leiras": "Pszi",
-        "kp": [
-            10,
-            15,
-            27,
-            39,
-            52
-        ],
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "fajta": "normal",
-        "tipus": "pszi",
-        "linked": [
-            {
-                "id": "pszi:pyarroni",
-                "strength": 1
-            }
+            "A meglepetésből vagy védekezni képtelen áldozaton ejtett seb sebzéséhez hozzáadódik 1k6.",
+            "A meglepetésből vagy védekezni képtelen áldozaton ejtett seb sebzéséhez hozzáadódik 2k6.",
+            "A meglepetésből vagy védekezni képtelen áldozaton ejtett seb sebzéséhez hozzáadódik 3k6.",
+            "A meglepetésből vagy védekezni képtelen áldozaton ejtett seb sebzéséhez hozzáadódik 3k6, plusz 1k6 ÉP (akkor is, ha a támadás nem volt túlütés)",
+            "A meglepetésből vagy védekezni képtelen áldozaton ejtett seb sebzéséhez hozzáadódik 4k6, plusz 1k10 ÉP (akkor is, ha a támadás nem volt túlütés)\n\n"
         ]
     },
     {
@@ -1570,13 +1179,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ezt a képzettséget a Kínokozás tökéletes ellentéteként jellemezhetnénk. Célja az ellenfél minél  gyorsabb hatékonyabb elpusztítása. A technika remek időzítőképességet és pontosságot igényel,  úgy tekinthetnénk rá, mint a harc közben kivitelezett hátbaszúrásra. A képzettséget alkalmazó  harcos izületekre, idegpontokra, artériás törzsekre, gerincre és fejre támad, s minél hatékonyabb  károkozás a célja. Ebben már nincs szerepe a fegyver típusának: halálosztásra a tollas buzogány és  a rövidkard is tökéletesen megfelelő. A képzettség részletes anatómiai tudást igényel, és kizárólag  humanoidokon hatásos, akárcsak a hátbaszúrás.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A sebzéshez túlütés esetén még k3 ÉP adható hozzá.  ",
+            "A képzettséget alkalmazó harcos számára a túlütés küszöbe nem 50 lesz, mint mindenki  másnak, hanem csupán 45. Így, ha támadása 45-tal nagyobb volt az ellenfél VÉ-jénél,  bekövetkezik a túlütés. A sebzéshez túlütés esetén még k3 Ép adható hozzá.  \n",
+            "A képzettséget alkalmazó harcos számára a túlütés küszöbe nem 50 lesz, mint mindenki  másnak, hanem csupán 45. Így, ha támadása 45-tel nagyobb volt az ellenfél VÉ-jénél,  bekövetkezik a túlütés. A sebzéshez túlütés esetén még k6 Ép adható hozzá.  \n",
+            "A túlütés küszöbe itt már csak 40.A sebzéshez túlütés esetén még k6 Ép adható hozzá.  ",
+            "A túlütés küszöbe itt már csak 35.A sebzéshez túlütés esetén még k10 Ép adható hozzá.  "
         ]
     },
     {
@@ -1593,13 +1202,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Rúnamágia - ha szigorúan nézzük - a Jelmágia azon alfejezete, amely a különböző rúnarajozlatok mágikus tulajdonságait tanulmányozza. Elsődleges fontossággal bír a Jelmágián  alapuló varázstárgyak készítésében, ahol a mágikus hatásokat a rúnák tárolják.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A képzettség ezen fokán a karakter képes felismerni a rúnákat, így megállapíthatja azok célját és hatásait, de helyesen felolvasni nem tudja őket. Amennyiben mégis megpróbálná, annak az eredménye nagy eséllyel semmi nem lesz, de előfordulhat, hogy a hatás torz módon jön létre, esetleg a formájától megfosztott mágia kitörésként szabadul fel. (Persze kivételes szerencse esetén akár sikeres is lehet a felolvasás, de igen kétségbeesettnek kell lennie annak a karakternek, aki ebben reménykedik.)",
+            "A Rúnamágiában 2. fokon képzett karakter képes szabályosan felolvasni a mások által leírt  rúnákat. Tudománya elegendő arra, hogy tekercseket olvasson fel, s életre hívja a beléjük  fogalmazott varázslatokat, ám nem teszi alkalmassá egyetlen rúna leírására sem.  ",
+            "A fentieken kívül a karakter képes megtörni a rúnákat oly módon, hogy a mana mindenképpen lassan és ártalmatlanul szivárogjon el belőle.",
+            "A rúnák leírásának tudománya. Mivel számtalan mágikus alapismeretet és jelentős mágikus  hatalmat követel, még a nagy varázslóiskolákban is csak keveseknek oktatják (6.TSz. fölött).  Ismeretében a karakter varázstárgyakat alkothat.  ",
+            "A karakter képes a már leírt rúnákat módosítani, hozzájuk toldani, jelentésüket teljesen átírni."
         ]
     },
     {
@@ -1618,7 +1227,7 @@
         ],
         "leiras": "A Sebgyógyítás mind a sebesülések azonnali, csatatéren való ellátását, mind a hosszabb távú ápolást magában foglalja.",
         "szintleiras": [
-            "",
+            "A karakter mindössze annyira képes, hogy a nyílt vérző sebeket nagyjából ellássa, ideiglenes  kötést tegyen rá, gyakorlatilag azt tudja elérni, hogy a sérült ne vérezzen el rövid időn belül.  ",
             "",
             "",
             "",
@@ -1639,13 +1248,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A szájról olvasás tolvajok, fejvadászok, kémek kedvelt alvilági képzettsége. Életük során gyakran  lehet szükség rá, hogy olyan beszélgetéseknek is részesei legyenek, amely nem a fülük hallatára  zajlik. Ha ilyenkor a beszélő látótávolságon belül van, ezenkívül az arcvonásai is tisztán  kivehetők, a képzettség használója képes megérteni az elhangzott szavakat, pusztán a beszélő \nszájmozgását figyelve. Természetesen megnehezíti a helyzetet, ha két vagy több ember beszédét  kell ilyen módon kilesni, hiszen akkor valamelyik nagy valószínűséggel háttal lesz a  megfigyelőnek.  \nKülönösen jó eredményt lehet elérni, ha e képzettséget az Érzékélesítés Pszí diszciplínával együtt  használja a karakter, mivel így a látótávolság a kétszeresére növelhető, illetve a hangfoszlányok  alapján sokkal biztosabban végezhető a szájról olvasás.\n\nTermészetesen szájról olvasni mindenki csak olyan nyelven tud, amelyen ért, legalább 4. szinten.  \n",
         "szintleiras": [
             "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter képes megérteni az általános, gyakran használt szavakat, nem képes azonban felismerni az idegen neveket, helyeket, ritkán használt vagy különleges szavakat.",
+            "A karakter nagyjából már felismeri a ritkább szavakat, neveket is.",
+            "A karakter szinte mindent megért, számára addig ismeretlen neveket is, egy két betű eltéréssel. Ezenfelül nem csak a megfigyelt beszélő száját, de egész arcát, mimikáját is tanulmányozza, ezért a beszélő hozzáállásáról, véleményéről is fogalmat alkothat. Teheti ez utóbbit még abban az esetben is, ha számára a beszélt nyelv ismeretlen.  \n",
+            "A karakter már képes számára ismeretlen nyelvű szövegeket is leolvasni, és a hangalakot az eszébe vésni."
         ]
     },
     {
@@ -1662,13 +1271,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Fontos elkülönítenünk a \"köznépi\" és az \"udvari\" stílust, valamint az igazi táncművészetet.  \nAz ynevi vidék és város egyszerű népe ünnepei alkalmával szívesen táncol, s ugyanez áll a jómódú  polgárházak, paloták lakóira is. Az előbbi látványa viszolygást kelt az úgynevezett felsőbb  körökben, utóbbié kacajt fakaszt a közrendű ajkakon - az egyes osztályok képviselőinek azonban  felettébb ritkán adatik meg, hogy produkcióikkal egymást boldogítsák.  \nA tánc művészetének (mesterségének) számos válfaja akad szerte a kontinensen: példaként elég,  ha az ilamnori és yllinori kardtáncot, a niarei tőrtáncot vagy a dzsad tűztáncot említjük.  \n\nTáncművészetet - különös tekintettel az adott vidéken megszokott változatokra, udvari táncokra -  majd' minden civilizált állam nagyvárosaiban oktatnak. A táncosok (még inkább táncosnők)  célirányos képzésében Ellana hívei, a Lótusz Leányai, Alidar klánjai - és bizonyos alvilági  társaságok járnak az élen.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter ismer pár alap tánclépést, és képes egy tapasztalt táncos segítségével pár nap alatt betanulni egy konkrét táncot.",
+            "A karakter ismeri szülőhelyének és környékének táncait, és -  ha koncentrál - úri társaságban sem hoz szégyent saját fejére.  ",
+            "A karakter már úri társaságokban is teljes \"biztonságban\" van, sok táncot ismer.",
+            "A karakter már az összes számottevő irányzat lépéseit ismeri, a  divatosabbakban pedig egyenesen kiválónak minősül - akár egy uralkodói házban is megállja  helyét. Ha anyagi helyzete megkívánja, fellépést vállalhat, leckéket is adhat, megfelelő díjazásért.",
+            "A karakter könnyedén improvizál bármilyen táncstílusban, még a számára addig ismeretlen táncokat is (bár ilyenből nem sok van) pár perc szemlélődés után magas szinten tudja utánozni."
         ]
     },
     {
@@ -1685,13 +1294,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ahogy az írás-olvasás sem univerzális Ynev világán, úgy a térképek ismerete is csak egy viszonylag szűk réteg sajátja: kereskedők, hajóskapitányok, navigátorok, hadvezérek, no meg persze kalandozók.\n\nJól használható térképet rajzolni pedig még annál is kevesebben tudnak.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter el tud igazodni egy város térképén, ahol könnyen lehet számolni a balra vagy jobbra nyíló utcákat, és olykor még útbaigazitást is lehet kérni.",
+            "A karakter ismeri a térképészeti jeleket, könnyen eligazodik bárhol egy térkép segítségével.  ",
+            "A karakter már képes egyszerűbb, leginkább csak saját használatú térképek rajzolására. A távolságok és irányok nagyjából stimmelnek, de jaj annak a hadvezérnek, aki egy ilyen térkép alapján tervezi meg a hadállásait.",
+            "A karakter által készített térképek megbízhatóak és viszonylag pontosak, már akár jó pénzt is elkérhet értük. Segítségükkel bárki, aki bír e képzettség 2. fokával, el tud igazodni.",
+            "A karakter képes részletes és pontos térképek elkészítésére még olyan környéken is (pl. sűrű erdő, mélysivatag), ahol nem sok külső támpont van."
         ]
     },
     {
@@ -1708,13 +1317,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ez a képzettség a vadonban való gyakorlati jártasságot fedi le. Bár egyes részei eléggé specializáltak egy bizonyos tereptípusra, azok között elég sok közös vonás van, hogy ne kelljen külön mindegyikre tanulni a képzettséget. A képzettebb túlélők ösztönei minden környezetben kisegítik őket.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A képzettség ezen fokán a karakter viszonylag jól tud tájékozódni a vadonban, és a legalapvetőbb veszélyekkel tisztában van (pl. nem kezd neki erőltetett sivatagi menetnek délidőben, vagy jódlizni meredek, hólepte hegyoldal alján)",
+            "A karakter már tudja, hogy az általa ismert terepeken hol lehet vizet és fedezéket találni.",
+            "A karakter az általa ismert terepeken magabiztosan mozog, ismeri a hely élővilágát, ideértve a gyakori szörnyeket, továbbá már általa ismeretlen terepen is képes kis szerencsével életben maradni.",
+            "A karakter tapasztalt túlélő, Ynev szinte bármely (nem mágikus) táján hetekig képes ellátni magát és pár társát vízzel és élelemmel, és elkerülni az előrelátható veszélyeket.",
+            "A karakter a legextrémebb terepeken is otthonosan mozog, a Sheral bérceitől kezdve az Elátkozott Vidékig."
         ]
     },
     {
@@ -1731,13 +1340,13 @@
             40,
             50
         ],
-        "leiras": "",
+        "leiras": "Az úszni tudás korántsem hétköznapi ismeret Ynev világán. Leginkább csak a tengerek, folyók,  tavak partjain élők bírják. Egyes hadseregekben alacsony szinten megkövetelik a katonáktól, de ez  nem általános. A különféle Harcos Kasztok tagjai esetében azonban már mindennapos  tudománynak számít.  ",
         "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "A karakter, ha felszerelése víz alá nem húzza, képes partraúszni pár perc alatt egy kisebb tóba vagy lomha folyóba pottyanás után. Ennél komolyabb vizekben is képes pár percig a felszínen maradni, amíg valaki remélhetőleg ki nem menti.",
+            "A karakter jól úszik. Ha kevés súly húzza, akár egy óra hosszat is képes lebegni a felszínen.  Könnyedén átúszik egy közepesen erős sodrású folyót.",
+            "A karakter némi felszerelést is képes magával vinni úszás közben. Néhány óráig is képes  úszni, ha ez szükséges (persze nem teljes terheléssel), de képes átúszni egy sebesebb sodrású folyót is.",
+            "A karakter Képes teljes felszerelését a víz felszínén tartani, könnyedén úszik órákig is, ha úgy hozza a sors. Átússza a legsebesebb sodrású folyót is. Úgy tíz méter mélységig még merülni is tud, ha úgy hozza a sors.\n\nFIGYELEM: fémvértezetben semmilyen fokon sem lehet úszni!  ",
+            "A karakter a gyöngyhalászok közt is kitűnik merülési képességével, és még viharos nyílt tengeren is megpróbálkozhat az úszással."
         ]
     },
     {
@@ -1777,13 +1386,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "E képzettség Ynev különböző vallásainak ismeretét takarja. Mint sok más hasonló képzettségnél is, a képzett karakter alapvetően jobban ismeri a saját kultúrájának vallásait, de idővel tudása nemcsak mélyebbé, hanem széleskörűbbé válik.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter tudja, hogy illik viselkedni a saját kultúrája templomaiban, ismeri saját panteonja isteneinek a nevét és a hozzávetőleges attribútumaikat is.",
+            "A karakter bizton állíthatja, ismeri Ynev főbb vallásait, azok isteneit, történetét, alapvető tanításait és legnagyobb tanítóit. Számtalan szertartás menetével és céljával is  tisztában van.  \n",
+            "A karakter valamelyest tisztában van a kisebb vallások dolgait  illetően is, de a titkos vallásokról csak keveset, vagy egyáltalán nem tud. Saját vallását igen jól  ismeri, de egy komoly hitvitában hozzáértők mellett bizony zavarba jönne.  ",
+            "A karakter előtt Ynev legjelentéktelenebb, netán  titkos vallásai sem ismeretlenek. Hallott ezek szertartásairól, és nagy biztonsággal képes  meghatározni azok célját is. A főbb vallásokat szinte teljes alapossággal ismeri, képes idézni azok  szent könyveiből, nem jelent számára gondot kevéssé közismert alakjainak felsorolása és  jellemzése sem. Saját hitével és mindez azzal kapcsolatos mozzanattal oly fokig tisztában van,  hogy a legfelsőbb egyházi körökben sem kerülne zavarba egy teológiai vita kirobbanásako",
+            "A karakter a fentieken felül tisztában van sok egyház titkos misztériumainak mibenlétével is (bár a részletekkel nem feltétlenül), továbbá úgy ismeri az elmúlt korok isteneit és vallásait is, mint a tenyerét, beleértve a jelenkori vallások azóta már eretneknek nyilvánított múltbéli hittételeit."
         ]
     },
     {
@@ -1823,13 +1432,13 @@
             32,
             50
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "A Zsonglőrködés a szórakoztatás kedvelt módja Yneven. A felsőbb körök éppoly szívesen  szemlélik, mint a piacterek jöttment közönsége. Társulatok járják a falvakat, városokat;  igyekeznek hosszabb-rövidebb időre beférkőzni egy-egy tudományukat méltányoló földesúr  kegyeibe. Általában vidéken találják meg könnyebben a számításukat, ahol a vándorcirkusz  érkezte jelentős eseménynek, kitüntetett látványosságnak számít. A nagyobb városokban már csak  az igazi profik keresik meg a kenyerüket, míg a főnemesei, ne adj'isten királyi udvarokba csak a  legjobbak juthatnak be.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "A karakter már tud három vagy négy nem túl nehezen kezelhető tárggyal zsonglőrködni, de nem túl magabiztosan. Ha szórakoztatni kíván, nem árt, ha egy-két tréfát is bekészít, amikkel előrukkolhat olyankor, amikor elejt egy-egy tárgyat.",
+            "A karakter elfogadható szinten zsonglőrködik: ügyesen dobál a levegőbe egyszerre három, akár négy  tárgyat is; ezeket semmiképp sem ejti el. Nehezebb kunsztokba azonban - közönség előtt - jobb, ha  nem fog. ",
+            "A karakter már tud pár igazán látványos, különleges mutatványt, pl. három vagy négy veszélyes/nehéz, vagy tucatnyi apr= tárggyal zsonglőrködni.",
+            "A karakter mesterien zsonglőrködik. Bármilyen társulatban, a legelőkelőbb közönség előtt is  megállja a helyét; a piacterekre kiállva hamar pénzhez jut. ",
+            "A karakter akár egy tucat dobótőrt is a levegőben tud egyszerre tartani, majd azokat egyesével célba dobni."
         ]
     }
 ]
