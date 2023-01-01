@@ -5,12 +5,17 @@
         "name": "Álcázás/Álruha",
         "tipus": "alvilagi",
         "kepesseg": "erzekeles",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
-            10,
-            14,
+            5,
+            8,
+            16,
             20,
-            28,
             35
         ],
         "leiras": "Gyakran tanácsos az embernek arcot váltania, mássá alakulnia, hogy eltűnhessen a tömegben,  megtévessze ellenségeit. A menekülés, nemkülönben az észrevétlen támadás eszköze ez. A  Képzettségben járatos karakter képes álcázni magát, bármely szituációban meggyőző áruhát ölt.",
@@ -32,14 +37,30 @@
             {
                 "id": "meregkeveres",
                 "strength": 0.5
+            },
+            {
+                "id": "elettan",
+                "strength": 0.25
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.1
+            },
+            {
+                "id": "herbalizmus",
+                "strength": 0.5
+            },
+            {
+                "id": "sebgyogyitas",
+                "strength": 0.25
             }
         ],
         "kp": [
-            8,
+            6,
             12,
-            25,
-            35,
-            60
+            22,
+            28,
+            40
         ],
         "leiras": "Az Alkímia tudománya elsősorban a Prima Matéria, más néven a Bölcsek Köve előállítására  törekszik. Ez az a princípium, melynek segítségével a nemtelen anyag arannyá változtatható. Ynev  világán a mágusok, de még a varázslók is képesek erre, jóval kevésbé fáradságos módon. Ez  mégsem kedvetleníti el az alkimistákat, hiszen ők a tömeges aranycsinálásra törekszenek. Másrészt  pedig, az Alkímia mára szerteágazó tudománnyá fejlődött; foglalkozik mindenféle mágikus italok,  porok előállításával, és persze elméleti úton az emberi elme nemesedését is célul tűzi ki. \n\nAz alkímia sikeres alkalmazásában fontos szerep jut a megfelelő felszerelésnek. Azokat az  anyagokat, melyeket alkímia segítségével készíthetünk el, egy fontos szám, az Alkímiai Szint jellemzi. Ez megmutatja, milyen tudás, illetve felszerelés szükséges az adott vegyület, keverék  előállításához, amennyien annak pontos összetételével tisztában vagyunk. Az Alkímiai Szint  (továbbiakban ASz) értéke 1-től 8-ig változhat; minél nagyobb a szám, annál összetettebb az  előállítandó anyag.  \nAz előállítás sikerességét három körülmény határozza meg: a kívánt anyag ASz-e, a készítő tudása  (1-5. fok), továbbá a felszerelés minősége. Ez utóbbiban négy kategóriát  különböztetünk meg, ezek sorban:\n\n* 1 - Alkalmi felszerelés  \n* 2 - Alapfelszerelés  \n* 3 - Bővített felszerelés  \n* 4 - Laboratórium\n\nA fenti adatok alapján a következőképpen határozható meg a sikeresség (a számok a szükséges felszerelést adják meg):  \n\n| Asz    | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n| 1. fok | 1 | 2 | 3 | 4 | - | - | - | - |\n| 2. fok | 1 | 2 | 2 | 3 | 4 | - | - | - |\n| 3. fok | 1 | 1 | 2 | 2 | 3 | 4 | - | - |\n| 4. fok | 1 | 1 | 2 | 2 | 3 | 3 | 4 | - |\n| 5. fok | 1 | 1 | 1 | 2 | 2 | 3 | 3 | 4 |\n\nNéhány példaanyag:\n\n## LÉGFOGÓ  \nASz: 5  \nIdő: 40 perc  \nNem más, mint egy különlegesen kezelt széndarab. A megfelelő oldószer hozzáadásával a kívánt  gázból 20 liternyit szippant magába. A légfogó puha, könnyen alakítható, így üvegcsébe is  behelyezhető. Ha tudjuk, a felfogni kívánt gáz könnyebb-e avagy nehezebb, mint a levegő, a  légfogót alá vagy fölé helyezve rá a rendszert megfelelően szigetelve, a kérdéses gázunkat  elnyeltethetjük. Az oldószer eltávolítása után a légfogó újra felhasználható.  \n\n## OLDÓSZER  \nASz: 2  \nIdő: 5 perc  \nA legkülönfélébb - nem maró, vagy szerves anyagot egyéb módon roncsoló - oldószerek  készíthetőek el, melyek további munkánkhoz lehetnek szükségesek. A legegyszerűbb oldószer a  tiszta víz, ez egyben az egyik leggyakrabban használatos is - ám egyes anyagok előállításához nem  megfelelő. Ekkor a vízben különféle kristályokat, esetleg porított növényeket kell feloldani.  \n\n## GÁZFEJLESZTŐ \nASz: 5  \nIdő: 60 perc  \nKülönböző eljárások alkalmazásával készülő anyag, melynek segítségével a gázégő működtethető.  Az ezzel táplált gázláng hőfoka 500 celsius lesz, egy gázfejlesztő tömb 10 perc használatra  elegendő. \n \n## GYENGE SAV  \nASz: 2  \nIdő: 15 perc  \nA módszerrel gyenge szerves illetve ásványi savak állíthatóak elő. Ezek maró ereje nagyon kicsi,  de bőrre kerülve égető fájdalmat okoznak. Egy pohárnyi sav sebzése k6 Fp, semmiképpen sem  csúszhat át Ép-be. A savval fémtárgyakat feloldani szinte lehetetlen - de legalábbis nagyon sokáig  tart.  \n\n## KÖZEPES SAV  \nASz: 4  \nIdő: 25 perc  \nA közepes erősségű savak erős szerves illetve közepes erejű szervetlen savak. Viszont jól  oldódnak, így egy adag közepes erősségű savból víz óvatos hozzáadásával 3 adag gyenge sav  nyerhető. Még ez a sav sem okoz túl komoly károsodást fém tárgyaknak, de a hatás már mérhető.  Egy pohárnyi sav 3k6 Fp-t sebez, melyből legfeljebb 3 csúszhat át Ép sebzésbe. A fémeken  poharanként k6 STP-t sebez.  \n\n## ERŐS SAV  \nASz: 7  \nIdő: 25 perc  \nTömény szervetlen savakat nevezünk erős savaknak. Ezeknek szállítása törékeny edényekben  kifejezetten veszélyes, az üveggel bélelt fémfiolák pedig meglehetősen drágák (2 arany /db). A  savból egy adagnyi (egy pohárnyi) 3k10 Sp-t sebez, ez Ép vesztést is okozhat. A sav fémtárgyakon  2k6+3 STP-t sebezhet. A sav vízzel közepesen erős savvá hígítható, egy pohárnyi erős savból 3  adag közepes nyerhető.  \n\n## GYÓGYSZER  \nASz: 5-8  \nIdő: 25-150 perc  \nKülönböző betegségekhez az alkimista - ha jártas a Sebgyógyításban -  gyógyszereket készíthet. Ezek az anyagok a KM megítélése és az alkimista ismeretei szerint +5-20%-ot adhatnak az Egészségpróba dobásakor.  \n\n## ENYV  \nASz: 6  \nIdő: 50 perc  \nAz alkimista ásványi alapú ragasztószert készíthet. Ez valójában persze nem enyv, hiszen azt  csontból, inakból főzik, de hatásában ahhoz hasonló. A különbség, hogy keményebb kötést tesz  lehetővé az összeillesztett felületek között. Száradási ideje 15 perc, ezalatt a két összeragasztandó  felületnek össze kell nyomódnia, nem elég csak illeszkednie. \n\n## VÍZÁLLÓ KENŐCS  \nASz: 3  \nIdő: 25 perc  \nAz alkimista kenőcsével mindenféle szövet vagy bőr, mely képes azt beszívni, vízállóvá tehető. A  szövet kissé merevebbé válik ugyan, de a vízállóság tökéletes lesz. Az így készített tartókban  papírok, iratok szállíthatóak.  \n\n## TŰZÁLLÓ KENŐCS  \nASz: 8  \nIdő: 90 perc  \nA kenőcs mindenben hasonló a Vízálló kenőcshöz, de a tűz ellen hatásos. Bőr és posztóvértek is  kezelhetőek vele. A védelem nem teljes, az így kezelt anyagon a tűz sebzésének fele érvényesül. A  kezelt vért viselőjének tűz ellen 2 SFÉ-t ad.  \n",
         "szintleiras": [
@@ -56,13 +77,46 @@
         "name": "Állatismeret",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "csapdaallitas",
+                "strength": 0.75
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.1
+            },
+            {
+                "id": "idojoslas",
+                "strength": 0.1
+            },
+            {
+                "id": "idomitas",
+                "strength": 0.5
+            },
+            {
+                "id": "kocsihajtas",
+                "strength": 0.25
+            },
+            {
+                "id": "lovaglas",
+                "strength": 0.5
+            },
+            {
+                "id": "meregkeveres",
+                "strength": 0.25
+            },
+            {
+                "id": "tuleles",
+                "strength": 0.5
+            }
+        ],
         "kp": [
-            3,
+            2,
             7,
             15,
-            25,
-            38
+            23,
+            35
         ],
         "leiras": "A karakter ismeri az állatok fajtáit, élőhelyüket, szokásaikat, étrendjüket, stb.\n\nIsmeretei nem terjednek ki mágikus lényekre és szörnyekre, de azt képes lehet eldönteni, hogy egy adott lény állat-e vagy sem.\n\nA képzettség fokai közötti különbség pontosan nem számszerűsíthető, de mind az ismert fajok számában, mind a tudás mélységében megnyilvánul. A fokok leírásai mindössze példaként szolgálnak, hogy a karakter kb. milyen jellegű tudással bírhat.",
         "szintleiras": [
@@ -79,13 +133,26 @@
         "name": "Belharc",
         "tipus": "harci",
         "kepesseg": "reflex",
-        "linked": [],
+        "linked": [
+            {
+                "id": "birkozas",
+                "strength": 0.25
+            },
+            {
+                "id": "harc_helyhez_kotve",
+                "strength": 0.5
+            },
+            {
+                "id": "kocsmai_verekedes",
+                "strength": 0.5
+            }
+        ],
         "kp": [
+            2,
             4,
-            8,
-            12,
-            20,
-            26
+            7,
+            9,
+            20
         ],
         "leiras": "Belharcnak nevezik Ynev-szerte a teljes testközelben folytatott közelharcot. Két rövid fegyvert forgató, de még két puszta kézzel verekedő ellenfél sem folytat igazi Belharcot. Ennek fogásait  külön oktatják, s aki járatlan bennük, alaposan megjárhatja, ha a képzett belharcost közel engedi  magához. A hosszú fegyvereknek ugyanis - a hagyományos technikákat alkalmazva - nem sok  hasznát veszi; a Belharc fegyverei a puszta kéz és a különféle tőrök.\n\nA Belharc megkezdéséhez először is sikeres Közelkerülés szükséges. Ettől kezdve az ellenfelek a kör végéig Belharcot folytatnak (az erre vonatkozó szabályok szerint). Amennyiben mindkét fél  folytatni kívánja a küzdelemnek e formáját, akár körökön át is együtt maradhatnak, ahogyan közös  elhatározással bármikor szét is válhatnak. Ha azonban csak az egyik fél igyekszik eltávolodni, míg  a másik a Belharc megőrzésére törekszik - üldözi, próbál testközelben maradni -, kétséges a  folytatás. Mindkét fél minden körben Gyorsaság-próbát dob, ha a menekülő megdobja vagy az  üldöző elvéti azt, a Belharc félbeszakad. Vannak olyan harci helyzetek, amikor a belharc  megszakítása nem lehetséges. Ilyen például az igen szűk helyen való küzdés. Az, hogy a harci  helyzetből lehetséges-e kikerülni, és ha igen milyen módon, minden esetben a KM dönti el.\n\nBelharcban rövidkarddal, annál rövidebb fegyverekkel, vagy puszta kézzel akadálytalanul lehet  küzdeni. Az ennél hosszabb fegyverek Kezdeményező, Támadó és Védő Értékét mínuszok sújtják. \n\n||KÉ|TÉ|VÉ| \n|Egykezes fegyver|-5|-10|10| \n|Kétkezes fegyver|-10|-20|-20| \n|Szálfegyver|-15|-25|-25| \n\n\nBelharcban a harcmodorban képzetlen karakter nem képes a megszokott módon védekezni, ezért bármilyen fegyvert forgat is, további -10-zel csökken a Védő Értéke.  ",
         "szintleiras": [
@@ -102,13 +169,30 @@
         "name": "Birkózás",
         "tipus": "harci",
         "kepesseg": "izom",
-        "linked": [],
+        "linked": [
+            {
+                "id": "belharc",
+                "strength": 0.25
+            },
+            {
+                "id": "foldharc",
+                "strength": 0.5
+            },
+            {
+                "id": "harc_helyhez_kotve",
+                "strength": 0.25
+            },
+            {
+                "id": "kocsmai_verekedes",
+                "strength": 0.25
+            }
+        ],
         "kp": [
+            3,
             6,
+            8,
             12,
-            20,
-            32,
-            50
+            25
         ],
         "leiras": "A képzettség rokon az Ökölharccal, ám a birkózó kezét nem öklözésre, hanem ellenfele  lefogására, leszorítására használja. Ahhoz, hogy ezt megtehesse, természetesen sikeres támadó  dobást kell tennie. Sebzés nincs, ellenben az áldozat körökre mozgásképtelenné tehető, ezalatt  támadni sem képes. Ha a képzettség alkalmazója egyszer már megragadta ellenfelét, és erősebb is  nála, annak kevés az esélye a szorításból szabadulni. A birkozó minden körben köteles erőpróbát  tenni, s az áldozatnak csak akkor nyílik egyáltalán lehetősége a szabadulásra, ha elvéti. Még  ilyenkor sincs semmi veszve, mert a lefogott csak akkor menekülhet, ha az ő erőpróbája ellenben  sikeres. Ha az áldozat ereje nagyobb a lefogónál, ő tehet minden körben erőpróbát, s ha sikerrel  jár, nyomban ki is bontakozik a marasztaló karok közül.\n\nHa a támadás, amivel a birkózó megragadta áldozatát, túlütés, a lefogott személy a szorításban nagy eséllyel elveszíti eszméletét. Ez akkor következhet be, ha a birkózó, közvetlen a túlütést követő körben sikeres erőpróbát tesz.\n\nA birkózó - hacsak ellenfele nem folyamodik szintén birkózáshoz - önműködően elveszíti jogát a  kezdeményezésre; továbbá a Birkózás képzettség nem alkalmazható harcművész kasztúak ellen. A  Birkózás legavatottabb gyakorlói általában gladiátorok.",
         "szintleiras": [
@@ -151,15 +235,15 @@
         "linked": [
             {
                 "id": "csapdafelfedezes",
-                "strength": 0.34
+                "strength": 0.67
             }
         ],
         "kp": [
-            2,
-            5,
+            3,
+            6,
             12,
-            16,
-            25
+            20,
+            27
         ],
         "leiras": "A karakter képes egyszerű csapdák készítésére és hatékony elhelyezésére. Kisebb csapdákat pár perc alatt is el tud készíteni, vermeket és hasonló nagyobb formátumú csapdákhoz értelemszerűen több idő kell.\n\nA képzettség használatához szükséges alapanyagok és szerszámok hiányában megpróbálhat rögtönözni is, de ezen csapdák általában jóval kevésbé hatékonyak.",
         "szintleiras": [
@@ -176,13 +260,26 @@
         "name": "Csomózás",
         "tipus": "vilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "csapdaallitas",
+                "strength": 0.75
+            },
+            {
+                "id": "hajozas",
+                "strength": 0.5
+            },
+            {
+                "id": "kotelekbol_szabadulas",
+                "strength": 0.75
+            }
+        ],
         "kp": [
-            6,
+            3,
+            5,
             12,
-            20,
-            32,
-            50
+            21,
+            30
         ],
         "leiras": "Bár egyszerűbb csomókat bárki tud kötni, a csomózásban járatos karakter által kötött csomók jóval megbízhatóbbak. A képzettség ismerői továbbá képesek csomókat gyorsan kioldani, ránézésre megállapítani egy csomó célját, sőt, némely esetben még a készítőjéről is információkat nyerhetnek (pl. \"ezt a fajta csomót a Quiron-tenger bálnavadászai szokták használni\")",
         "szintleiras": [
@@ -203,6 +300,26 @@
             {
                 "id": "sebgyogyitas",
                 "strength": 0.5
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.25
+            },
+            {
+                "id": "futas",
+                "strength": 0.1
+            },
+            {
+                "id": "herbalizmus",
+                "strength": 0.25
+            },
+            {
+                "id": "kinokozas",
+                "strength": 0.5
+            },
+            {
+                "id": "orvtamadas",
+                "strength": 0.5
             }
         ],
         "kp": [
@@ -210,7 +327,7 @@
             10,
             20,
             35,
-            50
+            45
         ],
         "leiras": "Elsőrorban az emberi test szerkezetének és működésének ismerete. Mivel a boncolást a legtöbb helyen nem nézik jó szemmel, jórészt elméleti tudásról van szó.\n\nA fokok leírásai mindössze példaként szolgálnak arra, hogy az adott fok milyen mélységű tudást biztosít.",
         "szintleiras": [
@@ -227,13 +344,30 @@
         "name": "Emberismeret",
         "tipus": "vilagi",
         "kepesseg": "empatia",
-        "linked": [],
+        "linked": [
+            {
+                "id": "alcazas_alruha",
+                "strength": 0.25
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            },
+            {
+                "id": "hamiskartya",
+                "strength": 0.5
+            },
+            {
+                "id": "mellebeszeles",
+                "strength": 0.75
+            }
+        ],
         "kp": [
-            6,
+            3,
+            8,
             12,
-            20,
-            32,
-            50
+            16,
+            28
         ],
         "leiras": "Ez a képzettség egyfelől az emberi (és magasabb fokon a nem emberi) viselkedés általános ismeretét, másfelől a karakter által ismert és hosszabb távon megfigyelt emberek viselkedésben beállt változások észlelését foglalja magában.",
         "szintleiras": [
@@ -250,13 +384,18 @@
         "name": "Éneklés/Zenélés",
         "tipus": "vilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "tanc",
+                "strength": 0.75
+            }
+        ],
         "kp": [
-            6,
+            2,
+            5,
             12,
-            20,
-            32,
-            50
+            28,
+            36
         ],
         "leiras": "Ez a képzettség elsősorban az általános zenei tudásról szól, bár érdemes külön felírni, hogy a karakter mely stílusokban/hangszereken képzett. Más stílusok vagy hangszereket megtanulásához nem kell külön KP-t elkölteni, de gyakorlás mindenképp szükséges hozzá.",
         "szintleiras": [
@@ -273,13 +412,22 @@
         "name": "Építészet",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "festeszet",
+                "strength": 0.25
+            },
+            {
+                "id": "csapdafelfedezes",
+                "strength": 0.67
+            }
+        ],
         "kp": [
-            6,
-            12,
+            2,
+            4,
+            10,
             20,
-            32,
-            50
+            32
         ],
         "leiras": "A képzettség egyfelől az építészeti stílusok és technikák ismeretéről szól, másfelől lehetőséget ad arra, hogy a karakter új épületeket tervezzen, azok építését irányítsa.",
         "szintleiras": [
@@ -298,11 +446,11 @@
         "kepesseg": "erzekeles",
         "linked": [],
         "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
+            2,
+            4,
+            7,
+            9,
+            20
         ],
         "leiras": "Az értékbecslés tudománya általában az ékszerészek, aranyművesek, tolvajok képessége, de némi  gyakorlással és tanulással bárki elsajátíthatja. A Képzettség segítségével az értő szemű karakter rögvest megállapíthatja a drágaságok értékét, és könnyen elkülöníti a hamist a valóstól.  ",
         "szintleiras": [
@@ -319,13 +467,26 @@
         "name": "Etikett",
         "tipus": "vilagi",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "emberismeret",
+                "strength": 0.1
+            },
+            {
+                "id": "enek_zene",
+                "strength": 0.1
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
+            3,
             6,
-            12,
-            20,
-            32,
-            50
+            9,
+            11,
+            21
         ],
         "leiras": "Ez a képzettség főképp az udvari és udvarias társaságban való viselkedés ismeretét jelenti, bár kevésbé előkelő környezetben (kikötői késdobáló, dzsad piac) nem kevésbé szigorú viselkedési szabályainak ismerete is beletartozik.",
         "szintleiras": [
@@ -342,7 +503,12 @@
         "name": "Fegyverismeret",
         "tipus": "harci",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "legendaismeret",
+                "strength": 0.1
+            }
+        ],
         "kp": [
             3,
             5,
@@ -361,40 +527,34 @@
     },
     {
         "fajta": "normal",
-        "id": "fegyvertores",
-        "name": "Fegyvertörés",
-        "tipus": "harci",
-        "kepesseg": "izom",
-        "linked": [],
-        "kp": [
-            3,
-            10,
-            20,
-            40,
-            50
-        ],
-        "leiras": "",
-        "szintleiras": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    {
-        "fajta": "normal",
         "id": "festeszet",
         "name": "Festészet",
         "tipus": "vilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "epiteszet",
+                "strength": 0.1
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.75
+            },
+            {
+                "id": "heraldika",
+                "strength": 0.25
+            },
+            {
+                "id": "terkepeszet",
+                "strength": 0.5
+            }
+        ],
         "kp": [
-            6,
-            12,
-            20,
-            32,
-            50
+            1,
+            4,
+            8,
+            15,
+            30
         ],
         "leiras": "A festészet és a rajzolás művészete, valamint az így készült tárgyak ismerete.",
         "szintleiras": [
@@ -411,13 +571,18 @@
         "name": "Földharc",
         "tipus": "harci",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "eses",
+                "strength": 0.67
+            }
+        ],
         "kp": [
-            6,
-            12,
-            20,
-            32,
-            50
+            3,
+            4,
+            7,
+            9,
+            18
         ],
         "leiras": "A küzdelem során földre kerülő csak jelentős hátrányokkal képes folytatni a harcot. KÉ-je és VÉ-je  10-zel, TÉ-je 20-szal csökken, s csak akkor képes felállni, ha az adott körben lemond a támadásról,  s őt sem éri egyetlen sikeres támadás sem. A Földharcban magasan képzett karakter nem szenvedi el ezeket a  hátrányokat, sőt képes helyzetéből előnyt kovácsolni.",
         "szintleiras": [
@@ -434,13 +599,18 @@
         "name": "Futás",
         "tipus": "vilagi",
         "kepesseg": "allokepesseg",
-        "linked": [],
+        "linked": [
+            {
+                "id": "uszas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             3,
-            10,
+            8,
+            15,
             20,
-            40,
-            50
+            32
         ],
         "leiras": "A Futás Képzettség sokkal inkább jelent kitartó, mint szélsebes futást.  ",
         "szintleiras": [
@@ -480,13 +650,18 @@
         "name": "Hamisítás",
         "tipus": "alvilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "alcazas_alruha",
+                "strength": 0.5
+            }
+        ],
         "kp": [
-            6,
-            12,
+            4,
+            10,
+            15,
             20,
-            32,
-            50
+            32
         ],
         "leiras": "Sokak által elítélt alvilági képzettség, amely ugyan hősi kalandozók számára nem sok haszonnal  kecsegtet, ám egyetlen igazi tolvaj sincs, aki alábecsülné a benne rejlő lehetőségeket. Minden  államban büntetik, mégis sokan folyamodnak hozzá. Leggyakrabban olyan tolvajok tanulják, akik  álcázás képzettségükkel együtt szélhámosként, mások becsapásával akarnak hasznot húzni.  \nA hamisításnak rengeteg formája ismert. Vannak, akik iratokat, papírokat (megbízóleveleket) hamisítanak. Ez főleg a fejlettebb országokban - mint Pyarron vagy az Északi Szövetség - lehet  jövedelmező, ahol a kereskedelemmel és a pénzügyletekkel szorosan összefonódtak az okiratok.  (Persze a kalandozóknak is jól jöhet a képzettség, amikor királyi mentelmi levelet, netán ajánló  sorokat vetnek papírra saját kezűleg.) \nMások különböző tárgyakat hamisítanak - ékszereket, drágaköveket, művészi alkotásokat. Csupa  olyan dolgot, amit azután magas áron lehet továbbadni gazdag, gyanútlan kereskedőknek. Az  értékes tárgyak, anyagok utánzása néha nagyon különleges lehet, példa erre a predoci borok  hamisítása is.  \nMegint mások magát a pénzt hamisítják. Ez veszélyes foglalkozás, mivel a királyok, uralkodók és  pénzverési joggal rendelkező nemesek vasszigorral büntetnek minden efféle tettet. Ott pedig, ahol  nem ekkora a törvény hatalma, (kevésbé civilizáltak a viszonyok, gyanakvóbbak az emberek) nem  is igazán érdemes pénzt hamisítani. A pénzhamisítást rengeteg módon űzik. Azokban az  államokban, ahol nem ellenőrzik elég alaposan az érmék méretét és súlyát, gyakran lefaragják a  pénz szélét, és az így nyert forgácsból új érmét vernek. Természetesen egy új érméhez sok régit  kell \"megnyúzni\", de megéri a fáradság. Mások egyenesen ólomból verik a pénzt, azután bevonják  aranyréteggel. Létezik ennek egy sokkal bonyolultabb, költségesebb változata is, mikor az aranyat  sok ónnal vagy ólommal ötvözik. Így nagyjából megmarad az érme mérete és súlya, a benne  foglalt arany viszont kevesebb lesz. Ez utóbbi esetben nehéz felismerni a hamis érmét.  ",
         "szintleiras": [
@@ -505,19 +680,19 @@
         "kepesseg": "empatia",
         "linked": [],
         "kp": [
-            6,
+            4,
+            10,
             12,
-            20,
-            32,
-            50
+            15,
+            25
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ynev fogadóiban, tábortüzei mellett, de még az úri körökben is ismerik és űzik a kártyajátékokat.  És akadnak persze olyanok is, akik fittyet hánynak a szabályoknak, és kézügyességüket  kihasználva, becstelen trükkök bevetésével igyekeznek meggazdagodni becsületesebb vagy éppen  ostobább társaik kárára. A kártyalapok szemfényvesztő forgatását, cserélgetését; a hátlapokra rótt  titkos jelek leolvasásával folytatott játékot nevezzük hamiskártyázásnak. A Képzettség ezen kétes  értékű tudományt jelenti.\n\nA képzettség fokai nem számszerűsíthetőek pontosan, de egy magasabban \"képzett\" karakter jó eséllyel át tud verni egy kevésbé rutinos versenyzőt.",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     {
@@ -527,12 +702,29 @@
         "leiras": "Sokrétű képzettségről van szó; ide soroljuk a vadászok állathang utánzó képességét, mellyel  magukhoz csalogatják a vadat, de ide tartozik a komédiások tudománya is, mellyel ismert  személyek, főurak, papok, királyok hangját utánozzák, közönségük épülésére.  ",
         "tipus": "vilagi",
         "kepesseg": "empatia",
+        "kp": [
+            2,
+            6,
+            10,
+            12,
+            23
+        ],
         "szintleiras": [
             "A karakter képes egyszerűbb állathangokat meggyőzően utánozni.",
             "A karakter képes sokféle állathang utánzására, valamint az általa sokat hallott emberek hangszínét, akcentusát és hanglejtését utánozni annyira, hogy egy, a célpontot felszínesen ismerő személyt megtévesszen.",
             "A karakter már rövid ideig képes a célpontot jól ismerő embereket is megtéveszteni hangjával.\n\nEgy fogadóban vagy cirkuszban már akár meg is élhet művészetéből.",
             "A karakter képes szinte bárkinek a hangját utánozni, miután hallotta az illetőt beszélni egy-két percig.",
             "A karakter élettelen tárgyak hangjait is tökéletesen tudja utánozni, pl. nyikorgó padló, ajtónyílás, lódobogás, lánccsörgés, tűzropogás, hóba lépés."
+        ],
+        "linked": [
+            {
+                "id": "hamiskartya",
+                "strength": 0.1
+            },
+            {
+                "id": "hasbeszeles",
+                "strength": 0.25
+            }
         ]
     },
     {
@@ -541,13 +733,22 @@
         "name": "Harc helyhez kötve",
         "tipus": "harci",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "birkozas",
+                "strength": 0.25
+            },
+            {
+                "id": "kocsmai_verekedes",
+                "strength": 0.5
+            }
+        ],
         "kp": [
+            2,
+            3,
             6,
-            12,
-            20,
-            32,
-            50
+            8,
+            17
         ],
         "leiras": "Ennek a képzettségnek a segítségével a harcos olyan technikákat képes elsajátítani támadás és  védekezés terén, melyek segítségével akkor is könnyen harcol, ha helyváltoztatásában valami  akadályozza. Az eredményes fegyverforgatás ekkor is megköveteli a karok mozgásterét, de a lábak  alig vagy egyáltalán nem változtatnak helyzetet. A különleges technika mély állásokra épül,  melyek segítenek megőrizni a küzdő stabilitását, ugyanakkor lehetővé teszik, hogy a test sokféle  mozgást végezhessen anélkül, hogy egyensúlyának megtartásáért a lábnak ki kellene lépnie  valamilyen irányba.\n\nA különleges harci stílus kialakulásának természetesen jó oka volt. Olyan embercsoportok  dolgozták ki az alapokat, akik víz vagy mocsár környékén éltek. Az ingoványban két oka is volt a  kényszerű helyhezkötöttségnek: szerencse kell ahhoz, hogy egy hirtelen lépés a mocsár szilárd  pontjára, és ne gyorsan süppedő területre történjék, így a küzdő megpróbált a lehető legkevesebbet mozogni. A másik helyzet akkor adódott, mikor a rossz lépés már megtörtént, és a harcos térdig  süllyedt a sárba. Ekkor - mivel nem kászálódhatott ki a csata hevében - kénytelen volt egyhelyben  harcolni. A víz mellett lakók akkor voltak kénytelenek megalkotni a módszer alapjait, mikor vízi  ütközetekben és a part mentén az ellenfelek csónakokon harcoltak. Ezek a könnyen boruló  alkalmatosságok nem tették lehetővé a laza ide-oda ugrálást, a harcosnak mindent meg kellett  tennie annak érdekében, hogy a lélekvesztő egyensúlya megmaradjon, ha nem akart a vízben  kikötni.\n\nA helyhez kötve tanult harc természetesen jelentős előnyt biztosít a fenti helyzetekben, különösen  akkor, ha az ellenfél nem rendelkezik hasonló tudással. Akkor is fontos lehet, ha a másik fél nincs  helyhez kötve - ekkor segít csökkenteni a harci helyzetből eredő hátrányokat. A Harc helyhez  kötve módosítói képzetlenek számára a következők: KÉ -20, TÉ -15, VÉ -5.",
         "szintleiras": [
@@ -566,29 +767,29 @@
         "kepesseg": "onuralom",
         "linked": [],
         "kp": [
+            3,
             6,
+            8,
             12,
-            20,
-            32,
-            50
+            18
         ],
-        "leiras": "Leírás/kp",
+        "leiras": "Ha valaki, aki ebben képzett, elhatározza,  hogy eksztázisban akar küzdeni, akkor egy percen át (6 kör) a \"hívóritmusra\" kell koncentrálnia  (csata közben is teheti!), azután körönként Önuralom próbát kell tennie. Az első körben -10 levonással, a  másodikban -20 módosítóval, a harmadikban -30-cal, és így tovább.\n\nAmint elvéti, megszűnik  számára a külvilág, csak az ellenfél és a harc marad. Nem varázsolhat, nem használhat Pszit vagy külön-leges képességet, nem menekülhet, és nem védekezhet, kizárólag csak harcolhat, amíg  ellenfelet talál magának.\n\nHarc közben pajzsa vagy hárítófegyvere Védőértéke nem számít bele a karakter  Védőértékébe.\n\nMentális mágiaellenállása megduplázódik, míg asztrálisan   hatni rá csak akkor lehet, ha sikerül erősebb érzelmet kelteni benne, mint a harci láz foka.\n\n",
         "szintleiras": [
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp",
-            "TODO: leiras/kp"
+            "Harci láz közben a karaktert a következő módosítók illetik meg: KÉ: +2, TÉ: +5, VÉ: -10, Sebzés +1.",
+            "Harci láz közben a karaktert a következő módosítók illetik meg: KÉ: +5, TÉ: +10, VÉ: -20, Sebzés +2.\n",
+            "Harci láz közben a karaktert a következő módosítók illetik meg: KÉ: +8, TÉ: +15, VÉ: -30, Sebzés +3.",
+            "Harci láz közben a karaktert a következő módosítók illetik meg: KÉ: +10, TÉ: +20, VÉ: -40, Sebzés +4.\n\nTovábbá a karakternek mindössze 3 körig kell koncentrálnia, mielőtt elkezdhet Önuralom-próbát dobnia, azt is -30-nál kezdi.",
+            "Harci láz közben a karaktert a következő módosítók illetik meg: KÉ: +15, TÉ: +25, VÉ: -50, Sebzés +5.\n\nA karakternek nem kell semmiféle próbát dobnia a Harci Láz elkezdéséhez, azonnal bepöccenhet.\n\n"
         ]
     },
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -607,11 +808,11 @@
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -630,11 +831,11 @@
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -653,11 +854,11 @@
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -676,11 +877,11 @@
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -699,11 +900,11 @@
     {
         "fajta": "normal",
         "kp": [
-            5,
-            10,
-            20,
-            30,
-            40
+            3,
+            8,
+            15,
+            21,
+            31
         ],
         "tipus": "harcmodor",
         "linked": [],
@@ -725,13 +926,22 @@
         "name": "Hasbeszélés",
         "tipus": "alvilagi",
         "kepesseg": "osszpontositas",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hamiskartya",
+                "strength": 0.1
+            },
+            {
+                "id": "mellebeszeles",
+                "strength": 0.25
+            }
+        ],
         "kp": [
-            6,
-            12,
-            20,
-            32,
-            50
+            2,
+            4,
+            9,
+            11,
+            19
         ],
         "leiras": "E jártassággal rendelkező karakterek képesek hangjukat \"áthelyezni\". Valójában nem tudnak  másik irányból hangokat hallatni, de képesek ezt másokkal elhitetni.  ",
         "szintleiras": [
@@ -748,13 +958,30 @@
         "name": "Heraldika",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "ertekbecsles",
+                "strength": 0.25
+            },
+            {
+                "id": "etikett",
+                "strength": 0.25
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.1
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
-            6,
+            2,
+            4,
+            8,
             12,
-            20,
-            32,
-            50
+            20
         ],
         "leiras": "A Heraldika tudománya a címerek, családi, kláni és rendi jelek ismeretét jelenti. Nem  lebecsülendő tudomány ez: megvannak a maga törvényszerűségei és szabályai. Milyen alapon  milyen figurák szerepelhetnek, milyen színek párosulhatnak, milyen minták alkalmazhatóak.  ",
         "szintleiras": [
@@ -778,15 +1005,23 @@
             },
             {
                 "id": "meregkeveres",
+                "strength": 0.5
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.1
+            },
+            {
+                "id": "tuleles",
                 "strength": 0.25
             }
         ],
         "kp": [
             2,
-            3,
+            5,
             15,
-            25,
-            40
+            28,
+            44
         ],
         "leiras": "A Herbalizmus a gyógy- vagy épp mérgező növények ismeretét, azok gyakorlati felhasználását takarja.",
         "szintleiras": [
@@ -794,7 +1029,7 @@
             "A karakter képes egyszerűbb gyógyító vagy éppen kábító főzetek elkészítésére. Ezek betegségekkel szembeni egészségpróbára adhatnak bónuszt (nagyjából +30%-ig), sebekre kenve kétszeresére gyorsíthatják azok gyógyulását, vagy elfogyasztva enyhe rosszullétet, émelygést okozhatnak.",
             "A karakter már erősebb mérgeket és gyógyfőzeteket is készíthet (maximum +50%, komolyabb betegségekre is, a gyógyulás háromszorosára gyorsul.\n\nIsmeri a környék szinte összes növényét, és Ynev távolabbi vidékein is a főbb gyógy- ill. mérgező növényeket.",
             "A karakter már halálos ételmérgeket vagy görcsöt okozó fegyvermérgeket is tud készíteni. A gyógyulás négyszeresére gyorsul, a karakter ismeri továbbá Ynev legtöbb így vagy úgy hasznosítható növényét.",
-            "A karakter által kezelt sebek nyom nélkül gyógyulnak be, méghozzá ötszörös sebességgel. Képes előre bevehető ellenmérgek készítésére is, és még szénéra ismeretlen növényeket is könnyedén és biztonságosan ki tud elemezni."
+            "A karakter által kezelt sebek nyom nélkül gyógyulnak be, méghozzá ötszörös sebességgel.\n Képes előre bevehető ellenmérgek készítésére is, és még szénéra ismeretlen növényeket is könnyedén és biztonságosan ki tud elemezni."
         ]
     },
     {
@@ -803,13 +1038,22 @@
         "name": "Időjóslás",
         "tipus": "tudomanyos",
         "kepesseg": "gondolkodas",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hajozas",
+                "strength": 0.5
+            },
+            {
+                "id": "tuleles",
+                "strength": 0.25
+            }
+        ],
         "kp": [
-            6,
-            12,
-            20,
-            32,
-            50
+            2,
+            4,
+            7,
+            11,
+            25
         ],
         "leiras": "Az időjóslás ezer szempontból elengedhetetlen fontosságú Ynev világán is. A tengerészek életében  a biztonság, hadjáratok esetén a győzelem, az utazók számára pedig a kényelem biztosítéka. Nem  csoda hát, ha sokan igyekeznek kifürkészni szeszélyeit, hogy megjósolhassák az eljövendőt. Ezer  módszer létezik erre: az egyszerű, tapasztalatokon alapuló találgatástól egészen a misztikus  megoldásokig - mint amilyen a kártyavetés, vagy a madarak belső szerveinek bűbájos  megolvasása. Egyet azonban le kell szögeznünk. Ezek a módszerek igenis - működnek.  ",
         "szintleiras": [
@@ -826,13 +1070,22 @@
         "name": "Idomítás",
         "tipus": "vilagi",
         "kepesseg": "empatia",
-        "linked": [],
+        "linked": [
+            {
+                "id": "kocsihajtas",
+                "strength": 0.25
+            },
+            {
+                "id": "lovaglas",
+                "strength": 0.75
+            }
+        ],
         "kp": [
-            6,
-            12,
-            20,
-            32,
-            50
+            4,
+            8,
+            10,
+            15,
+            25
         ],
         "leiras": "Ynev világán rengeteg olyan állat akad, amely betanítható az ember szolgálatára. Ezeknek csak  jelentős, de nem kizárólagos hányadát jelentik a lovak, ökrök, kutyák. Hiszen vannak, akik  farkasokat, madarakat édesgetnek magukhoz. Az Idomítás Képzettség felruházza a karaktert annak  képességével, hogy állatokat tanítson be különféle feladatok végrehajtására.  ",
         "szintleiras": [
@@ -849,7 +1102,12 @@
         "name": "Írás/olvasás",
         "tipus": "tudomanyos",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hamisitas",
+                "strength": 0.1
+            }
+        ],
         "kp": [
             6,
             12,
@@ -872,7 +1130,20 @@
         "name": "Jogismeret",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "etikett",
+                "strength": 0.25
+            },
+            {
+                "id": "mellebeszeles",
+                "strength": 0.25
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -987,7 +1258,40 @@
         "name": "Legendaismeret",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "enek_zene",
+                "strength": 0.25
+            },
+            {
+                "id": "etikett",
+                "strength": 0.1
+            },
+            {
+                "id": "epiteszet",
+                "strength": 0.1
+            },
+            {
+                "id": "ertekbecsles",
+                "strength": 0.1
+            },
+            {
+                "id": "fegyverismeret",
+                "strength": 0.25
+            },
+            {
+                "id": "festeszet",
+                "strength": 0.25
+            },
+            {
+                "id": "heraldika",
+                "strength": 0.25
+            },
+            {
+                "id": "jogismeret",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1010,7 +1314,16 @@
         "name": "Lovaglás",
         "tipus": "vilagi",
         "kepesseg": "allokepesseg",
-        "linked": [],
+        "linked": [
+            {
+                "id": "kocsihajtas",
+                "strength": 0.25
+            },
+            {
+                "id": "eses",
+                "strength": 0.34
+            }
+        ],
         "kp": [
             3,
             10,
@@ -1056,7 +1369,24 @@
         "name": "Mechanika",
         "tipus": "tudomanyos",
         "kepesseg": "gondolkodas",
-        "linked": [],
+        "linked": [
+            {
+                "id": "csapdaallitas",
+                "strength": 0.5
+            },
+            {
+                "id": "epiteszet",
+                "strength": 0.25
+            },
+            {
+                "id": "csapdafelfedezes",
+                "strength": 0.34
+            },
+            {
+                "id": "zarnyitas",
+                "strength": 0.67
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1079,7 +1409,16 @@
         "name": "Mellébeszélés",
         "tipus": "vilagi",
         "kepesseg": "empatia",
-        "linked": [],
+        "linked": [
+            {
+                "id": "emberismeret",
+                "strength": 0.25
+            },
+            {
+                "id": "hamiskartya",
+                "strength": 0.5
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1102,7 +1441,12 @@
         "name": "Méregkeverés/Semlegesítés",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "sebgyogyitas",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             5,
             10,
@@ -1125,7 +1469,16 @@
         "name": "Nyomolvasás/Eltüntetés",
         "tipus": "vilagi",
         "kepesseg": "erzekeles",
-        "linked": [],
+        "linked": [
+            {
+                "id": "csapdaallitas",
+                "strength": 0.25
+            },
+            {
+                "id": "tuleles",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1148,7 +1501,12 @@
         "name": "Orvtámadás",
         "tipus": "alvilagi",
         "kepesseg": "osszpontositas",
-        "linked": [],
+        "linked": [
+            {
+                "id": "belharc",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1194,7 +1552,16 @@
         "name": "Rúnamágia",
         "tipus": "tudomanyos",
         "kepesseg": "gondolkodas",
-        "linked": [],
+        "linked": [
+            {
+                "id": "csapdaallitas",
+                "strength": 0.1
+            },
+            {
+                "id": "ertekbecsles",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1227,11 +1594,11 @@
         ],
         "leiras": "A Sebgyógyítás mind a sebesülések azonnali, csatatéren való ellátását, mind a hosszabb távú ápolást magában foglalja.",
         "szintleiras": [
-            "A karakter mindössze annyira képes, hogy a nyílt vérző sebeket nagyjából ellássa, ideiglenes  kötést tegyen rá, gyakorlatilag azt tudja elérni, hogy a sérült ne vérezzen el rövid időn belül.  ",
-            "",
-            "",
-            "",
-            ""
+            "A karakter mindössze annyira képes, hogy a nyílt vérző sebeket nagyjából ellássa, ideiglenes kötést tegyen rá, gyakorlatilag azt tudja elérni, hogy a sérült ne vérezzen el rövid időn belül, és elkezdhesse a gyógyulást.",
+            "Ez a fok leginkább a seb külső ellátását szolgálja, tehát segít megállítani a  vérzést vagy a seb ismétlődő felnyílását.\n\nAz FP gyógyulás sebessége 2x-es (folyamatos ápolással 3x-os), ÉP gyógyulás változatlan.",
+            "Ezen a fokon már a mélyebb sebek és törések is kezelhetők.\n\nAz FP gyógyulás sebessége 3x-os (folyamatos ápolással 4x-es), ÉP gyógyulás sebessége 2x-es.",
+            "A karakter képes szinte bármilyen seb kezelésére, akár sérült szervek vagy erek összevarrására is.\n\nAz FP gyógyulás sebessége 3x-os (folyamatos ápolással 4x-es), ÉP gyógyulás sebessége 3x-os (folyamatos ápolással 4x-es).",
+            "A karakter már képes akár végtagokat is visszavarrni, szerveket vagy csontokat átültetni.\n\nAz FP gyógyulás sebessége 4x-es (folyamatos ápolással 5x-ös), ÉP gyógyulás sebessége 4x-es (folyamatos ápolással 5x-ös)."
         ]
     },
     {
@@ -1263,7 +1630,24 @@
         "name": "Tánc",
         "tipus": "vilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "belharc",
+                "strength": 0.25
+            },
+            {
+                "id": "enek_zene",
+                "strength": 0.5
+            },
+            {
+                "id": "harc_helyhez_kotve",
+                "strength": 0.5
+            },
+            {
+                "id": "ugras",
+                "strength": 0.67
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1286,7 +1670,20 @@
         "name": "Térképészet",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "epiteszet",
+                "strength": 0.25
+            },
+            {
+                "id": "idojoslas",
+                "strength": 0.25
+            },
+            {
+                "id": "hajozas",
+                "strength": 0.5
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1309,7 +1706,36 @@
         "name": "Túlélés",
         "tipus": "vilagi",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "herbalizmus",
+                "strength": 0.1
+            },
+            {
+                "id": "idojoslas",
+                "strength": 0.5
+            },
+            {
+                "id": "idomitas",
+                "strength": 0.1
+            },
+            {
+                "id": "meregkeveres",
+                "strength": 0.25
+            },
+            {
+                "id": "nyomolvasas",
+                "strength": 0.5
+            },
+            {
+                "id": "lopozas",
+                "strength": 0.34
+            },
+            {
+                "id": "rejtozes",
+                "strength": 0.34
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1332,7 +1758,16 @@
         "name": "Úszás",
         "tipus": "vilagi",
         "kepesseg": "izom",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hajozas",
+                "strength": 0.5
+            },
+            {
+                "id": "tuleles",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             3,
             10,
@@ -1378,7 +1813,28 @@
         "name": "Vallásismeret",
         "tipus": "tudomanyos",
         "kepesseg": "emlekezet",
-        "linked": [],
+        "linked": [
+            {
+                "id": "enek_zene",
+                "strength": 0.25
+            },
+            {
+                "id": "etikett",
+                "strength": 0.25
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.1
+            },
+            {
+                "id": "heraldika",
+                "strength": 0.25
+            },
+            {
+                "id": "jogismeret",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,
@@ -1424,7 +1880,12 @@
         "name": "Zsonglőrködés",
         "tipus": "vilagi",
         "kepesseg": "mozgaskoordinacio",
-        "linked": [],
+        "linked": [
+            {
+                "id": "hamiskartya",
+                "strength": 0.25
+            }
+        ],
         "kp": [
             6,
             12,

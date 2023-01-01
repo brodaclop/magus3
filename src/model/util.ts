@@ -12,7 +12,7 @@ export interface NamedEntityArray<T> {
 export const arrayFind = <T extends NamedEntity>(array: Array<T>, id: string): T => {
     const ret = array.find(t => t.id === id);
     if (ret === undefined) {
-        throw new Error('failed to find');
+        throw new Error(`failed to find ${id}`);
     }
     return ret;
 }
@@ -35,3 +35,5 @@ export const mergeToArray = <T>(input: Array<T>, ob: T, idFn: (o: T) => string) 
         input[currentIdx] = ob;
     }
 }
+
+export const printNumber = (n: number): string => n === Math.floor(n) ? String(n) : n.toFixed(2);

@@ -35,27 +35,15 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
 
     const pluszKP = () => {
-        const kepzettseg = Kepzettseg.find(ujkepzettseg)
-        if (kepzettseg.fajta === 'normal') {
-            Kepzettseg.kpEloszt(
-                calc.kepzettsegek.normal,
-                karakter.szint[karakter.szint.length - 1].kepzettsegek.normal,
-                calc.kepessegek,
-                kepzettseg,
-                1,
-                true
-            );
-            karakter.kp--;
-            onChange(karakter);
-        } else {
-            const current = previousSzazalekos(kepzettseg);
-            if (current !== 'max' && (current === undefined || current.szazalek <= 12)) {
-                if (addSzazalek(kepzettseg, 3)) {
-                    karakter.kp--;
-                    onChange(karakter);
-                }
-            }
-        }
+        const kepzettseg = Kepzettseg.find(ujkepzettseg);
+        Kepzettseg.kpEloszt(
+            calc,
+            karakter,
+            kepzettseg,
+            1,
+            true
+        );
+        onChange(karakter);
     };
 
     const previousSzazalekos = (kepzettseg: SzazalekosKepzettseg): SzintInfo['kepzettsegek']['szazalekos'][0] | undefined | 'max' => {
@@ -88,6 +76,8 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
             onChange(karakter);
         }
     }
+
+    const ujKepzettsegOb = ujkepzettseg ? Kepzettseg.find(ujkepzettseg) : undefined;
 
     return <div>
         {calc.pendingKepzettsegekCount > 0 && <table className='bordered'>
@@ -150,7 +140,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         </optgroup>
                     </select>
                     </td>
-                    <td><button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0} onClick={pluszKP}>+1 KP</button></td>
+                    <td><button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={pluszKP}>+1 KP</button></td>
                 </tr>
             </tbody>
             <tbody>
@@ -159,7 +149,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
                     </td>
                     <td>
-                        {k.kp}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
+                        {k.kp === Math.floor(k.kp) ? k.kp : k.kp.toFixed(2)}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
                     </td>
                 </tr>)}
             </tbody>

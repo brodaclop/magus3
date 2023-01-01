@@ -1,11 +1,12 @@
 import { Fegyver, FEGYVER_KATEGORIAK, NYILPUSKA_KATEGORIA } from "./Fegyver";
-import { SzintInfo } from "./Karakter";
+import { Karakter } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
 import { Magia } from "./Magia";
 import { Harcmuveszet } from "./Harcmuveszet";
 import { Pszi } from "./Pszi";
+import { KarakterCalcResult } from "./KarakterCalculator";
 
 export const KepzettsegTipus = [
     {
@@ -114,7 +115,7 @@ const generateFegyverKepzettsegek = (): Array<NormalKepzettseg> => Fegyver.lista
 
 const generateLoFegyverKepzettsegek = (): Array<NormalKepzettseg> => [...Lofegyver.lista.filter(l => l.tipus !== 'ij'), { tipus: 'ij', id: 'ij', name: 'Íj' }]
     .map(f => {
-        const linked: Array<KepzettsegLink> = f.tipus === 'nyilpuska' ? [{ id: NYILPUSKA_KATEGORIA.id, strength: 1 }] : [];
+        const linked: Array<KepzettsegLink> = f.tipus === 'nyilpuska' ? [{ id: `fegyverkat:${NYILPUSKA_KATEGORIA.id}`, strength: 1 }] : [];
         const kepesseg = f.tipus === 'ij' ? 'mozgaskoordinacio' : (f.tipus === 'nyilpuska' ? NYILPUSKA_KATEGORIA.kepesseg : (f as EgyebLofegyver).kepesseg);
         return {
             fajta: 'normal',
@@ -246,7 +247,12 @@ const generateOsiNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
         name: `Ősi nyelv (${ny})`,
         tipus: 'osi_nyelv',
         kepesseg: 'emlekezet',
-        linked: [],
+        linked: [
+            {
+                id: 'legendaismeret',
+                strength: 0.5
+            }
+        ],
         kp: [8, 12, 30, 40, 55],
         leiras: '',
         szintleiras: ['', '', '', '', ''],
@@ -278,28 +284,47 @@ export const Kepzettseg = {
     ...namedEntityArray(KEPZETTSEGEK),
     kpFokhoz: (kepessegek: Record<string, number>, kepzettseg: NormalKepzettseg, fok: number): number => {
         const kepesseg = kepessegek[kepzettseg.kepesseg];
-        return Math.ceil(kepzettseg.kp[fok - 1] * KP_SZORZOK[kepesseg]);
+        try {
+            return Math.ceil(kepzettseg.kp[fok - 1] * KP_SZORZOK[kepesseg]);
+        } catch (e) {
+            debugger;
+            return 0;
+        }
     },
     __taroltLista: () => Kepzettseg.lista.filter(k => k.fajta === 'normal' && !k.__generated),
     keres: (prefix: string): Array<Kepzettseg> => Kepzettseg.lista.filter(k => k.id.startsWith(prefix)),
     kpEloszt: (
-        osszes: SzintInfo['kepzettsegek']['normal'],
-        current: SzintInfo['kepzettsegek']['normal'],
-        kepessegek: Record<string, number>,
-        kepzettseg: NormalKepzettseg,
+        calc: KarakterCalcResult,
+        karakter: Karakter,
+        kepzettseg: Kepzettseg,
         pluszKp: number,
         transitive = false
     ): void => {
-        let { fok = 0, kp = 0 } = osszes.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
-        kp += pluszKp;
-        //TODO: type
-        while (fok < 5 && kp >= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any)) {
-            kp -= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any);
-            fok++;
-        }
-        mergeToArray(current, { kepzettseg, kp, fok }, i => i.kepzettseg.id);
-        if (transitive) {
-            kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(osszes, current, kepessegek, Kepzettseg.find(l.id) as NormalKepzettseg, pluszKp * l.strength, false));
+        if (kepzettseg.fajta === 'normal') {
+            const kepessegek = calc.kepessegek;
+            const osszes = calc.kepzettsegek.normal;
+            const current = karakter.szint.at(-1)!.kepzettsegek.normal;
+            let { fok = 0, kp = 0 } = osszes.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
+            kp += pluszKp;
+            while (fok < 5 && kp >= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any)) {
+                kp -= Kepzettseg.kpFokhoz(kepessegek, kepzettseg, (fok + 1) as any);
+                fok++;
+            }
+            mergeToArray(current, { kepzettseg, kp, fok }, i => i.kepzettseg.id);
+            if (transitive) {
+                karakter.kp -= pluszKp;
+                kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(calc, karakter, Kepzettseg.find(l.id), pluszKp * l.strength, false));
+            }
+        } else {
+            const current = karakter.szint.at(-1)!.kepzettsegek.szazalekos;
+            let { szazalek = 0 } = current.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
+            szazalek += Math.floor(pluszKp * 3);
+            if (!transitive || szazalek <= 15) {
+                mergeToArray(current, { kepzettseg, szazalek }, i => i.kepzettseg.id);
+                if (transitive) {
+                    karakter.kp -= pluszKp;
+                }
+            }
         }
     },
 }

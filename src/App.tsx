@@ -9,6 +9,7 @@ import { KarakterWidget } from './widgets/KarakterWidget';
 import './styles.css';
 import './dropdownmenu.css';
 import 'react-responsive-modal/styles.css';
+import { KpEditor } from './admin/KpEditor';
 
 const App: React.FC<{}> = () => {
 
@@ -42,6 +43,7 @@ const App: React.FC<{}> = () => {
             <li><KepzettsegEditor /></li>
             <li><KasztEditor /></li>
             <li><FegyverEditor /></li>
+            <li><KpEditor /></li>
             <li><button onClick={() => setKarakterek({})}>Reset</button></li>
           </ul>
         </li>
