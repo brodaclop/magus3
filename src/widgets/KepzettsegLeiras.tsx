@@ -3,11 +3,12 @@ import React from 'react';
 import { Kepzettseg } from '../model/Kepzettseg';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { FcCheckmark } from "react-icons/fc";
 
-export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number }> = ({ kepzettseg, fok }) => {
+export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number, inline?: boolean, truncateUnknown?: boolean }> = ({ kepzettseg, fok, inline, truncateUnknown }) => {
     const kepzettsegTable =
-        <div style={{ overflowY: 'scroll', pointerEvents: 'auto', maxHeight: '30rem' }}>
-            <table className='bordered' style={{ width: '25rem' }}>
+        <div style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
+            <table className='bordered' style={{ width: '23rem' }}>
                 <thead>
                     <tr style={{ textAlign: 'center' }}>
                         <th colSpan={2}>
@@ -23,9 +24,9 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number }
                     </tr>
                 </thead>
                 <tbody>
-                    {kepzettseg.fajta === 'normal' && kepzettseg.szintleiras.map((l, idx) => <tr>
-                        <th>{idx + 1}. fok</th>
-                        <td style={{ textAlign: 'justify', fontWeight: (fok !== undefined && idx < fok) ? 'bold' : 'normal' }}>
+                    {kepzettseg.fajta === 'normal' && kepzettseg.szintleiras.filter((i, idx) => !truncateUnknown || (idx < (fok ?? 0))).map((l, idx) => <tr>
+                        <th style={{ whiteSpace: 'nowrap', fontWeight: (idx < (fok ?? 0)) ? 'bold' : 'normal' }}>{idx + 1}. fok{!truncateUnknown && (idx < (fok ?? 0)) && <FcCheckmark />} </th>
+                        <td style={{ textAlign: 'justify' }}>
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                 {l}
                             </ReactMarkdown>
@@ -35,7 +36,7 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number }
             </table>
         </div>;
 
-    return <Tooltip placement='right' overlay={kepzettsegTable}>
+    return inline ? kepzettsegTable : <Tooltip placement='right' overlay={kepzettsegTable}>
         <span>{kepzettseg.name} {fok !== undefined && <>{fok}{kepzettseg.fajta === 'normal' ? <>. fok</> : <>%</>}</>}</span>
     </Tooltip>;
 }

@@ -37,7 +37,7 @@ table.fullWidth {
 div.karakterLap {
     display: flex;
     flex-wrap: wrap;
-    max-width: 72em;
+    max-width: 75em;
     justify-content: space-between;
     padding: 1em;
     border: 5px groove lightgray;
