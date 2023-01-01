@@ -42,6 +42,10 @@ export const KepzettsegTipus = [
         name: 'Alvilági'
     },
     {
+        id: 'szakma',
+        name: 'Szakma'
+    },
+    {
         id: 'magia',
         name: 'Mágia'
     },

@@ -1626,6 +1626,166 @@
     },
     {
         "fajta": "normal",
+        "id": "szakma:ekszeresz",
+        "name": "Szakma (ékszerész)",
+        "tipus": "szakma",
+        "kepesseg": "erzekeles",
+        "leiras": "Ékszerész",
+        "szintleiras": [
+            "Kontár",
+            "Inas",
+            "Legény",
+            "Mester",
+            "Nagymester"
+        ],
+        "kp": [
+            1,
+            2,
+            4,
+            7,
+            22
+        ],
+        "linked": [
+            {
+                "id": "ertekbecsles",
+                "strength": 0.5
+            },
+            {
+                "id": "hamisitas",
+                "strength": 0.25
+            }
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "szakma:fegyverkovacs",
+        "name": "Szakma (fegyverkovács)",
+        "tipus": "szakma",
+        "kepesseg": "izom",
+        "leiras": "Fegyverkovács",
+        "szintleiras": [
+            "Kontár",
+            "Inas",
+            "Legény",
+            "Mester",
+            "Nagymester"
+        ],
+        "kp": [
+            1,
+            2,
+            4,
+            7,
+            22
+        ],
+        "linked": [
+            {
+                "id": "szakma:pancelkovacs",
+                "strength": 0.25
+            },
+            {
+                "id": "szakma:patkolokovacs",
+                "strength": 0.25
+            },
+            {
+                "id": "fegyverismeret",
+                "strength": 0.75
+            }
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "szakma:pancelkovacs",
+        "name": "Szakma (páncélkovács)",
+        "tipus": "szakma",
+        "kepesseg": "izom",
+        "leiras": "Páncélkovács",
+        "szintleiras": [
+            "Kontár",
+            "Inas",
+            "Legény",
+            "Mester",
+            "Nagymester"
+        ],
+        "kp": [
+            1,
+            2,
+            4,
+            7,
+            22
+        ],
+        "linked": [
+            {
+                "id": "szakma:fegyverkovacs",
+                "strength": 0.25
+            },
+            {
+                "id": "szakma:patkolokovacs",
+                "strength": 0.25
+            }
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "szakma:patkolokovacs",
+        "name": "Szakma (patkolókovács)",
+        "tipus": "szakma",
+        "kepesseg": "izom",
+        "leiras": "Patkolókovács",
+        "szintleiras": [
+            "Kontár",
+            "Inas",
+            "Legény",
+            "Mester",
+            "Nagymester"
+        ],
+        "kp": [
+            1,
+            2,
+            4,
+            7,
+            22
+        ],
+        "linked": [
+            {
+                "id": "szakma:fegyverkovacs",
+                "strength": 0.25
+            },
+            {
+                "id": "szakma:pancelkovacs",
+                "strength": 0.25
+            }
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "szakma:varrono",
+        "name": "Szakma (varrónő)",
+        "tipus": "szakma",
+        "kepesseg": "mozgaskoordinacio",
+        "leiras": "Varrónő",
+        "szintleiras": [
+            "Kontár",
+            "Inas",
+            "Legény",
+            "Mester",
+            "Nagymester"
+        ],
+        "kp": [
+            1,
+            2,
+            4,
+            7,
+            22
+        ],
+        "linked": [
+            {
+                "id": "alcazas_alruha",
+                "strength": 0.75
+            }
+        ]
+    },
+    {
+        "fajta": "normal",
         "id": "tanc",
         "name": "Tánc",
         "tipus": "vilagi",
