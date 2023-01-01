@@ -13,8 +13,8 @@ const MagiaHasznalat: NormalKepzettseg = {
     kepesseg: 'osszpontositas',
     linked: [],
     kp: [
-        10,
-        22,
+        8,
+        19,
         25,
         33,
         40

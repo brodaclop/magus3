@@ -164,7 +164,7 @@ const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettse
     tipus: 'magia',
     kepesseg: k.kepesseg,
     linked: [],
-    kp: [5, 15, 25, 50, 100],
+    kp: [2, 7, 13, 21, 34],
     leiras: `A mágia ${k.name} iskolájának ismerete. Minden fok további +5-öt ad a kezdeményezésre.`,
     szintleiras: k.varazslatok.map(lista => lista.map(v => v.name).join('\n')) as any,
     __generated: true
@@ -233,7 +233,7 @@ const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
         tipus: 'nyelv',
         kepesseg: 'emlekezet',
         linked: [],
-        kp: [1, 3, 5, 20, 35],
+        kp: [1, 2, 3, 4, 21],
         leiras: '',
         szintleiras: ['', '', '', '', ''],
         __generated: true
@@ -253,7 +253,7 @@ const generateOsiNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
                 strength: 0.5
             }
         ],
-        kp: [8, 12, 30, 40, 55],
+        kp: [8, 12, 21, 27, 39],
         leiras: '',
         szintleiras: ['', '', '', '', ''],
         __generated: true
