@@ -37,6 +37,7 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object<KasztInfo>('Kaszt', {
     kasztSpec: Editor.multiPicklist('Speciális tulajdonságok', KasztSpecFlags),
     kpAlap: Editor.number('Alap KP'),
     kpPerSzint: Editor.number('KP/szint'),
+    kasztKpPerSzint: Editor.number('Kaszt KP/szint'),
     szazalekPerSzint: Editor.number('Százalékos képzettség/szint'),
     kepzettsegek: Editor.array('Képzettségek', Editor.array('Szint', Editor.or({
         'Fix': Editor.object('képzettség', {

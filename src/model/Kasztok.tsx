@@ -46,6 +46,7 @@ export interface KasztInfo extends NamedEntity {
     kasztSpec?: Array<typeof KasztSpecFlags[number]>;
     kpAlap: number;
     kpPerSzint: number;
+    kasztKpPerSzint: number;
     mana?: {
         kepesseg: string;
         mennyiseg: typeof ManaMennyiseg[number];

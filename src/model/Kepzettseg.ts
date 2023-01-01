@@ -302,7 +302,8 @@ export const Kepzettseg = {
         karakter: Karakter,
         kepzettseg: Kepzettseg,
         pluszKp: number,
-        transitive = false
+        kasztKp: boolean,
+        transitive: boolean
     ): void => {
         if (kepzettseg.fajta === 'normal') {
             const kepessegek = calc.kepessegek;
@@ -316,8 +317,8 @@ export const Kepzettseg = {
             }
             mergeToArray(current, { kepzettseg, kp, fok }, i => i.kepzettseg.id);
             if (transitive) {
-                karakter.kp -= pluszKp;
-                kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(calc, karakter, Kepzettseg.find(l.id), pluszKp * l.strength, false));
+                karakter[kasztKp ? 'kasztKp' : 'kp'] -= pluszKp;
+                kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(calc, karakter, Kepzettseg.find(l.id), pluszKp * l.strength, kasztKp, false));
             }
         } else {
             const current = karakter.szint.at(-1)!.kepzettsegek.szazalekos;
@@ -326,7 +327,7 @@ export const Kepzettseg = {
             if (!transitive || szazalek <= 15) {
                 mergeToArray(current, { kepzettseg, szazalek }, i => i.kepzettseg.id);
                 if (transitive) {
-                    karakter.kp -= pluszKp;
+                    karakter[kasztKp ? 'kasztKp' : 'kp'] -= pluszKp;
                 }
             }
         }

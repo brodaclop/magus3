@@ -78,7 +78,8 @@
                     "fok": 2
                 }
             ]
-        ]
+        ],
+        "kasztKpPerSzint": 6
     },
     {
         "id": "Lovag",
@@ -105,7 +106,8 @@
         "hm": 2,
         "kpAlap": 4,
         "kpPerSzint": 7,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "kasztKpPerSzint": 8
     },
     {
         "id": "Fejvadász",
@@ -136,7 +138,8 @@
         ],
         "kpAlap": 3,
         "kpPerSzint": 5,
-        "szazalekPerSzint": 20
+        "szazalekPerSzint": 20,
+        "kasztKpPerSzint": 10
     },
     {
         "id": "Gladiátor",
@@ -279,7 +282,8 @@
                     "fok": 4
                 }
             ]
-        ]
+        ],
+        "kasztKpPerSzint": 9
     },
     {
         "id": "Barbár",
@@ -306,7 +310,8 @@
         "hm": 4,
         "kpAlap": 7,
         "kpPerSzint": 10,
-        "szazalekPerSzint": 0
+        "szazalekPerSzint": 0,
+        "kasztKpPerSzint": 5
     },
     {
         "id": "Tolvaj",
@@ -408,7 +413,8 @@
                     "fok": 25
                 }
             ]
-        ]
+        ],
+        "kasztKpPerSzint": 7
     },
     {
         "id": "Bárd",
@@ -439,7 +445,8 @@
         "mana": {
             "kepesseg": "empatia",
             "mennyiseg": "normál"
-        }
+        },
+        "kasztKpPerSzint": 11
     },
     {
         "id": "Pap",
@@ -514,7 +521,8 @@
             "litania",
             "rituale",
             "szfera_altalanos"
-        ]
+        ],
+        "kasztKpPerSzint": 10
     },
     {
         "id": "Harcművész",
@@ -643,7 +651,8 @@
                     "honnan": 0
                 }
             ]
-        ]
+        ],
+        "kasztKpPerSzint": 10
     },
     {
         "id": "Kardművész",
@@ -670,7 +679,8 @@
         "hm": 2,
         "kpAlap": 4,
         "kpPerSzint": 5,
-        "szazalekPerSzint": 18
+        "szazalekPerSzint": 18,
+        "kasztKpPerSzint": 10
     },
     {
         "id": "Boszorkány",
@@ -701,7 +711,8 @@
         "mana": {
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
-        }
+        },
+        "kasztKpPerSzint": 3
     },
     {
         "id": "Boszorkánymester",
@@ -733,7 +744,8 @@
         "mana": {
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
-        }
+        },
+        "kasztKpPerSzint": 8
     },
     {
         "id": "Tűzvarázsló",
@@ -764,7 +776,8 @@
         "mana": {
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
-        }
+        },
+        "kasztKpPerSzint": 10
     },
     {
         "id": "Varázsló",
@@ -795,7 +808,8 @@
         "mana": {
             "kepesseg": "gondolkodas",
             "mennyiseg": "normál"
-        }
+        },
+        "kasztKpPerSzint": 10
     },
     {
         "id": "adron_pap",

@@ -8,7 +8,7 @@ import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
 import { Kepessegek, KepessegKategoria } from "./Kepessegek";
 import { Kepzettseg, NormalKepzettseg, SzazalekosKepzettseg } from "./Kepzettseg";
 import { kockaDobas } from "./Kocka";
-import { NamedEntity } from "./util";
+import { constructArray, NamedEntity } from "./util";
 
 export interface KarakterTemplate {
     name: string,
@@ -30,6 +30,7 @@ export interface Karakter extends NamedEntity {
     pancel?: InventoryPancel;
     lofegyver?: InventoryLofegyver;
     kp: number;
+    kasztKp: number;
     kepessegKategoriak: Record<KepessegKategoria, number>;
     inventory: Array<InventoryItem>;
     elosztva?: boolean;
@@ -110,6 +111,7 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
     karakter.szint.push(szintInfo);
     karakter.hm += szintKaszt.hm;
     karakter.kp += szintKaszt.kpPerSzint;
+    karakter.kasztKp += szintKaszt.kasztKpPerSzint;
     karakter.szazalek += szintKaszt.szazalekPerSzint;
     return karakter;
 };
@@ -145,6 +147,7 @@ export const Karakter = {
             hm: 0,
             kezek: [Karakter.okolharc(), undefined],
             kp: kasztInfo.kpAlap,
+            kasztKp: 0,
             szazalek: 0
         };
         levelUp(ret, kasztInfo);
@@ -181,5 +184,13 @@ export const Karakter = {
         return acc;
     }, {} as Record<string, { name: string, szint: number }>),
     okolharc: (): MegfogottFegyver => ({ id: 'okolharc', tipus: 'pusztakez', ob: Fegyver.find('okolharc') }),
+    kasztKepzettsegek: (karakter: Karakter): Array<string> => {
+        const kasztSzintek = Karakter.szintek(karakter);
+        const kepzettsegek = Object.entries(kasztSzintek).flatMap(([kasztId, { szint }]) => {
+            const kaszt = Kasztok.kasztInfo(kasztId, szint);
+            return constructArray(szint, i => kaszt.kepzettsegek?.[i] ?? []).flatMap(a => a);
+        });
+        return [...new Set(kepzettsegek.map(k => k.kepzettsegId))];
+    },
     levelUp
 }

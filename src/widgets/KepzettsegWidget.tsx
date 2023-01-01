@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GiSpikesFull, GiSpikesInit } from 'react-icons/gi';
 import { Karakter, SzintInfo } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
@@ -34,13 +35,14 @@ const PendingSelector: React.FC<{
 export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
 
-    const pluszKP = () => {
+    const pluszKP = (kasztKp: boolean) => {
         const kepzettseg = Kepzettseg.find(ujkepzettseg);
         Kepzettseg.kpEloszt(
             calc,
             karakter,
             kepzettseg,
             1,
+            kasztKp,
             true
         );
         onChange(karakter);
@@ -79,6 +81,8 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
 
     const ujKepzettsegOb = ujkepzettseg ? Kepzettseg.find(ujkepzettseg) : undefined;
 
+    const isKasztKepzettseg = (kepzettsegId?: string) => kepzettsegId && Karakter.kasztKepzettsegek(karakter).some(id => kepzettsegId.startsWith(id));
+
     return <div>
         {calc.pendingKepzettsegekCount > 0 && <table className='bordered'>
             <thead>
@@ -116,7 +120,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
             </thead>
             <tbody className='unstriped'>
                 <tr>
-                    <th>
+                    <th colSpan={2}>
                         KP
                     </th>
                     <td>
@@ -124,13 +128,21 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                     </td>
                 </tr>
                 <tr>
-                    <th>%</th>
+                    <th colSpan={2}>
+                        Kaszt KP
+                    </th>
+                    <td>
+                        {karakter.kasztKp}
+                    </td>
+                </tr>
+                <tr>
+                    <th colSpan={2}>%</th>
                     <td>
                         {karakter.szazalek}
                     </td>
                 </tr>
                 <tr>
-                    <td><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
+                    <td colSpan={2}><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
                         {!ujkepzettseg && <option key='' value=''></option>}
                         {KepzettsegTipus.map(kt => <optgroup key={kt.name} label={kt.name}>
                             {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id).map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
@@ -140,11 +152,17 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         </optgroup>
                     </select>
                     </td>
-                    <td><button disabled={(!ujkepzettseg) || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={pluszKP}>+1 KP</button></td>
+                    <td>
+                        <button disabled={!ujkepzettseg || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={() => pluszKP(false)}>+1 KP</button>
+                        <button disabled={!isKasztKepzettseg(ujkepzettseg) || (karakter.kasztKp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={() => pluszKP(true)}>+1 kaszt KP</button>
+                    </td>
                 </tr>
             </tbody>
             <tbody>
                 {calc.kepzettsegek.normal.map(k => <tr>
+                    <td>
+                        {isKasztKepzettseg(k.kepzettseg.id) ? <GiSpikesFull /> : <GiSpikesInit />}
+                    </td>
                     <td>
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
                     </td>
@@ -155,6 +173,9 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
             </tbody>
             <tbody>
                 {calc.kepzettsegek.szazalekos.map(k => <tr>
+                    <td>
+                        {isKasztKepzettseg(k.kepzettseg.id) ? <GiSpikesFull /> : <GiSpikesInit />}
+                    </td>
                     <td>
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
                     </td>

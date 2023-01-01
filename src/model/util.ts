@@ -36,4 +36,6 @@ export const mergeToArray = <T>(input: Array<T>, ob: T, idFn: (o: T) => string) 
     }
 }
 
+export const constructArray = <T>(size: number, fn: (idx: number) => T): Array<T> => Array(size).fill(undefined).map((_, i) => fn(i));
+
 export const printNumber = (n: number): string => n === Math.floor(n) ? String(n) : n.toFixed(2);
