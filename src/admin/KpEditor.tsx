@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
 import { printNumber } from '../model/util';
+import { KepzettsegLeiras } from '../widgets/KepzettsegLeiras';
 import { ModalWindow } from '../widgets/ModalWindow';
 
 
@@ -45,7 +46,7 @@ export const KpEditor: React.FC<{}> = () => {
             </thead>
             <tbody>
                 {kepzettsegek.map(k => <tr>
-                    <th>{k.name}</th>
+                    <th><KepzettsegLeiras kepzettseg={k} /></th>
                     {Array(5).fill(undefined).map((_, fok) => <td>
                         {osszKp(k, fok)}
                         {!k.__generated && <div>

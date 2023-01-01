@@ -6,7 +6,8 @@ import { Karakter, SzintInfo } from "./Karakter";
 import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
 import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak } from "./Magia";
-import { mergeToArray, transformRecord } from "./util";
+import { GyorsPsziDiszicplina, LassuPsziDiszciplina, Pszi } from "./Pszi";
+import { mergeToArray, sumArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
     te: CalculationArgument,
@@ -15,6 +16,8 @@ export interface CalcFegyver {
 }
 
 export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
+
+export type CalcDiszciplina = ((Omit<GyorsPsziDiszicplina, 'ke'> & { ke: CalculationArgument }) | LassuPsziDiszciplina);
 
 export interface KarakterCalcResult {
     fp: CalculationArgument;
@@ -40,8 +43,9 @@ export interface KarakterCalcResult {
     findNormalKepzettseg: (id: string) => SzintInfo['kepzettsegek']['normal'][number] | undefined;
     pendingKepzettsegekCount: number;
     mana: CalculationArgument;
-    pszi: CalculationArgument;
     varazslatok: Array<CalcVarazslat>;
+    pszi: CalculationArgument;
+    psziDiszciplinak: Array<CalcDiszciplina>;
     magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>;
 };
 
@@ -175,7 +179,30 @@ export const KarakterCalculator = {
             return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
         })), Calculation.value(Magia.hasznalatKepzettseg.name, Magia.magiaHasznalatMana(normalKepzettsegek)));
 
-        const pszi = Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, szint.pszi)));
+        const psziKepz: SzintInfo['kepzettsegek']['normal'] = [];
+        const psziPontok = karakter.szint.map((szint, idx) => {
+            szint.kepzettsegek.normal.forEach(kepz => mergeToArray(psziKepz, kepz, i => i.kepzettseg.id));
+            return idx === 0 ? 0 : Pszi.psziPont(psziKepz);
+        }).slice(1);
+
+        const pszi = sumArray(psziPontok) > 0 ? Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, psziPontok[idx]))) : Calculation.value('Nincs pszi', 0);
+
+        const psziDiszciplinak = Pszi.lista.filter(d => {
+            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${d.iskola}`);
+            const fok = kepzettseg?.fok ?? 0;
+            return d.fok <= fok;
+        }).map(v => {
+            if ('ke' in v) {
+                const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${v.iskola}`);
+                const fok = kepzettseg?.fok ?? 0;
+                return {
+                    ...v,
+                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Diszciplina', v.ke))
+                }
+            } else {
+                return v;
+            }
+        });
 
         const varazslatok = Magia.lista.filter(v => {
             const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
@@ -211,6 +238,7 @@ export const KarakterCalculator = {
             mgt,
             pillanatnyiKepessegek,
             pszi,
+            psziDiszciplinak,
             mana,
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
             pendingKepzettsegekCount: karakter.szint.map(sz => sz.pendingKepzettsegek.length).reduce((acc, curr) => acc + curr, 0),

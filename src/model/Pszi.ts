@@ -1,6 +1,7 @@
 import { NormalKepzettseg } from "./Kepzettseg";
-import { NamedEntity } from "./util";
+import { constructArray, NamedEntity, namedEntityArray, sumArray } from "./util";
 import { Mentodobasok } from "./Magia";
+import { SzintInfo } from "./Karakter";
 
 export interface PsziIskola extends NamedEntity {
     psziPont: [number, number, number, number, number];
@@ -18,13 +19,12 @@ export interface PsziDiszciplinaBase extends NamedEntity {
     fok: number;
 }
 
-const PyarroniIskola = {
-    id: 'pyarroni',
-    name: 'Pyarroni',
-    psziPont: [1, 2, 3, 4, 5]
-} as PsziIskola;
-
-const PsziMagasIskola = [
+export const PsziIskolak = [
+    {
+        id: 'pyarroni',
+        name: 'Pyarroni',
+        psziPont: [1, 2, 3, 4, 5]
+    } as PsziIskola,
     {
         id: 'slan',
         name: 'Slan',
@@ -41,8 +41,6 @@ const PsziMagasIskola = [
         psziPont: [1, 1, 1, 1, 1]
     } as PsziIskola
 ] as const;
-
-export const PsziIskolak = [PyarroniIskola, ...PsziMagasIskola] as const;
 
 export type PsziDiszciplina = GyorsPsziDiszicplina | LassuPsziDiszciplina;
 
@@ -205,50 +203,28 @@ Ezzel a diszciplinával nem csak saját ma­gunkban idézhetünk fel emléket, h
 
         A diszciplína 5 Ψp-ért 60 körig (azaz tíz percig) en­gedi efféle  korlátozott módon a jövő titkainak felfedését. 10 Ψp felhasználásával  az időtartam megduplázódik, stb.`
     },
-    // {
-    //     name: 'Képességjavítás',
-    //     pont: 'lásd a leírásban',
-    //     misc: {
-    //         me: 'M',
-    //         idotartam: '6 kör',
-    //     },
-    //     varazslasIdeje: '2 kör',
-    //     labels: ['pszi', 'pszi-pyarroni'],
-    //     description: `Olykor - különleges veszélyhelyzetekben - az emberi fizikum  látszólag csodákra képes. Egy vadállattól megré­mült gyermek  hihetetlen gyorsasággal képes felkúszni egy sudár, ág nélküli fa  törzsén, s miután a veszély elmúlt, nemcsak azon csodálkozik,  hogy miképp sikerült ez neki, hanem gyakorta lemászni sem tud  magától. Ez jellemző példája a Ψ akaratlan megnyilvánulásának,  hiszen ilyenkor az agy szabadít fel a testben olyan erőforrásokat,  melyek egyébként nem hozzáférhetőek.
+    {
+        name: 'Képességjavítás',
+        id: 'kepessegjavitas',
+        psziPont: 1,
+        idotartam: '6 kör',
+        varazslasIdeje: '2 kör',
+        iskola: 'pyarroni',
+        fok: 2,
+        save: 'nincs',
+        leiras: `Olykor - különleges veszélyhelyzetekben - az emberi fizikum  látszólag csodákra képes. Egy vadállattól megré­mült gyermek  hihetetlen gyorsasággal képes felkúszni egy sudár, ág nélküli fa  törzsén, s miután a veszély elmúlt, nemcsak azon csodálkozik,  hogy miképp sikerült ez neki, hanem gyakorta lemászni sem tud  magától. Ez jellemző példája a Ψ akaratlan megnyilvánulásának,  hiszen ilyenkor az agy szabadít fel a testben olyan erőforrásokat,  melyek egyébként nem hozzáférhetőek.
 
-    //     A diszciplína ugyanezt képes végrehajtani, termé­szetesen a  tudat teljes irányítása alatt. A Ψ erők segítségével a fizikai képességek  - kivéve a Szépséget - megváltoztat­hatóak. A változtatás időleges,  s a diszciplína hatásának el­múltával visszatérnek az eredeti értékek.  Ugyanakkor lehe­tetlent nem szabad elvárnunk a Ψ-től sem: egyik  képessé­günket sem emelhetjük 20 fölé.
+A diszciplína ugyanezt képes végrehajtani, termé­szetesen a  tudat teljes irányítása alatt. A Ψ erők segítségével a fizikai képességek  - kivéve a Szépséget - megváltoztat­hatóak. A változtatás időleges,  s a diszciplína hatásának el­múltával visszatérnek az eredeti értékek.  Ugyanakkor lehe­tetlent nem szabad elvárnunk a Ψ-től sem: egyik  képessé­günket sem emelhetjük 20 fölé.
 
-    //     FIGYELEM!  
-    //     Bármely képesség nullára - vagy nulla alá - csök­kentése azonnali  halálhoz vezet.
+A Képességjavítás az egyik legkedveltebb Általános Disz­ciplína. Gyakorta használják a Méregellenállás - az Egészség tíz  feletti része - megnövelésére. Valójában igen hasznos minden  olyan esetben, amikor Képességpróbára kényszerülünk, hiszen  az adott pillanatban valóban erőseb­bek, gyorsabbak, egész­ségesebbek vagy ügyesebbek le­szünk. Nem szabad elfelejteni,  hogy ha harc folyamán megnöveljük egészségünket - és egy  csapást csak az így nyert Ép-okkal éltünk túl -,amint a disz­ciplína hatása elmú­lik, a nyert Ép-k is semmivé lesznek, s ebbe akár bele is halhatunk.
 
-    //     A Képességjavítás az egyik legkedveltebb Általános Disz­ciplína. Gyakorta használják a Méregellenállás - az Egészség tíz  feletti része - megnövelésére. Valójában igen hasznos minden  olyan esetben, amikor Képességpróbára kényszerülünk, hiszen  az adott pillanatban valóban erőseb­bek, gyorsabbak, egész­ségesebbek vagy ügyesebbek le­szünk. Nem szabad elfelejteni,  hogy ha harc folyamán megnöveljük egészségünket - és egy  csapást csak az így nyert Ép-okkal éltünk túl -,amint a disz­ciplína hatása elmú­lik, a nyert Ép-k is semmivé lesznek, s ebbe  akár bele is halhatunk.
+| Módosítás az eredeti képességhez képest | 1 | 2 | 3 | 4 | 5  | 6  |
+| --------------------------------------- | - | - | - | - | -  | -  |
+| Szükséges Ψp                            | 1 | 2 | 4 | 8 | 16 | 32 | 
 
-    //     Ha Rontással az ellenfelünk Egészségét annyira le­csökken­tettük, hogy ettől elveszíti maradék Ép-jait, akkor meghal. Hiába  jönnének vissza az Ép-ok a diszciplína hatá­sának megszűntével,  a lélek nem költözik vissza a halott testbe.
 
-    //     <table>
-    //         <tr>
-    //             <td>+/- módosítás az eredeti képesség­hez képest</td>
-    //             <td>1</td>
-    //             <td>2</td>
-    //             <td>3</td>
-    //             <td>4</td>
-    //             <td>5</td>
-    //             <td>6</td>
-    //         </tr>
-    //         <tr>
-    //             <td>Szükséges Ψp</td>
-    //             <td>1</td>
-    //             <td>2</td>
-    //             <td>4</td>
-    //             <td>8</td>
-    //             <td>16</td>
-    //             <td>32</td>
-    //         </tr>
-    //     </table>
-
-    //     A táblázatban feltüntetett Ψp értékek a diszciplína alap idő­tartamára (6 kör) vonatkoznak. A felhasznált Ψp-ok megdup­lázásával a hatás időtartamának megduplázását ér­hetjük el,  megtriplázásával a hatás ideje megháromszorozó­dik, és így tovább.        
-    //     `
-    // },
+A táblázatban feltüntetett Ψp értékek a ~diszciplína~ alap idő­tartamára (6 kör) vonatkoznak. A felhasznált Ψp-ok megdup­lázásával a hatás időtartamának megduplázását ér­hetjük el,  megtriplázásával a hatás ideje megháromszorozó­dik, és így tovább.`
+    },
     //     {
     //         name: 'Roham',
     //         pont: '1/+2TÉ',
@@ -527,35 +503,31 @@ Ezzel a diszciplinával nem csak saját ma­gunkban idézhetünk fel emléket, h
 
 ]
 
+const PSZI_DISZCILPLINAK = [
+    ...PSZI_PYARRONI
+];
 
 export const Pszi = {
-    kepzettsegek: () => [{
-        id: 'pszi:pyarroni',
-        name: 'Pszi (Pyarroni)',
-        kepesseg: 'osszpontositas',
-        leiras: 'Pszi',
-        kp: [6, 10, 15, 27, 39],
-        szintleiras: ['', '', '', '', ''],
-        __generated: true,
-        fajta: 'normal',
-        tipus: 'pszi'
-    } as NormalKepzettseg,
-    ...PsziMagasIskola.map(i => ({
+    ...namedEntityArray(PSZI_DISZCILPLINAK),
+    kepzettsegek: () => PsziIskolak.map(i => ({
         id: `pszi:${i.id}`,
         name: `Pszi (${i.name})`,
         kepesseg: 'osszpontositas',
-        leiras: 'Pszi',
+        leiras: `Pszi, ${i.name} iskola`,
         kp: [6, 10, 15, 27, 39],
-        szintleiras: ['', '', '', '', ''],
+        szintleiras: constructArray(5, idx => `Pszi pontok: ${i.psziPont[idx]}\n\nDiszciplinák:\n\n` + PSZI_DISZCILPLINAK.filter(d => d.iskola === i.id && d.fok === idx + 1).map(d => ` * ${d.name}`).join('\n')),
         fajta: 'normal',
         __generated: true,
         tipus: 'pszi',
-        linked: [
+        linked: i.id === 'pyarroni' ? [] : [
             {
                 id: 'pszi:pyarroni',
                 strength: 1
             }
         ]
-    } as NormalKepzettseg))
-    ],
+    } as NormalKepzettseg)),
+    psziPont: (kepzettsegek: SzintInfo['kepzettsegek']['normal']): number => {
+        const psziKepzettsegek = kepzettsegek.filter(k => k.kepzettseg.tipus === 'pszi');
+        return sumArray(psziKepzettsegek.map(k => PsziIskolak.find(iskola => `pszi:${iskola.id}` === k.kepzettseg.id)?.psziPont[k.fok - 1] ?? 0));
+    }
 }
