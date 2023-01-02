@@ -2,6 +2,7 @@ import fileDownload from 'js-file-download';
 import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg } from '../model/Kepzettseg';
+import { constructArray, sumArray } from '../model/util';
 import { ModalWindow } from '../widgets/ModalWindow';
 import { Editor, ObjectEditor, ObjectEditorDescriptor } from './FormComponents';
 
@@ -49,8 +50,7 @@ export const KepzettsegEditor: React.FC<{}> = () => {
     const kpk = (object as unknown as NormalKepzettseg).kp;
 
     const osszKp = (kepessegErtek: number, fok: number): number => {
-        return Array(fok + 1).fill(undefined)
-            .reduce((acc, curr, idx) => acc + Kepzettseg.kpFokhoz({ [kepesseg]: kepessegErtek }, object as unknown as NormalKepzettseg, idx + 1), 0);
+        return sumArray(constructArray(fok + 1, idx => Kepzettseg.kpFokhoz({ [kepesseg]: kepessegErtek }, object as unknown as NormalKepzettseg, idx + 1)));
     }
 
     return <ModalWindow open={open} setOpen={setOpen} button='Képzettség szerkesztő'>
@@ -67,13 +67,13 @@ export const KepzettsegEditor: React.FC<{}> = () => {
                 <thead>
                     <tr>
                         <th>Képesség: {Kepessegek.find(kepesseg)?.name}</th>
-                        {Array(5).fill(undefined).map((_, i) => <th>{i + 1}. fok</th>)}
+                        {constructArray(5, i => <th>{i + 1}. fok</th>)}
                     </tr>
                 </thead>
                 <tbody>
-                    {Array(24).fill(undefined).map((_, i) => <tr>
+                    {constructArray(24, i => <tr>
                         <th>{i}</th>
-                        {Array(5).fill(undefined).map((_, fok) => <td>{osszKp(i, fok)}</td>)}
+                        {constructArray(5, fok => <td>{osszKp(i, fok)}</td>)}
                     </tr>)}
 
                 </tbody>

@@ -222,10 +222,12 @@ export const KarakterCalculator = {
             }
         });
 
+        const fp = Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp));
+
         return {
             kepessegek,
-            fp: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp)),
-            ep: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', karakter.ep)),
+            fp,
+            ep: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', karakter.ep), Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50))),
             harcertek,
             harcmodor,
             fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)], harcmodorHatasok),
@@ -241,7 +243,7 @@ export const KarakterCalculator = {
             psziDiszciplinak,
             mana,
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
-            pendingKepzettsegekCount: karakter.szint.map(sz => sz.pendingKepzettsegek.length).reduce((acc, curr) => acc + curr, 0),
+            pendingKepzettsegekCount: sumArray(karakter.szint, sz => sz.pendingKepzettsegek.length),
             varazslatok,
             magiaKategoriak
         };

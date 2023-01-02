@@ -60,3 +60,11 @@ ul.simpleList {
 ul.simpleList li {
     list-style-type: none;
 }
+
+.justifiedFlexRow {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

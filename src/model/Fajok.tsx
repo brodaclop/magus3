@@ -1,16 +1,23 @@
 import { Harcertek } from "./Harcertek";
+import { KapottKepzettseg } from "./Kasztok";
 import { NamedEntity, namedEntityArray } from "./util";
 
 export interface Faj extends NamedEntity {
     kepessegek: Partial<Record<string, number>>;
     harcertekAlap?: Partial<Harcertek>;
     infralatas?: number;
+    kepzettsegek?: Array<Omit<KapottKepzettseg, 'id' | 'honnan'>>;
 }
 
 const FAJOK: Array<Faj> = [
     {
         id: 'ember',
         name: 'Ember',
+        kepzettsegek: [{
+            kepzettsegId: 'nyelv:',
+            name: 'Nyelvtudás',
+            fok: 4
+        }],
         kepessegek: {}
     },
     {
@@ -26,6 +33,10 @@ const FAJOK: Array<Faj> = [
             empatia: -1
         },
         harcertekAlap: { ce: 20 },
+        kepzettsegek: [{
+            kepzettsegId: 'fegyver:ij',
+            fok: 1
+        }],
         infralatas: 50,
     },
     {
@@ -77,6 +88,19 @@ const FAJOK: Array<Faj> = [
     {
         id: 'dzsenn',
         name: 'Dzsenn',
+        kepzettsegek: [{
+            kepzettsegId: 'pszi:dzsenn',
+            fok: 3
+        },
+        {
+            kepzettsegId: 'pszi:pyarroni',
+            fok: 3
+        },
+        {
+            kepzettsegId: 'harcmodor:ketkes',
+            fok: 3
+        },
+        ],
         kepessegek: {
             gondolkodas: 2,
             emlekezet: 2,
@@ -124,8 +148,6 @@ const FAJOK: Array<Faj> = [
     },
 
 ];
-
-console.log('mi ez');
 
 export const Fajok = namedEntityArray(FAJOK);
 

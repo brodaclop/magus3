@@ -11,7 +11,7 @@ export interface HarcmodorCalculation {
 export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     {
         id: 'pajzs',
-        isAvailable: kezek => kezek[1]?.flags?.includes('nagy-pajzs'),
+        isAvailable: kezek => kezek[1]?.flags === 'nagy-pajzs',
         szintek: [
             ['kez0minusz2', 'kez1NoAttack', 'kez1pont2'],
             ['kez0minusz1', 'kez1NoAttack', 'kez1pont2'],
@@ -35,7 +35,7 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     },
     {
         id: 'kispajzs',
-        isAvailable: kezek => kezek[1]?.flags?.includes('buckler'),
+        isAvailable: kezek => kezek[1]?.flags === 'buckler',
         szintek: [
             ['kez0minusz2', 'kez1NoAttack', 'kez1pont2'],
             ['kez1NoAttack', 'kez1pont2'],
@@ -47,9 +47,9 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     },
     {
         id: 'shiensu',
-        isAvailable: kezek => kezek[0]?.flags?.includes('slan-kard') && kezek[1]?.flags?.includes('slan-tor'),
+        isAvailable: kezek => kezek[0]?.flags === 'slan-kard' && kezek[1]?.flags === 'slan-tor',
         szintek: [
-            ['kez0minusz3', 'kez1minusz3', 'kez1SingleAttack'],
+            ['kez0minusz3', 'kez1minusz3', 'kez1NoAttack'],
             ['kez1NoAttack'],
             ['kez1NoAttack', 'mindketVE'],
             ['mindketVE'],
@@ -59,7 +59,7 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     },
     {
         id: 'ketkezes',
-        isAvailable: kezek => kezek[0]?.kez === 2 && !kezek[0].flags?.includes('pusztakez'),
+        isAvailable: kezek => kezek[0]?.kez === 2 && kezek[0].flags !== 'pusztakez',
         szintek: [
             [],
             [],
@@ -79,6 +79,18 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
             [],
             [],
             [],
+        ]
+    },
+    {
+        id: 'ketkes',
+        isAvailable: kezek => kezek[0]?.flags === 'kes' && kezek[1]?.flags === 'kes',
+        szintek: [
+            ['kez0minusz2', 'kez1minusz2', 'kez1SingleAttack'],
+            ['kez0minusz1', 'kez1minusz1', 'kez1SingleAttack'],
+            ['kez1SingleAttack'],
+            [],
+            [],
+            ['mindketTE'],
         ]
     },
 

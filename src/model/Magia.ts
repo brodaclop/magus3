@@ -1,6 +1,6 @@
 import { KarakterCalcResult } from './KarakterCalculator';
 import { NormalKepzettseg } from './Kepzettseg';
-import { NamedEntity, namedEntityArray } from './util';
+import { constructArray, NamedEntity, namedEntityArray } from './util';
 
 export type GyorsVarazslat = { ke: number } & VarazslatBase;
 export type LassuVarazslat = { varazslasIdeje: string } & VarazslatBase;
@@ -156,9 +156,7 @@ export const Magia = {
     ...namedEntityArray(PAPI_VARAZSLATOK),
     kepzettsegek: () => VarazslatKepzettsegek.map(k => ({
         ...k,
-        varazslatok: Array(5)
-            .fill(undefined)
-            .map((_, i) => varazslatok(k, i + 1))
+        varazslatok: constructArray(5, i => varazslatok(k, i + 1))
     })),
     hasznalatKepzettseg: MagiaHasznalat,
     magiaHasznalatMana: (kepzettsegek: KarakterCalcResult['kepzettsegek']['normal']): number => {

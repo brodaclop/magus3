@@ -6,6 +6,7 @@ export interface NamedEntity {
 export interface NamedEntityArray<T> {
     lista: Array<T>,
     find: (id: NamedEntity['id']) => T,
+    name: (id: NamedEntity['id']) => string,
     keys: Array<NamedEntity['id']>
 }
 
@@ -20,6 +21,7 @@ export const arrayFind = <T extends NamedEntity>(array: Array<T>, id: string): T
 export const namedEntityArray = <T extends NamedEntity>(array: Array<T>): NamedEntityArray<T> => ({
     lista: array,
     find: (id: string) => arrayFind(array, id),
+    name: (id: string) => arrayFind(array, id).name,
     keys: array.map(i => i.id),
 })
 
@@ -38,6 +40,6 @@ export const mergeToArray = <T>(input: Array<T>, ob: T, idFn: (o: T) => string) 
 
 export const constructArray = <T>(size: number, fn: (idx: number) => T): Array<T> => Array(size).fill(undefined).map((_, i) => fn(i));
 
-export const sumArray = (array: Array<number>): number => array.reduce((acc, curr) => acc + curr, 0);
+export const sumArray = <T>(array?: Array<number | T>, fn?: (ob: T, idx: number) => number): number => array ? ((fn ? (array as Array<T>).map(fn) : array) as Array<number>).reduce((acc, curr) => acc + curr, 0) : 0;
 
 export const printNumber = (n: number): string => n === Math.floor(n) ? String(n) : n.toFixed(2);

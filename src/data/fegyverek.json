@@ -63,7 +63,8 @@
             "eldobKicsi": 0,
             "eldobNagy": 0
         },
-        "sebzestipus": "szuro"
+        "sebzestipus": "szuro",
+        "flags": "kes"
     },
     {
         "id": "bola",
@@ -472,7 +473,8 @@
         "sebzestipus": [
             "szuro",
             "vago"
-        ]
+        ],
+        "flags": "kes"
     },
     {
         "id": "garott",
@@ -854,7 +856,8 @@
         "sebzestipus": [
             "szuro",
             "vago"
-        ]
+        ],
+        "flags": "kes"
     },
     {
         "id": "kopja_konnyu",
@@ -1160,7 +1163,8 @@
         },
         "sebzestipus": [
             "szuro"
-        ]
+        ],
+        "flags": "kes"
     },
     {
         "id": "sequor",
@@ -1182,7 +1186,8 @@
         "sebzestipus": [
             "szuro",
             "vago"
-        ]
+        ],
+        "flags": "kes"
     },
     {
         "id": "slan_csillag",
@@ -1283,7 +1288,8 @@
         },
         "sebzestipus": [
             "szuro"
-        ]
+        ],
+        "flags": "kes"
     },
     {
         "id": "tor_dobo",
@@ -1445,5 +1451,89 @@
         "sebzestipus": [
             "szuro"
         ]
+    },
+    {
+        "ke": 11,
+        "te": 15,
+        "ve": 5,
+        "sebesseg": "gyors",
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 0,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo",
+        "kepesseg": "reflex",
+        "erobonusz": 16,
+        "id": "Shien-ka-to",
+        "name": "Harcművészet: Shien-ka-to",
+        "alternativKepzettseg": "harcmuveszet:Shien-ka-to",
+        "flags": "pusztakez",
+        "kez": 2
+    },
+    {
+        "ke": 7,
+        "te": 10,
+        "ve": 19,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 3,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebesseg": "atlagos",
+        "sebzestipus": "zuzo",
+        "kepesseg": "osszpontositas",
+        "erobonusz": 16,
+        "id": "Dart-nid-kinito",
+        "name": "Harcművészet: Dart-nid-kinito",
+        "alternativKepzettseg": "harcmuveszet:Dart-nid-kinito",
+        "flags": "pusztakez",
+        "kez": 2
+    },
+    {
+        "ke": 2,
+        "te": 18,
+        "ve": 5,
+        "sebzes": {
+            "darab": 2,
+            "kocka": 6,
+            "plusz": 2,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo",
+        "sebesseg": "lassu",
+        "kepesseg": "izom",
+        "erobonusz": 16,
+        "id": "Avad-ka-kinito",
+        "name": "Harcművészet: Avad-ka-kinito",
+        "alternativKepzettseg": "harcmuveszet:Avad-ka-kinito",
+        "flags": "pusztakez",
+        "kez": 2
+    },
+    {
+        "ke": 12,
+        "te": 15,
+        "ve": 9,
+        "sebzes": {
+            "darab": 1,
+            "kocka": 6,
+            "plusz": 1,
+            "eldobKicsi": 0,
+            "eldobNagy": 0
+        },
+        "sebzestipus": "zuzo",
+        "erobonusz": 16,
+        "kepesseg": "reflex",
+        "sebesseg": "gyors",
+        "id": "Nisen-nid-to",
+        "name": "Harcművészet: Nisen-nid-to",
+        "alternativKepzettseg": "harcmuveszet:Nisen-nid-to",
+        "flags": "pusztakez",
+        "kez": 2
     }
 ]

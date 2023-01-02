@@ -14,7 +14,7 @@ export const SebzesTipus = [
 
 export const FegyverSebesseg = ['gyors', 'atlagos', 'lassu', '3', '4', '5'] as const;
 
-export const FegyverFlags = ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez'] as const;
+export const FegyverFlags = ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez', 'kes'] as const;
 
 export interface FegyverKategoria {
     id: string;
@@ -149,7 +149,7 @@ export const FEGYVER_KEPZETTSEG_HARCERTEKEK: Array<Harcertek> = [
 export const Fegyver = {
     ...namedEntityArray([...fegyverek as Array<KozelharcFegyver>, ...Harcmuveszet.fegyverek]),
     kepzettseg: (kepzettsegek: SzintInfo['kepzettsegek']['normal'], fegyver: KozelharcFegyver | Lofegyver, minusz = 0): [Harcertek, number] => {
-        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === fegyver.alternativKepzettseg ?? `fegyver:${fegyver.id}`);
+        const kepzettseg = kepzettsegek.find(k => k.kepzettseg.id === (fegyver.alternativKepzettseg ?? `fegyver:${fegyver.id}`));
         const kategoriaKepzettseg = kepzettsegek.find(k => k.kepzettseg.id === `fegyverkat:${fegyver.kategoria?.id}`);
 
         const fok = Math.max(kepzettseg?.fok ?? 0, kategoriaKepzettseg?.fok ?? 0);

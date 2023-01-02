@@ -1,4 +1,5 @@
 import { Kepessegek } from "./Kepessegek";
+import { sumArray } from "./util";
 
 export interface CalculationValue {
     value: number;
@@ -31,7 +32,7 @@ const calculateArgument = (op: CalculationArgument): number => {
 
 const calculateOperation = (op: CalculationOperation): number => {
     switch (op.opType) {
-        case 'add': return op.args.map(calculateArgument).reduce((acc, curr) => acc + curr, 0);
+        case 'add': return sumArray(op.args.map(calculateArgument));
         case 'tizfolott': return Math.max(calculateArgument(op.arg) - 10, 0);
         case 'max': return Math.max(...op.args.map(calculateArgument));
         case 'min': return Math.min(...op.args.map(calculateArgument));
@@ -46,7 +47,7 @@ const constructBinaryOp = (opType: CalculationBinary['opType'], args: Array<Calc
 
 export const Calculation = {
     value: (label: string, value: number): CalculationValue => ({ label, value }),
-    kepesseg: (kepessegek: Record<string, number>, id: string): CalculationValue => ({ label: Kepessegek.find(id).name, value: kepessegek[id] }),
+    kepesseg: (kepessegek: Record<string, number>, id: string): CalculationValue => ({ label: Kepessegek.name(id), value: kepessegek[id] }),
     plusz: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('add', args),
     max: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('max', args),
     min: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('min', args),

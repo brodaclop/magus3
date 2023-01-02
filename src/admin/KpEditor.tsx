@@ -3,7 +3,7 @@ import Tooltip from 'rc-tooltip';
 import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
-import { printNumber } from '../model/util';
+import { constructArray, printNumber, sumArray } from '../model/util';
 import { KepzettsegLeiras } from '../widgets/KepzettsegLeiras';
 import { ModalWindow } from '../widgets/ModalWindow';
 
@@ -21,12 +21,11 @@ export const KpEditor: React.FC<{}> = () => {
     const kepessegek = Object.fromEntries(Kepessegek.keys.map(k => [k, kepessegValue]));
 
     const osszKp = (kepzettseg: NormalKepzettseg, fok: number): number => {
-        return Array(fok + 1).fill(undefined)
-            .reduce((acc, _, idx) => acc + (idx >= minimumFok ? Kepzettseg.kpFokhoz(kepessegek, kepzettseg, idx + 1) : 0), 0);
+        return sumArray(constructArray(fok + 1, idx => (idx >= minimumFok ? Kepzettseg.kpFokhoz(kepessegek, kepzettseg, idx + 1) : 0)));
     }
 
     const addLinked = (kepzettseg: NormalKepzettseg): number => {
-        return kepzettseg.linked?.map(l => l.strength).reduce((acc, curr) => acc + curr, 0) ?? 0;
+        return sumArray(kepzettseg.linked, l => l.strength);
     }
 
     const findLinking = (kepzettseg: NormalKepzettseg): Array<NormalKepzettseg> => Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.linked?.some(linked => linked.id === kepzettseg.id)) as Array<NormalKepzettseg>;
@@ -39,7 +38,7 @@ export const KpEditor: React.FC<{}> = () => {
             <thead>
                 <tr>
                     <th>Képzettség</th>
-                    {Array(5).fill(undefined).map((_, i) => <th>{i + 1}. fok</th>)}
+                    {constructArray(5, i => <th>{i + 1}. fok</th>)}
                     <th>Segít</th>
                     <th>Segítők</th>
                 </tr>
@@ -47,7 +46,7 @@ export const KpEditor: React.FC<{}> = () => {
             <tbody>
                 {kepzettsegek.map(k => <tr>
                     <th><KepzettsegLeiras kepzettseg={k} /></th>
-                    {Array(5).fill(undefined).map((_, fok) => <td>
+                    {constructArray(5, fok => <td>
                         {osszKp(k, fok)}
                         {!k.__generated && <div>
                             <input type='number' style={{ width: '2rem' }} value={k.kp[fok]} onChange={e => {
@@ -58,19 +57,18 @@ export const KpEditor: React.FC<{}> = () => {
                     </td>)}
                     <td>
                         <Tooltip overlay={<ul>
-                            {k.linked?.map(l => <li>{Kepzettseg.find(l.id).name}: {l.strength}</li>)}
+                            {k.linked?.map(l => <li>{Kepzettseg.name(l.id)}: {l.strength}</li>)}
                         </ul>}>
                             <span>{printNumber(addLinked(k))}</span>
                         </Tooltip>
                     </td>
                     <td>
                         <Tooltip overlay={<ul>
-                            {findLinking(k).map(l => <li>{Kepzettseg.find(l.id).name}: {l.linked.find(link => link.id === k.id)?.strength}</li>)}
+                            {findLinking(k).map(l => <li>{Kepzettseg.name(l.id)}: {l.linked.find(link => link.id === k.id)?.strength}</li>)}
                         </ul>}>
-                            <span>{printNumber(
-                                findLinking(k).map(l => l.linked.find(link => link.id === k.id)?.strength ?? 0)
-                                    .reduce((acc, curr) => acc + curr, 0))
-                            }</span>
+                            <span>
+                                {printNumber(sumArray(findLinking(k).map(l => l.linked.find(link => link.id === k.id)?.strength ?? 0)))}
+                            </span>
                         </Tooltip>
                     </td>
                 </tr>)}

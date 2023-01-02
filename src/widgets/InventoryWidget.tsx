@@ -89,7 +89,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
                 {item.ob.kepesseg &&
                     <tr>
                         <th>Képesség</th>
-                        <td>{Kepessegek.find(item.ob.kepesseg).name}</td>
+                        <td>{Kepessegek.name(item.ob.kepesseg)}</td>
                     </tr>
                 }
                 {item.ob.mgt &&
@@ -129,7 +129,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
                 {item.ob.tipus !== 'nyilpuska' &&
                     <tr>
                         <th>Képesség</th>
-                        <td>{Kepessegek.find(item.ob.kepesseg).name}</td>
+                        <td>{Kepessegek.name(item.ob.kepesseg)}</td>
                     </tr>
                 }
                 {item.ob.tipus === 'ij' && <>

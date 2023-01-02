@@ -133,7 +133,7 @@ export const Karakter = {
                     harcertek: Harcertek.add(kasztInfo.harcertekAlap),
                     fp: kasztInfo.fpAlap,
                     kepzettsegek: {
-                        normal: [],
+                        normal: template.faj.kepzettsegek?.filter(k => k.name === undefined && Kepzettseg.find(k.kepzettsegId).fajta === 'normal').map(k => ({ kepzettseg: Kepzettseg.find(k.kepzettsegId) as NormalKepzettseg, fok: k.fok, kp: 0 })) ?? [],
                         szazalekos: Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => ({ kepzettseg: k as SzazalekosKepzettseg, szazalek: 0 }))
                     },
                     mana: 0,
@@ -151,6 +151,8 @@ export const Karakter = {
             szazalek: 0
         };
         levelUp(ret, kasztInfo);
+        // fajokból adódó választható képzettségeket később kell hozzáadni, mert különben a szintlépés törli őket
+        ret.szint[0].pendingKepzettsegek.push(...(template.faj.kepzettsegek?.filter(k => k.name !== undefined).map(k => ({ ...k, id: k.kepzettsegId })) ?? []));
         updateKepzettsegekForLevel(ret, kasztInfo, 0, ret.szint[0]);
         return ret;
     },

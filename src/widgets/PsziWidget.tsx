@@ -39,7 +39,7 @@ export const PsziWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult
                 <td>{'ke' in v ? <CalculationWidget calculation={v.ke} /> : v.varazslasIdeje}</td>
                 <td>{v.idotartam}</td>
                 <td>{Magia.mentodobasok.find(m => m.id === v.save)?.name} </td>
-                <td>{Kepzettseg.find(`pszi:${v.iskola}`).name} {v.fok}. fok</td>
+                <td>{Kepzettseg.name(`pszi:${v.iskola}`)} {v.fok}. fok</td>
             </tr>)}
         </tbody>
     </table>;

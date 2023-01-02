@@ -95,7 +95,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                             <th>{szintIdx}. szint: {sz.kaszt.name}</th>
                         </tr>}
                         {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
-                            <td>{pk.name ?? Kepzettseg.find(pk.kepzettsegId).name} {pk.fok}. fok:
+                            <td>{pk.name ?? Kepzettseg.name(pk.kepzettsegId)} {pk.fok}. fok:
                                 <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
                                     sz.pendingKepzettsegek.splice(pkIdx, 1);
                                     sz.kepzettsegek.normal.push({

@@ -154,7 +154,7 @@
             9,
             20
         ],
-        "leiras": "Belharcnak nevezik Ynev-szerte a teljes testközelben folytatott közelharcot. Két rövid fegyvert forgató, de még két puszta kézzel verekedő ellenfél sem folytat igazi Belharcot. Ennek fogásait  külön oktatják, s aki járatlan bennük, alaposan megjárhatja, ha a képzett belharcost közel engedi  magához. A hosszú fegyvereknek ugyanis - a hagyományos technikákat alkalmazva - nem sok  hasznát veszi; a Belharc fegyverei a puszta kéz és a különféle tőrök.\n\nA Belharc megkezdéséhez először is sikeres Közelkerülés szükséges. Ettől kezdve az ellenfelek a kör végéig Belharcot folytatnak (az erre vonatkozó szabályok szerint). Amennyiben mindkét fél  folytatni kívánja a küzdelemnek e formáját, akár körökön át is együtt maradhatnak, ahogyan közös  elhatározással bármikor szét is válhatnak. Ha azonban csak az egyik fél igyekszik eltávolodni, míg  a másik a Belharc megőrzésére törekszik - üldözi, próbál testközelben maradni -, kétséges a  folytatás. Mindkét fél minden körben Gyorsaság-próbát dob, ha a menekülő megdobja vagy az  üldöző elvéti azt, a Belharc félbeszakad. Vannak olyan harci helyzetek, amikor a belharc  megszakítása nem lehetséges. Ilyen például az igen szűk helyen való küzdés. Az, hogy a harci  helyzetből lehetséges-e kikerülni, és ha igen milyen módon, minden esetben a KM dönti el.\n\nBelharcban rövidkarddal, annál rövidebb fegyverekkel, vagy puszta kézzel akadálytalanul lehet  küzdeni. Az ennél hosszabb fegyverek Kezdeményező, Támadó és Védő Értékét mínuszok sújtják. \n\n||KÉ|TÉ|VÉ|\n|-|-|-|-|\n|Egykezes fegyver|-5|-10|10| \n|Kétkezes fegyver|-10|-20|-20| \n|Szálfegyver|-15|-25|-25| \n\n\nBelharcban a harcmodorban képzetlen karakter nem képes a megszokott módon védekezni, ezért bármilyen fegyvert forgat is, további -10-zel csökken a Védő Értéke.  ",
+        "leiras": "Belharcnak nevezik Ynev-szerte a teljes testközelben folytatott közelharcot. Két rövid fegyvert forgató, de még két puszta kézzel verekedő ellenfél sem folytat igazi Belharcot. Ennek fogásait  külön oktatják, s aki járatlan bennük, alaposan megjárhatja, ha a képzett belharcost közel engedi  magához. A hosszú fegyvereknek ugyanis - a hagyományos technikákat alkalmazva - nem sok  hasznát veszi; a Belharc fegyverei a puszta kéz és a különféle tőrök.\n\nA Belharc megkezdéséhez először is sikeres Közelkerülés szükséges. Ettől kezdve az ellenfelek a kör végéig Belharcot folytatnak (az erre vonatkozó szabályok szerint). Amennyiben mindkét fél  folytatni kívánja a küzdelemnek e formáját, akár körökön át is együtt maradhatnak, ahogyan közös  elhatározással bármikor szét is válhatnak. Ha azonban csak az egyik fél igyekszik eltávolodni, míg  a másik a Belharc megőrzésére törekszik - üldözi, próbál testközelben maradni -, kétséges a  folytatás. Mindkét fél minden körben Reflex próbát dob, ha a menekülő megdobja vagy az  üldöző elvéti azt, a Belharc félbeszakad. Vannak olyan harci helyzetek, amikor a belharc  megszakítása nem lehetséges. Ilyen például az igen szűk helyen való küzdés. Az, hogy a harci  helyzetből lehetséges-e kikerülni, és ha igen milyen módon, minden esetben a KM dönti el.\n\nBelharcban rövidkarddal, annál rövidebb fegyverekkel, vagy puszta kézzel akadálytalanul lehet  küzdeni. Az ennél hosszabb fegyverek Kezdeményező, Támadó és Védő Értékét mínuszok sújtják. \n\n||KÉ|TÉ|VÉ|\n|-|-|-|-|\n|Egykezes fegyver|-5|-10|10| \n|Kétkezes fegyver|-10|-20|-20| \n|Szálfegyver|-15|-25|-25| \n\n\nBelharcban a harcmodorban képzetlen karakter nem képes a megszokott módon védekezni, ezért bármilyen fegyvert forgat is, további -10-zel csökken a Védő Értéke.  ",
         "szintleiras": [
             "A karakter képzett a belharcban, de nem képes egy körnél tovább fenntartani azt, azaz további Belharcra kényszeríteni ellenfelét.",
             "A karakter a képzettség leírásában megadott módon képes harcolni.",
@@ -826,6 +826,34 @@
             "A kétfegyveres harcban ezen a fokon képzett karakter már levonások nélkül harcolhat mindkét fegyverével, de a másodlagos fegyverével\n továbbra is csak egyszer támadhat",
             "A karakter ezen a fokon már mindkét fegyverével annyiszor támadhat, amennyi támadást az adott fegyverrel egyébként leadhatna.",
             "A kétfegyveres harc magasiskolája: a karakter két fegyvere tökéletes szinkronban mozog, támadásaihoz mindkét fegyver támadó értéke\n hozzáadódik."
+        ]
+    },
+    {
+        "fajta": "normal",
+        "kp": [
+            3,
+            8,
+            15,
+            21,
+            31
+        ],
+        "tipus": "harcmodor",
+        "linked": [
+            {
+                "id": "belharc",
+                "strength": 0.5
+            }
+        ],
+        "name": "Harcmodor (Két kés)",
+        "id": "harcmodor:ketkes",
+        "kepesseg": "reflex",
+        "leiras": "E képzettség híján a két fegyverrel harcolni kívánó karakter igencsak nehéz helyzetben van, ami annyit tesz, hogy mindkét fegyverével\n való jártassága két fokkal alacsonyabbnak számít. A fő fegyverrel annyiszor támadhat körönként, amennyit támadna, ha nem fogna másik fegyvert a\n kezébe, de a másodlagos fegyverrel csak legfeljebb körönként egyszer.",
+        "szintleiras": [
+            "A karakter fegyverével való jártassága 1 fokkal alacsonyabbnak számít, a gyengébbik kezélvel még mindig csak egyszer támadhat.",
+            "A karakter az elsődleges fegyverével már akadálytalanul tud harcolni, a másodlagos fegyverrel továbbra is csak egyszer támadhat.",
+            "A karakter levonások nélkül tud harcolni mindkét fegyverrel.",
+            "Ha a karakter sikeresen Belharcot kezdeményez, ellenfele nem jogosult Reflex-próba dobásra, hogy sikerül-e kiszabadulnia. (Természetesen \"nem hagyományos\" módon, pl. pszi, mágia, esetleg egy társ segítsége azért képes lehet erre.)",
+            "A kétkezes késharc magasiskolája: a karakter két fegyvere tökéletes szinkronban mozog, támadásaihoz mindkét fegyver támadó értéke hozzáadódik."
         ]
     },
     {
