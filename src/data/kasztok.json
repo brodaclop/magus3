@@ -79,7 +79,10 @@
                 }
             ]
         ],
-        "kasztKpPerSzint": 6
+        "kasztKpPerSzint": 6,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ]
     },
     {
         "id": "Lovag",
@@ -107,7 +110,10 @@
         "kpAlap": 4,
         "kpPerSzint": 7,
         "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 8
+        "kasztKpPerSzint": 8,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ]
     },
     {
         "id": "Fejvadász",
@@ -134,7 +140,8 @@
         "hm": 3,
         "kasztSpec": [
             "ketSzintenkentKe",
-            "ketSzintenkentSebzes"
+            "ketSzintenkentSebzes",
+            "otodikSzintenGyorsTamadas"
         ],
         "kpAlap": 3,
         "kpPerSzint": 5,
@@ -283,7 +290,12 @@
                 }
             ]
         ],
-        "kasztKpPerSzint": 9
+        "kasztKpPerSzint": 9,
+        "kasztSpec": [
+            "ketSzintenkentKe",
+            "ketSzintenkentSebzes",
+            "otodikSzintenGyorsTamadas"
+        ]
     },
     {
         "id": "Barbár",
@@ -311,7 +323,10 @@
         "kpAlap": 7,
         "kpPerSzint": 10,
         "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 5
+        "kasztKpPerSzint": 5,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ]
     },
     {
         "id": "Tolvaj",

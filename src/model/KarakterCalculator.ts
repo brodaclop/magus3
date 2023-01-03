@@ -1,8 +1,9 @@
 import { Calculation, CalculationArgument, CalculationBinary, CalculationValue } from "./Calculation";
-import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, SebzesTipus } from "./Fegyver";
+import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, MASODIK_TAMADAS_KE, SebzesTipus } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Karakter, SzintInfo } from "./Karakter";
+import { Kasztok } from "./Kasztok";
 import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
 import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak } from "./Magia";
@@ -13,6 +14,7 @@ export interface CalcFegyver {
     te: CalculationArgument,
     //TODO: kocka calculation?
     sebzes: KockaDobas,
+    tobbTamadasKe: CalculationArgument,
 }
 
 export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
@@ -36,6 +38,7 @@ export interface KarakterCalcResult {
         ce: CalculationArgument,
         sebzes: KockaDobas,
         lotav: number,
+        tobbTamadasKe: CalculationArgument,
     },
     kepzettsegek: SzintInfo['kepzettsegek'],
     sfe: Record<typeof SebzesTipus[number]['id'], number>;
@@ -114,6 +117,8 @@ export const KarakterCalculator = {
             sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
         };
 
+        const gyorsTamadas = Object.entries(Karakter.szintek(karakter)).some(([kasztId, { szint }]) => Kasztok.find(kasztId).kasztSpec?.includes('otodikSzintenGyorsTamadas') && szint >= 5);
+
         const fegyverCalc = (idx: 0 | 1): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
             const fegyver = karakter.kezek[idx]?.ob;
             if (!fegyver) {
@@ -139,11 +144,15 @@ export const KarakterCalculator = {
                 const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
                 const erobonusz = erobonuszHatar === 0 ? 0 : Math.max(0, pillKep.izom - erobonuszHatar);
 
+                const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
+
+                const tobbTamadasKe = gyorsTamadas ? Calculation.mul(fegyverSebesseg, Calculation.value('Veterán', 0.8)) : fegyverSebesseg;
+
                 const sebzes: KockaDobas = {
                     ...fegyver.sebzes,
                     plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes) + erobonusz
                 }
-                return { ke, te, ve, sebzes };
+                return { ke, te, ve, sebzes, tobbTamadasKe };
             }
         };
 
@@ -157,8 +166,13 @@ export const KarakterCalculator = {
             const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce));
             const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
             const lotav = fegyver.tipus !== 'ij' ? fegyver.lotav : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).lotav;
+
+            const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
+
+            const tobbTamadasKe = gyorsTamadas ? Calculation.mul(fegyverSebesseg, Calculation.value('Veterán', 0.8)) : fegyverSebesseg;
+
             return {
-                ke, ce, sebzes, lotav
+                ke, ce, sebzes, lotav, tobbTamadasKe
             }
         }
 

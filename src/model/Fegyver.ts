@@ -14,6 +14,15 @@ export const SebzesTipus = [
 
 export const FegyverSebesseg = ['gyors', 'atlagos', 'lassu', '3', '4', '5'] as const;
 
+export const MASODIK_TAMADAS_KE: Record<typeof FegyverSebesseg[number], number> = {
+    gyors: 25,
+    atlagos: 50,
+    lassu: 75,
+    '3': 0,
+    '4': 0,
+    '5': 0
+};
+
 export const FegyverFlags = ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez', 'kes'] as const;
 
 export interface FegyverKategoria {

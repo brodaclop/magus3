@@ -6,10 +6,8 @@ export interface CalculationValue {
     label: string;
 }
 
-export type CalculationOperationType = 'add' | 'tizfolott' | 'max' | 'min';
-
 export interface CalculationBinary {
-    opType: 'add' | 'max' | 'min',
+    opType: 'add' | 'max' | 'min' | 'mul',
     args: Array<CalculationArgument>,
 }
 
@@ -33,6 +31,7 @@ const calculateArgument = (op: CalculationArgument): number => {
 const calculateOperation = (op: CalculationOperation): number => {
     switch (op.opType) {
         case 'add': return sumArray(op.args.map(calculateArgument));
+        case 'mul': return op.args.map(calculateArgument).reduce((acc, curr) => acc * curr, 1);
         case 'tizfolott': return Math.max(calculateArgument(op.arg) - 10, 0);
         case 'max': return Math.max(...op.args.map(calculateArgument));
         case 'min': return Math.min(...op.args.map(calculateArgument));
@@ -49,6 +48,7 @@ export const Calculation = {
     value: (label: string, value: number): CalculationValue => ({ label, value }),
     kepesseg: (kepessegek: Record<string, number>, id: string): CalculationValue => ({ label: Kepessegek.name(id), value: kepessegek[id] }),
     plusz: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('add', args),
+    mul: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('mul', args),
     max: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('max', args),
     min: (...args: Array<CalculationArgument>): CalculationBinary => constructBinaryOp('min', args),
     remove: (op: CalculationBinary, ...id: Array<string>) => { op.args = op.args.filter(a => !('label' in a) || !id.includes(a.label)); return op },

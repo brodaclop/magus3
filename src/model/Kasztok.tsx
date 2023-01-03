@@ -30,7 +30,7 @@ export interface KapottKepzettseg {
     honnan?: number;
 }
 
-export const KasztSpecFlags = ['ketSzintenkentKe', 'ketSzintenkentSebzes'] as const;
+export const KasztSpecFlags = ['ketSzintenkentKe', 'ketSzintenkentSebzes', 'otodikSzintenGyorsTamadas'] as const;
 
 export interface KasztInfo extends NamedEntity {
     id: string,
