@@ -11,13 +11,15 @@ export const KepessegWidget: React.FC<{
     minusz: (k: Kepesseg) => unknown;
     plusz: (k: Kepesseg) => unknown;
     lezar: () => unknown;
+    freehand: boolean;
 }> = ({
     karakter,
     calc,
     eloszt,
     minusz,
     plusz,
-    lezar
+    lezar,
+    freehand
 }) => {
         return <table className='bordered'>
             <thead>
@@ -34,13 +36,13 @@ export const KepessegWidget: React.FC<{
                     </td>}
                     <td>{rd.name}</td>
                     <td style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        {!karakter.elosztva && <button onClick={e => minusz(rd)}>-</button>}
+                        {(!karakter.elosztva || freehand) && <button onClick={e => minusz(rd)}>-</button>}
                         <span style={{ marginLeft: '0.5rem', marginRight: '0.5rem' }}>
                             {calc.kepessegek[rd.id]}
                             /
                             <CalculationWidget calculation={calc.pillanatnyiKepessegek[rd.id]} />
                         </span>
-                        {!karakter.elosztva && <button onClick={e => plusz(rd)}>+</button>}
+                        {(!karakter.elosztva || freehand) && <button onClick={e => plusz(rd)}>+</button>}
                     </td>
                 </tr>)}
             </tbody>

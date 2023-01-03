@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
@@ -20,6 +20,7 @@ export const KarakterWidget: React.FC<{
     deleteKarakter: () => unknown
 }> = ({ karakter, setKarakter, deleteKarakter }) => {
     const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
+    const [freehand, setFreehand] = useState<boolean>(false);
 
     const commit = (k?: Karakter) => {
         setKarakter(k ? { ...k } : { ...karakter });
@@ -27,9 +28,11 @@ export const KarakterWidget: React.FC<{
 
     const plusz = (k: Kepesseg, shouldCommit = true): boolean => {
         const kategoria = k.kategoria;
-        if (karakter.kepessegKategoriak[kategoria] > 0 && karakter.kepessegek[k.id] < 20) {
+        if ((freehand || karakter.kepessegKategoriak[kategoria] > 0) && karakter.kepessegek[k.id] < 20) {
             karakter.kepessegek[k.id]++;
-            karakter.kepessegKategoriak[kategoria]--;
+            if (!freehand) {
+                karakter.kepessegKategoriak[kategoria]--;
+            }
             if (shouldCommit) {
                 commit();
             }
@@ -42,7 +45,9 @@ export const KarakterWidget: React.FC<{
         const kategoria = k.kategoria;
         if (karakter.kepessegek[k.id] > 0) {
             karakter.kepessegek[k.id]--;
-            karakter.kepessegKategoriak[kategoria]++;
+            if (!freehand) {
+                karakter.kepessegKategoriak[kategoria]++;
+            }
             if (shouldCommit) {
                 commit();
             }
@@ -65,36 +70,40 @@ export const KarakterWidget: React.FC<{
         commit();
     }
 
-    return <div className='karakterLap'>
-        <div>
-            <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
-        </div>
-        <div>
-            <HarcertekWidget karakter={karakter} setKarakter={commit} />
-        </div>
-        <div>
-            <PancelWidget karakter={karakter} onChange={commit} />
-        </div>
-        <div>
-            <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} />
-        </div>
-        <div>
-            <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-        </div>
-        <div>
-            <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
-        </div>
-        <div className='fullWidth'>
-            <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-        </div>
-        <div className='fullWidth'>
-            <PsziWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-        </div>
-        <div className='fullWidth'>
-            <VarazslatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-        </div>
-        <div className='fullWidth'>
-            <VerboseKepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+    return <div>
+        <button onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>Teszt</button>
+        <div className='karakterLap'>
+
+            <div>
+                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
+            </div>
+            <div>
+                <HarcertekWidget karakter={karakter} setKarakter={commit} />
+            </div>
+            <div>
+                <PancelWidget karakter={karakter} onChange={commit} />
+            </div>
+            <div>
+                <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
+            </div>
+            <div>
+                <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
+            <div>
+                <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
+            </div>
+            <div className='fullWidth'>
+                <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
+            <div className='fullWidth'>
+                <PsziWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
+            <div className='fullWidth'>
+                <VarazslatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
+            <div className='fullWidth'>
+                <VerboseKepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
         </div>
     </div>
 };
