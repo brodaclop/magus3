@@ -23,7 +23,9 @@ export const HARCMODOR_EFFEKTEK: Array<HarcmodorCalculation> = [
     },
     {
         id: 'ketfegyver',
-        isAvailable: kezek => !!kezek[0] && !!kezek[1] && !kezek[0].flags && !kezek[1].flags,
+        isAvailable: kezek => !!kezek[0] && !!kezek[1] &&
+            (!kezek[0].flags || kezek[0].flags === 'kes') && (!kezek[1].flags || kezek[1].flags === 'kes')
+            && !(kezek[0].flags === 'kes' && kezek[1].flags === 'kes'),
         szintek: [
             ['kez0minusz3', 'kez1minusz3', 'kez1SingleAttack'],
             ['kez0minusz1', 'kez1minusz3', 'kez1SingleAttack'],

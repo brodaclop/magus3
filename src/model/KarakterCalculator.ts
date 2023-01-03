@@ -11,7 +11,7 @@ import { GyorsPsziDiszicplina, LassuPsziDiszciplina, Pszi } from "./Pszi";
 import { mergeToArray, sumArray, transformRecord } from "./util";
 
 export interface CalcFegyver {
-    te: CalculationArgument,
+    te?: CalculationArgument,
     //TODO: kocka calculation?
     sebzes: KockaDobas,
     tobbTamadasKe: CalculationArgument,
@@ -138,7 +138,7 @@ export const KarakterCalculator = {
                     ? FEGYVER_KEPZETTSEG_HARCERTEKEK[2]
                     : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz)[0];
                 const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke));
-                const te = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
+                const te = (idx === 1 && harcmodorHatasok.kez1NoAttack) ? undefined : Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te));
                 const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.name, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve));
 
                 const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
@@ -146,7 +146,9 @@ export const KarakterCalculator = {
 
                 const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
 
-                const tobbTamadasKe = gyorsTamadas ? Calculation.mul(fegyverSebesseg, Calculation.value('Veterán', 0.8)) : fegyverSebesseg;
+                const csak1Tamadas = (idx === 1 && (harcmodorHatasok.kez1SingleAttack || harcmodorHatasok.kez1NoAttack)) ? Calculation.value('Harcmodor', 0) : undefined;
+
+                const tobbTamadasKe = Calculation.mul(fegyverSebesseg, gyorsTamadas ? Calculation.value('Veterán', 0.8) : undefined, csak1Tamadas);
 
                 const sebzes: KockaDobas = {
                     ...fegyver.sebzes,

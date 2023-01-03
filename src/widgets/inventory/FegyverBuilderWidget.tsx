@@ -166,6 +166,7 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                             <option value='nagy-pajzs'>Nagy pajzs</option>
                             <option value='slan-kard'>Slan kard</option>
                             <option value='slan-tor'>Slan tőr</option>
+                            <option value='kes'>Kés</option>
                         </select>
                     </td>
                 </tr>

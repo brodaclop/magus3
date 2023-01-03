@@ -83,11 +83,11 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             <tr>
                 <th>TÉ</th>
                 <td>
-                    {calc.fegyverrel.kezek[0] && <CalculationWidget calculation={calc.fegyverrel.kezek[0].te} />}
+                    {calc.fegyverrel.kezek[0] && calc.fegyverrel.kezek[0].te && <CalculationWidget calculation={calc.fegyverrel.kezek[0].te} />}
 
                 </td>
                 <td>
-                    {calc.fegyverrel.kezek[1] && <CalculationWidget calculation={calc.fegyverrel.kezek[1].te} />}
+                    {calc.fegyverrel.kezek[1] && calc.fegyverrel.kezek[1].te && <CalculationWidget calculation={calc.fegyverrel.kezek[1].te} />}
                 </td>
                 <th>CÉ</th>
                 <td>
