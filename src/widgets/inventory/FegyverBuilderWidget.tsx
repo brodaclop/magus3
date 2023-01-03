@@ -124,7 +124,7 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                     </td>
                 </tr>}
                 {fegyver.kepesseg && <tr>
-                    <th>Erőbónusz Izom minimum</th>
+                    <th>Sebzésbónusz Izom minimum</th>
                     <td>
                         <td><input type='number' value={fegyver.erobonusz ?? 0} onChange={e => setFegyver({ ...fegyver, erobonusz: Number(e.target.value) })} /> </td>
                     </td>
