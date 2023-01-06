@@ -131,15 +131,17 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             <tr>
                 <th>Harci helyzetek:</th>
                 <td colSpan={4}>
-                    <div>
-                        {HarciHelyzetek.map(h => <button key={h.id} onClick={() => {
-                            if (karakter.temporary.harciHelyzet.includes(h.id)) {
-                                karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);
-                            } else {
-                                karakter.temporary.harciHelyzet.push(h.id);
-                            }
-                            onChange(karakter);
-                        }}>{karakter.temporary.harciHelyzet.includes(h.id) ? '+' : '-'}&nbsp;{h.name}</button>)}
+                    <div style={{ display: 'flex', flexDirection: 'row', flexFlow: 'wrap' }}>
+                        {[...HarciHelyzetek].sort((a, b) => a.name.localeCompare(b.name)).map(h => <div style={{ width: '15%' }}>
+                            <button style={{ borderColor: karakter.temporary.harciHelyzet.includes(h.id) ? 'green' : undefined }} key={h.id} onClick={() => {
+                                if (karakter.temporary.harciHelyzet.includes(h.id)) {
+                                    karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);
+                                } else {
+                                    karakter.temporary.harciHelyzet.push(h.id);
+                                }
+                                onChange(karakter);
+                            }}>{karakter.temporary.harciHelyzet.includes(h.id) ? '+' : '-'}&nbsp;{h.name}</button>
+                        </div>)}
                     </div>
                 </td>
             </tr>

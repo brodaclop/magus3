@@ -1,7 +1,7 @@
 import { Calculation, CalculationArgument, CalculationBinary, CalculationValue } from "./Calculation";
 import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, MASODIK_TAMADAS_KE, SebzesTipus } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
-import { HarciHelyzet, HarciHelyzetModositok } from "./HarciHelyzet";
+import { HarciHelyzet } from "./HarciHelyzet";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Karakter, SzintInfo } from "./Karakter";
 import { Kasztok } from "./Kasztok";
@@ -167,7 +167,7 @@ export const KarakterCalculator = {
             }
             const fegyver = karakter.lofegyver.ob;
             const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, fegyver, 0);
-            const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].sebessegSzorzo)));
+            const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ke)));
             const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ce)));
             const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
             const lotav = fegyver.tipus !== 'ij' ? fegyver.lotav : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).lotav;
