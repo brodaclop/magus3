@@ -167,7 +167,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} />
                     </td>
                     <td>
-                        {k.kp === Math.floor(k.kp) ? k.kp : k.kp.toFixed(2)}/{Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
+                        {k.kp === Math.floor(k.kp) ? k.kp : k.kp.toFixed(2)}/{k.fok === 5 ? '---' : Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
                     </td>
                 </tr>)}
             </tbody>

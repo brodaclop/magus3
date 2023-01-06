@@ -2,6 +2,7 @@ import { v4 } from "uuid";
 import { Faj, Fajok } from "./Fajok";
 import { Fegyver, KozelharcFegyver } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
+import { HarciHelyzetek } from "./HarciHelyzet";
 import { InventoryFegyver, InventoryItem, InventoryLofegyver, InventoryPancel } from "./Inventory";
 import { KarakterCalculator } from "./KarakterCalculator";
 import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
@@ -20,6 +21,7 @@ export interface KarakterTemplate {
 
 export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: string } | InventoryFegyver;
 
+
 export interface Karakter extends NamedEntity {
     readonly faj: Faj;
     szint: Array<SzintInfo>;
@@ -35,6 +37,9 @@ export interface Karakter extends NamedEntity {
     inventory: Array<InventoryItem>;
     elosztva?: boolean;
     szazalek: number;
+    temporary: {
+        harciHelyzet: Array<typeof HarciHelyzetek[number]['id']>;
+    };
 }
 
 export interface SzintInfo {
@@ -148,7 +153,10 @@ export const Karakter = {
             kezek: [Karakter.okolharc(), undefined],
             kp: kasztInfo.kpAlap,
             kasztKp: 0,
-            szazalek: 0
+            szazalek: 0,
+            temporary: {
+                harciHelyzet: []
+            }
         };
         levelUp(ret, kasztInfo);
         // fajokból adódó választható képzettségeket később kell hozzáadni, mert különben a szintlépés törli őket

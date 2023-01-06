@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calculation } from '../model/Calculation';
 import { SebzesTipus } from '../model/Fegyver';
+import { HarciHelyzetek } from '../model/HarciHelyzet';
 import { InventoryLofegyver } from '../model/Inventory';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
@@ -68,19 +69,6 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 </td>
             </tr>
             <tr>
-                <th>Második támadás KÉ</th>
-                <td style={{ textAlign: 'center' }}>
-                    {calc.fegyverrel.kezek[0] && <CalculationWidget calculation={calc.fegyverrel.kezek[0].tobbTamadasKe} />}
-                </td>
-                <td style={{ textAlign: 'center' }}>
-                    {calc.fegyverrel.kezek[1] && <CalculationWidget calculation={calc.fegyverrel.kezek[1].tobbTamadasKe} />}
-                </td>
-                <th>MTKÉ</th>
-                <td style={{ textAlign: 'center' }}>
-                    {calc.lofegyverrel ? <CalculationWidget calculation={calc.lofegyverrel.tobbTamadasKe} /> : '-'}
-                </td>
-            </tr>
-            <tr>
                 <th>TÉ</th>
                 <td>
                     {calc.fegyverrel.kezek[0] && calc.fegyverrel.kezek[0].te && <CalculationWidget calculation={calc.fegyverrel.kezek[0].te} />}
@@ -116,6 +104,19 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <td style={{ textAlign: 'center' }}>{calc.lofegyverrel?.lotav ?? '-'}</td>
             </tr>
             <tr>
+                <th>Második támadás KÉ</th>
+                <td>
+                    {calc.fegyverrel.kezek[0] && <CalculationWidget calculation={calc.fegyverrel.kezek[0].tobbTamadasKe} />}
+                </td>
+                <td>
+                    {calc.fegyverrel.kezek[1] && <CalculationWidget calculation={calc.fegyverrel.kezek[1].tobbTamadasKe} />}
+                </td>
+                <th>MTKÉ</th>
+                <td style={{ textAlign: 'center' }}>
+                    {calc.lofegyverrel ? <CalculationWidget calculation={calc.lofegyverrel.tobbTamadasKe} /> : '-'}
+                </td>
+            </tr>
+            <tr>
                 <th>MGT</th>
                 <td style={{ textAlign: 'center' }} colSpan={2}>
                     <CalculationWidget calculation={calc.mgt} />
@@ -127,6 +128,21 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                     <KepzettsegLeiras kepzettseg={harcmodorKepzettseg} fok={harcmodorFok} />
                 </td>
             </tr>}
+            <tr>
+                <th>Harci helyzetek:</th>
+                <td colSpan={4}>
+                    <div>
+                        {HarciHelyzetek.map(h => <button key={h.id} onClick={() => {
+                            if (karakter.temporary.harciHelyzet.includes(h.id)) {
+                                karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);
+                            } else {
+                                karakter.temporary.harciHelyzet.push(h.id);
+                            }
+                            onChange(karakter);
+                        }}>{karakter.temporary.harciHelyzet.includes(h.id) ? '+' : '-'}&nbsp;{h.name}</button>)}
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>;
 }

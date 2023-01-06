@@ -63,7 +63,7 @@ export const Mentodobasok = [
     { name: 'Asztrál', id: 'asztral' },
     { name: 'Asztrál+Mentál', id: 'asztral+mental' },
     { name: 'Méreg', id: 'mereg' },
-    { name: '', id: 'nincs' },
+    { name: '-', id: 'nincs' },
 ] as const;
 
 export const MagiaKategoriak = [
