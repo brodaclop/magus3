@@ -15,7 +15,7 @@ export const ManaMennyiseg = ['normál', 'sok', 'kevés'] as const;
 //     Gyenge: { darab: 7, kocka: 10, eldobNagy: 1 },
 // }
 
-const KEPESSEG_DOBAS: Record<typeof KasztKepesseg[number], Partial<KockaDobas>> = {
+export const KEPESSEG_DOBAS: Record<typeof KasztKepesseg[number], Partial<KockaDobas>> = {
     Legendás: { darab: 3, kocka: 6, plusz: 42 },
     Jó: { darab: 5, kocka: 6, plusz: 30 },
     Átlagos: { darab: 8, kocka: 6, plusz: 12 },
@@ -54,6 +54,11 @@ export interface KasztInfo extends NamedEntity {
     szazalekPerSzint: number;
     kepzettsegek?: Array<Array<Omit<KapottKepzettseg, 'id'>>>;
     magiaKategoriak?: Array<typeof MagiaKategoriak[number]['id']>;
+    leiras?: {
+        fo?: string,
+        kepzettseg?: string,
+        kulonlegesKepessegek?: string,
+    }
 }
 
 export const Kasztok = {

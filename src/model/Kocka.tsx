@@ -68,12 +68,12 @@ export const kockaDobas = (d: Partial<KockaDobas>): DobasEredmeny => {
 }
 
 //TODO: ezt azert meg csiszolni kell
-export const printKocka = (kocka: KockaDobas): string => {
-    if (kocka.darab === 0 || kocka.kocka === 0) {
+export const printKocka = (kocka: Partial<KockaDobas>): string => {
+    if (!kocka.darab || !kocka.kocka) {
         return String(kocka.plusz);
     } else {
-        const pluszString = kocka.plusz > 0 ? `+${kocka.plusz}` : (kocka.plusz < 0 ? kocka.plusz : '');
-        return `${kocka.darab}k${kocka.kocka}${pluszString}`;
+        const pluszString = (kocka.plusz ?? 0) > 0 ? `+${kocka.plusz}` : ((kocka.plusz ?? 0) < 0 ? kocka.plusz : '');
+        return `${kocka.darab === 1 ? '' : kocka.darab}k${kocka.kocka}${pluszString}`;
     }
 }
 export const parseKocka = (str: string): KockaDobas => {

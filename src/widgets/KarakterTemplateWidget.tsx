@@ -5,6 +5,7 @@ import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kasztok } from '../model/Kasztok';
 import { DobasEredmeny } from '../model/Kocka';
 import { DobasEredmenyWidget } from './DobasEredmenyWidget';
+import { KasztLeiras } from './KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 import { ModalWindow } from './ModalWindow';
 import { NamedEntitySelector } from './NamedEntitySelector';
@@ -75,6 +76,7 @@ export const KarakterTemplateWdiget: React.FC<{
                 </tr>)}
             </tbody>
         </table>
+        <KasztLeiras kaszt={kaszt} inline />
         <button onClick={karakterDob}>Dob</button>
         <button onClick={() => {
             if (karakter) {

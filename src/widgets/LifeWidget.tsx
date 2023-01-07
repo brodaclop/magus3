@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
+import { Kasztok } from '../model/Kasztok';
 import { CalculationWidget } from './CalculationWidget';
+import { KasztLeiras } from './KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 
 export const LifeWidget: React.FC<{
@@ -30,7 +32,7 @@ export const LifeWidget: React.FC<{
                 <td>
                     <ul className='simpleList'>
                         {Object.entries(kasztok).map(([kasztId, kaszt]) => <li>
-                            {kaszt.name}: {kaszt.szint}
+                            <KasztLeiras kaszt={Kasztok.find(kasztId)} />: {kaszt.szint}
                             <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0} onClick={() => levelUp(kasztId)}>+</button>
                         </li>)}
                         <li>

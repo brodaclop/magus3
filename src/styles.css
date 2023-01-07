@@ -1,11 +1,7 @@
-table.bordered {
+.bordered {
     border: 3px solid black;
     border-collapse: collapse;
     margin: 0.5em;
-}
-
-table.bordered td {
-    /*   border: 1px solid black; */
 }
 
 table.bordered tbody:not(.unstriped) tr:nth-child(odd) {

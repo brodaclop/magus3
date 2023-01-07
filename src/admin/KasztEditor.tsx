@@ -66,7 +66,12 @@ const KASZT_SCHEMA: ObjectEditorDescriptor = Editor.object<KasztInfo>('Kaszt', {
         kepesseg: Editor.picklist('Képesség', Kepessegek.lista),
         mennyiseg: Editor.picklist('Mana mennyisége', ManaMennyiseg),
     }),
-    magiaKategoriak: Editor.multiPicklist('Mágia kategóriák', MagiaKategoriak)
+    magiaKategoriak: Editor.multiPicklist('Mágia kategóriák', MagiaKategoriak),
+    leiras: Editor.object('Leíráasok', {
+        fo: Editor.longString('Kaszt'),
+        kepzettseg: Editor.longString('Képzettség'),
+        kulonlegesKepessegek: Editor.longString('Különleges képességek'),
+    })
 });
 
 export const KasztEditor: React.FC<{}> = () => {
