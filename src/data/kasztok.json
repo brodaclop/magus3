@@ -65,6 +65,20 @@
                 {
                     "kepzettsegId": "ugras",
                     "fok": 10
+                },
+                {
+                    "kepzettsegId": "harcmodor",
+                    "name": "Harcmodor",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor",
+                    "name": "Harcmodor",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 2
                 }
             ],
             [],
@@ -72,12 +86,7 @@
             [],
             [],
             [],
-            [
-                {
-                    "kepzettsegId": "hadvezetes",
-                    "fok": 2
-                }
-            ]
+            []
         ],
         "kasztKpPerSzint": 6,
         "kasztSpec": [
@@ -113,6 +122,92 @@
         "kasztKpPerSzint": 8,
         "kasztSpec": [
             "otodikSzintenGyorsTamadas"
+        ],
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vertviselet",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor:pajzs",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyverismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "heraldika",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 2
+                }
+            ],
+            null,
+            null,
+            [
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
+                }
+            ]
         ]
     },
     {
@@ -146,7 +241,152 @@
         "kpAlap": 3,
         "kpPerSzint": 5,
         "szazalekPerSzint": 20,
-        "kasztKpPerSzint": 10
+        "kasztKpPerSzint": 10,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "uszas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "csapdaallitas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "alcazas_alruha",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 30
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "lopozas",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "rejtozes",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "csapdafelfedezes",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "fegyverkat:csatabard",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:dobo",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:egykezes_szuro",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:egykezes_vago",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:nyilpuska",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:szalfegyver",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyverkat:zuzo",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 3
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "kotelekbol_szabadulas",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "vakharc",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "nyomolvasas",
+                    "fok": 1
+                }
+            ]
+        ]
     },
     {
         "id": "Gladiátor",
@@ -218,7 +458,8 @@
                 },
                 {
                     "kepzettsegId": "fegyvertores",
-                    "fok": 2
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
                 },
                 {
                     "kepzettsegId": "eses",
@@ -227,68 +468,26 @@
                 {
                     "kepzettsegId": "ugras",
                     "fok": 20
-                }
-            ],
-            [],
-            [
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                }
-            ],
-            [],
-            [
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
                 },
                 {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 4,
-                    "honnan": 2,
-                    "name": "Fegyverhasználat"
-                }
-            ],
-            [
+                    "kepzettsegId": "foldharc",
+                    "fok": 2
+                },
                 {
-                    "kepzettsegId": "harcmodor:ketfegyver",
-                    "honnan": 2,
-                    "fok": 4
-                }
-            ],
-            [
-                {
-                    "kepzettsegId": "vakharc",
+                    "kepzettsegId": "belharc",
                     "fok": 2
                 }
             ],
-            [
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "harcmodor:kispajzs",
-                    "honnan": 2,
-                    "fok": 4
-                }
-            ],
+            [],
+            [],
             [],
             [
                 {
-                    "kepzettsegId": "fegyvertores",
-                    "honnan": 2,
-                    "fok": 4
+                    "kepzettsegId": "vakharc",
+                    "fok": 1
                 }
-            ]
+            ],
+            []
         ],
         "kasztKpPerSzint": 9,
         "kasztSpec": [
@@ -326,6 +525,61 @@
         "kasztKpPerSzint": 5,
         "kasztSpec": [
             "otodikSzintenGyorsTamadas"
+        ],
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "birkozas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "idojoslas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "tuleles",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 40
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "herbalizmus",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 1
+                }
+            ]
         ]
     },
     {
@@ -426,6 +680,31 @@
                 {
                     "kepzettsegId": "csapdafelfedezes",
                     "fok": 25
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "mellebeszeles",
+                    "fok": 2
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "kotelekbol_szabadulas",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "csomozas",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 1
                 }
             ]
         ],
@@ -461,7 +740,160 @@
             "kepesseg": "empatia",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 11
+        "kasztKpPerSzint": 11,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hangutánzás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hamiskartya",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 5
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "lopozas",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "rejtozes",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "zsebmetszes",
+                    "fok": 5
+                },
+                {
+                    "kepzettsegId": "csapdafelfedezes",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "mellebeszeles",
+                    "fok": 2
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "ertekbecsles",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "zsonglorkodes",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "kocsmai_verekedes",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "csomozas",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "tanc",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 1
+                }
+            ],
+            null,
+            null,
+            [
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 1
+                }
+            ]
+        ],
+        "magiaKategoriak": [
+            "bard_fenymagia"
+        ]
     },
     {
         "id": "Pap",
@@ -499,6 +931,49 @@
             "litania",
             "rituale",
             "szfera_altalanos"
+        ],
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                }
+            ]
         ]
     },
     {
@@ -537,7 +1012,85 @@
             "rituale",
             "szfera_altalanos"
         ],
-        "kasztKpPerSzint": 10
+        "kasztKpPerSzint": 10,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vertviselet",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor:pajzs",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "heraldika",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                }
+            ]
+        ]
     },
     {
         "id": "Harcművész",
@@ -597,11 +1150,6 @@
                     "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyvertores",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
                     "kepzettsegId": "lovaglas",
                     "fok": 2,
                     "honnan": 0
@@ -636,33 +1184,25 @@
                     "name": "Harcművészet stílus",
                     "fok": 2,
                     "honnan": 0
-                }
-            ],
-            null,
-            [
-                {
-                    "kepzettsegId": "sebgyogyitas",
-                    "fok": 2,
-                    "honnan": 0
-                }
-            ],
-            null,
-            [
-                {
-                    "kepzettsegId": "fegyvertores",
-                    "fok": 4,
-                    "honnan": 0
-                }
-            ],
-            [
-                {
-                    "kepzettsegId": "vakharc",
-                    "fok": 4,
-                    "honnan": 0
                 },
                 {
+                    "kepzettsegId": "pszi:slan",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "foldharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 3
+                }
+            ],
+            null,
+            [
+                {
                     "kepzettsegId": "sebgyogyitas",
-                    "fok": 4,
+                    "fok": 1,
                     "honnan": 0
                 }
             ]
@@ -695,7 +1235,72 @@
         "kpAlap": 4,
         "kpPerSzint": 5,
         "szazalekPerSzint": 18,
-        "kasztKpPerSzint": 10
+        "kasztKpPerSzint": 10,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "birkozas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vakharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:kard_slan",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:tor_slan",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:slan",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "uszas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 2
+                }
+            ]
+        ]
     },
     {
         "id": "Boszorkány",
