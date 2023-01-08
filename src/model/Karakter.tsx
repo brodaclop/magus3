@@ -15,6 +15,7 @@ export interface KarakterTemplate {
     name: string,
     faj: Faj,
     kaszt: string,
+    jellem: string,
     szint: number,
     kepessegKategoriak: Record<KepessegKategoria, number>;
 }
@@ -23,6 +24,7 @@ export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: s
 
 
 export interface Karakter extends NamedEntity {
+    jellem: string;
     readonly faj: Faj;
     szint: Array<SzintInfo>;
     kepessegek: Record<string, number>;
@@ -123,12 +125,13 @@ const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Karakter = {
-    createTemplate: (options?: { faj?: Faj, kaszt?: string, name: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0].id, szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '' }),
+    createTemplate: (options?: { faj?: Faj, kaszt?: string, name: string, jellem: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0].id, szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '', jellem: options?.jellem ?? '' }),
     create: (template: KarakterTemplate): Karakter => {
         const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);
         const ret: Karakter = {
             id: v4(),
             name: template.name,
+            jellem: template.jellem,
             faj: template.faj,
             kepessegKategoriak: template.kepessegKategoriak,
             inventory: [],

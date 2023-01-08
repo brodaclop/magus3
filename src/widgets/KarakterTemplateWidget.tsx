@@ -32,6 +32,13 @@ export const KarakterTemplateWdiget: React.FC<{
         }
     }
 
+    const onJellemChange = (jellem: string): void => {
+        setTemplate({ ...template, jellem });
+        if (karakter) {
+            setKarakter({ ...karakter, jellem });
+        }
+    }
+
 
     const karakterDob = () => {
         const r = Kasztok.kidob(Kasztok.kasztInfo(template.kaszt, 0));
@@ -49,48 +56,64 @@ export const KarakterTemplateWdiget: React.FC<{
     const kaszt = Kasztok.kasztInfo(template.kaszt, 0);
 
     return <ModalWindow button='Új karakter' open={open} setOpen={setOpen}>
-        <table>
-            <tbody>
-                <tr>
-                    <th>Név</th>
-                    <td colSpan={2}>
-                        <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
-                    </td>
-                </tr>
-
-                {Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
-                    <th>{kategoria}</th>
-                    <td>{dobas}</td>
-                    <td><DobasEredmenyWidget {...dobasok[idx]} /></td>
-                </tr>)}
-            </tbody>
-        </table>
-        <table>
-            <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-                <div style={{ flexBasis: '50%' }}>
-                    Faj: <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
-                        onFieldChange(Karakter.createTemplate({ ...template, faj }));
-                    }} />
-
-                    <FajLeiras faj={template.faj} inline />
-                </div>
-                <div style={{ flexBasis: '50%' }}>
-                    Kaszt: <KasztSelectorWidget kaszt={template.kaszt} onChange={kaszt => {
-                        onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
-                    }} />
-                    <KasztLeiras kaszt={kaszt} inline />
-                </div>
+        <div className='justifiedFlexRow'>
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Név</th>
+                            <td>
+                                <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Jellem</th>
+                            <td>
+                                <input type='text' value={template.jellem} onChange={e => onJellemChange(e.target.value)} />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </table>
+            <div>
+                <table>
+                    <tbody>
+                        {Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
+                            <th>{kategoria}</th>
+                            <td>{dobas}</td>
+                            <td><DobasEredmenyWidget {...dobasok[idx]} /></td>
+                        </tr>)}
+                    </tbody>
+                </table>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column-reverse' }}>
+                <button
+                    disabled={!karakter || !karakter.name || !karakter.jellem}
+                    onClick={() => {
+                        if (karakter) {
+                            onCreate(karakter);
+                            setTemplate(Karakter.createTemplate());
+                            setDobasok(Array(4).fill({ kocka: [], max: 0, osszeg: 0, eldobottak: [], plusz: 0 } as DobasEredmeny));
+                        }
+                        setOpen(false);
+                    }}>Elkészít</button>
+                <button onClick={karakterDob}>Dob</button>
+            </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+            <div style={{ flexBasis: '50%' }}>
+                Faj: <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
+                    onFieldChange(Karakter.createTemplate({ ...template, faj }));
+                }} />
 
-        <button onClick={karakterDob}>Dob</button>
-        <button onClick={() => {
-            if (karakter) {
-                onCreate(karakter);
-                setTemplate(Karakter.createTemplate());
-                setDobasok(Array(4).fill({ kocka: [], max: 0, osszeg: 0, eldobottak: [], plusz: 0 } as DobasEredmeny));
-            }
-            setOpen(false);
-        }}>OK</button>
+                <FajLeiras faj={template.faj} inline />
+            </div>
+            <div style={{ flexBasis: '50%' }}>
+                Kaszt: <KasztSelectorWidget kaszt={template.kaszt} onChange={kaszt => {
+                    onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
+                }} />
+                <KasztLeiras kaszt={kaszt} inline />
+            </div>
+        </div>
     </ModalWindow>;
 };

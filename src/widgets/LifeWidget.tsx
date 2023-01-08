@@ -29,6 +29,10 @@ export const LifeWidget: React.FC<{
                 <td><FajLeiras faj={karakter.faj} /></td>
             </tr>
             <tr>
+                <th>Jellem</th>
+                <td>{karakter.jellem}</td>
+            </tr>
+            <tr>
                 <th>Szint</th>
                 <td>
                     <ul className='simpleList'>

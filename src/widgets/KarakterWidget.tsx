@@ -71,7 +71,7 @@ export const KarakterWidget: React.FC<{
     }
 
     return <div>
-        <button onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>Teszt</button>
+        <button disabled={!karakter.elosztva} onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>Teszt</button>
         <div className='karakterLap'>
 
             <div>
@@ -86,14 +86,14 @@ export const KarakterWidget: React.FC<{
             <div>
                 <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
             </div>
+            <div className='fullWidth'>
+                <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
             <div>
                 <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
             <div>
                 <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
-            </div>
-            <div className='fullWidth'>
-                <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
             <div className='fullWidth'>
                 <PsziWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
