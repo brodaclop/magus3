@@ -38,11 +38,11 @@ export const LifeWidget: React.FC<{
                     <ul className='simpleList'>
                         {Object.entries(kasztok).map(([kasztId, kaszt]) => <li>
                             <KasztLeiras kaszt={Kasztok.find(kasztId)} />: {kaszt.szint}
-                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0} onClick={() => levelUp(kasztId)}>+</button>
+                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0} onClick={() => levelUp(kasztId)}>+</button>
                         </li>)}
                         <li>
                             <KasztSelectorWidget kaszt={ujKaszt} onChange={setUjKaszt} />
-                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || ujKaszt === ''} onClick={() => {
+                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0 || ujKaszt === ''} onClick={() => {
                                 levelUp(ujKaszt);
                                 setUjKaszt('');
                             }}>+</button>

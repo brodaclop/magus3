@@ -283,16 +283,20 @@ const calculateFegyverrel = (
             ke = Calculation.min(kezek[0].ke, kezek[1].ke);
         }
         if (harcmodorHatasok.mindketVE) {
-            ve = Calculation.plusz(kezek[0].ve, Calculation.remove(kezek[1].ve as CalculationBinary, 'Fegyver nélkül', 'Képzettség'));
+            ve = Calculation.plusz(kezek[0].ve, Calculation.remove(kezek[1].ve as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
         } else {
             ve = Calculation.max(kezek[0].ve, kezek[1].ve);
         }
         if (harcmodorHatasok.mindketTE) {
-            kezek[0].te = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség'));
-            kezek[1].te = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség'));
+            const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
+            const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
+            kezek[0].te = uj0;
+            kezek[1].te = uj1;
         } else if (harcmodorHatasok.shiensuTE) {
-            kezek[0].te = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül'));
-            kezek[1].te = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül'));
+            const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
+            const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
+            kezek[0].te = uj0;
+            kezek[1].te = uj1;
         }
     } else if (kezek[0]) {
         ke = kezek[0].ke;

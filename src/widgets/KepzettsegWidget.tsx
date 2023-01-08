@@ -135,7 +135,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         {karakter.kasztKp}
                     </td>
                 </tr>
-                <tr>
+                <tr style={{ backgroundColor: karakter.szazalek > 0 ? 'lightpink' : undefined }}>
                     <th colSpan={2}>%</th>
                     <td>
                         {karakter.szazalek}

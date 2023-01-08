@@ -51,7 +51,7 @@ export const Calculation = {
     mul: (...args: Array<CalculationArgument | undefined>): CalculationBinary => constructBinaryOp('mul', args.filter(x => x !== undefined) as Array<CalculationArgument>),
     max: (...args: Array<CalculationArgument | undefined>): CalculationBinary => constructBinaryOp('max', args.filter(x => x !== undefined) as Array<CalculationArgument>),
     min: (...args: Array<CalculationArgument | undefined>): CalculationBinary => constructBinaryOp('min', args.filter(x => x !== undefined) as Array<CalculationArgument>),
-    remove: (op: CalculationBinary, ...id: Array<string>) => { op.args = op.args.filter(a => !('label' in a) || !id.includes(a.label)); return op },
+    remove: (op: CalculationBinary, ...id: Array<string>) => ({ ...op, args: op.args.filter(a => !('label' in a) || !id.includes(a.label)) }),
     tizFolottiResz: (kepessegek: Record<string, number>, id: string): CalculationTizfolott => ({ opType: 'tizfolott', arg: Calculation.kepesseg(kepessegek, id) }),
     calculate: (op: CalculationArgument): number => calculateArgument(op),
 }

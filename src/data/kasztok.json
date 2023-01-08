@@ -88,7 +88,7 @@
             [],
             []
         ],
-        "kasztKpPerSzint": 6,
+        "kasztKpPerSzint": 11,
         "kasztSpec": [
             "otodikSzintenGyorsTamadas"
         ],
@@ -122,7 +122,7 @@
         "kpAlap": 4,
         "kpPerSzint": 7,
         "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 8,
+        "kasztKpPerSzint": 13,
         "kasztSpec": [
             "otodikSzintenGyorsTamadas"
         ],
@@ -247,7 +247,7 @@
         "kpAlap": 3,
         "kpPerSzint": 5,
         "szazalekPerSzint": 20,
-        "kasztKpPerSzint": 10,
+        "kasztKpPerSzint": 15,
         "kepzettsegek": [
             [
                 {
@@ -498,7 +498,7 @@
             ],
             []
         ],
-        "kasztKpPerSzint": 9,
+        "kasztKpPerSzint": 14,
         "kasztSpec": [
             "ketSzintenkentKe",
             "ketSzintenkentSebzes",
@@ -535,7 +535,7 @@
         "kpAlap": 7,
         "kpPerSzint": 10,
         "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 5,
+        "kasztKpPerSzint": 10,
         "kasztSpec": [
             "otodikSzintenGyorsTamadas"
         ],
@@ -721,7 +721,7 @@
                 }
             ]
         ],
-        "kasztKpPerSzint": 7,
+        "kasztKpPerSzint": 12,
         "leiras": {
             "fo": "A tolvajok meglehetősen laza erkölcsű, enyhén szólva nem törvénytisztelő egyének. Akadnak közöttük rablók, zsebmetszök, besurranók és szélhámosok, kis- és nagystílű gazemberek. Egy\nképzett tolváj kasztú karakter minden ilyén \"mesterségben\" járatos.\n\nA tolvajok általában Klánokba tömörülnek, mivel így hatékonyabban \"dolgozhatnak\", de bőven akad magányos farkas is a nyájban. A tolvaj karakter valami efféle, aki képes többé-kevésbé függetlenül dolgozni a helyi klántól.\n\nTolvajklán Ynev szinte minden nagyobb városában működik, számuk több százra tehető; némelyikben csak néhány tucat taggal, de akad olyan is, ha kevés is, amely több ezer taggal\nbüszkélkedhet. Igazán nagy, egész Ynevre kiterjedő szervezet azonban csak kettő akad közöttük, ezek: a Szürkecsuklyások és a Kobrák. \n"
         }
@@ -756,7 +756,7 @@
             "kepesseg": "empatia",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 11,
+        "kasztKpPerSzint": 16,
         "kepzettsegek": [
             [
                 {
@@ -1035,7 +1035,7 @@
             "rituale",
             "szfera_altalanos"
         ],
-        "kasztKpPerSzint": 10,
+        "kasztKpPerSzint": 15,
         "kepzettsegek": [
             [
                 {
@@ -1217,6 +1217,10 @@
                     "fok": 1
                 },
                 {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
+                },
+                {
                     "kepzettsegId": "foldharc",
                     "fok": 2
                 },
@@ -1234,7 +1238,7 @@
                 }
             ]
         ],
-        "kasztKpPerSzint": 10,
+        "kasztKpPerSzint": 15,
         "leiras": {
             "fo": "A Slan kifejezést először Tiadlanban kezdték használni a Niaréből odatelepült szerzetesek. Így hívták azokata tanítványokat, akik nem a sárgák népéből származtak, de mégis igen tehetségesnek bizonyultak a harcművészetek elsajátítása terén. A szerzetesek fél évszázad múltán - uruk kívánságára - hazatértek, de az elnevezés megmaradt. Azóta Slannak nevezik az összes harcművészt.\n\nA Slan technikák már nem egyeznek meg az eredeti forrásukkal, azóta ötvöződtek a helyi harci technikákkal, és a Slan mesterek is tudatosan továbbfejlesztették. A harcművész elsősorban a puszta kezét és egész testét használja, ami ugyanolyan halálos fegyver, mint mások kezében a kard, vagy csatabárd. Harc közbeni akrobatikus mozgásuk valódi élmény a kívülállónak, A kardcsapások elől félreszaltóznak, a rájuk lött nyílvesszőt röptében elkapják, és a legváratlanabb pillanatban ütik ki ellenfelük alól a lábát. Állóképésségük, erejük\nlegalább ilyen megdöbbentő. Puszta kézzel zúzzák szét a pajzsokat, hosszú órákon kéresztül képesek futni, a legjobbak az ügető lóval ís felveszik sebességben és kitartásban a versenyt.\n\nNoha a kilenc alapfegyver - bot, tőr, egyeneskard (ami nem azonos a slan karddal), kétkezes harci balta (kb. megegyezik a kétkezes csatabárddal), lándzsa, tonfa, cséphadaró (nuncsaku),\nslan csillag, buzogány - használatát mindén Slan elsajárítja, csak\nritkán használják.\n\nA harcművészek teljes meggyőződéssel állítják, hogy a fegyverek behatárolják a cselekvés teljes szabadságát. Az egyetlen egyetemes harci eszköz az emberi test, csak ez rendelkezik használójának minden lehetőségével.\n\nA harcművészek gyakran magányos mestereknél tanulnak, de Tiadlanban több nagy iskola is akad, ahol egyszerre húszas, harmincas csoportokban oktatják a növéndékeket a mesterek. Tanuljanak azonban bárhol, tudásukat kincsként őrzik, nem szívesen osztják még nem a kasztjukba tartozókkal, a kívülállókkal.\n\nAz egyes iskolák volt növendékei általában összetartanak, a szenvedésekkel, a gyakorlással töltött hosszú-hosszú órák emléke, na meg a közös tudás titkai szoros köteléket jelent minden harcművésznek.\n\nTiadlanban, ami továbbra is a harcművészetek igazi hazája, a harcművészeti iskolák és rendek felett a Dorcha - a Harcművészek Nagyasszonya - parancsol, Öt minden Slan legyen akár nő,\nakár férfi, rajongásig szereti és tiszteli, és égyetlen szavára bármit megtesz. Ez persze nen áll Ynev más tájain élő harcművészekre, különösen a krániakra, de szinte bizonyos, hogy a Dorcha említése mindegyik igazi harcművész szívét megdobogtatja.",
             "kulonlegesKepessegek": "Elsődleges különleges képességük a Slan - pszi használata.\nEnnek segítségével válhatnak különb harcossá bárkinél.\n\nA harcművészek képesek arra, hogy a rájuk lőtt nyílvesszőket és egyéb lövedéket félreüssék, illetve kitérjenek az útjukból. Ennek a feltétele: számítaniuk kell a lövédékre, és felkészülten kell várniuk rá (kitérésre összpontosítás). Ha ez az eset érvényes; akkor a harcművész VÉ-je áll a kilőtt lövedék célzó értékével szemben.\n\nA harcművészek kitartó farkasügetésre képesek, és ezt annyi óráig bírják, amennyi a tapasztalati szintjük.\n\nA harcművészek keze illetve lába, a hatodik szint elérése\nután, Chi-harcban, mágikus fegyvernek számít, s minden, az efféle fegyverekre vonatkozó szabály érvényes rájuk. \n"
@@ -1266,7 +1270,7 @@
         "kpAlap": 4,
         "kpPerSzint": 5,
         "szazalekPerSzint": 18,
-        "kasztKpPerSzint": 10,
+        "kasztKpPerSzint": 15,
         "kepzettsegek": [
             [
                 {
@@ -1299,6 +1303,10 @@
                     "fok": 1
                 },
                 {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
+                },
+                {
                     "kepzettsegId": "etikett",
                     "fok": 2
                 },
@@ -1328,6 +1336,10 @@
                 },
                 {
                     "kepzettsegId": "belharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor:shiensu",
                     "fok": 2
                 }
             ]
@@ -1367,7 +1379,7 @@
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 3
+        "kasztKpPerSzint": 8
     },
     {
         "id": "Boszorkánymester",
@@ -1400,7 +1412,7 @@
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 8
+        "kasztKpPerSzint": 13
     },
     {
         "id": "Tűzvarázsló",
@@ -1432,7 +1444,7 @@
             "kepesseg": "emlekezet",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 10
+        "kasztKpPerSzint": 15
     },
     {
         "id": "Varázsló",
@@ -1464,7 +1476,7 @@
             "kepesseg": "gondolkodas",
             "mennyiseg": "normál"
         },
-        "kasztKpPerSzint": 10
+        "kasztKpPerSzint": 15
     },
     {
         "id": "adron_pap",
