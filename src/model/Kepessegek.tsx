@@ -13,7 +13,7 @@ export interface KepessegErtek extends Kepesseg {
     ertek: number;
 }
 
-const KEPESSEGEK: Array<Kepesseg> = [
+export const KEPESSEGEK: Array<Kepesseg> = [
     {
         id: 'izom',
         name: 'Izom',

@@ -3,6 +3,7 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { CalculationWidget } from './CalculationWidget';
+import { FajLeiras } from './FejLeiras';
 import { KasztLeiras } from './KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 
@@ -25,7 +26,7 @@ export const LifeWidget: React.FC<{
             </tr>
             <tr>
                 <th>Faj</th>
-                <td>{karakter.faj.name}</td>
+                <td><FajLeiras faj={karakter.faj} /></td>
             </tr>
             <tr>
                 <th>Szint</th>

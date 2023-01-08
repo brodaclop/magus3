@@ -5,6 +5,7 @@ import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kasztok } from '../model/Kasztok';
 import { DobasEredmeny } from '../model/Kocka';
 import { DobasEredmenyWidget } from './DobasEredmenyWidget';
+import { FajLeiras } from './FejLeiras';
 import { KasztLeiras } from './KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 import { ModalWindow } from './ModalWindow';
@@ -56,19 +57,7 @@ export const KarakterTemplateWdiget: React.FC<{
                         <input type='text' value={template.name} onChange={e => onNameChange(e.target.value)} />
                     </td>
                 </tr>
-                <tr>
-                    <th>Kaszt/Faj</th>
-                    <td>
-                        <KasztSelectorWidget kaszt={template.kaszt} onChange={kaszt => {
-                            onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
-                        }} />
-                    </td>
-                    <td>
-                        <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
-                            onFieldChange(Karakter.createTemplate({ ...template, faj }));
-                        }} />
-                    </td>
-                </tr>
+
                 {Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
                     <th>{kategoria}</th>
                     <td>{dobas}</td>
@@ -76,7 +65,24 @@ export const KarakterTemplateWdiget: React.FC<{
                 </tr>)}
             </tbody>
         </table>
-        <KasztLeiras kaszt={kaszt} inline />
+        <table>
+            <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+                <div style={{ flexBasis: '50%' }}>
+                    Faj: <NamedEntitySelector nea={Fajok} value={template.faj} onChange={faj => {
+                        onFieldChange(Karakter.createTemplate({ ...template, faj }));
+                    }} />
+
+                    <FajLeiras faj={template.faj} inline />
+                </div>
+                <div style={{ flexBasis: '50%' }}>
+                    Kaszt: <KasztSelectorWidget kaszt={template.kaszt} onChange={kaszt => {
+                        onFieldChange(Karakter.createTemplate({ ...template, kaszt }));
+                    }} />
+                    <KasztLeiras kaszt={kaszt} inline />
+                </div>
+            </div>
+        </table>
+
         <button onClick={karakterDob}>Dob</button>
         <button onClick={() => {
             if (karakter) {
