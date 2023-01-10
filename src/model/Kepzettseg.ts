@@ -163,14 +163,14 @@ const generateFegyverKategoriaKepzettsegek = (): Array<NormalKepzettseg> => [...
 
 const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettsegek().map(k => ({
     fajta: 'normal',
-    id: `magia:${k.id}`,
+    id: k.id,
     name: `Mágia (${k.name})`,
     tipus: 'magia',
     kepesseg: k.kepesseg,
     linked: [],
     kp: [2, 7, 13, 21, 34],
     leiras: `A mágia ${k.name} iskolájának ismerete. Minden fok további +5-öt ad a kezdeményezésre.`,
-    szintleiras: k.varazslatok.map(lista => lista.map(v => v.name).join('\n')) as any,
+    szintleiras: k.varazslatok.map(lista => lista.map(v => `- ${v.name}`).join('\n')) as any,
     __generated: true
 }));
 

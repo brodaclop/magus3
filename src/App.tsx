@@ -10,6 +10,7 @@ import './styles.css';
 import './dropdownmenu.css';
 import 'react-responsive-modal/styles.css';
 import { KpEditor } from './admin/KpEditor';
+import { VarázslatEditor } from './admin/VarazslatEditor';
 
 const App: React.FC<{}> = () => {
 
@@ -44,6 +45,7 @@ const App: React.FC<{}> = () => {
             <li><KasztEditor /></li>
             <li><FegyverEditor /></li>
             <li><KpEditor /></li>
+            <li><VarázslatEditor /></li>
             <li><button onClick={() => setKarakterek({})}>Reset</button></li>
           </ul>
         </li>

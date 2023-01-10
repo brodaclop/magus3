@@ -69,8 +69,9 @@ export const Kasztok = {
             const alkaszt: Partial<KasztInfo> = ret;
             const fokaszt = Kasztok.find(ret.fokaszt);
             ret = { ...fokaszt, ...alkaszt };
-            ret.magiaKategoriak = [...(ret.magiaKategoriak ?? []), ...(alkaszt.magiaKategoriak ?? [])];
-            ret.kasztSpec = [...(ret.kasztSpec ?? []), ...(alkaszt.kasztSpec ?? [])]
+            ret.magiaKategoriak = [...(fokaszt.magiaKategoriak ?? []), ...(alkaszt.magiaKategoriak ?? [])];
+            console.log('magia', fokaszt.magiaKategoriak, alkaszt.magiaKategoriak, ret.magiaKategoriak);
+            ret.kasztSpec = [...new Set([...(fokaszt.kasztSpec ?? []), ...(alkaszt.kasztSpec ?? [])])];
         }
         if (ret.kasztSpec?.includes('ketSzintenkentKe') && szint % 2 === 0) {
             ret.harcertek.ke = (ret.harcertek.ke ?? 0) + 1

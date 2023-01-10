@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
-import { Kasztok } from '../model/Kasztok';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
 import { HarcertekWidget } from './HarcertekWidget';
 import { InventoryWidget } from './InventoryWidget';
@@ -75,7 +74,7 @@ export const KarakterWidget: React.FC<{
         <div className='karakterLap'>
 
             <div>
-                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, Kasztok.find(kasztId)))} />
+                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, kasztId))} />
             </div>
             <div>
                 <HarcertekWidget karakter={karakter} setKarakter={commit} />

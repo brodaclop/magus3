@@ -907,9 +907,7 @@
                 }
             ]
         ],
-        "magiaKategoriak": [
-            "bard_fenymagia"
-        ],
+        "magiaKategoriak": [],
         "leiras": {
             "fo": "A bárdok alig hasonlítanak a tolvajokra, legtöbbjük inkább nagystilű szélhámos, igazi életművész és világfi. Kiválóan forgatják a szót és a kardot; ismerik és használják a mágiát, nem idegenek\nelőttük az asszonyszívek titkai. Ritkán tévesztenek célt akár dalaikkal, akár hajítótőreikkel. A tolvajokhoz hasonlóan mások vagyonából élnek, de ők méltóságukon alulinak tartják, hogy jelentéktelen ügyekben csússzanak-másszanak, ajtókat törjenek fel, és kilopják a ház urának zsebéből a heti kosztpénzt, Ők inkább beférköznek a \"magasabb körökbe\", a tehetős és előkelő nemesi udvarokba; dalolnak, varázsolnak, tanácsokat adnak, olykor-olykor egyéb szolgáltatásokat is nyújtanak, és egy óvatlan pillanatban meglépnek a családi vagyon jelentős részével, ha nem épp az egésszel, no meg a háziúr lányával.\n\nA bárdok álralában elszegényedett nemesi családból származnak, netán erkölcs nélkül nevelt úrfiak. Általában egyedül kalandoznak, ritkán áll össze két bárd, de ha mégis, akkor valarni óriási szélhámosság sül ki a dologból.\n\nSzámtalan különös figura kóborol Yneven, aki bárdnak vallja magát, de ezek égy része nem bárd, csak vándor énekes, aki a bárdokat körüllengő mitoszból akar hasznot húzni. A valódi bárdokat két fő csoportra oszthatjuk. Az első csoport, a \"klasszikus\" bárdok: hazájuk Ilanor és Yllinor. Ök a tábortüzek, a hadi utak, a hősi virtus-dalnokai. Az ilanori és yilinori bárdok, népük összes fegyverforgatójához hasonlóan, kiváló íjászok és még ennél is kitűnöbb lovasok. Suttogják: egyféle, talán mágikus kötelék fűzi össze őket. Ynev majd minden táján készek megvédeni bajbajutott társukat, s ha ez már nem lehetséges, kiméletlen bosszút állnak érte.\n\nAz erigowi, ereni bárdok a nemesi udvarok és körök kifinomult hallással bíró közönségének dalnokai. Az éneklést és zenélést zsenge körük óra tanulják, és tudományos alapossággal\ngyakorolják. Széptevőnek, párbajhósnek és szeretőnek egyaránt megteszik, emelkedett ízlésükhöz és életmódjukhoz azonban gyakran társul közömbösség, léhaság és erkölcstelenség, a\nművészsors felett érzett — titkolt vágy leplezetlen — világfájdalom.\n\nA bárdok mindenütt ugyanazt a bárdmágiát használják, melynek eredete a korok homályába nyúlik vissza. Mágikus zeneszerszámaikkal jelenítik meg a legendákhoz tartozó képeket, ám\nha úgy hozza a sor, varázshatalmukat, amely elsősorban illúziókeltésből és az Asztrális Mágia alapjaiból áll, önmaguk megvédésére, és mások befolyásolására is fel tudják használni.\n",
             "kulonlegesKepessegek": "A bárdok elsődleges különleges képessége a Bárdmágia használata. Mana-pontjaikat, eltérően Ynev összes többi\nmágiahasználójáról, csak a csillagos ég alatt eljátszott Összhangzatnak nevezett dal segítségével kaphatják vissza, mintegy 18 kör alatt. Amennyiben az ég felhős és teljesen beborult, úgy nem képesek feltölteni Mana-pontakkal elméjüket\n\nA bárdok második különleges képessége az, hogy a 3. szinttől megérzik, ha egy tárgy mágikus, pszi vagy mágia használata nélkül is. Azt, hogy pontosan mifélék, nem tudják megmondani, de 5. szinttől már azt is megtudják határozni, hogy körülbelül (évszázadra) mikor keletkezett. A 9. szinttől fel tudják idézni\nkészítésének és történetének legendáit is. Természetesen ez azt jelenti, hogy a használatának pontos módját is megismerik.\n\nBár a\nvarázstárgyak készítésének módját nem ismerik, egy mágikus tárgyat, a Hatalom Amulettjét maguk is képesek elkészíteni, a megfelelő drágakő birtokában. \n"
@@ -949,8 +947,7 @@
             "kis_arkanum",
             "nagy_arkanum",
             "litania",
-            "rituale",
-            "szfera_altalanos"
+            "rituale"
         ],
         "kepzettsegek": [
             [
@@ -1032,8 +1029,7 @@
         "magiaKategoriak": [
             "kis_arkanum",
             "litania",
-            "rituale",
-            "szfera_altalanos"
+            "rituale"
         ],
         "kasztKpPerSzint": 15,
         "kepzettsegek": [
@@ -1512,11 +1508,7 @@
             "ve": 2
         },
         "hm": 2,
-        "magiaKategoriak": [
-            "szfera_elet",
-            "szfera_lelek",
-            "bard_fenymagia"
-        ],
+        "magiaKategoriak": [],
         "mana": {
             "kepesseg": "hit",
             "mennyiseg": "sok"
@@ -1527,10 +1519,7 @@
         "id": "solyomcsor_arel_pap",
         "name": "Arel pap (Sólyomcsőr)",
         "fokaszt": "Pap",
-        "magiaKategoriak": [
-            "szfera_elet",
-            "szfera_termeszet"
-        ],
+        "magiaKategoriak": [],
         "mana": {
             "kepesseg": "hit",
             "mennyiseg": "normál"
@@ -1551,5 +1540,132 @@
             "te": 4
         },
         "hm": 5
+    },
+    {
+        "fajta": "normal",
+        "id": "darton_lovag",
+        "name": "Darton-lovag",
+        "fokaszt": "Paplovag",
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vertviselet",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor:pajzs",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "heraldika",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "birkozas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "meregkeveres",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "csapdaallitas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "kocsmai_verekedes",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hamiskartya",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_lelek",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_halal",
+                    "fok": 1
+                }
+            ],
+            null,
+            null,
+            null,
+            [
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 1
+                }
+            ]
+        ],
+        "leiras": {
+            "fo": "Darton a Pyarroni Istencsalád ellentmondásos alakja. A holtak, de a sötét tréfák, a fekete humor patrónusa is, örömét leli abban, hogy cselekedetei - híveinek tetteiről meg nem is szólva - visszatetszést keltenek a komolykodókban. Választott prófétájához,\nAirun al Maremhez makacsul ragaszkodik, kétszer is új életet Íehelt belé, miútán a kalandozó két különböző küldetésben is odaveszett. Airun alapította Darton első lovagrendjét is, melyet Alex con Arvionival, régi elvbarátjával, közösen irányít az északi Bowon városából.\n\nDarton paplovagjai istenük égi hatalmának és különös humorának földi megtestesítői. Vezetőiket a rajongásig tisztelik, és bárhová, akár Orwella bugyraiba is szó nélkül követik. Pyarroni érdekeltségűek lévén a Vörös Hadurak oldalán küzdenek az Északi Háborúkban Toron és szövetségesei, azaz Tharr, Ranagol és Orwella hívei ellen, dé Darton eljövendő - jóformán csak általuk óhajtott - birodalmának érdekeit sem felejtik el. \n\nAirun és Pyarron Darton hitű rendje között évtizedek óta folyik egy kis marakodás. Már számtalan fejvadász és egyéb orgyilkos akarta ez okból kipróbálni, hogy harmadszor ís visszakergéti-e Darton a prófétáját Ynevre.\n\nA dartoniták mindén esztelenségre és őrültségre kaphatók, cinikusak a végtelenségig, a normális emberek szemében csendes őrült benyomását keltő férfigk. Kedvelt színük a fekete.\n\nSzent Szimbólumuk színeivel a két holdat idézi, de az erre vonatkozó kérdésekre csak legyintenek: ezt akárki úgysem értheti, mondják. Szent állatuk a holló, de ezen még néha-néha vitatkoznak, mert sem Airon, sem Alex nem állhatja az unos-untalan\nkárogó gyászmadár hangját. Hajukat mindannyian - a két rendfőnököt utánozva - szorosan . összefogva, varkocsba fonják, és hátukon szabadon lelőgatva hagyják.\n"
+        },
+        "magiaKategoriak": [
+            "egyedi_darton"
+        ]
     }
 ]

@@ -40,7 +40,7 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 <td>{v.range === 'self' ? 'önmaga' : v.range === 'touch' ? 'érintés' : `${v.range} m`} </td>
                 <td>{v.idotartam}</td>
                 <td>{Magia.mentodobasok.find(m => m.id === v.save)?.name} </td>
-                <td>{Kepzettseg.name(`magia:${v.kepzettseg}`)} {v.fok}. fok</td>
+                <td>{Kepzettseg.name(v.kepzettseg)} {v.fok}. fok</td>
                 <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak.map(k => Magia.kategoriak.find(kat => kat.id === k)?.name).join('\n')}</td>
             </tr>)}
         </tbody>

@@ -118,7 +118,7 @@ export const KarakterCalculator = {
             sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
         };
 
-        const gyorsTamadas = Object.entries(Karakter.szintek(karakter)).some(([kasztId, { szint }]) => Kasztok.find(kasztId).kasztSpec?.includes('otodikSzintenGyorsTamadas') && szint >= 5);
+        const gyorsTamadas = Object.entries(Karakter.szintek(karakter)).some(([kasztId, { szint }]) => Kasztok.kasztInfo(kasztId, szint).kasztSpec?.includes('otodikSzintenGyorsTamadas') && szint >= 5);
 
         const helyzetek = karakter.temporary.harciHelyzet.map(h => HarciHelyzet.calculate(h, karakter, normalKepzettsegek));
 
@@ -182,6 +182,7 @@ export const KarakterCalculator = {
         }
 
         const magiaKategoriak = karakter.szint.reduce((acc, curr) => {
+            console.log('kaszt', curr.kaszt);
             curr.kaszt.magiaKategoriak?.forEach(k => acc.add(k));
             return acc;
         }, new Set<typeof MagiaKategoriak[number]['id']>());
@@ -224,9 +225,10 @@ export const KarakterCalculator = {
         });
 
         const varazslatok = Magia.lista.filter(v => {
-            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
+            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === v.kepzettseg);
             const fok = kepzettseg?.fok ?? 0;
-            const kategoriaOK = v.kategoriak.every(k => magiaKategoriak.has(k))
+            const kategoriaOK = v.kategoriak.every(k => magiaKategoriak.has(k));
+            console.log('varazslat', v.name, kepzettseg, fok, magiaKategoriak, v.kategoriak);
             return kategoriaOK && v.fok <= fok;
         }).map(v => {
             if ('ke' in v) {

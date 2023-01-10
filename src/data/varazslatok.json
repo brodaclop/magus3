@@ -1,0 +1,84 @@
+[
+    {
+        "id": "aldas",
+        "name": "Áldás",
+        "mp": 3,
+        "idotartam": "1 hónap/szint",
+        "ke": -10,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Ezzel az áldással a pap istene hosszú távú jóindulatát kérheti valakire. Az illetőnek legalább egy istencsaládot kell tisztelnie mint a pap, és a jelleme nem lehet gyökeresen ellentétes a pap istenével. A pap biztosítja istene jóindulatát, mint például ilyenkor könnyebben létrejöhet a gyógyítás varázslat, de más esetekben is haszna lehet. Egy pap megérzi egy emberen (5 méternél közelebb kell lennie), ha a saját istenének az áldása van rajta. E módon tárgyakat is meg lehet áldani. Ekkor a tárgy mágikusnak minősül, és ellenállóbbá válik a hosszú távú romboló környezeti hatásoknak (mint például rozsdásodás), azonban más módon nem válik keményebbé, stabilabbá. Ha a megáldott személy valami olyat cselekszik, ami erősen ellentétes az isten elveivel, akkor az áldás egyszerűen lefoszlik róla. Ez a megkötés tárgyak esetén is igaz, bár ott akkor érvényesül, ha szentségtelen dologra akarják felhasználni azokat.",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettseg": "magia:pap_szfera_altalanos",
+        "fok": 1
+    },
+    {
+        "id": "pap_magia_erzekeles",
+        "name": "Mágia érzékelése",
+        "mp": 1,
+        "idotartam": "3 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "range": 20,
+        "save": "nincs",
+        "leiras": "A varázslattal a pap „láthatja” a mágiát. Az időtartam alatt minden mágikus tárgy illetve varázslat, aminek a leplezése kisebb erősítésű, vörös fénnyel dereng a pap számára.",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettseg": "magia:pap_szfera_altalanos",
+        "fok": 1
+    },
+    {
+        "id": "hatalom_szava",
+        "name": "A hatalom szava",
+        "mp": 7,
+        "idotartam": "1 kör",
+        "ke": 20,
+        "range": 30,
+        "save": "mental",
+        "leiras": "A pap a valódi hatalmát mutathatja meg ezzel a varázslattal. Aki az időtartam alatt ránéz a papra a hatótávon belül és elrontja a mágiaellenálását, az szembesül ezzel. Megismeri tapasztalati szintjét, főbb harcértékei nagyságrendjét - de nem pontos értékét ), és tudatára ébred annak, hogy mi mindenre képes az, menyire áll a pap istene kegyében. A varázslat sohasem hazudik, mindig a valóság szerint mutatja be a mágia végrehajtóját. A Hatalom szavának nincs kényszerítő ereje. Ha mondjuk a támadók, kötekedők a valódi mivoltot megpillantva sem riadnak meg, a papnak más eszközöket kell keresnie megfékezésükre.",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettseg": "magia:pap_szfera_altalanos",
+        "fok": 2
+    },
+    {
+        "id": "vizlegzes",
+        "name": "Vízlégzés",
+        "mp": 21,
+        "ke": -20,
+        "range": "self",
+        "idotartam": "1 perc/szint",
+        "save": "nincs",
+        "leiras": "...",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettseg": "pap_szfera_termeszet",
+        "fok": 2
+    },
+    {
+        "fajta": "normal",
+        "id": "darton_gyilkos_trefa",
+        "name": "Gyilkos tréfa",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale",
+            "egyedi_darton"
+        ],
+        "mp": 9,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettseg": "magia:pap_szfera_halal",
+        "fok": 2,
+        "save": "asztral",
+        "range": "20",
+        "leiras": "Ha az alany elvéti mágiaellenállását, fájdalmas, kínlódó röhögésben tör ki, mely annyi körig tart, amennyi Darton szolgájának tapasztalati szintje.\n\nMinden körrel elveszít 1-et Állóképességéből, illetve k3 FP-t. Ha Állóképessége 0-ra csökken, belehal kínjaiba, csakúgy ha FP-i után ÉP-i is elfogynak.\n\nDarton szolgája az időtartam alatt bármikor megszakíthatja varázslatát, és az akkor is véget ér, ha a pap maga is elveszti eszméletét vagy meghal.\n\nAz áldozat csakis akkor képes harcolni, ha a kör elején sikeres Akaraterő-próbát tesz. Ekkor az alábbi módosítók hatnak rá: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30.\n\n"
+    }
+]

@@ -94,9 +94,9 @@ const updateKepzettsegekForLevel = (karakter: Karakter, kaszt: KasztInfo, szint:
     });
 };
 
-const levelUp = (karakter: Karakter, kaszt?: KasztInfo): Karakter => {
-    const kasztId = kaszt ?? karakter.szint[karakter.szint.length - 1].kaszt;
-    const szintKaszt = Kasztok.kasztInfo(kasztId.id, karakter.szint.length);
+const levelUp = (karakter: Karakter, kasztId: string): Karakter => {
+    const szintek = Karakter.szintek(karakter);
+    const szintKaszt = Kasztok.kasztInfo(kasztId, (szintek[kasztId]?.szint ?? 0) + 1);
     const szint = karakter.szint.slice(1).filter(k => k.kaszt.id === szintKaszt.id).length + 1;
     const dobas = karakter.szint.length === 1 ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg;
     let mana = szintKaszt.mana ? ((szintKaszt.mana.mennyiseg === 'sok' || karakter.szint.length === 1) ? 6 : kockaDobas({ darab: 1, kocka: 6 }).osszeg) : 0;
@@ -161,7 +161,7 @@ export const Karakter = {
                 harciHelyzet: []
             }
         };
-        levelUp(ret, kasztInfo);
+        levelUp(ret, kasztInfo.id);
         // fajokból adódó választható képzettségeket később kell hozzáadni, mert különben a szintlépés törli őket
         ret.szint[0].pendingKepzettsegek.push(...(template.faj.kepzettsegek?.filter(k => k.name !== undefined).map(k => ({ ...k, id: k.kepzettsegId })) ?? []));
         updateKepzettsegekForLevel(ret, kasztInfo, 0, ret.szint[0]);
