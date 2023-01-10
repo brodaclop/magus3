@@ -7,7 +7,7 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { printKocka } from '../model/Kocka';
-import { arrayName } from '../model/util';
+import { arrayName, arraySort } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
 import { InventorySelector } from './InventorySelector';
@@ -133,7 +133,7 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <th>Harci helyzetek:</th>
                 <td colSpan={4}>
                     <div style={{ display: 'flex', flexDirection: 'row', flexFlow: 'wrap' }}>
-                        {[...HarciHelyzetek].sort((a, b) => a.name.localeCompare(b.name)).map(h => <div style={{ width: '15%' }}>
+                        {arraySort([...HarciHelyzetek], ob => ob.name).map(h => <div style={{ width: '15%' }}>
                             <button style={{ borderColor: karakter.temporary.harciHelyzet.includes(h.id) ? 'green' : undefined }} key={h.id} onClick={() => {
                                 if (karakter.temporary.harciHelyzet.includes(h.id)) {
                                     karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);

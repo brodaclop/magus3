@@ -2,6 +2,7 @@ import React from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
+import { arraySort } from '../model/util';
 import { MarkdownText } from './MarkdownText';
 import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
 import { PsziDiszciplinaLeiras } from './tooltips/PsziDiszciplinaLeiras';
@@ -29,14 +30,14 @@ export const VerboseKarakterInfo: React.FC<{ karakter: Karakter, calc: KarakterC
         <h3>Képzettségek</h3>
         <div style={{ columns: 3 }}>
 
-            {calc.kepzettsegek.normal.filter(k => k.fok > 0).sort((a, b) => a.kepzettseg.name.localeCompare(b.kepzettseg.name)).map(k =>
+            {arraySort(calc.kepzettsegek.normal.filter(k => k.fok > 0), ob => ob.kepzettseg.name).map(k =>
                 <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.fok} inline truncateUnknown />)}
         </div>
         {calc.psziDiszciplinak.length > 0 && <>
             <h3>Pszi diszciplinák</h3>
             <div style={{ columns: 3 }}>
 
-                {calc.psziDiszciplinak.sort((a, b) => a.name.localeCompare(b.name)).map(d =>
+                {arraySort(calc.psziDiszciplinak, ob => ob.name).map(d =>
                     <div>
                         <PsziDiszciplinaLeiras d={d} inline />
                     </div>
@@ -47,7 +48,7 @@ export const VerboseKarakterInfo: React.FC<{ karakter: Karakter, calc: KarakterC
             <h3>Varázslatok</h3>
             <div style={{ columns: 3 }}>
 
-                {calc.varazslatok.sort((a, b) => a.name.localeCompare(b.name)).map(v =>
+                {arraySort(calc.varazslatok, ob => ob.name).map(v =>
                     <div>
                         <VarazslatLeiras v={v} inline />
                     </div>

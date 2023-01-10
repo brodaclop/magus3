@@ -4,6 +4,7 @@ import { Karakter, SzintInfo } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
+import { arrayName, arraySort } from '../model/util';
 import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
 
 
@@ -32,8 +33,22 @@ const PendingSelector: React.FC<{
     }
 
 
+const csoportosit = (kepzettsegek: KarakterCalcResult['kepzettsegek']['normal']): Record<string, KarakterCalcResult['kepzettsegek']['normal']> => {
+    const ret: Record<string, KarakterCalcResult['kepzettsegek']['normal']> = {};
+    kepzettsegek.forEach(k => {
+        const tipus = arrayName(KepzettsegTipus, k.kepzettseg.tipus);
+        if (!ret[tipus]) {
+            ret[tipus] = [];
+        }
+        ret[tipus].push(k);
+    });
+    Object.values(ret).forEach(v => arraySort(v, a => a.kepzettseg.name));
+    return ret;
+}
+
 export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
+    const [upgrade, setUpgrade] = useState<boolean>(false);
 
     const pluszKP = (kasztKp: boolean) => {
         const kepzettseg = Kepzettseg.find(ujkepzettseg);
@@ -87,15 +102,18 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
         {calc.pendingKepzettsegekCount > 0 && <table className='bordered'>
             <thead>
                 <tr>
-                    <th style={{ backgroundColor: 'lightpink' }}>Választható képzettségek</th>
+                    <th colSpan={2} style={{ backgroundColor: 'lightpink' }}>Választható képzettségek</th>
                 </tr>
                 <tbody>
                     {karakter.szint.map((sz, szintIdx) => <>
                         {sz.pendingKepzettsegek.length > 0 && <tr>
-                            <th>{szintIdx}. szint: {sz.kaszt.name}</th>
+                            <th colSpan={2}>{szintIdx}. szint: {sz.kaszt.name}</th>
                         </tr>}
                         {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
-                            <td>{pk.name ?? Kepzettseg.name(pk.kepzettsegId)} {pk.fok}. fok:
+                            <td style={{ textAlign: 'left' }}>
+                                {pk.name ?? Kepzettseg.name(pk.kepzettsegId)} {pk.fok}. fok
+                            </td>
+                            <td style={{ textAlign: 'right' }}>
                                 <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
                                     sz.pendingKepzettsegek.splice(pkIdx, 1);
                                     sz.kepzettsegek.normal.push({
@@ -144,13 +162,14 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 <tr>
                     <td colSpan={2}><select onChange={e => setUjKepzettseg(e.target.value)} value={ujkepzettseg}>
                         {!ujkepzettseg && <option key='' value=''></option>}
-                        {KepzettsegTipus.map(kt => <optgroup key={kt.name} label={kt.name}>
-                            {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id).map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
+                        {arraySort([...KepzettsegTipus], x => x.name).map(kt => <optgroup key={kt.name} label={kt.name}>
+                            {Kepzettseg.lista.filter(k => k.fajta === 'normal' && k.tipus === kt.id && (!upgrade || calc.kepzettsegek.normal.find(mk => mk.kepzettseg.id === k.id))).map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </optgroup>)}
                         <optgroup label='Százalékos'>
                             {Kepzettseg.lista.filter(k => k.fajta === 'szazalekos').map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
                         </optgroup>
                     </select>
+                        Csak meglevő: <input type='checkbox' checked={upgrade} onChange={() => setUpgrade(!upgrade)} />
                     </td>
                     <td>
                         <button disabled={!ujkepzettseg || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={() => pluszKP(false)}>+1 KP</button>
@@ -158,8 +177,11 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                     </td>
                 </tr>
             </tbody>
-            <tbody>
-                {calc.kepzettsegek.normal.map(k => <tr>
+            {arraySort(Object.entries(csoportosit(calc.kepzettsegek.normal)), ([ob]) => ob).map(([tipus, kepzettsegek]) => <tbody>
+                <tr>
+                    <th colSpan={2}>{tipus}</th>
+                </tr>
+                {kepzettsegek.map(k => <tr>
                     <td>
                         {isKasztKepzettseg(k.kepzettseg.id) ? <GiSpikesFull /> : <GiSpikesInit />}
                     </td>
@@ -170,7 +192,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         {k.kp === Math.floor(k.kp) ? k.kp : k.kp.toFixed(2)}/{k.fok === 5 ? '---' : Kepzettseg.kpFokhoz(calc.kepessegek, k.kepzettseg, k.fok + 1)} kp
                     </td>
                 </tr>)}
-            </tbody>
+            </tbody>)}
             <tbody>
                 {calc.kepzettsegek.szazalekos.map(k => <tr>
                     <td>
