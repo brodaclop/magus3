@@ -10,24 +10,28 @@ export interface NamedEntityArray<T> {
     keys: Array<NamedEntity['id']>
 }
 
-export const arrayFind = <T extends NamedEntity>(array: Array<T>, id: string): T => {
+
+export const arrayFind = <T extends NamedEntity>(array: readonly T[], id: string): T => {
     const ret = array.find(t => t.id === id);
     if (ret === undefined) {
         throw new Error(`failed to find ${id}`);
     }
     return ret;
-}
+};
+
+export const arrayName = <T extends NamedEntity>(array: readonly T[], id: string): string => arrayFind(array, id).name;
+
 
 export const namedEntityArray = <T extends NamedEntity>(array: Array<T>): NamedEntityArray<T> => ({
     lista: array,
     find: (id: string) => arrayFind(array, id),
-    name: (id: string) => arrayFind(array, id).name,
+    name: (id: string) => arrayName(array, id),
     keys: array.map(i => i.id),
-})
+});
 
 export const transformRecord = <K extends string, I, O>(input: Record<K, I>, fn: (key: K, value: I) => O): Record<K, O> => {
     return Object.fromEntries<O>(Object.entries<I>(input).map(([key, value]) => [key, fn(key as K, value)])) as Record<K, O>;
-}
+};
 
 export const mergeToArray = <T>(input: Array<T>, ob: T, idFn: (o: T) => string) => {
     const currentIdx = input.findIndex(i => idFn(i) === idFn(ob));
@@ -36,7 +40,7 @@ export const mergeToArray = <T>(input: Array<T>, ob: T, idFn: (o: T) => string) 
     } else {
         input[currentIdx] = ob;
     }
-}
+};
 
 export const constructArray = <T>(size: number, fn: (idx: number) => T): Array<T> => Array(size).fill(undefined).map((_, i) => fn(i));
 

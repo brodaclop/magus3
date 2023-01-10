@@ -4,8 +4,9 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { Magia } from '../model/Magia';
+import { arrayName } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
-import { PsziDiszciplinaLeiras } from './PsziDiszciplinaLeiras';
+import { PsziDiszciplinaLeiras } from './tooltips/PsziDiszciplinaLeiras';
 
 
 export const PsziWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
@@ -34,7 +35,7 @@ export const PsziWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult
                 <td>{v.psziPont}</td>
                 <td>{'ke' in v ? <CalculationWidget calculation={v.ke} /> : v.varazslasIdeje}</td>
                 <td>{v.idotartam}</td>
-                <td>{Magia.mentodobasok.find(m => m.id === v.save)?.name} </td>
+                <td>{arrayName(Magia.mentodobasok, v.save)} </td>
                 <td>{Kepzettseg.name(`pszi:${v.iskola}`)} {v.fok}. fok</td>
             </tr>)}
         </tbody>

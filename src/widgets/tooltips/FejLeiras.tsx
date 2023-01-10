@@ -2,9 +2,9 @@ import Tooltip from 'rc-tooltip';
 import React from 'react';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Faj } from '../model/Fajok';
-import { Kepessegek } from '../model/Kepessegek';
-import { Kepzettseg } from '../model/Kepzettseg';
+import { Faj } from '../../model/Fajok';
+import { Kepessegek } from '../../model/Kepessegek';
+import { Kepzettseg } from '../../model/Kepzettseg';
 
 export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inline }) => {
     const fajTabla =

@@ -3,8 +3,8 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { CalculationWidget } from './CalculationWidget';
-import { FajLeiras } from './FejLeiras';
-import { KasztLeiras } from './KasztLeiras';
+import { FajLeiras } from './tooltips/FejLeiras';
+import { KasztLeiras } from './tooltips/KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
 
 export const LifeWidget: React.FC<{

@@ -1,10 +1,10 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import { Kepzettseg } from '../model/Kepzettseg';
+import { Kepzettseg } from '../../model/Kepzettseg';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { FcCheckmark } from "react-icons/fc";
-import { Kepessegek } from '../model/Kepessegek';
+import { Kepessegek } from '../../model/Kepessegek';
 
 export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number, inline?: boolean, truncateUnknown?: boolean }> = ({ kepzettseg, fok, inline, truncateUnknown }) => {
     const kepzettsegTable =

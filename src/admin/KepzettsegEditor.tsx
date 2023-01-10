@@ -66,7 +66,7 @@ export const KepzettsegEditor: React.FC<{}> = () => {
             {kepesseg && kpk && <table className='bordered'>
                 <thead>
                     <tr>
-                        <th>Képesség: {Kepessegek.find(kepesseg)?.name}</th>
+                        <th>Képesség: {Kepessegek.name(kepesseg)}</th>
                         {constructArray(5, i => <th>{i + 1}. fok</th>)}
                     </tr>
                 </thead>

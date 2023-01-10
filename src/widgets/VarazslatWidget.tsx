@@ -1,11 +1,12 @@
-import Tooltip from 'rc-tooltip';
 import React from 'react';
 import { Calculation } from '../model/Calculation';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { Magia } from '../model/Magia';
+import { arrayName } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
+import { VarazslatLeiras } from './tooltips/VarazslatLeiras';
 
 
 export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
@@ -31,17 +32,15 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
         <tbody>
             {calc.varazslatok.map(v => <tr style={{ fontWeight: mp >= v.mp ? 'bold' : 'normal' }}>
                 <td>
-                    <Tooltip placement='top' overlay={<span style={{ whiteSpace: 'pre-wrap' }}>{v.leiras}</span>}>
-                        <span>{v.name}</span>
-                    </Tooltip>
+                    <VarazslatLeiras v={v} />
                 </td>
                 <td>{v.mp}</td>
                 <td>{'ke' in v ? <CalculationWidget calculation={v.ke} /> : v.varazslasIdeje}</td>
                 <td>{v.range === 'self' ? 'önmaga' : v.range === 'touch' ? 'érintés' : `${v.range} m`} </td>
                 <td>{v.idotartam}</td>
-                <td>{Magia.mentodobasok.find(m => m.id === v.save)?.name} </td>
+                <td>{arrayName(Magia.mentodobasok, v.save)} </td>
                 <td>{Kepzettseg.name(v.kepzettseg)} {v.fok}. fok</td>
-                <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak.map(k => Magia.kategoriak.find(kat => kat.id === k)?.name).join('\n')}</td>
+                <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak.map(k => arrayName(Magia.kategoriak, k)).join('\n')}</td>
             </tr>)}
         </tbody>
     </table>;

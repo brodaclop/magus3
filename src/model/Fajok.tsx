@@ -633,25 +633,19 @@ máskor ellenben leküzdhetetlen akadály. Kevesen
 ismerik fajtájukat, de akik igen, azok szerfelett elővigyázatosak velük szemben. 
         `,
         kulonlegesKepessegek: `
-- 2x látás
-- 2x hallás
-- 5x szaglás  
-    2 óránál frissebb nyom: 80% eséllyel követik  
-    4 óránál nem régebbi: 60% eséllyel követik  
-    8 óránál frissebb nyom: 30% eséllyel követik  
-    12 óránál frissebbet: 15% eséllyel követik  
-    24 óránál nem régebbit 5% eséllyel követik  
-    egy napnál régebbire nem tudnak rábukkanni  
-
-    Az esélyeket óránként kell dobni, s amennyiben a
-    százalékértéknél kevesebb a dobás eredménye, a
-    khál képes követni a nyomot. Ha több, úgy elveszítette, de –10-es módosítóval újra próbálkozhat,
-    egészen addig, míg meg nem leli a nyomot, vagy
-    esélye nullára nem csökken.
-- veszélyérzékelés: ösztönösen megérzik a veszélyt (20%), ha az életükre tör (40%)
-- mancsuk sebzése k6 zúzó/vágó, KÉ: 10, TÉ: 20, VÉ: 20
-- ordításával képes megvadítani az állatokat
-- minden asztrális varázslat és diszciplína 2-vel nagyobb erősséggel hat rájuk
+- Látásuk élessége kétszerese az emberének.
+- Hallásuk élessége kétszerese az emberének.
+- A khálok szaglása igen kifinomult: ötször jobb, mint az embereké, így tájékozódni is kiválóan tudnak ez alapján. Számokban kifejezve:
+  - 2 óránál frissebb nyomot 80% eséllyel képesek követni,
+  - 4 óránál nem régebbi nyomot 60% eséllyel követnek,
+  - 8 óránál frissebb nyomot 30%-ban képesek követni,
+  - 12 óránál frissebbet 15%-ban követnek,
+  - 24 óránál nem régebbit pedig 5% eséllyel követnek.
+Egy napnál régebbi nyomra nem tudnak rábukkanni. A fenti esélyekre óránként kell dobni, s amennyiben a százalékértéknél kevesebb a dobás eredménye, a khál képes követni a nyomot. Ha több, úgy elveszítette, de -10-es módosítóval újra próbálkozhat, egészen addig, míg meg nem leli a nyomot, vagy esélye nullára nem csökken.
+- Veszélyérzékelés: ösztönösen megérzik a veszélyt (20%), ha az életükre tör (40%)
+- Mancsuk sebzése k6 zúzó/vágó, KÉ: 10, TÉ: 20, VÉ: 20
+- Egy khál az rdításával képes megvadítani az állatokat
+- Minden asztrális varázslat és diszciplína 2-vel nagyobb erősséggel hat rájuk
 - Ψ-t csak 2. fokon képes elsajátítani (ha az Önuralom legalább 12!), 3. fokra csak a fejvadász vagy lovag kasztú fejlesztheti, tovább meg ők sem
 
 - Fegyvereik:
@@ -895,14 +889,14 @@ Graum Hedgrok, a Hetedkor stílusáról és baráti köréről elhíresült gobl
                 `,
         kulonlegesKepessegek: `
 - Hallásuk élessége kétszerese az emberének.
-- Szaglásuk egészen kiváló, még az orkokét is felülmúlja.
-- A föld alatt 5 méter eltéréssel meg  tudják mondani, hogy milyen mélységben járnak. Számokban kifejezve:
+- A föld alatt 5 méter eltéréssel meg  tudják mondani, hogy milyen mélységben járnak.
+- Szaglásuk egészen kiváló, még az orkokét is felülmúlja. Számokban kifejezve:
 - 3 óránál frissebb nyomot 80% eséllyel képesek követni,
 - 6 óránál nem régebbi nyomot 60% eséllyel követnek,
 - 9 óránál frissebb nyomot 30%-ban képesek követni,
 - 15 óránál frissebbet 20%-ban követnek,
 - 30 óránál nem régebbit pedig 10% eséllyel követnek.
-    Egy napnál régebbi nyomra nem tudnak rábukkanni. A fenti esélyekre óránként kell dobni, s amennyiben a százalékértéknél kevesebb a dobás eredménye, az udvari ork képes követni a nyomot. Ha több, úgy elveszítette, de -10-es módosítóval újra próbálkozhat, egészen addig, míg meg nem leli a nyomot, vagy esélye nullára nem csökken.
+    Egy napnál régebbi nyomra nem tudnak rábukkanni. A fenti esélyekre óránként kell dobni, s amennyiben a százalékértéknél kevesebb a dobás eredménye, a goblin képes követni a nyomot. Ha több, úgy elveszítette, de -10-es módosítóval újra próbálkozhat, egészen addig, míg meg nem leli a nyomot, vagy esélye nullára nem csökken.
 - Mivel legtöbbjüket a másfajúak nem tekintik komoly ellenfélnek, gyakorta előfordul, hogy meglephetik ellenlábasaikat egy gyors támadással. Mindehhez
     csupán sikeres Gyorsaság-próbát kell dobniuk az ellenfél Érzékelés-próbája ellen. Ha ellenfelük veszít, a goblin támadása meglepetésnek minősül.
     Nem alkalmazható a képesség azokkal szemben, akikkel akár ő, akár egy fajtársa már sikeresen próbálkozott, továbbá olyan szituációkban, amikor az

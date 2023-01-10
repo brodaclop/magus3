@@ -11,7 +11,7 @@ import { LifeWidget } from './LifeWidget';
 import { PancelWidget } from './PancelWidget';
 import { PsziWidget } from './PsziWidget';
 import { VarazslatWidget } from './VarazslatWidget';
-import { VerboseKepzettsegWidget } from './VerboseKepzettsegWidget';
+import { VerboseKarakterInfo } from './VerboseKarakterInfo';
 
 export const KarakterWidget: React.FC<{
     karakter: Karakter,
@@ -101,7 +101,7 @@ export const KarakterWidget: React.FC<{
                 <VarazslatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
             <div className='fullWidth'>
-                <VerboseKepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                <VerboseKarakterInfo calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
         </div>
     </div>

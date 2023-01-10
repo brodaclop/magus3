@@ -1,20 +1,18 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { KasztInfo, Kasztok, KEPESSEG_DOBAS } from '../model/Kasztok';
-import { Kepessegek } from '../model/Kepessegek';
-import { Kepzettseg } from '../model/Kepzettseg';
-import { printKocka } from '../model/Kocka';
-import { MagiaKategoriak } from '../model/Magia';
+import { KasztInfo, Kasztok, KEPESSEG_DOBAS } from '../../model/Kasztok';
+import { Kepessegek } from '../../model/Kepessegek';
+import { Kepzettseg } from '../../model/Kepzettseg';
+import { printKocka } from '../../model/Kocka';
+import { MagiaKategoriak } from '../../model/Magia';
+import { arrayName } from '../../model/util';
+import { MarkdownText } from '../MarkdownText';
 
 export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ kaszt, inline }) => {
     const kasztTabla =
         <div className='bordered' style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
             <h2>{kaszt.name} {kaszt.fokaszt && <span style={{ fontSize: 'smaller', fontStyle: 'italic' }}>({Kasztok.name(kaszt.fokaszt)} alkaszt)</span>}</h2>
-            {kaszt?.leiras?.fo && <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {kaszt.leiras.fo}
-            </ReactMarkdown>}
+            {kaszt?.leiras?.fo && <MarkdownText>{kaszt.leiras.fo}</MarkdownText>}
             <h3>Tulajdonságok</h3>
 
             <table className='bordered'>
@@ -132,9 +130,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                 </tbody>
             </table>
 
-            {kaszt?.leiras?.kepzettseg && <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {kaszt.leiras.kepzettseg}
-            </ReactMarkdown>}
+            {kaszt?.leiras?.kepzettseg && <MarkdownText>{kaszt.leiras.kepzettseg}</MarkdownText>}
 
             {kaszt.magiaKategoriak && kaszt.magiaKategoriak.length > 0 && kaszt.mana && <>
                 <h3>Mágia</h3>
@@ -147,10 +143,10 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                         </tr>
                         <tr>
                             <th rowSpan={kaszt.magiaKategoriak.length}>Mágia típusa</th>
-                            <td>{MagiaKategoriak.find(mk => mk.id === kaszt.magiaKategoriak?.[0])?.name}</td>
+                            <td>{arrayName(MagiaKategoriak, kaszt.magiaKategoriak[0])}</td>
                         </tr>
                         {kaszt.magiaKategoriak.slice(1).map(mk => <tr>
-                            <td>{MagiaKategoriak.find(k => mk === k.id)?.name}</td>
+                            <td>{arrayName(MagiaKategoriak, mk)}</td>
                         </tr>)}
                     </tbody>
                 </table>
@@ -160,9 +156,9 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
 
             {kaszt?.leiras?.kulonlegesKepessegek && <>
                 <h3>Különleges képességek</h3>
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <MarkdownText>
                     {kaszt.leiras.kulonlegesKepessegek}
-                </ReactMarkdown>
+                </MarkdownText>
             </>}
 
         </div>;

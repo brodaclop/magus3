@@ -7,14 +7,15 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { printKocka } from '../model/Kocka';
+import { arrayName } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
 import { InventorySelector } from './InventorySelector';
-import { KepzettsegLeiras } from './KepzettsegLeiras';
+import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
 
 
 export const formatSebzesTipus = (t: typeof SebzesTipus[number]['id'] | Array<typeof SebzesTipus[number]['id']>): string =>
-    (Array.isArray(t) ? t : [t]).sort().map(o => SebzesTipus.find(st => o === st.id)?.name).join('/') || '-';
+    (Array.isArray(t) ? t : [t]).sort().map(o => arrayName(SebzesTipus, o)).join('/') || '-';
 
 
 

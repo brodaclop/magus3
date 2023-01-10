@@ -62,8 +62,6 @@ export interface KozelharcHarcertekek {
 
 export type KozelharcFegyver = (Kategorizalt | NemKategorizalt) & FegyverBase & KozelharcHarcertekek;
 
-export const getFegyver = (nev: string): KozelharcFegyver => fegyverek.find(f => f.name === nev) as KozelharcFegyver;
-
 export const NYILPUSKA_KATEGORIA: FegyverKategoria = {
     id: 'nyilpuska',
     nev: 'Nyílpuska',

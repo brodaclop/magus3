@@ -4,7 +4,7 @@ import { Karakter, SzintInfo } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
-import { KepzettsegLeiras } from './KepzettsegLeiras';
+import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
 
 
 const PendingSelector: React.FC<{

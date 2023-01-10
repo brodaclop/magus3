@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
 import { constructArray, printNumber, sumArray } from '../model/util';
-import { KepzettsegLeiras } from '../widgets/KepzettsegLeiras';
+import { KepzettsegLeiras } from '../widgets/tooltips/KepzettsegLeiras';
 import { ModalWindow } from '../widgets/ModalWindow';
 
 
