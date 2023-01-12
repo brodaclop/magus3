@@ -39,7 +39,7 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 <td>{v.range === 'self' ? 'önmaga' : v.range === 'touch' ? 'érintés' : `${v.range} m`} </td>
                 <td>{v.idotartam}</td>
                 <td>{arrayName(Magia.mentodobasok, v.save)} </td>
-                <td>{Kepzettseg.name(v.kepzettseg)} {v.fok}. fok</td>
+                <td>{v.kepzettsegek.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
                 <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak.map(k => arrayName(Magia.kategoriak, k)).join('\n')}</td>
             </tr>)}
         </tbody>

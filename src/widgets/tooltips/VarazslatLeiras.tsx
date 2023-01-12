@@ -22,7 +22,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> =
                 <tbody>
                     <tr>
                         <th>Képzettség</th>
-                        <td>{Kepzettseg.name(v.kepzettseg)} {v.fok}.fok</td>
+                        <td>{v.kepzettsegek.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
                     </tr>
                     <tr>
                         <th>MP</th>

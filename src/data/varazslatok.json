@@ -12,7 +12,9 @@
             "kis_arkanum",
             "litania"
         ],
-        "kepzettseg": "magia:pap_szfera_altalanos",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
         "fok": 1
     },
     {
@@ -28,13 +30,15 @@
             "kis_arkanum",
             "litania"
         ],
-        "kepzettseg": "magia:pap_szfera_altalanos",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
         "fok": 1
     },
     {
         "id": "hatalom_szava",
         "name": "A hatalom szava",
-        "mp": 7,
+        "mp": 2,
         "idotartam": "1 kör",
         "ke": 20,
         "range": 30,
@@ -44,7 +48,9 @@
             "kis_arkanum",
             "litania"
         ],
-        "kepzettseg": "magia:pap_szfera_altalanos",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
         "fok": 2
     },
     {
@@ -60,7 +66,9 @@
             "kis_arkanum",
             "litania"
         ],
-        "kepzettseg": "pap_szfera_termeszet",
+        "kepzettsegek": [
+            "pap_szfera_termeszet"
+        ],
         "fok": 2
     },
     {
@@ -75,10 +83,167 @@
         "mp": 9,
         "idotartam": "1 kör/szint",
         "varazslasIdeje": "1 kör",
-        "kepzettseg": "magia:pap_szfera_halal",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ],
         "fok": 2,
         "save": "asztral",
         "range": "20",
         "leiras": "Ha az alany elvéti mágiaellenállását, fájdalmas, kínlódó röhögésben tör ki, mely annyi körig tart, amennyi Darton szolgájának tapasztalati szintje.\n\nMinden körrel elveszít 1-et Állóképességéből, illetve k3 FP-t. Ha Állóképessége 0-ra csökken, belehal kínjaiba, csakúgy ha FP-i után ÉP-i is elfogynak.\n\nDarton szolgája az időtartam alatt bármikor megszakíthatja varázslatát, és az akkor is véget ér, ha a pap maga is elveszti eszméletét vagy meghal.\n\nAz áldozat csakis akkor képes harcolni, ha a kör elején sikeres Akaraterő-próbát tesz. Ekkor az alábbi módosítók hatnak rá: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30.\n\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_magia_kifurkeszese",
+        "name": "Mágia Kifürkészése",
+        "fok": 1,
+        "mp": 2,
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "idotartam": "azonnali",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
+        "save": "nincs",
+        "range": "20",
+        "leiras": "Rendkívül hasznos varázslat, pompás kiegészítője a Mágia szétoszlatásának. Segítségével a pap megtudja, hogy az elpusztításra szánt varázslat milyen erősítésű. Ily módon nem kell találomra varázsolnia, s nem vesznek el az Mp-k, ha rosszul méri fel a lehetőségeket a pap.\n\nA pap továbbá megismeri a kérdéses varázslat általános természetét (tehát pl. \"betegségmágia\" vagy \"hangillúzió\"), de a részleteit, pl. hatóidejét nem.\n\nMozaikmágiával létrehozott varázslatoknál csak annyit tud megállapítani, hogy ez mozaikmágia, és egy véletlenszerűen választott mozaik E-jét."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_magia_szetoszlatasa",
+        "name": "Mágia szétoszlatása",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 8,
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
+        "idotartam": "azonnali",
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Ezt a mágiaformát alkalmazva a pap képessé válik más mágiák hatásainak megszüntetésére. Természetesen csakis abban az esetben, ha a varázslata ereje eléri a szétoszlatandó varázslat erejét. Varázstárgyak mágikus hatásai ily módon nem semlegesíthetők.\n\nA varzsálat hátulütője, hogy elképszető megterhelést ró végrehajtójára. A pap ugyanis annyi körön keresztül képtelen lesz a varázslásra, amekkora erősítésű a szétoszlatott mágia volt."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_szent_feny",
+        "name": "Szent fény",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 3,
+        "fok": 1,
+        "idotartam": "3 kör/szint",
+        "ke": 20,
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Nevezik az \"istenek vezérlő tüzé\"-nek is. A pap a varázslat végrehajtásával fényt gyújt valamely tárgyon vagy helyen. E fény 15 cm sugarú gömbként, kékesen ragyova világít. A Szent fény csak olyan tárgyon vagy helyen - élőlényen, élőholton nem! - jelenik meg, melyet Szertartás varázslat segítségével felszenteltek. A mágia három fáklyányi világosságot ad a legnagyobb sötétben is, és időlegesen eloszlatja a mágikus sötétséget is. A Szent fény csak a mágia szétoszlatásával szüntethető meg, egyéb módon eloltani lehetetlen.\n\nA fény által bevilágított területen sem ultra-, sem infralátás nem működik.\n\nA varázslat időtartama alatt figyelmezteti a papot, ha olyan helyre téved, amelynek vallásával ellentétes kisugárzása van, illetve ha veszély leselkedik rá. Ilyenkor színe egyre méyül, majd vöröses árnyalatba csap át. A szent fény a varázslat időtartama alatt a pap akaratának megfelelően bármikor kioltható és újraéleszthető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_szertartas",
+        "name": "Szertartás",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 3,
+        "fok": 1,
+        "idotartam": "végleges",
+        "varazslasIdeje": "változó",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
+        "save": "nincs",
+        "range": "20",
+        "leiras": "A papi mágia legalapvetőbb kelléke. A legelső varázslat, amit egy papnak felszentelése után megtanítanak, s az átlagemberek leggyakrabban csupán a mágia ezen formájával találkoznak életük folyamán. Habár vallásonként váltakoznak formái, s egyes hitek többfélét ismernek, mint mások, az alább következő hét szertartást szinte mind alkalmazzák.\n\n1. **Templomszentelés**: Új oltár, szentély vagy templom felavatásakor celebrálják. A felépített helyet a papnak körbe kell járnia, s fennhangon idéznie a szertartás szövegét. A templom vagy szentély ezek után már alkalmas fohászkodásra, áldozat bemutatására, s otthont, támogatást nyújt az azonos vallású hívőknek.\n\n2. **Névadás**: Ezen szertartás alatt adatik az újszülöttnek a név, melyet élete során viselnie kell.\n\n3. **Felszentelés**: A szertartással szenteltvíz és más szentelt tárgy készíthető.\n\n4. **Áldozat**: Az istentől függő áldozati formula és rituális szöveg, melyet az Áldozat bemutatása közben mormolnak.\n\n5. **Áldás - étel, ital**: A pap megszenteli az elé tett ételt és italt. Hosszú szertartások alatt, illetve több napos mágia használatakor kizárólag efféle étket fogyaszthat, ilyen itallal olthatja szomját. Az eljárás nem fedi fel, hogy az étel vagy ital mérgezett-e.\n\n6. **Áldás - föld, termés**: Leginkább a földművesek megsegítésére használatos eljárás. Segítségével a következő év termése biztosíttatik, s nem kell nagyobb természeti katasztrófától sem tartani a megszentelt területen. Legalábbis olyantól nem, amit a pap istene idéz elő.\n\n7. **Összeesketés**: A szertartással házasság köttetik.\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_aszkezis",
+        "name": "Aszkézis",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 10,
+        "idotartam": "1 nap",
+        "varazslasIdeje": "1 óra",
+        "kepzettsegek": [
+            "magia:pap_szfera_altalanos"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat a papok bűntől és földi kísértéstől való megtisztulását segíti elő. Új gondolatokat ébreszt, közelebb hozza a papot istenéhez, segít elszakadni a világi örömök gyarlóságától. Első lépésként a papnak tökéletesen el kell szakadnia a mindennapi valóságtól, egyedül kell maradnia gondolataival. Erre a legtökéletesebb, ha egy elhagyott erdőben, pusztán, sivatagban meditál. A papnak a nap elején, lehetőleg napkeltekor kell felhasználni a varázslatot, mely egy órás aktív fohászkodást és rituális szövegek kántálását jelent.\n\nEzek után a napot imáknak és meditációnak kell szentelnie. Ezalatt a pap szükségletei szinte nullára esnek vissza, így nem kötik le a test kívánalmai. Napi egy pohár víz és egy szelet kenyér elég táplálásához. Nem beszélhet senkivel, lelke megtisztítására kell koncentrálnia. Az aszkézist addig kell folytatnia, míg istene jónak tartja. Ha véget vethet önnön sanyargatásának, jelet kap istenétől. A varázslatot minden aszkézissel töltött nap elején használni kell, ez teszi lehetővé, hogy a szervezet elviselje a kevés élelem és víz okozta ártalmakat. Az aszkézis végeztével a pap bűnei megbocsátást nyernek, esetleg istene valamely küldetést ír elő számára, amit teljesítenie kell a bűnbocsánathoz.\n\nEgynémely isten, pl. Ranagol papjai nem használják ezt a varázslatot, mert az önsanyargatás nem istenüknek tetsző cselekedet."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_asztralpillantas",
+        "name": "Asztrálpillantás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "fok": 2,
+        "mp": 7,
+        "idotartam": "5 kör",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "save": "asztral",
+        "range": "touch",
+        "leiras": "A litánia segítségével a pap bepillantást nyer az Asztrálsíkra, s megfigyelheti, hogy a vizsgált személy asztrálteste miként viselkedik.\n\nMegállapíthatja, hogy mely érzelmek irányítják, milyen erős kötődései vannak, áll-e valamilyen asztrális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell mágiaellenállást tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_benitas",
+        "name": "Bénitás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "idotartam": "1 kör/szint",
+        "ke": 0,
+        "fok": 4,
+        "range": "5",
+        "save": "mental",
+        "leiras": "A pap ezzel a varászlattal részlegesen béníthatja az ellenfél mozgásirányító központját. Rá kell mutatnia a kiszemelt áldozatra, majd - szent jelképével kezében - ki kell mondania a varázslat megidézéséhez szükséges szavakat. A mágia hatására, amennyiben a Mentál ME sikertelen volt, az áldozat a mérgeknél leírt görcsös állapotba kerül, a következő módosítókkal: Izom, Mozgáskoordináció, Reflex: -8, KÉ: -30, TÉ: -40, VÉ: -35, CÉ: -15, varázsolni pedig nem lehetséges.\n\nA Bénítás jól alkalmazható szinte minden harci helyzetben, a további előnye még, hogy időtartama alatt az ellenfél a varázslatait sem hívhatja segítségül a görcs semlegesítésére.\n\nA varázslat időtartamának meghosszabbítására nincs lehetőség.",
+        "mp": 7
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_csapas",
+        "name": "Csapás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 4,
+        "fok": 2,
+        "kepzettsegek": [
+            "magia:pap_szfera_halal",
+            "magia:pap_szfera_lelek",
+            "magia:pap_szfera_termeszet"
+        ],
+        "ke": 20,
+        "idotartam": "azonnali",
+        "range": "15",
+        "save": "nincs",
+        "leiras": "A papok mágiájának egyik egyszerű, ám hatásos harci varázslata a Csapás. Ennek segítségével megtörhető az ellenfél rohama, vagy fájdalmas seb okozható rajta. Egyes mágiaelmélettel foglalkozó papok szerint a varázslat az Elemi Erő különös megidézése - sok tekintetben igazat kell adnunk nekik, de a dolog korántsem ilyen egyszerű.\n\n\nA varázslat megidézése a következőképpen zajlik: a pap mindkét kezét ökölbe zárja, majd behúzza a mellkasához. Ezt követően szorosan egymás mellett kinyújtja két karját, mintha a levegőben maga elé ütne.\n\nA varázslat végrehajtásakor a pap választhat, milyen módon kívánja felhasználni a mágiát. Két lehetőség áll rendelkezésére: az első inkább védő, a második tisztán támadó jellegű.\n\nA varázslat első felhasználási módja esetén a kéz kinyújtásának hatására láthatatlan erőfal keletkezik, mely rohamban megakasztja a támadót, az álló ellenfelet pedig erősen hátrataszítja. A lökés nagysága elegendő ahhoz, hogy az álló vagy lassan haladó áldozat 1-2 métert hátrazuhanjon, bár fontos megjegyezni, hogy ez nem jár feltétlenül hanyatteséssel. A rohamozó vagy gyorsan haladó áldozat k6 zúzó sebzést szenved el az ütközéstől, lendülete pedig elvész, a fallal való találkozás helyén az illető megáll.\n\nA varázslat másik, támadó felhasználása esetén az erő nem fal, hanem rúd vagy kopja alakjában jelenik meg. Ezt a rudat \"löki ki\" a pap gyors karnyújtása. Sikeres Támadó dobás esetén - a varázslat TÉ-je 20 - az ellenfelet letaglózza a fantomfegyver. Ennek hatására 2k6+1 zúzó sebzést szenved el az áldozat. Amennyiben a sebzés maximális, az áldozat további 3 ÉP-t is veszít, mert a \"kopja\" átszaladt rajta.\n\nA varázslat sebzése E-nként k6-tal növekszik, bár természetesen a második felhasználási módnál így csökken a plusz ÉP-sebzés esélye."
     }
 ]

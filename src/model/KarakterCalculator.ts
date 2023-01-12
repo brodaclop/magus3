@@ -7,7 +7,7 @@ import { Karakter, SzintInfo } from "./Karakter";
 import { Kasztok } from "./Kasztok";
 import { KockaDobas } from "./Kocka";
 import { Lofegyver } from "./Lofegyver";
-import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak } from "./Magia";
+import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak, Varazslat } from "./Magia";
 import { GyorsPsziDiszicplina, LassuPsziDiszciplina, Pszi } from "./Pszi";
 import { mergeToArray, sumArray, transformRecord } from "./util";
 
@@ -225,15 +225,14 @@ export const KarakterCalculator = {
         });
 
         const varazslatok = Magia.lista.filter(v => {
-            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === v.kepzettseg);
-            const fok = kepzettseg?.fok ?? 0;
+            const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
+            const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
             const kategoriaOK = v.kategoriak.every(k => magiaKategoriak.has(k));
-            console.log('varazslat', v.name, kepzettseg, fok, magiaKategoriak, v.kategoriak);
             return kategoriaOK && v.fok <= fok;
         }).map(v => {
             if ('ke' in v) {
-                const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `magia:${v.kepzettseg}`);
-                const fok = kepzettseg?.fok ?? 0;
+                const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
+                const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
                 return {
                     ...v,
                     ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Varázslat', v.ke))

@@ -82,7 +82,7 @@ export interface VarazslatBase extends NamedEntity {
     leiras: string;
     save: typeof Mentodobasok[number]['id'];
     kategoriak: Array<typeof MagiaKategoriak[number]['id']>;
-    kepzettseg: typeof VarazslatKepzettsegek[number]['id'];
+    kepzettsegek: Array<typeof VarazslatKepzettsegek[number]['id']>;
     fok: number;
 
 }
@@ -90,7 +90,7 @@ export interface VarazslatBase extends NamedEntity {
 export type Varazslat = (GyorsVarazslat | LassuVarazslat);
 
 const varazslatok = (kepzettseg: typeof VarazslatKepzettsegek[number], fok: number): Array<Varazslat> => Magia.lista.filter(v =>
-    v.kepzettseg === kepzettseg.id && v.fok === fok
+    v.kepzettsegek.includes(kepzettseg.id) && v.fok === fok
 );
 
 export const Magia = {
