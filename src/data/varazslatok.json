@@ -67,7 +67,7 @@
             "litania"
         ],
         "kepzettsegek": [
-            "pap_szfera_termeszet"
+            "magia:pap_szfera_termeszet"
         ],
         "fok": 2
     },
@@ -335,6 +335,10 @@
             "litania"
         ],
         "mp": 10,
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek",
+            "magia:pap_szfera_termeszet"
+        ],
         "idotartam": "2 kör/szint",
         "fok": 2,
         "range": "self",

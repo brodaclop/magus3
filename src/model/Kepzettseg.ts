@@ -334,8 +334,6 @@ export const Kepzettseg = {
     },
 }
 
-console.log(Kepzettseg.lista.map(k => k.name).join('\n'));
-
 const KP_SZORZOK: Array<number> = [
     3, 3, 3, 3, 3, 2.5, // 0-5
     2.5, 2.5, 2, 2, 1.5, // 6-10
