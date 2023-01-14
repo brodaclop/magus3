@@ -363,5 +363,680 @@
         "range": "2",
         "save": "nincs",
         "leiras": "Az **Izzó vér** a vérmágia varázslatainak egyik leggonoszabbika: az áldozat saját vére válik önnön elpusztítójává, ha a körülmények megfelelnek erre.\n\nA varázslat hatása meglehetősen sajátos: a célpont vére, ha levegőre kerül - pl. vágott seb miatt -, lángra lobban. A hatás több szemtanú leírása szerint döbbenetes. A több sebből vérző áldozat, még ha sérülései nem is lennének végzetesek, a lángok örök oltásába hal bele, ha be nem kötözik.\n\nA varázslat kegyetlen, kizárólag Halál jellemű papok használhatják - ők viszont különös élvezetet találnak benne. Vér és tűz együtt - igazán nekik való móka.\n\nA fellobbanó tűz nagysága persze arányos az elvesztett vérrel, így a lángok sebzése is ettől függ. A tűz minden körben  fele annyi SP-t sebez, mint amennyi az eredeti seb okozta veszteség volt - amennyiben a sebzés csak FP vesztéssel járt. Az ÉP-csökkenéssel járó, különösen erősen vérző, komoly sebek a lángok igazi táplálói. Minden egyes elvesztett ÉP további k6 FP sebzést eredményez a lángoló vérnek köszönhetően.\n\nAmennyiben a célpont kizárólag sebei bekötözésével foglalkozik (és van erre alkmlmas kötszere, ami még nem kapott lángra), 2 kör után megfelezheti a sebzést, de teljesen elállítani a varázslat időtartamának lejárta előtt kizárólag **Sebgyógyítás**ban képzett társ segítségével tudja.\n"
+    },
+    {
+        "id": "pap_jellemerzekeles",
+        "name": "Jellemérzékelés",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 2,
+        "idotartam": "azonnali",
+        "ke": -25,
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "asztral",
+        "leiras": "A varázslat segítségével megállapítható, hogy egy adott jellem képviselői megtalálhatóak-e egy 15m sugarú gömbön belül.\n\nA papnak pontosan meg kell határoznia, hogy melyik jellemre kíváncsi, és látnia kell érzékelésének alanyait.\n\nHa több lényt vizsgál, a pap nem tudja meg, melyikük rendelkezik a keresett jellemmel, csupán annyit észlel, hogy nagyjából mennyire erősen van jelen a csoportban.\n\nA hatótávolságon belül eső lények Asztrális mágiaellenállásra jogosultak - sikeres ME esetén jellemük rejtve marad a pap előtt."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_kaoszkard",
+        "name": "Káoszkard",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 14,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal",
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 3,
+        "range": "touch",
+        "save": "mental",
+        "leiras": "A szakrális mágia egyik legkülönösebb darabja. A varázslat létrehozása után a pap vagy az általa megérintett személy kezében egy hosszúkard anyagiasul. A Káoszkard TÉ-je 25, VÉ-je -20, KÉ-je 25, sebzése k10+2 szúró/vágó. Egyenes, kétélű pengéje fekete színű, túlburjánzó kaotikus mintázattal ékített fegyver, melynek egészen apró, szinte jelzésszerű a keresztvasa.\n\nA fegyver annyi körig létezik, ahányadik szintű a varázslatot végrehajtó pap. A Káoszkarddal csak támadni lehet, védekezésre nincs mód. A Káoszkard forgatója nem használhat másik kezében semmilyen fegyvert vagy pajzsot - ha ilyesmi lenne nála, azt azonnal eldobja.\n\nA Káoszkardot nem lehet eldobni vagy másnak átadni, amíg az időtartam tart. Ha nem harc közben jelent meg, akkor is reagál a legkisebb provokációra és támadásra kényszeríti gazdáját. A varázslat nem akadályozza meg, hogy a Káoszkardot a mágiát létrehozó pap ellen használják.\n\nAmennyiben a pap nem önmagát jelöli meg a fegyver forgatójául, s az áldozat ellenkezik, a papnak sikeres támadó dobást kell tennie (nem fegyverrel, hanem szent jelképével). Az áldozat ezután Mentális ME-re jogosult. Ha megdobja az ME-t, a varázslat nem jön létre.\n\nA Káoszkard használatának nem előfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségből vagy harcmodorból adódó bónuszok nem érvényesülnek. Két Káoszkardot egyetlen karakter sem forgathat.\n\nA fegyver harci értékei nem változtathatóak meg az MP-k többszörözésével."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_karhozat",
+        "name": "Kárhozat",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 80,
+        "kepzettsegek": [
+            "magia:pap_szfera_halal",
+            "magia:pap_szfera_lelek",
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 5,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A mágia végrehajtásával a pap felvillantja ellenfele előtt a halála után rá váró kárhozat kínjait. Az így megélt gyötrelem pontos mása a jövőbeli (halál után bekövetkező) bűnhődésnek, így ha a Kárhozatot olyasvalaki ellen használják, aki szent életet él, avagy a vallása nem bünteti az életében elkövetett bűnöket, akkor a mágia semmilyen eredménnyel nem jár. A **Kárhozat** alanya az időtartam alatt tisztában lesz azzal, hogy ez a valóban rá váró kínok kóstolója, s így nem vonhatja ki magát a hatás alól.\n\nA varázslat hatása alatt az áldozat semmiféle tudatos cselekedetre nem képes, beszélni is csak szaggatottan és alig érthetően tud. A varázslat maradandó fizikai nyomairól az alábbi táblázat tudósít.\n\n| k10 | Eredmény |\n|-----|----------|\n| 1-3 | Őszes csíkok a hajban |\n| 4-5 | Az arc megráncosodik |\n| 6-7 | A haj megőszül |\n| 8-9 | A kéz maradandóan remeg |\n| 10  | Az összes fenti tünet és állandó dadogás |\n\nA KM az áldozat ismeretében befolyásolhatja az eredményt. Ha valamely tünet már megvan egy régebbi **Kárhozat** hatására, újbóli dobással döntendő el az eredmény. A nyomokat a Mágia szétoszlatása nem szünteti meg, csupán egy olyan **Gyógyítás**, amelyhez legalább 60 MP-t felhasználtak és 24 körig tartott.\n\nA papnak meg kell érintenie szent jelképével a varázslat alanyát ahhoz, hogy a **Kárhozat** létrejöjjön - ha az áldozat ellenkezik, a papnak sikeres támadódobást kell tennie. A varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását.\n\nAz MP-k megtöbbszörözésével semmilyen változtatás nem érhető el."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_evilagi_lathatatlansag",
+        "name": "Láthatatlanság evilági lények előtt",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 8,
+        "fok": 2,
+        "idotartam": "2 kör/szint",
+        "ke": 15,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A pap képes láthatatlanná válni bármilyen - az Elsődleges Anyagi Síkról származó - teremtmény előtt. Az így nyert láthatatlanság nem észlelhető sem infralátás, sem ultralátás segítségével, s csupán egy magasabb erősítésű **Élet érzékelése** vagy **Láthatatlanság érzékelése** leplezi le. A pap látható marad minden más síkról származó vagy élőholt lény előtt.\n\nA papnak meg kell érintenie szent jelképével azt, akit láthatatlanná kíván tenni, s a megfejelő rituális szövegek elmondása után a mágia létrejön."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_tulvilagi_lathatatlansag",
+        "name": "Láthatatlanság túlvilági lények előtt",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet"
+        ],
+        "mp": 20,
+        "fok": 4,
+        "idotartam": "1 kör/szint",
+        "ke": 15,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A pap láthatatlanná válik minden olyan lény előtt, mely nem az Elsődleges Anyagi Síkról származik. Ugyanúgy nem érzékelhető az élőholt lények számára sem. Ezek a lények csak akkor pillanthatják meg, ha valamilyen érzékelő mágiához folyamodnak.\n\nA varázslat minden egyéb tekintetben megegyezik a **Láthatatlanság evilági lények előtt** varázslattal."
+    },
+    {
+        "fajta": "normal",
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "id": "pap_meggyozes",
+        "name": "Meggyőzés",
+        "mp": 7,
+        "idotartam": "speciális",
+        "varazslasIdeje": "1 kör",
+        "fok": 1,
+        "range": "20",
+        "save": "mental",
+        "leiras": "*\"Igazat mondani nem nehéz, csak bebizonyítani művészet\"* - tartja a kyr mondás. Gyakorta a legkiáltóbb esetekben is lehetetlen valakit akarata ellenére meggyőzni. Vagy azért, mert az igazság a legritkább esetben a tetszésünk szerint való, vagy mert büszkeségünkkel ellenkezik, hogy beismerjük: tévedtünk.\n\nA papi mágia ezen darabja az igazság bebizonyítására szolgál. A pap a varázslat végrehajtása után meg tudja győzni állításai igazáról beszélgető- ill. vitapartnerét - ha azok valóban igazak. Ha az érvek vagy állítások akárcsak minimális olyan hazugságot is tartalmaznak, amelynek valótlan voltával a pap tisztában van, a mágia kudarcot vall.\n\nA varázslat egyszerre csupán egy személyre hat, aki Mentális ME-re jogosult. Ha mágiaellenállása sikeres, a varázslat nem jön létre. (De ettől még hagyományos úton természetesen meggyőzhető.) Ellenkező esetben elfogadja a pap érveit, és belátja annak igazát. Ez azonban semmilyen cselekedetre nem kötelezi, az továbbra is belátásától függ.\n\nA varázslat csak akkor működik, ha a pap olyan nyelven beszél, amelyet a hallgató megért, és emellett látják egymást.\n\nA **Meggyőzés** időtartama addig tart, míg a pap be nem fejezi az érvelést - az ezen idő alatt elmondott dolgokra vonatkoznak a fent leírtak. A továbbiakban minden ugyanúgy folyik, mintha nem használtak volna mágiát.\n\nA varázslat nem evilági és élőholt lényekre nem fejti ki hatását.\n\nA Mana-pontok megtöbbszörözésével a varázslat erőssége vagy a befolyásolni kívánt lények száma növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_mentalpillantas",
+        "name": "Mentálpillantás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "fok": 2,
+        "mp": 7,
+        "idotartam": "5 kör",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "save": "mental",
+        "range": "touch",
+        "leiras": "A litánia segítségével a pap bepillantást nyer a Mentálsíkra, s megfigyelheti, hogy a vizsgált személy mentálteste miként viselkedik.\n\nMegállapíthatja, hogy milyen mennyiségű lexikális tudással rendelkezik, milyen erős az intellektusa, áll-e valamilyen mentális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell mágiaellenállást tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_meregerzekeles",
+        "name": "Méregérzékelés",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 3,
+        "fok": 1,
+        "varazslasIdeje": "1 kör",
+        "idotartam": "3 kör",
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A pap ezen varázslata segítségével meg tudja mondani, hogy a megérintett tárgy vagy személy mérgezett-e, ill. hogy a közvetlen környezetében a levegő tartalmaz-e valamilyen légimérget. A varázslat minden mérget érzékel, megállapítja típusát, szintjét és hatását is.",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_termeszet"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_ovo_fegyver",
+        "name": "Óvó fegyver",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 3,
+        "mp": 12,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varászlat végrehajtásakor egy olyan fegyver jelenik meg a pap vagy az általa kiválasztott és a szent jelképpel megérintett személy kezében, amit az használni, forgatni tud.\n\nA fegyver kékes színben fog tündökölni - kinézetre egyszerű, dísztelen. Csak a harcrendszerben leírt védekező harc folytatható vele, ennek megfelelően VÉ-je 45, TÉ-je és KÉ-je nem értelmezhető, sebzése pedig nulla. A fegyver másik kézben csak pajzsot vagy alkarvédőt tűr meg, s ha azzal támad alkalmazója, ugyanúgy eltűnik, mintha őt használták volna támadásra.\n\nA forgatójának mindkét típusú ME-re +10-et ad, míg a méregellenállást +25-tel növeli. A fegyvert nem lehet eltörni, nem üthető ki a kézből, csupán egy magasabb erősségű **Mágia szétoszlatás** képes megszüntetni.\n\nAz Óvó fegyver használatának nem eléfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségekből adódó bónuszok nem érvényesülnek. Egyszerre két **Óvó fegyver**t egyetlen karakter sem forgathat."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_orzo_aura",
+        "name": "Őrző aura",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet"
+        ],
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 8,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "2 kör",
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A pap képes a hatótávolságon belül egy 9 méter sugarú területet - amennyiben nem valamely más vallás felszentelt helyéről van szó - őrző aurával ellátni. Amíg a varázslat kifejti hatását, a pap értesül a közeledő lényekről, amint azok elérik az **Őrző aura** határát. Ha valaki támadó vagy gonosz szándékkal közelít, a varázslat megtesz mindent, hogy megnehezítse előrejutását. Hogy ezt pontosan miképpen teszi, a KM-mel kell megbeszélni. Például: a behatoló megbotlik egy ágban, vagy egy fűben rejtőző kőben, netán nem vesz észre egy gödröt - mindezt a helyszín és helyzet határozza meg.\n\naZ **Őrző aurát** nem tudja kijátszani semmiféle láthatatlanság-varázs, sem a pszi **Érzékelhetetlenség** vagy **Jelentéktelenség** diszciplinája.\n\nA hatótávolságon belül csak olyan idegen - nem a pap, illetve kompániájához tartozó - személy által végrehajtott mágia jöhet létre, amelynek erőssége meghaladja az **Őrző aura** erősségét.\n\nAz aura megszüntethető egy magasabb erősségű **Mágia szétoszlatás**sal, ám szertefoszlása előtt figyelmezteti a varázslatot létrehozó papot.\n\nAz MP-k többszörösével a terület nagysága nem növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_parancs",
+        "name": "Parancs",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 8,
+        "idotartam": "2 kör",
+        "ke": 15,
+        "fok": 1,
+        "range": "20",
+        "save": "mental",
+        "leiras": "A pap képes egyszerű, legfeljebb két- vagy háromtagú parancs kiadására. A **Parancs** végrehajtásához a papnak látnia kell áldozatát és olyan nyelven szólnia hozzá, amit az megért.\n\nAz áldozat Mentális ME-re jogosult, amennyiben sikeresen végrehajtotta, a mágia nem jön létre. Ha elvétette, akkor a tőle telhető legjobb képességei szerint megpróbálja végrehajtani a pap utasítását, amíg az időtartam tart. Az öngyilkosságra való felszólítást figyelmen kívül hagyja, a varázslat azonnal megtörik.\n\nTipikus parancsok: takarodj!, rohanj el!, menekülj!, hallgass!, állj fel!, ülj le!, feküdj a földre!, védekezz!, üss! stb.\n\nAmennyiben a parancs félreérthető vagy nem egyértelmű, a mágia megtörik. A befolyásolt lény az időtartam lejártával tisztában lesz azzal, hogy a pap parancsára cselekedett.\n\nA varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_rendreutasitas",
+        "name": "Rendreutasítás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 1,
+        "fok": 1,
+        "save": "nincs",
+        "ke": 5,
+        "idotartam": "1 kör",
+        "range": "15",
+        "leiras": "Ez a varázslat akkor juthat komoly szerephe, ha a papnak egy magából kikelt hívővel kell foglalkoznia. Olyan esetben, melyben a pappal azonos valláskörbe tartozó, a papot más körülmények között tisztelő, esetleg szerető személlyel akadnak problémák. Előfordulhat, hogy az illető olyan cselekedet végrehajtására készül, mely istenének nem tetsző. Amennyiben a pap tudomást szerez erről, a varázslattal - a kellő időben, a kellő helyen - megakadályozhatja a tett végrehajtását. Így megkímélhet egy más körülmények között tisztességes, hívő személyt, s megmentheti lelkét is.\n\nAhhoz, hogy a varázslás sikeres legyen, a célpontnak sikeres Hit-próbát kell dobnia, annyi plusszal, amennyi MP-t a pap a varázslatra fordított.\n\nA varázslat nem tesz mást, mint ráébreszti a cselekedetet végrehajtani szándékozót a tett valódi hatásaira, következményeire. A pap alakja a varázslat pillanatában eleven, félelmetes lelkiismeretként szegül szembe a megtévedt hívő akaratával. Ennek látható jelei vannak, de csak a célpont szemében. A pap alakja a megtévedt szemében átalakul, egy lábbal magasabb lesz, mögötte a háttér elsötétül, egy tenyérnyi szélességű fényudvar kivételével, mely körülöleli a papot. Az alak maga elé emeli szent szimbólumát, s mélyen a célpont szemében néz. Egy-két másodperccel később a jelkép lángra lobban, lángol, de nem ég el. A tűz nem emészti el a szen jelképet, a lángokat semmi nem táplálja. A pap alakja ebben a pillanatban a legfenyegetőbb, majd egy kör múlva minden visszatér régi mivoltába, a pap visszaváltozik csendes, nyugodt, de határozott alakká, a célpont pedig - az esetek többségében - igaz hívővé, ki hitének fényében mérlegeli tetteit.\n\nAmennyiben a célpont valamely mágikus vagy túlvilági befolyás hatására tért volna le a hite által kijelölt útrol, úgy a varázslat vagy hatás ezzel megszűnik.\n\nMegjegyzendő, hogy a varázslat csak akkor működik, ha a célpont valóban istenének nem tetsző dolgot követett el, vagy annak elkövetésére készült.\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_veszely_eszlelese",
+        "name": "Veszély észlelése",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek",
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 5,
+        "idotartam": "15 perc/szint",
+        "varazslasIdeje": "1 perc",
+        "fok": 1,
+        "range": "self",
+        "leiras": "A **Veszély észlelése** az érzékelő mágiaformák legalapvetőbbike. Segítségével a pap tudomást szerez a rá leselkedő veszélyek létezéséről - pontos helyéről, természetéről azonban nem. Az iránnyal és távolsággal nagyjából tisztában lesz, ám a veszély mibenléte teljesen ismeretlen marad. \n\nA varázslat egyetlenegy komoly hátránnyal rendelkezik, ennek köszönhető, hogy hatalma ellenére kevesen használják. Nevezetesen képtelen megkülönböztetni a veszély fokozatait. Az összes lehetséges veszély jelzi a papnak - még az egészen kis százalékban ártalmasakat is.\n\nHogy világosabb legyen a dolog, lássunk egy példát! Amennyiben a pap és társai olyan épülethez érnek kalandozásaik során, melynek tetőszerkezete már meglehetősen régi, de annak esélye, hogy leszakad, egészen elhanyagolható - esetleg orkánszerű szélben vagy kisebb földmozgáskor - a varázslat veszélyt jelez majd. Mivel a fokozatokban nem tesz különbséget, messziről a pap csupán azt érzi, hogy benn ártó elemek lapulnak. Ezek lehetnének akár ork vagy goblin csapatok is, a varázslat ugyanolyan erősen jelezné a veszélyt.\n\nEzért igazán csak akkor hasznos, ha más felderítő módszerekkel együtt alkalmazzák, mely kiegészítheti e hiányosságot."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_vizfakasztas",
+        "fok": 3,
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 8,
+        "varazslasIdeje": "2 kör",
+        "save": "nincs",
+        "range": "touch",
+        "idotartam": "1 kör/szint",
+        "leiras": "A varázslat segítségével a pap képes körönként 3 liter vizet fakasztani valamely természeti tárgyból. A mágia végrehajtásához a papnak szent jelképével meg kell érintenie a kiválasztott helyet, s onnan két kör múltán víz csordul elő. A víz tiszta és iható.\n\nMiután előhívatott, a víz nem tekintendő mágikus anyagnak. A pap csak olyan helyen képes vizet fakasztani, amely nem valamely más vallás felszentelt területe, s csak olyan tárgyból, melyet nem itat át semmiféle mágia.\n\nHa az előcsorgó vizet nem fogják fel edénybe, akárcsak a közönséges víz, szétfolyik. Vizet fakasztani élőlényből nem lehet.",
+        "name": "Vízfakasztás"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_alomut",
+        "name": "Álomút",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 35,
+        "idotartam": "15 perc",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a pap végigjárhat egy olyan álmot, melynek alaptörténetét maga határozza meg. Így előre megélhet olyan cselekedeteket, melyeket a későbbiekben majd végre kell hajtania, illetve kielemezhet megoldásra váró történeteket. Hátránya a varázslatnak, hogy a pap nem nyer vele új információkat, pusztán a már birtokában lévőket rendezi egységes egésszé a szeme előtt pergő történetben.\n\nAz álom nem készíti fel a véletlenre és az ismeretlenre, csak az előre kiszámítható tényeket, apró momentumokat, figyelmetlenségeket és összefüggéseket mutatja meg egy cselekménysor formájában.\n\nAz álom 15 perc alatt véget ér, s a pap ennek tükrében hozhatja meg döntéseit.\n\nAz álom eseményeit a KM meséli el, ő az, aki a pap emlékeit \"rendezi\", kiegészíti, figyelmét elfeledett momentumokra felhívja, stb."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_eggyevalas",
+        "name": "Eggyéválás",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 32,
+        "idotartam": "25 perc",
+        "varazslasIdeje": "1 óra",
+        "fok": 5,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Ez a varázslat felfedheti a múlt eseményeit a pap előtt. Segítségével a pap lelke egy rövid időre az általa kijelölt, már elhunyt személy lelkével és tuadtával eggyé válik. A személy egy testrésze vagy fontos tulajdona a pap birtokában kell legyen a sikeres varázslathoz.\n\nA varázslat erőssége fontos, mert E-nként 200 évre mehet vissza a pap a múltba. Ha a személy a pap vallásával (vagy jellemével) egyező volt, nem gördít nehézséget a varázslat útjába. Ha viszont ellentétes, további +1 E szükséges a varázslat sikeréhez.\n\nHa a varázslat létrejön, a pap tökéletesen eggyé válik a kiválasztott személlyel, megismeri legrejtettebb gondolatait, indítékait, érzelmeit. Használhatja az illető emlékeit, mintha a saját emlékei volnának, ugyanakkor megmarad annak a papnak, aki volt."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_egi_szeker",
+        "name": "Égi szekér",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 80,
+        "idotartam": "15 perc/szint",
+        "varazslasIdeje": "3 kör",
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat megidéz egy energiákból szőtt kocsit, melyet két légelementál vontat. A kocsin maximum hat személy utazhat, s akit a pap nem enged fel a kocsira, az egyszerűen átesik rajta. A szekér jogos utasai ezzel szemben teljes biztonságban érezhetik magukat, az energiaszövedék biztosan tartja őket a levegőben. A kocsi messziről alig látható, és közelről is inkább csak a levegő furcsa vibrálásához hasonlítható. A két szekérvonó elementál is teljesen átlátszó, de megérinteni lehetséges őket.\n\nA szekér szárazföldön 20 km-t tehet meg óránként, de repülni is képes, ekkor sebessége 40 km óránként. Ha a két légelementált elpusztítják, a kocsi lassan ereszkedni kezd, s 5+k6 kör múlva földet ér."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_fanatizalas_ii",
+        "name": "Fanatizálás II",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 12,
+        "idotartam": "3 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "fok": 3,
+        "range": "10",
+        "save": "nincs",
+        "leiras": "A varázslat hatására a célpont minden harci félelme elvész, különös, belső energiák árasztják el, sokszoros erővel veti magát a küzdelembe. Minden harcértéke annyival növekszik, amennyi a célpont **Hit** tulajdonsága, és semmiféle félelem alapú mágia nem érintheti őket.\n\n\nA varázslat alapból egy kiválasztott személyre hat, időtartama nem nyújtható, de Mana-pontok többszörözésével a célpontok száma növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_fanatizalas_i",
+        "name": "Fanatizálás I",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 10,
+        "idotartam": "3 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "fok": 2,
+        "range": "100",
+        "save": "nincs",
+        "leiras": "A varázslat célpontjai szinte verhetetlennek érzik magukat csatában, Erejük látszólag megsokszorozódik, a legkisebb esélyekkel szemben is harcolni fognak. Félelem elleni mágiaellenállásuk +50-nel megnő.\n\nA papnak hosszan, hangosan kell elmondania a varázslat igéit, s az 100 láb sugarú körön belül minden kiválasztottra hatni fog.\n\nA varázslat alapból 10 kiválasztott személyre hat, időtartama nem nyújtható, de Mana-pontok többszörözésével a célpontok száma is növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_hosi_lelek",
+        "name": "Hősi lélek",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 45,
+        "idotartam": "1 kör/szint",
+        "ke": 5,
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 5,
+        "range": "touch",
+        "save": "asztral",
+        "leiras": "A varázslat hasonlít az **Áldás**hoz, de sokkal nagyobb hatalmú annál Csak egyetlen kiválasztott személyre használható, akinek vallása (jelleme) meg kell egyezzen a pap vallásával (jellemével). A mágia hatására a célpont mindhalálig harcolni fog. Ha FP-i nulla alá esnek, akkor is harcképes marad, egészen a halálig, azaz az ÉP-k elfogyásáig. A hős harci értékei is megváltoznak: KÉ: +15, TÉ: +30, VÉ: +10, Önuralma és Egészsége k6-tal lesz nagyobb.\n\nHa a kiszemelt hős valamely okból kifolyólag ellenállna a varázslatnak, a papnak sikeres támadást kell végrehajtania ellene, és a célpont Asztrál ME-re jogosult a varázslat ellen."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_igaz_szo",
+        "name": "Igaz szó",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 13,
+        "fok": 3,
+        "idotartam": "5 perc/szint",
+        "varazslasIdeje": "azonnali",
+        "save": "mental",
+        "range": "self",
+        "leiras": "A varázslat hatására a pap körüli 8 láb sugarú körben a jelenlévők száját csak igaz szó hagyhatja el. A varázslat hátránya, hogy a papra is hat, így ő sem hazudhat a körülötte állóknak. Komoly tárgyalásoknál sokszor van jelen pap csak azért, hogy a varázslatot megidézze, s a tárgyaló felek még véletlenül se állíthassanak valótlant. És sokszor az is előfordul, hogy valamely tárgyaló fél Mentál mágia ellen védő talizmánokkal jelenik meg.\n\nA varázslat ellen Mentál ME-re jogosult minden érintett, s ha ez sikeres, rájuk a mágia nem hat. (A pap csak arról értesül, hogy hányan álltak ellen a varázslatnak, de arról nem, hogy kik.)\n\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_into_jel",
+        "name": "Intő jel",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal",
+            "magia:pap_szfera_lelek"
+        ],
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 15,
+        "fok": 5,
+        "ke": 0,
+        "idotartam": "azonnali",
+        "save": "asztral",
+        "range": "15",
+        "leiras": "A pap varázslata szörnyű, felvillanó látomást hoz létre a kiválasztott lény elméjében. A látomás nem más, mint önnön halálának rövid, döbbenetes hatású képsora. A halál okát a pap választhatja meg, s ő vázolhatja fel a képsor egyes részeit is. A képsor mindenképpen látható lesz, a Mágiaellenállás az érzelmi hatás ellen szól. A képsor 15-20 percnyi történetet sűrít 2 szegmensnyi időbe, s ebbe koncentrálja a benne testet öltött szenvedést is, melynek vége minden esetben halál. Az áldozat a sokktól különféle károsodásokat szenvedhet, ezeket k100 segítségével kell meghatározni:\n\n|Dobás|Hatás|\n|1-23 | Az áldozat 4 órás kómába esik |\n|24-43| Az áldozat nem tud együtt élni a látottakkal, s tudata meghasad. Egyik fele meghal, személyiségének másik fele tovább él|\n|44-59| Az áldozat habzó szájjal áll 2k10 körön át, védekezni is képtelen |\n|60-74| Az áldozat valódi holttestnek képzeli magát, s nem hajlandó megmozdulni, míg be nem bizonyítják neki, hogy életben van |\n|75-94| Az áldozat félelmében menekülni kezd, minél távolabb igyekszik kerülni a paptól |\n|95-00| Az áldozat idegrendszere teljesen felmondja a szolgálatot, a célpont meghal |\n\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_kod_felidezese",
+        "name": "Köd felidézése",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 10,
+        "fok": 2,
+        "idotartam": "4 kör",
+        "ke": 10,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A pap ezen varázslata ködöt idéz a kijelölt terület, egy 12 méter sugarú kör fölé. A kis kiterjedésű, de annál sűrűbb ködfelhő 4 körig stabil marad, s utána is fennmaradhat, ha a szél szét nem oszlatja. A negyedik kör után a köd már csak a légmozgás játéka, nem feltétlen marad a kijelölt területen, hanem tovább sodródhat vagy eloszolhat.\n\nA ködben lehetetlen íjat vagy dobófegyvert használni, s a ködben állók TÉ-je 15-tel csökken."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_szent_tuz",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 5,
+        "mp": 18,
+        "name": "Szent tűz",
+        "idotartam": "azonnali",
+        "ke": 30,
+        "range": "12",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a pap tűzbe boríthatja ellenfelét. A papnak mindössze rá kell mutatnia az áldozatra, s ki kell mondania a varázslat megidézésének szavait. Ennek hatására, mintha maguk az istenek dühödtek volna meg az áldozatra, a fellegek közül lesújt egy lángoszlop, s tűzbe borítja. A tűz az első körben elemi tűz, s 3k6 SP-t sebez A második és további körökben már csak a meggyújtott anyagok természetes tüze sebzi az áldozatot, míg az el nem oltja ruháit és felszerelését. Minden gyúlékony anyag automatikusan lángra kap a varázslat hatására, s eloltásuk k6 körbe kerül. Ezalatt az áldozat csak az oltással foglalkozhat."
+    },
+    {
+        "fajta": "normal",
+        "varazslasIdeje": "azonnali",
+        "id": "pap_szetzuzas",
+        "name": "Szétzúzás",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_halal",
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 4,
+        "mp": 18,
+        "idotartam": "azonnali",
+        "range": "12",
+        "save": "nincs",
+        "leiras": "A varázslat hűen tükrözi azt a tényt, hogy a papi mágia sokszor messze többre képes, mint az Anyagi Sík energiáival manipuláló bármely más varázslási mód. A papok isteni forrású mágiája többször is megérti a varázslók által leírt, természetet irányító törvényeket - ebben az esetben is. A varázslat hatásának ugyanis nem szab határt a személyes aura jelentette védelem. A pap a varázslat alkalmazásával porrá zúzhat egy általa kiválasztott, nem mágikus, élettelen, legfeljebb 35 kg tömegű tárgyat. Ez lehet kő, fém, arany - bármi.\n\nA hatás azonnali, a varázslás maga is gyors. A pap nem tesz mást, mint ujjával rámutat az elpusztítandó tárgyra, majd kimondja a varázslat megidézéséhez szükséges különös, inkább torokhangú kiáltáshoz hasonlatos rövid szót. A pusztulás teljes, ráadásul meglehetősen látványos. A kiszemelt tárgy szilánkokra hull, s a szilánkok még további darabokra esnek szét.\n\nMindez villángyorsan történik, az apró, szerteszét repülő maradványok folyamatosan porladnak, a tárgy eredeti helyétől nagyjából fél méter sugarú körben már porszemekként hullanak alá.\n\nA varázslat használatában számos lehetőség rejlik: könnyen megszabadíthatjuk ellenfelünket drága lánc- vagy sodronyingétől, esetleg féltett buzogányától, kétkezes kardjától.\n\n(Fontos megjegyezni, hogy azok a tárgyak, amelyek \"részeivé válnak\" egy személy aurájának, pl. féltve őrzött családi örökség, egy jeggyűrű, egy kardművész kardja, egy kráni fejvadász mara-sequorja, nem pusztíthatók el ezzel a varázslattal."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_szferak_zeneje",
+        "name": "Szférák zenéje",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 2,
+        "mp": 18,
+        "idotartam": "1 óra",
+        "varazslasIdeje": "5 kör",
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A pap megidézheti a tökéletes harmónia dallamait, a szférák zenéjét. A varázslat hatására a levegő megtelik csodás hangokkal, s minden lény, aki a pap körüli 15 méter sugarú körben tartózkodik, az egy óra leteltével frisebbnek és kipihentebbnek érzi magát. Fájdalomtűrés pontjaik a pap szintjeinek háromszorosával növekednek, s annyi Pszi pontot kapnak vissza (maximum 60), mintha 2 órát meditációval töltöttek volna el.\n\nHa valaki az egy óra letelte előtt kilép a körből, nem gyógyul, s Pszi pontjai sem töltődnek újra."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_termeszeti_idezes",
+        "name": "Természeti lények megidézése",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 24,
+        "idotartam": "2 perc/szint",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 4,
+        "range": "15000",
+        "save": "asztral",
+        "leiras": "Ezen varázslattal a pap bármiféle, mágikus képességekkel nem rendelkező szörnyet megidézhet. Hogy mely szörny jelenik meg a hívásra, az a hely adottságaitól függ, a szörnynek ugyanis 15 mérföldes körzeten belül kell tartózkodnia. Ha ezen a területen nincs szörnyeteg, akkor vadállatok jelennek meg az idézés hatására.\n\nA lények három kör után bukkannak fel, s barátsággal viseltetnek a pap iránt. Ha képesek közösen kommunikálni, a pap parancsokat is adhat nekik, amiket a józan ész határain belül a lények igyekeznek teljesíteni. Ha nem találnak közös nyelvet, a szörnyek megvédik a papot harc esetén, de mást nem tehetnek érte.\n\nA varázslat ellen a szörnyek Asztrál ME-re jogosultak, s ha ez sikeres, nem jelennek meg a pap hívó szavára.\n\nEgyszerre k10 lény hallja a pap hívását, akiknek ME-jét egyenként kell meghatározni. Így előfordulhat például, hogy a pap 8 lényt hívott, de ebből 3 sikeresen ellenállt a varázslatnak, s csak 5 jelent meg."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_transz",
+        "name": "Transz",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 18,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "1 óra",
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat órájában a pap mély transzba esik, így képes lesz kommunikálni istenével. Egyetlen eldöntendő kérdést tehet fel urának, aki ha a kérdést fontosnak érzi, avagy a pap sok szolgálatot tett neki a közelmúltban, válaszol a kérdésre. A válasz nem feltétlenül lesz igaz! Ez különösen gonosz istenek esetében történhet meg, jó eséllyel számíthatunk ilyesmire például Ranagolnál. Ha a pap túl sokszor használja ezt a varázslatot, istene előbb-utóbb figyelmen kívül hagyja a túlbuzgó egyházfi kérdéseit, akármilyen fontosak legyenek is azok.\n\nAz MP-k megtöbbszörözésével több kérdés is feltehető az óra alatt, de a kérdések száma nem haladhatja meg a pap szintjeinek felét, lefele kerekítve."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_utmutatas",
+        "name": "Útmutatás",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 19,
+        "varazslasIdeje": "1 kör",
+        "idotartam": "1 perc/szint",
+        "fok": 4,
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "range": "15 km/szint",
+        "save": "mental",
+        "leiras": "A varázslat lehetővé teszi, hogy a pap tárgyak vagy személyek irányát felderítse. A mágia hatására érezni fogja a keresett tárgy vagy személy helyét, illetve irányát. Ez a varázslat időtartamának lejártáig így is marad, utána minden érzet elvész - de a már betájolt irányban tovább haladhatnak.\n\nTárgyak kereséséhez igen pontos leírással kell rendelkezni. Nem egy esetben megtörtént, hogy a kísérletező papot hasonló, de nem a keresett tárgyhoz vezette el a varázslat. Személy keresése esetén tudni kell az illető nevét, korát, s lehetőleg leírását is. A keresett Mentál ME-re jogosult a varázslat ellen, ha ez sikeres, jelenléte titokban marad.\n\nMegjegyzendő, hogy a varázslattal nem csak kis tárgyak, de városok, épületek is kereshetőek, így a pap nemigen téved el. Hasznos tudomány Ynev hatalmas világában."
+    },
+    {
+        "fajta": "normal",
+        "varazslasIdeje": "speciális",
+        "id": "pap_atokuzes",
+        "name": "Űzés - átok",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 9,
+        "idotartam": "azonnali",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 4,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A papok átokűzése a leghatásosabb semlegesítő varázslat a boszorkányok és boszorkánymesterek mágiájával szemben. Tehát nem csak a papi átkokat, de a boszorkányok és boszorkánymesterek által megidézett átkokat is megszüntetheti. A varázslat hosszas előkészítést igényel, s a mágia megidézésének időtartama is hosszú - annyi kör, ahány Mana-pontot a pap a varázslathoz felhasznál.\n\nAz átok hatása akkor szüntehető meg, ha az űzés erősítése legalább megyezett az átok eredeti erősítésével. Ha sikeres volt, az átok minden hatása megszűnik, de az addigi változások nem. Azaz ha egy átkozott személy ereje naponta kettővel csökkent, s csak a harmadik nap semlegesítették az átkot, ereje néggyel alacsonyabb lesz, mint az átok előtt."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_uzes_evilagi",
+        "name": "Űzés - evilági lények",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "mp": 18,
+        "fok": 5,
+        "varazslasIdeje": "azonnali",
+        "idotartam": "24 nap",
+        "range": "12",
+        "save": "asztral",
+        "leiras": "A varázslat a rettegést okozó mágiához hasonlít, de annál sokkal mélyebb hatású. Az elűzendő evilági lény Asztrál ME-re jogosult a varázslat ellen, s ha ez sikertelen, lélekölő félelem ébred benne a pappal szemben. Azonnal elmenekül, s csak 24 nap után képes újra szembe kerülni a mágia használójával."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_veraldozat",
+        "name": "Véráldozat",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ],
+        "mp": 30,
+        "idotartam": "2 perc/szint",
+        "ke": 0,
+        "fok": 5,
+        "range": "3",
+        "save": "nincs",
+        "leiras": "A vérmágia egy erős varázslata, az áldozat vére a pap istenének kerül áldozati bemutatásra. A pap, miután a varázslatot létrehozta, az ellenfél életerejét istenéhez irányítja. Így az áldozat a 2 perc szintenkénti időtartam alatt (pl. harcban, vagy egyéb sebzésből kifolyólag) vesztett FP-t és ÉP-t természetes úton nem szerezheti vissza, s a mágikus gyógyítás is csak a szokásos mennyiség negyedét gyógyítja rajta. A varázslat hatása végleges, s csak egymás után alkalmazott **Űzés - átok** és mérgezés **Gyógyítás**a semlegesítheti. Ha az átokűzés sikeres volt, s a gyógyítás is végrehajtatott, az áldozat normális gyógyulóképessége visszatér. "
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_vergat_i",
+        "name": "Vérgát I",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 9,
+        "fok": 4,
+        "idotartam": "1 nap/szint",
+        "varazslasIdeje": "5 kör",
+        "range": "1000",
+        "save": "asztral",
+        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nAmelyik lény vérével a vérgátat felrajzolták, nem fog tudni átlépni azon semmilyen irányban.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál ME-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a mágiaellenállás sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. \n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n.",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_vergat_ii",
+        "name": "Vérgát ÍÍ",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "mp": 18,
+        "fok": 5,
+        "varazslasIdeje": "5 kör",
+        "idotartam": "1 nap/szint",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ],
+        "range": "1000",
+        "save": "asztral",
+        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nEz a varázslat minden, a felhasznált vér fajába tartozó lényt képes távol (vagy bent) tartani. Sőt, a használt vér lehet kevert is, annyi személy vagy lény vérét tartalmazhatja, ahányadik szintű a pap. A lények tartozhatnak egyazon fajba, avagy több különböző fajba is, ez utóbbi esetben minden képviselt faj egyedei számára áttörhetetlen lesz a gát.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál ME-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a mágiaellenállás sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. Ő természetesen szabadon keresztülsétálhat a vonalon, még akkor is, ha ahhoz a fajhoz tartozik, amelynek véréből rajzolták.\n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n."
+    },
+    {
+        "fajta": "normal",
+        "ke": 15,
+        "id": "pap_villamcsapas",
+        "name": "Villámcsapás",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale"
+        ],
+        "fok": 4,
+        "mp": 8,
+        "idotartam": "azonnali",
+        "range": "25",
+        "save": "nincs",
+        "leiras": "A varázslat alkalmazásával villám sújt le a pap által kijelölt helyre. Ellentétben más mágiahasználók villámaival, ez nem az ujj hegyéből, hanem az áldozat feje feletti magasságból csap le, így fedezékbe vonulni, pajzsot a pap felé tartani teljesen felesleges.\n\nA kiszemelt célpontot látnia kell a papnak, s felé kell mutatnia a varázslat alkalmazásakor. A villám sebzése 2k6 FP, és minden esetben a fejet találja el: ha azon fémsisak van, a sebzés k6-onként 3 FP-vel nő, ha bőr, 2-vel csökken."
     }
 ]

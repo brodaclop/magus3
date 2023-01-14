@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { CalcVarazslat } from '../../model/KarakterCalculator';
 import { Kepzettseg } from '../../model/Kepzettseg';
-import { MagiaKategoriak, Mentodobasok } from '../../model/Magia';
+import { Magia, MagiaKategoriak, Mentodobasok } from '../../model/Magia';
 import { arrayName } from '../../model/util';
 import { CalculationWidget } from './../CalculationWidget';
 
@@ -44,7 +44,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> =
                     </tr>
                     <tr>
                         <th>Hatótáv</th>
-                        <td>{v.range === 'self' ? 'önmaga' : v.range === 'touch' ? 'érintés' : `${v.range} m`}</td>
+                        <td>{Magia.formatRange(v.range)}</td>
                     </tr>
                     <tr>
                         <th>Mentődobás</th>

@@ -90,7 +90,7 @@ export interface VarazslatBase extends NamedEntity {
 export type Varazslat = (GyorsVarazslat | LassuVarazslat);
 
 const varazslatok = (kepzettseg: typeof VarazslatKepzettsegek[number], fok: number): Array<Varazslat> => Magia.lista.filter(v =>
-    v.kepzettsegek.includes(kepzettseg.id) && v.fok === fok
+    v.kepzettsegek?.includes(kepzettseg.id) && v.fok === fok
 );
 
 export const Magia = {
@@ -106,6 +106,18 @@ export const Magia = {
             return 0;
         }
         return 2 + fok * 3;
+    },
+    formatRange: (range: number | string) => {
+        if (range === 'self') {
+            return 'önmaga';
+        }
+        if (range === 'touch') {
+            return 'érintés';
+        }
+        if (typeof range === 'number' || range.match(/[0-9]+/g)) {
+            return `${range} m`;
+        }
+        return range;
     },
     mentodobasok: Mentodobasok,
     kategoriak: MagiaKategoriak
