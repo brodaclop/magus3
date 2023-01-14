@@ -245,5 +245,119 @@
         "range": "15",
         "save": "nincs",
         "leiras": "A papok mágiájának egyik egyszerű, ám hatásos harci varázslata a Csapás. Ennek segítségével megtörhető az ellenfél rohama, vagy fájdalmas seb okozható rajta. Egyes mágiaelmélettel foglalkozó papok szerint a varázslat az Elemi Erő különös megidézése - sok tekintetben igazat kell adnunk nekik, de a dolog korántsem ilyen egyszerű.\n\n\nA varázslat megidézése a következőképpen zajlik: a pap mindkét kezét ökölbe zárja, majd behúzza a mellkasához. Ezt követően szorosan egymás mellett kinyújtja két karját, mintha a levegőben maga elé ütne.\n\nA varázslat végrehajtásakor a pap választhat, milyen módon kívánja felhasználni a mágiát. Két lehetőség áll rendelkezésére: az első inkább védő, a második tisztán támadó jellegű.\n\nA varázslat első felhasználási módja esetén a kéz kinyújtásának hatására láthatatlan erőfal keletkezik, mely rohamban megakasztja a támadót, az álló ellenfelet pedig erősen hátrataszítja. A lökés nagysága elegendő ahhoz, hogy az álló vagy lassan haladó áldozat 1-2 métert hátrazuhanjon, bár fontos megjegyezni, hogy ez nem jár feltétlenül hanyatteséssel. A rohamozó vagy gyorsan haladó áldozat k6 zúzó sebzést szenved el az ütközéstől, lendülete pedig elvész, a fallal való találkozás helyén az illető megáll.\n\nA varázslat másik, támadó felhasználása esetén az erő nem fal, hanem rúd vagy kopja alakjában jelenik meg. Ezt a rudat \"löki ki\" a pap gyors karnyújtása. Sikeres Támadó dobás esetén - a varázslat TÉ-je 20 - az ellenfelet letaglózza a fantomfegyver. Ennek hatására 2k6+1 zúzó sebzést szenved el az áldozat. Amennyiben a sebzés maximális, az áldozat további 3 ÉP-t is veszít, mert a \"kopja\" átszaladt rajta.\n\nA varázslat sebzése E-nként k6-tal növekszik, bár természetesen a második felhasználási módnál így csökken a plusz ÉP-sebzés esélye."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_csend",
+        "name": "Csend",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 12,
+        "fok": 2,
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "idotartam": "1 kör/szint",
+        "ke": -20,
+        "range": "touch",
+        "save": "mereg",
+        "leiras": "A varázslat végrehajtásakor egy három méter sugarú gömbön belül eluralkodik a teljes csend. Semmilyen zaj nem hallható - beszélgetni lehetetlen, a varázslatok hangkomponense elvész. A varázslattal megcélozható a talaj egy darabja, de rá lehet mondani élőlényre vagy tárgyra is.\n\nAz így elnémított ember vagy tárgy mozgásakor a Csend a varázslat alanyával halad, tehát az semmiféle zajt nem üthet, hangot nem hallathat.\n\nA Csend teremtéséhez a papnak meg kell érintenie szent szimbólumával azt a középpontot, melyből a varázslat kisugárzik.\n\nHa ez előlény, s ellenáll, úgy a papnak sikeres Támadó dobást kell tennie. A Csend időtartama a Mana-pontok többszörözésével megnyújtható."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_elelemteremtes",
+        "name": "Élelemteremtés",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 9,
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "1 kör",
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A pap képes három felnőtt ember méretű vagy egy ló méretű lény számára egy napra elegendő ételt teremteni. Az étel a környező természeti anyagokból formálódik, míg az ital a légkörből kicsapódó párából alakul át.\n\nKülönleges étel vagy ital a varázslat segítségével nem teremthető.\n\nHa a pap olyan helyen próbálja a mágiát végrehajtani, melynek jelleme valami okból erősen meghatározó és ellentétes vallásának jellemével - pl. más isten temploma, felszentelt terület vagy idegen Külső Sík -, a varázslat 50%-ban csődöt mond.\n\nA megteremtett étel és ital minden tekintetben megegyezik a közönséges úton előállított élelmiszerekkel."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_eleterzekeles",
+        "name": "Életérzékelés",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 2,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_lelek"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat végrehajtása után a pap megtudja, hogy 30m sugarú gömbön belül van-e élet. Pontos értékeket nem ad, és az élőlényekről is mindössze annyit lehet megtudni, hogy növényi, állati vagy annál magasabb intelligenciával rendelkeznek-e.\n\nAz Élet érzékelése csak természeti lények kisugárzásait képes felfedezni, tehát a külső, illetve belső síkokról származó teremtmények, valamint az élőholtak rejtve maradnak a varázslat előtt.\n\nA mágia alkalmazása nem ad módot az élőlény helyének pontos meghatározására sem.\n\nAz Élet érzékelése felfedi a tetszhalál állapotába dermedt lényeket, akárcsak a láthatatlanságba burkolózottakat - azonos varázslaterősségig -, de az Érzékelhetetlenség diszciplinájával rejtőzködőket nem.\n\nA varázslat közben a pap legfeljebb sétálni képes, és semmi olyat nem tehet - pszi használat, harc stb. -, ami zavarná a koncentrálásban. Szent jelképét a kezében kell tartania, és mindaddig nem teheti le, míg a mágia időtartama le nem jár.\n\nA varázslat időtartama nem növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gyogyitas",
+        "name": "Gyógyítás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 1,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "min. 1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_elet",
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 3,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A pap képes mind Életerő-pontokat, mind Fájdalomtűrés-pontokat visszadni, meggyógyítani bármilyen betegséget vagy testi fogyaqtékosságot.\n\nA szükséges Mana-pont és idő mennyisége az alábbi táblázatban olvasható:\n\n| Gyógyítás           | MP | Varázslás ideje |\n|---------------------|----|-----------------|\n| 1 FP                | 2  | 1 szegmens      |\n| 1 ÉP                | 4  | 5 szegmens      |\n| **Betegség**        |    |                 |\n| Enyhe lefolyású     | 2  | 1 kör           |\n| Kevéssé súlyos      | 6  | 2 kör           |\n| Súlyos              | 10 | 4 kör           |\n| Nagyon súlyos       | 15 | 6 kör           |\n| Kritikus            | 25 | 8 kör           |\n| Válságos            | 35 | 12 kör          |\n| Halállal fenyegető  | 45 | 18 kör          |\n| Halálos             | 60 | 24 kör          |\n| Biztosan halálos    | 70 | 31 kör          |\n| **Egyéb**           |    |                 |\n| Mérgezés            | 35 | 14 kör          |\n| Végtag bénultsága   | 60 | 24 kör          |\n| Süketség            | 40 | 15 kör          |\n| Némaság             | 45 | 17 kör          |\n| Vakság              | 50 | 20 kör          |\n\nA varázslat sikere nagyban függ a beteg hitétől. A beteg Hit-próbát köteles dobni (+30-as módosítóval, ha a pap előzőleg az Áldás varázslatot használta rajta), ha ez sikertelen, a varázslat egyáltalán nem jön létre. Amennyiben viszont sikeres, a következő szorzók érvényesülnek:\n\n| Siker mértéke       | MP | Varázslás ideje |\n|---------------------|----|-----------------|\n| 0 - 19              | -  | -               |\n| 20 - 39             |2/3 | 1/2             |\n| 40 - 59             |1/2 | 1/3             |\n| 60 - 79             |1/3 | 1/4             |\n| 80+                 |1/5 | 1 kör           |\n\n*(A tört eredmények lefele kerekítendők, de a varázslat ezekkel együtt is mindig legalább 1 körig tart, és legalább 1 Mana pontot felemészt.)*\n\nHa a mágia sikeresen kifejtette hatását, a sebek heg nélkül beforrnak, és a betegségek is maradandó nyom nélkül - a varázslat végrehajtása után azonnal - gyógyulnak."
+    },
+    {
+        "fajta": "normal",
+        "varazslasIdeje": "azonnali",
+        "id": "pap_hit_hatalma",
+        "name": "A hit hatalma",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "mp": 10,
+        "idotartam": "2 kör/szint",
+        "fok": 2,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat lehetővé teszi, hogy alkalmazója hitének erejét harci elvakultsággá formálja. A pap csak istene szolgálatában alkalmazhatja e mágiát, amennyiben máskor próbálkozna, a varázslat nem jön létre. A mágia ideje alatt a pap testi ereje, harci kedve és fegyverforgatási képességei megnőnek; az elvakultság, a szinte fanatikus hit tüze fűti. Izom képessége szintenként 1-gyel emelkedik, de legnagyobb értéke nem haladhatja meg a 24-et. A KÉ és TÉ minden esetben 15-tel nő.\n\nA varázslat ideje alatt a pap nem gondolhat menekülésre, nem varázsolhat, csak kétkezi harcot folytathat. A varázslat meglehetősen népszerű Arel papjai közt, akik csatában sokszor fordulnak ily módon segítségért istennőjükhöz.\n\nA varázslat használata több látható jellel jár. A hatása alá került pap bámulatos gyorsasággal vív, keresi a veszélyt, és a legerősebb, leghatalmasabb ellenfelet. Szemében különös, vad tűz lángol, ajkát harci kiáltások, az ellenfelet ingerlő, kihívó szavak hagyják el.\n\nA varázslat különlegessége, hogy kis eséllyel ugyan, de kapcsolatot tesz lehetővé isten és papja közt. Tapasztalati szintenként 1% az esélye annak, hogy az isten felfigyel követőjének elvakult kirohanására, és saját maga is szemlélője lesz az összecsapásnak. *(Ez az esély Arel papjai esetében kétszer ekkora, szintenként 2%.)* Amennyiben az istenség lepillantott hívére, néhány apróság történhet, amit többen hajlamosak kizárólag a véletlen, a jó szerencse számlájára írni. Az alkalmazó pap útjából az alsóbb rendű, gyenge ellenfelek félrevonulnak, nem állítják meg, nem próbálják feltartóztatni. A pap így elérkezhet kiszemelt célpontjához, aki az esetek nagy részében az ellenséges erők egyik vezetője, irányítója.\n\nA papot a véletlen is segíti harcában. A KM a harc minden körében dob k6-ot, és amennyiben az eredmény 5 vagy 6, a szerencse valamilyen formában a pap oldalára áll. A hatások lehetséges számának csak a KM fantáziája szabhat határt. Megtörténhet, hogy az ellenfél a kritikus pillanatban egy vizes fűcsomóra lép, és elesik. Ekkor a küzdelmet - míg fel nem áll ismét - a **Harc fekve** negatív módosítóival kell folytatnia. Előfordulhat, hogy az ellenség gyönyörű vágása, mely minden bizonnyal végzett volna hősünkkel, mégis a pap füle mellett suhan el, mert az utolsó pillanatban az isten követője egy szemvillanásra elvesztette egyensúlyát, és oldalra billent. Számtalan lehetőség kínálkozik a párharc eredményének befolyásolására, de néhány apró szabályt mindenképp érdemes szem előtt tartani. Az isten véletlenhez hasonlatos beavatkozása semmiképp sem döntheti el közvetlenül a küzdelmet - azaz az ellenfél nem halhat meg, nem ájulhat el egyiktől sem. A másik kikötés, hogy a pap életét egy összecsapásban legfeljebb egy alkalommal mentheti meg a sors. Ne feledjük tehát, hogy a második halálos csapás könnyen az utolsóvá válhat. \n\nA varázslatnak csak az időtartama hosszabbítható meg további Mana-pontokból."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_izzo_ver",
+        "name": "Izzó vér",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ],
+        "mp": 28,
+        "fok": 4,
+        "ke": 0,
+        "idotartam": "2 kör/szint",
+        "range": "2",
+        "save": "nincs",
+        "leiras": "Az **Izzó vér** a vérmágia varázslatainak egyik leggonoszabbika: az áldozat saját vére válik önnön elpusztítójává, ha a körülmények megfelelnek erre.\n\nA varázslat hatása meglehetősen sajátos: a célpont vére, ha levegőre kerül - pl. vágott seb miatt -, lángra lobban. A hatás több szemtanú leírása szerint döbbenetes. A több sebből vérző áldozat, még ha sérülései nem is lennének végzetesek, a lángok örök oltásába hal bele, ha be nem kötözik.\n\nA varázslat kegyetlen, kizárólag Halál jellemű papok használhatják - ők viszont különös élvezetet találnak benne. Vér és tűz együtt - igazán nekik való móka.\n\nA fellobbanó tűz nagysága persze arányos az elvesztett vérrel, így a lángok sebzése is ettől függ. A tűz minden körben  fele annyi SP-t sebez, mint amennyi az eredeti seb okozta veszteség volt - amennyiben a sebzés csak FP vesztéssel járt. Az ÉP-csökkenéssel járó, különösen erősen vérző, komoly sebek a lángok igazi táplálói. Minden egyes elvesztett ÉP további k6 FP sebzést eredményez a lángoló vérnek köszönhetően.\n\nAmennyiben a célpont kizárólag sebei bekötözésével foglalkozik (és van erre alkmlmas kötszere, ami még nem kapott lángra), 2 kör után megfelezheti a sebzést, de teljesen elállítani a varázslat időtartamának lejárta előtt kizárólag **Sebgyógyítás**ban képzett társ segítségével tudja.\n"
     }
 ]

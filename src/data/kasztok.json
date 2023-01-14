@@ -942,6 +942,7 @@
         },
         "kpAlap": 6,
         "kpPerSzint": 10,
+        "kasztKpPerSzint": 10,
         "szazalekPerSzint": 0,
         "magiaKategoriak": [
             "kis_arkanum",
