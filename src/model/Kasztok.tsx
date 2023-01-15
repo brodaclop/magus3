@@ -70,7 +70,6 @@ export const Kasztok = {
             const fokaszt = Kasztok.find(ret.fokaszt);
             ret = { ...fokaszt, ...alkaszt };
             ret.magiaKategoriak = [...(fokaszt.magiaKategoriak ?? []), ...(alkaszt.magiaKategoriak ?? [])];
-            console.log('magia', fokaszt.magiaKategoriak, alkaszt.magiaKategoriak, ret.magiaKategoriak);
             ret.kasztSpec = [...new Set([...(fokaszt.kasztSpec ?? []), ...(alkaszt.kasztSpec ?? [])])];
         }
         if (ret.kasztSpec?.includes('ketSzintenkentKe') && szint % 2 === 0) {

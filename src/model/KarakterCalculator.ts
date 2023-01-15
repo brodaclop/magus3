@@ -182,7 +182,6 @@ export const KarakterCalculator = {
         }
 
         const magiaKategoriak = karakter.szint.reduce((acc, curr) => {
-            console.log('kaszt', curr.kaszt);
             curr.kaszt.magiaKategoriak?.forEach(k => acc.add(k));
             return acc;
         }, new Set<typeof MagiaKategoriak[number]['id']>());

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { FegyverEditor } from './admin/FegyverEditor';
 import { KasztEditor } from './admin/KasztEditor';
 import { KepzettsegEditor } from './admin/KepzettsegEditor';
@@ -20,6 +20,8 @@ export const Main: React.FC<{}> = () => {
 
   const { karakterId, entityId } = useParams();
 
+  const ujKarakter = useRef<string>();
+
   const navigate = useNavigate();
 
   const [karakterek, setKarakterek] = useState<Record<string, Karakter>>(() => JSON.parse(window.localStorage.getItem('karakterek') ?? '{}'));
@@ -38,7 +40,11 @@ export const Main: React.FC<{}> = () => {
 
   useEffect(() => {
     window.localStorage.setItem('karakterek', JSON.stringify(karakterek));
-  }, [karakterek]);
+    if (ujKarakter.current) {
+      navigate(`/karakter/${ujKarakter.current}`);
+      ujKarakter.current = undefined;
+    }
+  }, [karakterek, ujKarakter, navigate]);
 
 
   return <div>
@@ -52,7 +58,10 @@ export const Main: React.FC<{}> = () => {
               {!karakter && <option key='' disabled value=''>Válassz karaktert</option>}
               {Object.entries(karakterek).map(([id, karakter]) => <option key={id} value={id}>{karakter.name} ({Object.values(Karakter.szintek(karakter)).map(sz => `${sz.name} ${sz.szint}`).join('/')})</option>)}
             </select>}
-            <KarakterTemplateWdiget onCreate={save} />
+            <KarakterTemplateWdiget onCreate={karakter => {
+              save(karakter);
+              ujKarakter.current = karakter.id;
+            }} />
           </span>
         </li>
         <li><span>Admin</span>
