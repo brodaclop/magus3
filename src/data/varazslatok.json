@@ -616,7 +616,8 @@
         "varazslasIdeje": "1 perc",
         "fok": 1,
         "range": "self",
-        "leiras": "A **Veszély észlelése** az érzékelő mágiaformák legalapvetőbbike. Segítségével a pap tudomást szerez a rá leselkedő veszélyek létezéséről - pontos helyéről, természetéről azonban nem. Az iránnyal és távolsággal nagyjából tisztában lesz, ám a veszély mibenléte teljesen ismeretlen marad. \n\nA varázslat egyetlenegy komoly hátránnyal rendelkezik, ennek köszönhető, hogy hatalma ellenére kevesen használják. Nevezetesen képtelen megkülönböztetni a veszély fokozatait. Az összes lehetséges veszély jelzi a papnak - még az egészen kis százalékban ártalmasakat is.\n\nHogy világosabb legyen a dolog, lássunk egy példát! Amennyiben a pap és társai olyan épülethez érnek kalandozásaik során, melynek tetőszerkezete már meglehetősen régi, de annak esélye, hogy leszakad, egészen elhanyagolható - esetleg orkánszerű szélben vagy kisebb földmozgáskor - a varázslat veszélyt jelez majd. Mivel a fokozatokban nem tesz különbséget, messziről a pap csupán azt érzi, hogy benn ártó elemek lapulnak. Ezek lehetnének akár ork vagy goblin csapatok is, a varázslat ugyanolyan erősen jelezné a veszélyt.\n\nEzért igazán csak akkor hasznos, ha más felderítő módszerekkel együtt alkalmazzák, mely kiegészítheti e hiányosságot."
+        "leiras": "A **Veszély észlelése** az érzékelő mágiaformák legalapvetőbbike. Segítségével a pap tudomást szerez a rá leselkedő veszélyek létezéséről - pontos helyéről, természetéről azonban nem. Az iránnyal és távolsággal nagyjából tisztában lesz, ám a veszély mibenléte teljesen ismeretlen marad. \n\nA varázslat egyetlenegy komoly hátránnyal rendelkezik, ennek köszönhető, hogy hatalma ellenére kevesen használják. Nevezetesen képtelen megkülönböztetni a veszély fokozatait. Az összes lehetséges veszély jelzi a papnak - még az egészen kis százalékban ártalmasakat is.\n\nHogy világosabb legyen a dolog, lássunk egy példát! Amennyiben a pap és társai olyan épülethez érnek kalandozásaik során, melynek tetőszerkezete már meglehetősen régi, de annak esélye, hogy leszakad, egészen elhanyagolható - esetleg orkánszerű szélben vagy kisebb földmozgáskor - a varázslat veszélyt jelez majd. Mivel a fokozatokban nem tesz különbséget, messziről a pap csupán azt érzi, hogy benn ártó elemek lapulnak. Ezek lehetnének akár ork vagy goblin csapatok is, a varázslat ugyanolyan erősen jelezné a veszélyt.\n\nEzért igazán csak akkor hasznos, ha más felderítő módszerekkel együtt alkalmazzák, mely kiegészítheti e hiányosságot.",
+        "save": "nincs"
     },
     {
         "fajta": "normal",
@@ -1007,7 +1008,7 @@
     {
         "fajta": "normal",
         "id": "pap_vergat_ii",
-        "name": "Vérgát ÍÍ",
+        "name": "Vérgát II",
         "kategoriak": [
             "kis_arkanum",
             "rituale"
@@ -1037,7 +1038,10 @@
         "idotartam": "azonnali",
         "range": "25",
         "save": "nincs",
-        "leiras": "A varázslat alkalmazásával villám sújt le a pap által kijelölt helyre. Ellentétben más mágiahasználók villámaival, ez nem az ujj hegyéből, hanem az áldozat feje feletti magasságból csap le, így fedezékbe vonulni, pajzsot a pap felé tartani teljesen felesleges.\n\nA kiszemelt célpontot látnia kell a papnak, s felé kell mutatnia a varázslat alkalmazásakor. A villám sebzése 2k6 FP, és minden esetben a fejet találja el: ha azon fémsisak van, a sebzés k6-onként 3 FP-vel nő, ha bőr, 2-vel csökken."
+        "leiras": "A varázslat alkalmazásával villám sújt le a pap által kijelölt helyre. Ellentétben más mágiahasználók villámaival, ez nem az ujj hegyéből, hanem az áldozat feje feletti magasságból csap le, így fedezékbe vonulni, pajzsot a pap felé tartani teljesen felesleges.\n\nA kiszemelt célpontot látnia kell a papnak, s felé kell mutatnia a varázslat alkalmazásakor. A villám sebzése 2k6 FP, és minden esetben a fejet találja el: ha azon fémsisak van, a sebzés k6-onként 3 FP-vel nő, ha bőr, 2-vel csökken.",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ]
     },
     {
         "id": "pap_halal_szava",
@@ -1261,7 +1265,10 @@
         "idotartam": "1 kör/szint",
         "range": "15",
         "save": "nincs",
-        "leiras": "A varázslat segítségével a pap bármely, a hatótávon belül aktív mágikus energiát érzékelhet. Ez sugározhat tárgyakból, jelekből, rúnákból is. A varázslat a mágia természetét nem mutatja meg, erősségét is csak hozzávetőlegesen (gyenge-közepes-erős)."
+        "leiras": "A varázslat segítségével a pap bármely, a hatótávon belül aktív mágikus energiát érzékelhet. Ez sugározhat tárgyakból, jelekből, rúnákból is. A varázslat a mágia természetét nem mutatja meg, mindössze annyit, hogy ártó vagy segítő (esetleg semleges, pl. egy fényvarázs), erősségét is csak hozzávetőlegesen (gyenge-közepes-erős).",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ]
     },
     {
         "fajta": "normal",
@@ -1315,7 +1322,10 @@
         "ke": 30,
         "range": "10",
         "save": "mental",
-        "leiras": "A pap varázslatának hatására az áldozat elveszti bizalmát mind saját magában, mind céljainak jogosságában. Kivész belőle a lelkesedés, az a hajtóerő, ami edding nem engedte visszavonulni, meghátrálni a küzdelem elől. Ennek hatására az áldozat TÉ-je, CÉ-je és KÉ-je 10-zel csökken, asztrális és mentális ME-je k10 ponttal zuhan a kétségektől."
+        "leiras": "A pap varázslatának hatására az áldozat elveszti bizalmát mind saját magában, mind céljainak jogosságában. Kivész belőle a lelkesedés, az a hajtóerő, ami edding nem engedte visszavonulni, meghátrálni a küzdelem elől. Ennek hatására az áldozat TÉ-je, CÉ-je és KÉ-je 10-zel csökken, asztrális és mentális ME-je k10 ponttal zuhan a kétségektől.",
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ]
     },
     {
         "fajta": "normal",
@@ -1479,6 +1489,9 @@
         "fok": 3,
         "range": "15",
         "save": "nincs",
-        "leiras": "Ez a kegyetlen varázslat szintén a vérmágia része. A pap rámutat áldozatára, s mutatóujjának hegyével lassan egy képzeletbeli vágást ejt rajta. A seb azonnal megjelenik az áldozat testén, ha  Reflex próbája sikertelen volt. A vágás mély és fájdalmas, nem csak FP, de ÉP veszteséggel is jár. A seb nem záródik össze, s folyamatosan vérzik. A varázslat időtartama alatt a sebzés körönként k10 FP, s minden 10 FP elvesztése egy ÉP vesztésével is jár. Ha a varázslat időtartama véget ért, de a sebet nem kötözték be, a vérzés körönként 1 FP intenzitású.\n\nHa az okozott sebet a varázslat időtartamának lejárta előtt kezelik, vagy mágiával teljesen meggyógyítják, a vérzés eláll. Ehhez a **Sebgyógyítás** képzettség 3. foka szükséges, a varázslat idejének lejártával már az 1. fok is elegendő.\n\nA varázslat időtartama nem növelhető, az erősség növelésével minden egyes plusz E -5-öt jelent a Reflex róbára."
+        "leiras": "Ez a kegyetlen varázslat szintén a vérmágia része. A pap rámutat áldozatára, s mutatóujjának hegyével lassan egy képzeletbeli vágást ejt rajta. A seb azonnal megjelenik az áldozat testén, ha  Reflex próbája sikertelen volt. A vágás mély és fájdalmas, nem csak FP, de ÉP veszteséggel is jár. A seb nem záródik össze, s folyamatosan vérzik. A varázslat időtartama alatt a sebzés körönként k10 FP, s minden 10 FP elvesztése egy ÉP vesztésével is jár. Ha a varázslat időtartama véget ért, de a sebet nem kötözték be, a vérzés körönként 1 FP intenzitású.\n\nHa az okozott sebet a varázslat időtartamának lejárta előtt kezelik, vagy mágiával teljesen meggyógyítják, a vérzés eláll. Ehhez a **Sebgyógyítás** képzettség 3. foka szükséges, a varázslat idejének lejártával már az 1. fok is elegendő.\n\nA varázslat időtartama nem növelhető, az erősség növelésével minden egyes plusz E -5-öt jelent a Reflex róbára.",
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ]
     }
 ]

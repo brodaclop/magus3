@@ -22,7 +22,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> =
                 <tbody>
                     <tr>
                         <th>Képzettség</th>
-                        <td>{v.kepzettsegek.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
+                        <td>{v.kepzettsegek?.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
                     </tr>
                     <tr>
                         <th>MP</th>
@@ -48,7 +48,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> =
                     </tr>
                     <tr>
                         <th>Mentődobás</th>
-                        <td>{arrayName(Mentodobasok, v.save)}</td>
+                        <td>{v.save && arrayName(Mentodobasok, v.save)}</td>
                     </tr>
                     <tr>
                         <td colSpan={2}>
