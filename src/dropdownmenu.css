@@ -37,6 +37,7 @@ nav ul li:not(.search-field) span {
 }
 
 nav ul li.search-field {
+    padding-top: 10px;
     float: right;
 }
 
