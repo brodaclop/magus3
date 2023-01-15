@@ -24,10 +24,10 @@ export const ENTITY_LISTS: Record<EntityType, NamedEntityArray<NamedEntity>> = {
 
 const findEntityType = (id: string): EntityType | undefined => Object.entries(ENTITY_LISTS).find(([et, list]) => list.find(id, true))?.[0] as EntityType;
 
-export const EntityWidget: React.FC<{ id: string }> = ({ id }) => {
+export const findEntity = (id: string): NamedEntity | undefined => {
     const entityType = findEntityType(id);
     if (!entityType) {
-        return <div>Not found.</div>;
+        return undefined;
     }
 
     let entity = ENTITY_LISTS[entityType].find(id);
@@ -36,11 +36,21 @@ export const EntityWidget: React.FC<{ id: string }> = ({ id }) => {
         entity = Kasztok.kasztInfo(entity.id, 0);
     }
 
+    return entity;
+}
+
+export const EntityWidget: React.FC<{ id: string }> = ({ id }) => {
+
+    const entityType = findEntityType(id);
+
+    const entity = findEntity(id);
+
     switch (entityType) {
         case 'Faj': return <FajLeiras faj={entity as Faj} inline />;
         case 'Kaszt': return <KasztLeiras kaszt={entity as KasztInfo} inline />;
         case 'Varázslat': return <VarazslatLeiras v={entity as CalcVarazslat} inline />
         case 'Pszi': return <PsziDiszciplinaLeiras d={entity as CalcDiszciplina} inline />
         case 'Képzettség': return <KepzettsegLeiras kepzettseg={entity as Kepzettseg} inline />
+        default: return <div>Not found</div>;
     }
 }
