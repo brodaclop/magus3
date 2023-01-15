@@ -1493,5 +1493,80 @@
         "kepzettsegek": [
             "magia:pap_szfera_halal"
         ]
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_foldrenges",
+        "name": "Földrengés",
+        "kategoriak": [
+            "nagy_arkanum",
+            "rituale"
+        ],
+        "mp": 100,
+        "idotartam": "5 perc",
+        "varazslasIdeje": "20 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 5,
+        "range": "5 km",
+        "save": "nincs",
+        "leiras": "Ez a hatalmas erejű varázslat vad földrengést idézhet, s ezzel falvakat, kisebb városokat, városrészeket dönthet romba. A pap kijelölheti a rengések epicentrumát, egy tőle maximum 5 km-re levő pontot. A rengések 3-4 km-re terjednek középpontjuktól, s legerősebben az epicentrumban lesznek érezhetők.\n\nA varázslat az epicentrumban 8k10 sebzést okoz az épületeknek és a bennük tartózkodóknak, 300 méterrel kijebb már csak 8k10/2, 600 méterre 8k10/3 és így tovább.\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_holtak_megelevenitese",
+        "name": "Holtak megelevenítése",
+        "kategoriak": [
+            "nagy_arkanum"
+        ],
+        "mp": 25,
+        "fok": 5,
+        "kepzettsegek": [
+            "magia:pap_szfera_halal"
+        ],
+        "varazslasIdeje": "1 kör",
+        "idotartam": "5+k10 kör",
+        "range": "25",
+        "save": "nincs",
+        "leiras": "Ezt a rituálét csak gonosz papok alkalmazzák, segítségével pillanatnyi uralmat nyerhetnek az elhunytak teteme felett. Ez elég arra, hogy egy 25 méter sugarú körben minden testet mozgásra kényszerítsenek, 5+k10 körre. A testek lassú mozgással követik mozgatójuk parancsait, s zombiként harcolnak.\n\nHa a varázslat iejárt, a holttestek a földre rogynak, minden mágia elhagyja tagjaikat, s visszaváltoznak egyszerű holtakká. A testek egyébiránt mindenben követik a pap által kiadott parancsokat."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_idojaras_ellenorzes",
+        "name": "Időjárásellenőrzés",
+        "kategoriak": [
+            "nagy_arkanum",
+            "rituale"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "mp": 35,
+        "fok": 5,
+        "varazslasIdeje": "2 perc",
+        "idotartam": "1 óra",
+        "range": "2 km",
+        "save": "nincs",
+        "leiras": "A varázslat hatalmat ad a papnak az időjárás felett. A befolyás mértéke a varázslat E-jétől függ.\n\n| E | Hatás |\n| 1 | Az adott éghajlatnak és évszaknak megfelelő, pl. nyári melegben könnyű zápor, őszi reggel napos vagy szeles. |\n| 2 | Az adott éghajlat és évszak legextrémebb eseményeinek felel meg: májusi jégeső, téli hóvihar,  |\n| 3 | Az adott éghajlatnak megfelel, de az évszaknak nem, havazás júniusban. |\n| 4 | Bármi lehet, ami Yneven egyáltalán előfordul, téli tornádó a hegyekben, jégvihar Ibarában.  |\n\nA varázslat megszüntével az időjárás visszaáll arra, ami eredetileg lett volna, minél drámaibb volt az eltérés a \"normálistól\", annál gyorsabban. Nagyon finom változtatások akár egész napon át fennmaradhatnak maguktól, az említett sivatagi jégviharnak viszont már öt perc múlva sem lesz nyoma sem, a már lehullott jeget leszámítva."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_isteni_aldas",
+        "name": "Isteni áldás",
+        "kategoriak": [
+            "nagy_arkanum",
+            "rituale"
+        ],
+        "fok": 5,
+        "mp": 60,
+        "ke": 0,
+        "idotartam": "1 perc/szint",
+        "kepzettsegek": [
+            "magia:pap_szfera_lelek"
+        ],
+        "range": "15",
+        "save": "asztral",
+        "leiras": "Sokban hasonlít ez a varázslat az **Áldás**hoz, de annál mérhetetlenül nagyobb erejű. A mágia ugyanis felhívja a pap istenének figyelmét az érte harcoló halandókra. Ha azok célja valóban szolgálják az isten érdekeit, s helyzete valóban válságos az adott pillanatban, a hatás létrejön.\n\nA pap és segítőtársai szükség esetén nyomban 5k6 FP-t és 1k6 ÉP-t gyógyulnak (a maximális értékeket azonban természetesen így sem haladhatják meg). Harci értékeik mindegyike annyival nő, amennyi a **Hit** tulajdonságuk értéke. Asztrális és Mentális védelmük 10 ponttal nő, harci kedvük felülmúlhatatlan lesz.\n\nA pap ellenfelei Asztrál ME-re jogosultak, s ha ez sikertelen, ők is érzik, hogy a pap istene ellenük harcol. Harci értékeik 30 ponttal csökkennek, elvesztik minden küzdőkedvüket, s birkaként hullanak a pap szövetségeseinek csapásaitól.\n\nA varázslat időtartama Mana-pontok többszörözésével nem növelhető, de a pozitív hatások igen."
     }
 ]
