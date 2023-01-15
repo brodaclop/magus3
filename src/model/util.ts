@@ -3,20 +3,20 @@ export interface NamedEntity {
     name: string,
 };
 
-export interface NamedEntityArray<T> {
+export interface NamedEntityArray<T extends NamedEntity> {
     lista: Array<T>,
-    find: (id: NamedEntity['id']) => T,
+    find: (id: NamedEntity['id'], allowMissing?: boolean) => T,
     name: (id: NamedEntity['id']) => string,
     keys: Array<NamedEntity['id']>
 }
 
 
-export const arrayFind = <T extends NamedEntity>(array: readonly T[], id: string): T => {
+export const arrayFind = <T extends NamedEntity>(array: readonly T[], id: string, allowMissing = false): T => {
     const ret = array.find(t => t.id === id);
-    if (ret === undefined) {
+    if (ret === undefined && !allowMissing) {
         throw new Error(`failed to find ${id}`);
     }
-    return ret;
+    return ret as T;
 };
 
 export const arrayName = <T extends NamedEntity>(array: readonly T[], id: string): string => arrayFind(array, id).name;
@@ -25,7 +25,7 @@ export const arraySort = <T>(array: Array<T>, fn: (ob: T) => string): Array<T> =
 
 export const namedEntityArray = <T extends NamedEntity>(array: Array<T>): NamedEntityArray<T> => ({
     lista: array,
-    find: (id: string) => arrayFind(array, id),
+    find: (id: string, allowMissing?: boolean) => arrayFind(array, id, allowMissing),
     name: (id: string) => arrayName(array, id),
     keys: array.map(i => i.id),
 });

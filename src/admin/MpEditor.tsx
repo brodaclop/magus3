@@ -4,7 +4,7 @@ import { Kepzettseg, NormalKepzettseg } from '../model/Kepzettseg';
 import { arrayName, arraySort } from '../model/util';
 import { ModalWindow } from '../widgets/ModalWindow';
 import { Magia } from '../model/Magia';
-import { VarazslatLeiras } from '../widgets/tooltips/VarazslatLeiras';
+import { VarazslatLeiras } from '../widgets/entities/VarazslatLeiras';
 import { Calculation } from '../model/Calculation';
 import { CalculationWidget } from '../widgets/CalculationWidget';
 import { NamedEntitySelector } from '../widgets/NamedEntitySelector';

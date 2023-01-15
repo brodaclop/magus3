@@ -6,7 +6,7 @@ import { Kepzettseg } from '../model/Kepzettseg';
 import { Magia } from '../model/Magia';
 import { arrayName } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
-import { VarazslatLeiras } from './tooltips/VarazslatLeiras';
+import { VarazslatLeiras } from './entities/VarazslatLeiras';
 
 
 export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {

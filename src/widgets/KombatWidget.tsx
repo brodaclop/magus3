@@ -11,7 +11,7 @@ import { arrayName, arraySort } from '../model/util';
 import { CalculationWidget } from './CalculationWidget';
 import { FegyverSelection } from './FegyverSelection';
 import { InventorySelector } from './InventorySelector';
-import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
+import { KepzettsegLeiras } from './entities/KepzettsegLeiras';
 
 
 export const formatSebzesTipus = (t: typeof SebzesTipus[number]['id'] | Array<typeof SebzesTipus[number]['id']>): string =>

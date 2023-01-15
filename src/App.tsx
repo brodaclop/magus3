@@ -12,12 +12,15 @@ import 'react-responsive-modal/styles.css';
 import { KpEditor } from './admin/KpEditor';
 import { VarázslatEditor } from './admin/VarazslatEditor';
 import { MpEditor } from './admin/MpEditor';
+import { EntitySelector } from './widgets/EntitySelector';
+import { EntityWidget } from './widgets/EntityWidget';
 
 const App: React.FC<{}> = () => {
 
 
   const [karakterek, setKarakterek] = useState<Record<string, Karakter>>(() => JSON.parse(window.localStorage.getItem('karakterek') ?? '{}'));
   const [karakter, setKarakter] = useState<Karakter>();
+  const [entityId, setEntityId] = useState<string>();
 
   useEffect(() => {
     window.localStorage.setItem('karakterek', JSON.stringify(karakterek));
@@ -33,7 +36,10 @@ const App: React.FC<{}> = () => {
       <ul>
         <li>
           <span className='noselect'>
-            {Object.keys(karakterek).length > 0 && <select value={karakter?.id ?? ''} onChange={e => setKarakter(karakterek[e.target.value])}>
+            {Object.keys(karakterek).length > 0 && <select value={karakter?.id ?? ''} onChange={e => {
+              setKarakter(karakterek[e.target.value]);
+              setEntityId(undefined);
+            }}>
               {!karakter && <option key='' disabled value=''>Válassz karaktert</option>}
               {Object.entries(karakterek).map(([id, karakter]) => <option key={id} value={id}>{karakter.name} ({Object.values(Karakter.szintek(karakter)).map(sz => `${sz.name} ${sz.szint}`).join('/')})</option>)}
             </select>}
@@ -51,6 +57,17 @@ const App: React.FC<{}> = () => {
             <li><button onClick={() => setKarakterek({})}>Reset</button></li>
           </ul>
         </li>
+        <li className='search-field'>
+          <span className='noselect'>
+            <div>
+              <EntitySelector id={entityId} onChange={id => {
+                setEntityId(id);
+                setKarakter(undefined);
+              }} />
+            </div>
+          </span>
+
+        </li>
       </ul>
     </nav>
     {karakter &&
@@ -60,6 +77,7 @@ const App: React.FC<{}> = () => {
         setKarakter(undefined);
       }} />
     }
+    {entityId && <EntityWidget id={entityId} />}
   </div>;
 };
 

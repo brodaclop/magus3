@@ -2,58 +2,54 @@ import Tooltip from 'rc-tooltip';
 import React from 'react';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { CalcVarazslat } from '../../model/KarakterCalculator';
-import { Kepzettseg } from '../../model/Kepzettseg';
-import { Magia, MagiaKategoriak, Mentodobasok } from '../../model/Magia';
+import { CalcDiszciplina } from '../../model/KarakterCalculator';
+import { Mentodobasok } from '../../model/Magia';
+import { PsziDiszciplina, PsziIskolak } from '../../model/Pszi';
 import { arrayName } from '../../model/util';
-import { CalculationWidget } from './../CalculationWidget';
+import { CalculationWidget } from '../CalculationWidget';
 
-export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> = ({ v, inline }) => {
+export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszciplina, inline?: boolean }> = ({ d, inline }) => {
     const psziTable =
         <div style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
             <table className='bordered' style={{ width: '23rem' }}>
                 <thead>
                     <tr style={{ textAlign: 'center' }}>
                         <th colSpan={2}>
-                            <span>{v.name}</span> {v.kategoriak && v.kategoriak.length > 0 && <>({v.kategoriak.map(k => arrayName(MagiaKategoriak, k)).join(', ')})</>}
+                            <span>{d.name}</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Képzettség</th>
-                        <td>{v.kepzettsegek?.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
+                        <th>Iskola</th>
+                        <td>{arrayName(PsziIskolak, d.iskola)} {d.fok}.fok</td>
                     </tr>
                     <tr>
-                        <th>MP</th>
-                        <td>{v.mp}</td>
+                        <th>Ψ-pont</th>
+                        <td>{d.psziPont}</td>
                     </tr>
-                    {'ke' in v ?
+                    {'ke' in d ?
                         <tr>
                             <th>KÉ</th>
-                            <td><CalculationWidget calculation={v.ke} /></td>
+                            <td>{typeof d.ke === 'number' ? d.ke : <CalculationWidget calculation={d.ke} />}</td>
                         </tr> :
                         <tr>
-                            <th>Varázslás ideje</th>
-                            <td>{v.varazslasIdeje}</td>
+                            <th>Meditáció ideje</th>
+                            <td>{d.varazslasIdeje}</td>
                         </tr>
                     }
                     <tr>
                         <th>Időtartam</th>
-                        <td>{v.idotartam}</td>
-                    </tr>
-                    <tr>
-                        <th>Hatótáv</th>
-                        <td>{Magia.formatRange(v.range)}</td>
+                        <td>{d.idotartam}</td>
                     </tr>
                     <tr>
                         <th>Mentődobás</th>
-                        <td>{v.save && arrayName(Mentodobasok, v.save)}</td>
+                        <td>{arrayName(Mentodobasok, d.save)}</td>
                     </tr>
                     <tr>
                         <td colSpan={2}>
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                {v.leiras}
+                                {d.leiras}
                             </ReactMarkdown>
                         </td>
                     </tr>
@@ -62,6 +58,6 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat, inline?: boolean }> =
         </div>;
 
     return inline ? psziTable : <Tooltip placement='right' overlay={psziTable}>
-        <span>{v.name}</span>
+        <span>{d.name}</span>
     </Tooltip>;
 }

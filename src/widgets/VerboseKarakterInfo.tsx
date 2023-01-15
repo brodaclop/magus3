@@ -4,9 +4,9 @@ import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
 import { arraySort } from '../model/util';
 import { MarkdownText } from './MarkdownText';
-import { KepzettsegLeiras } from './tooltips/KepzettsegLeiras';
-import { PsziDiszciplinaLeiras } from './tooltips/PsziDiszciplinaLeiras';
-import { VarazslatLeiras } from './tooltips/VarazslatLeiras';
+import { KepzettsegLeiras } from './entities/KepzettsegLeiras';
+import { PsziDiszciplinaLeiras } from './entities/PsziDiszciplinaLeiras';
+import { VarazslatLeiras } from './entities/VarazslatLeiras';
 
 export const VerboseKarakterInfo: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, onChange, calc }) => {
 

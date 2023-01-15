@@ -10,8 +10,6 @@ nav ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    float: left;
-    display: inline-block;
 }
 
 nav ul li {
@@ -31,12 +29,23 @@ li>a:only-child:after {
     content: '';
 }
 
-nav ul li span {
+nav ul li:not(.search-field) span {
     padding: 20px;
     display: inline-block;
     color: black;
     text-decoration: none;
 }
+
+nav ul li.search-field {
+    float: right;
+}
+
+nav ul li.search-field span {
+    color: black;
+    text-decoration: none;
+    padding-top: 10px;
+}
+
 
 nav ul li span:not(.noselect):hover {
     opacity: 0.5;
