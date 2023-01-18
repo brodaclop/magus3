@@ -1,5 +1,6 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CalcDiszciplina } from '../../model/KarakterCalculator';
 import { Mentodobasok } from '../../model/Magia';
 import { PsziDiszciplina, PsziIskolak } from '../../model/Pszi';
@@ -55,6 +56,6 @@ export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszcipl
         </div>;
 
     return inline ? psziTable : <Tooltip placement='right' overlay={psziTable}>
-        <span>{d.name}</span>
+        <Link to={`/entity/${d.id}`}>{d.name}</Link>
     </Tooltip>;
 }

@@ -1,5 +1,6 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CalcVarazslat } from '../../model/KarakterCalculator';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { Magia, MagiaKategoriak, Mentodobasok, Varazslat } from '../../model/Magia';
@@ -59,6 +60,6 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat | Varazslat, inline?: 
         </div>;
 
     return inline ? psziTable : <Tooltip placement='right' overlay={psziTable}>
-        <span>{v.name}</span>
+        <Link to={`/entity/${v.id}`}>{v.name}</Link>
     </Tooltip>;
 }

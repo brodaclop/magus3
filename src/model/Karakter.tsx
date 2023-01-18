@@ -163,7 +163,15 @@ export const Karakter = {
         };
         levelUp(ret, kasztInfo.id);
         // fajokból adódó választható képzettségeket később kell hozzáadni, mert különben a szintlépés törli őket
-        ret.szint[0].pendingKepzettsegek.push(...(template.faj.kepzettsegek?.filter(k => k.name !== undefined).map(k => ({ ...k, id: k.kepzettsegId })) ?? []));
+        ret.szint[0].pendingKepzettsegek.push(
+            {
+                id: 'nyelv:',
+                fok: 4,
+                kepzettsegId: 'nyelv:',
+                name: 'Anyanyelv'
+            },
+            ...(template.faj.kepzettsegek?.filter(k => k.name !== undefined).map(k => ({ ...k, id: k.kepzettsegId })) ?? [])
+        );
         updateKepzettsegekForLevel(ret, kasztInfo, 0, ret.szint[0]);
         return ret;
     },

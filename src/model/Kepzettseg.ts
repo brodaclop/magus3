@@ -228,7 +228,7 @@ const SZAZALEKOS_KEPZETTSEGEK: Array<SzazalekosKepzettseg> = [
     },
 ];
 
-const NYELVEK = ['pyarroni', 'dzsad', 'erv', 'kráni', 'shadoni', 'gorviki', 'toroni', 'aszisz'];
+const NYELVEK = ['pyarroni', 'dzsad', 'erv', 'kráni', 'shadoni', 'gorviki', 'toroni', 'aszisz', 'elf', 'ork', 'goblin', 'törp', 'gnóm', 'niarei', 'enoszukei', 'kahrei', 'tiadlani', 'korg'];
 
 const OSI_NYELVEK = ['amund', 'aquir', 'kyr', 'godoni', 'dzsenn'];
 
@@ -240,9 +240,15 @@ const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
         tipus: 'nyelv',
         kepesseg: 'emlekezet',
         linked: [],
-        kp: [1, 2, 3, 4, 21],
-        leiras: '',
-        szintleiras: ['', '', '', '', ''],
+        kp: [1, 2, 3, 6, 21],
+        leiras: 'Ez a képzettség elsősorban az adott nyelven való beszéd és a beszéd értésének mértékét jelzi. Ha viszont a karakter képzett az [Írás/Olvasás](entity:iras_olvasas)ban, akkor automatikusan tud írni is ezen a nyelven.',
+        szintleiras: [
+            'A karakter pár tucat fontosabb szót ismer, amivel úgy-ahogy meg tudja értetni magát.',
+            'A karakter már lassan és tagolva, de viszonylag magabiztosan beszéli a nyelvet.',
+            'A karakter folyékonyan, mégha nem is túl választékosan beszéli a nyelvet.',
+            'A karakter anyanyelvi szinten beszéli a nyelvet, idegen nyelv esetén halványan felismerhető akcentussal.',
+            'A karakter ismeri az adott nyelv összes nyelvjárását, és képes azokat meggyőzően utánozni.'
+        ],
         __generated: true
     }));
 }

@@ -1,5 +1,6 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { KasztInfo, Kasztok, KEPESSEG_DOBAS } from '../../model/Kasztok';
 import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
@@ -164,6 +165,6 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
         </div>;
 
     return inline ? kasztTabla : <Tooltip placement='right' overlay={kasztTabla}>
-        <span>{kaszt.name}</span>
+        <Link to={`/entity/${kaszt.id}`}>{kaszt.name}</Link>
     </Tooltip>;
 }

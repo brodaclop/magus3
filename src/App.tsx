@@ -1,6 +1,8 @@
 import { useRoutes, BrowserRouter as Router } from "react-router-dom";
 import { Main } from './Main';
 
+export const APP_BASE = '/magus3';
+
 const App: React.FC<{}> = () => {
 
   const page = useRoutes([
@@ -21,7 +23,7 @@ const App: React.FC<{}> = () => {
   return page;
 };
 
-const AppWrapper = () => <Router basename='/magus3'><App /></Router>;
+const AppWrapper = () => <Router basename={APP_BASE}><App /></Router>;
 
 
 export default AppWrapper;

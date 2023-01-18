@@ -1,5 +1,6 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Faj } from '../../model/Fajok';
 import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
@@ -95,6 +96,6 @@ export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inlin
         </div>;
 
     return inline ? fajTabla : <Tooltip placement='right' overlay={fajTabla}>
-        <span>{faj.name}</span>
+        <Link to={`/entity/${faj.id}`}>{faj.name}</Link>
     </Tooltip>;
 }

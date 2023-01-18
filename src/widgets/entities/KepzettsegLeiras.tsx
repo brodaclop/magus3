@@ -5,6 +5,7 @@ import { FcCheckmark } from "react-icons/fc";
 import { Kepessegek } from '../../model/Kepessegek';
 import { MarkdownText } from '../MarkdownText';
 import { entityDivStyle } from '../../model/util';
+import { Link } from 'react-router-dom';
 
 export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number, inline?: boolean, truncateUnknown?: boolean }> = ({ kepzettseg, fok, inline, truncateUnknown }) => {
     const kepzettsegTable =
@@ -38,6 +39,6 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number, 
         </div>;
 
     return inline ? kepzettsegTable : <Tooltip placement='right' overlay={kepzettsegTable}>
-        <span>{kepzettseg.name} {fok !== undefined && <>{fok}{kepzettseg.fajta === 'normal' ? <>. fok</> : <>%</>}</>}</span>
+        <Link to={`/entity/${kepzettseg.id}`}>{kepzettseg.name} {fok !== undefined && <>{fok}{kepzettseg.fajta === 'normal' ? <>. fok</> : <>%</>}</>}</Link>
     </Tooltip>;
 }
