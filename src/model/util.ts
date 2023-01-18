@@ -48,3 +48,10 @@ export const constructArray = <T>(size: number, fn: (idx: number) => T): Array<T
 export const sumArray = <T>(array?: Array<number | T>, fn?: (ob: T, idx: number) => number): number => array ? ((fn ? (array as Array<T>).map(fn) : array) as Array<number>).reduce((acc, curr) => acc + curr, 0) : 0;
 
 export const printNumber = (n: number): string => n === Math.floor(n) ? String(n) : n.toFixed(2);
+
+export const entityDivStyle = (inline = false): React.CSSProperties => ({
+    overflowY: inline ? 'auto' : 'scroll',
+    pointerEvents: 'auto',
+    maxHeight: inline ? 'none' : '30rem',
+    width: inline ? undefined : '25rem'
+});

@@ -1,17 +1,16 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { CalcDiszciplina } from '../../model/KarakterCalculator';
 import { Mentodobasok } from '../../model/Magia';
 import { PsziDiszciplina, PsziIskolak } from '../../model/Pszi';
-import { arrayName } from '../../model/util';
+import { arrayName, entityDivStyle } from '../../model/util';
 import { CalculationWidget } from '../CalculationWidget';
+import { MarkdownText } from '../MarkdownText';
 
 export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszciplina, inline?: boolean }> = ({ d, inline }) => {
     const psziTable =
-        <div style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
-            <table className='bordered' style={{ width: '23rem' }}>
+        <div style={entityDivStyle(inline)}>
+            <table className='bordered'>
                 <thead>
                     <tr style={{ textAlign: 'center' }}>
                         <th colSpan={2}>
@@ -48,9 +47,7 @@ export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszcipl
                     </tr>
                     <tr>
                         <td colSpan={2}>
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                {d.leiras}
-                            </ReactMarkdown>
+                            <MarkdownText>{d.leiras}</MarkdownText>
                         </td>
                     </tr>
                 </tbody>

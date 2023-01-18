@@ -1,19 +1,18 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Faj } from '../../model/Fajok';
 import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
+import { entityDivStyle } from '../../model/util';
+import { MarkdownText } from '../MarkdownText';
 
 export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inline }) => {
     const fajTabla =
-        <div className='bordered' style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
+        <div style={entityDivStyle(inline)}>
             <h2>{faj.name}</h2>
 
-            {faj.leiras && <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {faj.leiras}
-            </ReactMarkdown>}
+
+            {faj.leiras && <MarkdownText>{faj.leiras}</MarkdownText>}
 
             {faj.kepessegek && Object.keys(faj.kepessegek).length > 0 && <>
                 <h3>Tulajdonságok</h3>
@@ -85,12 +84,12 @@ export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inlin
             {(faj.kulonlegesKepessegek || faj.infralatas) && <>
                 <h3>Különleges képességek</h3>
 
-                {<ReactMarkdown remarkPlugins={[remarkGfm]}>
+                <MarkdownText>
                     {
                         (faj.infralatas ? `- Rendelkeznek infralátással, mely vaksötétben is ${faj.infralatas} méternyi látótávolságot jelent\n` : '') +
                         (faj.kulonlegesKepessegek ? faj.kulonlegesKepessegek : '')
                     }
-                </ReactMarkdown>}
+                </MarkdownText>
             </>}
 
         </div>;

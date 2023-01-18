@@ -35,27 +35,52 @@ const VarazslatKepzettsegek = [
     {
         id: 'magia:pap_szfera_altalanos',
         name: 'Általános Szféra',
-        kepesseg: 'hit'
+        kepesseg: 'hit',
+        leiras: ''
     },
     {
         id: 'magia:pap_szfera_termeszet',
         name: 'Természet Szféra',
-        kepesseg: 'hit'
+        kepesseg: 'hit',
+        leiras: ''
     },
     {
         id: 'magia:pap_szfera_elet',
         name: 'Élet Szféra',
-        kepesseg: 'hit'
+        kepesseg: 'hit',
+        leiras: ''
     },
     {
         id: 'magia:pap_szfera_lelek',
         name: 'Lélek Szféra',
-        kepesseg: 'hit'
+        kepesseg: 'hit',
+        leiras: ''
     },
     {
         id: 'magia:pap_szfera_halal',
         name: 'Halál Szféra',
-        kepesseg: 'hit'
+        kepesseg: 'hit',
+        leiras: ''
+    },
+    {
+        id: 'magia:bard_dalmagia',
+        name: 'Dalmágia',
+        kepesseg: 'empatia',
+        leiras: `Ynev bárdjai jártasak az Asztrál- és Mentálvarázslatok használatában, ám azokat csak egy különleges módszer, a Dalmágia segítségével képesek alkalmazni. Ennek gyakorlásához énekelniük vagy muzsikálniuk kell, hogy a dallamok formába öntsék és célba juttassák a varázslat bennük felgyűlt energiáit.
+
+FIGYELEM! A bárd dalmágiája kizárólag élőlényekre hat!
+
+A varázslat eredményességének feltétele az is, hogy a kiszemelt alany hallja a dalt. Amennyiben a célpont süket, vagy - saját jól felfogott érdekében - fülének befogásával védekezik a mágia ellen, a dal hatástalan marad.
+
+A bárdok egyszerre több lényre is alkalmazhatják a Dalmágia varázslatait, a dal hatókörén belül ők határozhatják meg, ki legyen az, akire a dal varázslatként hat. A dal többi hallgatója nem észleli a dallamba ágyazott mágiát: értetlenül állnak majd társaik megváltozott viselkedése előtt. A bárdnak, mint fentebb említettük, énekelnie sem feltétlenül szükséges, elég, ha hangszerén játszik, a Dalmágia ez esetben is megidézhető.
+
+Ritkán kerül sor arra, hogy egy bárd csatában használja a dalmágiát - ez alól talán csak a Bátorság dala jelent kivételt. A harcmező zaja ugyanis elnyomja a bárd énekét, s a Dalmágia varázslatainak hatótávolsága a felére csökken. A dalok mágiájának kedvez viszont a csend, melyben a dal messze elhallatszik, s a hatótáv ennek következményeként a kétszeresére nő.
+
+Fontos, hogy a Dalmágia varázslatai tökéletesen összekapcsolódnak a bárd énekmondó, szórakoztató képességeivel. Hisz varázslásuk mindaddig észrevétlen maradhat, míg a hatás nyilvánvalóvá nem válik - ám akkorra sokszor már minden hiába.
+
+A Dalmágia áldozatait a bárd választhatja meg tehát, a varázslat hatókörén belül tartózkodók közül csak azokra vonatkozik a hatás, akiket a bárd célpontnak szemelt ki.
+
+A varázslatok megidézéséhez szükséges idő sokszor megyezik az Időtartammal - ennek oka, hogy a mágia csak addig hat, míg a bárd énekel. Előfordulhat az is, hogy a bárd énekének hatása továbbra is fennmarad, ilyen esetben áldozatonként változik, hogy mennyi idő szükséges a dal emlékének elűzéséhez.`
     },
 ] as const;
 

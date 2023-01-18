@@ -5,12 +5,12 @@ import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { printKocka } from '../../model/Kocka';
 import { MagiaKategoriak } from '../../model/Magia';
-import { arrayName } from '../../model/util';
+import { arrayName, entityDivStyle } from '../../model/util';
 import { MarkdownText } from '../MarkdownText';
 
 export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ kaszt, inline }) => {
     const kasztTabla =
-        <div className='bordered' style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
+        <div style={entityDivStyle(inline)}>
             <h2>{kaszt.name} {kaszt.fokaszt && <span style={{ fontSize: 'smaller', fontStyle: 'italic' }}>({Kasztok.name(kaszt.fokaszt)} alkaszt)</span>}</h2>
             {kaszt?.leiras?.fo && <MarkdownText>{kaszt.leiras.fo}</MarkdownText>}
             <h3>Tulajdonságok</h3>

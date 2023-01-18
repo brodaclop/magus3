@@ -169,7 +169,10 @@ const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettse
     kepesseg: k.kepesseg,
     linked: [],
     kp: [2, 7, 13, 21, 34],
-    leiras: `A mágia ${k.name} iskolájának ismerete. Minden fok további +5-öt ad a kezdeményezésre.`,
+    leiras: `*A mágia ${k.name} iskolájának ismerete. Minden fok további +5-öt ad a kezdeményezésre.*
+
+${k.leiras}
+`,
     szintleiras: k.varazslatok.map(lista => lista.map(v => `- ${v.name}`).join('\n')) as any,
     __generated: true
 }));

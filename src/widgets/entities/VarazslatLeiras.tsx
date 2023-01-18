@@ -1,17 +1,16 @@
 import Tooltip from 'rc-tooltip';
 import React from 'react';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { CalcVarazslat } from '../../model/KarakterCalculator';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { Magia, MagiaKategoriak, Mentodobasok, Varazslat } from '../../model/Magia';
-import { arrayName } from '../../model/util';
+import { arrayName, entityDivStyle } from '../../model/util';
+import { MarkdownText } from '../MarkdownText';
 import { CalculationWidget } from './../CalculationWidget';
 
 export const VarazslatLeiras: React.FC<{ v: CalcVarazslat | Varazslat, inline?: boolean }> = ({ v, inline }) => {
     const psziTable =
-        <div style={{ overflowY: inline ? 'auto' : 'scroll', pointerEvents: 'auto', maxHeight: inline ? 'none' : '30rem' }}>
-            <table className='bordered' style={{ width: '23rem' }}>
+        <div style={entityDivStyle(inline)}>
+            <table className='bordered'>
                 <thead>
                     <tr style={{ textAlign: 'center' }}>
                         <th colSpan={2}>
@@ -52,9 +51,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat | Varazslat, inline?: 
                     </tr>
                     <tr>
                         <td colSpan={2}>
-                            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                                {v.leiras}
-                            </ReactMarkdown>
+                            <MarkdownText>{v.leiras}</MarkdownText>
                         </td>
                     </tr>
                 </tbody>
