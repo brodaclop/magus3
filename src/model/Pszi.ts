@@ -342,7 +342,7 @@ A Ψ-ostrom folytatója következtethet a pajzsok típusaira, hiszen  pontosan �
     },
     {
         name: 'Pszi-pajzs, Dinamikus',
-        id: 'pszi_pajzs_Dinamikus',
+        id: 'pszi_pajzs_dinamikus',
         psziPont: 1,
         idotartam: 'koncentráció',
         varazslasIdeje: '5 perc',
@@ -361,7 +361,7 @@ Dinamikus Pajzs más elméje köré nem építhető.
     },
     {
         name: 'Pszi-pajzs, Statikus',
-        id: 'pszi_pajzs_Dinamikus',
+        id: 'pszi_pajzs_statikus',
         psziPont: 1,
         idotartam: 'végleges',
         varazslasIdeje: '15 perc',

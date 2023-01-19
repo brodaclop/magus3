@@ -61,7 +61,7 @@
         "range": "touch",
         "idotartam": "1 perc/szint",
         "save": "mental",
-        "leiras": "Ez a varázslat lehetővé teszi a pap számára, hogy természetes módon kapjon levegőt a víz alatt is, ameddig a varázslat hatóideje ezt megengedi. Mindazokra rábocsáthatja körlátozás nélkül ezt a mágiaformát, akik alávetik neki magukat, míg azok, amik valamilyen okból tiltakoznak ez ellen, mágiaellenállásra jogosultak.\n\nA varázslat nem teszi lehetővé a víz alatti beszédet, illetve nem könnyíti a víz alatti mozgást.\n\nA Mana-pontok többszörözésével mind az alanyok száma, mind a varázslat erőssége, mind az időtartam növelhető.",
+        "leiras": "Ez a varázslat lehetővé teszi a pap számára, hogy természetes módon kapjon levegőt a víz alatt is, ameddig a varázslat hatóideje ezt megengedi. Mindazokra rábocsáthatja körlátozás nélkül ezt a mágiaformát, akik alávetik neki magukat, míg azok, amik valamilyen okból tiltakoznak ez ellen, [Mágiaellenállás](entity:szabaly_magiaellenallas)ra jogosultak.\n\nA varázslat nem teszi lehetővé a víz alatti beszédet, illetve nem könnyíti a víz alatti mozgást.\n\nA Mana-pontok többszörözésével mind az alanyok száma, mind a varázslat erőssége, mind az időtartam növelhető.",
         "kategoriak": [
             "kis_arkanum",
             "litania"
@@ -89,7 +89,7 @@
         "fok": 2,
         "save": "asztral",
         "range": "20",
-        "leiras": "Ha az alany elvéti mágiaellenállását, fájdalmas, kínlódó röhögésben tör ki, mely annyi körig tart, amennyi Darton szolgájának tapasztalati szintje.\n\nMinden körrel elveszít 1-et Állóképességéből, illetve k3 FP-t. Ha Állóképessége 0-ra csökken, belehal kínjaiba, csakúgy ha FP-i után ÉP-i is elfogynak.\n\nDarton szolgája az időtartam alatt bármikor megszakíthatja varázslatát, és az akkor is véget ér, ha a pap maga is elveszti eszméletét vagy meghal.\n\nAz áldozat csakis akkor képes harcolni, ha a kör elején sikeres Akaraterő-próbát tesz. Ekkor az alábbi módosítók hatnak rá: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30.\n\n"
+        "leiras": "Ha az alany elvéti [Mágiaellenállás](entity:szabaly_magiaellenallas)át, fájdalmas, kínlódó röhögésben tör ki, mely annyi körig tart, amennyi Darton szolgájának tapasztalati szintje.\n\nMinden körrel elveszít 1-et Állóképességéből, illetve k3 FP-t. Ha Állóképessége 0-ra csökken, belehal kínjaiba, csakúgy ha FP-i után ÉP-i is elfogynak.\n\nDarton szolgája az időtartam alatt bármikor megszakíthatja varázslatát, és az akkor is véget ér, ha a pap maga is elveszti eszméletét vagy meghal.\n\nAz áldozat csakis akkor képes harcolni, ha a kör elején sikeres Akaraterő-próbát tesz. Ekkor az alábbi módosítók hatnak rá: KÉ: -10, TÉ: -25, VÉ: -20, CÉ: -30.\n\n"
     },
     {
         "fajta": "normal",
@@ -204,7 +204,7 @@
         ],
         "save": "asztral",
         "range": "touch",
-        "leiras": "A litánia segítségével a pap bepillantást nyer az Asztrálsíkra, s megfigyelheti, hogy a vizsgált személy asztrálteste miként viselkedik.\n\nMegállapíthatja, hogy mely érzelmek irányítják, milyen erős kötődései vannak, áll-e valamilyen asztrális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell mágiaellenállást tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
+        "leiras": "A litánia segítségével a pap bepillantást nyer az Asztrálsíkra, s megfigyelheti, hogy a vizsgált személy asztrálteste miként viselkedik.\n\nMegállapíthatja, hogy mely érzelmek irányítják, milyen erős kötődései vannak, áll-e valamilyen asztrális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell [Mágiaellenállás](entity:szabaly_magiaellenallas)t tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
     },
     {
         "fajta": "normal",
@@ -222,7 +222,7 @@
         "fok": 4,
         "range": "5",
         "save": "mental",
-        "leiras": "A pap ezzel a varászlattal részlegesen béníthatja az ellenfél mozgásirányító központját. Rá kell mutatnia a kiszemelt áldozatra, majd - szent jelképével kezében - ki kell mondania a varázslat megidézéséhez szükséges szavakat. A mágia hatására, amennyiben a Mentál ME sikertelen volt, az áldozat a mérgeknél leírt görcsös állapotba kerül, a következő módosítókkal: Izom, Mozgáskoordináció, Reflex: -8, KÉ: -30, TÉ: -40, VÉ: -35, CÉ: -15, varázsolni pedig nem lehetséges.\n\nA Bénítás jól alkalmazható szinte minden harci helyzetben, a további előnye még, hogy időtartama alatt az ellenfél a varázslatait sem hívhatja segítségül a görcs semlegesítésére.\n\nA varázslat időtartamának meghosszabbítására nincs lehetőség.",
+        "leiras": "A pap ezzel a varászlattal részlegesen béníthatja az ellenfél mozgásirányító központját. Rá kell mutatnia a kiszemelt áldozatra, majd - szent jelképével kezében - ki kell mondania a varázslat megidézéséhez szükséges szavakat. A mágia hatására, amennyiben a Mentál [ME](entity:szabaly_magiaellenallas) sikertelen volt, az áldozat a mérgeknél leírt görcsös állapotba kerül, a következő módosítókkal: Izom, Mozgáskoordináció, Reflex: -8, KÉ: -30, TÉ: -40, VÉ: -35, CÉ: -15, varázsolni pedig nem lehetséges.\n\nA Bénítás jól alkalmazható szinte minden harci helyzetben, a további előnye még, hogy időtartama alatt az ellenfél a varázslatait sem hívhatja segítségül a görcs semlegesítésére.\n\nA varázslat időtartamának meghosszabbítására nincs lehetőség.",
         "mp": 7
     },
     {
@@ -380,7 +380,7 @@
         "fok": 1,
         "range": "self",
         "save": "asztral",
-        "leiras": "A varázslat segítségével megállapítható, hogy egy adott jellem képviselői megtalálhatóak-e egy 15m sugarú gömbön belül.\n\nA papnak pontosan meg kell határoznia, hogy melyik jellemre kíváncsi, és látnia kell érzékelésének alanyait.\n\nHa több lényt vizsgál, a pap nem tudja meg, melyikük rendelkezik a keresett jellemmel, csupán annyit észlel, hogy nagyjából mennyire erősen van jelen a csoportban.\n\nA hatótávolságon belül eső lények Asztrális mágiaellenállásra jogosultak - sikeres ME esetén jellemük rejtve marad a pap előtt."
+        "leiras": "A varázslat segítségével megállapítható, hogy egy adott jellem képviselői megtalálhatóak-e egy 15m sugarú gömbön belül.\n\nA papnak pontosan meg kell határoznia, hogy melyik jellemre kíváncsi, és látnia kell érzékelésének alanyait.\n\nHa több lényt vizsgál, a pap nem tudja meg, melyikük rendelkezik a keresett jellemmel, csupán annyit észlel, hogy nagyjából mennyire erősen van jelen a csoportban.\n\nA hatótávolságon belül eső lények Asztrális [Mágiaellenállás](entity:szabaly_magiaellenallas)ra jogosultak - sikeres [ME](entity:szabaly_magiaellenallas) esetén jellemük rejtve marad a pap előtt."
     },
     {
         "fajta": "normal",
@@ -400,7 +400,7 @@
         "fok": 3,
         "range": "touch",
         "save": "mental",
-        "leiras": "A szakrális mágia egyik legkülönösebb darabja. A varázslat létrehozása után a pap vagy az általa megérintett személy kezében egy hosszúkard anyagiasul. A Káoszkard TÉ-je 25, VÉ-je -20, KÉ-je 25, sebzése k10+2 szúró/vágó. Egyenes, kétélű pengéje fekete színű, túlburjánzó kaotikus mintázattal ékített fegyver, melynek egészen apró, szinte jelzésszerű a keresztvasa.\n\nA fegyver annyi körig létezik, ahányadik szintű a varázslatot végrehajtó pap. A Káoszkarddal csak támadni lehet, védekezésre nincs mód. A Káoszkard forgatója nem használhat másik kezében semmilyen fegyvert vagy pajzsot - ha ilyesmi lenne nála, azt azonnal eldobja.\n\nA Káoszkardot nem lehet eldobni vagy másnak átadni, amíg az időtartam tart. Ha nem harc közben jelent meg, akkor is reagál a legkisebb provokációra és támadásra kényszeríti gazdáját. A varázslat nem akadályozza meg, hogy a Káoszkardot a mágiát létrehozó pap ellen használják.\n\nAmennyiben a pap nem önmagát jelöli meg a fegyver forgatójául, s az áldozat ellenkezik, a papnak sikeres támadó dobást kell tennie (nem fegyverrel, hanem szent jelképével). Az áldozat ezután Mentális ME-re jogosult. Ha megdobja az ME-t, a varázslat nem jön létre.\n\nA Káoszkard használatának nem előfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségből vagy harcmodorból adódó bónuszok nem érvényesülnek. Két Káoszkardot egyetlen karakter sem forgathat.\n\nA fegyver harci értékei nem változtathatóak meg az MP-k többszörözésével."
+        "leiras": "A szakrális mágia egyik legkülönösebb darabja. A varázslat létrehozása után a pap vagy az általa megérintett személy kezében egy hosszúkard anyagiasul. A Káoszkard TÉ-je 25, VÉ-je -20, KÉ-je 25, sebzése k10+2 szúró/vágó. Egyenes, kétélű pengéje fekete színű, túlburjánzó kaotikus mintázattal ékített fegyver, melynek egészen apró, szinte jelzésszerű a keresztvasa.\n\nA fegyver annyi körig létezik, ahányadik szintű a varázslatot végrehajtó pap. A Káoszkarddal csak támadni lehet, védekezésre nincs mód. A Káoszkard forgatója nem használhat másik kezében semmilyen fegyvert vagy pajzsot - ha ilyesmi lenne nála, azt azonnal eldobja.\n\nA Káoszkardot nem lehet eldobni vagy másnak átadni, amíg az időtartam tart. Ha nem harc közben jelent meg, akkor is reagál a legkisebb provokációra és támadásra kényszeríti gazdáját. A varázslat nem akadályozza meg, hogy a Káoszkardot a mágiát létrehozó pap ellen használják.\n\nAmennyiben a pap nem önmagát jelöli meg a fegyver forgatójául, s az áldozat ellenkezik, a papnak sikeres támadó dobást kell tennie (nem fegyverrel, hanem szent jelképével). Az áldozat ezután Mentális [ME](entity:szabaly_magiaellenallas)-re jogosult. Ha megdobja az [ME](entity:szabaly_magiaellenallas)-t, a varázslat nem jön létre.\n\nA Káoszkard használatának nem előfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségből vagy harcmodorból adódó bónuszok nem érvényesülnek. Két Káoszkardot egyetlen karakter sem forgathat.\n\nA fegyver harci értékei nem változtathatóak meg az MP-k többszörözésével."
     },
     {
         "fajta": "normal",
@@ -478,7 +478,7 @@
         "fok": 1,
         "range": "20",
         "save": "mental",
-        "leiras": "*\"Igazat mondani nem nehéz, csak bebizonyítani művészet\"* - tartja a kyr mondás. Gyakorta a legkiáltóbb esetekben is lehetetlen valakit akarata ellenére meggyőzni. Vagy azért, mert az igazság a legritkább esetben a tetszésünk szerint való, vagy mert büszkeségünkkel ellenkezik, hogy beismerjük: tévedtünk.\n\nA papi mágia ezen darabja az igazság bebizonyítására szolgál. A pap a varázslat végrehajtása után meg tudja győzni állításai igazáról beszélgető- ill. vitapartnerét - ha azok valóban igazak. Ha az érvek vagy állítások akárcsak minimális olyan hazugságot is tartalmaznak, amelynek valótlan voltával a pap tisztában van, a mágia kudarcot vall.\n\nA varázslat egyszerre csupán egy személyre hat, aki Mentális ME-re jogosult. Ha mágiaellenállása sikeres, a varázslat nem jön létre. (De ettől még hagyományos úton természetesen meggyőzhető.) Ellenkező esetben elfogadja a pap érveit, és belátja annak igazát. Ez azonban semmilyen cselekedetre nem kötelezi, az továbbra is belátásától függ.\n\nA varázslat csak akkor működik, ha a pap olyan nyelven beszél, amelyet a hallgató megért, és emellett látják egymást.\n\nA **Meggyőzés** időtartama addig tart, míg a pap be nem fejezi az érvelést - az ezen idő alatt elmondott dolgokra vonatkoznak a fent leírtak. A továbbiakban minden ugyanúgy folyik, mintha nem használtak volna mágiát.\n\nA varázslat nem evilági és élőholt lényekre nem fejti ki hatását.\n\nA Mana-pontok megtöbbszörözésével a varázslat erőssége vagy a befolyásolni kívánt lények száma növelhető."
+        "leiras": "*\"Igazat mondani nem nehéz, csak bebizonyítani művészet\"* - tartja a kyr mondás. Gyakorta a legkiáltóbb esetekben is lehetetlen valakit akarata ellenére meggyőzni. Vagy azért, mert az igazság a legritkább esetben a tetszésünk szerint való, vagy mert büszkeségünkkel ellenkezik, hogy beismerjük: tévedtünk.\n\nA papi mágia ezen darabja az igazság bebizonyítására szolgál. A pap a varázslat végrehajtása után meg tudja győzni állításai igazáról beszélgető- ill. vitapartnerét - ha azok valóban igazak. Ha az érvek vagy állítások akárcsak minimális olyan hazugságot is tartalmaznak, amelynek valótlan voltával a pap tisztában van, a mágia kudarcot vall.\n\nA varázslat egyszerre csupán egy személyre hat, aki Mentális [ME](entity:szabaly_magiaellenallas)-re jogosult. Ha [Mágiaellenállás](entity:szabaly_magiaellenallas)a sikeres, a varázslat nem jön létre. (De ettől még hagyományos úton természetesen meggyőzhető.) Ellenkező esetben elfogadja a pap érveit, és belátja annak igazát. Ez azonban semmilyen cselekedetre nem kötelezi, az továbbra is belátásától függ.\n\nA varázslat csak akkor működik, ha a pap olyan nyelven beszél, amelyet a hallgató megért, és emellett látják egymást.\n\nA **Meggyőzés** időtartama addig tart, míg a pap be nem fejezi az érvelést - az ezen idő alatt elmondott dolgokra vonatkoznak a fent leírtak. A továbbiakban minden ugyanúgy folyik, mintha nem használtak volna mágiát.\n\nA varázslat nem evilági és élőholt lényekre nem fejti ki hatását.\n\nA Mana-pontok megtöbbszörözésével a varázslat erőssége vagy a befolyásolni kívánt lények száma növelhető."
     },
     {
         "fajta": "normal",
@@ -498,7 +498,7 @@
         ],
         "save": "mental",
         "range": "touch",
-        "leiras": "A litánia segítségével a pap bepillantást nyer a Mentálsíkra, s megfigyelheti, hogy a vizsgált személy mentálteste miként viselkedik.\n\nMegállapíthatja, hogy milyen mennyiségű lexikális tudással rendelkezik, milyen erős az intellektusa, áll-e valamilyen mentális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell mágiaellenállást tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
+        "leiras": "A litánia segítségével a pap bepillantást nyer a Mentálsíkra, s megfigyelheti, hogy a vizsgált személy mentálteste miként viselkedik.\n\nMegállapíthatja, hogy milyen mennyiségű lexikális tudással rendelkezik, milyen erős az intellektusa, áll-e valamilyen mentális befolyás alatt, és ha igen, milyen erős a befolyás.\n\nAmennyiben az áldozat beleegyezik, nem kell [Mágiaellenállás](entity:szabaly_magiaellenallas)t tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket.\n\nA varázslat érdekessége, hogy a pap saját magán nem tudja elvégezni."
     },
     {
         "fajta": "normal",
@@ -538,7 +538,7 @@
         "varazslasIdeje": "1 kör",
         "range": "touch",
         "save": "nincs",
-        "leiras": "A varászlat végrehajtásakor egy olyan fegyver jelenik meg a pap vagy az általa kiválasztott és a szent jelképpel megérintett személy kezében, amit az használni, forgatni tud.\n\nA fegyver kékes színben fog tündökölni - kinézetre egyszerű, dísztelen. Csak a harcrendszerben leírt védekező harc folytatható vele, ennek megfelelően VÉ-je 45, TÉ-je és KÉ-je nem értelmezhető, sebzése pedig nulla. A fegyver másik kézben csak pajzsot vagy alkarvédőt tűr meg, s ha azzal támad alkalmazója, ugyanúgy eltűnik, mintha őt használták volna támadásra.\n\nA forgatójának mindkét típusú ME-re +10-et ad, míg a méregellenállást +25-tel növeli. A fegyvert nem lehet eltörni, nem üthető ki a kézből, csupán egy magasabb erősségű [Mágia szétoszlatás](entity:pap_magia_szetoszlatasa) képes megszüntetni.\n\nAz Óvó fegyver használatának nem eléfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségekből adódó bónuszok nem érvényesülnek. Egyszerre két **Óvó fegyver**t egyetlen karakter sem forgathat."
+        "leiras": "A varászlat végrehajtásakor egy olyan fegyver jelenik meg a pap vagy az általa kiválasztott és a szent jelképpel megérintett személy kezében, amit az használni, forgatni tud.\n\nA fegyver kékes színben fog tündökölni - kinézetre egyszerű, dísztelen. Csak a harcrendszerben leírt védekező harc folytatható vele, ennek megfelelően VÉ-je 45, TÉ-je és KÉ-je nem értelmezhető, sebzése pedig nulla. A fegyver másik kézben csak pajzsot vagy alkarvédőt tűr meg, s ha azzal támad alkalmazója, ugyanúgy eltűnik, mintha őt használták volna támadásra.\n\nA forgatójának mindkét típusú [ME](entity:szabaly_magiaellenallas)-re +10-et ad, míg a méregellenállást +25-tel növeli. A fegyvert nem lehet eltörni, nem üthető ki a kézből, csupán egy magasabb erősségű [Mágia szétoszlatás](entity:pap_magia_szetoszlatasa) képes megszüntetni.\n\nAz Óvó fegyver használatának nem eléfeltétele egyetlen képzettség elsajátítása sem, a hasonló fegyveres képzettségekből adódó bónuszok nem érvényesülnek. Egyszerre két **Óvó fegyver**t egyetlen karakter sem forgathat."
     },
     {
         "fajta": "normal",
@@ -576,7 +576,7 @@
         "fok": 1,
         "range": "20",
         "save": "mental",
-        "leiras": "A pap képes egyszerű, legfeljebb két- vagy háromtagú parancs kiadására. A **Parancs** végrehajtásához a papnak látnia kell áldozatát és olyan nyelven szólnia hozzá, amit az megért.\n\nAz áldozat Mentális ME-re jogosult, amennyiben sikeresen végrehajtotta, a mágia nem jön létre. Ha elvétette, akkor a tőle telhető legjobb képességei szerint megpróbálja végrehajtani a pap utasítását, amíg az időtartam tart. Az öngyilkosságra való felszólítást figyelmen kívül hagyja, a varázslat azonnal megtörik.\n\nTipikus parancsok: takarodj!, rohanj el!, menekülj!, hallgass!, állj fel!, ülj le!, feküdj a földre!, védekezz!, üss! stb.\n\nAmennyiben a parancs félreérthető vagy nem egyértelmű, a mágia megtörik. A befolyásolt lény az időtartam lejártával tisztában lesz azzal, hogy a pap parancsára cselekedett.\n\nA varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását."
+        "leiras": "A pap képes egyszerű, legfeljebb két- vagy háromtagú parancs kiadására. A **Parancs** végrehajtásához a papnak látnia kell áldozatát és olyan nyelven szólnia hozzá, amit az megért.\n\nAz áldozat Mentális [ME](entity:szabaly_magiaellenallas)-re jogosult, amennyiben sikeresen végrehajtotta, a mágia nem jön létre. Ha elvétette, akkor a tőle telhető legjobb képességei szerint megpróbálja végrehajtani a pap utasítását, amíg az időtartam tart. Az öngyilkosságra való felszólítást figyelmen kívül hagyja, a varázslat azonnal megtörik.\n\nTipikus parancsok: takarodj!, rohanj el!, menekülj!, hallgass!, állj fel!, ülj le!, feküdj a földre!, védekezz!, üss! stb.\n\nAmennyiben a parancs félreérthető vagy nem egyértelmű, a mágia megtörik. A befolyásolt lény az időtartam lejártával tisztában lesz azzal, hogy a pap parancsára cselekedett.\n\nA varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását."
     },
     {
         "fajta": "normal",
@@ -732,7 +732,7 @@
         "fok": 2,
         "range": "100",
         "save": "nincs",
-        "leiras": "A varázslat célpontjai szinte verhetetlennek érzik magukat csatában, Erejük látszólag megsokszorozódik, a legkisebb esélyekkel szemben is harcolni fognak. Félelem elleni mágiaellenállásuk +50-nel megnő.\n\nA papnak hosszan, hangosan kell elmondania a varázslat igéit, s az 100 láb sugarú körön belül minden kiválasztottra hatni fog.\n\nA varázslat alapból 10 kiválasztott személyre hat, időtartama nem nyújtható, de Mana-pontok többszörözésével a célpontok száma is növelhető."
+        "leiras": "A varázslat célpontjai szinte verhetetlennek érzik magukat csatában, Erejük látszólag megsokszorozódik, a legkisebb esélyekkel szemben is harcolni fognak. Félelem elleni [Mágiaellenállás](entity:szabaly_magiaellenallas)uk +50-nel megnő.\n\nA papnak hosszan, hangosan kell elmondania a varázslat igéit, s az 100 láb sugarú körön belül minden kiválasztottra hatni fog.\n\nA varázslat alapból 10 kiválasztott személyre hat, időtartama nem nyújtható, de Mana-pontok többszörözésével a célpontok száma is növelhető."
     },
     {
         "fajta": "normal",
@@ -751,7 +751,7 @@
         "fok": 5,
         "range": "touch",
         "save": "asztral",
-        "leiras": "A varázslat hasonlít az [Áldás](entity:pap_aldas)hoz, de sokkal nagyobb hatalmú annál Csak egyetlen kiválasztott személyre használható, akinek vallása (jelleme) meg kell egyezzen a pap vallásával (jellemével). A mágia hatására a célpont mindhalálig harcolni fog. Ha FP-i nulla alá esnek, akkor is harcképes marad, egészen a halálig, azaz az ÉP-k elfogyásáig. A hős harci értékei is megváltoznak: KÉ: +15, TÉ: +30, VÉ: +10, Önuralma és Egészsége k6-tal lesz nagyobb.\n\nHa a kiszemelt hős valamely okból kifolyólag ellenállna a varázslatnak, a papnak sikeres támadást kell végrehajtania ellene, és a célpont Asztrál ME-re jogosult a varázslat ellen."
+        "leiras": "A varázslat hasonlít az [Áldás](entity:pap_aldas)hoz, de sokkal nagyobb hatalmú annál Csak egyetlen kiválasztott személyre használható, akinek vallása (jelleme) meg kell egyezzen a pap vallásával (jellemével). A mágia hatására a célpont mindhalálig harcolni fog. Ha FP-i nulla alá esnek, akkor is harcképes marad, egészen a halálig, azaz az ÉP-k elfogyásáig. A hős harci értékei is megváltoznak: KÉ: +15, TÉ: +30, VÉ: +10, Önuralma és Egészsége k6-tal lesz nagyobb.\n\nHa a kiszemelt hős valamely okból kifolyólag ellenállna a varázslatnak, a papnak sikeres támadást kell végrehajtania ellene, és a célpont Asztrál [ME](entity:szabaly_magiaellenallas)-re jogosult a varázslat ellen."
     },
     {
         "fajta": "normal",
@@ -770,7 +770,7 @@
         "varazslasIdeje": "azonnali",
         "save": "mental",
         "range": "self",
-        "leiras": "A varázslat hatására a pap körüli 8 láb sugarú körben a jelenlévők száját csak igaz szó hagyhatja el. A varázslat hátránya, hogy a papra is hat, így ő sem hazudhat a körülötte állóknak. Komoly tárgyalásoknál sokszor van jelen pap csak azért, hogy a varázslatot megidézze, s a tárgyaló felek még véletlenül se állíthassanak valótlant. És sokszor az is előfordul, hogy valamely tárgyaló fél Mentál mágia ellen védő talizmánokkal jelenik meg.\n\nA varázslat ellen Mentál ME-re jogosult minden érintett, s ha ez sikeres, rájuk a mágia nem hat. (A pap csak arról értesül, hogy hányan álltak ellen a varázslatnak, de arról nem, hogy kik.)\n\n"
+        "leiras": "A varázslat hatására a pap körüli 8 láb sugarú körben a jelenlévők száját csak igaz szó hagyhatja el. A varázslat hátránya, hogy a papra is hat, így ő sem hazudhat a körülötte állóknak. Komoly tárgyalásoknál sokszor van jelen pap csak azért, hogy a varázslatot megidézze, s a tárgyaló felek még véletlenül se állíthassanak valótlant. És sokszor az is előfordul, hogy valamely tárgyaló fél Mentál mágia ellen védő talizmánokkal jelenik meg.\n\nA varázslat ellen Mentál [ME](entity:szabaly_magiaellenallas)-re jogosult minden érintett, s ha ez sikeres, rájuk a mágia nem hat. (A pap csak arról értesül, hogy hányan álltak ellen a varázslatnak, de arról nem, hogy kik.)\n\n"
     },
     {
         "fajta": "normal",
@@ -790,7 +790,7 @@
         "idotartam": "azonnali",
         "save": "asztral",
         "range": "15",
-        "leiras": "A pap varázslata szörnyű, felvillanó látomást hoz létre a kiválasztott lény elméjében. A látomás nem más, mint önnön halálának rövid, döbbenetes hatású képsora. A halál okát a pap választhatja meg, s ő vázolhatja fel a képsor egyes részeit is. A képsor mindenképpen látható lesz, a Mágiaellenállás az érzelmi hatás ellen szól. A képsor 15-20 percnyi történetet sűrít 2 szegmensnyi időbe, s ebbe koncentrálja a benne testet öltött szenvedést is, melynek vége minden esetben halál. Az áldozat a sokktól különféle károsodásokat szenvedhet, ezeket k100 segítségével kell meghatározni:\n\n|Dobás|Hatás|\n|1-23 | Az áldozat 4 órás kómába esik |\n|24-43| Az áldozat nem tud együtt élni a látottakkal, s tudata meghasad. Egyik fele meghal, személyiségének másik fele tovább él|\n|44-59| Az áldozat habzó szájjal áll 2k10 körön át, védekezni is képtelen |\n|60-74| Az áldozat valódi holttestnek képzeli magát, s nem hajlandó megmozdulni, míg be nem bizonyítják neki, hogy életben van |\n|75-94| Az áldozat félelmében menekülni kezd, minél távolabb igyekszik kerülni a paptól |\n|95-00| Az áldozat idegrendszere teljesen felmondja a szolgálatot, a célpont meghal |\n\n"
+        "leiras": "A pap varázslata szörnyű, felvillanó látomást hoz létre a kiválasztott lény elméjében. A látomás nem más, mint önnön halálának rövid, döbbenetes hatású képsora. A halál okát a pap választhatja meg, s ő vázolhatja fel a képsor egyes részeit is. A képsor mindenképpen látható lesz, a [Mágiaellenállás](entity:szabaly_magiaellenallas) az érzelmi hatás ellen szól. A képsor 15-20 percnyi történetet sűrít 2 szegmensnyi időbe, s ebbe koncentrálja a benne testet öltött szenvedést is, melynek vége minden esetben halál. Az áldozat a sokktól különféle károsodásokat szenvedhet, ezeket k100 segítségével kell meghatározni:\n\n|Dobás|Hatás|\n|1-23 | Az áldozat 4 órás kómába esik |\n|24-43| Az áldozat nem tud együtt élni a látottakkal, s tudata meghasad. Egyik fele meghal, személyiségének másik fele tovább él|\n|44-59| Az áldozat habzó szájjal áll 2k10 körön át, védekezni is képtelen |\n|60-74| Az áldozat valódi holttestnek képzeli magát, s nem hajlandó megmozdulni, míg be nem bizonyítják neki, hogy életben van |\n|75-94| Az áldozat félelmében menekülni kezd, minél távolabb igyekszik kerülni a paptól |\n|95-00| Az áldozat idegrendszere teljesen felmondja a szolgálatot, a célpont meghal |\n\n"
     },
     {
         "fajta": "normal",
@@ -887,7 +887,7 @@
         "fok": 4,
         "range": "15000",
         "save": "asztral",
-        "leiras": "Ezen varázslattal a pap bármiféle, mágikus képességekkel nem rendelkező szörnyet megidézhet. Hogy mely szörny jelenik meg a hívásra, az a hely adottságaitól függ, a szörnynek ugyanis 15 mérföldes körzeten belül kell tartózkodnia. Ha ezen a területen nincs szörnyeteg, akkor vadállatok jelennek meg az idézés hatására.\n\nA lények három kör után bukkannak fel, s barátsággal viseltetnek a pap iránt. Ha képesek közösen kommunikálni, a pap parancsokat is adhat nekik, amiket a józan ész határain belül a lények igyekeznek teljesíteni. Ha nem találnak közös nyelvet, a szörnyek megvédik a papot harc esetén, de mást nem tehetnek érte.\n\nA varázslat ellen a szörnyek Asztrál ME-re jogosultak, s ha ez sikeres, nem jelennek meg a pap hívó szavára.\n\nEgyszerre k10 lény hallja a pap hívását, akiknek ME-jét egyenként kell meghatározni. Így előfordulhat például, hogy a pap 8 lényt hívott, de ebből 3 sikeresen ellenállt a varázslatnak, s csak 5 jelent meg."
+        "leiras": "Ezen varázslattal a pap bármiféle, mágikus képességekkel nem rendelkező szörnyet megidézhet. Hogy mely szörny jelenik meg a hívásra, az a hely adottságaitól függ, a szörnynek ugyanis 15 mérföldes körzeten belül kell tartózkodnia. Ha ezen a területen nincs szörnyeteg, akkor vadállatok jelennek meg az idézés hatására.\n\nA lények három kör után bukkannak fel, s barátsággal viseltetnek a pap iránt. Ha képesek közösen kommunikálni, a pap parancsokat is adhat nekik, amiket a józan ész határain belül a lények igyekeznek teljesíteni. Ha nem találnak közös nyelvet, a szörnyek megvédik a papot harc esetén, de mást nem tehetnek érte.\n\nA varázslat ellen a szörnyek Asztrál [ME](entity:szabaly_magiaellenallas)-re jogosultak, s ha ez sikeres, nem jelennek meg a pap hívó szavára.\n\nEgyszerre k10 lény hallja a pap hívását, akiknek [ME](entity:szabaly_magiaellenallas)-jét egyenként kell meghatározni. Így előfordulhat például, hogy a pap 8 lényt hívott, de ebből 3 sikeresen ellenállt a varázslatnak, s csak 5 jelent meg."
     },
     {
         "fajta": "normal",
@@ -925,7 +925,7 @@
         ],
         "range": "15 km/szint",
         "save": "mental",
-        "leiras": "A varázslat lehetővé teszi, hogy a pap tárgyak vagy személyek irányát felderítse. A mágia hatására érezni fogja a keresett tárgy vagy személy helyét, illetve irányát. Ez a varázslat időtartamának lejártáig így is marad, utána minden érzet elvész - de a már betájolt irányban tovább haladhatnak.\n\nTárgyak kereséséhez igen pontos leírással kell rendelkezni. Nem egy esetben megtörtént, hogy a kísérletező papot hasonló, de nem a keresett tárgyhoz vezette el a varázslat. Személy keresése esetén tudni kell az illető nevét, korát, s lehetőleg leírását is. A keresett Mentál ME-re jogosult a varázslat ellen, ha ez sikeres, jelenléte titokban marad.\n\nMegjegyzendő, hogy a varázslattal nem csak kis tárgyak, de városok, épületek is kereshetőek, így a pap nemigen téved el. Hasznos tudomány Ynev hatalmas világában."
+        "leiras": "A varázslat lehetővé teszi, hogy a pap tárgyak vagy személyek irányát felderítse. A mágia hatására érezni fogja a keresett tárgy vagy személy helyét, illetve irányát. Ez a varázslat időtartamának lejártáig így is marad, utána minden érzet elvész - de a már betájolt irányban tovább haladhatnak.\n\nTárgyak kereséséhez igen pontos leírással kell rendelkezni. Nem egy esetben megtörtént, hogy a kísérletező papot hasonló, de nem a keresett tárgyhoz vezette el a varázslat. Személy keresése esetén tudni kell az illető nevét, korát, s lehetőleg leírását is. A keresett Mentál [ME](entity:szabaly_magiaellenallas)-re jogosult a varázslat ellen, ha ez sikeres, jelenléte titokban marad.\n\nMegjegyzendő, hogy a varázslattal nem csak kis tárgyak, de városok, épületek is kereshetőek, így a pap nemigen téved el. Hasznos tudomány Ynev hatalmas világában."
     },
     {
         "fajta": "normal",
@@ -965,7 +965,7 @@
         "idotartam": "24 nap",
         "range": "12",
         "save": "asztral",
-        "leiras": "A varázslat a rettegést okozó mágiához hasonlít, de annál sokkal mélyebb hatású. Az elűzendő evilági lény Asztrál ME-re jogosult a varázslat ellen, s ha ez sikertelen, lélekölő félelem ébred benne a pappal szemben. Azonnal elmenekül, s csak 24 nap után képes újra szembe kerülni a mágia használójával."
+        "leiras": "A varázslat a rettegést okozó mágiához hasonlít, de annál sokkal mélyebb hatású. Az elűzendő evilági lény Asztrál [ME](entity:szabaly_magiaellenallas)-re jogosult a varázslat ellen, s ha ez sikertelen, lélekölő félelem ébred benne a pappal szemben. Azonnal elmenekül, s csak 24 nap után képes újra szembe kerülni a mágia használójával."
     },
     {
         "fajta": "normal",
@@ -1000,7 +1000,7 @@
         "varazslasIdeje": "5 kör",
         "range": "1000",
         "save": "asztral",
-        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nAmelyik lény vérével a vérgátat felrajzolták, nem fog tudni átlépni azon semmilyen irányban.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál ME-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a mágiaellenállás sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. \n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n.",
+        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nAmelyik lény vérével a vérgátat felrajzolták, nem fog tudni átlépni azon semmilyen irányban.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál [ME](entity:szabaly_magiaellenallas)-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a [Mágiaellenállás](entity:szabaly_magiaellenallas) sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. \n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n.",
         "kepzettsegek": [
             "magia:pap_szfera_halal"
         ]
@@ -1022,7 +1022,7 @@
         ],
         "range": "1000",
         "save": "asztral",
-        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nEz a varázslat minden, a felhasznált vér fajába tartozó lényt képes távol (vagy bent) tartani. Sőt, a használt vér lehet kevert is, annyi személy vagy lény vérét tartalmazhatja, ahányadik szintű a pap. A lények tartozhatnak egyazon fajba, avagy több különböző fajba is, ez utóbbi esetben minden képviselt faj egyedei számára áttörhetetlen lesz a gát.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál ME-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a mágiaellenállás sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. Ő természetesen szabadon keresztülsétálhat a vonalon, még akkor is, ha ahhoz a fajhoz tartozik, amelynek véréből rajzolták.\n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n."
+        "leiras": "A vérmágia védővarázslata, mely távol tarthatja a nemkívánatos látogatókat a pap által kijelölt területről. Ehhez a területet vérrel kell megjelölni, illetve körberajzolni határait.\n\nEz a varázslat minden, a felhasznált vér fajába tartozó lényt képes távol (vagy bent) tartani. Sőt, a használt vér lehet kevert is, annyi személy vagy lény vérét tartalmazhatja, ahányadik szintű a pap. A lények tartozhatnak egyazon fajba, avagy több különböző fajba is, ez utóbbi esetben minden képviselt faj egyedei számára áttörhetetlen lesz a gát.\n\nAzok az áldozatok, akik sikeresen megdobják a vérgát elleni Asztrál [ME](entity:szabaly_magiaellenallas)-jüket, képesek - viszolyogva - átlépni a vonalat, de ha utána pl. ki is akarnak jutni, újra dobniuk kell. Ha a [Mágiaellenállás](entity:szabaly_magiaellenallas) sikertelen, többször nem lehet próbálkozni.\n\nA vérgát vonalát csak a pap törheti meg, s ekkor a mágia eloszlik. Ő természetesen szabadon keresztülsétálhat a vonalon, még akkor is, ha ahhoz a fajhoz tartozik, amelynek véréből rajzolták.\n\nAmennyiben egy lény már a varázslat létrejöttekor a vérgáton belül tartózkodik, úgy térmágiával esetleg elhagyhatja azt, de fordítva még a térmágia sem segít.\n."
     },
     {
         "fajta": "normal",
@@ -1078,7 +1078,7 @@
         "ke": 0,
         "range": "touch",
         "save": "asztral",
-        "leiras": "Ez a varázslat az egyik legkülönösebb és leghatékonyabb asztrál védelem. A mágia egy személyre hat, s ha az valamely ok miatt ellenszegülne a varázslatnak, Asztrál ME-re jogosult.\n\nA varázslat alkalmazásakor meg kell érinteni a kijelölt személyt a jobb kéz mutatóujjával, s eközben kell elmormolni a védő ige szavait. Az asztrálfátyol elrejti az asztráltestet, mintegy álcázza, így megnehezíti annak megtámadását illetve megfigyelését. Ez annyit jelent, hogy a varázslat idejére az Asztrál ME minden támadó vagy befolyásoló mágia ellen 12 ponttal nő, olvasás/észlelés ellen pedig 24-gyel. A védelem mértéke nem növelhető tovább több Mana-ponttal, s a varázslat kétszeri alkalmazásakor sem adódnak össze."
+        "leiras": "Ez a varázslat az egyik legkülönösebb és leghatékonyabb asztrál védelem. A mágia egy személyre hat, s ha az valamely ok miatt ellenszegülne a varázslatnak, Asztrál [ME](entity:szabaly_magiaellenallas)-re jogosult.\n\nA varázslat alkalmazásakor meg kell érinteni a kijelölt személyt a jobb kéz mutatóujjával, s eközben kell elmormolni a védő ige szavait. Az asztrálfátyol elrejti az asztráltestet, mintegy álcázza, így megnehezíti annak megtámadását illetve megfigyelését. Ez annyit jelent, hogy a varázslat idejére az Asztrál [ME](entity:szabaly_magiaellenallas) minden támadó vagy befolyásoló mágia ellen 12 ponttal nő, olvasás/észlelés ellen pedig 24-gyel. A védelem mértéke nem növelhető tovább több Mana-ponttal, s a varázslat kétszeri alkalmazásakor sem adódnak össze."
     },
     {
         "fajta": "normal",
@@ -1097,7 +1097,7 @@
         "fok": 3,
         "save": "asztral",
         "range": "5",
-        "leiras": "A varázslat tulajdonképpen ellentéte az [Asztrálfátyol](entity:pap_asztralfatyol)nak, célja az ellenfél asztrális védelmének lerombolása. A varázslat hatása gyors és nagyon erőteljes, valóban egy pörölycsapásra emlékeztet. A varázslat idejére az ellenfél asztrális védelme 3k6 ponttal csökken, ha Asztrál ME-je sikertelen volt. Ez a varázslat hatóidejének leteltével visszatér, mert a pöröly nem a pajzsot hasítja szét, pusztán időleges utat nyit valamely asztráltámadás előtt."
+        "leiras": "A varázslat tulajdonképpen ellentéte az [Asztrálfátyol](entity:pap_asztralfatyol)nak, célja az ellenfél asztrális védelmének lerombolása. A varázslat hatása gyors és nagyon erőteljes, valóban egy pörölycsapásra emlékeztet. A varázslat idejére az ellenfél asztrális védelme 3k6 ponttal csökken, ha Asztrál [ME](entity:szabaly_magiaellenallas)-je sikertelen volt. Ez a varázslat hatóidejének leteltével visszatér, mert a pöröly nem a pajzsot hasítja szét, pusztán időleges utat nyit valamely asztráltámadás előtt."
     },
     {
         "fajta": "normal",
@@ -1116,7 +1116,7 @@
         "varazslasIdeje": "3 kör",
         "range": "self",
         "save": "nincs",
-        "leiras": "A fürkésző pillantások elől rejtheti el magát a pap ily módon. Az őt fürkésző varázslatokat nem lehetetlenné teszi, hanem megtéveszti. A KM feladata annak eldöntése, hogy az adott varázslat ismeretében \"félretájékoztassa\" azt, aki a mágia alanyára kíváncsi.\n\nA különféle befolyásoló varázslatok ellen nem nyújt védelmet, csupán az érzékelő jellegűeket vezeti félre, +15-öt adva mind az Asztrál, mind a Mentál ME-hez. Ha az érzékelés erősítése ennél is nagyobb, akkor az illető átlát az álcán, bármi is legyen az."
+        "leiras": "A fürkésző pillantások elől rejtheti el magát a pap ily módon. Az őt fürkésző varázslatokat nem lehetetlenné teszi, hanem megtéveszti. A KM feladata annak eldöntése, hogy az adott varázslat ismeretében \"félretájékoztassa\" azt, aki a mágia alanyára kíváncsi.\n\nA különféle befolyásoló varázslatok ellen nem nyújt védelmet, csupán az érzékelő jellegűeket vezeti félre, +15-öt adva mind az Asztrál, mind a Mentál [ME](entity:szabaly_magiaellenallas)-hez. Ha az érzékelés erősítése ennél is nagyobb, akkor az illető átlát az álcán, bármi is legyen az."
     },
     {
         "fajta": "normal",
@@ -1135,7 +1135,7 @@
         "fok": 3,
         "range": "15",
         "save": "asztral",
-        "leiras": "Ezt a varázslatot többnyire gonosz jellemű papok alkalmazzák, de egyik formája az Élet jellemű papoktól sem idegen. A papi átkok erősebbek mind a boszorkányi, mind a boszorkánymesteri átkoknál. Azon válfajuk, amelyet a gonosz jelleműek alkalmaznak, tulajdonság vagy harci pont csökkenést okoz. A csökkenés nem túl jelentő, viszont folyamatos, s csak az átok elűzésével állítható meg. Ily módon például egy gonosz pap megátkozhat egy harcost, hogy annak TÉ-je csökkenjen. A játékosnak természetesen ezt ékes szavakkal kell megfogalmaznia, mivel éppen ezen állhat vagy bukhat az átok hatásossága.\n\nAz átok erőssége a pap szintjeinek fele, plusz egy 1-5-ig adható szám, amit a KM határozhat meg az átok szövegének ismeretében.\n\nA hatás egy tulajdonságpont-csökkenés naponta, illetve 5 pontos csökkenés, ha százalékról vagy harci értékről van szó.\n\nA papi átkok másik formája inkább a Kiátkozás nevet érdemelné. Ezt Élet jellemű papok is használhatják, de csak rendkívül súlyos esetben. Ennek lényege, hogy a saját vallásához tartozó áldozatot a pap kitaszíthatja istene kegyéből. Ez csak akkor lehetséges, ha az áldozat valóban súlyosan vétett vallásának szabályai ellen. Ha a pap feleslegesen használja a varázslatot, vagy egyenesen önző céllal, s nem istenének érdekeit szem előtt tartva, a varázslat nem jön létre, a pap pedig k6 napig csak a Kis Arkánum litániáit használhatja.\n\nAz efféle kiátkozás a papokra nézve a legsúlyosabb, mert elmúltáig csak a Kis Arkánum litániáit használhatják. Ezen felül az áldozat minden harci pontja 10-zel csökken, s állandó reményvesztettség jellemzi majd viselkedésüket.\n\nEz az átok elűzéséig tart, ami [Űzés - átok](entity:pap_atokuzes)kal lehetséges, de mindaddig ez sem sikerülhet, amíg a kiátkozott jóvá nem teszi elkövetett bűnét.\n\nAz átok első formája ellen Asztrál ME lehetséges, a második típus mindig hatásos, ha a kiátkozás jogos, ém sohasem, ha jogtalan.\n"
+        "leiras": "Ezt a varázslatot többnyire gonosz jellemű papok alkalmazzák, de egyik formája az Élet jellemű papoktól sem idegen. A papi átkok erősebbek mind a boszorkányi, mind a boszorkánymesteri átkoknál. Azon válfajuk, amelyet a gonosz jelleműek alkalmaznak, tulajdonság vagy harci pont csökkenést okoz. A csökkenés nem túl jelentő, viszont folyamatos, s csak az átok elűzésével állítható meg. Ily módon például egy gonosz pap megátkozhat egy harcost, hogy annak TÉ-je csökkenjen. A játékosnak természetesen ezt ékes szavakkal kell megfogalmaznia, mivel éppen ezen állhat vagy bukhat az átok hatásossága.\n\nAz átok erőssége a pap szintjeinek fele, plusz egy 1-5-ig adható szám, amit a KM határozhat meg az átok szövegének ismeretében.\n\nA hatás egy tulajdonságpont-csökkenés naponta, illetve 5 pontos csökkenés, ha százalékról vagy harci értékről van szó.\n\nA papi átkok másik formája inkább a Kiátkozás nevet érdemelné. Ezt Élet jellemű papok is használhatják, de csak rendkívül súlyos esetben. Ennek lényege, hogy a saját vallásához tartozó áldozatot a pap kitaszíthatja istene kegyéből. Ez csak akkor lehetséges, ha az áldozat valóban súlyosan vétett vallásának szabályai ellen. Ha a pap feleslegesen használja a varázslatot, vagy egyenesen önző céllal, s nem istenének érdekeit szem előtt tartva, a varázslat nem jön létre, a pap pedig k6 napig csak a Kis Arkánum litániáit használhatja.\n\nAz efféle kiátkozás a papokra nézve a legsúlyosabb, mert elmúltáig csak a Kis Arkánum litániáit használhatják. Ezen felül az áldozat minden harci pontja 10-zel csökken, s állandó reményvesztettség jellemzi majd viselkedésüket.\n\nEz az átok elűzéséig tart, ami [Űzés - átok](entity:pap_atokuzes)kal lehetséges, de mindaddig ez sem sikerülhet, amíg a kiátkozott jóvá nem teszi elkövetett bűnét.\n\nAz átok első formája ellen Asztrál [ME](entity:szabaly_magiaellenallas) lehetséges, a második típus mindig hatásos, ha a kiátkozás jogos, ém sohasem, ha jogtalan.\n"
     },
     {
         "fajta": "normal",
@@ -1173,7 +1173,7 @@
         "varazslasIdeje": "1 kör",
         "range": "25",
         "save": "nincs",
-        "leiras": "Ezzel a varázslattal a pap rá tudja kényszeríteni akaratát az állatokra, amik közül szintenként egyet választhat a hatótávon belül.\n\nMentálisan képes utasítani őket, ehhez szavakat nem kell használnia, mindössze arra koncentrálnia, mit cselekedjék az adott állat. Egy körben maximum 10 állatnak képes utasítást adni, a többi addig mozdulatlanul áll, vagy ha megtámadják, védekezik.\n\nEgy parancs teljesítése persze nem tart szükségszerűen egyetlen körig, akár mind a 12 kört kitöltheti.\n\nAz állatok rendelkeznek már asztráltesttel, s mentális csírával is, de ezek ereje annyival kisebb, mint a pap, s általában az ember asztrális és mentális kisugárzása, hogy Mágiaellenállásnak helye nincs. Ez a varázslat csak az állatokra alkalmazható, a fejlett tudattal vagy mágikus képességekkel rendelkező szörnyekre nem."
+        "leiras": "Ezzel a varázslattal a pap rá tudja kényszeríteni akaratát az állatokra, amik közül szintenként egyet választhat a hatótávon belül.\n\nMentálisan képes utasítani őket, ehhez szavakat nem kell használnia, mindössze arra koncentrálnia, mit cselekedjék az adott állat. Egy körben maximum 10 állatnak képes utasítást adni, a többi addig mozdulatlanul áll, vagy ha megtámadják, védekezik.\n\nEgy parancs teljesítése persze nem tart szükségszerűen egyetlen körig, akár mind a 12 kört kitöltheti.\n\nAz állatok rendelkeznek már asztráltesttel, s mentális csírával is, de ezek ereje annyival kisebb, mint a pap, s általában az ember asztrális és mentális kisugárzása, hogy [Mágiaellenállás](entity:szabaly_magiaellenallas)nak helye nincs. Ez a varázslat csak az állatokra alkalmazható, a fejlett tudattal vagy mágikus képességekkel rendelkező szörnyekre nem."
     },
     {
         "fajta": "normal",
@@ -1249,7 +1249,7 @@
         "varazslasIdeje": "azonnali",
         "range": "self",
         "save": "mental",
-        "leiras": "A varázslat hatására a pap megérez minden hazugságot, ami az időtartam alatt környezetében elhangzik. Ha a beszélő hisz saját igazában, a varázslat is annak fogadja el, még ha valójában tévedés is.\n\nA hazugság ezen vizsgálata megtéveszthető, ha a vizsgált személy sikeres Mentális ME-t dob."
+        "leiras": "A varázslat hatására a pap megérez minden hazugságot, ami az időtartam alatt környezetében elhangzik. Ha a beszélő hisz saját igazában, a varázslat is annak fogadja el, még ha valójában tévedés is.\n\nA hazugság ezen vizsgálata megtéveszthető, ha a vizsgált személy sikeres Mentális [ME](entity:szabaly_magiaellenallas)-t dob."
     },
     {
         "fajta": "normal",
@@ -1287,7 +1287,7 @@
         "save": "mental",
         "idotartam": "1 kör",
         "varazslasIdeje": "1 kör",
-        "leiras": "A varázslat segítségével a pap telepatikus üzenetet küldhet egy konkrét személynek. Az üzenet a címzett elméjében szólal meg, a pap hangján. A szöveg vagy dallam hossza nem haladhatja meg az 1 kört, de más megkötés nem vonatkozik rá.\n\nA személy lehet a pap ellensége is, aki ellenállhat ezen mágiának, ha sikeres a Mentális mágiaellenállása."
+        "leiras": "A varázslat segítségével a pap telepatikus üzenetet küldhet egy konkrét személynek. Az üzenet a címzett elméjében szólal meg, a pap hangján. A szöveg vagy dallam hossza nem haladhatja meg az 1 kört, de más megkötés nem vonatkozik rá.\n\nA személy lehet a pap ellensége is, aki ellenállhat ezen mágiának, ha sikeres a Mentális [Mágiaellenállás](entity:szabaly_magiaellenallas)a."
     },
     {
         "fajta": "normal",
@@ -1322,7 +1322,7 @@
         "ke": 30,
         "range": "10",
         "save": "mental",
-        "leiras": "A pap varázslatának hatására az áldozat elveszti bizalmát mind saját magában, mind céljainak jogosságában. Kivész belőle a lelkesedés, az a hajtóerő, ami edding nem engedte visszavonulni, meghátrálni a küzdelem elől. Ennek hatására az áldozat TÉ-je, CÉ-je és KÉ-je 10-zel csökken, asztrális és mentális ME-je k10 ponttal zuhan a kétségektől.",
+        "leiras": "A pap varázslatának hatására az áldozat elveszti bizalmát mind saját magában, mind céljainak jogosságában. Kivész belőle a lelkesedés, az a hajtóerő, ami edding nem engedte visszavonulni, meghátrálni a küzdelem elől. Ennek hatására az áldozat TÉ-je, CÉ-je és KÉ-je 10-zel csökken, asztrális és mentális [ME](entity:szabaly_magiaellenallas)-je k10 ponttal zuhan a kétségektől.",
         "kepzettsegek": [
             "magia:pap_szfera_lelek"
         ]
@@ -1338,7 +1338,7 @@
         "kepzettsegek": [
             "magia:pap_szfera_lelek"
         ],
-        "leiras": "Ez a varázslat az egyik legkülönösebb és leghatékonyabb mentál védelem. A mágia egy személyre hat, s ha az valamely ok miatt ellenszegülne a varázslatnak, Mentál ME-re jogosult.\n\nA varázslat alkalmazásakor meg kell érinteni a kijelölt személyt a jobb kéz mutatóujjával, s eközben kell elmormolni a védő ige szavait. A mentálfátyol elrejti a mentáltestet, mintegy álcázza, így megnehezíti annak megtámadását illetve megfigyelését. Ez annyit jelent, hogy a varázslat idejére a Mentál ME minden támadó vagy befolyásoló mágia ellen 12 ponttal nő, olvasás/észlelés ellen pedig 24-gyel. A védelem mértéke nem növelhető tovább több Mana-ponttal, s a varázslat kétszeri alkalmazásakor sem adódnak össze.",
+        "leiras": "Ez a varázslat az egyik legkülönösebb és leghatékonyabb mentál védelem. A mágia egy személyre hat, s ha az valamely ok miatt ellenszegülne a varázslatnak, Mentál [ME](entity:szabaly_magiaellenallas)-re jogosult.\n\nA varázslat alkalmazásakor meg kell érinteni a kijelölt személyt a jobb kéz mutatóujjával, s eközben kell elmormolni a védő ige szavait. A mentálfátyol elrejti a mentáltestet, mintegy álcázza, így megnehezíti annak megtámadását illetve megfigyelését. Ez annyit jelent, hogy a varázslat idejére a Mentál [ME](entity:szabaly_magiaellenallas) minden támadó vagy befolyásoló mágia ellen 12 ponttal nő, olvasás/észlelés ellen pedig 24-gyel. A védelem mértéke nem növelhető tovább több Mana-ponttal, s a varázslat kétszeri alkalmazásakor sem adódnak össze.",
         "range": "10",
         "save": "mental"
     },
@@ -1398,7 +1398,7 @@
         ],
         "range": "12",
         "save": "asztral",
-        "leiras": "A varázslat sokban hasonlít a hasonló nevű boszorkányvarázslathoz. Hatására a pap sokkal hatalmasabbnak és félelmetesebbnek tűnik ellenfelei szemében, szinte legyőzhetetlennek látszik. Ezért az ellenfelek (a pap által kiválasztott legfeljebb 6 célpont) legjobb képességük szerint menekülni kezdenek, ha nem sikerül Asztrál ME-jük. Az időtartam lejártával is csak akkor térnek vissza, ha eredendően komoly céljuk volt a pappal és kísérőivel. Ily módon például útonállók bandája nem fog visszatérni, ha egyszer lélekszakadva elmenekült, hiszen nekik nagyjából mindegy, hogy kit rabolnak ki."
+        "leiras": "A varázslat sokban hasonlít a hasonló nevű boszorkányvarázslathoz. Hatására a pap sokkal hatalmasabbnak és félelmetesebbnek tűnik ellenfelei szemében, szinte legyőzhetetlennek látszik. Ezért az ellenfelek (a pap által kiválasztott legfeljebb 6 célpont) legjobb képességük szerint menekülni kezdenek, ha nem sikerül Asztrál [ME](entity:szabaly_magiaellenallas)-jük. Az időtartam lejártával is csak akkor térnek vissza, ha eredendően komoly céljuk volt a pappal és kísérőivel. Ily módon például útonállók bandája nem fog visszatérni, ha egyszer lélekszakadva elmenekült, hiszen nekik nagyjából mindegy, hogy kit rabolnak ki."
     },
     {
         "fajta": "normal",
@@ -1567,6 +1567,62 @@
         ],
         "range": "15",
         "save": "asztral",
-        "leiras": "Sokban hasonlít ez a varázslat az [Áldás](entity:pap_aldas)hoz, de annál mérhetetlenül nagyobb erejű. A mágia ugyanis felhívja a pap istenének figyelmét az érte harcoló halandókra. Ha azok célja valóban szolgálják az isten érdekeit, s helyzete valóban válságos az adott pillanatban, a hatás létrejön.\n\nA pap és segítőtársai szükség esetén nyomban 5k6 FP-t és 1k6 ÉP-t gyógyulnak (a maximális értékeket azonban természetesen így sem haladhatják meg). Harci értékeik mindegyike annyival nő, amennyi a **Hit** tulajdonságuk értéke. Asztrális és Mentális védelmük 10 ponttal nő, harci kedvük felülmúlhatatlan lesz.\n\nA pap ellenfelei Asztrál ME-re jogosultak, s ha ez sikertelen, ők is érzik, hogy a pap istene ellenük harcol. Harci értékeik 30 ponttal csökkennek, elvesztik minden küzdőkedvüket, s birkaként hullanak a pap szövetségeseinek csapásaitól.\n\nA varázslat időtartama Mana-pontok többszörözésével nem növelhető, de a pozitív hatások igen."
+        "leiras": "Sokban hasonlít ez a varázslat az [Áldás](entity:pap_aldas)hoz, de annál mérhetetlenül nagyobb erejű. A mágia ugyanis felhívja a pap istenének figyelmét az érte harcoló halandókra. Ha azok célja valóban szolgálják az isten érdekeit, s helyzete valóban válságos az adott pillanatban, a hatás létrejön.\n\nA pap és segítőtársai szükség esetén nyomban 5k6 FP-t és 1k6 ÉP-t gyógyulnak (a maximális értékeket azonban természetesen így sem haladhatják meg). Harci értékeik mindegyike annyival nő, amennyi a **Hit** tulajdonságuk értéke. Asztrális és Mentális védelmük 10 ponttal nő, harci kedvük felülmúlhatatlan lesz.\n\nA pap ellenfelei Asztrál [ME](entity:szabaly_magiaellenallas)-re jogosultak, s ha ez sikertelen, ők is érzik, hogy a pap istene ellenük harcol. Harci értékeik 30 ponttal csökkennek, elvesztik minden küzdőkedvüket, s birkaként hullanak a pap szövetségeseinek csapásaitól.\n\nA varázslat időtartama Mana-pontok többszörözésével nem növelhető, de a pozitív hatások igen."
+    },
+    {
+        "id": "bard_nyugalom_dala",
+        "name": "Nyugalom dala",
+        "mp": 1,
+        "idotartam": "k6 kör",
+        "varazslasIdeje": "dal",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 1,
+        "range": "10",
+        "save": "asztral",
+        "leiras": "A bárd énekének hatására minden olyan lény, amely 10 méter sugarú körön belöl tartózkodik és hallja a dalt, [Mágiaellenállás](entity:szabaly_magiaellenallas)a pedig sikertelen, elveszti harci kedvét, megnyugszik.\n\nHa ebben az állapotban megtámadják, újra fegyveréhez kap, s harcolni kezd. Ekkor már nem nyugtatható meg a dallal, sőt, az énekesre fog támadni, ha teheti. A bárdok ezzel a varázslattal igen óvatosan bánnak, hisz a hatás könnyen ellenük fordítható."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_alom_dala",
+        "name": "Álom dala",
+        "fok": 3,
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "mp": 12,
+        "idotartam": "15 kör",
+        "varazslasIdeje": "3 kör",
+        "range": "10",
+        "save": "mental",
+        "leiras": "Ennek az éneknek a hatására a bárd körül 10 méteres körzetben tartózkodó lények, ha [Mágiaellenállás](entity:szabaly_magiaellenallas)uk sikertelen, mély álomba merülnek. Az igazi alváshoz a bárd énekét legalább három körig kell hallaniuk, a hatás csak utána jelentkezik. Ekkor a dalt halló lények elalszanak, s 15 körön át fel sem ébreszthetők, csak mágia segítségével. Utána az alvás természetessé, az áldozat közönséges módon felrázhatóva, fellocsolhatóvá válik."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_zavarodottsag_dala",
+        "name": "Zavarodottság dala",
+        "mp": 8,
+        "idotartam": "k6 kör",
+        "varazslasIdeje": "dal",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 2,
+        "range": "10",
+        "save": "mental",
+        "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_ellentetek_dala",
+        "name": "Ellentétek dala",
+        "mp": 30,
+        "fok": 5,
+        "idotartam": "végleges",
+        "varazslasIdeje": "1 perc",
+        "range": "10",
+        "save": "asztral",
+        "leiras": "Az egyik legerősebb érzelmekre ható dal, mellyel a bárd rendelkezik. Minden érzelmet a visszájára fordíthat az áldozatban, ha annak [Mágiaellenállás](entity:szabaly_magiaellenallas)a sikertelen volt. Az eddigi szeretetből gyűlölet lesz, a félelemből bátorság, a barátságból ellenszenv és megfordítva.\n\nAz áldozat 25%-ban beleőrul a hirtelen változásba, s ha nem, akkor is nehéz lesz új önmagán kiigazodnia. Minden érzelme az ellentétére változott, de a semlegesek vagy közel semlegesek nem alakultak át. Egy társat tehát, akihez különösen erős indulatok érzelmek nem fűzték, most sem fog szeretni vagy gyűlölni. A varázslat a leghétköznapibb érzelmekre is hat, ennek következményei a legkevésbé megfoghatók. Például az a keleti barbár harcos, aki eddig egy vagyont fizetett volna a vaddisznópörcért, most viszolyogva fogja a kocsmáros ölébe borítani azt.\n\nMegjegyzendő, hogy ha az áldozatra egy másik vagy esetleg ugyanaz a bárd ezt a varázslatot még egyszer ráénekli, a célpont érzelmei eredeti állapotukba rendeződnek vissza."
     }
 ]

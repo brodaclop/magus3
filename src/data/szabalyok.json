@@ -1,0 +1,7 @@
+[
+    {
+        "id": "szabaly_magiaellenallas",
+        "name": "Mágiaellenállás",
+        "leiras": "A Mágiaellenállás a karakter mentál- vagy asztrálmágiától való védettségét jelöli.\n\nA mentális ellenállás mértéke alapesetben az **Összpontosítás** képesség 10 fölötti része, ehhez adódnak még az esetleges [statikus](entity:pszi_pajzs_statikus) és [dinamikus](entity:pszi_pajzs_dinamikus) pajzsok.\n\nAz asztrális mágiaellenállás hasonlóképp működik, csak épp az **Önuralom** képességgel.\n\nAmikor a karaktert mentális vagy asztrális támadás éri, a támadó annyiszor k10-zel dobhat, amennyi a varázslat vagy egyéb támadó hatás E-je. Amennyiben ez a szám meghaladja a védő mágiaellenállását, a támadás sikeres, ellenkező esetben a varázslat hatástalanul szertefoszlik."
+    }
+]

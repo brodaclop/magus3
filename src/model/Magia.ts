@@ -106,7 +106,7 @@ export interface VarazslatBase extends NamedEntity {
     idotartam: string;
     leiras: string;
     save: typeof Mentodobasok[number]['id'];
-    kategoriak: Array<typeof MagiaKategoriak[number]['id']>;
+    kategoriak?: Array<typeof MagiaKategoriak[number]['id']>;
     kepzettsegek: Array<typeof VarazslatKepzettsegek[number]['id']>;
     fok: number;
 

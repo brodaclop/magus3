@@ -226,7 +226,7 @@ export const KarakterCalculator = {
         const varazslatok = Magia.lista.filter(v => {
             const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
             const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
-            const kategoriaOK = v.kategoriak.every(k => magiaKategoriak.has(k));
+            const kategoriaOK = v.kategoriak?.every(k => magiaKategoriak.has(k)) ?? true;
             return kategoriaOK && v.fok <= fok;
         }).map(v => {
             if ('ke' in v) {

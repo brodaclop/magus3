@@ -82,7 +82,7 @@ export const MpEditor: React.FC<{}> = () => {
                                 }} />.fok</label>
                         </div>
                     </td>
-                    <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak.map(k => arrayName(Magia.kategoriak, k)).join('\n')}</td>
+                    <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak?.map(k => arrayName(Magia.kategoriak, k))?.join('\n')}</td>
                 </tr>)}
             </tbody>
         </table>;
