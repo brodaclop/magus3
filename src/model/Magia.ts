@@ -102,6 +102,26 @@ A varázslatok megidézéséhez szükséges idő sokszor megyezik az Időtartamm
         
 Kevés azon Hangmágiához tartozó varázslatok száma, melyeket önálló alkalmazásra szántak. Ezek a varázslatok inkább támogatást biztosítanak a Fénymágia illúzióinak, vagy a Dalmágia hatásait befolyásolják. Összefonódnak a más csoportokba tartozó varázslatokkal, tökéletes egységet alkotva velök.`
     },
+    {
+        id: 'magia:bard_fenymagia',
+        name: 'Fénymágia',
+        kepesseg: 'empatia',
+        leiras: `A bárd varázslatainak többsége ebbe a csoportba tartozik. A varázslók által lenézett illúziók ezek, melyeknél veszedelmesebb fegyver kevés akad a mágiát nem ismerők ellen.
+
+A Fénymágia az Elemi Mágia sajátos változata, mely a megidézett fényt nem elemi formájában idézi meg, hanem a bárd kívánta minta szerint alakítja át. Az erősítésnek nem kell nagynak lennie, így az illúziók viszonylag kevés Mana-pont befektetésével is kápráztatóak lehetnek.
+
+A Fénymágia varázslatai soha sem hatnak másra, csak a fénysugarakra; így minden általuk létrehozott kép valódi természete könnyen felismerhető, ha valaki megkísérli megérinteni őket. Keze ugyanis átsiklik a fényjátékon. Ám az illúzió felismerése nem jelenti azt, hogy a kép eltűnik. Az illúzió továbbra is ott marad, s a mögötte található tárgyakat eltakarja.
+
+Az illúziók ellen leginkább a varázslók védettek, mert tapasztalatuk oly nagy a létező anyaggal kapcsolatos mágiában, hogy a Fénymágia által létrehozott képek nem tévesztik meg őket egykönnyen. Minden efféle varázslat felfedezésének esélye számára 3096. Ha a varázsló megdobja ezt a százalékot, első pillantásra felismeri az apró pontatlanságokat a fény alkotta képben, s rájön illúzió voltára.
+
+Azoknál a varázslatoknál, ahol felfedezési esély szerepel, a varázslók 3096-a ehhez hozzáadandó.`
+    },
+    {
+        id: 'magia:bard_egyeb',
+        name: 'Egyéb bárd',
+        kepesseg: 'empatia',
+        leiras: `Az egyéb mágiák csoportjába azok a varázslatok kerültek, melyek alapvetően nem tartoztak a bárdok eszköztárába - ki tudja, hogy e csavaros eszű, gyakorta görbe utakon járó fickók miképpen jutottak birtokukba.`
+    }
 ] as const;
 
 export const Mentodobasok = [

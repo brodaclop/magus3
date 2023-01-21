@@ -817,6 +817,14 @@
                     "fok": 1
                 },
                 {
+                    "kepzettsegId": "magia:bard_fenymagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_egyeb",
+                    "fok": 1
+                },
+                {
                     "kepzettsegId": "iras_olvasas",
                     "fok": 2
                 },
