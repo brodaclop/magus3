@@ -1,5 +1,6 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { NamedEntity } from '../model/util';
+import { EntitySelector } from '../widgets/EntitySelector';
 import './form.css';
 
 interface StringEditorDescriptor {
@@ -59,9 +60,26 @@ export const Editor = {
 }
 
 export const StringEditor: React.FC<{ desc: StringEditorDescriptor, value: string | undefined, onChange: (value: string) => unknown }> = ({ desc, value, onChange }) => {
+
+    const [linkedEntity, setLinkedEntity] = useState<string>('');
+    const ref = useRef<HTMLTextAreaElement | null>();
+    const [selection, setSelection] = useState<[number, number]>([0, 0]);
+
+    console.log('button enabled', ref.current, linkedEntity, value);
+
     return <div className='stringEditor'>
         <label style={{ verticalAlign: 'top' }}>{desc.label}: </label>
-        {desc.long ? <textarea value={value ?? ''} onChange={e => onChange(e.target.value)} /> : <input type='text' value={value ?? ''} onChange={e => onChange(e.target.value)} />}
+        {desc.long && <div>
+            <EntitySelector id={linkedEntity} onChange={setLinkedEntity} />
+            <button disabled={!ref.current || !linkedEntity || value === undefined} onClick={() => {
+                if (value) {
+                    const [selectionStart, selectionEnd] = selection;
+                    const newValue = value.slice(0, selectionStart) + `[${value.slice(selectionStart, selectionEnd)}](entity:${linkedEntity})` + value.slice(selectionEnd);
+                    onChange(newValue);
+                }
+            }}>Link</button>
+        </div>}
+        {desc.long ? <textarea onSelect={e => setSelection([ref.current?.selectionStart ?? 0, ref.current?.selectionEnd ?? 0])} ref={r => ref.current = r} value={value ?? ''} onChange={e => onChange(e.target.value)} /> : <input type='text' value={value ?? ''} onChange={e => onChange(e.target.value)} />}
     </div>;
 }
 

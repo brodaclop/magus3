@@ -1743,5 +1743,275 @@
         "range": "speciális",
         "save": "nincs",
         "leiras": "A bárd ezzel a varázslattal társainak harci kedvét növelheti. A varázslat 10 méternyi körzetben hatásos, s minden, a bárddal szövetséges lényre hat. Minden olyan lény KÉ-je 5-tel, TÉ-je 15-tel nő, aki a varázslás pillanatában a dalt hallotta, és a Hatótávon belül tartózkodott.\n\nA varázslat másik alkalmazási módja esetén a Hatótáv 100 láb sugarú kör, melynek területén a dal szinte végigsöpör. Ez a bárddal szövetséges harcosoknak csak a harci kedvét, lelkesedését növeli, s Bátorságukhoz (NJK karakterek esetében) 3-at ad. Ideális varázslat csaták során. A [Távolság dalával](entity:bard_tavolsag_dala) kombinálva különösen ütőképessé válhat."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_tavolsag_dala",
+        "name": "Távolság dala",
+        "mp": 10,
+        "fok": 2,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "idotartam": "nincs",
+        "varazslasIdeje": "azonnali",
+        "range": "-",
+        "save": "nincs",
+        "leiras": "Ez a varázslat bármely daltípusú varázslattal együtt használható. A Dalmágia hangerejét többszörösére növeli, így a hatósugár is nő. A hatósugár 2, 3, 4-szeresére növehető, még-\nhozzá a kétszeres növelés 10, a háromszoros 20, a négyszeres 30 Mana-pontért, stb. A varázslat hatóideje megegyezik a \"hangosított\" dal időtartamával."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_magia_dala",
+        "name": "Mágia dala",
+        "mp": 10,
+        "fok": 3,
+        "varazslasIdeje": "azonnali",
+        "idotartam": "nincs",
+        "range": "-",
+        "save": "nincs",
+        "leiras": "Ez a dal lehetőséget ad a bárdnak arra, hogy nem daltípusú varázslatokat muzsikálás vagy éneklés leple alatt alkalmazzon. A két varázslat egyszerre lép működésbe, de a Mágia dala csak a másik varázslat megidézéséhez -és leplezéséhez- szükséges. Így észrevétlenül varázsolhat a bárd akár nagy tőmegben is, hiszen a megfigyelők csak annyit tapasztalnak, hogy énekel.",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ]
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_dalegyesites",
+        "name": "Dalegyesítés",
+        "mp": 18,
+        "fok": 4,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "idotartam": "nincs",
+        "varazslasIdeje": "azonnali",
+        "range": "-",
+        "save": "nincs",
+        "leiras": "Ez a varázslat pusztán egy akkord, egy felütés, melynek segítségével két, különböző hatású dalból egy harmadik dal születik. A zene összetettebbé, bonyolultabbá válik, a két varázslat pedig egyszerre alkalmazható. A varázslatok nem idézhetők meg egy azonos körben: először az egyik, majd a másik jön létre. A kettő ezek után égyütt működik.\n\nIly módon kombinálható például a [Nyugalom dala](entity:bard_nyugalom_dala) és az [Álom dala](entity:bard_alom_dala) - mely utóbbi hatásához e varázslat nélkül önmágában is több körre lenne szükség. A két együttesen ható varázslat\nminden tekintetben úgy működik, mintha a bárd egyenként használná őket. A Dalegyesítést a [Mágia dalával](entity:bard_magia_dala) együtt alkalmazva nem daltípusú varázslatok is működhetnek a fenti módon."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_beszelo_mult",
+        "name": "Beszélő múlt",
+        "mp": 19,
+        "fok": 3,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "idotartam": "15 perc",
+        "varazslasIdeje": "1 perc",
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a bárd hallhatja egy rég elhunyt személy legfontosabb szavait. Ez egyfajta tudatalatti kapcsolat a lélekkel, de nem kétirányú kommunikáció, mivel a bárd nem ért a nekromanciához. Csak olyan lényeges, a személyhez az idő távolából is kötődő mondatokat hallhat, melyek az elhunyt legmaradandóbb gondolatai, legfontosabb felfedezései avagy észrevételei voltak. \n\nA varázslattal bármilyen egykor élt személy szóra bírható, de az mindig saját anyanyelvén fog\nmegszólalni, illetve azon a nyelven, melyen az eredeti szavakat kimondta. A varázslat hatóideje 15 perc, ennél hosszabban senki szavait nem lehet visszaidézni."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_csend",
+        "name": "Csend",
+        "mp": 10,
+        "fok": 2,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "range": "15",
+        "save": "nincs",
+        "leiras": "A bárd ezzel a varázslattal minden hangot megszüntethet egy adott területen. Ez egy maximum 8 méter sugarú kör, melyen belül semmiféle hang nem lesz észlelhető. Ez a varázslók működését is megnehezíti, hiszen varázslataik hangkomponense mindaddig nem hallható, amíg az adott területen belül tartózkodnak; így minden varázslat megidézése kétszer annyi időbe kerül majd. A varázslat felhasználható lopakodáskor is, hisz így a bárd teljesen zaj nélkül közlekedhet."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_zajkeltes",
+        "name": "Zajkeltés",
+        "mp": 1,
+        "idotartam": "1 kör",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 1,
+        "range": "15",
+        "save": "nincs",
+        "leiras": "Ezzel a rövid ideig tartó varázslattal a bárd tetszőleges zajt idézhet fel egy kiválasztott irányból. A varázslat akkor hasznos, ha a szükséges hang csak egy ajtó nyikordulása, egy tárgy\nhangos puffanása vagy futó léptek dobbanása a távolban. Ez sokkal kevésbé manaigényes, mintha a Hangteremtést használná. A Zajkeltés maximális hossza 1 kör lehet."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_tavoli_uzenet",
+        "name": "Távoli üzenet",
+        "mp": 25,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "2 perc",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 4,
+        "range": "korlátlan",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a bárd kommunikálhat egy távoli személlyel. A kívánt üzenet nem lehet hosszabb két percesnél, de a távolság nincs megkötve. A bárdnak csak a személyre kell gondolnia, s elsuttognia az üzenetet. Az adott személy/lény lesz a célpont, és csak ő hallja meg az elsuttogott szavakat."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_magikus_hang",
+        "name": "Mágikus hang",
+        "mp": 10,
+        "idotartam": "végleges",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 2,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varázslat egy láthatatlan hangforrást teremt, amely 25 szó tárolására képes. A szöveget csak akkor mondja ki, ha a bárd által meghatározott feltételek teljesülnek. Ezek lehetnek időponthoz, személyhez, eseményhez köthetőek is. Ilyen feltétel lehet például, hogy a hang akkor szólaljon meg, ha valaki elhalad a hangforrás előtt, vagy ha valaki fegyvert ránt a hangforrás által\nőrzött teremben. A rejtett forrás legfeljebb kiáltás erősségű hangkibocsátásra lehet képes, s nem csak beszéd, de zene is tárolható benne. Ennek hossza 2 perc lehet, s a bárdnak \"elő kell\njátszania\" a később hallani kívánt motívumot. A varázslat mindaddig \"várakozik\", míg a megszabott feltétel nem teljesül.\n\n(A varázslattal más varázslat, pl. [Dalmágia](entity:magia:bard_dalmagia) nem időzíthető.)"
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_nyelvzavgyvalas",
+        "name": "Nyelvzagyválás",
+        "mp": 6,
+        "ke": 20,
+        "idotartam": "1 perc/szint",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 3,
+        "range": "15",
+        "save": "nincs",
+        "leiras": "A bárd ezt a varázslatot bármely lény ellen alkalmazhatja. Hatására a személy vagy kreatúra szavai más nyelven hangzanak el, mint amelyiken az illető kimondta őket. Hogy a jelenség még bizarrabb és zavaróbb legyen, a fordítás nyelve sem egységes, minden egyes szó más és más nyelven szólal meg. Ez lehetetlenné tehet mindenfajta kommunikációs kísérletet. A mágia ellen nincs ellenállás, mert kizárólag a hangot változtatja meg, ami a lénynek már nem része. A varázslat hatóideje 1 perc szintenként, s a célpont legfeljebb 15 méter távolságban tartózkodhat a varázslat megidézésének pillanatában. A varázslat hatása [Mágia szétoszlatásával](entity:pap_magia_szetoszlatasa) megszüntethető."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hamis_beszed",
+        "name": "Hamis beszéd",
+        "mp": 8,
+        "idotartam": "1 perc/szint",
+        "ke": 20,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 4,
+        "range": "15",
+        "save": "nincs",
+        "leiras": "Ezzel a varázslattal a bárd maga beszélhet a kiválasztott célpont helyett. Az áldozat elnémul, a hangok azonban - látszólag legalábbis - változatlanul felőle szólnak. A hihetőség kedvéért a bárdnak figyelnie kell áldozatát, hiszen ha az beszél, s tátog, neki is mondania kell valamit, nehogy gyanút keltsen. Ha a másik hallgat, ajánlatos a bárdnak is hallgatnia. A beszélő, akinek hangja semmivé enyészett, saját szavait fogja hallani, s a háttérben, nagyon halkan, a bárd beszédét is. A bárd hangja a sajátja marad, így, ha valaki ismeri az áldozat igazi hangját, könnyen rájöhet a csalásra. A varázslat erősítésével azonban a bárd ezt is megakadályozhatja: hangja ekkor az áldozatéhoz válik hasonlatossá.\n\nEnnek feltétele az, hogy a bárd legalább egyszer hallja önállóan szólni az illetőt. A varázslat még így is gyanússá válhat, ha a harmadik fél ismeri az áldozat hanghordozását vagy beszédstílusát, esetleg ért a szájról olvasáshoz."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_rejtett_uzenet",
+        "name": "Rejtett üzenet",
+        "mp": 5,
+        "idotartam": "2 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 2,
+        "range": "hallótávolság",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a bárd hangosan üzenhet akár tömegben is, szavait csak az általa kiválasztottak fogják megérteni. A mágia megidézése után a bárd két percen keresztül beszélhet, mondanivalója érthetetlen marad. Jóllehet, hangosan szól, ám a betűk sorrendje teljesen felcserélődik. A bárd E-nként egy lényt kiválaszthat, aki a betűket hibátlan sorrendjükben hallja, az zavartalanul kapja meg az üzenetetet."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangutanzas",
+        "name": "Hangutánzás",
+        "mp": 4,
+        "ke": 0,
+        "idotartam": "15 perc/szint",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 3,
+        "range": "35",
+        "save": "nincs",
+        "leiras": "A varázslat hasonlít a **Lényteremtéshez**, csak épp hanggal hajtja végre a bárd. A kiválasztott lény hangmintája tetszőleges pontból szólaltatható meg, s ez nem csak a hangszálak keltette rezgéseket, de a lény által csapott egyéb zajokat is magába foglalja.\n\nA felfedezési esélyek megegyeznek a Lényteremtésben leírtakkal.\n\nA varázslat bármilyen lény hangját létrehozhatja, s a bárdnak csak akkor kell rá koncentrálnia, ha a teremtett hang beszéd. A bárd csak számára ismert nyelveket használhat a varázslatban, s ennek szavait is meg kell formálnia elméjében, csak akkor kerülhetnek kimondásra. A varázslat 15 percig tartható fenn szintenként, hatótávolsága 35 méter, s a Lényteremtéssel együtt alkalmazva mindig követi a megalkotott képet, ha a bárd úgy kívánja."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangorkan",
+        "name": "Hangorkán",
+        "mp": 29,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 5,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A bárd ezzel a varázslattal hatalmas erejű hangot hoz létre, mely orkánként söpör végig a környéken, s még mérföldekkel távolabb is hallható. A varázslat ellen minden, hallószervvel rendelkező lénynek Állóképesség-próbát kell dobnia. Ha ez sikertelen, 2k6 Sp-t veszítenek, s örökre megsüketülnek. A sikeresen ellenállók csak 1k6 Sp-t veszítenek, s mindössze Ik10 percre válik hallásuk használhatatlanná.\n\nA 12-nél kevesebb maximális FP-jű lények, ha talpon maradtak egyáltalán, menekülni kezdenek a borzalmas hang forrása elől, s 5 körig legjobb tudásuk szerint távolodnak a bárdtól.\n\nA varázslat hatósugara 12 méter, minden azon belül tartózkodó lényre hat - kivéve természetesen a bárdot."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangcsapas",
+        "name": "Hangcsapás",
+        "mp": 3,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 1,
+        "range": "50",
+        "save": "nincs",
+        "leiras": "A varázslattal a bárd szörnyű, metsző hangot hallat, mely bántja a közelében tartózkodók fülét, s több száz lábra is elhallatszik. A hangforrás szomszédságában minden nem mágikus üvegtárgy és tükör szilánkokra törik. A varázslat 50 méteres körön belül bárhol megidézhető; az üveg-\ntörés hatósugara 10 méter + 1 méter szintenként. A hang egy szegmensen keresztül hallható."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangidezes",
+        "name": "Hangidézés",
+        "mp": 2,
+        "idotartam": "2 perc/szint",
+        "varazslasIdeje": "5 kör",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 2,
+        "range": "10",
+        "save": "nincs",
+        "leiras": "A bárd ezzel a varázslattal valamely rég történt esemény hangjait idézheti fel. Csak olyan események jöhetnek szóba, melyeknek a bárd (fültanúja volt: a hangok emlékezetéből származnak. A varázslat folyamatos koncentrálást igényel, tartama alatt szokványos tevékenység nem végezhető - kivételt csak az éneklés vagy muzsikálás jelent, melyekre a bárd ilyen állapotban is képes. A varázslat segítségével a bárd, miközben hősi éneket dalol, megidézheti annak valódi hangjait is, ezzel színesítve előadását."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_buvhangszer",
+        "name": "Bűvhangszer",
+        "mp": 5,
+        "idotartam": "10 perc/szint",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A bárd hangszerének hangját változtathatja e varázslat segítségével. A hangszer bármilyen, a bárd által ismert hangszer hangján megszólalhat, s tökéletesen utánozza azt. A bárd új hangokat, hangzást is létrehozhat, ha talál egy viszonyítási hangot, amiből a dallamskála létrejöhet. Lehet ez madárhang vagy akár távoli, ismeretlen hangszer egy-egy dallamfoszlánya is. További Mana-pontok felhasználásával a hangzás megsokszorozható, avagy más hangszerek is szólhatnak a\nmű alatt. A megsokszorozás több zenész hatását idézi, minden egyes plusz E egy plusz szólamot jelent."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangteremtes",
+        "name": "Hangteremtés",
+        "mp": 2,
+        "idotartam": "5 perc/szint",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 2,
+        "range": "12",
+        "save": "nincs",
+        "leiras": "A varázslattal a bárd egy tetszőleges pontról hangot bocsáthat ki. Ez lehet a saját hangja, de bármilyen természetes vagy mesterséges zaj is, esetleg más nyelvű beszéd vagy állati hang.\n\nA kijelölt hangforrásnak 12 méter sugarú körön belül kell lennie. Hangja nem lehet harsányabb a kiáltásnál, de ezt a megkötést leszámítva a bárd azt tesz, amit akar. A varázslatra végig kon-\ncentrálnia kell."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_hangkivetites",
+        "name": "Hangkivetítés",
+        "mp": 6,
+        "idotartam": "1 óra",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_hangmagia"
+        ],
+        "fok": 1,
+        "range": "50",
+        "save": "nincs",
+        "leiras": "Hatása a [Hangteremtés](entity:bard_hangteremtes) varázslatéra emlékeztet, jellegében azonban különbözik attól. A bárd ebben az esetben nem teremt hangot, hanem saját és közvetlen környezetének hangjait vetíti ki más helyre. A varázslat önmagában is használható, de különös előszeretettel alkalmazzák a bárdok a\n**Fantom** varázslattal együtt. Ekkor ugyanis a képhez a hang is megteremtődik, s az illúzió majdnem tökéletessé válik. Adódhatnak persze apró hibák, például az illúzió száraz úton halad,\nmialatt a bárd mély pocsolyába lép - ilyenkor ugyanis a loccsanás hangjának is az illúzió lesz a forrása, s ez bizony gyanús lehet."
     }
 ]
