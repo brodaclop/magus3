@@ -21,11 +21,11 @@ export const EntitySelector: React.FC<{ id?: string, onChange: (id: string) => u
 
     const value = entities.find(e => e.value === id);
 
-    return <Select
+    return <Select className='entity-selector'
         value={value ?? null}
         isClearable
         isSearchable
         placeholder='Cucc kereső'
         options={listEntities()}
-        onChange={(e: any) => onChange(e?.value ?? '')} />;
+        onChange={(e: any) => e?.value && onChange(e.value)} />;
 };

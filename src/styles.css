@@ -64,3 +64,7 @@ ul.simpleList li {
     justify-content: space-between;
     width: 100%;
 }
+
+.entity-selector {
+    width: 30rem;
+}
