@@ -1624,5 +1624,124 @@
         "range": "10",
         "save": "asztral",
         "leiras": "Az egyik legerősebb érzelmekre ható dal, mellyel a bárd rendelkezik. Minden érzelmet a visszájára fordíthat az áldozatban, ha annak [Mágiaellenállás](entity:szabaly_magiaellenallas)a sikertelen volt. Az eddigi szeretetből gyűlölet lesz, a félelemből bátorság, a barátságból ellenszenv és megfordítva.\n\nAz áldozat 25%-ban beleőrul a hirtelen változásba, s ha nem, akkor is nehéz lesz új önmagán kiigazodnia. Minden érzelme az ellentétére változott, de a semlegesek vagy közel semlegesek nem alakultak át. Egy társat tehát, akihez különösen erős indulatok érzelmek nem fűzték, most sem fog szeretni vagy gyűlölni. A varázslat a leghétköznapibb érzelmekre is hat, ennek következményei a legkevésbé megfoghatók. Például az a keleti barbár harcos, aki eddig egy vagyont fizetett volna a vaddisznópörcért, most viszolyogva fogja a kocsmáros ölébe borítani azt.\n\nMegjegyzendő, hogy ha az áldozatra egy másik vagy esetleg ugyanaz a bárd ezt a varázslatot még egyszer ráénekli, a célpont érzelmei eredeti állapotukba rendeződnek vissza."
+    },
+    {
+        "id": "bard_benitas_dala",
+        "name": "Bénítás dala",
+        "mp": 8,
+        "idotartam": "k6 kör",
+        "varazslasIdeje": "2 kör",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 3,
+        "range": "10",
+        "save": "mental",
+        "leiras": "A bárd dalának hatására minden 10 méternyi körzetben tartózkodó lény gondolatainak középpontjába a mágikus zene kerül, s ettől teljesen mozdulatlanná válnak. Ehhez a dalt\nlegalább két körig kell hallaniuk, s utána [Mágiaellenállást](entity:szabaly_magiaellenallas) dobniuk - sikertelenség esetén 1k6 körig csak a bárd zenéjére figyelnek, s érzéketlenek lesznek minden más jelenség, benyomás iránt. Az így elbájolt áldozatok csak a mágia megszűntével nyerik vissza uralmukat gondolataik felett, vagy abban az esetben, ha egy körben több, mint 15 Sp-t sebeznek rajtuk."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_felelem_dala",
+        "name": "Félelem dala",
+        "mp": 5,
+        "idotartam": "dal hossza",
+        "varazslasIdeje": "dal hossza",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 1,
+        "range": "10",
+        "save": "asztral",
+        "leiras": "A dal félelmet ébreszt a bárd ellenségeinek szívében. A bárd szövetségeseire a varázslat nem hat, így ők a dal alatt is a bárd közelében maradhatnak. Az ellenfelek, akik hallják a\ndalt, [Mágiaellenállás](entity:szabaly_magiaellenallas) dobásra jogosultak, és ha elvétik, azonnal menekülni kezdenek az ének forrásától. A varázslat addig tart, míg a bárd énekel."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_feledes_dala",
+        "name": "Feledés dala",
+        "mp": 20,
+        "idotartam": "végleges",
+        "varazslasIdeje": "3 perc",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 4,
+        "range": "10",
+        "save": "mental",
+        "leiras": "A dal segítségével a bárd egyetlen nap emlékeit törölheti kiáldozatából. Csak a nap dátumára kell koncentrálnia a varázslat alatt, a tartalmát nem szükséges ismernie. Az emlékek, ha a [Mágiaellenállás](entity:szabaly_magiaellenallas) sikertelen, teljesen elvesznek, s a nap üres foltként marad meg az áldozat emlékezetében. Tudni fogja, hogy a nap létezett, de ennél többet nem. Emlékei nem adhatók vissza, de társai elmagyarázhatják neki, mi is történt akkor. Hogy ezt elhiszi-e vagy sem, egészen más kérdés."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_emlekek_dala",
+        "name": "Emlékek dala",
+        "mp": 25,
+        "fok": 5,
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "idotartam": "végleges",
+        "varazslasIdeje": "3 perc",
+        "range": "10",
+        "save": "mental",
+        "leiras": "A dal segítségével lehetségessé válik emlékek, élmények elhelyezése az áldozat elméjében. A varázslattal maximálisan egy napi emlék írható be a memóriába, de ehhez üres helyre van szükség. Ez lehet természetes felejtés, de előidézhető a fentebb leírt [Feledés dalával](entity:bard_feledes_dala) is. Így egy nap teljesen átírhatóvá válik valaki emlékezetében. Ha nincs ennyi kiesett emlék, egy-egy napba legfeljebb plusz 15 perc illeszthető be a varázslattal."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_kinok_dala",
+        "name": "Kínok dala",
+        "mp": 5,
+        "idotartam": "a dal hossza",
+        "varazslasIdeje": "a dal hossza",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 2,
+        "range": "10",
+        "save": "mental",
+        "leiras": "A bárd ezen varázslattal fájdalmat okozhat mindazoknak, akik a dalt hallják. A fájdalom borzalmas, hasogató fejfájásként jelentkezik, majd kínhullámként seper végig az egész\ntesten. A célpont [Mágiaellenállásra](entity:szabaly_magiaellenallas) jogosult a varázslat ellen.\n\nAmennyiben az ME dobás sikertelen, az áldozat 1k6 FP-t veszít körönként. A dal annyi ideig tartható fenn, míg a bárd kívánja, s Mana-pontjai ezt lehetővé teszik.\n\nFIGYELEM! A dalt énekelni, nem bömbölni kell, így a hatósugár - efféle módon - nem növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_bajolas_dala",
+        "name": "Bájolás dala",
+        "mp": 6,
+        "fok": 3,
+        "idotartam": "2 óra",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "range": "10",
+        "save": "asztral",
+        "leiras": "A dal segítségével a bárd 10 lábnyi körzeten belül minden hallgatóját barátjává teheti. Ha a hallgatók [Mágiaellenállása](entity:szabaly_magiallenallas) sikertelen volt, követni, s lehetőségük szerint segíteni fogják a bárdot. Ha a bárd - fegyverrel vagy mágiával - megtámad-\nja őket, a varázslat hatása semmivé foszlik. Az elbájolt lények mindig igazat fognak válaszolni a bárd kérdéseire, s egy esetleges harmadik féllel vívott harcban is a védelmére kelnek."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_halal_hala",
+        "name": "Halál dala",
+        "mp": 35,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "fok": 5,
+        "range": "10",
+        "save": "asztral",
+        "leiras": "\"A bárd legkegyetlenebb fegyvere a lant\" - szól a mondás Ynev-szerte. A Halál dala valóban pusztulást hozhat minden lényre, aki hallja. Ha a [Mágiaellenállás](entity:szabaly_magiaellenallas) sikertelen, az áldozat Asztráltestét megsemmisítő csapás éri, s a lélek szétszakadásának sokkja halált okoz. A célpontnak a bárd 10 méternyi körzetében kell tartózkodnia, s hallania is kell a dalt."
+    },
+    {
+        "fajta": "normal",
+        "id": "bard_batorsag_dala",
+        "name": "Bátorság dala",
+        "mp": 10,
+        "fok": 4,
+        "idotartam": "a dal hossza",
+        "varazslasIdeje": "a dal hossza",
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
+        "range": "speciális",
+        "save": "nincs",
+        "leiras": "A bárd ezzel a varázslattal társainak harci kedvét növelheti. A varázslat 10 méternyi körzetben hatásos, s minden, a bárddal szövetséges lényre hat. Minden olyan lény KÉ-je 5-tel, TÉ-je 15-tel nő, aki a varázslás pillanatában a dalt hallotta, és a Hatótávon belül tartózkodott.\n\nA varázslat másik alkalmazási módja esetén a Hatótáv 100 láb sugarú kör, melynek területén a dal szinte végigsöpör. Ez a bárddal szövetséges harcosoknak csak a harci kedvét, lelkesedését növeli, s Bátorságukhoz (NJK karakterek esetében) 3-at ad. Ideális varázslat csaták során. A [Távolság dalával](entity:bard_tavolsag_dala) kombinálva különösen ütőképessé válhat."
     }
 ]

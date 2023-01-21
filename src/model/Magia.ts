@@ -36,31 +36,43 @@ const VarazslatKepzettsegek = [
         id: 'magia:pap_szfera_altalanos',
         name: 'Általános Szféra',
         kepesseg: 'hit',
-        leiras: ''
+        leiras: `Az általános varázslatok közé azok a mágiaformák tartoznak, melyek nincsenek szoros kapcsolatban egyetlen vallás papjaival sem.
+        
+Mind a négy szféra tartalmazza az adott varázslatot, következésképp a szükséges manapontok birtokában bármely pap képes a végrehajtásukra. Közös jellemzőjük, hogy mindegyikük a Kis Arkánumokba tartozik.`
     },
     {
         id: 'magia:pap_szfera_termeszet',
         name: 'Természet Szféra',
         kepesseg: 'hit',
-        leiras: ''
+        leiras: `A Természet szférába tartoznak mindazok a varázslatok, melyek a természet erőinek vagy lényeinek parancsolnak, függetlenül attól, hogy segítő vagy ártó szándékkal alkalmazzák őket.
+        
+Használatukkal nem csak állatok és növények felett nyerhet hatalmat a pap, de kérheti az elemi síkok lakóinak segítségét, és némely természetben előforduló jelenséget is előidézhet.
+
+A varázslás időtartama alatt a pap szimbóluma kék fénnyel világít.`
     },
     {
         id: 'magia:pap_szfera_elet',
         name: 'Élet Szféra',
         kepesseg: 'hit',
-        leiras: ''
+        leiras: `Az Élet szférájába tartoznak azok a varázslatok, melyek az élet megőrzését vagy szebbé tételét szolgálják.
+        
+Az e szférába tartozó varázslatot csak a leírás szerint lehet használni, tehát ártó szándékkal nem alkalmazható - ezzel hiába is próbálkozna bárki. Az Élet szférákba tartozó megidézésekkel szolgálatra bírt lények csak arra utasíthatók, hogy védjék meg a papot valamely veszedelemtől. Közvetlen támadásra vagy pusztításra nem vehetők rá, az efféle parancs hatására a lény azonnal felszabadul a mágia hatása alól. A varázslat létrehozásakor a pap szent jelképe fehéren izzó fényt áraszt.`
     },
     {
         id: 'magia:pap_szfera_lelek',
         name: 'Lélek Szféra',
         kepesseg: 'hit',
-        leiras: ''
+        leiras: `A Lélek szférához tartozó varázslatok leginkább a lények asztrál- és mentáltestére gyakorolnak hatást - az olyan lények ellen, melyek nem rendelkeznek a két fent említett test közül egyikkel sem, a varázslatok nem használhatóak.
+        
+Ugyanígy, mindazon lények, akik immunisak az Asztrál- vagy Mentálmágiára, immunisak a Lélek szférába tartozó varázslatokra is. Az Asztrál vagy Mentálsíkon érvényesülő varázslatok kihatással lehetnek az Anyagi Sík történéseire. Minél nagyobb erejű egy varázslat, annál szembetűnőbb lehet befolyása az anyagi világ lakóira. A mellékhatások kizárólag a varázslat erejétől és jellegétől függőek s a pap körüli 1 km sugarú körben jelentkeznek. Kizárólag gyenge érzelmek, gondolatfoszlányok formájában bukkanhatnak elő, sérülést, ájulást, stb, nem okozhatnak.
+
+A Lélek szférábatartozó varázslatok végrehajtásakor a pap szent jelképe sárga fényt áraszt.`
     },
     {
         id: 'magia:pap_szfera_halal',
         name: 'Halál Szféra',
         kepesseg: 'hit',
-        leiras: ''
+        leiras: `E szférába tartoznak mindazok a varázslatok, melyek ártó szándékúak, az elmúlást és a pusztulást szolgálják. Végrehajtásukkor a pap szent jelképe vérvörös színben izzik.`
     },
     {
         id: 'magia:bard_dalmagia',
@@ -81,6 +93,14 @@ Fontos, hogy a Dalmágia varázslatai tökéletesen összekapcsolódnak a bárd 
 A Dalmágia áldozatait a bárd választhatja meg tehát, a varázslat hatókörén belül tartózkodók közül csak azokra vonatkozik a hatás, akiket a bárd célpontnak szemelt ki.
 
 A varázslatok megidézéséhez szükséges idő sokszor megyezik az Időtartammal - ennek oka, hogy a mágia csak addig hat, míg a bárd énekel. Előfordulhat az is, hogy a bárd énekének hatása továbbra is fennmarad, ilyen esetben áldozatonként változik, hogy mennyi idő szükséges a dal emlékének elűzéséhez.`
+    },
+    {
+        id: 'magia:bard_hangmagia',
+        name: 'Hangmágia',
+        kepesseg: 'empatia',
+        leiras: `A megtévesztés ynevi művészei a bárdok, olyannyira, hogy Hang- és Fénymágiájukkal - mely ugyan semmiféle anyagi hatással nem bír - sokszorta         ütőképesebbek lehetnek, mint más mágiahasználók.
+        
+Kevés azon Hangmágiához tartozó varázslatok száma, melyeket önálló alkalmazásra szántak. Ezek a varázslatok inkább támogatást biztosítanak a Fénymágia illúzióinak, vagy a Dalmágia hatásait befolyásolják. Összefonódnak a más csoportokba tartozó varázslatokkal, tökéletes egységet alkotva velök.`
     },
 ] as const;
 
