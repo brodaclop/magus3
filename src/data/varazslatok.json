@@ -1619,6 +1619,9 @@
         "name": "Ellentétek dala",
         "mp": 30,
         "fok": 5,
+        "kepzettsegek": [
+            "magia:bard_dalmagia"
+        ],
         "idotartam": "végleges",
         "varazslasIdeje": "1 perc",
         "range": "10",

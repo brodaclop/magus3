@@ -30,13 +30,13 @@ export const KepzettsegLeiras: React.FC<{ kepzettseg: Kepzettseg, fok?: number, 
                         <th colSpan={2}>
                             <div className='justifiedFlexRow' >
                                 <div style={{ fontWeight: 'normal', fontStyle: 'italic', textAlign: 'left' }}>
-                                    <b>Segít:</b>
-                                    {kepzettseg.fajta === 'normal' && kepzettseg.linked?.map(k => <div><KepzettsegLeiras kepzettseg={Kepzettseg.find(k.id)} /> {printNumber(k.strength)}</div>)}
+                                    <b>Ezek segítik:</b>
+                                    {kepzettseg.fajta === 'normal' && kepzettseg.linked?.map(k => <div><KepzettsegLeiras kepzettseg={Kepzettseg.find(k.id)} />→{printNumber(k.strength)}</div>)}
                                 </div>
                                 <span></span>
                                 <div style={{ fontWeight: 'normal', fontStyle: 'italic', textAlign: 'left' }}>
-                                    <b>Segítők:</b>
-                                    {findLinking(kepzettseg).map(k => <div><KepzettsegLeiras kepzettseg={Kepzettseg.find(k.id)} /> {k.linked.find(linkBack => linkBack.id === kepzettseg.id)?.strength}</div>)}
+                                    <b>Ezeket segíti:</b>
+                                    {findLinking(kepzettseg).map(k => <div><KepzettsegLeiras kepzettseg={Kepzettseg.find(k.id)} />←{k.linked.find(linkBack => linkBack.id === kepzettseg.id)?.strength}</div>)}
                                 </div>
                             </div>
                         </th>

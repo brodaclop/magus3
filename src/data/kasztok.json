@@ -809,6 +809,14 @@
                     "fok": 2
                 },
                 {
+                    "kepzettsegId": "magia:bard_dalmagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_hangmagia",
+                    "fok": 1
+                },
+                {
                     "kepzettsegId": "iras_olvasas",
                     "fok": 2
                 },

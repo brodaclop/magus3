@@ -1,6 +1,7 @@
 import React from 'react';
 import { GiBodyBalance, GiBoltSpellCast, GiInnerSelf, GiPsychicWaves, GiRuleBook, GiSkills } from 'react-icons/gi';
 import Select from 'react-select';
+import { arraySort } from '../model/util';
 import { ENTITY_LISTS } from './EntityWidget';
 
 const entityIcon = (type: keyof typeof ENTITY_LISTS) => {
@@ -20,7 +21,7 @@ const listEntities = (): Array<{ value: string, label: string, category: keyof t
     const ret: Array<{ value: string, label: string, category: keyof typeof ENTITY_LISTS }> = Object
         .entries(ENTITY_LISTS)
         .flatMap(
-            ([et, list]) => list.lista.map(e => ({
+            ([et, list]) => arraySort(list.lista, e => e.name).map(e => ({
                 value: e.id,
                 label: `${et}: ${e.name}`,
                 category: et as any
