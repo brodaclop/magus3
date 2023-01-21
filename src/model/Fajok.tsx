@@ -896,9 +896,9 @@ Graum Hedgrok, a Hetedkor stílusáról és baráti köréről elhíresült gobl
 - 9 óránál frissebb nyomot 30%-ban képesek követni,
 - 15 óránál frissebbet 20%-ban követnek,
 - 30 óránál nem régebbit pedig 10% eséllyel követnek.
-    Egy napnál régebbi nyomra nem tudnak rábukkanni. A fenti esélyekre óránként kell dobni, s amennyiben a százalékértéknél kevesebb a dobás eredménye, a goblin képes követni a nyomot. Ha több, úgy elveszítette, de -10-es módosítóval újra próbálkozhat, egészen addig, míg meg nem leli a nyomot, vagy esélye nullára nem csökken.
+    Ennél régebbi nyomra nem tudnak rábukkanni. A fenti esélyekre óránként kell dobni, s amennyiben a százalékértéknél kevesebb a dobás eredménye, a goblin képes követni a nyomot. Ha több, úgy elveszítette, de -10-es módosítóval újra próbálkozhat, egészen addig, míg meg nem leli a nyomot, vagy esélye nullára nem csökken.
 - Mivel legtöbbjüket a másfajúak nem tekintik komoly ellenfélnek, gyakorta előfordul, hogy meglephetik ellenlábasaikat egy gyors támadással. Mindehhez
-    csupán sikeres Gyorsaság-próbát kell dobniuk az ellenfél Érzékelés-próbája ellen. Ha ellenfelük veszít, a goblin támadása meglepetésnek minősül.
+    csupán sikeres Reflex-próbát kell dobniuk az ellenfél Érzékelés-próbája ellen. Ha ellenfelük veszít, a goblin támadása meglepetésnek minősül.
     Nem alkalmazható a képesség azokkal szemben, akikkel akár ő, akár egy fajtársa már sikeresen próbálkozott, továbbá olyan szituációkban, amikor az
     ellenfél eleve számít a támadásra.
 `
