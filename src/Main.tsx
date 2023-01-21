@@ -15,6 +15,7 @@ import { MpEditor } from './admin/MpEditor';
 import { EntitySelector } from './widgets/EntitySelector';
 import { EntityWidget } from './widgets/EntityWidget';
 import { useNavigate, useParams } from "react-router-dom";
+import { SzabalyEditor } from './admin/SzabalyEditor';
 
 export const Main: React.FC<{}> = () => {
 
@@ -72,6 +73,7 @@ export const Main: React.FC<{}> = () => {
             <li><VarázslatEditor /></li>
             <li><KpEditor /></li>
             <li><MpEditor /></li>
+            <li><SzabalyEditor /></li>
             <li><button onClick={() => setKarakterek({})}>Reset</button></li>
           </ul>
         </li>
