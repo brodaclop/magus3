@@ -890,6 +890,21 @@
     },
     {
         "fajta": "normal",
+        "id": "bard_figyelemeltereles",
+        "name": "Figyelemelterelés",
+        "mp": 2,
+        "idotartam": "1 kör",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bard_egyeb"
+        ],
+        "fok": 1,
+        "range": "5",
+        "save": "nincs",
+        "leiras": "A varázslat arra szolgál, hogy egy pillanatra elvonja a jelenlevők figyelmét a bárdról. Ennek számtalan módja lehetséges.\n\nA megkötés csupán az, hogy a hang nem lehet hosszabb 1 szegmensnél, az illúzió maga egy körnél, s a kép mérete nem lehet nagyobb egy embernél. A hatást a bárd választja ki. A varázslat kimondása után a körben még lehetősége nyílik cselekvésre, vagyis oly rövid idejét köti le, hogy ugyanazon kör-\nben még támadhat is. A kör lejártával viszont a Figyelemelterelés hatása is megszűnik.\n\nLehetséges például elterelni egy ork figyelmét azzal, hogy a szeme előtt sebesen elreppen egy\nrikoltó madár - a lehetőségek száma szinte végtelen."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_fokuszalt_feny",
         "name": "Fókuszált fény",
         "mp": 15,
@@ -2647,17 +2662,18 @@
     },
     {
         "fajta": "normal",
-        "id": "bard_figyelemeltereles",
-        "name": "Figyelemelterelés",
-        "mp": 2,
-        "idotartam": "1 kör",
-        "varazslasIdeje": "azonnali",
+        "id": "pap_kezratetel",
+        "name": "Kézrátétel",
+        "kategoriak": [
+            "egyedi_domvik"
+        ],
         "kepzettsegek": [
-            "magia:bard_egyeb"
+            "magia:pap_szfera_elet"
         ],
         "fok": 1,
-        "range": "5",
+        "mp": 6,
+        "range": "touch",
         "save": "nincs",
-        "leiras": "A varázslat arra szolgál, hogy egy pillanatra elvonja a jelenlevők figyelmét a bárdról. Ennek számtalan módja lehetséges.\n\nA megkötés csupán az, hogy a hang nem lehet hosszabb 1 szegmensnél, az illúzió maga egy körnél, s a kép mérete nem lehet nagyobb egy embernél. A hatást a bárd választja ki. A varázslat kimondása után a körben még lehetősége nyílik cselekvésre, vagyis oly rövid idejét köti le, hogy ugyanazon kör-\nben még támadhat is. A kör lejártával viszont a Figyelemelterelés hatása is megszűnik.\n\nLehetséges például elterelni egy ork figyelmét azzal, hogy a szeme előtt sebesen elreppen egy\nrikoltó madár - a lehetőségek száma szinte végtelen."
+        "leiras": "Domvik papjainak gyógyító hatalma közismert még az Északon élők között is. Ezzel a varázslattal sebeket, sérüléseket képesek eltüntetni. A közönséges [Gyógyítás](entity:pap_gyogyitas) varázslattól azonban több vonatkozásban is eltér. A mágia bárkit meggyó\ngyít, akit a pap arra érdemesnek tart, s nem kíván előzetesen [Áldást](entity:aldas) sem az alkalmazójától.\n\nMíg a pap egyik kezében szent jelképét tartja, másikat a sérült testrészre kell helyeznie, s\namennyiben hatalma elegendő rá, azt rendbe is hozza. Szúrt, vágott és zúzott sérülések egyaránt orvosolhatók így, - a hegek forradások nyomtalanul eltűnnek - ám vakságot, beteg-\nségeket képtelen gyógyítani.\n\nA pap ezzel a varázslattal E-nként 2 ÉP és 4 FP visszaadására képes. A varázslat viszont legfeljebb akkorára erősíthető, amennyi a pap szintje. Ugyanazt a sérülést nem lehet egymás után többszöri alkalmazással meggyógyítani."
     }
 ]

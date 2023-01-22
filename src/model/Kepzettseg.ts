@@ -182,49 +182,116 @@ const SZAZALEKOS_KEPZETTSEGEK: Array<SzazalekosKepzettseg> = [
         fajta: 'szazalekos',
         id: 'maszas',
         name: 'Mászás',
-        leiras: 'Tudsz mászni.',
+        leiras: `
+A Mászás képzettség a fák, falak megmászásában való különleges jártasságot jelenti. Azt, amikor a karakter fürgén és biztosan kúszik fel az átlagember számára megmászhatatlannak ítélt meredélyeken is. Az igazán gyakorlott falmászók hihetetlenül sima felületeken is képesek kapaszkodót, támaszt találni. Nem jelentenek számukra akadályt a várak, lakóházak falai, a függőleges, vagy akár kifelé dőlő sziklák sem.
+
+A Mászás képzettségben való Százalékos Jártasság értéke olyan falra, fára vonatkozik, melyet nagy szerencsével egy ügyes, de gyakorlatlan karakter is képes lenne megmászni.
+Ilyenkor módosító tényező mincs. Ha a fal nehezebben vagy könyebben lekűzhető, akkor a KM a karakter hátrányára vagy előnyére százalékot vonhat le vagy adhat hozzá a jártassághoz. Átlagos nehézségűnek minősül a függőleges, egymásra rakott dinnyényi kövekből halmozott várfal, ahol a kiálló kövek, és a repedések sűrű és könnyű kapaszkodót kínálnak.
+
+A Képzettségpróbát minden megtett 25 méter (avagy 3 perc tétlen kapaszkodás) után meg kell ismételni. Így egy 50 méter magas várfal lekűzdése két sikeres Képzettségpróbát is igényel.
+
+A Mászás képzettség leginkább a tolvajok sajátja, de sokan űzik ilyen vagy olyan - akár még az övéknél is magasabb - szinten.
+
+| Felület | Megtett távolság / kör | Képzettség módosító |
+|---------|------------------------|---------------------|
+|csúszós | 0.1 | -80 |
+|teljesen sima | 0.1 | -50 |
+|repedezett | 0.2 | -15 |
+|durva | 0.4 | 0 |
+|kiszögelléses | 0.5 | +5 |
+|ferde fal | 1 | +15 |
+|kötél | 1.5 | +40 |
+|fa| 2 | +30 |
+|csomózott mászókötél | 2.5 | +50 |
+
+Folyamatosan annyi percen át képes mászni a karakter, amennyi az Állóképessége. Aki mászik, kiszolgáltatott helyzetbe kerül. Ekkor a [Harc helyhez kötve](entity:szabaly_harci_helyzet) szabályai vonatkoznak rá.
+`,
     },
     {
         fajta: 'szazalekos',
         id: 'eses',
         name: 'Esés',
-        leiras: 'Tudsz esni.',
+        leiras: `
+A karakter ügyesen kigurulja, tompítja az eséseket. Ha nagyon magasról zuhan, érti a módját, hogy a keze ügyébe akadó rögzített tágyak segítségével hogyan fékezze, vagy akár állítsa meg a zuhanást.
+
+Az Esés képzettségből való előnyök kihasználásához a karakternek előbb sikeres Képzettségpróbát kell tennie. Az Esés avatatlan nagymesterei mindenképpen a harcművészek, ám a képzettség mindenki számára tanulható.
+
+Regéket mesélnek olyan hareművészekről, akik egy kútba zuhanva, a kövek összeillesztésénél keletkező résekbe bele-belekapaszkodva képesek voltak fékezni, sőt, kis idő múltán akár a falhoz tapadva meg is állítani az esést.
+
+A képzettség általános felhasználása azonban a harc során való esésekből származó ütések tompítása. Ez annyit tesz, hogy ha a karakter harc közben bármilyen okból felbukik, és képzettségpróbája sikeres, azonnal talpra szökkenhet, anélkül, hogy akár egy támadást is elveszítene.
+
+[Zuhanás](entity:szabaly_zuhanas) esetén a karakter megpróbálhatja fékezni vagy legalább tompítani az esést. Sikeres képzettségpróba esetén így felezheti a zuhanásból adódó sebzést, ám ha próbája több mint 50-nel sikerül, akkor teljesen sikerül megállitania az esést. (Ez utóbbi természetesen csak akkor érvényes, ha ilyesmi egyáltalán fizikailag lehetséges, ha a karakter közelében nincsenek tárgyak, amikbe belekapaszkodhatna, vagy más módon fékezze esését, úgy csak a tompításban bízhat.)
+        `,
     },
     {
         fajta: 'szazalekos',
         id: 'ugras',
         name: 'Ugrás',
-        leiras: 'Hopp!',
+        leiras: `
+A karakter ezen képzettség segítségével képes mindenféle akrobatikus manővereket végrehajtani, akár harc közben is. Sikeres képzettségpróba esetén pl. egy pillanat alatt el tud távolodni ellenfelétől, vagy épp mögé kerülhet anélkül, hogy annak esélye lenne kihasználni a helyzetet és közbetámadni.
+
+Szimpla távol- vagy magasugrásban annyira nem segít sokat, mivel az elsősorban a karakter erején múlik, bár a technika, amit ez a képzettség biztosít, olyan ugrásokat is lehetővé tesz, amelyek enélkül jó eséllyel sérüléssel végződnének. (Pl. távolugrás előreszaltóval, ami bizony hatékonyabb, mint a szimpla ugrás)
+        `,
     },
     {
         fajta: 'szazalekos',
         id: 'zarnyitas',
         name: 'Zárnyitás',
-        leiras: 'Szezám tárulj',
+        leiras: `
+Zárt ajtókkal, lakatokkal gyakran szembekerül a kalandozó - hiszen számtalanszor tér be mások  házába, kincseskamrájába meghívó nélkül. Az ajtók beszakítása, a lakatok leverése nem mindig  célravezető, mivel nemkívánatos zajjal jár. A zárakkal egyidős az álkulcsok alkalmazásának  tudománya.  
+
+A Zárnyitásban járatos karakter ismeri a zárak szerkezetét, működési mechanizmusát. Álkulcs  készlete - vagy jobb híján egy darab drót - segítségével csodákra képes. A sikeres zárnyitás esélyét  növelheti a professzionista felszerelés és csökkenti a zár bonyolultsága, összetettsége,  hozzáférhetetlensége, netán egyedisége.
+
+Ugyanezzel a képzettséggel lehet megkísérelni mechanikus csapdák elsütőszerkezetének hatástalanítását, vagy működésbe hozását.
+`,
     },
     {
         fajta: 'szazalekos',
         id: 'lopozas',
         name: 'Lopózás',
-        leiras: 'Lopótökkel való borkimérés',
+        leiras: `
+A Lopózás Képzettségben járatos karakter képes csendben haladni. Sem léptei, sem egyéb  mozdulatai nem vernek neszt. Minél képzettebb, annál "nehezebb" talajon teheti. Nagy segítségére  lehet ez az észrevétlen behatolásban, a meglepetésszerű támadásban. Mindezen túl a Képzettség  ismerete még a haladás közbeni rejtőzködés képességét is jelenti, mikor a lopózó kihasználja a  terep kínálta tárgyakat, azok takarásába, netán árnyékba húzódva közelíti meg célpontját.  
+
+A Lopózás mesterei a könnyűléptű elfek, valamint a tolvajok és a fejvadászok. Ők azok is, akiktől  a karakter a legmagasabb szinten sajátíthatja el a Képzettséget.  
+        `,
     },
     {
         fajta: 'szazalekos',
         id: 'rejtozes',
         name: 'Rejtőzés',
-        leiras: 'Aki bújt, aki nem',
+        leiras: `
+A Rejtőzés a félhomályban, vagy tárgyak takarásában való mozdulatlan meghúzódás tudományát jelenti. A képzett karakter képes felfedezni és kihasználni a fényviszonyok, az emberi gondolkodás  hiányosságai kínálta legalkalmasabb búvóhelyeket.  
+
+A Rejtőzés Képzettség a Lopózáshoz hasonlóan a tolvajok és fejvadászok sajátja, igazi mesterei képesek szinte egybeolvadni a tereptárgyakkal, akár még fényes nappal is.  
+        `,
     },
     {
         fajta: 'szazalekos',
         id: 'zsebmetszes',
         name: 'Zsebmetszes',
-        leiras: 'Átenszion pikpokecc',
+        leiras: `
+Ynev világán is akadnak emberek, akik mások pénzének elcsenéséből kívánnak meggazdagodni. A  tolvajláson és az erőszakos rabláson túl azonban akadnak jóval finomabb módszerek is. Ilyen a  Zsebmetszés. Általában tömegben, a kínálkozó alkalmat kihasználva űzik. A tolvaj belenyúl  áldozata zsebébe vagy erszényébe, netán felmetszi azt, és a benne található javakat a magáévá  teszi.  
+
+Ahhoz, hogy sikerrel járjon, Képzettségpróbát kell tennie. Természetesen léteznek bizonyos  könnyítő és nehezítő körülmények, melyekkel számolni kell - ez azonban a KM feladata és  jogköre. 
+
+De nem kell feltétlenül rosszra gondolni, ugyanezzel a képzettséggel meg lehet próbálkozni bármilyen, kézügyességet és figyelemelterelést kívánó manőverrel.
+        `,
     },
     {
         fajta: 'szazalekos',
         id: 'csapdafelfedezes',
         name: 'Csapdafelfedezés',
-        leiras: 'Kitaláltam egy újfajta csapdát',
+        leiras: `
+Az elrejtett csapdák felfedezése rendkívül hasznos tudomány. Sok kellemetlenségtől óvhatja meg a karaktert és társait. Természetesen a tevékenység nem tudatalatti, csak akkor alkalmazható, ha a  karakter előre szól. Nem is nevezhető gyorsnak, hiszen a gyanús terület aprólékos átvizsgálásából áll. De egy kalandozónak nemcsak csapdákra kell számítania egy idegen helyen.  
+
+Várakba, kastélyokba, de olykor még városi házakba is építenek olyan titkos folyosókat, melyek létéről, bejáratáról a ház urának és bizalmasainak kivételével senki sem tud. A lakók, ha bajba kerülnek, ezeken észrevétlenül elhagyhatják az épületet, vagy meghúzódhatnak a rejtett helyiségekben. Gyakran efféle folyosók vezetnek a kincseskamrákba, a titkos laboratóriumokba vagy földalatti tanácskozó termekbe. Ugyanide soroljuk még a falakba nyíló titkos kamrákat és fülkéket, a padlódeszkák alatt vagy a mennyezetet borító rozetták mögött meghúzódó rekeszeket.
+
+A Csapdakeresésben járatos karakternek esélye van arra, hogy meglelje a csapdákat, a rejtett helyiségek bejáratát, ha létüket sejti, de pontos helyükről nem tud. A képesség gyakorlásához a legtöbb esetben a karakternek be kell jelentenie kutatási szándékát. Ilyenkor a falat kopogtatja döngő szakaszokat keresve, rések, repedések után vizsgálódik, vizsgálja a padlót esetleges csapdabeindító mechanizmusok után kutatva, stb. A Képzettségpróbán pozitívan befolyásolja, ha a karakter megmondja, pontosan mit és hol keres. Minél pontosabb meghatározást ad a keresés mikéntjéről, annál nagyobb az esélye a sikerre - persze csak abban az esetben, ha a csapda, vagy a titkos bejárat valóban a gyanúnak megfelelő természetű. A siker esélye annál kisebb, minél jobban álcázták a csapdát vagy titkosajtót, minél szokatlanabb módon helyezték el.
+
+Bizonyos esetekben akkor is adódik lehetőség egy titkosajtó észlelésére, ha a karakter nem jelenti be kutatási szándékát. Ilyenkor persze nem magát az ajtót leli meg, csak gyanúja támad létéről. Például indokolatlan huzatot érezhet, szemet szúrhatnak neki bizonyos jellegezetes építészeti megoldások. Ez a jelenség elvileg előfordulhat csapdák esetében is, de gyakoribb az, hogy a csapdát csak akkor észlelik a gyanútlan halandók, ha már működésbe lépett. Ha az adott helyiségben ilyesmi előfordul, a KM titokban Képzettségpróbát dob a karakter helyett, s csak akkor szól neki, ha a próba sikeres. Ilyen esetekben még a karakternek is dobnia kell, ha meg is kívánja lelni az ajtót ñ esetleg némi pozitív módosítóval.  
+
+A csapda vagy titkosajtó felfedezése nem egyenlő kinyitásával. A megtalált csapdát még hatástalanítani kell. A titkos ajtóknál olykor egyszerű retesz, zár, netán ravasz mechanizmus gondoskodik a túloldali helyiség biztonságáról. Ha a zár nem nyitható néhány egyszerű mozdulattal, ha a karakter nem rendelkezik a beleillő kulccsal, vagy a mechanizmus  működtetéséhez szükséges ismerettel, akkor a Zárnyitás Képzettség alkalmazandó, de esetenként a fejsze is hasznos lehet.
+`,
     },
 ];
 

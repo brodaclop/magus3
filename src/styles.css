@@ -4,19 +4,19 @@
     margin: 0.5em;
 }
 
-table.bordered tbody:not(.unstriped) tr:nth-child(odd) {
+table.bordered>tbody:not(.unstriped)>tr:nth-child(odd) {
     background-color: #d3d8db;
 }
 
-table.bordered tbody+tbody {
+table.bordered>tbody+tbody {
     border-top: 2px solid black;
 }
 
-table.bordered thead {
+table.bordered>thead {
     text-align: center;
 }
 
-table.bordered tbody th {
+table.bordered>tbody>tr>th {
     text-align: left;
     border-right: 1px solid black;
 }
@@ -67,4 +67,30 @@ ul.simpleList li {
 
 .entity-selector {
     width: 30rem;
+}
+
+.markdown table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0.5rem;
+    margin: 0.5em;
+}
+
+.markdown table>tbody>tr:nth-child(even) {
+    background-color: #d3d8db;
+}
+
+.markdown table>tbody>tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.markdown table>thead>tr {
+    background-color: #fff;
+    border-bottom: 1px ridge #ccc;
+}
+
+.markdown table>thead>tr>th,
+.markdown table>tbody>tr>td {
+    text-align: left;
+    padding-right: 0.2rem;
 }
