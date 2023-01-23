@@ -121,7 +121,14 @@ Azoknál a varázslatoknál, ahol felfedezési esély szerepel, a varázslók 30
         name: 'Egyéb bárd',
         kepesseg: 'empatia',
         leiras: `Az egyéb mágiák csoportjába azok a varázslatok kerültek, melyek alapvetően nem tartoztak a bárdok eszköztárába - ki tudja, hogy e csavaros eszű, gyakorta görbe utakon járó fickók miképpen jutottak birtokukba.`
+    },
+    {
+        id: 'magia:tv_alapveto_tuzmagia',
+        name: 'Alapvető tűzmágia',
+        kepesseg: 'emlekezet',
+        leiras: `Az alábbi varázslatokat az ordani tűzvarázsló iskola alapvető jellegűnek tekinti. Ahogy a tűzvarázslók mondják, ez az első lecke, melyet minden novíciusnak el kell sajátítania, ha felvételt kíván nyerni a rendbe. Aki ezen alapvető tűzvarázslatok végrehajtására képes, már igazi beavatottnak tekintheti magát - ha nem is a legkülönbek közül valónak.`
     }
+
 ] as const;
 
 export const Mentodobasok = [

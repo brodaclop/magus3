@@ -1238,6 +1238,36 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_idozitett_langteremtes",
+        "name": "Időzített lángteremtés",
+        "mp": 15,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 2,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Hatása a legapróbb részletekig megegyezik a [Lángteremtés](entity:tv_langteremtes) varázslattal. A különbség pusztán annyi, hogy a lángnyelv nem azonnal, hanem a tűzvarázsló által előre meghatározott időpillanatban jön létre. Az időtartam - melyen ennek belül\nkell esnie - az örökkévalóság.\n\nMiután a tűzvarázsló befejezte a varázslást, 1 kör áll rendelkezésére, hogy megjelölje a pontot, ahol a lángnyelv majdan fellobban. Bal kezének hüvelykujját kell az adott helyhez\nhozzáérintenie - annak lenyomataként egészen apró varázsjel keletkezik. Ha ezt a jelet eltörlik, vagy vonalait megszakítják, a varázslat idő előtt - azonnal - aktivizálódik (vagyis a\nlángnyelv fellobban).\n\nA varázslat nem erősíthető."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_idozitett_tuzteremtes",
+        "name": "Időzített tűzteremtés",
+        "mp": 22,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "2 perc",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varázslat mindenben hasonlít a [Tűzteremtésre](entity:tv_tuzteremtes). A különbség az, hogy az [Időzített lángteremtés](entity:tv_idozitett_langteremtes) varázslathoz haSonlóan a varázsló megjelölheti az időpontot, amikor a varázslat aktivizálódik, és a tűz felcsap.\n\nA helyet - éppúgy, mint a már említett varázslatnál - a bal hüvelykujjának érintése nyomán keletkező varázsjellel kell jelölnie.\n\nA varázslat nem erősíthető."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_igaz_szo",
         "name": "Igaz szó",
         "kategoriak": [
@@ -1319,6 +1349,21 @@
         "save": "asztral",
         "range": "15",
         "leiras": "A pap varázslata szörnyű, felvillanó látomást hoz létre a kiválasztott lény elméjében. A látomás nem más, mint önnön halálának rövid, döbbenetes hatású képsora. A halál okát a pap választhatja meg, s ő vázolhatja fel a képsor egyes részeit is. A képsor mindenképpen látható lesz, a [Mágiaellenállás](entity:szabaly_magiaellenallas) az érzelmi hatás ellen szól. A képsor 15-20 percnyi történetet sűrít 2 szegmensnyi időbe, s ebbe koncentrálja a benne testet öltött szenvedést is, melynek vége minden esetben halál. Az áldozat a sokktól különféle károsodásokat szenvedhet, ezeket k100 segítségével kell meghatározni:\n\n|Dobás|Hatás|\n|1-23 | Az áldozat 4 órás kómába esik |\n|24-43| Az áldozat nem tud együtt élni a látottakkal, s tudata meghasad. Egyik fele meghal, személyiségének másik fele tovább él|\n|44-59| Az áldozat habzó szájjal áll 2k10 körön át, védekezni is képtelen |\n|60-74| Az áldozat valódi holttestnek képzeli magát, s nem hajlandó megmozdulni, míg be nem bizonyítják neki, hogy életben van |\n|75-94| Az áldozat félelmében menekülni kezd, minél távolabb igyekszik kerülni a paptól |\n|95-00| Az áldozat idegrendszere teljesen felmondja a szolgálatot, a célpont meghal |\n\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_into_tuz",
+        "name": "Intő tűz",
+        "mp": 7,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat befejeztekor a tűzvarázsló a zónáján belül eső területen tízszer annyi pontot jelölhet meg, mint amennyi a Tapasztalati Szintje. Ezen pontok mindegyikén a [Lángteremtés](entity:tv_langteremtes) varázslatnál már leírt lángnyelv lobban.\n\nA varázslat nem erősíthető."
     },
     {
         "fajta": "normal",
@@ -1483,6 +1528,22 @@
     },
     {
         "fajta": "normal",
+        "id": "pap_kezratetel",
+        "name": "Kézrátétel",
+        "kategoriak": [
+            "egyedi_domvik"
+        ],
+        "kepzettsegek": [
+            "magia:pap_szfera_elet"
+        ],
+        "fok": 1,
+        "mp": 6,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Domvik papjainak gyógyító hatalma közismert még az Északon élők között is. Ezzel a varázslattal sebeket, sérüléseket képesek eltüntetni. A közönséges [Gyógyítás](entity:pap_gyogyitas) varázslattól azonban több vonatkozásban is eltér. A mágia bárkit meggyó\ngyít, akit a pap arra érdemesnek tart, s nem kíván előzetesen [Áldást](entity:aldas) sem az alkalmazójától.\n\nMíg a pap egyik kezében szent jelképét tartja, másikat a sérült testrészre kell helyeznie, s\namennyiben hatalma elegendő rá, azt rendbe is hozza. Szúrt, vágott és zúzott sérülések egyaránt orvosolhatók így, - a hegek forradások nyomtalanul eltűnnek - ám vakságot, beteg-\nségeket képtelen gyógyítani.\n\nA pap ezzel a varázslattal E-nként 2 ÉP és 4 FP visszaadására képes. A varázslat viszont legfeljebb akkorára erősíthető, amennyi a pap szintje. Ugyanazt a sérülést nem lehet egymás után többszöri alkalmazással meggyógyítani."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_kinok_dala",
         "name": "Kínok dala",
         "mp": 5,
@@ -1529,6 +1590,20 @@
         "range": "self",
         "save": "nincs",
         "leiras": "A varázslat hatására a bárd körvonalai elmosódnak, ez jelentősen megzavarja ellenfeleit. Minden ellene irányzott támadás, ha azt kézi fegyverrel hajtják végre, 15-tel, ha dobó- vagy lőfegyverrel, 30-cal csökken."
+    },
+    {
+        "id": "tv_langteremtes",
+        "name": "Lángteremtés",
+        "mp": 1,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a tűzvarázsló apró lángnyelvet teremt, mely képes meggyújtani az éghető tárgyakat. A lángnyelv - őselemi tűzről lévén szó - tápláló anyagok híján is ég, ám mint az eddigiekből kiderült, komolyan el is harapódzhat.\n\nIlyenkor a tűz azután is megmarad, hogy a varázslat időtartama lejár és a teremtett lángnyelv eltűnik.\n\nA helyet, ahol a lángnyelv fellobban, a tűzvarázsló határozhatja meg, ám belül kell esnie a zónáján.\n\nA varázslat nem erősíthető."
     },
     {
         "id": "bard_lathatatlansag",
@@ -1873,6 +1948,21 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A pap képes a hatótávolságon belül egy 9 méter sugarú területet - amennyiben nem valamely más vallás felszentelt helyéről van szó - őrző aurával ellátni. Amíg a varázslat kifejti hatását, a pap értesül a közeledő lényekről, amint azok elérik az **Őrző aura** határát. Ha valaki támadó vagy gonosz szándékkal közelít, a varázslat megtesz mindent, hogy megnehezítse előrejutását. Hogy ezt pontosan miképpen teszi, a KM-mel kell megbeszélni. Például: a behatoló megbotlik egy ágban, vagy egy fűben rejtőző kőben, netán nem vesz észre egy gödröt - mindezt a helyszín és helyzet határozza meg.\n\naZ **Őrző aurát** nem tudja kijátszani semmiféle láthatatlanság-varázs, sem a pszi [Érzékelhetetlenség](entity:erzekelhetetlenseg) vagy [Jelentéktelenség](entity:jelentektelenseg) diszciplinája.\n\nA hatótávolságon belül csak olyan idegen - nem a pap, illetve kompániájához tartozó - személy által végrehajtott mágia jöhet létre, amelynek erőssége meghaladja az **Őrző aura** erősségét.\n\nAz aura megszüntethető egy magasabb erősségű [Mágia szétoszlatás](entity:pap_magia_szetoszlatasa)sal, ám szertefoszlása előtt figyelmezteti a varázslatot létrehozó papot.\n\nAz MP-k többszörösével a terület nagysága nem növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_ostuz_eszlelese",
+        "name": "Őstűz észlelése",
+        "mp": 3,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló a varázslat segítségével meg tudja állapítáni, hogy a zónájában összesen hány E Őstűz van jelen. Ez vonatkozik a tűz leplezett formájára is."
     },
     {
         "fajta": "normal",
@@ -2318,6 +2408,81 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuz_eszlelese",
+        "name": "Tűz észlelése",
+        "mp": 4,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló a zónájában az adott pillanatban egyidejűleg jelenlévő leplezett és leplezetlen Őstűz és természetes tűz összesített E-jét tudhatja meg."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuz_teleportalasa",
+        "name": "Tűz teleportálása",
+        "mp": 6,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló képes a Őstűz teleportálására a zónáján belül. Csak az egész tüzet lehet teleportálni, részleteit nem. Ha a teleportálás E-je alacsonyabb, mint amennyi E a\ntűz erőssége, akkor a varázslat nem jön létre. Ha több a teleport E-je, mint a teleportálandó tűz E-je, akkor a többlet Mp-k elvesznek.\n\nIdőtartam, formázás tekintetében a teleportált tűz a mérvadó."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzelemzes",
+        "name": "Tűzelemzés",
+        "mp": 8,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló a varázslat segítségével egy, a zónáján belül lévő tűzvarázslatról szerezhet információkat: megtudhatja E-jét és időtartamát. Ha a tüzet nem őselemi mágia hozta létre, hanem természetes, akkor a varázslat ezt is felfedi a tűzvarázsló előtt, és a tűz E-jéről tájékoztatja. Természetes tüzek addig égnek, amíg van, ami táplálja őket."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuztancoltatas",
+        "name": "Tűztáncoltatás",
+        "mp": 8,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslás befejeztével a tűzvarázsló a zónáján belül eső területen képes lesz minden természetes tüzet befolyásolni. (Természetesnek minősül az olyan tűz, melynek lángjait gyú-\nlékony anyagok táplálják és nem őselemi elvek alapján lobog - azaz semmilyen varázslattal létrehozott tűz nem tekinthető természetesnek; míg az ennek nyomán elharapózó, éghető\nanyagok táplálta lángok már igen!)\n\nA befolyásolás annyit tesz, hogy a tűzvarázsló a lángokat eredeti méretük felére csökkentheti vagy kétszeresükre nyújthatja, mitöbb, meghatározhatja a tűz továbbterjedésének irányát is. Ennek sebessége körönként 1 méter."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzteremtes",
+        "name": "Tűzteremtés",
+        "mp": 3,
+        "idotartam": "1 perc",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A Varázslat sokban hasonlít a [Lángteremtés](entity:tv_langteremtes) nevű varázslathoz. A különbség az, hogy itt a tűzvarázsló nem apró lángnyelvet, hanem egy tábortűz méretű mágja lángját teremti meg. Az éghető anyagok nyomban meggyulladnak, és a környékén komoly hőhatás is érzékelhető, a tűz sebzése 1k6.\n\nA varázslat nem erősíthető."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_uresseg",
         "name": "Üresség",
         "fok": 4,
@@ -2659,21 +2824,5 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
-    },
-    {
-        "fajta": "normal",
-        "id": "pap_kezratetel",
-        "name": "Kézrátétel",
-        "kategoriak": [
-            "egyedi_domvik"
-        ],
-        "kepzettsegek": [
-            "magia:pap_szfera_elet"
-        ],
-        "fok": 1,
-        "mp": 6,
-        "range": "touch",
-        "save": "nincs",
-        "leiras": "Domvik papjainak gyógyító hatalma közismert még az Északon élők között is. Ezzel a varázslattal sebeket, sérüléseket képesek eltüntetni. A közönséges [Gyógyítás](entity:pap_gyogyitas) varázslattól azonban több vonatkozásban is eltér. A mágia bárkit meggyó\ngyít, akit a pap arra érdemesnek tart, s nem kíván előzetesen [Áldást](entity:aldas) sem az alkalmazójától.\n\nMíg a pap egyik kezében szent jelképét tartja, másikat a sérült testrészre kell helyeznie, s\namennyiben hatalma elegendő rá, azt rendbe is hozza. Szúrt, vágott és zúzott sérülések egyaránt orvosolhatók így, - a hegek forradások nyomtalanul eltűnnek - ám vakságot, beteg-\nségeket képtelen gyógyítani.\n\nA pap ezzel a varázslattal E-nként 2 ÉP és 4 FP visszaadására képes. A varázslat viszont legfeljebb akkorára erősíthető, amennyi a pap szintje. Ugyanazt a sérülést nem lehet egymás után többszöri alkalmazással meggyógyítani."
     }
 ]
