@@ -1592,6 +1592,21 @@
         "leiras": "A varázslat hatására a bárd körvonalai elmosódnak, ez jelentősen megzavarja ellenfeleit. Minden ellene irányzott támadás, ha azt kézi fegyverrel hajtják végre, 15-tel, ha dobó- vagy lőfegyverrel, 30-cal csökken."
     },
     {
+        "fajta": "normal",
+        "id": "tv_langszoras",
+        "name": "Lángszórás",
+        "mp": 12,
+        "idotartam": "5 kör",
+        "ke": 10,
+        "leiras": "A tűzvarázsló ujjaiból legyező alakban (max: 60 fokos szögben) tűzsugarak törnek elő. Ezek 10 méter távolságra jutnak el, és mindenkinek, akit érnek, k6 sebet okoznak, az éghető anyagokat pedig lángra lobbantják. Ha csak a tűzvarázsló nem kívánja hamarabb beszüntetni a Lángszórást, az 5 körig tart. A lángok útjából legfeljebb sikeres Ugrás-próbával lehet sértetlenül kijutni.\n\nTermészetesen mind az erősség (E), mind a sebzés (Sp) növelhető; ellenben a távolság és a csóva szélessége nem.",
+        "fok": 3,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "range": "self",
+        "save": "nincs"
+    },
+    {
         "id": "tv_langteremtes",
         "name": "Lángteremtés",
         "mp": 1,
@@ -2089,6 +2104,50 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_sarkanybor",
+        "name": "Sárkánybőr",
+        "mp": 18,
+        "idotartam": "15 perc",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Akin a tűzvarázsló a varázslatot végrehajtja, az időtartam lejártáig képes lesz ellenállni az elemi és közönséges tüzeknek, illetve a hőhatásoknak. Ez a varázslat 1E-jéért 1E tűz semlegesítését jelenti.\n\nA védelemnek feszülő varázslatok és tüzek ném gyengülnek le, csak a varázslat védettjére hatnak gyengében. A védelem mindenre kiterjed, ami a Személyes Aurához tartozik, mivel a varázs azt módosítja. Ha a tűzvarázsló magára alkalmazza, úgy különleges képességei (Tűzelnyelés, Tűzelvonás) zavartalanul működnek, tehát a tüzek eredeti erősségének megfelelően. A sebzést elöbb a varázslat csökkenti, a különleges képességek védelme csak eztán vonandó le - vagyis a védelmek\nösszeadódnak.\n\nA varázslat bárkin végrehajtható, aki a Zónán belül tartózkodik, ám egyszerre csak egyetlen személyen."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_sarkanykiraly_bore",
+        "name": "Sárkánykirály bőre",
+        "mp": 80,
+        "idotartam": "15 perc",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Hasonló Sárkánybőr varázslathoz, de jelen esetben a varázslat alanya teljesen sebezhetetlenné válik a tűz és a hő minden megjelenési formájával szemben - legyenek azok bármekkora erősségűek (E). Ha a tűzvarázsló magán alkalmazza, úgy a Tűzelnyelés és a Tűzelvonás különleges képességeit a varázslat időtartama alatt nem tudja használni. Ekkor csak a hagyományos ordani módszerrel és a Tűzgyűjtéssel kísérletezhet.\n"
+    },
+    {
+        "id": "tv_szalamandrabor",
+        "name": "Szalamandrabőr",
+        "mp": 10,
+        "idotartam": "1 perc",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Akin a tűzvarázsló e varázslatot végrehajtja, az az időtartam lejártáig képes lesz ellenállni a hőhatásoknak. Ez a varázslat E-jénként 100 celsius fokos hőséget jelent. Vagyis: 1E 100 fokot, 2E 200-at és így tovább. Továbbá a varázslat minden E-je 5-ös Sebzés Felfogó Értéket ad a tűzhatások sebzésével szemben. 1E-nél 5 SFÉ, 2E-nél 10 stb.\n\nA tűzvarázsló a varázslatot bárkin végrehajthatja, aki a zónáján belül tartózkodik, ám egyszerre csak egyetlen személyen. Az illető felszerelése, ruhái és egyébb tárgyai nem élvezik a védelmet. Ha saját magán hajtja végre, különleges képességei (Tűzelnyelés, Tűzelvonás) zavartalanul működnek."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_szemelyes_varazs",
         "name": "Személyes varázs",
         "mp": 3,
@@ -2438,6 +2497,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzaura",
+        "name": "Tűzaura",
+        "mp": 5,
+        "idotartam": "2 kör",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat befejeztekor a tűzvarázslót - vagy azt a kizárólag egyetlen egy, zónáján belül tartózkodó személyt, akit meghatároz - Tűzaura veszi körül. Ez úgy hat, mint valami lángokból álló vértezet: beborítja, védelmezi az illetőt. Testétől mintegy tíz centiméteres távolságra lobog, védettjét a mozgásban és a látásban egyáltalán nem akadályozza, és nem is sebzi; mi több, a ruháit, tárgyait sem lobbantja lángra; befelé semmilyen hőhatást nem fejt ki. Ellenben azoknak, akik az aura védettjét megérinteni, puszta kézzel megütni szándékoznak - vagyis az aurán átnyúlni kívánnak - égési sebet okoz, valamint a kivülről behatoló éghető anyagokat lángra lobbantja. Ez a sebzés\nminden benyúlási kísérlet esetén k6. Lehet súlyosabb is, de ehhez a tűzvarázslónak - több Mp feláldozásával - fokoznia kell a varázslat erősségét (E) (a [Tűznyílnál](entity:tv_tuznyil) leírtakhoz hasonlóan).\n\nA Tűzaura 2 körig véd, azután eloszlik.\n\nA varázslat védelmet nyújt az őselemi víz alapú mágiák ellen."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzelemzes",
         "name": "Tűzelemzés",
         "mp": 8,
@@ -2450,6 +2524,139 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A tűzvarázsló a varázslat segítségével egy, a zónáján belül lévő tűzvarázslatról szerezhet információkat: megtudhatja E-jét és időtartamát. Ha a tüzet nem őselemi mágia hozta létre, hanem természetes, akkor a varázslat ezt is felfedi a tűzvarázsló előtt, és a tűz E-jéről tájékoztatja. Természetes tüzek addig égnek, amíg van, ami táplálja őket."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzfal",
+        "name": "Tűzfal",
+        "mp": 15,
+        "idotartam": "1 perc",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "E varázslattal a tűzvarázsló a zónáján belül létrehozhat egy fél láb vastag, 5 méter sugarú, félkör alakú, függőleges Tűzfalat - ami valójában egy félbevágott, függőleges [Tűzszőnyeg](entity:tv_tuzszonyeg). Alsó vonala követi a terep egyenetlenségeit.\n\nA Tűzfal lángra lobbant minden éghető anyagot, ami belekerül, és 2k6 sebet okoz azoknak, akik rajta keresztülhatolni kívánnak. (Azért 2k6-ot, mert nagyobb felületen éri a tűz az áldozatok testét, éppúgy, mintha a Tűzszőnyegbe feküdnének.)\n\nHa a tűzvarázsló - több Mp belefektetésével - fokozza a Tűzfal erősségét, annak sebzése is növekszik - hasonlóan a Tűzszőnyegnél leírtakhoz.\n\nA Tűzfal 6 körig áll, azután eltűnik, ám ha akadt éghető anyag az érintett területen, az továbbra is lángolni fog."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzgolyo",
+        "name": "Tűzgolyó",
+        "mp": 10,
+        "fok": 3,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "ke": 0,
+        "idotartam": "3 kör",
+        "leiras": "A varázslat elkészültekor 1 méter átmérőjú tűzgolyó jön létre a tűzvarázsló zónáján belül eső, tetszés szerinti ponton. A tűzvarázsló a zónáján belül az időtartam lejártáig tetszés szerint mozgathatja a golyót, mely körönként 20 lépésnyi távolságot képes megtenni. Belsejében iszonyú forróság uralkodik - akit megérint, k6 sebet kap. Ha az áldozatok félreugrani igyekszenek a tűzgolyó útjából, sikeres Reflex próbát kell tenniük, hogy elkerülhessék. Ezt azonban csak akkor tehetik, ha közelharcban lemondanak a támadásukról.\n\nUgyanez igaz viszont a tűzvarázslóra is: a golyó mozgatása koncentrációt igényel, ami mellett legfeljebb védekező harc folytatható.\n\nTermészetesen további Mp-ok feláldozásával a varázslat erőssége (E) és vele a sebzése (Sp) is fokozható.",
+        "range": "20",
+        "save": "nincs"
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzgyuru",
+        "name": "Tűzgyűrű",
+        "mp": 8,
+        "idotartam": "10 kör",
+        "ke": -10,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 5,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat létrejöttekor 3 méter átmérőjű tűzgyűrű keletkecik a tűzvarázsló körül, melynek lángnyelvei maximum húsz centiméter magasak. Mikor bárki vagy bármi áthatolni kíván a gyűrűn, a tűz felcsap és lángba borítja a behatolót. Az éghető anyagok nyomban meggyulladnak, az élőlények kó se-\nbet szenvednek el. A gyűrű jelentette fenyegetés az időtartam végéig fennáll.\n\nA gyűrű együtt mozog a tűzvarázslóval.\n\nTermészetesen a tűzvarázsló további Mp-ok feláldozásával növelheti a varázslat erősségét (E), így a felcsapó lángnyelvek égető hatását is fokozhatja."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzhenger",
+        "name": "Tűzhenger",
+        "mp": 8,
+        "idotartam": "1 perc",
+        "ke": -10,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 4,
+        "leiras": "A varázslat hatására a tűzvarázsló zónáján belül - bárhol - egy 3 méter hosszú, 1 méter magas tűzhenger keletkezik, s gurulni kezd. Haladásának iránya nem befolyásolható, az kizárólag a domborzati viszonyoktól függ. A henger 6 kör múltán magától eltűnik, de amerre elhaladt, az éghető-anyagok lángra kapnak - így a tűz könnyen elharapózhat. Akit a tűzhenger elér, az k6 Sp égési sebet szenved el, és tetszés szerint Izom vagy Reflexpróbára jogosult. Ha ezt elvéti, a henger legázolja és áthalad felette - ami újabb, ezúttal dupla (2kó Sp) sebzést jelent.\n\nA tűzhengert átugrani vagy előre félrevetődni sikeres Ugrás-próbával lehetséges.\n\nA varázslat erőssége (E) és sebzése (Sp) további Mp-ok feláldozásával növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzkard",
+        "name": "Tűzkard",
+        "mp": 5,
+        "idotartam": "5 kör",
+        "ke": 10,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslattal a tűzvarázsló lángokkal övezheti egy tetszés szerinti formájú, egykezes kard pengéjét. A tűz körülöleli a pengét - akár a [Tűzaura](entity:tv_tuzaura) az embert -, és a fegyver sebzésén túl égési sebeket okoz, valamint lángra lobbantja a gyúlékony anyagokat, melyeket megérint.\n\nA Tűzkardot a markolatánál bárki megfoghatja és forgathatja; a harc során éppúgy viselkedik, akár egy hétköznapi fegyver: támadni szükséges vele, s éppúgy használható védekezésre is - a Harcrendszer szabályai szerint. Sebzés csak sikeres támadás esetén éri az áldozatot: a kard eredeti sebzésén túl további k6 Sp. A sebzés mindig Fp, ugyanakkor nem szabad elfeledkezni a [kötelező ÉP-vesztésről](entity:szabaly_kotelezo_ep_vesztes) sem.\n\nA kard KÉ-je, TÉ-je, VÉ-je a varázslat hatására nem változik; a sebzést a tűzvarázsló növelheti, ha növeli a varázslat erősségét (E). Ez természetesen további Mp-okba kerül (hasonló módon, mint a [Tűznyílnál](entity:tv_tuznyil)).\n\nA lángok a penge körül 5 körig vannak jelen, aztán nyomtalanul eltűnnek, miáltal a kard visszaalakul a korábbi közönséges fegyverré."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzkitores",
+        "name": "Tűzkitörés",
+        "mp": 5,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló a zónáján belül eső területen meghatározhat egy tetszés szerinti pontot, amely robbanás epicentrumaként fog szólgálni. A robbanás mindazoknak, akik a középpont 1 méteres körzetén belül tartózkodnak, kó sebet fog okozni: Ha a tűzvarázsló a tűzkitörést - több Mp felhasználásával\n- nagyobb erősséggel hozza létre, akkor ez a sebzés növekszik (hasonlóan a [Tűznyíl](entity:tv_tuznyil) varázslathoz).\n\nIlyenkor már a távolabb állók is részesülnek a hatásából - minél távolabb tartózkodnak, annál kevésbé. A sebzés az epicentrumtól távolodva lépésenként k6-tal csökken - a maximumhoz képest."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuznyil",
+        "name": "Tűznyíl",
+        "mp": 5,
+        "idotartam": "azonnali",
+        "ke": 10,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló bal kezének mutatóujjából tűznyíl csap elő. Ezzel akkor találja el ellenfelét, ha sikeres célzást dob (lásd **Harc - Célzás!**). A tűznyíl CÉ-je +30, sebzése pedig k6. (Az **íjász szabály** viszont itt nem érvényesül.)\n\nA tűzvarázsló képes arra, hogy több Mp felhasználásával nagyobb erejű tűznyilat lőjön ki. Dupla Mp-ért dupla olyan erős (E—2), kétszeres sebzésü (2k6) nyilat használhat, és így tovább."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzszonyeg",
+        "name": "Tűzszőnyeg",
+        "mp": 15,
+        "idotartam": "3 kör",
+        "ke": -10,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslattal a tűzvarázsló egy 5 méter sugarú körben fél méter magas tűzszőnyeget hoz létre. Ezt úgy a legegyszerűbb elképzelni, mint egy hosszú szárú fűvel benőtt területet - csakhogy a fűszálak itt lobogó lángnyelvek. Mindazok, akik ebbe belekerülnek vagy belelépnek, körönként k6 sebet szenvednek. Nagyobb testű állatok vagy fekvő emberek ennek dupláját, 2k6-nyit. Minden éghető anyag, melyet a szőnyeg lángnyelvei érnek, tüzet fog.\n\nA tűzvarázsló képes növelni a tűzszőnyeg erejét (E) és sebzését, ha több Mp-ot áldoz rá.\n\nA Tűzszőnyeg 3 körig lobog, aztán eltűnik. Ez persze nem jelenti azt, hogy amennyiben a területen akadt éghető anyag, ami a tüzet táplálja - immár természetes tűzként ne loboghatna továbbra is."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuztagadas",
+        "name": "Tűztagadás",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "mp": 45,
+        "fok": 4,
+        "varazslasIdeje": "1 kör",
+        "idotartam": "1 perc",
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Akin e varázslatot a tűzvarázsló végrehajtja, az - az időtartam alatt - képes elviselni bármekkora hőséget, és bántatlanul tartózkodhat akár a legégetőbb lángpokol közepén is: 4\ntűz sem fájdalmat, sem sérülést nem okoz neki. A varázslat tökéletes védelmet nyújt minden tűzvarázslat, és más varázslókasztok összes tűzzel vagy hővel sebző varázslataival szemben is.\n\nA tűzvarázsló a varázslatot bárkin végrehajthatja, aki a zónáján belül tartózkodik, ám egyszerre csak egyetlen személyen. Az illető felszerelése, ruhái és egyébb tárgyai nem élvezik a varázslat nyujtotta védelmet. Ha saját magán hajtja végre, a mana visszanyerésére szolgáló módszerei közül csak az ordani metódus működik."
     },
     {
         "fajta": "normal",
@@ -2480,6 +2687,21 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A Varázslat sokban hasonlít a [Lángteremtés](entity:tv_langteremtes) nevű varázslathoz. A különbség az, hogy itt a tűzvarázsló nem apró lángnyelvet, hanem egy tábortűz méretű mágja lángját teremti meg. Az éghető anyagok nyomban meggyulladnak, és a környékén komoly hőhatás is érzékelhető, a tűz sebzése 1k6.\n\nA varázslat nem erősíthető."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzzapor",
+        "name": "Tűzzápor",
+        "mp": 8,
+        "idotartam": "3 kör",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat hatására a tűzvarázsló zónáján belül a levegőben (max 20 méter magasan) lángfellegek jelennek meg, melyekből 3 körön keresztül tűzzápor hull a földre. Az érintett terület 5 méter sugarú kör. Mindenki, aki ezen belül tartózkodik, körönként k6 Sp sebpontot veszít - a vértek SFÉ tényezője azonban ilyenkor is érvényesül.\n\nTermészetesen ha a tűzvarázsló több Mp-ot áldoz, az eső is hevesebb lesz.\n\nAz eső hatósugarából időben elmenekülni csak annak van esélye, aki sikeres Ugrás-próbát tesz."
     },
     {
         "fajta": "normal",
@@ -2824,5 +3046,20 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzhullam",
+        "name": "Tűzhullám",
+        "mp": 15,
+        "idotartam": "5 kör",
+        "ke": -30,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 5,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat létrejöttekor gyűrű alakban egyre erősebb lánghullámok indulnak útnak a középpontban álló tűzvarázsló felől, egészen zónájának határáig (20 méter). A hullámok 1 kör alatt megteszik ezt a távolságot, és minden útjukba eső éghető anyagot lángra lobbantanak. Minden körben egy-egy új hullám születik, az első k6 Sp sebet okoz azoknak akiket elér, a második 2k6-ot, a harmadik 3k6-ot, és így tovább, az időtartam végeztéig.\n\nHa a tűzvarázsló további Mp-ok felhasználásával növeli a varázslat erősségét, az első hullám sebzése növekszik 2, 3, 4 vagy akárhány k6-ra, míg az ezt követőek mindig újabb és újabb 1k6 Sp-vel lesznek fájdalmasabbak."
     }
 ]

@@ -1,53 +1,115 @@
 [
     {
-        "id": "Harcos",
-        "name": "Harcos",
+        "id": "adron_pap",
+        "name": "Adron pap",
+        "fokaszt": "Pap",
         "kepessegDobas": {
-            "Fizikum": "Jó",
-            "Ügyesség": "Jó",
-            "Mentál": "Átlagos",
-            "Asztrál": "Átlagos"
+            "Fizikum": "Gyenge",
+            "Ügyesség": "Átlagos",
+            "Mentál": "Jó",
+            "Asztrál": "Legendás"
         },
-        "fpPerSzint": 4,
-        "epAlap": 7,
-        "fpAlap": 6,
+        "harcertekAlap": {
+            "ke": 4,
+            "te": 15,
+            "ve": 70,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 2,
+            "ve": 2
+        },
+        "hm": 2,
+        "magiaKategoriak": [],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "sok"
+        }
+    },
+    {
+        "fajta": "normal",
+        "id": "solyomcsor_arel_pap",
+        "name": "Arel pap (Sólyomcsőr)",
+        "fokaszt": "Pap",
+        "magiaKategoriak": [],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "normál"
+        },
+        "kepessegDobas": {
+            "Asztrál": "Jó",
+            "Mentál": "Jó",
+            "Ügyesség": "Átlagos",
+            "Fizikum": "Átlagos"
+        },
         "harcertekAlap": {
             "ke": 9,
-            "te": 20,
+            "te": 18,
+            "ve": 73,
+            "ce": 20
+        },
+        "harcertek": {
+            "te": 4
+        },
+        "hm": 5
+    },
+    {
+        "id": "Barbár",
+        "name": "Barbár",
+        "kepessegDobas": {
+            "Fizikum": "Legendás",
+            "Ügyesség": "Legendás",
+            "Mentál": "Gyenge",
+            "Asztrál": "Gyenge"
+        },
+        "fpPerSzint": 5,
+        "epAlap": 8,
+        "fpAlap": 7,
+        "harcertekAlap": {
+            "ke": 10,
+            "te": 26,
             "ve": 75,
             "ce": 0
         },
         "harcertek": {
-            "te": 3,
-            "ve": 3
+            "ke": 3,
+            "te": 5
         },
-        "hm": 5,
-        "kpAlap": 10,
-        "kpPerSzint": 14,
+        "hm": 4,
+        "kpAlap": 7,
+        "kpPerSzint": 10,
         "szazalekPerSzint": 0,
+        "kasztKpPerSzint": 10,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ],
         "kepzettsegek": [
             [
                 {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "lovaglas",
+                    "kepzettsegId": "birkozas",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "uszas",
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "idojoslas",
                     "fok": 2
                 },
                 {
@@ -55,77 +117,59 @@
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "maszas",
-                    "fok": 15
+                    "kepzettsegId": "tuleles",
+                    "fok": 3
                 },
                 {
                     "kepzettsegId": "eses",
-                    "fok": 20
+                    "fok": 40
                 },
                 {
                     "kepzettsegId": "ugras",
-                    "fok": 10
+                    "fok": 25
                 },
                 {
-                    "kepzettsegId": "harcmodor",
-                    "name": "Harcmodor",
-                    "fok": 2
+                    "kepzettsegId": "herbalizmus",
+                    "fok": 1
                 },
                 {
-                    "kepzettsegId": "harcmodor",
-                    "name": "Harcmodor",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "belharc",
-                    "fok": 2
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 1
                 }
-            ],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ],
-        "kasztKpPerSzint": 11,
-        "kasztSpec": [
-            "otodikSzintenGyorsTamadas"
-        ],
-        "leiras": {
-            "fo": "A harcosok kasztjába azokat az elsődlegesen fegy­verforgatásra kitanított karaktereket soroljuk, akik jóval többek, mint egyszerű katonák, de nem részesültek lovagi nevelésben, sem gladiátori kiképzésben, és nem is valamely fejvadász klán berkeiben nőttek fel. A harcos messze a leg­népesebb karakterkaszt: tagjai között találunk kalandorokat, kalandozókat, testőröket, magányos zsoldosokat, sőt, ural­kodókat is.\n\nGondoljunk csak Mogorva Chei-re, Yllinor legendás királyára, aki közismerten a harcosok kasztjából való! Az immár több száz esztendős férfiú a mai napig megőrizte, fi­atalságát, amit Areltől, a Harc és Természet istennőjétől kapott ajándékul, amiért hosszú életén át lankadatlan hittel és buzgalommal szolgálta őt, és neki tetsző módon élt. Chei az Istennő papjává lett (több­kasztúság), és királyságot ala­pított az ő tiszteletére. A Harcosok Királyaként is emlegetik, utalva arra, hogy nála képzettebb és veszedelmesebb har­cost még nem hordott a hátán Ynev. A har­cosok azok, akik a fegyverforgatáson túl a legkülönfélébb dol­gokhoz érte­nek. Akad közöttük olyan, aki jártas a mágiában, aki tolvaj­ként is megállná a helyét, mint ahogy olyan is, aki ostoba, de erős, akár egy Keleti Barbár.\nAhány tája Ynevnek, annyifélék a harcosok.\n\nA Keleti Barbárok testi erejükről, súlyos fegyvereik­ről ismertek. Nem hordanak páncélt, olykor még ruhát sem, csak egyetlen ágyékkötőt. Eszük kevés, de bírnak egyfajta józan, természetes erkölcsiséggel - és hihetetlen szakérte­lemmel forgatják kétkezes kardjukat, bárdjukat.\n\n\nGorvik hegyvidékének lakói örökös viszálykodás­ban, családi háborúságban állnak egymással. Súlyos pré­mekkel védekeznek a hideg ellen, és bőrvértekkel társaik keskeny, tűhegyes kardjaival szemben. Nem idegen tőlük a hátulról, lesből támadás; a méreg használata, s a ravaszko­dás sem.\n\nYllinorban, Mogorva Chei országában mérhetetlenül magas a harcos kasztúak száma. Úgy tartják, sehol másutt nem élnek annyian, mint itt. Könnyű láncinget viselnek; hosszú kardot, egykezes csatabárdot, csatacsákányt forgat­nak. Kiváló lovasok - azt beszélik, az utca túloldalára is ló­háton járnak - és ugyanilyen remek céllövészek. Hosszú, szarulemezekből ragasztott, visszacsapó íjakat használnak. Lelkes odaadással éltetik királyukat és istennőjüket.\n\nA Pyarron környéki várakban, általában egy-egy lo­vagrend árnyékában léteznek harcos rendek, melyek nem kizárólag a fegyverforgatásban jeleskednek, hanem a külön­féle tudo­mányokban is. Ők általában a lovagokéhoz ha­sonló életet élnek; nehézvértezetet és nehézfegyvereket vi­selnek, mégsem lovagok, inkább azok kísérői, tanácsnokai, testőrei."
-        }
+            ]
+        ]
     },
     {
-        "id": "Lovag",
-        "name": "Lovag",
+        "id": "Bárd",
+        "name": "Bárd",
         "kepessegDobas": {
-            "Fizikum": "Jó",
-            "Ügyesség": "Átlagos",
-            "Mentál": "Átlagos",
-            "Asztrál": "Jó"
+            "Fizikum": "Átlagos",
+            "Ügyesség": "Jó",
+            "Mentál": "Jó",
+            "Asztrál": "Átlagos"
         },
-        "fpPerSzint": 5,
-        "epAlap": 7,
+        "fpPerSzint": 3,
+        "epAlap": 5,
         "fpAlap": 6,
         "harcertekAlap": {
-            "ke": 5,
+            "ke": 10,
             "te": 20,
             "ve": 75,
             "ce": 0
         },
         "harcertek": {
-            "te": 5,
-            "ve": 5
+            "te": 2,
+            "ve": 2
         },
-        "hm": 2,
+        "hm": 5,
         "kpAlap": 4,
-        "kpPerSzint": 7,
-        "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 13,
-        "kasztSpec": [
-            "otodikSzintenGyorsTamadas"
-        ],
+        "kpPerSzint": 6,
+        "szazalekPerSzint": 45,
+        "mana": {
+            "kepesseg": "empatia",
+            "mennyiseg": "normál"
+        },
+        "kasztKpPerSzint": 16,
         "kepzettsegek": [
             [
                 {
@@ -133,6 +177,249 @@
                     "name": "Fegyverhasználat",
                     "fok": 2
                 },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:bard_dalmagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_hangmagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_fenymagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_egyeb",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hangutánzás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hamiskartya",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 5
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "lopozas",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "rejtozes",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "zsebmetszes",
+                    "fok": 5
+                },
+                {
+                    "kepzettsegId": "csapdafelfedezes",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "mellebeszeles",
+                    "fok": 2
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "ertekbecsles",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "zsonglorkodes",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "kocsmai_verekedes",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "csomozas",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "tanc",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 1
+                }
+            ],
+            null,
+            null,
+            [
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 1
+                }
+            ]
+        ],
+        "magiaKategoriak": [],
+        "leiras": {
+            "fo": "A bárdok alig hasonlítanak a tolvajokra, legtöbbjük inkább nagystilű szélhámos, igazi életművész és világfi. Kiválóan forgatják a szót és a kardot; ismerik és használják a mágiát, nem idegenek\nelőttük az asszonyszívek titkai. Ritkán tévesztenek célt akár dalaikkal, akár hajítótőreikkel. A tolvajokhoz hasonlóan mások vagyonából élnek, de ők méltóságukon alulinak tartják, hogy jelentéktelen ügyekben csússzanak-másszanak, ajtókat törjenek fel, és kilopják a ház urának zsebéből a heti kosztpénzt, Ők inkább beférköznek a \"magasabb körökbe\", a tehetős és előkelő nemesi udvarokba; dalolnak, varázsolnak, tanácsokat adnak, olykor-olykor egyéb szolgáltatásokat is nyújtanak, és egy óvatlan pillanatban meglépnek a családi vagyon jelentős részével, ha nem épp az egésszel, no meg a háziúr lányával.\n\nA bárdok álralában elszegényedett nemesi családból származnak, netán erkölcs nélkül nevelt úrfiak. Általában egyedül kalandoznak, ritkán áll össze két bárd, de ha mégis, akkor valarni óriási szélhámosság sül ki a dologból.\n\nSzámtalan különös figura kóborol Yneven, aki bárdnak vallja magát, de ezek égy része nem bárd, csak vándor énekes, aki a bárdokat körüllengő mitoszból akar hasznot húzni. A valódi bárdokat két fő csoportra oszthatjuk. Az első csoport, a \"klasszikus\" bárdok: hazájuk Ilanor és Yllinor. Ök a tábortüzek, a hadi utak, a hősi virtus-dalnokai. Az ilanori és yilinori bárdok, népük összes fegyverforgatójához hasonlóan, kiváló íjászok és még ennél is kitűnöbb lovasok. Suttogják: egyféle, talán mágikus kötelék fűzi össze őket. Ynev majd minden táján készek megvédeni bajbajutott társukat, s ha ez már nem lehetséges, kiméletlen bosszút állnak érte.\n\nAz erigowi, ereni bárdok a nemesi udvarok és körök kifinomult hallással bíró közönségének dalnokai. Az éneklést és zenélést zsenge körük óra tanulják, és tudományos alapossággal\ngyakorolják. Széptevőnek, párbajhósnek és szeretőnek egyaránt megteszik, emelkedett ízlésükhöz és életmódjukhoz azonban gyakran társul közömbösség, léhaság és erkölcstelenség, a\nművészsors felett érzett — titkolt vágy leplezetlen — világfájdalom.\n\nA bárdok mindenütt ugyanazt a bárdmágiát használják, melynek eredete a korok homályába nyúlik vissza. Mágikus zeneszerszámaikkal jelenítik meg a legendákhoz tartozó képeket, ám\nha úgy hozza a sor, varázshatalmukat, amely elsősorban illúziókeltésből és az Asztrális Mágia alapjaiból áll, önmaguk megvédésére, és mások befolyásolására is fel tudják használni.\n",
+            "kulonlegesKepessegek": "A bárdok elsődleges különleges képessége a Bárdmágia használata. Mana-pontjaikat, eltérően Ynev összes többi\nmágiahasználójáról, csak a csillagos ég alatt eljátszott Összhangzatnak nevezett dal segítségével kaphatják vissza, mintegy 18 kör alatt. Amennyiben az ég felhős és teljesen beborult, úgy nem képesek feltölteni Mana-pontakkal elméjüket\n\nA bárdok második különleges képessége az, hogy a 3. szinttől megérzik, ha egy tárgy mágikus, pszi vagy mágia használata nélkül is. Azt, hogy pontosan mifélék, nem tudják megmondani, de 5. szinttől már azt is megtudják határozni, hogy körülbelül (évszázadra) mikor keletkezett. A 9. szinttől fel tudják idézni\nkészítésének és történetének legendáit is. Természetesen ez azt jelenti, hogy a használatának pontos módját is megismerik.\n\nBár a\nvarázstárgyak készítésének módját nem ismerik, egy mágikus tárgyat, a Hatalom Amulettjét maguk is képesek elkészíteni, a megfelelő drágakő birtokában. \n"
+        }
+    },
+    {
+        "id": "Boszorkány",
+        "name": "Boszorkány",
+        "kepessegDobas": {
+            "Fizikum": "Gyenge",
+            "Ügyesség": "Jó",
+            "Mentál": "Jó",
+            "Asztrál": "Jó"
+        },
+        "fpPerSzint": 0,
+        "epAlap": 3,
+        "fpAlap": 1,
+        "harcertekAlap": {
+            "ke": 6,
+            "te": 14,
+            "ve": 69,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 1,
+            "ve": 1
+        },
+        "hm": 2,
+        "kpAlap": 8,
+        "kpPerSzint": 12,
+        "szazalekPerSzint": 0,
+        "mana": {
+            "kepesseg": "emlekezet",
+            "mennyiseg": "normál"
+        },
+        "kasztKpPerSzint": 8,
+        "leiras": {
+            "fo": "A. boszorkányok többsége csak felhasználja az ösi, mágikus tanokat. Tudományúk évezredek tapasztalatán alápul, mégsem tér el lényegesen az őst formuláktól. Számukra a mápia nem a tökéletesedés útja, hanem a hatalom egyik eszköze. A mágiát okkult művészetként szemlélő varázstudó kevés akad közöttük.\nA \nboszorkányok nem igyekeznek megérteni a mágia törvényeit - ők a gyakorlat, az alkalmazói mágia hívei. A törvényeknek nem a szérkezétét, hanem lehetséges kiskapuit keresik, fűzzük hozzá, gyakran sikerrel.\n\nA legelső és legfontosabb szabály, amit a boszorkány kapcsán említenünk kell, a boszorkány karakter minden esétben nőnemű. Javasoljuk ezért, hogy ne legyen ez másként a Játékos esetében sem másként, hiszen ellenkező nemű karakterrel nagyon nehéz játszani, és a próbálkozás gyakran kínos szítuációkhoz vezet.\n\nEgy boszorkány elsősorban az Asztrál Mágiában, annak is a fondorlatosabb, csábítással vegyes alkalmazásában járatos. Különös, egyedi varázslatokat használ, alkalmazza, ha nem is érti magas fokon, az Anyagok Mágiáját, és a Mentál Mágiát is. Érti a mérgek keverését, és a védekezést is ellenük, illetve ért a gyógyitáshoz is.\n\nBoszorkányok Ynev minden táján akadnak. Rendjeik száma több százra rúg csak Kránban, a legjelentősebb közülük az egész Délvidékre kiterjedő, renitens szektákban bővelkedő Adepta Astralíca. Leányai a gyönyörben lelik meg az Asztrál Mágiák alkalmazásához leginkább alkalmas tudatállapotot, szexuál mágiájuk a legveszélyesebb hatalom, amivel egy nő egy férfi felett bírhat.\n\nSzólni kell még a Kráni Birodalmi Belsőiskolák árnyékában tevékenykedő Maida Saluguas szektáról is. Tagjai lélegzetelállító szépségű fiatal hölgyek, akik ártatlan külsejükre rácáfolva, harcedzett orgyilkosokat is megszégyenítő képességekkel bíró ügynökei Kránnak. Krán legtöbb politikai sikerét éppen a Maida Saluguas \"képviselőinek férfiszíveket megdobogtató hatásának köszönheti. A szekta tagjai Dél legkülönbözőbb államaiban bukkantak fel az idők folyamán - rendszerint jelerítős személyiségek,  bankárok, sőt uralkodók ágyasaiként, Valódi céljaikat mindenkör titokban tartják. Jártasságuk a misztikus tudományokban, Asztrál Mágikus hatalmuk megfelelő - és bizony kivédhetetlen - eszköznek bizonyult akkor, amikor az egyes államok békéjének, nyugalmának szétzilálása, egyes vezetők és/vagy tehetős egyének befolyásolása, vagy éppen félreállítása volt Krán célja. A boszorkányok a küldetések sikere érdekében nem riadtak vissza gyilkosságöktól sem, mélyek végrehajtása közben vagy saját eszközeiket,\nvagy ha a gyanút egy jóelőre kiválasztott egyénre, vagy csoportra akarrák terelni, akkor a rájuk jellemző fegyverekét használták fel. Feljegyzések tanúskodnak olyan esetekről is, mikor a gyanút valamely istenség fanatikus híveire terelték, az egyszerű földművesek egykedvűségével hintve szét a városok, országok pusztulását kövételő vallásháborúk csíráit.\n\nÉszak-Yneven két jelentősebb és számtalan kisebb-nagyobb boszorkányszekta tevékenykedik: a legnevesebb, valódi haralommal is bíró szervezet a Liviniai Gyülekezet. Akárcsak más északi boszorkányrendek, ők is Morgena papi rendjétől eredeztetik magukat, s ebben azért lehet valami kis igazság is. Céljaik,\nmódszereik koronként változtak, egy azonban bizonyos: Tharr hívei ellen engesztelhetetlen gyűlölet élt mindenkor szívükben.\n\nÖsszetartásuk, befolyásuk világszerte híres, mondják, egyés tagjaik Doran Varázslótanácsának hálószobatítkairól is regélhetnének. Erősen kötődnek a kyr hagyományokhoz, és a legtöbb régi\nereklve is Liviniában halmozódott fel.\n\nA Romlás Virágai boszorkányrend tagjai Örwella, a Kitaszítött papnőivel egyívású gazemberek. Nagy barátságban vannak a Kard Testvériségével, amolyan véd- és dacszövetség ez közöttük.\n\nNekik számtalanszor sikerült olyasmit véghezvinniük, amihez a lovagok ereje, gyilkos kegyetlensége is kevésnek bizonyult. A Szexuálmágia legnagyobb északi ismerői, és ézen tudásukat bizony ott használják ki, ahol csak lehet, Nem riadnak vissza azonban a gyilkosságoktól sem, némelyikük valóságos amazon. Bevett\ntrükkjük, hogy időlegés réndházaikar - hiszen az Inkvizítorok Szövetségének állandó \"zaklatásai\" miatt sokáig nem maradhatnak egy helyen - Ellana - szentélynek álcázzák, ám az ide betérők nemcsak csengő aranyaikkal fizetnek tévedésükért, hanem az életükkel is."
+        }
+    },
+    {
+        "id": "Boszorkánymester",
+        "name": "Boszorkánymester",
+        "kepessegDobas": {
+            "Fizikum": "Gyenge",
+            "Ügyesség": "Jó",
+            "Mentál": "Jó",
+            "Asztrál": "Jó"
+        },
+        "fpPerSzint": 1,
+        "epAlap": 3,
+        "fpAlap": 4,
+        "harcertekAlap": {
+            "ke": 7,
+            "te": 17,
+            "ve": 72,
+            "ce": 5
+        },
+        "harcertek": {
+            "ke": 1,
+            "te": 1,
+            "ve": 1
+        },
+        "hm": 5,
+        "kpAlap": 7,
+        "kpPerSzint": 8,
+        "szazalekPerSzint": 15,
+        "mana": {
+            "kepesseg": "emlekezet",
+            "mennyiseg": "normál"
+        },
+        "kasztKpPerSzint": 13,
+        "leiras": {
+            "fo": "A boszorkánymesterek gátlástalan feketemágusok - természetesen csak módszereikben azok, hiszen hatalmuk bármily sötét, nyomába sem ér egy igazi mágusénak. Mégis, a többi varázslathasználó kaszt tagjai csak irigységgel vegyes döbbenettel figyelhetik velejéig romlott, sötét hatalmuk mértékét. Mágikus tudományukat egyetlen cél szolgálatába állítják: pusztítanak, tenger kínt, nyomorúságot hoznak mindenkire.\n\nMindemellett a boszorkánymesterek is csak felhasználói varázslók, ők sem értik a mágia mélyebb összefüggéseit, belső törvényeit. Ismernek persze sok formulát: varázsigéket és taglejtéseket,\namelyek segítségével előszólíthatják iszonyú hatalmukat, de ezek közül egyiket sem tudják nélkülözni a varázslási folyamatban.\n\nNincs egy boszorkánymester számára dühítőbb annál, ha egy pap Csendteremtése megakadályozza a varázslásban. Varázslataik égyébként túlnyomórészt Rontásokból, Átkokból meg különféle mágikus támadásokból áll, amik az áldozat testét, lelkét roncsolják, meg persze az elmaradhatatlan Nekromanciából, ami egyébként teljesen más, mint amit a Dorani Varázslóiskolában oktatnak. Emellett a boszorkánymesterek járatosak az orgyilkosság szinte minden fogásában: ismerik, és egyesek közülük vitathatatlanul a legmagasabb szinten űzik a méregkeverés kétes értékű tudományát, és mesterek a hárbaszúrás \"művészetében\".\n\nDéL-Ynev szinte minden táján van belőlük elég, főként Kránban, de Gorvikban; a Dzsad Emírségekben, de még Shadonban is, ahol pedig talán leginkább üldözik őket.\n\nA leghatalmasabbak kétségen kívül Kránban élnek: Rendjeik behálózzák a Birodalmat, ők maguk gyakran lovagrendek, fejvadászklánok vezetőiként tűnnek fel. A Ranagol-fattyakhoz a síron túl is hű Birodalmi Belsőiskolákkal csak formális kapcsolatot tartanak fenn, de annál meghittebb a viszonyuk a mindenki mástól elzárkózó aquir mágus-boszorkánymesterekkel: Az itteni boszorkánymesterek talán a legfennhéjázóbbak mind közül, ami persze könnyen önbíráskodásra sarkall bárkít Kránban.\n\nÉszak boszórkánymestereiről szólva elsőként mindig Toron boszorkánymesterei szúrnak szemet, ami nem csoda a történelemben és a politikában vállalt szerepük miatt. Bár ők a legnagyobb varázstudók a kontinens ezen táján, ők az embernépek legelkeserédettebb ellenségei ís. Mégsem egyeznek meg az itt tárgyalt boszorkánymesterekkel, hisz ők a mágia sokkal ősibb, sokkalra bonyolultabb formáit is képesek használni. Ök ama tiz Hatalmas egyenes ági leszármazottai, akik a Kyr Birodalom bukásának kezdetén megpróbálták Orwella kezére játszani a császárt, egész udvartartásával egyetemben. Tervük kudarcba fulladt\nugyan, de az egykori tartomány egységét megőrizték, és leszármazottaik mind a mai napig uralják Toront, a belviszályok ellenére. Ök nemes elzártságban élnek, a Shuluri-öböl megközelíthetetlen\nszigetén, a Daumyren. Erre a szigetre csak egy ember teheti a lábát, a Toroni Császár, de ő is csak a megkoronázását követő éjszakán, hogy hódoljon a Boszorkánymesterék előtt, és kérje és megkapja az uralkodásához a jogot.\n\nAnnál inkább ismerik és gyűlölik a világban követőiket, az árnyékukban tevékenykedő közönséges boszorkánymestereket, akik révén hatalmukat az egész birodalom, még a császár felett is, érvényesítik.\n\nA rejtőzködő és a nyíltan Ynevet járó boszorkánymesterek többsége az Yneven még mindig jókora hívőtáborral réndelkező kyr szörnyisten, Tharr követői. Miután Toronban teljes biztonságban tudhatják magukat, a boszorkánymesteri rendek olyan szerteágazó szervezetet hoztak létre az évszázadok alatt, ami tán még a Császári Közigazgatási reridszért is felülmúlja. Sok helyen ők irányítják a gazdasági életet, hisz mindennel kereskédnek, ajzószerek széles választékától, rabszolgákon át egészen a köznapi\nélethez szükséges apróságokig. Alvilági szervezeteket alapítottak, pl. a Láncbarátok Testvériségét, vagy tolvajklánokba férkőztek be, pl. a Kobrák különböző csoportjaiba. Hatalmuk ván a politikai életben is, a jócskán elkorcsosult kyr eredetű nemességnek mára csak a hadsereg irányításában van szava, de ott sem nélkülözhetik a boszorkánymesterek alantas, de hathatós támogatását a hadjáratok során.\n\nA toroni boszorkánymesterék rendjei természetes szövetségeseiknek tekintik Tharr Egyházát, a Háromfejű papjait. Mindkét szervezet azon igyekszik, hogy Toront az elsőszámú hatalommá tegye egész Yneven, és így hatalmukat és befolyásukat kiterjesszék az ottani kultúrák és országok mindegyikére.\n\nA Ouiron-tenger déli oldalán elterülő Abaszisz boszorkánymesterei lényegesen kényesebb helyzetben vannak, és bár a hatalmuk csekélyebb, mint toroni társaiké, a politikai egyensúlyban mégis fontos szerepet játszanak.\n\nAbaszisz Nagykirálya és az ország egy-egy tartományának Hercegkapitányi címét viselő urai állandó harcban állnak egymással. A Nagykirály, akit a trónfosztástól csakis-a Hercegkapitányok egymás közti torzsalkodása óv meg, a boszorkánymesterek sepítségét sém átallja igénybe venni, és támogatja Tharr helyi\nrendjének egyházait is. Aligha túlzás azt állítani, hogy a toroni-abasziszi tengely létrehozásáért leginkább a két ország boszorkánymestereinek rendjei tettek a legtöbbet."
+        }
+    },
+    {
+        "fajta": "normal",
+        "id": "darton_lovag",
+        "name": "Darton-lovag",
+        "fokaszt": "Paplovag",
+        "kepzettsegek": [
+            [
                 {
                     "kepzettsegId": "fegyver",
                     "name": "Fegyverhasználat",
@@ -158,11 +445,37 @@
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "harcmodor:pajzs",
+                    "kepzettsegId": "harcmodor:ketkezes",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "fegyverismeret",
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "heraldika",
                     "fok": 2
                 },
                 {
@@ -174,47 +487,58 @@
                     "fok": 3
                 },
                 {
-                    "kepzettsegId": "iras_olvasas",
+                    "kepzettsegId": "enek_zene",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "heraldika",
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "birkozas",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
+                    "kepzettsegId": "meregkeveres",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
+                    "kepzettsegId": "csapdaallitas",
                     "fok": 2
-                }
-            ],
-            null,
-            null,
-            [
+                },
                 {
-                    "kepzettsegId": "sebgyogyitas",
+                    "kepzettsegId": "kocsmai_verekedes",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hamiskartya",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_lelek",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_halal",
                     "fok": 1
                 }
             ],
+            null,
+            null,
+            null,
             [
                 {
-                    "kepzettsegId": "pszi:pyarroni",
+                    "kepzettsegId": "orvtamadas",
                     "fok": 1
                 }
             ]
         ],
         "leiras": {
-            "fo": "A lovagok azon nemesi származású harcosok, akiket gyermek­koruktól fogva a kaszt megkövetelte kívánalmak­nak megfelelően neveltek. Olykor persze az is előfordul, hogy uralkodók, főnemesek - olyanok, akik bírnak e joggal - lovaggá ütnek embereket, akik szerintük érdemesek erre. Fontos azonban megjegyezni, hogy az efféle lovagok csak rangjukban tartoznak a kaszthoz, képzettségükben nem. Hosszas átnevelés múltán válhatnak csak annak igazi tag­jaivá.\n\nYnev bármely vidékéről esik is szó, a híres lovagi neveltetés mindenütt közel ugyanazt jelenti. Magában fog­lalja az udva­riasságot, valamely kevéske műveltséget, a ne­hézfegyverzetű harcmodort, és a tájegységenként változó lovagi erkölcsöt.\nA lovagi erkölcs meglehetősen tágan értelmezhető fogalom, és még így sem minden lovag érzi magára nézve kötelezőnek. Ám az efféle alakokat és rendeket a valódi lo­vagok meglehetősen lenézik. A lovagi erkölcs megköveteli az eltökéltséget, feltétlen hűséget egy eszme vagy leg­alábbis egy hűbérúr irányában, a tántoríthatatlan bátorságot, az ellenfél becsülését, az adott szó betartását, a barátok sze­retetét.\n\nA lovagok olykor tornákat vívnak egymással, ahol hitük, uruk becsületét és hírét igyekszenek öregbíteni, meg­őrizni. Ha viszályba, nézeteltérésbe keverednek, párviadalra hívják ki egymást, ahol kötött szabályok szerint mérik össze fegyverük erejét.\n\nYnev világán számtalan kisebb-nagyobb lovagrend létezik. A legnépesebb talán a Viadomoi Oroszlánszív Lo­vagrend. A szer­vezet az egész világra kiterjedő rendház hálózattal rendelkezik, melynek központja az istenek háta mögötti hegyekben emelkedő óriási vár, Viadomo. Az erő­dítés eredetileg a hágó védelmére épült, célja a nomád hor­dák megfékezése, a civilizált világ megóvása volt. A rend lovagjai és paplovagjai Dreinának, a Hatalom Istennőjének szolgálatában élik életüket. Céljuk á Pyarroni egyház és vallás védelme, világméretű hatalmának és elsőbbségének megóvása. A jogrend, a törvény őrei; küldetésüknek tekin­tik a jogtalan cselekedetek megakadályozását, ám bosszú­hadjáratokat szinte soha nem indítanak, mondván, az Uwell lovagjainak feladata. Az Oroszlánszív Lovagrend színe a bíbor és az arany, jelképe a két hátsó lábára emelkedő oroszlán. A rendet paplovagok irányítják.\n\nA Feketerendek szintén világméretű hálózattal bíró lovag­rend. Központjuk Shadon Birodalom legeldugottabb tartomá­nyában, a Felföldön rejtőzik; pontos helyét a titok leple fedi. A Feketerendeket a világ legtöbb táján üldözik, tekintve, hogy Ranagolt tisztelik istenükként, erős szálak fűzik őket Kránhoz, valamint olykor véres emberirtásokat rendeznek. Ezen vadászatok éjjel folynak, a válogatási szempont pedig igen egyszerű: a kiemelkedett emberek ér­demesek az életre, a többiek halál fiai. A Feketerendek lo­vagjai általában művelt, intelligens em­berek, gyakran - mintegy mellesleg - ismert művészek. Legtöbbjük kettős életet él, és rendtagságát titokban tartja. A Feketerendiek színe a fekete és az arany, néha némi bíborral élénkítve. Jelük az adott rendháztól függően változó, de gyakran vis­szakö­szönő figura a rakull-madár. A rend nagymes­tere, Dequator Marses, amellett, hogy a világ egyik legve­szedelmesebb harcosa, bölcsekkel vetekedő műveltséggel bír, és az elmúlt századok legnagyobb költőjének tartják. Világi álarcáról - a néhány beavatott kivételével - kevesen tudnak bármit is.\n\nA shadoni lovagrendek mind Domvikot tisztelik istenükként. A becsületet, a hitet, a gyengék védelmét, a nők csodálatát tartják a lovagi erkölcs tartóoszlopainak. Segítik a szegényeket, és vakmerőséggel vetekedő bátorsággal áll­nak ki az igazság mellett. A birodalom területén számtalan rendjük létezik, melyek kevés kivételtó) eltekintve három különböző urat szolgálnak. Ezek egyike a Király, másikat a Királyi Hercegi Család, a harmadik pedig az Egyház. A ki­rályi lovagrendek színe a kék és az arany, a messze leghíre­sebb közülük a tizenöt fős Királyi Testőrség (16. Szint fe­lett), a légnépesebb pedig a Kék Pajzsos lovagrend. A Ki­rályi Hercegi Családot tisztelő rendek kék és ezüst színeket hordoznak lobogóikon, és a legismertebb közülük a Lili­omtőr Lovagrend. Az egyházi lovagrendek színe a vörös és az arany, jelképük a kard. A legnevesebb efféle lovagrend a tíz tagot számláló Angyali Testőrség (20. Szint felett; ők azonban mind paplovagok), a legelterjedtebb pedig a számtalan rendházzal rendelkező Isten Kardja Lovagrend. Ez utóbbi egyben Shadon legnagyobb lovagrendje is.\n\nAz Erigowi Krad Lovagrend Ynev legnagyobb északi központú lovagrendje. A pyarroni vallás elterjedése után Erigow lett Észak kultúrális fővárosa. Nem csoda hát, hogy a legnagyobb és legősibb lovagrend is itt emelt magá­nak fellegvárat. Tagjai között egyenlő arányban találunk lovagokat és paplovagokat. Mindükre szigorú igazságosság és kiemelkedő műveltség jellemző. A Rend nagymestere mindenkor az erigowi uralkodóherceg, aki egyben Vörös Hadúr is. Rendházaik behálózzák az egész Északi Szövet­séget, felvételt nyerni tagjaik közé igazi megtisz­teltetés és minden északi nemes vágya.\nAz Erigowi Krad Rend megalakulása óta a pyarroni hit védelmezője északon, állandó háborúságban áll Toron had­uraival, és a Kard Testvériség lovagjaival. Létszámuk igen változó, mert a rendtagság nem örökölhető: csak olyan lovagok ke­rülhetnek a Rend soraiba, akik bizonyítottak és teljesítették a Rend főtanácsának valamely küldetését. A kérelmező alkal­masságát maga a nagymester dönti el, s bi­zony sokakat vissza­utasítottak már. Az Erigowi Krad lova­gok nem egyéni hőstette­ikkel vívták ki hírnevüket, hanem hihetetlen fegyelmezettsé­gükkel, kiváló taktikai érzékükkel és félelmet nem ismerő ­már-már makacssággal határos - bátorságukkal. Csapataik nemegyszer arattak fényes diadalt sokszoros túlerővel szemben is, aranykörrel ékített, vörös-fehér sávos lobogójuk mindig rettegést ébreszt ellenségeik­ben.\n\nA Kard Testvériség a P. sz. XXIII. században alapí­tott lovagrend, amely védasszonyául Orwellát választotta, s célul tűzte ki a Rettenet Asszonya visszatértének előkészí­tését. A Pyarroni Paktum miatt, amely tiltja az emberáldozó vallások gyakorlását, Pyarron feldúlásáig csak Gro-Ugon­ban, illetve (titokban) Toronban és a Város­államokban te­vékenykedtek. Mára Gro-Ugon uralkodó rétegévé, ezzel Észak-Ynev egyik meghatározó poli­tikai tényezőjévé nőt­ték ki magukat. Székhelyük Reagban található, jelképük a földbe szúrt kard. Félelmet nem ismerő, fanatikus harcos és paplovagok kerülnek ki soraikból, a lovagi erkölcsöket azonban sajátos felfogás szerint alkalmazzák. A Rend hie­rar­chiáját tisztelik, s törvényeit általában betartják, ám úgy gondolják, harc közben, háborúban semmiféle szabály nem köti őket, csupán az, hogy győzzenek. Előszeretettel hasz­nálnak mérgeket, nem vetik meg a számszeríjat és kitűnően bánnak a dobótőrökkel. A hazugság nem elítélendő jellem­hiba számukra - csupán eszköz, amit mindig használnak, ha szükségét látják. Adott szavukat azonban betartják, s noha nem könnyű felismerni, mikor esküsznek komolyan, mikor megtévesztésből, egy bizonyos: istennőjüket, Orwellát oly­annyira tisztelik, hogy ha rá tesznek fogadalmat, azt később sem másítják meg. Egyébiránt kedvenc szavajárásuk: ­Min­dig csak az utolsó szavam számít! A Kard Testvérisége meglehetősen népes rend, tagjai közt olyanokra is akadha­tunk, akik elsajátították a boszorkánymágia titkait. Páncél­jaikat könnyű felismerni, a rend ezen tagjai kivétel nélkül mind csillogó ezüstszín teljesvértezetet viselnek. Színük az ezüst, a fekete és a sárga. Jelmondatuk: A kegyetlenség fé­lelmet szül, a félelem hatalmat!\n\nGorvik Birodalom öt egymással viszálykodó tarto­mányában se szeri, se száma a kisebb-nagyobb lovagren­deknek. Sok közülük rablólovagok bandája, némelyik világi urakat szolgál, vagy saját jól Felfogott érdekét, ám leg­többjük mégis valamely vallási irányzatot. Ezeket nem Is­tenük kiléte különbözteti meg egymástól - hiszen az minden esetben Ranagol -, hanem a vallási tanok értelmezése. Így bizony gyakran keverednek véres harcokba egy­mással. A két leghíresebb gorviki rend a warvicki Radovikánus Lo­vagrend, és a világi érdekeltségű Marico con Rabora lovag­rend. Ez utóbbi különös harcmodoráról nevezetes: tagjai veszedelmes fegyverként forgatják élezett peremű pajzsai­kat is.\n\nKülönleges rend a pyarroni Aranykör Lovagrend. Tagjai általában paplovagok, de akadnak közöttük egyszerű lovagok is. Ők igen művelt, tanult emberek. A rend célja, hogy a világ minden tájáról egybegyűjtse és feldolgozza a tudást, az ismereteket. Tagjai mindent elkövetnek, hogy minnél szélesebb körű tapasztalatokat szerezzenek Ynev legtávolabbi tájairól is. Életük egyetlen óriási küldetés, melynek során olykor visszatérnek valamelyik rendhá­zukba, hogy elbeszéljék tudósaiknak a tapasztalataikat. Szí­nük a fehér és az arany; jelképük aranyban pompázó gyűrű. Ezt viselik mind hófehér pajzsukon, mind azonos színű, hosszú köpönyegük hátán. Kedvelik a hatalmas, fehér mé­neket. Nagymesterük, a Krád kegyelméből több ezer esz­tendős Elorand a város pusztulásakor vesztette életét a Kráni Tizen­hármakkal vívott varázspárbajban. Annak ide­jén Ó-Pyarron megalapításakor ő tette le a rend központjá­nak, a Fellegvárnak alapköveit is. A város pusztulása után az Aranykör Lovagrend a Larmaron hegységben felépített sasfészkébe húzódott vissza, és azóta sem választott magá­nak új nagymestert.\n\nAkadnak persze úgynevezett kóbor lovagok is, akik nem tartoznak egyetlen rendhez sem, mi több, olykor tán még ha­zájuk, házuk sincs. Ők általában elszegényedett ne­mesi csalá­dok ivadékai, akik vagy kardjuk szolgálatba adá­sával igyekeznek pénzt gyűjteni, vagy urat, rendet keresnek maguknak, melynek nézetei megegyeznek saját felfogásuk­kal. A kóbor lovagok általában fiatalok és szegények."
-        }
+            "fo": "Darton a Pyarroni Istencsalád ellentmondásos alakja. A holtak, de a sötét tréfák, a fekete humor patrónusa is, örömét leli abban, hogy cselekedetei - híveinek tetteiről meg nem is szólva - visszatetszést keltenek a komolykodókban. Választott prófétájához,\nAirun al Maremhez makacsul ragaszkodik, kétszer is új életet Íehelt belé, miútán a kalandozó két különböző küldetésben is odaveszett. Airun alapította Darton első lovagrendjét is, melyet Alex con Arvionival, régi elvbarátjával, közösen irányít az északi Bowon városából.\n\nDarton paplovagjai istenük égi hatalmának és különös humorának földi megtestesítői. Vezetőiket a rajongásig tisztelik, és bárhová, akár Orwella bugyraiba is szó nélkül követik. Pyarroni érdekeltségűek lévén a Vörös Hadurak oldalán küzdenek az Északi Háborúkban Toron és szövetségesei, azaz Tharr, Ranagol és Orwella hívei ellen, dé Darton eljövendő - jóformán csak általuk óhajtott - birodalmának érdekeit sem felejtik el. \n\nAirun és Pyarron Darton hitű rendje között évtizedek óta folyik egy kis marakodás. Már számtalan fejvadász és egyéb orgyilkos akarta ez okból kipróbálni, hogy harmadszor ís visszakergéti-e Darton a prófétáját Ynevre.\n\nA dartoniták mindén esztelenségre és őrültségre kaphatók, cinikusak a végtelenségig, a normális emberek szemében csendes őrült benyomását keltő férfigk. Kedvelt színük a fekete.\n\nSzent Szimbólumuk színeivel a két holdat idézi, de az erre vonatkozó kérdésekre csak legyintenek: ezt akárki úgysem értheti, mondják. Szent állatuk a holló, de ezen még néha-néha vitatkoznak, mert sem Airon, sem Alex nem állhatja az unos-untalan\nkárogó gyászmadár hangját. Hajukat mindannyian - a két rendfőnököt utánozva - szorosan . összefogva, varkocsba fonják, és hátukon szabadon lelőgatva hagyják.\n"
+        },
+        "magiaKategoriak": [
+            "egyedi_darton"
+        ]
     },
     {
         "id": "Fejvadász",
@@ -510,234 +834,17 @@
         }
     },
     {
-        "id": "Barbár",
-        "name": "Barbár",
+        "id": "Harcművész",
+        "name": "Harcművész",
         "kepessegDobas": {
-            "Fizikum": "Legendás",
-            "Ügyesség": "Legendás",
-            "Mentál": "Gyenge",
-            "Asztrál": "Gyenge"
+            "Fizikum": "Jó",
+            "Ügyesség": "Jó",
+            "Mentál": "Átlagos",
+            "Asztrál": "Átlagos"
         },
         "fpPerSzint": 5,
-        "epAlap": 8,
-        "fpAlap": 7,
-        "harcertekAlap": {
-            "ke": 10,
-            "te": 26,
-            "ve": 75,
-            "ce": 0
-        },
-        "harcertek": {
-            "ke": 3,
-            "te": 5
-        },
-        "hm": 4,
-        "kpAlap": 7,
-        "kpPerSzint": 10,
-        "szazalekPerSzint": 0,
-        "kasztKpPerSzint": 10,
-        "kasztSpec": [
-            "otodikSzintenGyorsTamadas"
-        ],
-        "kepzettsegek": [
-            [
-                {
-                    "kepzettsegId": "birkozas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver:okolharc",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "idojoslas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "futas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "tuleles",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "eses",
-                    "fok": 40
-                },
-                {
-                    "kepzettsegId": "ugras",
-                    "fok": 25
-                },
-                {
-                    "kepzettsegId": "herbalizmus",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "sebgyogyitas",
-                    "fok": 1
-                }
-            ]
-        ]
-    },
-    {
-        "id": "Tolvaj",
-        "name": "Tolvaj",
-        "kepessegDobas": {
-            "Fizikum": "Gyenge",
-            "Ügyesség": "Legendás",
-            "Mentál": "Jó",
-            "Asztrál": "Átlagos"
-        },
-        "fpPerSzint": 3,
         "epAlap": 4,
-        "fpAlap": 5,
-        "harcertekAlap": {
-            "ke": 8,
-            "te": 17,
-            "ve": 72,
-            "ce": 0
-        },
-        "harcertek": {
-            "ke": 1,
-            "te": 1,
-            "ve": 1
-        },
-        "hm": 4,
-        "kpAlap": 8,
-        "kpPerSzint": 10,
-        "szazalekPerSzint": 50,
-        "kepzettsegek": [
-            [
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "fok": 2,
-                    "name": "Fegyverhasználat"
-                },
-                {
-                    "kepzettsegId": "nyelv:",
-                    "fok": 3,
-                    "name": "Nyelvtudás"
-                },
-                {
-                    "kepzettsegId": "nyelv:",
-                    "fok": 2,
-                    "name": "Nyelvtudás"
-                },
-                {
-                    "kepzettsegId": "nyelv:",
-                    "fok": 2,
-                    "name": "Nyelvtudás"
-                },
-                {
-                    "kepzettsegId": "ertekbecsles",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "kocsmai_verekedes",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "maszas",
-                    "fok": 45
-                },
-                {
-                    "kepzettsegId": "eses",
-                    "fok": 15
-                },
-                {
-                    "kepzettsegId": "ugras",
-                    "fok": 10
-                },
-                {
-                    "kepzettsegId": "zarnyitas",
-                    "fok": 25
-                },
-                {
-                    "kepzettsegId": "lopozas",
-                    "fok": 30
-                },
-                {
-                    "kepzettsegId": "rejtozes",
-                    "fok": 15
-                },
-                {
-                    "kepzettsegId": "zsebmetszes",
-                    "fok": 35
-                },
-                {
-                    "kepzettsegId": "csapdafelfedezes",
-                    "fok": 25
-                },
-                {
-                    "kepzettsegId": "belharc",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "mellebeszeles",
-                    "fok": 2
-                }
-            ],
-            null,
-            [
-                {
-                    "kepzettsegId": "kotelekbol_szabadulas",
-                    "fok": 1
-                }
-            ],
-            [
-                {
-                    "kepzettsegId": "csomozas",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "orvtamadas",
-                    "fok": 1
-                }
-            ]
-        ],
-        "kasztKpPerSzint": 12,
-        "leiras": {
-            "fo": "A tolvajok meglehetősen laza erkölcsű, enyhén szólva nem törvénytisztelő egyének. Akadnak közöttük rablók, zsebmetszök, besurranók és szélhámosok, kis- és nagystílű gazemberek. Egy\nképzett tolváj kasztú karakter minden ilyén \"mesterségben\" járatos.\n\nA tolvajok általában Klánokba tömörülnek, mivel így hatékonyabban \"dolgozhatnak\", de bőven akad magányos farkas is a nyájban. A tolvaj karakter valami efféle, aki képes többé-kevésbé függetlenül dolgozni a helyi klántól.\n\nTolvajklán Ynev szinte minden nagyobb városában működik, számuk több százra tehető; némelyikben csak néhány tucat taggal, de akad olyan is, ha kevés is, amely több ezer taggal\nbüszkélkedhet. Igazán nagy, egész Ynevre kiterjedő szervezet azonban csak kettő akad közöttük, ezek: a Szürkecsuklyások és a Kobrák. \n"
-        }
-    },
-    {
-        "id": "Bárd",
-        "name": "Bárd",
-        "kepessegDobas": {
-            "Fizikum": "Átlagos",
-            "Ügyesség": "Jó",
-            "Mentál": "Jó",
-            "Asztrál": "Átlagos"
-        },
-        "fpPerSzint": 3,
-        "epAlap": 5,
-        "fpAlap": 6,
+        "fpAlap": 8,
         "harcertekAlap": {
             "ke": 10,
             "te": 20,
@@ -745,92 +852,270 @@
             "ce": 0
         },
         "harcertek": {
-            "te": 2,
-            "ve": 2
+            "te": 3,
+            "ve": 3
         },
-        "hm": 5,
+        "hm": 2,
         "kpAlap": 4,
-        "kpPerSzint": 6,
-        "szazalekPerSzint": 45,
-        "mana": {
-            "kepesseg": "empatia",
-            "mennyiseg": "normál"
-        },
-        "kasztKpPerSzint": 16,
+        "kpPerSzint": 5,
+        "szazalekPerSzint": 22,
         "kepzettsegek": [
             [
                 {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
+                    "kepzettsegId": "vakharc",
+                    "fok": 2,
+                    "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyver",
+                    "kepzettsegId": "fegyver:",
                     "name": "Fegyverhasználat",
-                    "fok": 2
+                    "fok": 2,
+                    "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyver",
+                    "kepzettsegId": "fegyver:",
                     "name": "Fegyverhasználat",
-                    "fok": 2
+                    "fok": 2,
+                    "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyver",
+                    "kepzettsegId": "fegyver:",
                     "name": "Fegyverhasználat",
-                    "fok": 2
+                    "fok": 2,
+                    "honnan": 0
                 },
                 {
-                    "kepzettsegId": "fegyver",
+                    "kepzettsegId": "fegyver:",
                     "name": "Fegyverhasználat",
-                    "fok": 2
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "uszas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 20,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 35,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 30,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "harcmuveszet:",
+                    "name": "Harcművészet stílus",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "pszi:slan",
+                    "fok": 1
                 },
                 {
                     "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "foldharc",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
-                    "fok": 4
-                },
-                {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
-                    "fok": 4
-                },
-                {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
+                    "kepzettsegId": "belharc",
                     "fok": 3
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 1,
+                    "honnan": 0
+                }
+            ]
+        ],
+        "kasztKpPerSzint": 15,
+        "leiras": {
+            "fo": "A Slan kifejezést először Tiadlanban kezdték használni a Niaréből odatelepült szerzetesek. Így hívták azokata tanítványokat, akik nem a sárgák népéből származtak, de mégis igen tehetségesnek bizonyultak a harcművészetek elsajátítása terén. A szerzetesek fél évszázad múltán - uruk kívánságára - hazatértek, de az elnevezés megmaradt. Azóta Slannak nevezik az összes harcművészt.\n\nA Slan technikák már nem egyeznek meg az eredeti forrásukkal, azóta ötvöződtek a helyi harci technikákkal, és a Slan mesterek is tudatosan továbbfejlesztették. A harcművész elsősorban a puszta kezét és egész testét használja, ami ugyanolyan halálos fegyver, mint mások kezében a kard, vagy csatabárd. Harc közbeni akrobatikus mozgásuk valódi élmény a kívülállónak, A kardcsapások elől félreszaltóznak, a rájuk lött nyílvesszőt röptében elkapják, és a legváratlanabb pillanatban ütik ki ellenfelük alól a lábát. Állóképésségük, erejük\nlegalább ilyen megdöbbentő. Puszta kézzel zúzzák szét a pajzsokat, hosszú órákon kéresztül képesek futni, a legjobbak az ügető lóval ís felveszik sebességben és kitartásban a versenyt.\n\nNoha a kilenc alapfegyver - bot, tőr, egyeneskard (ami nem azonos a slan karddal), kétkezes harci balta (kb. megegyezik a kétkezes csatabárddal), lándzsa, tonfa, cséphadaró (nuncsaku),\nslan csillag, buzogány - használatát mindén Slan elsajárítja, csak\nritkán használják.\n\nA harcművészek teljes meggyőződéssel állítják, hogy a fegyverek behatárolják a cselekvés teljes szabadságát. Az egyetlen egyetemes harci eszköz az emberi test, csak ez rendelkezik használójának minden lehetőségével.\n\nA harcművészek gyakran magányos mestereknél tanulnak, de Tiadlanban több nagy iskola is akad, ahol egyszerre húszas, harmincas csoportokban oktatják a növéndékeket a mesterek. Tanuljanak azonban bárhol, tudásukat kincsként őrzik, nem szívesen osztják még nem a kasztjukba tartozókkal, a kívülállókkal.\n\nAz egyes iskolák volt növendékei általában összetartanak, a szenvedésekkel, a gyakorlással töltött hosszú-hosszú órák emléke, na meg a közös tudás titkai szoros köteléket jelent minden harcművésznek.\n\nTiadlanban, ami továbbra is a harcművészetek igazi hazája, a harcművészeti iskolák és rendek felett a Dorcha - a Harcművészek Nagyasszonya - parancsol, Öt minden Slan legyen akár nő,\nakár férfi, rajongásig szereti és tiszteli, és égyetlen szavára bármit megtesz. Ez persze nen áll Ynev más tájain élő harcművészekre, különösen a krániakra, de szinte bizonyos, hogy a Dorcha említése mindegyik igazi harcművész szívét megdobogtatja.",
+            "kulonlegesKepessegek": "Elsődleges különleges képességük a Slan - pszi használata.\nEnnek segítségével válhatnak különb harcossá bárkinél.\n\nA harcművészek képesek arra, hogy a rájuk lőtt nyílvesszőket és egyéb lövedéket félreüssék, illetve kitérjenek az útjukból. Ennek a feltétele: számítaniuk kell a lövédékre, és felkészülten kell várniuk rá (kitérésre összpontosítás). Ha ez az eset érvényes; akkor a harcművész VÉ-je áll a kilőtt lövedék célzó értékével szemben.\n\nA harcművészek kitartó farkasügetésre képesek, és ezt annyi óráig bírják, amennyi a tapasztalati szintjük.\n\nA harcművészek keze illetve lába, a hatodik szint elérése\nután, Chi-harcban, mágikus fegyvernek számít, s minden, az efféle fegyverekre vonatkozó szabály érvényes rájuk. \n"
+        }
+    },
+    {
+        "id": "Harcos",
+        "name": "Harcos",
+        "kepessegDobas": {
+            "Fizikum": "Jó",
+            "Ügyesség": "Jó",
+            "Mentál": "Átlagos",
+            "Asztrál": "Átlagos"
+        },
+        "fpPerSzint": 4,
+        "epAlap": 7,
+        "fpAlap": 6,
+        "harcertekAlap": {
+            "ke": 9,
+            "te": 20,
+            "ve": 75,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 3,
+            "ve": 3
+        },
+        "hm": 5,
+        "kpAlap": 10,
+        "kpPerSzint": 14,
+        "szazalekPerSzint": 0,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
                 },
                 {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
+                },
+                {
+                    "kepzettsegId": "lovaglas",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "magia:bard_dalmagia",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "magia:bard_hangmagia",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "magia:bard_fenymagia",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "magia:bard_egyeb",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "iras_olvasas",
+                    "kepzettsegId": "uszas",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "legendaismeret",
-                    "fok": 3
+                    "kepzettsegId": "futas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "harcmodor",
+                    "name": "Harcmodor",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor",
+                    "name": "Harcmodor",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 2
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "kasztKpPerSzint": 11,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ],
+        "leiras": {
+            "fo": "A harcosok kasztjába azokat az elsődlegesen fegy­verforgatásra kitanított karaktereket soroljuk, akik jóval többek, mint egyszerű katonák, de nem részesültek lovagi nevelésben, sem gladiátori kiképzésben, és nem is valamely fejvadász klán berkeiben nőttek fel. A harcos messze a leg­népesebb karakterkaszt: tagjai között találunk kalandorokat, kalandozókat, testőröket, magányos zsoldosokat, sőt, ural­kodókat is.\n\nGondoljunk csak Mogorva Chei-re, Yllinor legendás királyára, aki közismerten a harcosok kasztjából való! Az immár több száz esztendős férfiú a mai napig megőrizte, fi­atalságát, amit Areltől, a Harc és Természet istennőjétől kapott ajándékul, amiért hosszú életén át lankadatlan hittel és buzgalommal szolgálta őt, és neki tetsző módon élt. Chei az Istennő papjává lett (több­kasztúság), és királyságot ala­pított az ő tiszteletére. A Harcosok Királyaként is emlegetik, utalva arra, hogy nála képzettebb és veszedelmesebb har­cost még nem hordott a hátán Ynev. A har­cosok azok, akik a fegyverforgatáson túl a legkülönfélébb dol­gokhoz érte­nek. Akad közöttük olyan, aki jártas a mágiában, aki tolvaj­ként is megállná a helyét, mint ahogy olyan is, aki ostoba, de erős, akár egy Keleti Barbár.\nAhány tája Ynevnek, annyifélék a harcosok.\n\nA Keleti Barbárok testi erejükről, súlyos fegyvereik­ről ismertek. Nem hordanak páncélt, olykor még ruhát sem, csak egyetlen ágyékkötőt. Eszük kevés, de bírnak egyfajta józan, természetes erkölcsiséggel - és hihetetlen szakérte­lemmel forgatják kétkezes kardjukat, bárdjukat.\n\n\nGorvik hegyvidékének lakói örökös viszálykodás­ban, családi háborúságban állnak egymással. Súlyos pré­mekkel védekeznek a hideg ellen, és bőrvértekkel társaik keskeny, tűhegyes kardjaival szemben. Nem idegen tőlük a hátulról, lesből támadás; a méreg használata, s a ravaszko­dás sem.\n\nYllinorban, Mogorva Chei országában mérhetetlenül magas a harcos kasztúak száma. Úgy tartják, sehol másutt nem élnek annyian, mint itt. Könnyű láncinget viselnek; hosszú kardot, egykezes csatabárdot, csatacsákányt forgat­nak. Kiváló lovasok - azt beszélik, az utca túloldalára is ló­háton járnak - és ugyanilyen remek céllövészek. Hosszú, szarulemezekből ragasztott, visszacsapó íjakat használnak. Lelkes odaadással éltetik királyukat és istennőjüket.\n\nA Pyarron környéki várakban, általában egy-egy lo­vagrend árnyékában léteznek harcos rendek, melyek nem kizárólag a fegyverforgatásban jeleskednek, hanem a külön­féle tudo­mányokban is. Ők általában a lovagokéhoz ha­sonló életet élnek; nehézvértezetet és nehézfegyvereket vi­selnek, mégsem lovagok, inkább azok kísérői, tanácsnokai, testőrei."
+        }
+    },
+    {
+        "id": "Kardművész",
+        "name": "Kardművész",
+        "kepessegDobas": {
+            "Fizikum": "Átlagos",
+            "Ügyesség": "Jó",
+            "Mentál": "Átlagos",
+            "Asztrál": "Jó"
+        },
+        "fpPerSzint": 5,
+        "epAlap": 4,
+        "fpAlap": 8,
+        "harcertekAlap": {
+            "ke": 10,
+            "te": 20,
+            "ve": 75,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 3,
+            "ve": 3
+        },
+        "hm": 2,
+        "kpAlap": 4,
+        "kpPerSzint": 5,
+        "szazalekPerSzint": 18,
+        "kasztKpPerSzint": 15,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "birkozas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vakharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:kard_slan",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:tor_slan",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:slan",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 1
                 },
                 {
                     "kepzettsegId": "etikett",
@@ -841,92 +1126,158 @@
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "enek_zene",
+                    "kepzettsegId": "uszas",
                     "fok": 2
                 },
                 {
-                    "kepzettsegId": "hangutánzás",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "hamiskartya",
+                    "kepzettsegId": "futas",
                     "fok": 2
                 },
                 {
                     "kepzettsegId": "maszas",
-                    "fok": 25
+                    "fok": 10
                 },
                 {
                     "kepzettsegId": "eses",
-                    "fok": 5
+                    "fok": 20
                 },
                 {
                     "kepzettsegId": "ugras",
                     "fok": 10
                 },
                 {
-                    "kepzettsegId": "lopozas",
-                    "fok": 20
+                    "kepzettsegId": "belharc",
+                    "fok": 2
                 },
                 {
-                    "kepzettsegId": "rejtozes",
-                    "fok": 10
+                    "kepzettsegId": "harcmodor:shiensu",
+                    "fok": 2
+                }
+            ]
+        ],
+        "leiras": {
+            "fo": "A kardművészek a Slanok egy specializálódott csoportját képezik. Ök a küzdelemnek a karddal vívott változatát vitték tökélyre.\n\nFegyvéreik, a Slan kard és a Slan tőr, az évszázadok hosszú munkájával kifejlesztett, kikisérletezett bonyolult kovácsmunkával készül. Anyaga és formája is a leginkább hozzáillik a kardművészek vívóstílusához, mindmostanáig nem sikerült jobbat kitalálni.\n\nA. kardművészek szellemisége sokban hasonlít a harcművészekéhez, de ők ném testüket és öklüket használják fegyvernek, hanem a kardjukat. Módszereik, technikáik legalább olyan különlegesek, mint a harcművészek pusztakezes harcmodora. Vívó tudományukról legendákat zengenek, s való igaz, mozgásuk csiszoltsága, módszereik letisztultsága szemet gyönyörködtető, igazi élményt ad a hozzáértőnek.\n\nA kardművészek sohasem cseleznek fegyvereikkel. Egyenesen és tisztán vágnak - ha lehet, és hárítanak - ha kell. A hatékonyság az időzítésben, a hajszálpontos kivitelezésben rejlik. Mások\nszámára hihetetlen gönddal gyakorolják be minden egyés mozdulatukat, hisz a kéztartás tisztasága, a helyes lépés, a csípő pontos mozgása, a helyes lélegzetvétel az életüket mentheti meg.\n\nA kardművészek, a harcművészekkel ellentétben, szinte sohasem tanulják tudományukat iskolákban, az ilyesféle tanodák ugyanis roppant ritkák. A kard forgatásának művészetét magányos mesterek oktatják, többnyire égy, de legfeljebb három-négy tanítványnak. Az azonos mesternél tanult kardművészek testvéreknek is becsületére váló módon tartanak össze, és csak a\nsaját stílusukat követő kaszt-társakban bíznak meg egyből.\n\nA kardművészek éppúgy tisztelik a Dorchát, mint harcművész társaik.",
+            "kulonlegesKepessegek": "A kardművészek legfontosabb fegyvere, a Slan kardkészlet. Ez két enyhén görbülő, keskeny pengéjű, kétkezes markolatú kardból áll, egy rövidebből, és egy hosszabból. Mindkettő része a Személyes Aurájának, így a lélek védelmét élvezi, mintha csak a kardművész testének egy darabja lenne. Ezeken kívül a kardmű vészek használnak még olykor tőrökét, slan csillagokat és egyéb fegyvereket is, de véresen komoly, nehéz küzdelemben kizárólag a kardkészletét használja. Ez a párbaj esetében fokozortan érvényes.\n\nA kardművészek vértje egymásra erősített fém lemezkékből,\npikkelyekből áll. Mindig hajlékony, nem akadályozza viselőjét a szabad mozgásban. A tradicionális kardművész vért SFÉ-je 4, MGT-je 1, de csak akkor, ha kardművész viseli, mert másnak csak közönséges pikkelyvért.\n\nElsődleges különlegés képességük a Slan-pszi használata.\nEnnek segítségével válhatnak különb harcossá bárkinél.\n\nA kardművészek is képesek arra, hogy a rájuk lőtt nyílvesszőket és egyéb lövedéket félreüssék, illetve ha kell, kitérjenek az útjukból. Ennek az a feltétele, hogy számítaniuk kell a lövédékre, és felkészülten kell várniuk rá (tehát a Játékosnak előre be kell jelentenie a kitérésre összpontosítást). Ha ez az eset érvényés, akkor a kardművész VÉ-je áll a kilőtt lövedék Celzó Értékével szemben.\n\nA kardművész kardjai a hetedik szint elérése után, de csak\nChi-harcban, mágikus fegyvernek számítanak, s minden, az efféle fegyverekre vonatkozó szabály érvényes rájuk. "
+        }
+    },
+    {
+        "id": "Lovag",
+        "name": "Lovag",
+        "kepessegDobas": {
+            "Fizikum": "Jó",
+            "Ügyesség": "Átlagos",
+            "Mentál": "Átlagos",
+            "Asztrál": "Jó"
+        },
+        "fpPerSzint": 5,
+        "epAlap": 7,
+        "fpAlap": 6,
+        "harcertekAlap": {
+            "ke": 5,
+            "te": 20,
+            "ve": 75,
+            "ce": 0
+        },
+        "harcertek": {
+            "te": 5,
+            "ve": 5
+        },
+        "hm": 2,
+        "kpAlap": 4,
+        "kpPerSzint": 7,
+        "szazalekPerSzint": 0,
+        "kasztKpPerSzint": 13,
+        "kasztSpec": [
+            "otodikSzintenGyorsTamadas"
+        ],
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
                 },
                 {
-                    "kepzettsegId": "zsebmetszes",
-                    "fok": 5
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
                 },
                 {
-                    "kepzettsegId": "csapdafelfedezes",
-                    "fok": 10
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
                 },
                 {
-                    "kepzettsegId": "mellebeszeles",
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vertviselet",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "harcmodor:pajzs",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyverismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "etikett",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "heraldika",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
                     "fok": 2
                 }
             ],
             null,
+            null,
             [
                 {
-                    "kepzettsegId": "ertekbecsles",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "zsonglorkodes",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "kocsmai_verekedes",
+                    "kepzettsegId": "sebgyogyitas",
                     "fok": 1
                 }
             ],
             [
                 {
-                    "kepzettsegId": "csomozas",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "tanc",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "fegyver:okolharc",
-                    "fok": 1
-                }
-            ],
-            null,
-            null,
-            [
-                {
-                    "kepzettsegId": "orvtamadas",
+                    "kepzettsegId": "pszi:pyarroni",
                     "fok": 1
                 }
             ]
         ],
-        "magiaKategoriak": [],
         "leiras": {
-            "fo": "A bárdok alig hasonlítanak a tolvajokra, legtöbbjük inkább nagystilű szélhámos, igazi életművész és világfi. Kiválóan forgatják a szót és a kardot; ismerik és használják a mágiát, nem idegenek\nelőttük az asszonyszívek titkai. Ritkán tévesztenek célt akár dalaikkal, akár hajítótőreikkel. A tolvajokhoz hasonlóan mások vagyonából élnek, de ők méltóságukon alulinak tartják, hogy jelentéktelen ügyekben csússzanak-másszanak, ajtókat törjenek fel, és kilopják a ház urának zsebéből a heti kosztpénzt, Ők inkább beférköznek a \"magasabb körökbe\", a tehetős és előkelő nemesi udvarokba; dalolnak, varázsolnak, tanácsokat adnak, olykor-olykor egyéb szolgáltatásokat is nyújtanak, és egy óvatlan pillanatban meglépnek a családi vagyon jelentős részével, ha nem épp az egésszel, no meg a háziúr lányával.\n\nA bárdok álralában elszegényedett nemesi családból származnak, netán erkölcs nélkül nevelt úrfiak. Általában egyedül kalandoznak, ritkán áll össze két bárd, de ha mégis, akkor valarni óriási szélhámosság sül ki a dologból.\n\nSzámtalan különös figura kóborol Yneven, aki bárdnak vallja magát, de ezek égy része nem bárd, csak vándor énekes, aki a bárdokat körüllengő mitoszból akar hasznot húzni. A valódi bárdokat két fő csoportra oszthatjuk. Az első csoport, a \"klasszikus\" bárdok: hazájuk Ilanor és Yllinor. Ök a tábortüzek, a hadi utak, a hősi virtus-dalnokai. Az ilanori és yilinori bárdok, népük összes fegyverforgatójához hasonlóan, kiváló íjászok és még ennél is kitűnöbb lovasok. Suttogják: egyféle, talán mágikus kötelék fűzi össze őket. Ynev majd minden táján készek megvédeni bajbajutott társukat, s ha ez már nem lehetséges, kiméletlen bosszút állnak érte.\n\nAz erigowi, ereni bárdok a nemesi udvarok és körök kifinomult hallással bíró közönségének dalnokai. Az éneklést és zenélést zsenge körük óra tanulják, és tudományos alapossággal\ngyakorolják. Széptevőnek, párbajhósnek és szeretőnek egyaránt megteszik, emelkedett ízlésükhöz és életmódjukhoz azonban gyakran társul közömbösség, léhaság és erkölcstelenség, a\nművészsors felett érzett — titkolt vágy leplezetlen — világfájdalom.\n\nA bárdok mindenütt ugyanazt a bárdmágiát használják, melynek eredete a korok homályába nyúlik vissza. Mágikus zeneszerszámaikkal jelenítik meg a legendákhoz tartozó képeket, ám\nha úgy hozza a sor, varázshatalmukat, amely elsősorban illúziókeltésből és az Asztrális Mágia alapjaiból áll, önmaguk megvédésére, és mások befolyásolására is fel tudják használni.\n",
-            "kulonlegesKepessegek": "A bárdok elsődleges különleges képessége a Bárdmágia használata. Mana-pontjaikat, eltérően Ynev összes többi\nmágiahasználójáról, csak a csillagos ég alatt eljátszott Összhangzatnak nevezett dal segítségével kaphatják vissza, mintegy 18 kör alatt. Amennyiben az ég felhős és teljesen beborult, úgy nem képesek feltölteni Mana-pontakkal elméjüket\n\nA bárdok második különleges képessége az, hogy a 3. szinttől megérzik, ha egy tárgy mágikus, pszi vagy mágia használata nélkül is. Azt, hogy pontosan mifélék, nem tudják megmondani, de 5. szinttől már azt is megtudják határozni, hogy körülbelül (évszázadra) mikor keletkezett. A 9. szinttől fel tudják idézni\nkészítésének és történetének legendáit is. Természetesen ez azt jelenti, hogy a használatának pontos módját is megismerik.\n\nBár a\nvarázstárgyak készítésének módját nem ismerik, egy mágikus tárgyat, a Hatalom Amulettjét maguk is képesek elkészíteni, a megfelelő drágakő birtokában. \n"
+            "fo": "A lovagok azon nemesi származású harcosok, akiket gyermek­koruktól fogva a kaszt megkövetelte kívánalmak­nak megfelelően neveltek. Olykor persze az is előfordul, hogy uralkodók, főnemesek - olyanok, akik bírnak e joggal - lovaggá ütnek embereket, akik szerintük érdemesek erre. Fontos azonban megjegyezni, hogy az efféle lovagok csak rangjukban tartoznak a kaszthoz, képzettségükben nem. Hosszas átnevelés múltán válhatnak csak annak igazi tag­jaivá.\n\nYnev bármely vidékéről esik is szó, a híres lovagi neveltetés mindenütt közel ugyanazt jelenti. Magában fog­lalja az udva­riasságot, valamely kevéske műveltséget, a ne­hézfegyverzetű harcmodort, és a tájegységenként változó lovagi erkölcsöt.\nA lovagi erkölcs meglehetősen tágan értelmezhető fogalom, és még így sem minden lovag érzi magára nézve kötelezőnek. Ám az efféle alakokat és rendeket a valódi lo­vagok meglehetősen lenézik. A lovagi erkölcs megköveteli az eltökéltséget, feltétlen hűséget egy eszme vagy leg­alábbis egy hűbérúr irányában, a tántoríthatatlan bátorságot, az ellenfél becsülését, az adott szó betartását, a barátok sze­retetét.\n\nA lovagok olykor tornákat vívnak egymással, ahol hitük, uruk becsületét és hírét igyekszenek öregbíteni, meg­őrizni. Ha viszályba, nézeteltérésbe keverednek, párviadalra hívják ki egymást, ahol kötött szabályok szerint mérik össze fegyverük erejét.\n\nYnev világán számtalan kisebb-nagyobb lovagrend létezik. A legnépesebb talán a Viadomoi Oroszlánszív Lo­vagrend. A szer­vezet az egész világra kiterjedő rendház hálózattal rendelkezik, melynek központja az istenek háta mögötti hegyekben emelkedő óriási vár, Viadomo. Az erő­dítés eredetileg a hágó védelmére épült, célja a nomád hor­dák megfékezése, a civilizált világ megóvása volt. A rend lovagjai és paplovagjai Dreinának, a Hatalom Istennőjének szolgálatában élik életüket. Céljuk á Pyarroni egyház és vallás védelme, világméretű hatalmának és elsőbbségének megóvása. A jogrend, a törvény őrei; küldetésüknek tekin­tik a jogtalan cselekedetek megakadályozását, ám bosszú­hadjáratokat szinte soha nem indítanak, mondván, az Uwell lovagjainak feladata. Az Oroszlánszív Lovagrend színe a bíbor és az arany, jelképe a két hátsó lábára emelkedő oroszlán. A rendet paplovagok irányítják.\n\nA Feketerendek szintén világméretű hálózattal bíró lovag­rend. Központjuk Shadon Birodalom legeldugottabb tartomá­nyában, a Felföldön rejtőzik; pontos helyét a titok leple fedi. A Feketerendeket a világ legtöbb táján üldözik, tekintve, hogy Ranagolt tisztelik istenükként, erős szálak fűzik őket Kránhoz, valamint olykor véres emberirtásokat rendeznek. Ezen vadászatok éjjel folynak, a válogatási szempont pedig igen egyszerű: a kiemelkedett emberek ér­demesek az életre, a többiek halál fiai. A Feketerendek lo­vagjai általában művelt, intelligens em­berek, gyakran - mintegy mellesleg - ismert művészek. Legtöbbjük kettős életet él, és rendtagságát titokban tartja. A Feketerendiek színe a fekete és az arany, néha némi bíborral élénkítve. Jelük az adott rendháztól függően változó, de gyakran vis­szakö­szönő figura a rakull-madár. A rend nagymes­tere, Dequator Marses, amellett, hogy a világ egyik legve­szedelmesebb harcosa, bölcsekkel vetekedő műveltséggel bír, és az elmúlt századok legnagyobb költőjének tartják. Világi álarcáról - a néhány beavatott kivételével - kevesen tudnak bármit is.\n\nA shadoni lovagrendek mind Domvikot tisztelik istenükként. A becsületet, a hitet, a gyengék védelmét, a nők csodálatát tartják a lovagi erkölcs tartóoszlopainak. Segítik a szegényeket, és vakmerőséggel vetekedő bátorsággal áll­nak ki az igazság mellett. A birodalom területén számtalan rendjük létezik, melyek kevés kivételtó) eltekintve három különböző urat szolgálnak. Ezek egyike a Király, másikat a Királyi Hercegi Család, a harmadik pedig az Egyház. A ki­rályi lovagrendek színe a kék és az arany, a messze leghíre­sebb közülük a tizenöt fős Királyi Testőrség (16. Szint fe­lett), a légnépesebb pedig a Kék Pajzsos lovagrend. A Ki­rályi Hercegi Családot tisztelő rendek kék és ezüst színeket hordoznak lobogóikon, és a legismertebb közülük a Lili­omtőr Lovagrend. Az egyházi lovagrendek színe a vörös és az arany, jelképük a kard. A legnevesebb efféle lovagrend a tíz tagot számláló Angyali Testőrség (20. Szint felett; ők azonban mind paplovagok), a legelterjedtebb pedig a számtalan rendházzal rendelkező Isten Kardja Lovagrend. Ez utóbbi egyben Shadon legnagyobb lovagrendje is.\n\nAz Erigowi Krad Lovagrend Ynev legnagyobb északi központú lovagrendje. A pyarroni vallás elterjedése után Erigow lett Észak kultúrális fővárosa. Nem csoda hát, hogy a legnagyobb és legősibb lovagrend is itt emelt magá­nak fellegvárat. Tagjai között egyenlő arányban találunk lovagokat és paplovagokat. Mindükre szigorú igazságosság és kiemelkedő műveltség jellemző. A Rend nagymestere mindenkor az erigowi uralkodóherceg, aki egyben Vörös Hadúr is. Rendházaik behálózzák az egész Északi Szövet­séget, felvételt nyerni tagjaik közé igazi megtisz­teltetés és minden északi nemes vágya.\nAz Erigowi Krad Rend megalakulása óta a pyarroni hit védelmezője északon, állandó háborúságban áll Toron had­uraival, és a Kard Testvériség lovagjaival. Létszámuk igen változó, mert a rendtagság nem örökölhető: csak olyan lovagok ke­rülhetnek a Rend soraiba, akik bizonyítottak és teljesítették a Rend főtanácsának valamely küldetését. A kérelmező alkal­masságát maga a nagymester dönti el, s bi­zony sokakat vissza­utasítottak már. Az Erigowi Krad lova­gok nem egyéni hőstette­ikkel vívták ki hírnevüket, hanem hihetetlen fegyelmezettsé­gükkel, kiváló taktikai érzékükkel és félelmet nem ismerő ­már-már makacssággal határos - bátorságukkal. Csapataik nemegyszer arattak fényes diadalt sokszoros túlerővel szemben is, aranykörrel ékített, vörös-fehér sávos lobogójuk mindig rettegést ébreszt ellenségeik­ben.\n\nA Kard Testvériség a P. sz. XXIII. században alapí­tott lovagrend, amely védasszonyául Orwellát választotta, s célul tűzte ki a Rettenet Asszonya visszatértének előkészí­tését. A Pyarroni Paktum miatt, amely tiltja az emberáldozó vallások gyakorlását, Pyarron feldúlásáig csak Gro-Ugon­ban, illetve (titokban) Toronban és a Város­államokban te­vékenykedtek. Mára Gro-Ugon uralkodó rétegévé, ezzel Észak-Ynev egyik meghatározó poli­tikai tényezőjévé nőt­ték ki magukat. Székhelyük Reagban található, jelképük a földbe szúrt kard. Félelmet nem ismerő, fanatikus harcos és paplovagok kerülnek ki soraikból, a lovagi erkölcsöket azonban sajátos felfogás szerint alkalmazzák. A Rend hie­rar­chiáját tisztelik, s törvényeit általában betartják, ám úgy gondolják, harc közben, háborúban semmiféle szabály nem köti őket, csupán az, hogy győzzenek. Előszeretettel hasz­nálnak mérgeket, nem vetik meg a számszeríjat és kitűnően bánnak a dobótőrökkel. A hazugság nem elítélendő jellem­hiba számukra - csupán eszköz, amit mindig használnak, ha szükségét látják. Adott szavukat azonban betartják, s noha nem könnyű felismerni, mikor esküsznek komolyan, mikor megtévesztésből, egy bizonyos: istennőjüket, Orwellát oly­annyira tisztelik, hogy ha rá tesznek fogadalmat, azt később sem másítják meg. Egyébiránt kedvenc szavajárásuk: ­Min­dig csak az utolsó szavam számít! A Kard Testvérisége meglehetősen népes rend, tagjai közt olyanokra is akadha­tunk, akik elsajátították a boszorkánymágia titkait. Páncél­jaikat könnyű felismerni, a rend ezen tagjai kivétel nélkül mind csillogó ezüstszín teljesvértezetet viselnek. Színük az ezüst, a fekete és a sárga. Jelmondatuk: A kegyetlenség fé­lelmet szül, a félelem hatalmat!\n\nGorvik Birodalom öt egymással viszálykodó tarto­mányában se szeri, se száma a kisebb-nagyobb lovagren­deknek. Sok közülük rablólovagok bandája, némelyik világi urakat szolgál, vagy saját jól Felfogott érdekét, ám leg­többjük mégis valamely vallási irányzatot. Ezeket nem Is­tenük kiléte különbözteti meg egymástól - hiszen az minden esetben Ranagol -, hanem a vallási tanok értelmezése. Így bizony gyakran keverednek véres harcokba egy­mással. A két leghíresebb gorviki rend a warvicki Radovikánus Lo­vagrend, és a világi érdekeltségű Marico con Rabora lovag­rend. Ez utóbbi különös harcmodoráról nevezetes: tagjai veszedelmes fegyverként forgatják élezett peremű pajzsai­kat is.\n\nKülönleges rend a pyarroni Aranykör Lovagrend. Tagjai általában paplovagok, de akadnak közöttük egyszerű lovagok is. Ők igen művelt, tanult emberek. A rend célja, hogy a világ minden tájáról egybegyűjtse és feldolgozza a tudást, az ismereteket. Tagjai mindent elkövetnek, hogy minnél szélesebb körű tapasztalatokat szerezzenek Ynev legtávolabbi tájairól is. Életük egyetlen óriási küldetés, melynek során olykor visszatérnek valamelyik rendhá­zukba, hogy elbeszéljék tudósaiknak a tapasztalataikat. Szí­nük a fehér és az arany; jelképük aranyban pompázó gyűrű. Ezt viselik mind hófehér pajzsukon, mind azonos színű, hosszú köpönyegük hátán. Kedvelik a hatalmas, fehér mé­neket. Nagymesterük, a Krád kegyelméből több ezer esz­tendős Elorand a város pusztulásakor vesztette életét a Kráni Tizen­hármakkal vívott varázspárbajban. Annak ide­jén Ó-Pyarron megalapításakor ő tette le a rend központjá­nak, a Fellegvárnak alapköveit is. A város pusztulása után az Aranykör Lovagrend a Larmaron hegységben felépített sasfészkébe húzódott vissza, és azóta sem választott magá­nak új nagymestert.\n\nAkadnak persze úgynevezett kóbor lovagok is, akik nem tartoznak egyetlen rendhez sem, mi több, olykor tán még ha­zájuk, házuk sincs. Ők általában elszegényedett ne­mesi csalá­dok ivadékai, akik vagy kardjuk szolgálatba adá­sával igyekeznek pénzt gyűjteni, vagy urat, rendet keresnek maguknak, melynek nézetei megegyeznek saját felfogásuk­kal. A kóbor lovagok általában fiatalok és szegények."
         }
     },
     {
@@ -1133,304 +1484,134 @@
         }
     },
     {
-        "id": "Harcművész",
-        "name": "Harcművész",
+        "id": "Tolvaj",
+        "name": "Tolvaj",
         "kepessegDobas": {
-            "Fizikum": "Jó",
-            "Ügyesség": "Jó",
-            "Mentál": "Átlagos",
+            "Fizikum": "Gyenge",
+            "Ügyesség": "Legendás",
+            "Mentál": "Jó",
             "Asztrál": "Átlagos"
         },
-        "fpPerSzint": 5,
+        "fpPerSzint": 3,
         "epAlap": 4,
-        "fpAlap": 8,
+        "fpAlap": 5,
         "harcertekAlap": {
-            "ke": 10,
-            "te": 20,
-            "ve": 75,
-            "ce": 0
-        },
-        "harcertek": {
-            "te": 3,
-            "ve": 3
-        },
-        "hm": 2,
-        "kpAlap": 4,
-        "kpPerSzint": 5,
-        "szazalekPerSzint": 22,
-        "kepzettsegek": [
-            [
-                {
-                    "kepzettsegId": "vakharc",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "name": "Fegyverhasználat",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "name": "Fegyverhasználat",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "name": "Fegyverhasználat",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "fegyver:",
-                    "name": "Fegyverhasználat",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "lovaglas",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "futas",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "uszas",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "maszas",
-                    "fok": 20,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "eses",
-                    "fok": 35,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "ugras",
-                    "fok": 30,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "harcmuveszet:",
-                    "name": "Harcművészet stílus",
-                    "fok": 2,
-                    "honnan": 0
-                },
-                {
-                    "kepzettsegId": "pszi:slan",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "pszi:pyarroni",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "foldharc",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "belharc",
-                    "fok": 3
-                }
-            ],
-            null,
-            [
-                {
-                    "kepzettsegId": "sebgyogyitas",
-                    "fok": 1,
-                    "honnan": 0
-                }
-            ]
-        ],
-        "kasztKpPerSzint": 15,
-        "leiras": {
-            "fo": "A Slan kifejezést először Tiadlanban kezdték használni a Niaréből odatelepült szerzetesek. Így hívták azokata tanítványokat, akik nem a sárgák népéből származtak, de mégis igen tehetségesnek bizonyultak a harcművészetek elsajátítása terén. A szerzetesek fél évszázad múltán - uruk kívánságára - hazatértek, de az elnevezés megmaradt. Azóta Slannak nevezik az összes harcművészt.\n\nA Slan technikák már nem egyeznek meg az eredeti forrásukkal, azóta ötvöződtek a helyi harci technikákkal, és a Slan mesterek is tudatosan továbbfejlesztették. A harcművész elsősorban a puszta kezét és egész testét használja, ami ugyanolyan halálos fegyver, mint mások kezében a kard, vagy csatabárd. Harc közbeni akrobatikus mozgásuk valódi élmény a kívülállónak, A kardcsapások elől félreszaltóznak, a rájuk lött nyílvesszőt röptében elkapják, és a legváratlanabb pillanatban ütik ki ellenfelük alól a lábát. Állóképésségük, erejük\nlegalább ilyen megdöbbentő. Puszta kézzel zúzzák szét a pajzsokat, hosszú órákon kéresztül képesek futni, a legjobbak az ügető lóval ís felveszik sebességben és kitartásban a versenyt.\n\nNoha a kilenc alapfegyver - bot, tőr, egyeneskard (ami nem azonos a slan karddal), kétkezes harci balta (kb. megegyezik a kétkezes csatabárddal), lándzsa, tonfa, cséphadaró (nuncsaku),\nslan csillag, buzogány - használatát mindén Slan elsajárítja, csak\nritkán használják.\n\nA harcművészek teljes meggyőződéssel állítják, hogy a fegyverek behatárolják a cselekvés teljes szabadságát. Az egyetlen egyetemes harci eszköz az emberi test, csak ez rendelkezik használójának minden lehetőségével.\n\nA harcművészek gyakran magányos mestereknél tanulnak, de Tiadlanban több nagy iskola is akad, ahol egyszerre húszas, harmincas csoportokban oktatják a növéndékeket a mesterek. Tanuljanak azonban bárhol, tudásukat kincsként őrzik, nem szívesen osztják még nem a kasztjukba tartozókkal, a kívülállókkal.\n\nAz egyes iskolák volt növendékei általában összetartanak, a szenvedésekkel, a gyakorlással töltött hosszú-hosszú órák emléke, na meg a közös tudás titkai szoros köteléket jelent minden harcművésznek.\n\nTiadlanban, ami továbbra is a harcművészetek igazi hazája, a harcművészeti iskolák és rendek felett a Dorcha - a Harcművészek Nagyasszonya - parancsol, Öt minden Slan legyen akár nő,\nakár férfi, rajongásig szereti és tiszteli, és égyetlen szavára bármit megtesz. Ez persze nen áll Ynev más tájain élő harcművészekre, különösen a krániakra, de szinte bizonyos, hogy a Dorcha említése mindegyik igazi harcművész szívét megdobogtatja.",
-            "kulonlegesKepessegek": "Elsődleges különleges képességük a Slan - pszi használata.\nEnnek segítségével válhatnak különb harcossá bárkinél.\n\nA harcművészek képesek arra, hogy a rájuk lőtt nyílvesszőket és egyéb lövedéket félreüssék, illetve kitérjenek az útjukból. Ennek a feltétele: számítaniuk kell a lövédékre, és felkészülten kell várniuk rá (kitérésre összpontosítás). Ha ez az eset érvényes; akkor a harcművész VÉ-je áll a kilőtt lövedék célzó értékével szemben.\n\nA harcművészek kitartó farkasügetésre képesek, és ezt annyi óráig bírják, amennyi a tapasztalati szintjük.\n\nA harcművészek keze illetve lába, a hatodik szint elérése\nután, Chi-harcban, mágikus fegyvernek számít, s minden, az efféle fegyverekre vonatkozó szabály érvényes rájuk. \n"
-        }
-    },
-    {
-        "id": "Kardművész",
-        "name": "Kardművész",
-        "kepessegDobas": {
-            "Fizikum": "Átlagos",
-            "Ügyesség": "Jó",
-            "Mentál": "Átlagos",
-            "Asztrál": "Jó"
-        },
-        "fpPerSzint": 5,
-        "epAlap": 4,
-        "fpAlap": 8,
-        "harcertekAlap": {
-            "ke": 10,
-            "te": 20,
-            "ve": 75,
-            "ce": 0
-        },
-        "harcertek": {
-            "te": 3,
-            "ve": 3
-        },
-        "hm": 2,
-        "kpAlap": 4,
-        "kpPerSzint": 5,
-        "szazalekPerSzint": 18,
-        "kasztKpPerSzint": 15,
-        "kepzettsegek": [
-            [
-                {
-                    "kepzettsegId": "fegyver:okolharc",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "birkozas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "vakharc",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver:kard_slan",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver:tor_slan",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "pszi:slan",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "pszi:pyarroni",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "etikett",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "lovaglas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "uszas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "futas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "maszas",
-                    "fok": 10
-                },
-                {
-                    "kepzettsegId": "eses",
-                    "fok": 20
-                },
-                {
-                    "kepzettsegId": "ugras",
-                    "fok": 10
-                },
-                {
-                    "kepzettsegId": "belharc",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "harcmodor:shiensu",
-                    "fok": 2
-                }
-            ]
-        ],
-        "leiras": {
-            "fo": "A kardművészek a Slanok egy specializálódott csoportját képezik. Ök a küzdelemnek a karddal vívott változatát vitték tökélyre.\n\nFegyvéreik, a Slan kard és a Slan tőr, az évszázadok hosszú munkájával kifejlesztett, kikisérletezett bonyolult kovácsmunkával készül. Anyaga és formája is a leginkább hozzáillik a kardművészek vívóstílusához, mindmostanáig nem sikerült jobbat kitalálni.\n\nA. kardművészek szellemisége sokban hasonlít a harcművészekéhez, de ők ném testüket és öklüket használják fegyvernek, hanem a kardjukat. Módszereik, technikáik legalább olyan különlegesek, mint a harcművészek pusztakezes harcmodora. Vívó tudományukról legendákat zengenek, s való igaz, mozgásuk csiszoltsága, módszereik letisztultsága szemet gyönyörködtető, igazi élményt ad a hozzáértőnek.\n\nA kardművészek sohasem cseleznek fegyvereikkel. Egyenesen és tisztán vágnak - ha lehet, és hárítanak - ha kell. A hatékonyság az időzítésben, a hajszálpontos kivitelezésben rejlik. Mások\nszámára hihetetlen gönddal gyakorolják be minden egyés mozdulatukat, hisz a kéztartás tisztasága, a helyes lépés, a csípő pontos mozgása, a helyes lélegzetvétel az életüket mentheti meg.\n\nA kardművészek, a harcművészekkel ellentétben, szinte sohasem tanulják tudományukat iskolákban, az ilyesféle tanodák ugyanis roppant ritkák. A kard forgatásának művészetét magányos mesterek oktatják, többnyire égy, de legfeljebb három-négy tanítványnak. Az azonos mesternél tanult kardművészek testvéreknek is becsületére váló módon tartanak össze, és csak a\nsaját stílusukat követő kaszt-társakban bíznak meg egyből.\n\nA kardművészek éppúgy tisztelik a Dorchát, mint harcművész társaik.",
-            "kulonlegesKepessegek": "A kardművészek legfontosabb fegyvere, a Slan kardkészlet. Ez két enyhén görbülő, keskeny pengéjű, kétkezes markolatú kardból áll, egy rövidebből, és egy hosszabból. Mindkettő része a Személyes Aurájának, így a lélek védelmét élvezi, mintha csak a kardművész testének egy darabja lenne. Ezeken kívül a kardmű vészek használnak még olykor tőrökét, slan csillagokat és egyéb fegyvereket is, de véresen komoly, nehéz küzdelemben kizárólag a kardkészletét használja. Ez a párbaj esetében fokozortan érvényes.\n\nA kardművészek vértje egymásra erősített fém lemezkékből,\npikkelyekből áll. Mindig hajlékony, nem akadályozza viselőjét a szabad mozgásban. A tradicionális kardművész vért SFÉ-je 4, MGT-je 1, de csak akkor, ha kardművész viseli, mert másnak csak közönséges pikkelyvért.\n\nElsődleges különlegés képességük a Slan-pszi használata.\nEnnek segítségével válhatnak különb harcossá bárkinél.\n\nA kardművészek is képesek arra, hogy a rájuk lőtt nyílvesszőket és egyéb lövedéket félreüssék, illetve ha kell, kitérjenek az útjukból. Ennek az a feltétele, hogy számítaniuk kell a lövédékre, és felkészülten kell várniuk rá (tehát a Játékosnak előre be kell jelentenie a kitérésre összpontosítást). Ha ez az eset érvényés, akkor a kardművész VÉ-je áll a kilőtt lövedék Celzó Értékével szemben.\n\nA kardművész kardjai a hetedik szint elérése után, de csak\nChi-harcban, mágikus fegyvernek számítanak, s minden, az efféle fegyverekre vonatkozó szabály érvényes rájuk. "
-        }
-    },
-    {
-        "id": "Boszorkány",
-        "name": "Boszorkány",
-        "kepessegDobas": {
-            "Fizikum": "Gyenge",
-            "Ügyesség": "Jó",
-            "Mentál": "Jó",
-            "Asztrál": "Jó"
-        },
-        "fpPerSzint": 0,
-        "epAlap": 3,
-        "fpAlap": 1,
-        "harcertekAlap": {
-            "ke": 6,
-            "te": 14,
-            "ve": 69,
-            "ce": 0
-        },
-        "harcertek": {
-            "te": 1,
-            "ve": 1
-        },
-        "hm": 2,
-        "kpAlap": 8,
-        "kpPerSzint": 12,
-        "szazalekPerSzint": 0,
-        "mana": {
-            "kepesseg": "emlekezet",
-            "mennyiseg": "normál"
-        },
-        "kasztKpPerSzint": 8,
-        "leiras": {
-            "fo": "A. boszorkányok többsége csak felhasználja az ösi, mágikus tanokat. Tudományúk évezredek tapasztalatán alápul, mégsem tér el lényegesen az őst formuláktól. Számukra a mápia nem a tökéletesedés útja, hanem a hatalom egyik eszköze. A mágiát okkult művészetként szemlélő varázstudó kevés akad közöttük.\nA \nboszorkányok nem igyekeznek megérteni a mágia törvényeit - ők a gyakorlat, az alkalmazói mágia hívei. A törvényeknek nem a szérkezétét, hanem lehetséges kiskapuit keresik, fűzzük hozzá, gyakran sikerrel.\n\nA legelső és legfontosabb szabály, amit a boszorkány kapcsán említenünk kell, a boszorkány karakter minden esétben nőnemű. Javasoljuk ezért, hogy ne legyen ez másként a Játékos esetében sem másként, hiszen ellenkező nemű karakterrel nagyon nehéz játszani, és a próbálkozás gyakran kínos szítuációkhoz vezet.\n\nEgy boszorkány elsősorban az Asztrál Mágiában, annak is a fondorlatosabb, csábítással vegyes alkalmazásában járatos. Különös, egyedi varázslatokat használ, alkalmazza, ha nem is érti magas fokon, az Anyagok Mágiáját, és a Mentál Mágiát is. Érti a mérgek keverését, és a védekezést is ellenük, illetve ért a gyógyitáshoz is.\n\nBoszorkányok Ynev minden táján akadnak. Rendjeik száma több százra rúg csak Kránban, a legjelentősebb közülük az egész Délvidékre kiterjedő, renitens szektákban bővelkedő Adepta Astralíca. Leányai a gyönyörben lelik meg az Asztrál Mágiák alkalmazásához leginkább alkalmas tudatállapotot, szexuál mágiájuk a legveszélyesebb hatalom, amivel egy nő egy férfi felett bírhat.\n\nSzólni kell még a Kráni Birodalmi Belsőiskolák árnyékában tevékenykedő Maida Saluguas szektáról is. Tagjai lélegzetelállító szépségű fiatal hölgyek, akik ártatlan külsejükre rácáfolva, harcedzett orgyilkosokat is megszégyenítő képességekkel bíró ügynökei Kránnak. Krán legtöbb politikai sikerét éppen a Maida Saluguas \"képviselőinek férfiszíveket megdobogtató hatásának köszönheti. A szekta tagjai Dél legkülönbözőbb államaiban bukkantak fel az idők folyamán - rendszerint jelerítős személyiségek,  bankárok, sőt uralkodók ágyasaiként, Valódi céljaikat mindenkör titokban tartják. Jártasságuk a misztikus tudományokban, Asztrál Mágikus hatalmuk megfelelő - és bizony kivédhetetlen - eszköznek bizonyult akkor, amikor az egyes államok békéjének, nyugalmának szétzilálása, egyes vezetők és/vagy tehetős egyének befolyásolása, vagy éppen félreállítása volt Krán célja. A boszorkányok a küldetések sikere érdekében nem riadtak vissza gyilkosságöktól sem, mélyek végrehajtása közben vagy saját eszközeiket,\nvagy ha a gyanút egy jóelőre kiválasztott egyénre, vagy csoportra akarrák terelni, akkor a rájuk jellemző fegyverekét használták fel. Feljegyzések tanúskodnak olyan esetekről is, mikor a gyanút valamely istenség fanatikus híveire terelték, az egyszerű földművesek egykedvűségével hintve szét a városok, országok pusztulását kövételő vallásháborúk csíráit.\n\nÉszak-Yneven két jelentősebb és számtalan kisebb-nagyobb boszorkányszekta tevékenykedik: a legnevesebb, valódi haralommal is bíró szervezet a Liviniai Gyülekezet. Akárcsak más északi boszorkányrendek, ők is Morgena papi rendjétől eredeztetik magukat, s ebben azért lehet valami kis igazság is. Céljaik,\nmódszereik koronként változtak, egy azonban bizonyos: Tharr hívei ellen engesztelhetetlen gyűlölet élt mindenkor szívükben.\n\nÖsszetartásuk, befolyásuk világszerte híres, mondják, egyés tagjaik Doran Varázslótanácsának hálószobatítkairól is regélhetnének. Erősen kötődnek a kyr hagyományokhoz, és a legtöbb régi\nereklve is Liviniában halmozódott fel.\n\nA Romlás Virágai boszorkányrend tagjai Örwella, a Kitaszítött papnőivel egyívású gazemberek. Nagy barátságban vannak a Kard Testvériségével, amolyan véd- és dacszövetség ez közöttük.\n\nNekik számtalanszor sikerült olyasmit véghezvinniük, amihez a lovagok ereje, gyilkos kegyetlensége is kevésnek bizonyult. A Szexuálmágia legnagyobb északi ismerői, és ézen tudásukat bizony ott használják ki, ahol csak lehet, Nem riadnak vissza azonban a gyilkosságoktól sem, némelyikük valóságos amazon. Bevett\ntrükkjük, hogy időlegés réndházaikar - hiszen az Inkvizítorok Szövetségének állandó \"zaklatásai\" miatt sokáig nem maradhatnak egy helyen - Ellana - szentélynek álcázzák, ám az ide betérők nemcsak csengő aranyaikkal fizetnek tévedésükért, hanem az életükkel is."
-        }
-    },
-    {
-        "id": "Boszorkánymester",
-        "name": "Boszorkánymester",
-        "kepessegDobas": {
-            "Fizikum": "Gyenge",
-            "Ügyesség": "Jó",
-            "Mentál": "Jó",
-            "Asztrál": "Jó"
-        },
-        "fpPerSzint": 1,
-        "epAlap": 3,
-        "fpAlap": 4,
-        "harcertekAlap": {
-            "ke": 7,
+            "ke": 8,
             "te": 17,
             "ve": 72,
-            "ce": 5
+            "ce": 0
         },
         "harcertek": {
             "ke": 1,
             "te": 1,
             "ve": 1
         },
-        "hm": 5,
-        "kpAlap": 7,
-        "kpPerSzint": 8,
-        "szazalekPerSzint": 15,
-        "mana": {
-            "kepesseg": "emlekezet",
-            "mennyiseg": "normál"
-        },
-        "kasztKpPerSzint": 13,
+        "hm": 4,
+        "kpAlap": 8,
+        "kpPerSzint": 10,
+        "szazalekPerSzint": 50,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
+                },
+                {
+                    "kepzettsegId": "fegyver:",
+                    "fok": 2,
+                    "name": "Fegyverhasználat"
+                },
+                {
+                    "kepzettsegId": "nyelv:",
+                    "fok": 3,
+                    "name": "Nyelvtudás"
+                },
+                {
+                    "kepzettsegId": "nyelv:",
+                    "fok": 2,
+                    "name": "Nyelvtudás"
+                },
+                {
+                    "kepzettsegId": "nyelv:",
+                    "fok": 2,
+                    "name": "Nyelvtudás"
+                },
+                {
+                    "kepzettsegId": "ertekbecsles",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "kocsmai_verekedes",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 45
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 10
+                },
+                {
+                    "kepzettsegId": "zarnyitas",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "lopozas",
+                    "fok": 30
+                },
+                {
+                    "kepzettsegId": "rejtozes",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "zsebmetszes",
+                    "fok": 35
+                },
+                {
+                    "kepzettsegId": "csapdafelfedezes",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "belharc",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "mellebeszeles",
+                    "fok": 2
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "kotelekbol_szabadulas",
+                    "fok": 1
+                }
+            ],
+            [
+                {
+                    "kepzettsegId": "csomozas",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "orvtamadas",
+                    "fok": 1
+                }
+            ]
+        ],
+        "kasztKpPerSzint": 12,
         "leiras": {
-            "fo": "A boszorkánymesterek gátlástalan feketemágusok - természetesen csak módszereikben azok, hiszen hatalmuk bármily sötét, nyomába sem ér egy igazi mágusénak. Mégis, a többi varázslathasználó kaszt tagjai csak irigységgel vegyes döbbenettel figyelhetik velejéig romlott, sötét hatalmuk mértékét. Mágikus tudományukat egyetlen cél szolgálatába állítják: pusztítanak, tenger kínt, nyomorúságot hoznak mindenkire.\n\nMindemellett a boszorkánymesterek is csak felhasználói varázslók, ők sem értik a mágia mélyebb összefüggéseit, belső törvényeit. Ismernek persze sok formulát: varázsigéket és taglejtéseket,\namelyek segítségével előszólíthatják iszonyú hatalmukat, de ezek közül egyiket sem tudják nélkülözni a varázslási folyamatban.\n\nNincs egy boszorkánymester számára dühítőbb annál, ha egy pap Csendteremtése megakadályozza a varázslásban. Varázslataik égyébként túlnyomórészt Rontásokból, Átkokból meg különféle mágikus támadásokból áll, amik az áldozat testét, lelkét roncsolják, meg persze az elmaradhatatlan Nekromanciából, ami egyébként teljesen más, mint amit a Dorani Varázslóiskolában oktatnak. Emellett a boszorkánymesterek járatosak az orgyilkosság szinte minden fogásában: ismerik, és egyesek közülük vitathatatlanul a legmagasabb szinten űzik a méregkeverés kétes értékű tudományát, és mesterek a hárbaszúrás \"művészetében\".\n\nDéL-Ynev szinte minden táján van belőlük elég, főként Kránban, de Gorvikban; a Dzsad Emírségekben, de még Shadonban is, ahol pedig talán leginkább üldözik őket.\n\nA leghatalmasabbak kétségen kívül Kránban élnek: Rendjeik behálózzák a Birodalmat, ők maguk gyakran lovagrendek, fejvadászklánok vezetőiként tűnnek fel. A Ranagol-fattyakhoz a síron túl is hű Birodalmi Belsőiskolákkal csak formális kapcsolatot tartanak fenn, de annál meghittebb a viszonyuk a mindenki mástól elzárkózó aquir mágus-boszorkánymesterekkel: Az itteni boszorkánymesterek talán a legfennhéjázóbbak mind közül, ami persze könnyen önbíráskodásra sarkall bárkít Kránban.\n\nÉszak boszórkánymestereiről szólva elsőként mindig Toron boszorkánymesterei szúrnak szemet, ami nem csoda a történelemben és a politikában vállalt szerepük miatt. Bár ők a legnagyobb varázstudók a kontinens ezen táján, ők az embernépek legelkeserédettebb ellenségei ís. Mégsem egyeznek meg az itt tárgyalt boszorkánymesterekkel, hisz ők a mágia sokkal ősibb, sokkalra bonyolultabb formáit is képesek használni. Ök ama tiz Hatalmas egyenes ági leszármazottai, akik a Kyr Birodalom bukásának kezdetén megpróbálták Orwella kezére játszani a császárt, egész udvartartásával egyetemben. Tervük kudarcba fulladt\nugyan, de az egykori tartomány egységét megőrizték, és leszármazottaik mind a mai napig uralják Toront, a belviszályok ellenére. Ök nemes elzártságban élnek, a Shuluri-öböl megközelíthetetlen\nszigetén, a Daumyren. Erre a szigetre csak egy ember teheti a lábát, a Toroni Császár, de ő is csak a megkoronázását követő éjszakán, hogy hódoljon a Boszorkánymesterék előtt, és kérje és megkapja az uralkodásához a jogot.\n\nAnnál inkább ismerik és gyűlölik a világban követőiket, az árnyékukban tevékenykedő közönséges boszorkánymestereket, akik révén hatalmukat az egész birodalom, még a császár felett is, érvényesítik.\n\nA rejtőzködő és a nyíltan Ynevet járó boszorkánymesterek többsége az Yneven még mindig jókora hívőtáborral réndelkező kyr szörnyisten, Tharr követői. Miután Toronban teljes biztonságban tudhatják magukat, a boszorkánymesteri rendek olyan szerteágazó szervezetet hoztak létre az évszázadok alatt, ami tán még a Császári Közigazgatási reridszért is felülmúlja. Sok helyen ők irányítják a gazdasági életet, hisz mindennel kereskédnek, ajzószerek széles választékától, rabszolgákon át egészen a köznapi\nélethez szükséges apróságokig. Alvilági szervezeteket alapítottak, pl. a Láncbarátok Testvériségét, vagy tolvajklánokba férkőztek be, pl. a Kobrák különböző csoportjaiba. Hatalmuk ván a politikai életben is, a jócskán elkorcsosult kyr eredetű nemességnek mára csak a hadsereg irányításában van szava, de ott sem nélkülözhetik a boszorkánymesterek alantas, de hathatós támogatását a hadjáratok során.\n\nA toroni boszorkánymesterék rendjei természetes szövetségeseiknek tekintik Tharr Egyházát, a Háromfejű papjait. Mindkét szervezet azon igyekszik, hogy Toront az elsőszámú hatalommá tegye egész Yneven, és így hatalmukat és befolyásukat kiterjesszék az ottani kultúrák és országok mindegyikére.\n\nA Ouiron-tenger déli oldalán elterülő Abaszisz boszorkánymesterei lényegesen kényesebb helyzetben vannak, és bár a hatalmuk csekélyebb, mint toroni társaiké, a politikai egyensúlyban mégis fontos szerepet játszanak.\n\nAbaszisz Nagykirálya és az ország egy-egy tartományának Hercegkapitányi címét viselő urai állandó harcban állnak egymással. A Nagykirály, akit a trónfosztástól csakis-a Hercegkapitányok egymás közti torzsalkodása óv meg, a boszorkánymesterek sepítségét sém átallja igénybe venni, és támogatja Tharr helyi\nrendjének egyházait is. Aligha túlzás azt állítani, hogy a toroni-abasziszi tengely létrehozásáért leginkább a két ország boszorkánymestereinek rendjei tettek a legtöbbet."
+            "fo": "A tolvajok meglehetősen laza erkölcsű, enyhén szólva nem törvénytisztelő egyének. Akadnak közöttük rablók, zsebmetszök, besurranók és szélhámosok, kis- és nagystílű gazemberek. Egy\nképzett tolváj kasztú karakter minden ilyén \"mesterségben\" járatos.\n\nA tolvajok általában Klánokba tömörülnek, mivel így hatékonyabban \"dolgozhatnak\", de bőven akad magányos farkas is a nyájban. A tolvaj karakter valami efféle, aki képes többé-kevésbé függetlenül dolgozni a helyi klántól.\n\nTolvajklán Ynev szinte minden nagyobb városában működik, számuk több százra tehető; némelyikben csak néhány tucat taggal, de akad olyan is, ha kevés is, amely több ezer taggal\nbüszkélkedhet. Igazán nagy, egész Ynevre kiterjedő szervezet azonban csak kettő akad közöttük, ezek: a Szürkecsuklyások és a Kobrák. \n"
         }
     },
     {
@@ -1465,8 +1646,60 @@
         },
         "kasztKpPerSzint": 15,
         "leiras": {
-            "fo": "A tűzvarázsló a legkülönlegesebb varázshasználó kaszt mind közül. Annak ellenére, hogy alig ismerik a mágia belső törvényeit - azaz minden szempontból csak felhasználói varázslók, akárcsak a\ntöbbi előbb tárgyalt mágiahasználó -, a legmagasabb szintű, legkifinomultabb mágiát használják, amit Játékos Karakter egyáltalán használhat. Mágikus hatalmuk kizárólag a tűzzel történő támadásra és védekezésre korlátozódik, ennek viszont a legnagyobb élő mesterei. Ezirányú tudományukat a godoni mágusoktól örökölték.\n\nA tűzvarázslók, amellett hogy rendkívül veszélyes mágia birtokosai, a fegyverekkel - pontosabban a rendjük hagyományos ősi alakú fegyvereivel - is remekül bánnak.\n\nEgész Yneven egyetlen tűzvarázsló iskola létezik, az Ordani Tűzvarázsló Rend. Tagjai kivétel nélkül a kyr tűzistent, Sogront, a Tűzkobrát imádják. Tudományuk titkait szinte sohasem osztják meg kívülállóval. Ha olykor-olykor mégis kivételt tesznek, akkor is alaposan megfontolják, ki legyen az illető.\nUtoljára a Pyarroni Fehér Páholy nagymesterének, Sonornak engedtek betekintést a titkaikba.\n\nAz ordani iskolát leszámítva csak renegát, magányos mesterek oktatják a tűzmágiát. Öket, illetve tanítványaikat, azonban - kell-e mondani? - tűzzel-vassal irtják a Rend tagjai. Minden valószínűséggel ezzel magyarázható rendkívül alacsony számuk. Másfelől Tharr szolgái is üldözik, és irtják őket, ha módjuk van rá, ami fordítva nem mindíg igaz, mert egyes renegát mesterek - talán éppen a kíméletlen üldöztetések miatt - a sötét úthoz pártoltak. Efféle szégyen azonban ritkán esik meg, hiszen a renegátok többsége is Sogron feltétlen híve. Áldozataikat titkon mutatják be, és ha ritkán be-be is térnek Sogron Templomaiba, csak a hívők közé vegyülnek el, és általában kerülnek minden feltűnést. Tanítványokat a renegát mesterek ritkán ugyan, de fogadnak.\n\nEgyszerre csak legfeljebb két-három famulusuk lehet, akiket hamar (persze csak az 1. Tapasztalati szint elérése után!) elküldenek tapasztalatszerzési célból a nagyvilágba. Ez egyfajta hagyomány, hiszen ők is így kezdték pályafutásukat.\nMivel a renegátok tanítványok hosszú során keresztül örökítik egymásra tudásukat, ez az esetek döntő többségében természétesen a tudás részleges feledéséhez vezet. Ordanban persze más a helyzet, hiszen ott tűzvarázslók százai gondoskodnak a tanítványok részletes és mindenre kiterjedő kiképzéséről, illetve ott\ntalálható a lehető legteljesebb könyvtár a Tűzmágia köréből. A játék nyelvére lefordítva ez azt jelenti, hogy a renegát mester tanítványa 95% eséllyel nem ismeri a teljes tűzvarázslói repertoárt,\nhiszen mestere sem ismerte, hanem csak részeiben járatos. Ha a játékos 95 fölé dob k100-zal, akkor minden varázslatot ismer, mert vagy hihetetlen pontossággal, alapossággal adták tovább az ismereteket mesterének elődjei eddig vagy mestere, vagy annak mestere, csak nemrég vált ki az Ordani Rendből."
-        }
+            "fo": "A tűzvarázsló a legkülönlegesebb varázshasználó kaszt mind közül. Annak ellenére, hogy alig ismerik a mágia belső törvényeit - azaz minden szempontból csak felhasználói varázslók, akárcsak a\ntöbbi előbb tárgyalt mágiahasználó -, a legmagasabb szintű, legkifinomultabb mágiát használják, amit Játékos Karakter egyáltalán használhat. Mágikus hatalmuk kizárólag a tűzzel történő támadásra és védekezésre korlátozódik, ennek viszont a legnagyobb élő mesterei. Ezirányú tudományukat a godoni mágusoktól örökölték.\n\nA tűzvarázslók, amellett hogy rendkívül veszélyes mágia birtokosai, a fegyverekkel - pontosabban a rendjük hagyományos ősi alakú fegyvereivel - is remekül bánnak.\n\nEgész Yneven egyetlen tűzvarázsló iskola létezik, az Ordani Tűzvarázsló Rend. Tagjai kivétel nélkül a kyr tűzistent, Sogront, a Tűzkobrát imádják. Tudományuk titkait szinte sohasem osztják meg kívülállóval. Ha olykor-olykor mégis kivételt tesznek, akkor is alaposan megfontolják, ki legyen az illető.\nUtoljára a Pyarroni Fehér Páholy nagymesterének, Sonornak engedtek betekintést a titkaikba.\n\nAz ordani iskolát leszámítva csak renegát, magányos mesterek oktatják a tűzmágiát. Öket, illetve tanítványaikat, azonban - kell-e mondani? - tűzzel-vassal irtják a Rend tagjai. Minden valószínűséggel ezzel magyarázható rendkívül alacsony számuk. Másfelől Tharr szolgái is üldözik, és irtják őket, ha módjuk van rá, ami fordítva nem mindíg igaz, mert egyes renegát mesterek - talán éppen a kíméletlen üldöztetések miatt - a sötét úthoz pártoltak. Efféle szégyen azonban ritkán esik meg, hiszen a renegátok többsége is Sogron feltétlen híve. Áldozataikat titkon mutatják be, és ha ritkán be-be is térnek Sogron Templomaiba, csak a hívők közé vegyülnek el, és általában kerülnek minden feltűnést. Tanítványokat a renegát mesterek ritkán ugyan, de fogadnak.\n\nEgyszerre csak legfeljebb két-három famulusuk lehet, akiket hamar (persze csak az 1. Tapasztalati szint elérése után!) elküldenek tapasztalatszerzési célból a nagyvilágba. Ez egyfajta hagyomány, hiszen ők is így kezdték pályafutásukat.\nMivel a renegátok tanítványok hosszú során keresztül örökítik egymásra tudásukat, ez az esetek döntő többségében természétesen a tudás részleges feledéséhez vezet. Ordanban persze más a helyzet, hiszen ott tűzvarázslók százai gondoskodnak a tanítványok részletes és mindenre kiterjedő kiképzéséről, illetve ott\ntalálható a lehető legteljesebb könyvtár a Tűzmágia köréből. A játék nyelvére lefordítva ez azt jelenti, hogy a renegát mester tanítványa 95% eséllyel nem ismeri a teljes tűzvarázslói repertoárt,\nhiszen mestere sem ismerte, hanem csak részeiben járatos. Ha a játékos 95 fölé dob k100-zal, akkor minden varázslatot ismer, mert vagy hihetetlen pontossággal, alapossággal adták tovább az ismereteket mesterének elődjei eddig vagy mestere, vagy annak mestere, csak nemrég vált ki az Ordani Rendből.",
+            "kulonlegesKepessegek": "* **Hagyományos ordani módszer**: a tűzvarázsló óránként annyi MP-t nyer vissza, amennyi a tapasztalati sztinjének duplája. Mindehhez nem kell koncentrálnia, sem egyéb különleges tevékenységet folytatnia.\n* **Tűzelnyelés**: A tűzelnyelés képessége már sok fejtörést okozott Ynev legtudósabb mágiateoretikusainak - működése ugyanis szögesen ellentmond a manaáramlás és a folytonosan megújuló energiaháló minden ismert törvényszerűségének. Egyesek valami elkorcsosult ősmágikus rituálét\nlátnak benne, mások Sogron adományát hűséges gyermekeinek. Ami magukat a tűzvarázslókat illeti, ők a jelek szerint nem keresnek rá bonyolult elméleti magyarázatokat, megelégednek a puszta alkalmazásával is.\n\n  A Tűzelnyelés képességével a tűzvarázsló bármilyen (legyen akár közönséges vagy elemi) tűzből és hőhatásból, mely folyamatosan (!), azaz legalább 1 körig hat rá, képes minden egyes körben annyi mágikus energiát (Mana-pontot) kivonni, amennyi a tűz erőssége. Erre addig képes, amíg fel nem\ntöltődik a max. Mana-pontig amennyit elméje az adott Tapasztalati Szinten befogadni képes. Ez természetesen ugyanannyi, amennyi a kaszt leírásában szerepel, s amennyit a hagyományos ordani módszerrel tud magába gyűjteni. A különleges energiagyűjtés ideje alatt természetesen éppúgy sebző-\ndik a tűztől, mint bárki más. 1E-nél kisebb erejű tűzből (gyertya, mécses, stb), bármennyi ideig is hasson rá, és 1 körnél rővidebb hatásokból (tűznyíl) képtelen manát kivonni.\n\n  Akkor - és csak akkor - ha a tűzvarázsló elméje teljesen feltöltődött, a Tűzelnyelés jellege megváltozik. Ettől kezdve a varázsló képes bármilyen (közönséges vagy elemi) tűz, hőhatás sebzéséből az erősségnek(E) megfelelő - de minimum 1 - Sp-t semlegesíteni körönként. Ilyenkor gyertya vagy mécses nem is tudja megégetni. A hatás ideje bármennyi lehet, akár 1 körnél rövidebb is. Például: egy 3E erősségű Tűznyíl sebzéséből a tűzvarázsló - ha telítik a mágikus energiák - 3 Sp-t képes semlegesíteni, míg egy azonos erősségű Tűzszőnyeg sebzéséből körönként 3 Sp-t.\n\n  Kívülről szemlélve úgy látszik, mintha a lángok lelohadnának a tűzvarázsló közvetlen közelében - valójában ott teljesen kialszik a tűz. Persze a közeli lángok hőhatása érvényesül, sebzésük a test kiszáradásban: égési sebekben, hólyagokban, fájdalomban nyilvánul meg. Mivel a jelenség nem csak\na tűzvarázsló testére érvényes, hanem teljes aurájára, így ruházata és tárgyai is élvezik a Személyes Aura ezen különleges védelmét, melynek következtében soha nem gyulladnak meg, bármekkora is a sebzés. Ez alól csak a fokozottan gyúlékony anyagok a kivételek, mint például a száraz pergamen. Ha a tűzvarázsló aktuális Mana-pontjainak száma akár csak 1 Mp-vel is kevesebb maximumnál, ez a tulajdonság megszűnik, és a Tűzelnyelés újfent az elvesztett Mana-pontok visszaszérzésére irányul.\n\n  A képességgel lehetetlen Mana-pontot nyerni olyán, tüzekből, tűzhelyekről, melyek papi [Áldás](entity:aldas) vagy [Szertartás](entity:pap_szertartas) varázslat hatálya alatt áll, továbbá a szent tüzekből. A sebzés semlegesítő hatás persze ekkor is működhet - feltéve, hogy a tűzvarázslót telítik a mágikus energiák.\n\n  A védőmágiák alkalmazása a képességet nem befolyásolja - hacsak a leírásában nincs erre vonatkozó kitétel -, védő erejük, tűz és hőhatások elleni SFÉ-jük, hozzáadódik a képesség nyújtotta védelemhez."
+        },
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:kard_hosszu",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "fegyver:tor",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "hajozas",
+                    "fok": 2,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 4,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvtudás",
+                    "fok": 3,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "magia:tv_alapveto_tuzmagia",
+                    "fok": 1,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "magia:tv_elemi_formai",
+                    "fok": 1,
+                    "honnan": 0
+                }
+            ]
+        ]
     },
     {
         "id": "Varázsló",
@@ -1503,186 +1736,5 @@
             "fo": "A varázsló a legmagasabb szintű mágiahasználó kaszt mind közül.\n\nA varázslók ismerik az alapvető belső törvényeit a mágiának, és varázslataikat már nem az évezredek gyakorlata alapján hozzák létre, hanem a tapasztalatokon okulva, tudományos alapossággal,\nalkotóelemeikből rakják össze. A varázsló, azon túl, hogy az elméleti mágiából mindenképp a legtöbbet tudja, a:gyakorlati mágiában is felülmúlja a többi kaszt tagjait, hiszen csak tőlük függ, hogy\nmilyen leleménnyel igazítják az adott helyzethez a varázslátatkát.\n\nA varázslók számtalan tudományban járatosak, ezek vagy kapcsolódnak az okkult művészetükhöz, vagy pedig egyéb világi tudományok.\n\nTöbb híres-neves iskola is létezik Yneven, ám Játékos karakter csak kettőből származhat: a pyarroniból, vagy a doraniból - a kráni és a godoni iskolák egyelőre tilalmasak számukra. Akad persze több kisebb iskola is, például a dzsadoknál, de azok nem olyan híresek, bár gyakran alaposabb képzést adnak bizonyos specialitásokból. Természetesen akad elég magányos mester ís, aki időnként vállal egy-egy tanítványt, ők bárhol élhetnek egész Yneven.\n\nA Pyarroni Fehér Páholy a közönséges varázslóknál magasabb szintű tudással rendelkező, tisztábban gondolkodó mágúsok rendje. Felügyeletük alatt két varázslóiskola is nevel tanítványokat.\n\nA. Pyarróni Ökkult Tudományok Egyeteme valójában nem is varázslóiskola, elsősorban nem varázslók kitanításával foglalkozik, hanem a szükséges melléktudományok: asztrológia, alkímia,\nherbalizmus, rúnamágia tanítását végzi. Itt szerezheti meg a nem varázsló Karákrer a Mápiahasználat képzettséget ís.\n\nA másik, a Lardori Varázslóiskola a gyerekkortól nevel növendékéket, akik tanulmányaikat a tó északi partján álló épülwtegyüttesben kezdik mwg. Miután elsajátították az alapokat, az igazi tehetségeket a Belsőszigeti Iskolába viszik, ahol a legjobb mesterek irányításával folytatják a tanulást.\n\nA pyarroni neveltetésű varázslók kialakult és stabil erkölcsi érzékkel bírnak, amitől a mágiát, a mágia használatát elválaszthatatlaninak érzik. Ritka közülük az olyan, aki fekete mágiához folyamodik, bármily kicsinynek tűnjön az igaz úttól az eltérés, és bármily csábítónak az így elérhető eredmény. Az Asztrál Mágiát nem tartják sokra, a Nekromariciát pedig mereven elutasítják - elsősorban a Mentál Mágiához vonzódnak. Sokuk inkább az Elméleti Mágiár helyezi előtérbe, a mágia gyakorlati alkalmazása nem\nhozza izgalomba. No persze, kalandozó varázsló nem tartozhat az utóbbi csoportba!\n\nA Dorani Varázsló Iskola más elveket vall A jó szándékkal, jó cél érdekében alkalmazott mágiát - legyen az bármilyen - soha nem nevezi feketének, tegyük persze hozzá, hogy fehérmek sem.\nDoran nem csak elfogadja a Nekromanciát, hanem egyenesen hírés nagy tudású Nekromanta specialistáiról.\n\nA varázslók botja hosszú, nagyjából embermagasságú, és a varázsló kasztjának, iskolájának, beavatottságának bizonyítéka. Minden varázslóiskola és varázslómester más és másféle botot\najándékoz végzett növendékének. Csak abban hasonlóak egymáshoz, hogy egyik sem közönséges, erdőben levágott ág, mind bír valamilyen mágikus hatalommal. Ha egy varázsló felemeli botját, a Zónáján belül tartózkodók számára ez olyan, mint mikor egy pap kimondja a Hatalom Szavát. A pyarroni (lardori) varázslók botja vasfából készül, így szinte miridig majdnem fekete színű, csúcsán valamilyen ékkő csillog. A bot ellenáll szinte minden fizikai jellegű, mágikus vagy természeti behatásnak, hiszen a varázsló Személyes Aurájának szerves része.\n\nA dorani varázslók általában drakkfa botot használnak, amit hosszadalmas, és gyakran körülményes módon szereznek meg, A bot végleges formája a tulajdonosa fantáziáját és kézügyességét dicséri. A végleges formája általában hűen tükrözi a mágia azon területét, amelyet végül ís választott magának. A Nekromantákat messziről is könnyű felismerni csavarmenetes, unikornis-szarvat formázó, éjfekete botjukról.",
             "kulonlegesKepessegek": "- Egy varázsló tisztában van az alapvető anyagok mágikus szerkezetével, a varázsjelek felrajzolásának módjával, a ha\nsonló természetű varázsigék pontos kiejtési, és hangsúlyozási módjával.\n- Egy varázsló képes érzékelni a Zónáján belüli leplezetlen mágiát, de ezek pontos mibenlétének, helyének megállapításához további vizsgálatokra van szüksége (Fürkészés!). "
         }
-    },
-    {
-        "id": "adron_pap",
-        "name": "Adron pap",
-        "fokaszt": "Pap",
-        "kepessegDobas": {
-            "Fizikum": "Gyenge",
-            "Ügyesség": "Átlagos",
-            "Mentál": "Jó",
-            "Asztrál": "Legendás"
-        },
-        "harcertekAlap": {
-            "ke": 4,
-            "te": 15,
-            "ve": 70,
-            "ce": 0
-        },
-        "harcertek": {
-            "te": 2,
-            "ve": 2
-        },
-        "hm": 2,
-        "magiaKategoriak": [],
-        "mana": {
-            "kepesseg": "hit",
-            "mennyiseg": "sok"
-        }
-    },
-    {
-        "fajta": "normal",
-        "id": "solyomcsor_arel_pap",
-        "name": "Arel pap (Sólyomcsőr)",
-        "fokaszt": "Pap",
-        "magiaKategoriak": [],
-        "mana": {
-            "kepesseg": "hit",
-            "mennyiseg": "normál"
-        },
-        "kepessegDobas": {
-            "Asztrál": "Jó",
-            "Mentál": "Jó",
-            "Ügyesség": "Átlagos",
-            "Fizikum": "Átlagos"
-        },
-        "harcertekAlap": {
-            "ke": 9,
-            "te": 18,
-            "ve": 73,
-            "ce": 20
-        },
-        "harcertek": {
-            "te": 4
-        },
-        "hm": 5
-    },
-    {
-        "fajta": "normal",
-        "id": "darton_lovag",
-        "name": "Darton-lovag",
-        "fokaszt": "Paplovag",
-        "kepzettsegek": [
-            [
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "fegyver",
-                    "name": "Fegyverhasználat",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "vertviselet",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "harcmodor:ketkezes",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "pszi:pyarroni",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
-                    "fok": 4
-                },
-                {
-                    "kepzettsegId": "nyelv",
-                    "name": "Nyelvtudás",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "iras_olvasas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "vallasismeret",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "legendaismeret",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "heraldika",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "etikett",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "lovaglas",
-                    "fok": 3
-                },
-                {
-                    "kepzettsegId": "enek_zene",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "magia:pap_szfera_altalanos",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "birkozas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "meregkeveres",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "csapdaallitas",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "kocsmai_verekedes",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "hamiskartya",
-                    "fok": 2
-                },
-                {
-                    "kepzettsegId": "magia:pap_szfera_lelek",
-                    "fok": 1
-                },
-                {
-                    "kepzettsegId": "magia:pap_szfera_halal",
-                    "fok": 1
-                }
-            ],
-            null,
-            null,
-            null,
-            [
-                {
-                    "kepzettsegId": "orvtamadas",
-                    "fok": 1
-                }
-            ]
-        ],
-        "leiras": {
-            "fo": "Darton a Pyarroni Istencsalád ellentmondásos alakja. A holtak, de a sötét tréfák, a fekete humor patrónusa is, örömét leli abban, hogy cselekedetei - híveinek tetteiről meg nem is szólva - visszatetszést keltenek a komolykodókban. Választott prófétájához,\nAirun al Maremhez makacsul ragaszkodik, kétszer is új életet Íehelt belé, miútán a kalandozó két különböző küldetésben is odaveszett. Airun alapította Darton első lovagrendjét is, melyet Alex con Arvionival, régi elvbarátjával, közösen irányít az északi Bowon városából.\n\nDarton paplovagjai istenük égi hatalmának és különös humorának földi megtestesítői. Vezetőiket a rajongásig tisztelik, és bárhová, akár Orwella bugyraiba is szó nélkül követik. Pyarroni érdekeltségűek lévén a Vörös Hadurak oldalán küzdenek az Északi Háborúkban Toron és szövetségesei, azaz Tharr, Ranagol és Orwella hívei ellen, dé Darton eljövendő - jóformán csak általuk óhajtott - birodalmának érdekeit sem felejtik el. \n\nAirun és Pyarron Darton hitű rendje között évtizedek óta folyik egy kis marakodás. Már számtalan fejvadász és egyéb orgyilkos akarta ez okból kipróbálni, hogy harmadszor ís visszakergéti-e Darton a prófétáját Ynevre.\n\nA dartoniták mindén esztelenségre és őrültségre kaphatók, cinikusak a végtelenségig, a normális emberek szemében csendes őrült benyomását keltő férfigk. Kedvelt színük a fekete.\n\nSzent Szimbólumuk színeivel a két holdat idézi, de az erre vonatkozó kérdésekre csak legyintenek: ezt akárki úgysem értheti, mondják. Szent állatuk a holló, de ezen még néha-néha vitatkoznak, mert sem Airon, sem Alex nem állhatja az unos-untalan\nkárogó gyászmadár hangját. Hajukat mindannyian - a két rendfőnököt utánozva - szorosan . összefogva, varkocsba fonják, és hátukon szabadon lelőgatva hagyják.\n"
-        },
-        "magiaKategoriak": [
-            "egyedi_darton"
-        ]
     }
 ]

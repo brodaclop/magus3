@@ -127,8 +127,13 @@ Azoknál a varázslatoknál, ahol felfedezési esély szerepel, a varázslók 30
         name: 'Alapvető tűzmágia',
         kepesseg: 'emlekezet',
         leiras: `Az alábbi varázslatokat az ordani tűzvarázsló iskola alapvető jellegűnek tekinti. Ahogy a tűzvarázslók mondják, ez az első lecke, melyet minden novíciusnak el kell sajátítania, ha felvételt kíván nyerni a rendbe. Aki ezen alapvető tűzvarázslatok végrehajtására képes, már igazi beavatottnak tekintheti magát - ha nem is a legkülönbek közül valónak.`
+    },
+    {
+        id: 'magia:tv_elemi_formai',
+        name: 'Tűzmágia elemi formái',
+        kepesseg: 'emlekezet',
+        leiras: `A tűzmágia elemi formái magukban foglalják mind a varázslók által is ismert hat iskolaformát, mind pedig a magasabb szintű, szabad elemi formákat.`
     }
-
 ] as const;
 
 export const Mentodobasok = [
