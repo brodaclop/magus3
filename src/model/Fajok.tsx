@@ -16,11 +16,7 @@ const FAJOK: Array<Faj> = [
     {
         id: 'ember',
         name: 'Ember',
-        kepzettsegek: [{
-            kepzettsegId: 'nyelv:',
-            name: 'Nyelvtudás',
-            fok: 3
-        }],
+        kepzettsegek: [],
         kepessegek: {},
         leiras: `Az emberek Yneven igen sokfélék, Gianag ködlepte, fagyos völgyeitől a Mélysivatag forró pokláig mindenhez képesek alkalmazkodni.
 

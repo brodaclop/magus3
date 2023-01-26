@@ -67,7 +67,7 @@ export interface SzintInfo {
 const updateKepzettsegekForLevel = (karakter: Karakter, kaszt: KasztInfo, szint: number, szintInfo: SzintInfo) => {
     const calc = KarakterCalculator.calc(karakter);
     kaszt.kepzettsegek?.[szint]?.forEach(k => {
-        const kepzettsegek = Kepzettseg.keres(k.kepzettsegId);
+        const kepzettsegek = Kepzettseg.find(k.kepzettsegId, true) ? [Kepzettseg.find(k.kepzettsegId)] : Kepzettseg.keres(k.kepzettsegId);
         if (kepzettsegek.length === 1) {
             const kepzettseg = kepzettsegek[0];
             if (kepzettseg.fajta === 'normal') {

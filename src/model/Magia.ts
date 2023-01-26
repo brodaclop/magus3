@@ -186,6 +186,9 @@ export const Magia = {
         return 2 + fok * 3;
     },
     formatRange: (range: number | string) => {
+        if (!range) {
+            return '????';
+        }
         if (range === 'self') {
             return 'önmaga';
         }

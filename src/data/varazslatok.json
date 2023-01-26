@@ -886,7 +886,8 @@
             "magia:bard_fenymagia"
         ],
         "range": "self",
-        "leiras": "A varázslat segítségével a bárd magára idézhet egy tetszőleges vértezetet s egy pajzsot. Mindkét tárgy illúzió, de alakja, kidolgozása maga lesz a tökéletesség. A varázslat egyrészt elkápráztathatja a szemlélőt, másrészt megtévesztheti. Kiválóan alkalmas a varázslat lovagi tornákon való megjelenésre, vagy bármi más, nemesek részvételével zajló társadalmi eseményre.\n\nFontos szerepe a varázslatnak harcban lehet, ahol az ellenfél nem sejti a vért illúzió voltát. Ezért megpróbál a páncéllal nem fedett, pajzzsal nem védett területekre támadni, minek következtében Támadó értéke 25-tel csökken. Ha a vért illúzió voltára rájött, a negatív módosító érvényét veszti. Ugyanakkor a bárd még így is használhatja a pajzsot - ha rejtett mozgásra ké-\nszül, ez tökéletesen álcázhatja azt, mivel továbbra sem válik átlátszóvá."
+        "leiras": "A varázslat segítségével a bárd magára idézhet egy tetszőleges vértezetet s egy pajzsot. Mindkét tárgy illúzió, de alakja, kidolgozása maga lesz a tökéletesség. A varázslat egyrészt elkápráztathatja a szemlélőt, másrészt megtévesztheti. Kiválóan alkalmas a varázslat lovagi tornákon való megjelenésre, vagy bármi más, nemesek részvételével zajló társadalmi eseményre.\n\nFontos szerepe a varázslatnak harcban lehet, ahol az ellenfél nem sejti a vért illúzió voltát. Ezért megpróbál a páncéllal nem fedett, pajzzsal nem védett területekre támadni, minek következtében Támadó értéke 25-tel csökken. Ha a vért illúzió voltára rájött, a negatív módosító érvényét veszti. Ugyanakkor a bárd még így is használhatja a pajzsot - ha rejtett mozgásra ké-\nszül, ez tökéletesen álcázhatja azt, mivel továbbra sem válik átlátszóvá.",
+        "save": "nincs"
     },
     {
         "fajta": "normal",
@@ -2581,7 +2582,24 @@
             "magia:tv_elemi_formai"
         ],
         "fok": 4,
-        "leiras": "A varázslat hatására a tűzvarázsló zónáján belül - bárhol - egy 3 méter hosszú, 1 méter magas tűzhenger keletkezik, s gurulni kezd. Haladásának iránya nem befolyásolható, az kizárólag a domborzati viszonyoktól függ. A henger 6 kör múltán magától eltűnik, de amerre elhaladt, az éghető-anyagok lángra kapnak - így a tűz könnyen elharapózhat. Akit a tűzhenger elér, az k6 Sp égési sebet szenved el, és tetszés szerint Izom vagy Reflexpróbára jogosult. Ha ezt elvéti, a henger legázolja és áthalad felette - ami újabb, ezúttal dupla (2kó Sp) sebzést jelent.\n\nA tűzhengert átugrani vagy előre félrevetődni sikeres Ugrás-próbával lehetséges.\n\nA varázslat erőssége (E) és sebzése (Sp) további Mp-ok feláldozásával növelhető."
+        "leiras": "A varázslat hatására a tűzvarázsló zónáján belül - bárhol - egy 3 méter hosszú, 1 méter magas tűzhenger keletkezik, s gurulni kezd. Haladásának iránya nem befolyásolható, az kizárólag a domborzati viszonyoktól függ. A henger 6 kör múltán magától eltűnik, de amerre elhaladt, az éghető-anyagok lángra kapnak - így a tűz könnyen elharapózhat. Akit a tűzhenger elér, az k6 Sp égési sebet szenved el, és tetszés szerint Izom vagy Reflexpróbára jogosult. Ha ezt elvéti, a henger legázolja és áthalad felette - ami újabb, ezúttal dupla (2kó Sp) sebzést jelent.\n\nA tűzhengert átugrani vagy előre félrevetődni sikeres Ugrás-próbával lehetséges.\n\nA varázslat erőssége (E) és sebzése (Sp) további Mp-ok feláldozásával növelhető.",
+        "range": "20",
+        "save": "nincs"
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzhullam",
+        "name": "Tűzhullám",
+        "mp": 15,
+        "idotartam": "5 kör",
+        "ke": -30,
+        "kepzettsegek": [
+            "magia:tv_elemi_formai"
+        ],
+        "fok": 5,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat létrejöttekor gyűrű alakban egyre erősebb lánghullámok indulnak útnak a középpontban álló tűzvarázsló felől, egészen zónájának határáig (20 méter). A hullámok 1 kör alatt megteszik ezt a távolságot, és minden útjukba eső éghető anyagot lángra lobbantanak. Minden körben egy-egy új hullám születik, az első k6 Sp sebet okoz azoknak akiket elér, a második 2k6-ot, a harmadik 3k6-ot, és így tovább, az időtartam végeztéig.\n\nHa a tűzvarázsló további Mp-ok felhasználásával növeli a varázslat erősségét, az első hullám sebzése növekszik 2, 3, 4 vagy akárhány k6-ra, míg az ezt követőek mindig újabb és újabb 1k6 Sp-vel lesznek fájdalmasabbak."
     },
     {
         "fajta": "normal",
@@ -3046,20 +3064,5 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
-    },
-    {
-        "fajta": "normal",
-        "id": "tv_tuzhullam",
-        "name": "Tűzhullám",
-        "mp": 15,
-        "idotartam": "5 kör",
-        "ke": -30,
-        "kepzettsegek": [
-            "magia:tv_elemi_formai"
-        ],
-        "fok": 5,
-        "range": "self",
-        "save": "nincs",
-        "leiras": "A varázslat létrejöttekor gyűrű alakban egyre erősebb lánghullámok indulnak útnak a középpontban álló tűzvarázsló felől, egészen zónájának határáig (20 méter). A hullámok 1 kör alatt megteszik ezt a távolságot, és minden útjukba eső éghető anyagot lángra lobbantanak. Minden körben egy-egy új hullám születik, az első k6 Sp sebet okoz azoknak akiket elér, a második 2k6-ot, a harmadik 3k6-ot, és így tovább, az időtartam végeztéig.\n\nHa a tűzvarázsló további Mp-ok felhasználásával növeli a varázslat erősségét, az első hullám sebzése növekszik 2, 3, 4 vagy akárhány k6-ra, míg az ezt követőek mindig újabb és újabb 1k6 Sp-vel lesznek fájdalmasabbak."
     }
 ]
