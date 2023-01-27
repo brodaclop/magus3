@@ -1100,6 +1100,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_hamvaszto_erintes",
+        "name": "Hamvasztó érintés",
+        "mp": 32,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "Hasonló az [Izzó érintéshez](entity:tv_izzo_erintes), de itt az érintési pontban a hőmérséklet 2000 fok, a fémek megolvadnak, az élőlények 5k6 veszteséget szenvednek el. Az érintés véghezviteléhez sikeres Támadó dobás szükséges. A tűzvarázsló keze vakító vörös fénnyel világít a varázslat ideje alatt."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_hamvaszto_tekintet",
         "name": "Hamvasztó tekintet",
         "mp": 68,
@@ -2947,6 +2962,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzfereg",
+        "name": "Tűzféreg",
+        "mp": 35,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Hatalmas tűzféreg jelenik meg a tűzvarázsló akaratából,\n\nCsak egyszer támad körönként, de azt szinte lehetetlen védeni. Formája nem bonyolult, tovább fenntartható, mint a tűzmadár összett főnix alakzata. , minden\nkörben méretét meghazudtoló gyorsasággal veti magát ellenfeleire. Támadása minden esetben rohamnak minősül, és egyszerre több ellenfelet is érinthet. Túlütés esetén tíz méter hosszú testének egészével áthalad az áldozaton, s ez kétszeres helyett háromszoros sebzést eredményez. (1E anyagú féreg esetén 3k6-ot).\n\nHarcmódosítója 20."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzgolyo",
         "name": "Tűzgolyó",
         "mp": 10,
@@ -3052,6 +3082,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzkigyo",
+        "name": "Tűzkígyó",
+        "mp": 20,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűz kígyóalakot vesz fel: leginkább egy nyolc méter hosszú kobrára emlékeztet. A levegőben kígyózva-repülve halad.\n\nKétszer támad körönként, egyszer a fejével, másszor a farkával csapva le. Hosszúsága miatt egymástól igen távoli áldozatokat képes támadni.\n\nHarcmódosítója 10."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzkitores",
         "name": "Tűzkitörés",
         "mp": 5,
@@ -3079,6 +3124,21 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A varázslat leginkább erős fényfelvillanáshoz hasonlítható, tulajdonképpen az is. A tűzvarázsló mágiájának hatására a tűz hirtelen éles fénnyel fellobban, majd visszatér kiindulási állapotába. A fény olyan hirtelen villan fel, hogy a közelben állókat könnyen meg is vakíthatja.\n\nAzok, akik a lángtól tíz méterre, vagy annál közelebb álltak, és a felvillanás alatt\nláthatták a tüzet, 25%-ban örökre megvakulnak, egyéb esetben csak 2k10 körre veszítik el látásukat. A tíz méternél meszszebb tartózkodók, bárhol álljanak is, amennyiben látták a\nfellobanást, szintén elszenvedik a hatásokat, igaz, enyhébben. A végleges megvakulás esélye esetükben csupán 10%, az időleges vakság ideje pedig k10 kör lesz."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzmadar",
+        "name": "Tűzmadár",
+        "mp": 30,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Főnixalak jelenik meg magasan a tűzvarázsló feje felett, Onnan csap le a harcolókra, körönként egyszer, élvezve a [Harc magasabbról és a Roham](entity:szabaly_harci_helyzet) módosítókat.\n\nHarcmódosítója 15."
     },
     {
         "id": "tv_tuznyeles",
@@ -3111,6 +3171,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzparduc",
+        "name": "Tűzpárduc",
+        "mp": 25,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat hatására lángnyelvekből álló fantom jelenik meg, mely leginkább feketepárducra emlékeztet. Körönként kétszer támad, mintha harapna - ha túlüti ellenfelét, egy ug-\nrással átveti magát rajta, mellyel akár belső sérülést is okozhat.\n\nHarcmódosítója 15."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzpenge",
         "name": "Tűzpenge",
         "mp": 19,
@@ -3123,6 +3198,36 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A közepes és magas Tapasztalati Szintű tűzvarázslók egyik leglátványosabb és a legkevesebb szükségtelen pusztítással járó varázslata. Ez utóbbi szempont nem tűnhet túlságosan fontosnak egy nyílt mezőn dúló csatában, de értékes vagy könnyen lángra lobbanó holmik között bizony nem árt az óvatosság. A varázslat - szemben sok más tűzmágiával - csak a kiszemelt ellenfelet találhatja el, így nem jelent veszélyt a környezet más tagjaira, tárgyaira. A Tűzpenge, bár nevében hasonlatos a Tűzkardhoz, merőben más alapokon nyugvó és működésében más jellegű varázslat. A mágia alkalmazásakor a megidézett Elemi Tűz nem egy fémtárgy, penge körül összpontosul, hanem a levegőben jelenik meg, különös, lebegő tűzesíkként. Ez a tűz 4 körön át marad meg, majd semmivé\nenyészik. Létezése alatt önálló támadások végrehajtására képes, mintha láthatatlan harcos forgatná. Az így létrejött tűzpenge körönként egyszer támadhat, a tűzvarázsló saját TÉ-\njével, a fegyver módosító nélkül. A támadás bárki ellen eszközölhető, aki a tűzvarázsló zónájában tartózkodik. A kard, mivel nincs szilárd anyaga, semmiképpen nem hárítható, viszont a mozgása meglehetősen lassú. Ezért a megtámadott nem teljes VÉ-jével, hanem csupán annak fegyver nélküli részével térhet ki a tűzből született fegyver elől. A penge sebzése E-nként k6 Sp.\n\nA varázslat érdekessége, hogy egyszerre több tűzpenge is létezhet, mind a tűzvarázsló irányítása alatt. Ezzel a tűzvarázsló két-három ellenfelét is sakkban tarthatja, miközben teljes erejével koncentrálhat újabb varázslatok létrehozatalára vagy más harci manőverre."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzpolip",
+        "name": "Tűzpolip",
+        "mp": 40,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűz nyolckarú polip alakját veszi fel, mely minden körben négy támadásra képes. Mind a négy a polip karjaival történik, melyek ostorként sújtanak az ellenfélre. Harcmódosítója 25, ehhez járulnak még a [Harc magasabbról](entity:szabaly_harci_helyzet) előnyei, mivel a polip a harctér fölött lebeg, ahonnan az egész zóna területét elérheti."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzsarkany",
+        "name": "Tűzsárkány",
+        "mp": 45,
+        "idotartam": "2 kör/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_tuzlenyek_megidezese"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A megidézett tűz egy sárkány alakját veszi fel, mely 20 méter magasból lángot okád a varázsló ellenfeleire. A találathoz sikeres Támadódobást kell véghezvinnie - ha túlütés következik be, a sebzés kétszer dobható, az eredmény pedig összeadódik. A sárkány körönként egyszer támadhat, \n\nHarcmódosítója 40, melyhez hozzáadódik a [Harc magasabbról](entity:szabaly_harci_helyzet) összes bónusza is. A fantom, ha teheti, nem ereszkedik olyan mélyre, hogy eltalálhassák. Röpképtelen ellenfelei csak célzófegy-\nvereket és mágiát használhatnak ellene."
     },
     {
         "fajta": "normal",
@@ -3587,20 +3692,5 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
-    },
-    {
-        "fajta": "normal",
-        "id": "tv_hamvaszto_erintes",
-        "name": "Hamvasztó érintés",
-        "mp": 32,
-        "idotartam": "1 perc",
-        "varazslasIdeje": "azonnali",
-        "kepzettsegek": [
-            "magia:tv_magasiskola"
-        ],
-        "fok": 3,
-        "range": "self",
-        "save": "nincs",
-        "leiras": "Hasonló az [Izzó érintéshez](entity:tv_izzo_erintes), de itt az érintési pontban a hőmérséklet 2000 fok, a fémek megolvadnak, az élőlények 5k6 veszteséget szenvednek el. Az érintés véghezviteléhez sikeres Támadó dobás szükséges. A tűzvarázsló keze vakító vörös fénnyel világít a varázslat ideje alatt."
     }
 ]

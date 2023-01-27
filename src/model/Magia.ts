@@ -159,7 +159,49 @@ A táblázat az 5E erősségű máglyánál ér véget, de természetesen ennél
         name: 'Tűzmágia magasiskolája',
         kepesseg: 'emlekezet',
         leiras: `Az idetartozó varázslatok már a tűzvarázslás magasiskoláját jelentik - ami abból mérhető le a legszembetűnőbben, hogy még egy tanult mozaikmágus is értetlenül állna előttük, képtelenül arra, hogy utánozza őket, mi több, hogy meghatározza, mi módon épülnek fel.`
-    }
+    },
+    {
+        id: 'magia:tv_tuzlenyek_megidezese',
+        name: 'Tűzlények megidézése',
+        kepesseg: 'emlekezet',
+        leiras: `
+Nem valódi idézésről van szó, csupán egy látványos tűzvarázslói praktikáról. A varázslatok különbözőek, néhány dologban azonban megegyeznek: a tűzvarázsló adott manapontért "megidézi" a lényt.
+
+A tüzet valóban meg kell idézni, majd a kívánt lénnyé formázni. A lény a varázsló zónájának tetszőlegesen meghatározott pontján materializálódik, és el sem hagyhatja azt - a tűzvarázsló csak itt képes összetartani, odakint azonnal megsemmisül.
+
+Ugyanez történik, ha a tűzvarázslót megzavarják a koncentrációban. Minden varázslat erősíthető - ez szükséges is, mivel a lényeket eredetileg 1 E Őstűz alkotja, mely 1 E Ősvízzel való találkozáskor kialszik. A lények nagysága és ereje is növelhető az erősséggel.
+
+A fantomok csak Ősvízzel és mágikus fegyverekkel sebezhetők, ám utóbbiak sebzése feleződik rajtuk. A fegyverrel való sebzés a lények anyagát nem károsítja, formájukat azonban megbontja. Ha egy lényt fegyverrel győznek le, az adott E-nek megfelelően tűzkitöréssé alakulva tér meg a Tűz Őselemi Síkjára.
+
+A varázslat fenntartása folyamatos koncentrációt igényel: mivel a lények nem rendelkeznek saját tudattal, irányitani kell őket. Ha egy tűzvarázslót megzavarnak lényének irányításában (például Ép sebet kap), a lény formája megbomlik, tűzkitöréssé lesz, ami az adott E-nek mgefelelően sebez. Ha a harc közben a tűzvarázsló Fp sebet kep, Összpontosítás próbát tehet, sikerül-e a lényt a megfelelő formában tartania. Ha elvéti, a lény szétesik.
+
+A tűzlények, ha Ősvízzel semmisítik meg őket, természetesen nem változnak tűzkitöréssé, hanem az Ősvízzel együtt elenyésznek. Ugyanezt teszik, ha lejár a varázslat időtartama, mely a tűzvarázsló szintjétől függ. Ekkor a tűzlény minden, az időtartamot meghaladó új körben elveszt 1k6 Ép-t. A tűzvarázslónak óvatosan kell megsemmisítenie a lényt, különben az anyag kitörhet uralma alól. A tűzlény egészen addig képes harcolni, amíg Ép-i el nem fogynak. A tűzvarázsló az időtartam lejárta előtt bármikor tűzkitöréssé alakíthatja lényeit.
+
+Egy tűzvarázsló egyszerre csak egy tűzlényt irányíthat, ez is felemészti figyelmének mintegy 90%-át.
+
+Minden tűzlényre jellemző, hogy az Őstűz, amivel fizikai kapcsolatba kerülnek, megszűnik eredeti formájában létezni: magukba olvasztják, így a tűzvarázsló, amennyiben lényének létét veszélyeztetve érzi, irányíthatja azt a zónában lévő Őstüzek felé, hogy érintkezzen velük, s új erőre kapjon. A tűzvarázsló nem képes a varázslat időtartama alatt varázsolni, így nem tudja lényét tűzvarázslatokkal erősíteni. A varázslat időtartama alatt a tűzvarázsló nem varázsolhat, harcolni is képtelen - koncentrálnia kell.
+
+Minden tűzlény immunis az Asztrál- és Mentálalapú varázslatokra, nemkülönben a mérgekre. A természetes anyagok mágiájára is immunisak: kiterjed rájuk a tűzvarázsló személyes aurájának védelme. Őslég, Ősföld és Elemi erő csak Fp veszteséget okozhat nekik, az őselemek E-nként k6-ot, az Elemi erő nagyságának függvényében.
+
+### Harc a lényekkel
+
+A tűzfantomok más rendszerben sebződnek, mint az élőlények. Minden tűzlény rendelkezik Ép-vel és Fp-vel, ez azonban nem jelenti, hogy érzékelik is a fájdalmat.
+
+Fp-jük a tűzvarázsló mindenkori Összpontosítás képességének háromszorosával egyenlő - ez az érték azt jelképezi, mennyire tartós a forma, melybe megidézték őket. Ha elfogynak az Fp-k, a fantom elveszti formáját, és tűzkitöréssé alakul.
+
+A lények Ép-je egyenlő az E-jükkel - ebben jelentkezik, mennyi Őstűz alkotja a fantomot. Az E növekedhet őstüzzel való találkozáskor, illetve csökkenhet Ősvíz által.
+
+Ép veszteség a tűzlényeknél nem okoz Fp veszteséget. A fegyverek csak Fp-t sebezhetnek rajtuk, túlütés esetén is. Ha túlütésre kerül sor, a fegyver kidobható maximális sebzése szerint sebez, hosszúkardnál pl. 10-et.
+
+A tűzlények harci értékeinek meghatározásakor a tűzvarázsló (fegyver nélküli) alapértékeihez +10 járul, ehhez adandó a tűzvarázsló szintje és a lény Harcmódosítója.
+
+A lények felettébb gyorsak, 100 lépést képesek egy körben megtenni - természetesen csak a zónán belül mozogva.
+
+A lények, ha találnak, mindig annyi E-s Őstűznek megfelelően sebeznek, ami testüket alkotja. Ha túlütnek valakit, azon mintegy keresztülfolynak, s a teljes testfelületet érintő
+égési sérülést okoznak. Az így okozott sebzés duplázódik. A lények csapásaival szemben nem védenek nem-mágikus fegyverek és vértek, ezek VÉ-je és SFÉ-je nem érvényesül.
+        `
+    },
+
 ] as const;
 
 export const Mentodobasok = [

@@ -1694,6 +1694,16 @@
                     "honnan": 0
                 },
                 {
+                    "kepzettsegId": "magia:tv_magasiskola",
+                    "fok": 1,
+                    "honnan": 0
+                },
+                {
+                    "kepzettsegId": "magia:tv_tuzlenyek_megidezese",
+                    "fok": 1,
+                    "honnan": 0
+                },
+                {
                     "kepzettsegId": "magia:tv_elemi_formai",
                     "fok": 1,
                     "honnan": 0
