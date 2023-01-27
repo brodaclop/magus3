@@ -22,7 +22,7 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat | Varazslat, inline?: 
                 <tbody>
                     <tr>
                         <th>Képzettség</th>
-                        <td>{v.kepzettsegek?.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
+                        <td>{v.kepzettsegek?.map(k => <Link to={`/entity/${k}`}>{Kepzettseg.name(k)}</Link>)} {v.fok}.fok</td>
                     </tr>
                     <tr>
                         <th>MP</th>

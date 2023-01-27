@@ -5,6 +5,7 @@ import { SzintInfo } from "./Karakter";
 
 export interface PsziIskola extends NamedEntity {
     psziPont: [number, number, number, number, number];
+    leiras: string;
 }
 
 export type GyorsPsziDiszicplina = { ke: number } & PsziDiszciplinaBase;
@@ -23,22 +24,51 @@ export const PsziIskolak = [
     {
         id: 'pyarroni',
         name: 'Pyarroni',
-        psziPont: [2, 3, 4, 5, 6]
+        psziPont: [2, 3, 4, 5, 6],
+        leiras: `Pyarronban dolgozták ki a Pszi mindenki számára megtanulható fajtáját, mely segítségével önmagunk és mások felett is korlátozott befolyásra tehetünk szert.
+        
+A Pyarroni módszer nem alkalmas sem Mana előállítására, és nem is olyan hatékony, mint a Slan út - ám nagy előnye, hogy rövidebb idő alatt elsajátítható, mint az előbbi kettő, és gyakorlatilag bármelyik kaszt számára elérhető.`
     } as PsziIskola,
     {
         id: 'slan',
         name: 'Slan',
-        psziPont: [1, 1, 1, 1, 1]
+        psziPont: [1, 1, 1, 1, 1],
+        leiras: `
+Niarei szerzetesek évezredes tapasztalatát, munkáját foglalták egységbe a Slan-út megalkotásakor. E Ψ alkalmazás használói - kizárólag harc- és kardművészek - a testük és tudatuk feletti tökéletes uralmat valósították meg.
+
+Képesek végrehajtani bármit, ami a Pyarroni módszer része, ám saját diszciplínáikat (kevés kivétellel) csak önMagukra tudják vonatkoztatni.
+
+A Slan-út segítségével felépített Statikus Ψ-pajzs lebonthatatlan, csak megalkotója tudja megszüntetni. A. Slan Diszciplínák megalkotása során nem törekedtek a mások felett gyakorolt ellenőrzés módszereinek tökéletesítésére - a Kyr metódus e téren felülmúlja -, s energiáit sem képes Manává alakítani.
+
+Mindettől függetlenül az elme és az akarat csiszoltságának magasiskolája, az önkontToll legtökéletesebb formája. Elsajátításához tíz-tizenkét esztendő szükséges és egy Slan tanár útmutatásai. Egyszerű
+harc- vagy kardművész - aki nem tanítómester - képtelen továbbadni tudását, bármekkora hatalma legyen is a Ψ energiák felett.
+        `
     } as PsziIskola,
     {
         id: 'kyr',
         name: 'Kyr',
-        psziPont: [2, 2, 2, 2, 2]
+        psziPont: [2, 2, 2, 2, 2],
+        leiras: `
+Magában foglalja a Pyarroni módszer teljes tudását, diszciplínái segítségével az elme hatékonyabban védhető és támadható, mint a Pyarroni módszerrel.
+
+Tökéletesebb uralmat ad mások tudata és teste felett, mint bármely egyéb Ψ-alkalmazási eljárás. Legnagyobb erénye mégis az, hogy képes a Ψ-pontokat Mana-pontokká alakítani.
+
+A Kyr metódus diszciplínáit (Kyr Diszciplínák) csakis varázslóknak és mágusoknak oktatják. E tudást gondosan őrzik, így más kaszt tagjai soha nem juthatnak hozzá.
+
+Megértéséhez és elsajátításához legkevesebb hat, kemény tanulással töltött esztendő szükséges, meg olyan kézikönyvek, melyek ritka példányait biztos helyen rejtegetik.
+
+A pyarroni Fehér Páholy és az északi Doran beavatottjai századok óta dolgoznak újabbnál újabb diszciplínákon, ám ezeket csak a felsőkasztba tartozó mágusok számára teszik elérhetővé.
+        `
     } as PsziIskola,
     {
         id: 'dzsenn',
         name: 'Dzsenn',
-        psziPont: [1, 1, 1, 1, 1]
+        psziPont: [1, 1, 1, 1, 1],
+        leiras: `
+A dzsennek magas mentális felkészültsége, gondolkodásmódja és kivételes intellektusa egyaránt hozzájárul ahhoz, hogy mindannyian ismerik és magas szinten alkalmazzák a Pszit.
+
+Az általuk kidolgozott és használt Pszi-iskola díszcíplínaként képes használni olyan mentális hatásokat, amelyek más fajok számára csak mágiával érhetők el - a Pszi és a Mentálmágia rokonsága a pyarroni mentalisták számára is egyértelmű.
+        `
     } as PsziIskola
 ] as const;
 
@@ -1060,9 +1090,9 @@ export const Pszi = {
         id: `pszi:${i.id}`,
         name: `Pszi (${i.name})`,
         kepesseg: 'osszpontositas',
-        leiras: `Pszi, ${i.name} iskola`,
+        leiras: i.leiras,
         kp: [6, 10, 15, 27, 39],
-        szintleiras: constructArray(5, idx => `Pszi pontok: ${i.psziPont[idx]}\n\nDiszciplinák:\n\n` + PSZI_DISZCILPLINAK.filter(d => d.iskola === i.id && d.fok === idx + 1).map(d => ` * ${d.name}`).join('\n')),
+        szintleiras: constructArray(5, idx => `Pszi pontok: ${i.psziPont[idx]}\n\nDiszciplinák:\n\n` + PSZI_DISZCILPLINAK.filter(d => d.iskola === i.id && d.fok === idx + 1).map(d => ` * [${d.name}](entity:${d.id})`).join('\n')),
         fajta: 'normal',
         __generated: true,
         tipus: 'pszi',

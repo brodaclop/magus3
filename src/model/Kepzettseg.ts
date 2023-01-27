@@ -173,7 +173,7 @@ const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettse
 
 ${k.leiras}
 `,
-    szintleiras: k.varazslatok.map(lista => lista.map(v => `- ${v.name}`).join('\n')) as any,
+    szintleiras: k.varazslatok.map(lista => lista.map(v => `- [${v.name}](entity:${v.id})`).join('\n')) as any,
     __generated: true
 }));
 

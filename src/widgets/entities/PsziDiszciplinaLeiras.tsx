@@ -22,7 +22,7 @@ export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszcipl
                 <tbody>
                     <tr>
                         <th>Iskola</th>
-                        <td>{arrayName(PsziIskolak, d.iskola)} {d.fok}.fok</td>
+                        <td><Link to={`/entity/pszi:${d.iskola}`}>{arrayName(PsziIskolak, d.iskola)} {d.fok}.fok</Link></td>
                     </tr>
                     <tr>
                         <th>Ψ-pont</th>

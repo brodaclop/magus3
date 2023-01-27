@@ -219,6 +219,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_atformazas",
+        "name": "Átformázás",
+        "mp": 7,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló e varázslat által képessé lesz más varázshasználók által idézett Őstüzet átformáljon a saját igényeinek megfelelő formába. A formázás tekintetében csak a Hat Iskolaformát használhatja, míg az átalakítandó tűz formája tetszőleges. Azok az Őstüzek, melyeket egy tűzvarázsló akarata irányít (lásd a tűzlényeknél, de ilyen a [Tűzgolyó](entity:tv_tuzgolyo) és a [Tűzpenge](entity:tv_tuzpenge) is) nem reagálnak az átformázásra. A felhasznált mana elvész.\n\nEzzel a varázslattal elképzelhető az a jelenet is, hogy a tűzvarázsló ellen harcoló ellenfélt körülvevő aura tűzkitöréssé alakul. Az erősségnek legalább annyinak kell lenni, mint az\nátformázni kívánt tűz erőssége. A személyes aura nem véd ellene, mert a tűzvarázsló misztikus tűzzel való kapcsolata miatt (melyet a varázslat által használ ki) olyan lesz, mintha az\nŐstűz a saját személyes aurájának lenne a része és nem az áldozaté."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_atok",
         "name": "Átok",
         "kategoriak": [
@@ -1507,6 +1522,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_izzo_erintes",
+        "name": "Izzó érintés",
+        "mp": 20,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 2,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "Hatása akár a [Perzselő érintésé](entity:tv_perzselo_erintes), ám itt a hőmérséklet az érintési pontban 500 fok, ami 3k6 Sp-t jelent. A varázslat közben a tűzvarázsló bal keze erős vörös fénnyel izzik. A fémek egy részét már megolvasztja, az acél felizzik. Az érintéshez sikeres Támadó dobás szükséges."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_izzo_tekintet",
         "name": "Izző tekintet",
         "mp": 50,
@@ -2198,6 +2228,21 @@
         "range": "20",
         "save": "mental",
         "leiras": "A pap képes egyszerű, legfeljebb két- vagy háromtagú parancs kiadására. A **Parancs** végrehajtásához a papnak látnia kell áldozatát és olyan nyelven szólnia hozzá, amit az megért.\n\nAz áldozat Mentális [ME](entity:szabaly_magiaellenallas)-re jogosult, amennyiben sikeresen végrehajtotta, a mágia nem jön létre. Ha elvétette, akkor a tőle telhető legjobb képességei szerint megpróbálja végrehajtani a pap utasítását, amíg az időtartam tart. Az öngyilkosságra való felszólítást figyelmen kívül hagyja, a varázslat azonnal megtörik.\n\nTipikus parancsok: takarodj!, rohanj el!, menekülj!, hallgass!, állj fel!, ülj le!, feküdj a földre!, védekezz!, üss! stb.\n\nAmennyiben a parancs félreérthető vagy nem egyértelmű, a mágia megtörik. A befolyásolt lény az időtartam lejártával tisztában lesz azzal, hogy a pap parancsára cselekedett.\n\nA varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_perzselo_erintes",
+        "name": "Perzselő érintés",
+        "mp": 9,
+        "idotartam": "1 perc",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "varazslasIdeje": "azonnali",
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "Mindenben megegyezik a [Perzselő tekintet](entity:tv_perzselo_tekintet) nevű varázslattal, a különbség annyi, hogy itt a tűzvarázsló bal kezének érintésével tudja megperzselni áldozatát. Ehhez sikeres Támadó dobást\nkell tennie. Kezét halvány vörös izzás veszi körül, érintése az éghető anyagokat nyomban lángra lobbantja, a kevésbé égheztőket csak megperzseli. Az érintési pontban a hőmérséklet megközelítőleg 250 fok, k6 Sp sebzést okoz élőlényeknek."
     },
     {
         "fajta": "normal",
@@ -3036,6 +3081,20 @@
         "leiras": "A varázslat leginkább erős fényfelvillanáshoz hasonlítható, tulajdonképpen az is. A tűzvarázsló mágiájának hatására a tűz hirtelen éles fénnyel fellobban, majd visszatér kiindulási állapotába. A fény olyan hirtelen villan fel, hogy a közelben állókat könnyen meg is vakíthatja.\n\nAzok, akik a lángtól tíz méterre, vagy annál közelebb álltak, és a felvillanás alatt\nláthatták a tüzet, 25%-ban örökre megvakulnak, egyéb esetben csak 2k10 körre veszítik el látásukat. A tíz méternél meszszebb tartózkodók, bárhol álljanak is, amennyiben látták a\nfellobanást, szintén elszenvedik a hatásokat, igaz, enyhébben. A végleges megvakulás esélye esetükben csupán 10%, az időleges vakság ideje pedig k10 kör lesz."
     },
     {
+        "id": "tv_tuznyeles",
+        "name": "Tűznyelés",
+        "mp": 6,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló ezen varázslata egyesíti magában a támadást és a védekezést. A tűzvarázsló elnyelheti a rá ható tüzet, majd csóva formában visszafújhatja ellenfelére. Ehhez ugyanakkora erősségű Tűznyelésre van szükség, mint amennyi a támadásé.\n\nEzt a varázslatot soron kívül is elmondhatja, amint érzékeli, hogy tűzvarázslattal próbálnak rá hatni. Jellemző még, hogy a tűzvarázsló varázslás közben érzi, hogy szükség van-e még mágikus energia befektetésére, azaz hogy mekkora erősséggel kell varázsolnia a varázslatot.\n\nMég így is fenyegeti azonban az a veszély, hogy Mana-pontjai hamarabb fogynak el, minthogy az összes tűzet elnyelte volna, azaz a tűz erősítése még mindig nagyobb mint a varázslaté. Ebben az esetben a tűz csökkentett erősséggel hat. A tűzvarázslónak a varázslat után 1 teljes köre van, hogy az elnyelt tüzet kifújja, ellenkező esetben a tűz hatni fog az elnyelt erősségben, azonban, mivel a tűz a tűzvarázsló testében van, a tűz sebzése maximális (E-nként 6) lesz. \n\nEbből is látszik, hogy a varázslat használata nem veszélytelen, ámde nem kis meglepetést okozhat a pusztító lángokat elnyelő és a támadóra visszalehelő tűzvarázsló. A visszafújásnál a varázslat teljesen megegyezik a [Lángszórás](entity:tv_langszoras) nevű tűzvarázslói varázslattal. A visszafújás nem igényel Mp-ráfordítást."
+    },
+    {
         "fajta": "normal",
         "id": "tv_tuznyil",
         "name": "Tűznyíl",
@@ -3531,17 +3590,17 @@
     },
     {
         "fajta": "normal",
-        "id": "tv_atformazas",
-        "name": "Átformázás",
-        "mp": 7,
-        "idotartam": "azonnali",
-        "ke": 0,
+        "id": "tv_hamvaszto_erintes",
+        "name": "Hamvasztó érintés",
+        "mp": 32,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
         "kepzettsegek": [
             "magia:tv_magasiskola"
         ],
         "fok": 3,
-        "range": "20",
+        "range": "self",
         "save": "nincs",
-        "leiras": "A tűzvarázsló e varázslat által képessé lesz más varázshasználók által idézett Őstüzet átformáljon a saját igényeinek megfelelő formába. A formázás tekintetében csak a Hat Iskolaformát használhatja, míg az átalakítandó tűz formája tetszőleges. Azok az Őstüzek, melyeket egy tűzvarázsló akarata irányít (lásd a tűzlényeknél, de ilyen a [Tűzgolyó](entity:tv_tuzgolyo) és a [Tűzpenge](entity:tv_tuzpenge) is) nem reagálnak az átformázásra. A felhasznált mana elvész.\n\nEzzel a varázslattal elképzelhető az a jelenet is, hogy a tűzvarázsló ellen harcoló ellenfélt körülvevő aura tűzkitöréssé alakul. Az erősségnek legalább annyinak kell lenni, mint az\nátformázni kívánt tűz erőssége. A személyes aura nem véd ellene, mert a tűzvarázsló misztikus tűzzel való kapcsolata miatt (melyet a varázslat által használ ki) olyan lesz, mintha az\nŐstűz a saját személyes aurájának lenne a része és nem az áldozaté."
+        "leiras": "Hasonló az [Izzó érintéshez](entity:tv_izzo_erintes), de itt az érintési pontban a hőmérséklet 2000 fok, a fémek megolvadnak, az élőlények 5k6 veszteséget szenvednek el. Az érintés véghezviteléhez sikeres Támadó dobás szükséges. A tűzvarázsló keze vakító vörös fénnyel világít a varázslat ideje alatt."
     }
 ]
