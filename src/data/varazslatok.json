@@ -284,6 +284,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_belso_tuz",
+        "name": "Belső tűz",
+        "mp": 23,
+        "idotartam": "1 kör/szint",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "mereg",
+        "leiras": "A varázslat akár a boszorkánymesterek tudástárát is gazdagíthatná és közeli rokonságot mutat a tűzvarázslók [Fémizzítás](entity:tv_femizzitas) varázslatával. Testizzításnak vagy vérizzításnak is nevezhető, Nem tudni, mi okból, de az ordani rend csak néhány évszázada használja a varázslatot, ezelőttről egyetlen feljegyzés sem tesz róla említést.\n\nA tűzvarázsló bármely személyre rábocsáthatja saját Zónáján belül. Ha az illető elvéti Egészségpróbáját, égető élményben részesül. Az Egészségpróbát az áldozat úgy dobja, mint egy olyan méreg ellen, amelynek szintje megegyezik a varázslat E-jével.\n\nHa az áldozat elvéti Egészségpróbáját k3 kör múlva a varázslat elhatalmasodik rajta, s ennek látható jelei is megmutatkoznak. Az első körben elvörösödik, mintha magas láz gyötörné, szemmel láthatóan rosszul van, harcolni, varázsolni képtelen. A második kör végére a földre hanyatlik,\nvagy térdre esik és szó szoros értelmében tüzet (!) okád a földre. Lüktető fejfájásra és a testében - pontosabban az ereiben - fokozódó égető fájdalomra panaszkodik - ha jut rá ereje és\nideje. Az égető kín őrjítően lüktet ereiben, a tűzvarázsló Tapasztalati Szintjével egyező körig. Az első két körben körönként k6 Sp sebzést okoz, ami két körönként k6-tal nő.\n\nPéldául: egy 7. szintű varázslónál a sebzés az első két körben körönként k6 Sp, majd a harmadik és negyedik körben körönként 2k6 Sp, az ötödik és hatodik körben körönként 3k6 Sp, és a hetedik körben 4k6 Sp. Az utolsó kör lejártával a kín és ekként a sebzés megszűnik, de az áldozatra még k6 percig a Rosszullét, majd újabb k6 percig az Émelygés szabályai vonatkoznak. Az Émelygés elmúltával az áldozat panaszmentes - ha él még.\n\nA varázslat a sebzés vagy az időtartam növelésére semmilyen formában nem ad módot."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_benitas",
         "name": "Bénitás",
         "kategoriak": [
@@ -786,6 +801,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_fekete_tuz",
+        "name": "Fekete tűz",
+        "mp": 3,
+        "idotartam": "5 kör",
+        "ke": 10,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A misztikusan csengő nevű varázslat a közönséges tűz fény-hő arányát változtatja meg, méghozzá a hő javára. Segítségével elérhető, hogy az összes, égés során felszabaduló\nenergia hő formájában távozzon anélkül, hogy bármennyi is kisugárzott fénnyé alakulna. Az ilyen mágiával megváltoztatott tűz minden fénye elenyészik, a lángok teljesen láthatatlanná válnak. Az így nyert energia mind hővé alakul, és a tűz sebzését, hőfokát növeli meg. A sebzés a másfélszerese lesz az eredetinek (felfelé kerekítve), például egy tábortűz lángjának\nsebzése nem 3k6 Sp, hanem 5k6 Sp lesz. Ez a varázslat nem használható a [Tűzválasztással](entity:tv_tuzvalasztas) együtt, hiszen nincs mit elválasztani, így a tűz helye ezen a módon nem változtatható meg.\n\nA tűzvarázslók különösen kedvelik ezt a varázslatot, mivel viszonylag kevés befektetett Mana-ponttal nagyon magas sebzést érhetnek el."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_feledes_dala",
         "name": "Feledés dala",
         "mp": 20,
@@ -828,6 +858,21 @@
         "range": "self",
         "save": "nincs",
         "leiras": "A bárd egyik ravasz illúziója. Ha kardot ránt, s ráolvassa ezt a varázslatot, a fény a kedve szerint táncol a pengén. A fegyver kéken dereng, avagy lángok övezik, netán ragyogón fénylik. A sebzésre ez a fény nincs hatással, de az ellenfél harci kedvére annál inkább - igaz, csak akkor, ha még ismeretlen számára ez az illúzió. Amennyiben így van, s nem dobja meg Gondolkodás-próbáját, bizonytalanul harcol majd tovább, TÉ-je és VÉ-je 5-tel csökken.\n\nHa a lény tudvalevőleg retteg a kiválasztott anyagtól, (pl. állatok a tűztől) a módosítók a következők szerint változnak: TÉ: -15 VÉ: -5"
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_femizzitas",
+        "name": "Fémizzítás",
+        "mp": 21,
+        "idotartam": "1 perc",
+        "ke": -10,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló bármely, a zónáján belül eső fémtárgyat megjelölhet a varázslat célpontjául (de egyszerre csak egyet), mely ettől kezdve rohamos sebességgel forrósodni kezd. Az első körben még csak éget, a másodikban sötétvörösen, a harmadikban sárgán, a negyedikben fehéren izzik, az ötödikben megolvad, a hatodikban pedig már képlékennyé válik. Ha az érintett tárgyat valaki a testén viseli, akkor minden körben Annyi k6 Sp-t veszít, ahányadik az adott kör a fentebb ismertetett fokozatok sorában.\n\nAbban az esetben, ha a tárgy kikerül a tűzvarázsló zónájából, vagy az időtartam lejár, körönként egy fokozatot hűl - és ennek megfelelően továbbra is sebez. Természetesen ha újra izzítarű kezdik, a folyamat nem előről, hanem az éppen aktuális fokozattól folytatódik.\n\nA varázslat mágikus vagy mágiával átitatott fémekre, valamint olyan tárgyakra, amelyek saját [Személyes aurával](entity:szabaly_szemelyes_aura) rendelkeznek, nincs hatással."
     },
     {
         "fajta": "normal",
@@ -940,6 +985,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_fustmaras",
+        "name": "Füstmarás",
+        "mp": 4,
+        "idotartam": "1 perc/szint",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat hatására a tűz fénye és hőjének nagy része maró füstté változik. Végrehajtása után a tűzvarázsló Zónájában a kiválasztott tűz lelohad, szinte csak parázslik, sebzése is minimális lesz (Pl: 1Sp esetén 0 Sp, k6 Sp esetén 1Sp, 2k6 Sp esetén 2 Sp, stb.).\n\nFényt ezután nem ad, de eredeti fényerősségének határáíg sűrű szürkésfekete füstöt ereszt. A keletkező füst akadályozza a légzést, csípi a szemet és sűrűségéből adódóan a látótávolságot is rontja. A benne tartózkodók kötelesek a 4. szintűnek számító füst ellen Egészségpróbát dobni, s vétés esetén Rosszullét fogja el őket. Ha a képességpróbát sikeresen megdobták, úgy csak az Émelygés szabályai vonatkoznak tájuk. Ezen kívül a füstben képtelenség célzó és dobófegyvert használni, ezek automatikusan célt tévesztenek. A füstön kívülről érkező célzó és dobófegyverek támadó dobása 50-nel csökken, mivel a benne tartózkodók alig láthatók. A füstben a közelharc is módosul, minden támadás TÉ-je 25-tel csökken - a fentieken túl. A füst a tűzvarázslóra is hat, és a közelharcra vonatkozó levonások is sújtják.\n\nAkik kikerülnek a füstből, még kó percig nyögik a füst szervezetre gyakorolt hatását. A füst az időtartam lejárta előtt csak mágiával oszlatható el, utána a légmozgás játékszerévé válik. \n\nA varázslat időtartama alatt a füstöt eresztő tűzre semmilyen más közönséges tüzet befolyásoló varázslat nem alkalmazható."
+    },
+    {
+        "fajta": "normal",
         "id": "darton_gyilkos_trefa",
         "name": "Gyilkos tréfa",
         "kategoriak": [
@@ -1022,6 +1082,21 @@
         "range": "16",
         "save": "nincs",
         "leiras": "A bárd egyik valóban érdekes illúziója. Az áldozatok csak egy hatalmas villanást látnak, majd rövid ideig sodródnak a csillagokkal pöttyözött űrben. Elszáguldanak furcsa fények, jelenések mellett, majd ismét látják a villanást, s egy kietlen pusztaság közepén állnak. Az ég vérvörös, keserű, metsző szél fütyül a komor tájon. Sehol egy épület, fa, élőlény: körös-körül csupán fekete, kavargó massza látszik. Mindenki külön-külön látja ezt, ha csoportra hatott a varázslat, akkor is. Az egész csoda természetesen illúzió. Felfedezni elég nehéz, mert nincs megfogható tárgy, így sokáig lehet gondolkozni azon, mi is történt. Az áldozatok nem változtattak helyet, a fekete massza természetesen veszélytelen illúzió. Ám amíg nem lépnek bele, nem lépnek el helyükről, addig valóságos tárgyaknak vagy társaiknak nem ütközhetnek. Így az illúzió valóságát semmi nem cáfolhatja meg."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_hamvaszto_tekintet",
+        "name": "Hamvasztó tekintet",
+        "mp": 68,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat hatása sokban hasonlít a Perzselő tekintet nevű varázslathoz, ám itt a gyújtópontban a hőmérséklet 2000 C fok, amin már a fémek megolvadnak. Az élőlények 5k6 Sp sebet vesztenek körönként.\n\nA varázslat hatóideje alatt a tűzvarázsló szeme erős vörös fénnyel világít, és látható fénypászmát vet."
     },
     {
         "fajta": "normal",
@@ -1134,6 +1209,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_harcos_hivasa",
+        "name": "Harcos hívása",
+        "mp": 67,
+        "idotartam": "1 perc/szint",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A [Szolga hívása](entity:tv_szolga_hivasa) varázslathoz hasonlóan kapu nyílik a Tűz Elemi Síkjára, de az ott leírtaknál erősebb elementál - egy Harcos - lép át az Elsődleges Anyagi Síkra. A tűzvarázsló Zónáján belül ez esetben egy legalább 8 E erősségű tűznek (tűzvésznek) kell tombolnia. A Harcos elementál engedelmeskedik a varázsló minden egyszerűbb parancsának, majd az időtartam lejártával eltűnik. Tulajdonságai szintén a Bestiáriumban olvashatóak."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_hasonmas",
         "name": "Hasonmás",
         "mp": 8,
@@ -1146,6 +1236,21 @@
         "range": "self",
         "save": "nincs",
         "leiras": "E varázslat segítségével a bárd létrehozhatja saját képének pontos mását, egy látványillúziót. A varázslat sokban hasonlít a [Fantomhoz](entity:bard_fantom), ám fontos különbség , hogy a bárd e varázslat során maga is látható marad. Az összes létrejövő illúzió követni fogja minden mozdulatát, s tökéletesen megkülönböztethetetlen lesz tőle. A varázslat E-jénként egy hasonmás teremthető, tehát erősítve t9bbet is létre lehet egyszerre hozni. A hasonmások 5 körig léteznek, csak akkor tűnnek el, ha a varázslat időtartama lejár, avagy a bárd eloszlatja őket."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_hatalomaura",
+        "name": "Hatalomaura",
+        "mp": 14,
+        "idotartam": "2 kör",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 2,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat szinte mindenben megegyezik a Tűzaura varázslattal, csupán egy fontos különbség van a kettő között.\n\nA Hatalom aurája nem a testtől 5-10 centiméterre öleli körül a tűzvarázsló testét, hanem annál távolabb. Az aura testtől való távolsága 5-től 150 centiméterig változtatható a tűzvarázsló kívánsága szerint. Így sokkal könnyel védekezni és támadni is, hiszen a másfél méternyi maximális távolságú aura már minden rövid vagy közepes hosszúságú fegyver forgatóján sebez, ha a támadó megpróbál közelharcra alkalmas távolságon belülre kerülni a tűzvarázslóhoz. Az aura éppen aktuális távolságát a tűzvarázslónak minden esetben a kör elején kell bejelentenie, így a vele szemben állók alkalmazkodhatnak a veszedelmes tűz helyzetéhez. A tűzvarázsló természetesen támadásra is felhasználhatja az aurát, amely minden rajta keresztülhaladó személyen E-nként kó $p-t sebez.\n\nA varázslat erősíthető, de az időtartam nem növelhető meg további Mp-k ráfordításával sem."
     },
     {
         "fajta": "normal",
@@ -1165,6 +1270,21 @@
         "range": "self",
         "save": "nincs",
         "leiras": "Ezzel a varázslattal a pap minden körülmények között visszakerül abba a templomba, melyet otthonaként ismer. Ez legtöbbször az a hely, ahová a legtöbb érzelem fűzi, s ahol ennek következtében a legtöbbet tartózkodott. Természetesen ez csak saját istenének temploma lehet.\n\nA visszatérés az Elsődleges Anyagi Sík bármely pontjáról megtörténhet, de más síkról nem. A varázslat szavainak kimondása után a pap azonnal teleportál, s a templom oltára előtt találja magát."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_hideg_tuz",
+        "name": "Hideg tűz",
+        "mp": 3,
+        "idotartam": "5 kör",
+        "ke": 10,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat tökéletes ellentéte a Fekete tűznek, ugyanúgy a tűz kettős természetének magváltoztatásával fejti ki hatását. Ritkábban alkalmazzák, mint párját, de mindenképp érdemes szem előtt tartanunk több előnyét is. A tűzvarázsló ezzel a mágiával egy egyszerű fáklyát is tábortűz fényességűvé tehet, tökéletes fényforrást biztosítva ezzel nagyobb terek bevilágítására. A fényesség ugyanis a hő teljes átalakításával háTomszorosára növelhető, azaz a bevilágítandó terület sugara ennyivel szorzandó meg. Ennek alapján egy máglya, amelynek a hőjét fénnyé alakítják, egy 60 méter sugarú kör teljes megvilágítására lesz alkalmas. Ez már jelzőfénynek sem utolsó, meglehetősen látványos jelenség."
     },
     {
         "fajta": "normal",
@@ -1387,6 +1507,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_izzo_tekintet",
+        "name": "Izző tekintet",
+        "mp": 50,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat hatása sokban hasonlít a [Perzselő tekintet](entity:tv_perzselo_tekintet) nevű varázslathoz, ám itt a gyújtópontban a hőmérséklet 500 C fok, ami már a fémek egy részét is megolvasztja, az acél pedig felizzik. Az élőlények 3k6 Sp sebet vesztenek körönként.\n\nA varázslat hatóideje alatt a tűzvarázsló szeme erős vörös fénnyel izzik."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_izzo_ver",
         "name": "Izzó vér",
         "kategoriak": [
@@ -1477,6 +1612,21 @@
         "range": "touch",
         "save": "nincs",
         "leiras": "A mágia végrehajtásával a pap felvillantja ellenfele előtt a halála után rá váró kárhozat kínjait. Az így megélt gyötrelem pontos mása a jövőbeli (halál után bekövetkező) bűnhődésnek, így ha a Kárhozatot olyasvalaki ellen használják, aki szent életet él, avagy a vallása nem bünteti az életében elkövetett bűnöket, akkor a mágia semmilyen eredménnyel nem jár. A Kárhozat alanya az időtartam alatt tisztában lesz azzal, hogy ez a valóban rá váró kínok kóstolója, s így nem vonhatja ki magát a hatás alól.\n\nA varázslat hatása alatt az áldozat semmiféle tudatos cselekedetre nem képes, beszélni is csak szaggatottan és alig érthetően tud. A varázslat maradandó fizikai nyomairól az alábbi táblázat tudósít.\n\n| k10 | Eredmény |\n|-----|----------|\n| 1-3 | Őszes csíkok a hajban |\n| 4-5 | Az arc megráncosodik |\n| 6-7 | A haj megőszül |\n| 8-9 | A kéz maradandóan remeg |\n| 10  | Az összes fenti tünet és állandó dadogás |\n\nA KM az áldozat ismeretében befolyásolhatja az eredményt. Ha valamely tünet már megvan egy régebbi Kárhozat hatására, újbóli dobással döntendő el az eredmény. A nyomokat a Mágia szétoszlatása nem szünteti meg, csupán egy olyan [Gyógyítás](entity:pap_gyogyitas), amelyhez legalább 60 MP-t felhasználtak és 24 körig tartott.\n\nA papnak meg kell érintenie szent jelképével a varázslat alanyát ahhoz, hogy aKárhozat létrejöjjön - ha az áldozat ellenkezik, a papnak sikeres támadódobást kell tennie. A varázslat nem evilági vagy élőholt lényeken nem fejti ki hatását.\n\nAz MP-k megtöbbszörözésével semmilyen változtatás nem érhető el."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_kemtuz",
+        "name": "Kémtűz",
+        "mp": 9,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 1,
+        "idotartam": "2 perc/szint",
+        "varazslasIdeje": "azonnali",
+        "leiras": "Ez a varázslat azon kevesek közé tartozik, amely nem közvetlen támadásra szolgál, sőt inkább védekezésre használatos.\nA tűzvarázáló által megidézett Elemi Tűz sárgadinnye nagyságú gömbként jelenik meg, és egyhelyben lebeg. A gömböt a-tűzvarázsló mozgathatja, körülbelül egy gyorsan gyalogoló ember sebességével. \n\nÉrintéskor a gömb nem sebez túl nagyot, csupán k6 Sp-t E-nként, de előnye támadás esetén a pontosság. A másik, tűzvarázslók által kihasznált előny az, hogy a gömb könnyen, viszonylag gyorsan mozgatható fényforrás. Ezzel be lehet világítani a sötétbe vesző folyosók kanyarulatát, mély vermeket és kutakat, gyanús kőfülkéket és alkóvokat. A tűz egy közepes erősségű fáklya fényével ég, így körülbelül 5 méter sugarú körben világítja be környezetét. A tűzgömb eloszlik akkor, ha bármivel érintkezésbe kerül, vagy ha a varázslat időtartama lejár. Az érintkezéskor a már említett sebzést okozza élőlényeken, gyúlékony tárgyakat pedig lángra lobbanthat.",
+        "range": "20",
+        "save": "nincs"
     },
     {
         "fajta": "normal",
@@ -1594,6 +1744,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_langkitores",
+        "name": "Lángkitörés",
+        "mp": 27,
+        "idotartam": "azonnali",
+        "ke": -20,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "asztral+mental",
+        "leiras": "Ez a formula egyike a tűzvarázslók rendhagyó varázslatainak. Végrehajtása után az áldozat köteles Asztrális és Mentális [mágiaellenállást](entity:szabaly_magiaellenallas) dobni - hogy személyes aurája ellenáll-e a varázslat romboló erejének. Ha mindkét ellenállását elvéti, sugarasan szétágazó tűznyelvek csapnak elő teste belsejéből. Minden testi és szellemi energiája a Lángkitörésben enyészik el.\n\nA kitörés erősségéről a következő táblázat tudósít:\n\n* 1TSZ = 1E\n* 2ÉP = 1E\n* 6Mp = 1E\n* 4Fp = 1E\n* 5Ψp = 1E\n\nEzt a varázslatot metamágusok nemzedékei tanulmányozták hosszú évszázadokon át, s végül arra a megállapításra jutottak, hogy a klasszikus mozaikelmélet szabályai szerint egyszerűen nem volna szabad léteznie. Megállapították róla, hogy a világegyetemben természetes állapotban jelenlévő\nmágikus energiákat használja a fizikai test szétfeszítésére. Az ily módon felszabadított nyers életerő csak mellékhatásként fejleszt óriási hő- és fényjelenséget."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_langszoras",
         "name": "Lángszórás",
         "mp": 12,
@@ -1672,6 +1837,21 @@
         "range": "touch",
         "save": "nincs",
         "leiras": "A pap láthatatlanná válik minden olyan lény előtt, mely nem az Elsődleges Anyagi Síkról származik. Ugyanúgy nem érzékelhető az élőholt lények számára sem. Ezek a lények csak akkor pillanthatják meg, ha valamilyen érzékelő mágiához folyamodnak.\n\nA varázslat minden egyéb tekintetben megegyezik a [Láthatatlanság evilági lények előtt](entity:pap_evilagi_lathatatlansag) varázslattal."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_lavafolyam",
+        "name": "Lávafolyam",
+        "mp": 82,
+        "idotartam": "10 perc",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Igazában csak lejtős terepen alkalmazható varázslat. A. tűzvarázsló zónájának teljes szélességében (40 méter) a föld meghasad, és izzó láva tör elő. A lejtő ahhoz szükséges, hogy az olvadék tovább is folyjon. Az áramlás sebessége a lejtő meredekségétől függően percenként 1-4 méter lehet. A láva haladási irányát a tűzvarázsló nem határozhatja meg, az kizárólag a domborzattól függ. Mindazok, akik belekerülnek, nyomban életüket vesztik.\n"
     },
     {
         "fajta": "normal",
@@ -2021,6 +2201,36 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_perzselo_tekintet",
+        "name": "Perzselő tekintet",
+        "mp": 19,
+        "idotartam": "1 perc",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 2,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat létrejöttével a tűzvarázsló az időtartam lejártáig képes arra, hogy tekintetével megperzselje azokat a zónáján belül eső tárgyakat, amelyekre pillant. Ez az éghető anyagokat nyomban lángra lobbantja, a kevésbé éghetőeket pedig megperzseli, fémek felolvasztására nem alkalmas. A gyújtópontban a hőmérséklet megközelítőleg 150 C fok, amely az élőlényeknek k6 Sp sebet okoz körönként.\n\nA varázslat hatóideje alatt a tűzvarázsló szeme halvány vörös fénnyel parázslik."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_pusztito_tuz",
+        "name": "Pusztító tűz",
+        "mp": 6,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat hatékonyabbá, gyilkosabbá teszi mindazokat a varázslatokat, amelyek valamilyen módon sebzést okozhatnak bárkinek is. Hatására a tűz biztosabban emészti fel a gyúlékony anyagokat, a tűzvarázsló biztosabbá tudja tenni a pusztítást. Az ily mődon megtámogatott tűzvarázslatok seb-\nzése esetén a k6-tal kidobott sebzések nem lehetnek 3-nál kisebbek. Ha a karakter vagy a KM a hatékonyabbá tett varázslat sebzésekor az adott kockával 1-et vagy 2-t dob, az ebben\naz esetben automatikusan 3-at jelent.\n\nA megtámogatandó varázslatot rögtön a Pusztító tűz után kell elmondani, mintegy hozzáfűzve azt. A két varázslat varázslási ideje együtt tesz ki 1 kört, kivéve persze ha a támogatott varázslat varázslási ideje eleve több ennél.\n\nA Pusztító tűz erősítésének meg kell egyeznie a megtámogatott varázslat erősítésével.\n\n"
+    },
+    {
+        "fajta": "normal",
         "id": "bard_rejtett_uzenet",
         "name": "Rejtett üzenet",
         "mp": 5,
@@ -2105,6 +2315,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_sarkany_lehellete",
+        "name": "Sárkány lehelete",
+        "mp": 72,
+        "idotartam": "5 perc",
+        "ke": -30,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat hasonló a [Sárkányfiók lehelete](entity:tv_sarkanyfiok_lehellete) nevűhöz, ám itt a lángsugár már jóval szélesebb és forróbb (20 méter hosszú, kiszélesedő végén 5 méter átmérőjű kúp). Ez megmutatkozik abban is, hogy élőlényeknek 10k6 sebet okoz."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_sarkanybor",
         "name": "Sárkánybőr",
         "mp": 18,
@@ -2120,6 +2345,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_sarkanyfiok_lehellete",
+        "name": "Sárkányfiók lehelete",
+        "mp": 51,
+        "idotartam": "5 perc",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a tűzvarázsló az időtartam alatt három alkalommal lángot képes fújni a szájából, akárcsak az erről nevezetes sárkányok. Jelen varázslat esetében ez a lángsugár meglehetősen keskeny (10 méter hosszú, kiszélesedő végén 3 méter átmérőjű kúp) és gyenge; élőlényeknek 6k6 Sp sebet okoz."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_sarkanykiraly_bore",
         "name": "Sárkánykirály bőre",
         "mp": 80,
@@ -2132,6 +2372,36 @@
         "range": "20",
         "save": "nincs",
         "leiras": "Hasonló Sárkánybőr varázslathoz, de jelen esetben a varázslat alanya teljesen sebezhetetlenné válik a tűz és a hő minden megjelenési formájával szemben - legyenek azok bármekkora erősségűek (E). Ha a tűzvarázsló magán alkalmazza, úgy a Tűzelnyelés és a Tűzelvonás különleges képességeit a varázslat időtartama alatt nem tudja használni. Ekkor csak a hagyományos ordani módszerrel és a Tűzgyűjtéssel kísérletezhet.\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_sarkanykiraly_lehelete",
+        "name": "Sárkánykirály lehelete",
+        "mp": 93,
+        "idotartam": "5 perc",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 5,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat hasonló a [Sárkány lehelete](entity:tv_sarkany_lehellete) nevűhöz, ám a lángsugár ezúttal még annál szélesebb és perzselőbb (30 méter hoszszú, kiszélesedő végén 7 méter átmérőjű kúp). Ez megmutatkozik abban is, hogy élőlényeknek 15k6 sebet okoz."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_sogron_szent_tuze",
+        "name": "Sogron szent tüze",
+        "mp": 10,
+        "idotartam": "végleges",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Ezen varázslat segítségével a tűzvarázsló a közönséges tüzek hatásait képes véglegessé tenni. Egyetlen hátránya, hogy mágikus úton már befolyásolt tüzekre hatástalan, s az ily módon megváltoztatott természetes tüzek sem lehetnek ismételten alanyai bármiféle újabb varázslatnak.\n\nIly módon a fáklyák, lámpások örökké égnek, kandallók folyamatosan évekig ontják a meleget.\n\nA varázslat erősítésének legalább akkorának kell lennie, mint a megáldott tűznek."
     },
     {
         "id": "tv_szalamandrabor",
@@ -2291,6 +2561,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_szolga_hivasa",
+        "name": "Szolga hívása",
+        "mp": 38,
+        "idotartam": "1 perc/szint",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A mágia hatására a tűz megelevenedni látszik, s felölti egy elementál Szolga alakját. A varázslat feltétele, hogy a tűzvarázsló Zónáján belül lobogjon egy legkevesebb 5E erősségű tűz.\n\nValójában a már égő tűzön át a varázsló kaput nyit a Tűz Elemi Síkjára, ahonnan az elementál lény lép át az Elsődleges Anyagi Síkra. Engedelmeskedik a tűzvarázsló minden parancsának, de önálló gondolkodásra nem képes, s bonyolult utasításokat is képtelen követni. Szintenként 1 percig marad\naz Elsődleges Anyagi Síkon, de a varázsló Zónáját közben sem hagyhatja el. Az időtartam lejártával nyomtalanul eltűnik, visszatér saját síkjára. Tulajdonságai a Bestiáriumban olvashatóak."
+    },
+    {
+        "fajta": "normal",
         "id": "bard_tanulas",
         "name": "Tanulás",
         "mp": 4,
@@ -2348,6 +2633,21 @@
         "range": "touch",
         "save": "nincs",
         "leiras": "A varázslattal bármilyen tárgy illúziója létrehozható. A tárgy méretei nem haladhatják meg a 1/2 köbméternyi térfogatot E-nként, más kikötés nincs.\n\nA tárgy fegyver is lehet, ám sebet természetesen nem ejthet, hiszen anyagtalan. Az így létrehozott tárgyak többnyire nem használhatók eredeti céljaikra, kivétel ez alól a festmény vagy a tükör. A tárgyak bármilyen távolságba eltávolodhatnak a bárdtól, többet nem szükséges koncentrálni rájuk. A tárgyak szintenként 3 percig maradnak meg, azután semmivé foszlanak - minthogy igazában sosem léteztek."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tavoli_tuz",
+        "name": "Távoli tűz",
+        "mp": 1,
+        "idotartam": "1 perc/szint",
+        "varazslasIdeje": "3 kör",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 3,
+        "range": "korlátlan",
+        "save": "nincs",
+        "leiras": "A varázslat a közönséges tüzek felhasználásának egyik legősibb formája. Lehetővé teszi, hogy a tűzvarázsló a tűz segítségével képeket közöljön bárkivel, akit személyesen ismer. A képek elmosódottak és aligha sokszínűek; a lángnyelvek között derengnek fel, mintha azok rajzolnák ki őket. Annyit már megállapítottak róla a mágiatudorok, hogy a tüzek manafókuszáló erejét és szimpatikus viszonyát használja ki.\n\nA kapcsolat egyoldalú, hacsak a \"beszélgetőtárs\" nem járatos szintén a tűzmágiában, hogy a maga erejéből képes legyen \"felelni\". Az üzenetet fogadó személynek és a tűzvarázslónak is a varázslat teljes időtartama alatt egy legalább 1E erejű közönséges tűz közelében kell tartózkodnia. A tűzvarázsló a varázslat teljes ideje alatt a transzhoz hasonló állapotban marad, míg az üzeneteket fogadó jóformán bármit cselekedhet. Arra azonban mindkettejüknek vigyáznia kell, hogy ne lépjenek ki a tűz fényerősségének sugarán kívülre, mert akkor a kapcsolat megszakad. Ha a tűzvarázsló a varázslat végrehajtása után kutató tudatával nem \"találja\" a keresett személyt, az bizonyára nem tartózkodik tűz közelében.\n\nEkkor a Mana-pontok elvesznek és, természetesen, a kapcsolat sem jön létre.\n\nA varázslat hatótávolsága végtelen. Mágiaellenállás nem dobható ellene, mivel mentális kapcsolat nem épül ki."
     },
     {
         "fajta": "normal",
@@ -2513,6 +2813,50 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzcsapas",
+        "name": "Tűzcsapás",
+        "mp": 4,
+        "fok": 2,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "varazslasIdeje": "azonnali",
+        "idotartam": "azonnali",
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázslók egyik veszedelmes fegyvere, amely már többször okozta a túlzottan magabiztos ellenfelek vesztét. A mágia hatására a tűz - amely állhat akár más tűzvarázslói varázslatok hatása alatt is - egy pillanatra megelevenedik, és megtámadja a tűzvarázsló által megjelölt célpontot. Az áldozat nem állhat 5 méternél messzebbre a tűztől, különben a varázslat nem jön létre.\n\nA tűzvarázslónak nem kell koncentrálnia magára a támadásra, a varázslat egy pillanatra önálló akarattal ruházza fel a lángot, amely támadni fog. A támadás TÉ-je a tűzvarázsló fegyver nélküli TÉ-je, +40-es módosítóval növelve. A támadás után minden visszatér eredeti állapotába.\n\nA varázslat E-je lehet kisebb is, mint a befolyásolt tűzé, de ebben az esetben a sebzés is csak annyi k6, amennyi a varázslat E-je."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzcsapda",
+        "name": "Tűzcsapda",
+        "mp": 19,
+        "idotartam": "3 óra",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 2,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat valójában egy láthatatlan pentagramma, ami a varázslás befejeztével egy pillanatra felragyog a földön, majd kihuny, és várakozási állapotba kerül. Ez az állapot az időtartammal egyenlő ideig áll fenn. Ha ez idő alatt bárki a pentagramma területére téved (3 méter átmérőjű kör), áldozatául esik a felcsapó lángoknak, melyektől ruhája, felszerelése lángra kap, ő maga pedig 2k6 sebet szenved el körönként.\n\nA Tűzcsapdát a tűzvarázsló zónáján belül bárhol létrehozhatja."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzebresztes",
+        "name": "Tűzébresztés/lohasztás",
+        "mp": 4,
+        "idotartam": "2 kör",
+        "ke": 20,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 2,
+        "range": "20",
+        "leiras": "A tűzvarázsló ezen varázslata többek szerint átmenet az Elemi Tűz idézése és a közönséges tüzek befolyásolása közt. A mágia segítségével a tüzek nagysága változtatható meg, bárminemű éghető anyag hozzáadása nélkül. A tűz csak néhány pillanatra nő vagy csökken a kívánt mértékben, majd a természet újra kézbe veszi a dolgok irányítását, és minden visszatér az eredeti állapotba.\n\nA tűzvarázsló tehát Mana-pontok befektetésével 2 kör erejéig a tűz kategóriáját változtathatja meg, még egy gyertya lángjából is készíthet - legalábbis rövid időre - tábortüzet. A varázslat Mana-pont igénye a kiindulási és a kívánt kategóriák különbségétől függ. Ha a különbség csupán egy erősség, a befektetendő Mp-k száma 4.\nKét kategóriánál 8, háromnál 16, négynél 32. Ebből is látható, hogy fáklyából könnyen lehet kandallóban égő láng, de máglya már sokkal nehezebben. A fenti különbségek a tűz kioltásra is vonatkoznak, azaz egy fáklya fénye 4 Mp ráfordításával tompítható gyertyányi lánggá.\n\nA tűzlohasztás több előnnyel is bír, például kezdődő tűzvészek előzhetőek meg vele. A tüzek befolyásolása - bármelyik hasonló varázslattal - minden esetben megváltoztatja az adott hely fény-árnyék viszonyait. Így a tüzek tompításával a rejtőzés könnyebbé, vagy ellenkezőleg, erősítésükkel nehezebbé válik. A tűzvarázsló ennek segítségével meglehetősen könnyen fedezheti fel az árnyakban lapuló ellenfeleit, mivel a tüzek méretének - azaz az árnyékoknak - a megváltozása kívülállók számára kiszámíthatatlan, azonnal létrejövő hatás.\n\nA varázslat hatótávolsága a tűzvarázsló zónája, az időtartam további Mana-pontok befektetésével sem növelhető meg."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzelemzes",
         "name": "Tűzelemzés",
         "mp": 8,
@@ -2525,6 +2869,21 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A tűzvarázsló a varázslat segítségével egy, a zónáján belül lévő tűzvarázslatról szerezhet információkat: megtudhatja E-jét és időtartamát. Ha a tüzet nem őselemi mágia hozta létre, hanem természetes, akkor a varázslat ezt is felfedi a tűzvarázsló előtt, és a tűz E-jéről tájékoztatja. Természetes tüzek addig égnek, amíg van, ami táplálja őket."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzeso",
+        "name": "Tűzeső",
+        "mp": 24,
+        "idotartam": "10 perc",
+        "varazslasIdeje": "4 perc",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 5,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "Az egyik leglátványosabb, legfélelmetesebb tűzvarázslat - ami az ordaniak fegyvertárát figyelembe véve önmagában szép eredmény. Létrehozásának ideje alatt a kívánt terület felett megközelítőleg 50 méterrel vörösen izzó, sűrű lángfellegek gyülekeznek, melyekből a varázslat utolsó igéjének kiejtésekor kövér \"tűzcseppek\" kezdenek hullani, felperzselve mindent. Az érintett terület átmérője Tapasztalati Szintenként legfeljebb 50 méter lehet, de ennél kisebb Tűzesőt a varázsló bármikor teremthet, ha úgy kívánja. A pusztító felhő nem mozgatható, viszont a tűzvarázsló akár maga köré is idézheti, mivel az - furcsa módon - neki és felszerelésének semmilyen formában nem árt. Ártalmatlanul lefolyik róla, akár a közönséges esővíz.\n\nA Tűzeső sújtotta területen minden éghető anyag szinte azonnal meggyullad, s hamarost elhamvad. Élőlények annyiszor k6 Sp-t sebződnek körönként, amennyi a varázslat E-je."
     },
     {
         "fajta": "normal",
@@ -2603,6 +2962,36 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzijatek",
+        "name": "Tüzijáték",
+        "mp": 5,
+        "idotartam": "10 perc",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 1,
+        "range": "100",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló a varázslat hatóideje alatt szabályos, nagyvonalú tüzijátékot képes produkálni az égen. Ennek a látványosságon túl persze semmiféle gyakorlati haszna nincs, hacsak az nem, hogy a primitív lényeket elijesztheti a környékről."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzkapu",
+        "name": "Tűzkapu",
+        "mp": 23,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A térmágia sajátosan egyedi felhasználási módja. A tűzvarázsló és minden személyes aurájához tartozó felszerelési tárgy \"teleportál\", a különféle tüzek - mint manafókuszok - közti szimpatikus viszonyt kihasználva. Mivel a tüzek manafókuszáló tulajdonsága már önmagában rejtély a mágia bölcselői előtt, erre a varázslatra végképp nem várható tőlük elfogadható magyarázat - ez Ordan újabb meglepetése. Mindössze annyit sikerült felderíteni, hogy szoros rokonságban áll a szintén rejtélyes [Szolga hívása](entity:tv_szolga_hivasa) és [Harcos hívása](entity:tv_harcos_hivasa) varázslatokkal.\n\nA varázslat feltétele, hogy a tűzvarázsló Zónájában legalább 3E erősségű tűz lobogjon, kisebb erősségű tüzek képtelenek továbbítani és fogadni a \"teleportálót\". A tüzek lehetnek közönséges vagy őselemi eredetűek - mind a továbbító, mind a fogadó oldalon.\n\nNem cáfol rá a mágia egyetemes törvényeire, hogy a tűzvarázsló csak olyan helyen tud megjelenni, ahol korábban már járt. Ha ott nem lobog legalább 3E erősségű tűz, a legközelebbi ilyen helyen anyagiasul. Kívánsága szerint megjelenhet a tűzben vagy bárhol, attól maximálisan a Zónájának\nmegfelelő távolságban is. A varázslat hatótávolsága végtelen, ennek csak világlátottsága szabhat határt. A varázslat erőssége (E) - újabb rejtély! - megegyezik a fogadó tűz erősségével (E), azaz alapesetben is legkevesebb 3E, de még tovább is erősíthető. A térmágiát hatástalanító védő-körbezáró varázskörök és jelek ellenállnak a varázslatnak, ha erősítésük meghaladja azét.\n\nA varázslat alapjául nem szolgálhatnak olyan tüzek és tűzhelyek - sem indulási, sem az érkezési oldalon -, melyek papi [Áldás](entity:aldas) vagy [Szertartás](entity:pap_szertartas) hatása alatt állnak, mint ahogy a [szent tüzek](entity:tv_sogron_szent_tuze) sem. Ilyen esetekben a varázslat létre sem jön, így a Mana-pontok sem vesznek el."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuzkard",
         "name": "Tűzkard",
         "mp": 5,
@@ -2633,6 +3022,21 @@
     },
     {
         "fajta": "normal",
+        "id": "tv_tuzlobbanas",
+        "name": "Tűzlobbanás",
+        "mp": 38,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A varázslat leginkább erős fényfelvillanáshoz hasonlítható, tulajdonképpen az is. A tűzvarázsló mágiájának hatására a tűz hirtelen éles fénnyel fellobban, majd visszatér kiindulási állapotába. A fény olyan hirtelen villan fel, hogy a közelben állókat könnyen meg is vakíthatja.\n\nAzok, akik a lángtól tíz méterre, vagy annál közelebb álltak, és a felvillanás alatt\nláthatták a tüzet, 25%-ban örökre megvakulnak, egyéb esetben csak 2k10 körre veszítik el látásukat. A tíz méternél meszszebb tartózkodók, bárhol álljanak is, amennyiben látták a\nfellobanást, szintén elszenvedik a hatásokat, igaz, enyhébben. A végleges megvakulás esélye esetükben csupán 10%, az időleges vakság ideje pedig k10 kör lesz."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_tuznyil",
         "name": "Tűznyíl",
         "mp": 5,
@@ -2645,6 +3049,36 @@
         "range": "self",
         "save": "nincs",
         "leiras": "A tűzvarázsló bal kezének mutatóujjából tűznyíl csap elő. Ezzel akkor találja el ellenfelét, ha sikeres célzást dob (lásd **Harc - Célzás!**). A tűznyíl CÉ-je +30, sebzése pedig k6. (Az **íjász szabály** viszont itt nem érvényesül.)\n\nA tűzvarázsló képes arra, hogy több Mp felhasználásával nagyobb erejű tűznyilat lőjön ki. Dupla Mp-ért dupla olyan erős (E—2), kétszeres sebzésü (2k6) nyilat használhat, és így tovább."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzpenge",
+        "name": "Tűzpenge",
+        "mp": 19,
+        "idotartam": "4 kör",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 4,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A közepes és magas Tapasztalati Szintű tűzvarázslók egyik leglátványosabb és a legkevesebb szükségtelen pusztítással járó varázslata. Ez utóbbi szempont nem tűnhet túlságosan fontosnak egy nyílt mezőn dúló csatában, de értékes vagy könnyen lángra lobbanó holmik között bizony nem árt az óvatosság. A varázslat - szemben sok más tűzmágiával - csak a kiszemelt ellenfelet találhatja el, így nem jelent veszélyt a környezet más tagjaira, tárgyaira. A Tűzpenge, bár nevében hasonlatos a Tűzkardhoz, merőben más alapokon nyugvó és működésében más jellegű varázslat. A mágia alkalmazásakor a megidézett Elemi Tűz nem egy fémtárgy, penge körül összpontosul, hanem a levegőben jelenik meg, különös, lebegő tűzesíkként. Ez a tűz 4 körön át marad meg, majd semmivé\nenyészik. Létezése alatt önálló támadások végrehajtására képes, mintha láthatatlan harcos forgatná. Az így létrejött tűzpenge körönként egyszer támadhat, a tűzvarázsló saját TÉ-\njével, a fegyver módosító nélkül. A támadás bárki ellen eszközölhető, aki a tűzvarázsló zónájában tartózkodik. A kard, mivel nincs szilárd anyaga, semmiképpen nem hárítható, viszont a mozgása meglehetősen lassú. Ezért a megtámadott nem teljes VÉ-jével, hanem csupán annak fegyver nélküli részével térhet ki a tűzből született fegyver elől. A penge sebzése E-nként k6 Sp.\n\nA varázslat érdekessége, hogy egyszerre több tűzpenge is létezhet, mind a tűzvarázsló irányítása alatt. Ezzel a tűzvarázsló két-három ellenfelét is sakkban tarthatja, miközben teljes erejével koncentrálhat újabb varázslatok létrehozatalára vagy más harci manőverre."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzszem",
+        "name": "Tűzszem",
+        "mp": 11,
+        "idotartam": "2 óra/szint",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 2,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Miután a tűzvarázsló befejezte a varázslást, 1 kör áll rendelkezésére, hogy megjelöljön egy pontot, ahol apró varázsjel keletkezik. Bal kezének hüvelykujját érinti a kiválasztott helyhez - annak lenyomataként keletkezik a varázsjel. A jel érzékel minden előtte tartózkodót, elhaladót, és ekkor - minden egyes alkalommal - tűznyilat lő ki. A Tűznyíl sebzése alaperősítéssel k6 Sp. Szintén alapesetben a Tűzszem 1 méter távolságig érzékel és hat, az távolabb tartózkodókra hatástalan - a tűznyíl nyomtalanul elenyészik. A távolság is növelhető, E-nként 1 méterrel (ezt a sebzés növelésére szánt E-kkel szorozni kell). A tűznyíl a megnövekedett távolság ellenére sem lesz lassabb: ugyanakkor ér célba, mint alapesetben.\n\nPéldául: 2E erősítésű Tűzszem vagy 2 méterre lő ki k6 sebzésű tűznyilat, vagy 1 méterre 2k6 sebzésűt, míg egy 6E-s erősítésű kilőhet pl. 2 méterre egy 3k6 sebzésű tűznyilat."
     },
     {
         "fajta": "normal",
@@ -2705,6 +3139,36 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A Varázslat sokban hasonlít a [Lángteremtés](entity:tv_langteremtes) nevű varázslathoz. A különbség az, hogy itt a tűzvarázsló nem apró lángnyelvet, hanem egy tábortűz méretű mágja lángját teremti meg. Az éghető anyagok nyomban meggyulladnak, és a környékén komoly hőhatás is érzékelhető, a tűz sebzése 1k6.\n\nA varázslat nem erősíthető."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzvalasztas",
+        "name": "Tűzválasztás",
+        "mp": 6,
+        "idotartam": "3 kör",
+        "ke": 20,
+        "kepzettsegek": [
+            "magia:tv_alapveto_tuzmagia"
+        ],
+        "fok": 1,
+        "range": "10",
+        "save": "nincs",
+        "leiras": "A varázslat hatására a tűz fény és hő hatásai térben elválaszthatóak. Ez azt jelenti, hogy a láng e két összetevője a tűzvarázsló körüli tíz méter sugarú körben tetszőleges helyen fejtheti ki hatását. A varázslat használatát korlátozza, hogy az egyik komponensnek mindenképpen a láng eredeti helyén kell maradnia.\n\nA tűzvarázsló ezzel a varázslattal komoly károkat okozhat ellenfeleinek, ugyanis megteheti, hogy a tűz képét a kandallóban hagyja, de a hővel támad, és minden látható jel nélkül sebez. A sikeres találathoz a tűzvarázslónak Célzó dobást kell dobnia, +30-cal. A találat majdnem bizonyos, hiszen a láthatatlan láng elől különösen nehéz kitérni.\n\nAz első támadás - amely komoly meglepetés lehet - módosítója további +30. Az áldozaton persze meglátszanak az égés nyomai, még az esetleges gyúlékony anyagok is lángra lobbanhatnak. A tűzvarázsló előszeretettel alkalmazza a Tűzválasztást nagyobb ütközetek, ostromok alkalmával is, hiszen a legtöbb efféle esemény alatt akár mágia, akár fáklyák hatására is gyúlhatnak nagy, elszabaduló tüzek.\n\nA varázslat időtartama 3 kör, ez további Mana-pontok befektetésével sem növelhető meg. A tűzzel körönként csak egy támadás hajtható végre. Amennyiben a tűzvarázsló a hőhatást hagyja a láng eredeti helyén, és a fényt mozgatja, ezzel nagy csarnokokat, termeket deríthet fel.\n\nA varázslatot akkora erősséggel kell megidézni, amennyi a szétválasztandó tűz erőssége, a részleges tűzválasztás nem lehetséges."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_tuzvihar",
+        "name": "Tűzvihar",
+        "mp": 180,
+        "idotartam": "15 perc",
+        "varazslasIdeje": "10 perc",
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 5,
+        "range": "1 km",
+        "save": "nincs",
+        "leiras": "A varázslat létrejöttekor k10 kör alatt soha nem látott, világító lángfellegek gyűlnek össze az égen. Ezután tűzeső hullik belőlük a földre, amely 1 km átmérőjű, kör alakú területet érint. \n\nMindazon éghető anyagok, melyek e területen belül találhatók, rövid idő alatt meggyulladnak és elhamvadnak, sőt, az első perc múltán a talaj is megolvad. Mindazok, akik az érintett területen belül tartózkodnak, körönként 8k6 Sp sebet szenvednek el.\n\nA lángfellegeket a tűzvarázsló megközelítőleg 50 km/órás sebességgel képes mozgatni, ami körönként 140 métert jelent, szegmensekként pedig 14-et. Tájékoztatásul közöljük, hogy egy fürgének számító, vágtató ló végsebessége 60 km/óra körül mozog."
     },
     {
         "fajta": "normal",
@@ -3064,5 +3528,20 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
+    },
+    {
+        "fajta": "normal",
+        "id": "tv_atformazas",
+        "name": "Átformázás",
+        "mp": 7,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:tv_magasiskola"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs",
+        "leiras": "A tűzvarázsló e varázslat által képessé lesz más varázshasználók által idézett Őstüzet átformáljon a saját igényeinek megfelelő formába. A formázás tekintetében csak a Hat Iskolaformát használhatja, míg az átalakítandó tűz formája tetszőleges. Azok az Őstüzek, melyeket egy tűzvarázsló akarata irányít (lásd a tűzlényeknél, de ilyen a [Tűzgolyó](entity:tv_tuzgolyo) és a [Tűzpenge](entity:tv_tuzpenge) is) nem reagálnak az átformázásra. A felhasznált mana elvész.\n\nEzzel a varázslattal elképzelhető az a jelenet is, hogy a tűzvarázsló ellen harcoló ellenfélt körülvevő aura tűzkitöréssé alakul. Az erősségnek legalább annyinak kell lenni, mint az\nátformázni kívánt tűz erőssége. A személyes aura nem véd ellene, mert a tűzvarázsló misztikus tűzzel való kapcsolata miatt (melyet a varázslat által használ ki) olyan lesz, mintha az\nŐstűz a saját személyes aurájának lenne a része és nem az áldozaté."
     }
 ]

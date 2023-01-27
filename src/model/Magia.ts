@@ -126,13 +126,39 @@ Azoknál a varázslatoknál, ahol felfedezési esély szerepel, a varázslók 30
         id: 'magia:tv_alapveto_tuzmagia',
         name: 'Alapvető tűzmágia',
         kepesseg: 'emlekezet',
-        leiras: `Az alábbi varázslatokat az ordani tűzvarázsló iskola alapvető jellegűnek tekinti. Ahogy a tűzvarázslók mondják, ez az első lecke, melyet minden novíciusnak el kell sajátítania, ha felvételt kíván nyerni a rendbe. Aki ezen alapvető tűzvarázslatok végrehajtására képes, már igazi beavatottnak tekintheti magát - ha nem is a legkülönbek közül valónak.`
+        leiras: `Az alábbi varázslatokat az ordani tűzvarázsló iskola alapvető jellegűnek tekinti. Ahogy a tűzvarázslók mondják, ez az első lecke, melyet minden novíciusnak el kell sajátítania, ha felvételt kíván nyerni a rendbe. Aki ezen alapvető tűzvarázslatok végrehajtására képes, már igazi beavatottnak tekintheti magát - ha nem is a legkülönbek közül valónak.
+
+A tűzvarázsló persze nem csak megidézni képes a tüzet, de a már létező máglyák, fáklyák lángja is fegyverré alakulhat a kezében. A már létező tüzek irányítása sokkal kisebb energia befektetést igényel, mint a tűz Elemi Síkról történő megidézése.
+
+Ezért, ha lehetősége nyílik rá, a tűzvarázsló inkább a rendelkezésre álló tüzet használja fel, mivel ez sokkal kevésbé kimerítő. A varázslatok sokszor többszörösére fokozhatják az eredeti tűz valamely tulajdonságát: fényét, hőjét, esetleg kiterjedését.
+
+A varázslatok használatához azonban ismernünk kell, hogy mik az egyes tüzek kategóriái, hiszen a sebzés és a fényerősség is ennek függvénye. Lássuk hát a kategóriákat:
+
+| Kategória | Sebzés | Fényerősség | E |
+|-----------|--------|-------------|---|
+|Gyertya|1|2 méter|0|
+|Fáklya|1k6|5 méter|1|
+|Kandallótűz|2k6|8 méter|2|
+|Tábortűz|3k6|12 méter|3|
+|Jelzőtűz|4k6|16 méter|4|
+|Máglya|5k6|20 méter|5|
+
+Ha a varázslatok leírásában a Mana-pont igény a tűz erősségének függvénye, a gyertya lángja minden esetben 1 Mana-pontért befolyásolható, mivel erőssége csak nulla.
+
+A táblázat az 5E erősségű máglyánál ér véget, de természetesen ennél nagyobb tüzek is elképzelhetőek. A tűz nagyságának - azaz kategóriá- jának, erősségének - meghatározása minden esetben a KM joga és feladata. Szem előtt kell tartanunk azonban, hogy a legnagyob és legforróbb természetes tüzek - amelyek legfeljebb az erdőtüzek forrongó középpontjában vagy vulkánok izzó katlanjában lelhetőek fel - erőssége 15E.
+        `
     },
     {
         id: 'magia:tv_elemi_formai',
         name: 'Tűzmágia elemi formái',
         kepesseg: 'emlekezet',
         leiras: `A tűzmágia elemi formái magukban foglalják mind a varázslók által is ismert hat iskolaformát, mind pedig a magasabb szintű, szabad elemi formákat.`
+    },
+    {
+        id: 'magia:tv_magasiskola',
+        name: 'Tűzmágia magasiskolája',
+        kepesseg: 'emlekezet',
+        leiras: `Az idetartozó varázslatok már a tűzvarázslás magasiskoláját jelentik - ami abból mérhető le a legszembetűnőbben, hogy még egy tanult mozaikmágus is értetlenül állna előttük, képtelenül arra, hogy utánozza őket, mi több, hogy meghatározza, mi módon épülnek fel.`
     }
 ] as const;
 
