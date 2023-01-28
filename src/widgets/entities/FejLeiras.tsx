@@ -6,6 +6,7 @@ import { Kepessegek } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { entityDivStyle } from '../../model/util';
 import { MarkdownText } from '../MarkdownText';
+import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inline }) => {
     const fajTabla =
@@ -74,7 +75,7 @@ export const FajLeiras: React.FC<{ faj: Faj, inline?: boolean }> = ({ faj, inlin
                     </thead>
                     <tbody>
                         {faj.kepzettsegek.map(kepzettseg => <tr>
-                            <td>{kepzettseg.name ?? Kepzettseg.name(kepzettseg.kepzettsegId)}</td>
+                            <td>{kepzettseg.name ?? <KepzettsegLeiras kepzettseg={Kepzettseg.find(kepzettseg.kepzettsegId)} />}</td>
                             <td>{kepzettseg.fok}</td>
                         </tr>)}
 

@@ -8,6 +8,7 @@ import { printKocka } from '../../model/Kocka';
 import { MagiaKategoriak } from '../../model/Magia';
 import { arrayName, entityDivStyle } from '../../model/util';
 import { MarkdownText } from '../MarkdownText';
+import { KepzettsegLeiras } from './KepzettsegLeiras';
 
 export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ kaszt, inline }) => {
     const kasztTabla =
@@ -103,7 +104,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                     {(kepzettsegek?.length ?? 0) > 0 && <tbody>
                         {kepzettsegek.map(kepzettseg => <tr>
                             <td>{tsz === 0 ? '' : tsz}</td>
-                            <td>{kepzettseg.name ?? Kepzettseg.name(kepzettseg.kepzettsegId)}</td>
+                            <td>{kepzettseg.name ?? <KepzettsegLeiras kepzettseg={Kepzettseg.find(kepzettseg.kepzettsegId)} />}</td>
                             <td>{kepzettseg.fok}</td>
                         </tr>)}
                     </tbody>}
@@ -142,13 +143,16 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                             <th>MP/szint:</th>
                             <td>{Kepessegek.name(kaszt.mana.kepesseg)} 10 fölötti része + {kaszt.mana.mennyiseg === 'sok' ? '6' : 'k6'} {kaszt.mana.mennyiseg === 'kevés' && 'fele'}</td>
                         </tr>
-                        <tr>
-                            <th rowSpan={kaszt.magiaKategoriak.length}>Mágia típusa</th>
-                            <td>{arrayName(MagiaKategoriak, kaszt.magiaKategoriak[0])}</td>
-                        </tr>
-                        {kaszt.magiaKategoriak.slice(1).map(mk => <tr>
-                            <td>{arrayName(MagiaKategoriak, mk)}</td>
-                        </tr>)}
+                        {kaszt.magiaKategoriak.length > 0 && <>
+                            <tr>
+                                <th rowSpan={kaszt.magiaKategoriak.length}>Papi szférák</th>
+                                <td>{arrayName(MagiaKategoriak, kaszt.magiaKategoriak[0])}</td>
+                            </tr>
+                            {kaszt.magiaKategoriak.slice(1).map(mk => <tr>
+                                <td>{arrayName(MagiaKategoriak, mk)}</td>
+                            </tr>)}
+                        </>}
+
                     </tbody>
                 </table>
 

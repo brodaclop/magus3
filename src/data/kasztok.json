@@ -9,6 +9,95 @@
             "Mentál": "Jó",
             "Asztrál": "Legendás"
         },
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver:bot_hosszu",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver:tor",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "alkimia",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_lelek",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_elet",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:bard_fenymagia",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "osi_nyelv",
+                    "name": "Ősi nyelv ismerete",
+                    "fok": 2
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "elettan",
+                    "fok": 1
+                }
+            ],
+            null,
+            [
+                {
+                    "kepzettsegId": "herbalizmus",
+                    "fok": 1
+                }
+            ]
+        ],
         "harcertekAlap": {
             "ke": 4,
             "te": 15,
@@ -24,6 +113,11 @@
         "mana": {
             "kepesseg": "hit",
             "mennyiseg": "sok"
+        },
+        "leiras": {
+            "fo": "Adron ynevi szolgálói titokzatos, a közönséges emberektől távol álló\nférfiak és (ritkábban) nők. A lakott helyeken elvétve találkozhatunk velük, kivéve, ha az adott település mágikus gócponton épült, vagy netán Kapuval rendelkezik — vagy ha a papot küldetése szólította oda. \n\nMeg kell hagyni, ilyenkor nagy feltűnést keltenek vörösszegélyű, hófehér tógájukkal és másféllábnyi botjukba foglalt szent jelképükkel; tiszteletteljes csend követi nesztelen lépteiket. Kimért viselkedésüket, szenvtelen arcvonásaikat sokan a gőg jelének vélik,\nde természetesen tévednek: ez éppúgy távol áll tőlük, mint a legtöbb érzelem, amit már sikerült levetkőzniük. Megjelenésük sohasem a véletlen műve, biztos jele ez annak, hogy gonosz erők ellen kell fellépni, vagy hogy egy csodálatos erejű tárgy bukkant fel.\n\nKülönös módszereik sokszor a világi hatalmak számára is nehezen el-\nfogadhatóak, céljaik elérésének érdekében nincsenek tekintettel semmiféle értékre, csak amit istenük is annak tekint — ez legfőképp az Élet princípiuma. Legfőbb ellenfeleik a boszorkánymesterek, boszorkányok és a Gonosz papjai, akik az Adron-szentélyek által ellenőrzött területeken még titokban is nehezen működhetnek, hisz az általuk használt mágiaformát a mágia urának papjai messziről képesek érzékelni, így az őket alkalmazó nagyurak bizton számíthatnak a környéken lévő Adron-papok ellenlépésére.\n\nAzok a papok, akik épp nem Ynevet járják valamilyen küldetés végrehajtása végett, vagy nem egy\nKapu felügyeletével bíztak meg, idejüket kolostorszerű rendházaikban töltik meditációval, tanulással. Ezek az épületek általában lakott helyektől távoli helyeken, a manaháló statikus\ngócpontjain emelkednek — vulkánok oldalában, érintetlen erdőségek tisztásain, letűnt kultúrákat idéző romok között. Az általában csillag-alaprajzú, mágiával átitatott falú rendházakban folyik a beavatásra várók felkészítése is, ami több évet vesz igénybe, mivel nagy mennyiségű könyv, tekercs és fóliáns áttanulmányozása képezik az alapját, no meg hosszú-hosszú meditációk. A testvéri közösségben élő papok együttesen döntenek az adeptusok érettségéről, a felszentelés rítusát viszont a kolostort vezető legnagyobb tudású pap végzi el. A beavatás után az újdonsült papok küldetést kapnak legtöbbször magától Adrontól), amelynek teljesítése sokszor évekbe\ntelik, bevégeztével pedig mindig visszatérnek a rendházba.\n\nA papok (amúgy minimális) létszükségleteiket adományokból elégítik ki, illetve az egyes küldetések során \"járulékosan\" szerzett javakat a papok mindig felajánlják a közösség\nszámára. Ezek a \"jövedelmek\" legtöbbször bőségesen elegendőek az aszketikus életmódú beavatottaknak.\n\nA papok és papnők előtt kevés elérhető rang és cím létezik; ezekre maga az istenük jelöli a rátermetteket, és meditáció közben tudatja a közösségek tagjaival a döntéseit. Ezek a címek a következőek: a már említett rendházfőnök, a könyvtáros, a kapuőr és a mindenkori főpap. A könyvtáros feladatkörét magyarázni nem szükséges, elég hozzá az, hogy minden kolostorban szükség van rá, hisz az Adron-papok tudásuk nagy részét írott forrásokból sajátítják el, amiket valakinek gondoznia kell.\n\nKapuőröket hagyományosan a pyarroni vallás befolyási területén működő térkapuknál alkalmaznak,\nők segítik a Kapukat vigyázó térmágusokat. A főpap — akik között a történelem során többen Adron Kegyeltjei voltak - automatikusan a Papi Szék tagja. Az időnként, szükség esetén létrehívott Inkvizíciós Székekben sűrűn találhatunk Adron-papokat, akik a Gonosz feltűnésekor amúgy is hamar megjelennek.\n\nAdron nem tiltja meg papjai és papnői számára, hogy párt válasszanak, és ők élnek is ezzel a lehetőséggel, bár eléggé sajátos módon. Leginkább maguk közül választanak párt, és nem is mindig az ellenkező nemből, de a kapcsolat az esetek nagy részében nélkülöz minden testi jelleget; a lelki közösség egy különösen erős fajtájáról van szó, amikor a két személy egymás megvilágosodását segíti.\n\nAz eddigiekből kitűnik, a fény és a mágia urának papjai fontos szerepet kapnak a pyarroni vallás hittételeinek, kivívott értékeinek megóvásában. Épp ezért az Északi Szövetség és a Pyarroni Államszövetség országaiban fölöttébb nagy tiszteletnek és támogatottságnak örvendenek és szívesen hívják őket segítségül az olyan problémák megoldásához, amik Adron befolyási területéhez tartoznak. Ilyenkor indulnak küldöttségek - legtöbbször ajándékokkal megrakva - a távoli kolostorokba...\n\nA Hetedkor egyik legnagyobb történelemformáló változása, a Dúlás, Adron egyházának is igen érzékeny veszteségeket okozott. Nemcsak a legnagyobb templomuk, de főpapjuk, Ute Betan (aki Adron utolsó kegyeltje volt) is elpusztult a kráni feketemágusokkal vívott varázscsatában. Ennek ellenére a Dúlás után néhány évtizeddel a külvilág is felfigyelt az Adron-papság \"kirajzására\": feltűntek a kalandozócsapatokban, sőt kettes-hármas csoportjaik önállóan is felbukkantak a civilizált vidékek határvidékén, különösen az Elátkozott Vidék peremén. Csak kevesen tudják\nennek a \"mozgalomnak\" a valódi okát: Adron azt papját választja következő kegyeltjének, aki megtisztítja Ynev eme mágikusan (és más értelemben is) legszennyezettebb vidékét. A címért versengők egymásnak nem riválisai, hiszen közös érdekük, hogy egyházuk megerősödjön; azt is\nmindannyian tudják, hogy hosszú harc áll előttük, és csak összefogással érhetik el céljukat.\n\nAdron papi rendjének sajátos, kissé talán ambivalens a viszonya a különböző varázslóiskolákkal. A vitás pont a nekromancia; ahol a mágia tudományának ezt az ágát nem oktatják, ott az Adron-papok szívesen megfordulnak és őket is szívesen látják. Bár Doranban hangsúlyozzák, hogy a Szarvtorony varázslói nem szükségszerűen gonoszak, Adron egyházának felkentjei csak indokolt esetben működnek együtt velük, a nyílt ellenségeskedéstől pedig csak praktikus okokból tartózkodnak — legalábbis addig, míg a varázslók városa a pyarroni vallás égisze alatt marad. Lar-dorral kiegyensúlyozott a\nviszonyuk, a pyarroni Fehér Páholy pedig az egyház támogatását bőséges adományokkal fizeti meg.",
+            "kepzettseg": "Fegyverhez csak végszükség esetén nyúlnak, védekezésre-támadásra lehetőleg mágiájukat használják, ritka alkalmakkor botjukat használják önmaguk oltalmazására, némelyikük pedig tőrt is hord, rövid kardnál nagyobb szúró-vágó fegyvert biztosan nem forgatnak, bonyolult lőfegyverek tanulmányozására pedig végképp nem pazarolják idejüket.",
+            "kulonlegesKepessegek": "Az Adron-papok képességeiket és hatalmukat tekintve valahol a papok és a varázslók között helyezkednek el. Istenükhöz küldött imáikért cserébe nemcsak a szakrális mágia Lélek és Élet szféráinak varázslatait, hanem Fénymágiát is adományoz nekik (ez utóbbi gyakorlatilag/játéktechnikailag a bárdok fénymágiája, csak a papi manapontjaikból költhetnek rájuk). Élenjárnak a varázstárgyak készítésében is, minden valamirevaló rendházuk őriz három-\nnégy féle leírást varázsitalok és —tárgyak készítéséről. Mágiájuk sokrétűbb szinte minden varázshasználóénál, fegyveres képzettségük viszont messze elmarad a többi pap tudásától.\n\nMint már említettük, Adron követői a szakrális mágia szférái közül az [Élet](entity:magia:pap_szfera_elet) és [Lélek](entity:magia:pap_szfera_lelek) szférákban rendelkez-\nnek befolyással. Ezen felül használhatják a bárdmágia összes [fényvarázslatát](entity:magia:bard_fenymagia), de mivel ez istenük adománya, ezért ezeket is papi manapontjaikból kell fedezniük.\n\nTovábbi különleges képességük, hogy a Fény urának papjai bármikor, manapont felhasználása nélkül képesek világosságot teremteni a [Szent fény](entity:pap_szent_feny) varázslatnál leírtak szerint (alaperősítéssel, szint x 3 körig)."
         }
     },
     {
