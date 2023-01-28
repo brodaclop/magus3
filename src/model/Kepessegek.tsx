@@ -3,6 +3,12 @@ import { NamedEntity, namedEntityArray } from "./util";
 
 export type KepessegKategoria = 'Fizikum' | 'Ügyesség' | 'Mentál' | 'Asztrál';
 
+export const KepessegKategoriaSorrend: Record<KepessegKategoria, number> = {
+    Fizikum: 0,
+    Ügyesség: 1,
+    Mentál: 2,
+    Asztrál: 3,
+};
 
 
 export interface Kepesseg extends NamedEntity {

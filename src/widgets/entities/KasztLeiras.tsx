@@ -2,7 +2,7 @@ import Tooltip from 'rc-tooltip';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { KasztInfo, Kasztok, KEPESSEG_DOBAS } from '../../model/Kasztok';
-import { Kepessegek } from '../../model/Kepessegek';
+import { Kepessegek, KepessegKategoria, KepessegKategoriaSorrend } from '../../model/Kepessegek';
 import { Kepzettseg } from '../../model/Kepzettseg';
 import { printKocka } from '../../model/Kocka';
 import { MagiaKategoriak } from '../../model/Magia';
@@ -19,7 +19,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
 
             <table className='bordered'>
                 <tbody>
-                    {Object.entries(kaszt.kepessegDobas).map(([nev, ertek]) => <tr>
+                    {Object.entries(kaszt.kepessegDobas).sort(([a], [b]) => KepessegKategoriaSorrend[a as KepessegKategoria] - KepessegKategoriaSorrend[b as KepessegKategoria]).map(([nev, ertek]) => <tr>
                         <th>{nev}</th>
                         <td>{ertek}</td>
                         <td>{printKocka(KEPESSEG_DOBAS[ertek])}</td>
@@ -145,7 +145,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                         </tr>
                         {kaszt.magiaKategoriak.length > 0 && <>
                             <tr>
-                                <th rowSpan={kaszt.magiaKategoriak.length}>Papi szférák</th>
+                                <th rowSpan={kaszt.magiaKategoriak.length}>Szakrális mágia</th>
                                 <td>{arrayName(MagiaKategoriak, kaszt.magiaKategoriak[0])}</td>
                             </tr>
                             {kaszt.magiaKategoriak.slice(1).map(mk => <tr>

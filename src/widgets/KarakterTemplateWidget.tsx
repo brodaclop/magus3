@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Fajok } from '../model/Fajok';
 import { Karakter, KarakterTemplate } from '../model/Karakter';
 import { Kasztok } from '../model/Kasztok';
+import { KepessegKategoria, KepessegKategoriaSorrend } from '../model/Kepessegek';
 import { DobasEredmeny } from '../model/Kocka';
 import { DobasEredmenyWidget } from './DobasEredmenyWidget';
 import { FajLeiras } from './entities/FejLeiras';
@@ -78,7 +79,7 @@ export const KarakterTemplateWdiget: React.FC<{
             <div>
                 <table>
                     <tbody>
-                        {Object.entries(kaszt.kepessegDobas).map(([kategoria, dobas], idx) => <tr>
+                        {Object.entries(kaszt.kepessegDobas).sort(([a], [b]) => KepessegKategoriaSorrend[a as KepessegKategoria] - KepessegKategoriaSorrend[b as KepessegKategoria]).map(([kategoria, dobas], idx) => <tr>
                             <th>{kategoria}</th>
                             <td>{dobas}</td>
                             <td><DobasEredmenyWidget {...dobasok[idx]} /></td>
