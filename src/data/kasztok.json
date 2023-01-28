@@ -122,7 +122,7 @@
     },
     {
         "fajta": "normal",
-        "id": "solyomcsor_arel_pap",
+        "id": "arel_pap_solyomcsor",
         "name": "Arel pap (Sólyomcsőr)",
         "fokaszt": "Pap",
         "magiaKategoriak": [],
@@ -199,6 +199,14 @@
                 {
                     "kepzettsegId": "tuleles",
                     "fok": 3
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_termeszet",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_elet",
+                    "fok": 1
                 }
             ]
         ],
@@ -206,6 +214,230 @@
             "Asztrál": "Legendás",
             "Mentál": "Átlagos",
             "Ügyesség": "Átlagos",
+            "Fizikum": "Átlagos"
+        },
+        "harcertekAlap": {
+            "ke": 9,
+            "te": 18,
+            "ve": 73,
+            "ce": 20
+        },
+        "harcertek": {
+            "te": 4
+        },
+        "hm": 5,
+        "leiras": {
+            "fo": "Az Arel-papokkal kapcsolatban semmiféle, őket bármilyen módon tömörítő szervezetről nem beszélhe-\ntünk, így az \"egyház\" szó használatának sincs igazából értelme velük kapcsolatban. A Harc és Természet papjai még maguk közül valót sem ismernek el feljebbvalóként; a harcban, cselekedeteik alapján elnyert mellékneveken kívül címekre, méltóságokra sem áhítoznak. Az egyetlen rang, amit elérhetnek, a tagság a Papi Székben, de erre a posztra sem az Arel-papság jelöli az arra alkalmas\npaptársukat, hanem a többi isten főpapja kéri fel az általuk (valamint isteneik és nem utolsó sorban Arel által) érdemes személyt. Az istennő felkentjeinek nincsenek gyűléseik, nagyobb számban csak háborús csetepaték esetén állnak össze; a Zászlóháborúk idején felbukkantak néhány tucat főből álló szabadcsapataik a reguláris seregtestektől elkülönülve, általában a Kalandozók Hadurának\nvörös lobogója alatt. Állandó társaságokat tehát nem alapítanak, de két-három fős alkalmi csapataik szívesen csatlakoznak egy-egy ígéretesen veszélyesnek tűnő küldetéshez vagy valami zsiványság elkövetéséhez. Ezekben az esetekben sem választanak vezetőt, egyenrangúnak tekintik egymást.\n\nA házastársi és családi kötelékek szintén távol állnak minden Arel-paptól és -papnőtől. Az ellenkező nemtől persze nem tartózkodnak, de kapcsolataik (ha esetleg hirtelen felhorgadó szenvedélyből belebonyolódnának ilyesféle afférokba) szükségszerűen kérészéletűek; jellemzőbb, hogy inkább a bordélyokat és az egyéjszakás flörtöket részesítik előnyben. Előfordulhat, hogy az efféle kapcsolatokból gyermekek születnek, de ezek a szerencsétlen gyerekek biztosan az egyik szülő nélkül\nnőnek fel, sőt a papnők porontyai általában nevelőszülőkhöz kerülnek. Az Arel-papok javára legyen mondva, hogy ilyen esetekben a lehetőségeikhez mérten, váltakozó rendszerességgel adományokkal segítik gyermekük felnevelését.\n\nA világi hatalmak törvényeit egyáltalán nem tisztelik, vagyis inkább figyelemre sem méltatják őket, nem csoda, ha eszükbe sem jut afféle \"belső szabályzat\" létrehozása. Persze elveik ettől még vannak, a legáltalánosabb az, hogy a gyengéket minden körülmények között megoltalmazzák, illetve hogy cselekedeteik mindig Arelnek tetszőek legyenek. Általában véve elmondható, hogy mindaddig nem érdeklik őket Ynev történései, míg azok nem kecsegtetnek kalanddal, haditettekkel, vagy amíg a pyarroni hitet nem fenyegeti valami nagy-nagy külső veszély. Kisebb kivételt képeznek a Mogorva\nChei vezette Yilinor Arel-papjai, akik igazi hazafiként küzdenek országukért, de nem hagyhatjuk figyelmen kívül, hogy nekik a kráni határon uralkodó állandó hadiállapot biztosítja a \"lételemüket\": a harcot.\n\n\"Reátette Arel a jegyét\" - mondják Ynev-szerte azokra a fiatal legényekre-leányokra, akik a nyughatatlan, lázongó kamaszkort hátrahagyva towábbra is dacosan ellenszegülnek minden tekintélynek, örökké a veszélyt keresik, verekedéseket provokálnak, nem riadnak vissza a kisebb-\nnagyobb gaztettektől sem. Ezek egy része végül mégis \"betörik\", de kisebb hányaduk elszökik a családjuktól és csavargásra adja a fejét. Legtöbbjüknek rövidesen örökre nyoma vész, de néhányuk - akiket Arel tényleg megjelölt - előbb-utóbb találkozik egy viseltes ruhájú kalandozóval, aki\nhátára szíjazva íját, a nyakába akasztva vagy homlokpántjára erősítve a Sólyomholdat viseli. Az előtte álló kölyökhöz hasonló sorsot maga mögött tudó Arel-pap (ahogy ők mondják) \"a sólyom szárnya alá veszi\" a fiatal csavargót, közös kalandokat átélve, tetteivel példát mutatva avatja be őt, mi is kedves az Úrnő szemében.\n\nAz ifjú paptanonc tábortüzek mellett, küzdelmek forgatagában sajátítja el az istennőtől támogatást kérő imákat, a vadászatok, csaták után az áldozatbemutatás szertartását. Többször előfordul, hogy képzését nem az fejezi be, aki elkezdte, ennek okait valószínűleg nem kell részletezni. Végül - a\nmeghatározó találkozás után két-három évvel - a tanítását bevégző Arel-pappal egy másik hitsorsosuk keresésére indulnak, mert a pappá avatás szertartásához legalább két \"felszentelt\" Arel-fi szükségeltetik. A jelölt egy viharos éjszakán \"vizsgáztatóival\" végigcitálja az összes tanult\nimát, miközben körülötte rémisztő villámok csapkodnak. Az éjszaka-hosszú rítus végeztével a Harc és a Természet istenaszszonya sólymot küld az újdonsült papjának, biztosítva arról, hogy magához fogadta őt. Előfordulhat, hogy a madár nem jelenik meg, vagy nem száll rá a tanonc kinyújtott karjára; az istennő ezzel egyértelműen kifejezte, hogy az adeptusnak még tanulnia kell...\n\nAz Arel-hitű papok felszínes gondolkodására igen jellemző, hogy legtöbbjük képtelen lenne megmagyarázni a saját, istennőjük által sugallt és megkövetetelt szerepüket, amit a halandók világában betöltenek. Hogy voltak (és valószínűleg ma is vannak) köztük gondolkodó, a miérteken\nis eltöprengő elmék, azt néhány független forrásból tudjuk (az Arel-vallásnak nincsenek írásba lefektetett hittételei); különösen jó példa a hírneves geográfus, Igrain Reval Úti feljegyzései is, amelyben utazásai alatt készült feljegyzéseit olvashatjuk (ennek alapján írta meg meghatározó\nmunkáját, a Geofrámiát). A Sheralon való átkelése során csapódott karavánjukhoz egy Duron nevezetű, a harmincas éveinek vége felé járó, kissé rezignált Arel-pap, akivel hosszas beszélgetéseket folytatott. Ő ejtett el néhány megjegyzést saját hitsorsosainak valódi, a felszín mögött megbúvó szerepéről. Szerinte az Úrnő a papjai által az Élet, a Természet megújhodását elősegítő káoszt\nigyekszenek fenntartani, aminek nem mond ellent a harcos, pusztító aspektus sem, hisz ez hivatott lenyesegetni a vadhajtásokat és a pusztulás mindig az új élet sarjadását indítja el. Némi hasonlóságot vélhetünk felfedezni Ranagol (a káoszra épülő rend), és Tharr hitével (a világ a káosz felé törekszik), de míg ezeknél a gyöngék eltiportatnak, mivel alkalmatlannak bizonyultak a létezésre, vagy mert a pusztulásuk is a káoszt segíti, addig Arel őket oltalmazza, mivel szemlélete szerint esélyt kell adni nekik, hogy megerősödhessenek, hogy betölthessék szerepüket az Élet csodálatos művében.\n\nA Sólyomasszony hívei talán a legnagyobb zsiványok és szélhámosok egész Yneven. Mindenütt a felfordulást, a zűrzavart keresik, szívesen kötözködnek, és már csak mókából is elfogadnak bármiféle kihívást. Jawukra írandó, hogy a gyengéket, az elesetteket nemhogy bántanák, de mindenkor megvédelmezik - ami gyakorta bajba sodorja őket. Még hitük esküdt ellenségeinek szorult helyzetével sem élnek vissza soha: az ilyen győzelmet méltatlannak vélik magukhoz. A megoldásra váró feladat annál érdekesebb számukra, minél veszedelmesebb és kockázatosabb. Nem csoda hát, hogy leginkább\nesztelen vakmerőségükről híresültek el, mely esetenként már-már az öngyilkosság határát súrolja.\n\nNem telepednek meg sehol, egész életüket végigcsavarogják, folyton új kalandokat keresnek. Gyakran lopnak, csalnak, szélhámoskodnak - hisz egyéb megélhetésük nemigen akad -, előszeretettel kísértik meg a sorsot és mindannyian szenvedélyes hazárdjátékosok. Előfordul néha, hogy felcsapnak testőrnek vagy zsoldosnak, de sosem a fizetség miatt. Ha a megbízás elég izgalmasnak ígérkezik és nem ütközik erkölcsi felfogásukkal, akár ingyen is elszegődnek. A munkájukban mindazonáltal nem sok a köszönet, mivel hírhedetten fegyelmezetlenek, úrnőjükön kívül semmit és senkit nem ismernek el maguk fölött.\n\nA városokat, erődített helyeket mem kedvelik; ha csak módjukban áll, szabad ég alatt hálnak. Nyitott építésű szentélyeiket soha nem rakják kőből: egyszerű fa- vagy nádépítményeket emelnek, jobbára félreeső, csöndes ligetekben. Szent állatuk a sólyom, melynek elpusztítása vagy fogságra vetése halálos bűnnek számit. A vihar, a szél süvöltése valósággal elbűvöli őket; akkor vannak igazán elemükben, ha körülöttük záporeső szakad és villámok csapkodnak.\n\nMeggondolatlanok és hevesek, akár a nyári zivatar, csatakiáltásaik olykor a legtökéletesebben tervezett rajtaütést is tönkretehetik. Viharos wérmérsékletük gyakran ütközik a bevett erkölcsi normákkal, ezért az Északi Szövetség jónéhány országában és a Délvidéken komoly fenntartásokkal fogadják őket. A pórnép száján nem túl hízelgő történetek forognak részeg dáridókról, könnyelműségből támasztott tűzvészekről és más hasonlókról. Az ő sajátos felfogásuk szerint azonban a Sólyomasszony minden tettüket megbocsátja nekik, ha igaz szívvel cselekedték. Mondanunk sem kell, hogy e ködös megfogalmazás rengeteg félreértéshez, huzavonához vezet. A bonyodalmak tisztázásában nem sokat segít, hogy az Arel-papok valamennyien a szabadság kérlelhetetlen védelmezői - amit azonban a maguk részéről igen tágan értelmeznek. A béklyóba vert hadifogolyban éppúgy a természet\nrendjének megcsúfolását látják, mint a \"rabságban sínylődő\" háziállatokban, és nem tesznek különbséget a fekete mágiával kavart orkán meg a gátakkal szabályozott öntözőcsatorna között sem.\n\nBizonyos papi körökben élénken él az a téveszme, hogy a Sólyomasszony minden szakrális szférához\nkorlátlan hozzáférhetést biztosít szolgáinak. Nos, ha elég hosszan figyeljük az Arel-papokat, valóban megállapíthatjuk, hogy mindegyik szféra varázslatait használják. A bökkenő csak ott van, hogy egyetlen Arel-paptól - vagy akár kettőtől is - ilyesmit hiába is várnánk: képtelenek rá. Az\nviszont már előfordulhat, hogy hárman együtt az öszszes szférát kimerítik.\n\nS hogy hol itt a magyarázat?\n\nNem kötik éppenséggel mindenkinek az orrára, de a Sólyomasszony követői három különböző irányzatra\noszlanak, annak függvényében, hogy istennőjük mely aspektusát tisztelik. Mindhárom irányzat más-más szférákból válogatja a varázslatait, közös hozzáférhetésük csak a Természetéhez van. Így hát valóban kimerítik ugyan a rendelkezésre álló lehetőségeket, de csupán összességükben nézve. Egy magányos Arel-pap - tartozzon bármelyik irányzathoz - egyszerre legfeljebb két szakrális szférához férhet hozzá.\n\nAz Arel-hívő irányzatok nem minősíthetők hagyományos értelemben vett szektáknak. Nincsenek vitáik,\nsúrlódásaik, dogmatikus ellentéteik, és ha együttműködnek egymással - ami gyakran megesik -, ezt mindig az elképzelhető legnagyobb összhangban teszik, ami csak egy ilyen kiszámithatatlan vallástól egyáltalán elvárható. Bizonyos származási és regionális válaszvonalak megfigyelhetők ugyan közöttük, ám eléggé elmosódottan. Az alapvető különbségek sokkal inkább érzelmi-hangulati beállítottságukban vannak. Az ifjú tanítványok mindig felszentelésük percében választják ki a lelki alkatuknak leginkább megfelelő irányzatot. Az elhatározás - híven Arel szellemiségéhez - teljesen szabad, semmilyen külső körülmény nem befolyásolja. Ha a növendék úgy látja jónak, mnden további nélkül elkötelezheti magát másik irányzat mellett, mint a mestere.\n\n### Sólyomszív irányzat\n\nLeginkább Északon népszerű irányzat, mely a Sólyomasszony érzelmi aspektusát tiszteli. Papjai lobbanékonyak és hamar fortyanók, hirtelen gyúlnak szenvedélyre, ám ugyanolyan gyorsan ki is hűlnek megint. Szeszélyes, csapongó, rajongásra hajlamos emberek. Legjelesebb erénynek a bátorságot tartják, elvi meggyőződésüket a gyakorlatba azonban inkább esztelenség formájában ültetik át. Minden hibájuk ellenére az erőszakos féktelenség nem jellemző rájuk - talán éppen azért, mert sokan lelkifurdalásból álltak csavargó-papnak, hogy levezekeljenek valami jóvátehetetlen bűnt, melyet ifjan és forró fővel követtek el. Arel minden halandó szolgája közül őket tartják a legmerészebbnek, ami nem kicsinység. Maguk is elismerik, hogy ritkán van idejük megöregedni.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és a [Lélek](entity:magia:pap_szfera_lelek), szent jelképei a sólyomhold és a sólyomszív.\n\n### Sólyomcsőr irányzat\n\nEz az irányzat a Délvidékről, az Államszövetség területéről terjedt el egész Yneven. Papjai az élet mindent lebíró hatalmát hirdetik, s ádáz harcot vívnak az emberiség gonosz rákfenéivel: a közönnyel, a mélabúval, a betegségekkel. Talán Arel összes híve közül ők érzik át legmélyebben a természet örök harmóniáját. Az elmúlást - a másokét csakúgy, mint a sajátjukat - nem késleltetik, de nem is sürgetik. Igyekeznek elégedett, teljes életet élni és ehhez másokat is hozzásegíteni. Ha a két másik irányzattal vetjük össze őket, bölcsnek és megfontoltnak tűnnek. Kívülálló szemmel nézve persze még így is ijesztően kiszámíthatatlanok; ám annyi bizonyos, hogy rajtuk kívül egyetlen Arel-papnak sincs türelme másokat tanítani.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és az [Élet](entity:magia:pap_szfera_elet), szent jelképei a sólyomhold és a sólyomcsőr.\n\n\n### Sólyomkarom irányzat\n\nA messzi Yillinorban, az ilanori kultúrkörnek e távolba szakadt sarjhajtásában az Arel-hit már-már államvallásnak tekinthető, annyira túlsúlyba került a többi pyarroni kultuszhoz képest. Chei király kalandozó-papjai elsősorban a zabolátlan hadistennőt tisztelik benne. Krédójukat sem szóban, sem írásban nem terjesztik; hagyják, hogy a tetteik beszéljenek helyettük. Számukra az élet vég nélküli küzdelem, örökkön-örökké dúló háború, mely értelmet ád az üres köznapoknak. Minden tusát egy újabb követ, majd egy még újabb, egy annál is újabb - és így tovább. A győzelem csupán annyiban előrelépés, hogy a lehanyatló ellenfél mögött megpillantjuk a következőt. Az örökös körforgásnak soha nincs vége, legfeljebb a harcosok belészövődő életének. Elvégre előbb-utóbb a legderekabb bajnok is kifárad, megöregszik, és egyszer Óhatatlanul elérkezik az a viadal, melyet el kell buknia.\n\nEz az irányzat mind közül a legfiatalabb. Papjai vadak és fatalisták, testvéreiktől eltérően néha hajlamosak az eszeveszett, vérszomjas dührohamokra. Egyesek szerint valamifajta misztikus halálösztönt fejlesztettek ki magukban, talán a folyamatos veszélytudat, az elmúlás fenyegető közelsége miatt. Mások inkább attól tartanak, hogy Krán árnyéka túlságosan mély nyomot vetett a lelkükre.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és a [Halál](entity:magia:pap_szfera_halal), szent jelképei a sólyomhold és a sólyomkarom.\n\n-----------\n\nAz Arel-papok - éppen sajátos életfelfogásuk miatt - rendkívül nehezen osztályozhatók, nemigen tűrik a skatulyákba szorítást. Tíltásra, parancsra egyikük sem hallgatnak, csak menmek mind a maguk feje után; nem csoda hát, hogy jószerivel ahányan vannak, annyifélék.\n\nA Sólyomasszony szolgái - ellentétben az ynevi papok zömével - nem a gondolatok, hanem a tettek emberei. Meghökkentően keveset törődnek elméjük pallérozásával: döntő többségükben írástudatlanok. Még a tulajdon vallásukat se tanulmányozzák mélyenszántóan, egyszerűen csak hagyják, hogy a szívük vezesse őket. Kiváltképp jeleskednek viszont a gyakorlati tudnivalókban. Több harci és alvilági képzettségből válogathatnak, mint bármely más istenség papjai, és nem haboznak kiaknázni a különféle kombinációkból fakadó előnyöket. Sokoldalúságukat némileg ellensúlyozza, hogy csak\nszabad ég alatt érzik magukat elemükben, a mesterséges környezet rendkívül nyomasztólag hat rájuk.\n\nRáadásul elég kevés Arel-pap járatos a mentalizmus tudományában, féktelen-csapongó gondolatviláguk nehezen fogadja be a szellem diszciplínáit. Az sem szolgál előnyükre, hogy - bármelyik irányzathoz is tartozzanak - csupán két szakrális szférához bírnak hozzáférhetéssel. Igaz, istennőjük néhány egyedi varázslatot is kínál nekik, melyek - akárcsak maga Arel - szeszélyesek és változékonyak: hol a hiúság legyezgetésére jók csupán, hol ravasz fondorlat munkál bennük, hol pedig brutális erővel sújtanak le, mint a viharfellegből alázúduló villámcsapás.\n",
+            "kepzettseg": "A Természet és a Harc úrnője kétfajta áldozatot fogad el és követel az őhozzá imádkozó papoktól és hívektől. Az egyik tulajdonképpen ételáldozat, amit papjaitól azok minden sikeres vadászata után elvár: a zsákmányt vagy annak legnemesebb részét kell elhelyezniük bármilyen arra alkalmas helyen, de mindenképpen a természetben, a nyílt ég alatt. Ez lehet egy vihar által kidöntött fatörzs, vagy akár egy szelek tépázta sziklaorom is; egyik-másik ilyen helyet többszáz éve használnak a hagyományaikat nemzedékről-nemzedékre örökítő papok. Legalább kétezer éve mutatnak be áldozatokat sorsdöntő cselekedeteik előtt elszánt Arel-papok az Úrnő Ujjaként emlegetett sziklaképződménynél, amely a Sheral északkeleti, különösen viharos részén található, de hasonlóan régi áldozóhely az Eren-Gianag határán elterülő erdőségben fellelhető Sólyomtölgy, melynek több méter vastag törzse elé elejtett szarvasbikát helyeznek.\n\nA másik áldozati mód tárgyáldozat, és mindig harc után mutatják be, mégpedig a viadalban legyőzött\nlegnagyobb ellenség egyik fegyverét vagy vértezetének darabját a fennhangon elkántált ima alatt az ég felé emelik. Az istennő mindkét esetben átható sólyomrikoltással és szélfuvallattal jelzi, hogy elfogadta a neki felajánlott ajándékot, ami ilyenkor percegő szikrák közepette eltűnik.",
+            "kulonlegesKepessegek": "Amíg nyílt égbolt, sátorvászon vagy zöldellő lombtakaró feszül a fejük fölött, addig az Arel-papok ritkán vesztik el a hidegvérüket. Mihelyt azonban zárt térbe vagy művi környezetbe kerülnek, mesterséges kő-, föld- vagy fafödém alá, rögvest erőt vesz rajtuk a szorongás. Úgy vélik, ha elszigetelik őket az eleven természettől, megszakad kapcsolatuk az istennőjükkel is. Ez aligha lehet igaz, hisz varázserejük jottányit sem csökken; zavaruk és nyugtalanságuk viszont tényleg szembeszökő. Harcértékeikre nincs különösebb befolyással - sőt, olykor még fel is tüzeli őket,\nhogy fegyverrel vágják ki magukat szorult helyzetükből. Ámde míg vissza nem jutnak a szabad levegőre, addig a szokásosnál is kiegyensúlyozatlanabbak és idegesek lesznek.\n\nEzért irtóznak anynyira a városoktól, ezért nem képesek összebarátkozni a törpenéppel, és ezért számít embertelen kínzásnak, ha földalatti tömlöcbe zárják őket.\n\nAz Arel-papokat - úrnőjükhöz hasonlatosan - érzelmeik vezérlik. Indulatosságuk, szeszélyesen kacskaringózó gondolataik nem túl jó táptalajt nyújtanak a szigorú belső önfegyelemnek, a Pszi legfőbb alapjának. Ezért 1. szinten csak 2. fokon ismerik a Pszit.\n\nAz istennő gondoskodásának köszönhetően az Arel-papnak minden tapasztalati szinten 1% esélye van ar-\nra, hogy patrónusa valamilyen módon megsegíti őt, ha igazán nagy bajban van. Ha a veszély a nyílt természetben szorongatja a papot az esély duplájára (2% szintenként), ha éjszaka, valamelyik hold fényénél, netán esős, viharos időben, az esély triplájára emelkedik (3% szintenként).\n\nTermészetesen Arel sem sérti meg az Ősi Egyezményt; a segítség általában valamiféle minden harci cselekményt beszüntető természeti jelenségként, viharos szélként, fákat kidöntő villámcsapásként stb. érkezik."
+        }
+    },
+    {
+        "fajta": "normal",
+        "id": "arel_pap_solyomkarom",
+        "name": "Arel pap (Sólyomkarom)",
+        "fokaszt": "Pap",
+        "magiaKategoriak": [],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "normál"
+        },
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:ij",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "fegyverismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "herbalizmus",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "idojoslas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "tuleles",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_halal",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_termeszet",
+                    "fok": 1
+                }
+            ]
+        ],
+        "kepessegDobas": {
+            "Asztrál": "Átlagos",
+            "Mentál": "Átlagos",
+            "Ügyesség": "Átlagos",
+            "Fizikum": "Legendás"
+        },
+        "harcertekAlap": {
+            "ke": 9,
+            "te": 18,
+            "ve": 73,
+            "ce": 20
+        },
+        "harcertek": {
+            "te": 4
+        },
+        "hm": 5,
+        "leiras": {
+            "fo": "Az Arel-papokkal kapcsolatban semmiféle, őket bármilyen módon tömörítő szervezetről nem beszélhe-\ntünk, így az \"egyház\" szó használatának sincs igazából értelme velük kapcsolatban. A Harc és Természet papjai még maguk közül valót sem ismernek el feljebbvalóként; a harcban, cselekedeteik alapján elnyert mellékneveken kívül címekre, méltóságokra sem áhítoznak. Az egyetlen rang, amit elérhetnek, a tagság a Papi Székben, de erre a posztra sem az Arel-papság jelöli az arra alkalmas\npaptársukat, hanem a többi isten főpapja kéri fel az általuk (valamint isteneik és nem utolsó sorban Arel által) érdemes személyt. Az istennő felkentjeinek nincsenek gyűléseik, nagyobb számban csak háborús csetepaték esetén állnak össze; a Zászlóháborúk idején felbukkantak néhány tucat főből álló szabadcsapataik a reguláris seregtestektől elkülönülve, általában a Kalandozók Hadurának\nvörös lobogója alatt. Állandó társaságokat tehát nem alapítanak, de két-három fős alkalmi csapataik szívesen csatlakoznak egy-egy ígéretesen veszélyesnek tűnő küldetéshez vagy valami zsiványság elkövetéséhez. Ezekben az esetekben sem választanak vezetőt, egyenrangúnak tekintik egymást.\n\nA házastársi és családi kötelékek szintén távol állnak minden Arel-paptól és -papnőtől. Az ellenkező nemtől persze nem tartózkodnak, de kapcsolataik (ha esetleg hirtelen felhorgadó szenvedélyből belebonyolódnának ilyesféle afférokba) szükségszerűen kérészéletűek; jellemzőbb, hogy inkább a bordélyokat és az egyéjszakás flörtöket részesítik előnyben. Előfordulhat, hogy az efféle kapcsolatokból gyermekek születnek, de ezek a szerencsétlen gyerekek biztosan az egyik szülő nélkül\nnőnek fel, sőt a papnők porontyai általában nevelőszülőkhöz kerülnek. Az Arel-papok javára legyen mondva, hogy ilyen esetekben a lehetőségeikhez mérten, váltakozó rendszerességgel adományokkal segítik gyermekük felnevelését.\n\nA világi hatalmak törvényeit egyáltalán nem tisztelik, vagyis inkább figyelemre sem méltatják őket, nem csoda, ha eszükbe sem jut afféle \"belső szabályzat\" létrehozása. Persze elveik ettől még vannak, a legáltalánosabb az, hogy a gyengéket minden körülmények között megoltalmazzák, illetve hogy cselekedeteik mindig Arelnek tetszőek legyenek. Általában véve elmondható, hogy mindaddig nem érdeklik őket Ynev történései, míg azok nem kecsegtetnek kalanddal, haditettekkel, vagy amíg a pyarroni hitet nem fenyegeti valami nagy-nagy külső veszély. Kisebb kivételt képeznek a Mogorva\nChei vezette Yilinor Arel-papjai, akik igazi hazafiként küzdenek országukért, de nem hagyhatjuk figyelmen kívül, hogy nekik a kráni határon uralkodó állandó hadiállapot biztosítja a \"lételemüket\": a harcot.\n\n\"Reátette Arel a jegyét\" - mondják Ynev-szerte azokra a fiatal legényekre-leányokra, akik a nyughatatlan, lázongó kamaszkort hátrahagyva towábbra is dacosan ellenszegülnek minden tekintélynek, örökké a veszélyt keresik, verekedéseket provokálnak, nem riadnak vissza a kisebb-\nnagyobb gaztettektől sem. Ezek egy része végül mégis \"betörik\", de kisebb hányaduk elszökik a családjuktól és csavargásra adja a fejét. Legtöbbjüknek rövidesen örökre nyoma vész, de néhányuk - akiket Arel tényleg megjelölt - előbb-utóbb találkozik egy viseltes ruhájú kalandozóval, aki\nhátára szíjazva íját, a nyakába akasztva vagy homlokpántjára erősítve a Sólyomholdat viseli. Az előtte álló kölyökhöz hasonló sorsot maga mögött tudó Arel-pap (ahogy ők mondják) \"a sólyom szárnya alá veszi\" a fiatal csavargót, közös kalandokat átélve, tetteivel példát mutatva avatja be őt, mi is kedves az Úrnő szemében.\n\nAz ifjú paptanonc tábortüzek mellett, küzdelmek forgatagában sajátítja el az istennőtől támogatást kérő imákat, a vadászatok, csaták után az áldozatbemutatás szertartását. Többször előfordul, hogy képzését nem az fejezi be, aki elkezdte, ennek okait valószínűleg nem kell részletezni. Végül - a\nmeghatározó találkozás után két-három évvel - a tanítását bevégző Arel-pappal egy másik hitsorsosuk keresésére indulnak, mert a pappá avatás szertartásához legalább két \"felszentelt\" Arel-fi szükségeltetik. A jelölt egy viharos éjszakán \"vizsgáztatóival\" végigcitálja az összes tanult\nimát, miközben körülötte rémisztő villámok csapkodnak. Az éjszaka-hosszú rítus végeztével a Harc és a Természet istenaszszonya sólymot küld az újdonsült papjának, biztosítva arról, hogy magához fogadta őt. Előfordulhat, hogy a madár nem jelenik meg, vagy nem száll rá a tanonc kinyújtott karjára; az istennő ezzel egyértelműen kifejezte, hogy az adeptusnak még tanulnia kell...\n\nAz Arel-hitű papok felszínes gondolkodására igen jellemző, hogy legtöbbjük képtelen lenne megmagyarázni a saját, istennőjük által sugallt és megkövetetelt szerepüket, amit a halandók világában betöltenek. Hogy voltak (és valószínűleg ma is vannak) köztük gondolkodó, a miérteken\nis eltöprengő elmék, azt néhány független forrásból tudjuk (az Arel-vallásnak nincsenek írásba lefektetett hittételei); különösen jó példa a hírneves geográfus, Igrain Reval Úti feljegyzései is, amelyben utazásai alatt készült feljegyzéseit olvashatjuk (ennek alapján írta meg meghatározó\nmunkáját, a Geofrámiát). A Sheralon való átkelése során csapódott karavánjukhoz egy Duron nevezetű, a harmincas éveinek vége felé járó, kissé rezignált Arel-pap, akivel hosszas beszélgetéseket folytatott. Ő ejtett el néhány megjegyzést saját hitsorsosainak valódi, a felszín mögött megbúvó szerepéről. Szerinte az Úrnő a papjai által az Élet, a Természet megújhodását elősegítő káoszt\nigyekszenek fenntartani, aminek nem mond ellent a harcos, pusztító aspektus sem, hisz ez hivatott lenyesegetni a vadhajtásokat és a pusztulás mindig az új élet sarjadását indítja el. Némi hasonlóságot vélhetünk felfedezni Ranagol (a káoszra épülő rend), és Tharr hitével (a világ a káosz felé törekszik), de míg ezeknél a gyöngék eltiportatnak, mivel alkalmatlannak bizonyultak a létezésre, vagy mert a pusztulásuk is a káoszt segíti, addig Arel őket oltalmazza, mivel szemlélete szerint esélyt kell adni nekik, hogy megerősödhessenek, hogy betölthessék szerepüket az Élet csodálatos művében.\n\nA Sólyomasszony hívei talán a legnagyobb zsiványok és szélhámosok egész Yneven. Mindenütt a felfordulást, a zűrzavart keresik, szívesen kötözködnek, és már csak mókából is elfogadnak bármiféle kihívást. Jawukra írandó, hogy a gyengéket, az elesetteket nemhogy bántanák, de mindenkor megvédelmezik - ami gyakorta bajba sodorja őket. Még hitük esküdt ellenségeinek szorult helyzetével sem élnek vissza soha: az ilyen győzelmet méltatlannak vélik magukhoz. A megoldásra váró feladat annál érdekesebb számukra, minél veszedelmesebb és kockázatosabb. Nem csoda hát, hogy leginkább\nesztelen vakmerőségükről híresültek el, mely esetenként már-már az öngyilkosság határát súrolja.\n\nNem telepednek meg sehol, egész életüket végigcsavarogják, folyton új kalandokat keresnek. Gyakran lopnak, csalnak, szélhámoskodnak - hisz egyéb megélhetésük nemigen akad -, előszeretettel kísértik meg a sorsot és mindannyian szenvedélyes hazárdjátékosok. Előfordul néha, hogy felcsapnak testőrnek vagy zsoldosnak, de sosem a fizetség miatt. Ha a megbízás elég izgalmasnak ígérkezik és nem ütközik erkölcsi felfogásukkal, akár ingyen is elszegődnek. A munkájukban mindazonáltal nem sok a köszönet, mivel hírhedetten fegyelmezetlenek, úrnőjükön kívül semmit és senkit nem ismernek el maguk fölött.\n\nA városokat, erődített helyeket mem kedvelik; ha csak módjukban áll, szabad ég alatt hálnak. Nyitott építésű szentélyeiket soha nem rakják kőből: egyszerű fa- vagy nádépítményeket emelnek, jobbára félreeső, csöndes ligetekben. Szent állatuk a sólyom, melynek elpusztítása vagy fogságra vetése halálos bűnnek számit. A vihar, a szél süvöltése valósággal elbűvöli őket; akkor vannak igazán elemükben, ha körülöttük záporeső szakad és villámok csapkodnak.\n\nMeggondolatlanok és hevesek, akár a nyári zivatar, csatakiáltásaik olykor a legtökéletesebben tervezett rajtaütést is tönkretehetik. Viharos wérmérsékletük gyakran ütközik a bevett erkölcsi normákkal, ezért az Északi Szövetség jónéhány országában és a Délvidéken komoly fenntartásokkal fogadják őket. A pórnép száján nem túl hízelgő történetek forognak részeg dáridókról, könnyelműségből támasztott tűzvészekről és más hasonlókról. Az ő sajátos felfogásuk szerint azonban a Sólyomasszony minden tettüket megbocsátja nekik, ha igaz szívvel cselekedték. Mondanunk sem kell, hogy e ködös megfogalmazás rengeteg félreértéshez, huzavonához vezet. A bonyodalmak tisztázásában nem sokat segít, hogy az Arel-papok valamennyien a szabadság kérlelhetetlen védelmezői - amit azonban a maguk részéről igen tágan értelmeznek. A béklyóba vert hadifogolyban éppúgy a természet\nrendjének megcsúfolását látják, mint a \"rabságban sínylődő\" háziállatokban, és nem tesznek különbséget a fekete mágiával kavart orkán meg a gátakkal szabályozott öntözőcsatorna között sem.\n\nBizonyos papi körökben élénken él az a téveszme, hogy a Sólyomasszony minden szakrális szférához\nkorlátlan hozzáférhetést biztosít szolgáinak. Nos, ha elég hosszan figyeljük az Arel-papokat, valóban megállapíthatjuk, hogy mindegyik szféra varázslatait használják. A bökkenő csak ott van, hogy egyetlen Arel-paptól - vagy akár kettőtől is - ilyesmit hiába is várnánk: képtelenek rá. Az\nviszont már előfordulhat, hogy hárman együtt az öszszes szférát kimerítik.\n\nS hogy hol itt a magyarázat?\n\nNem kötik éppenséggel mindenkinek az orrára, de a Sólyomasszony követői három különböző irányzatra\noszlanak, annak függvényében, hogy istennőjük mely aspektusát tisztelik. Mindhárom irányzat más-más szférákból válogatja a varázslatait, közös hozzáférhetésük csak a Természetéhez van. Így hát valóban kimerítik ugyan a rendelkezésre álló lehetőségeket, de csupán összességükben nézve. Egy magányos Arel-pap - tartozzon bármelyik irányzathoz - egyszerre legfeljebb két szakrális szférához férhet hozzá.\n\nAz Arel-hívő irányzatok nem minősíthetők hagyományos értelemben vett szektáknak. Nincsenek vitáik,\nsúrlódásaik, dogmatikus ellentéteik, és ha együttműködnek egymással - ami gyakran megesik -, ezt mindig az elképzelhető legnagyobb összhangban teszik, ami csak egy ilyen kiszámithatatlan vallástól egyáltalán elvárható. Bizonyos származási és regionális válaszvonalak megfigyelhetők ugyan közöttük, ám eléggé elmosódottan. Az alapvető különbségek sokkal inkább érzelmi-hangulati beállítottságukban vannak. Az ifjú tanítványok mindig felszentelésük percében választják ki a lelki alkatuknak leginkább megfelelő irányzatot. Az elhatározás - híven Arel szellemiségéhez - teljesen szabad, semmilyen külső körülmény nem befolyásolja. Ha a növendék úgy látja jónak, mnden további nélkül elkötelezheti magát másik irányzat mellett, mint a mestere.\n\n### Sólyomszív irányzat\n\nLeginkább Északon népszerű irányzat, mely a Sólyomasszony érzelmi aspektusát tiszteli. Papjai lobbanékonyak és hamar fortyanók, hirtelen gyúlnak szenvedélyre, ám ugyanolyan gyorsan ki is hűlnek megint. Szeszélyes, csapongó, rajongásra hajlamos emberek. Legjelesebb erénynek a bátorságot tartják, elvi meggyőződésüket a gyakorlatba azonban inkább esztelenség formájában ültetik át. Minden hibájuk ellenére az erőszakos féktelenség nem jellemző rájuk - talán éppen azért, mert sokan lelkifurdalásból álltak csavargó-papnak, hogy levezekeljenek valami jóvátehetetlen bűnt, melyet ifjan és forró fővel követtek el. Arel minden halandó szolgája közül őket tartják a legmerészebbnek, ami nem kicsinység. Maguk is elismerik, hogy ritkán van idejük megöregedni.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és a [Lélek](entity:magia:pap_szfera_lelek), szent jelképei a sólyomhold és a sólyomszív.\n\n### Sólyomcsőr irányzat\n\nEz az irányzat a Délvidékről, az Államszövetség területéről terjedt el egész Yneven. Papjai az élet mindent lebíró hatalmát hirdetik, s ádáz harcot vívnak az emberiség gonosz rákfenéivel: a közönnyel, a mélabúval, a betegségekkel. Talán Arel összes híve közül ők érzik át legmélyebben a természet örök harmóniáját. Az elmúlást - a másokét csakúgy, mint a sajátjukat - nem késleltetik, de nem is sürgetik. Igyekeznek elégedett, teljes életet élni és ehhez másokat is hozzásegíteni. Ha a két másik irányzattal vetjük össze őket, bölcsnek és megfontoltnak tűnnek. Kívülálló szemmel nézve persze még így is ijesztően kiszámíthatatlanok; ám annyi bizonyos, hogy rajtuk kívül egyetlen Arel-papnak sincs türelme másokat tanítani.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és az [Élet](entity:magia:pap_szfera_elet), szent jelképei a sólyomhold és a sólyomcsőr.\n\n\n### Sólyomkarom irányzat\n\nA messzi Yillinorban, az ilanori kultúrkörnek e távolba szakadt sarjhajtásában az Arel-hit már-már államvallásnak tekinthető, annyira túlsúlyba került a többi pyarroni kultuszhoz képest. Chei király kalandozó-papjai elsősorban a zabolátlan hadistennőt tisztelik benne. Krédójukat sem szóban, sem írásban nem terjesztik; hagyják, hogy a tetteik beszéljenek helyettük. Számukra az élet vég nélküli küzdelem, örökkön-örökké dúló háború, mely értelmet ád az üres köznapoknak. Minden tusát egy újabb követ, majd egy még újabb, egy annál is újabb - és így tovább. A győzelem csupán annyiban előrelépés, hogy a lehanyatló ellenfél mögött megpillantjuk a következőt. Az örökös körforgásnak soha nincs vége, legfeljebb a harcosok belészövődő életének. Elvégre előbb-utóbb a legderekabb bajnok is kifárad, megöregszik, és egyszer Óhatatlanul elérkezik az a viadal, melyet el kell buknia.\n\nEz az irányzat mind közül a legfiatalabb. Papjai vadak és fatalisták, testvéreiktől eltérően néha hajlamosak az eszeveszett, vérszomjas dührohamokra. Egyesek szerint valamifajta misztikus halálösztönt fejlesztettek ki magukban, talán a folyamatos veszélytudat, az elmúlás fenyegető közelsége miatt. Mások inkább attól tartanak, hogy Krán árnyéka túlságosan mély nyomot vetett a lelkükre.\n\nAz irányzat szférái a [Természet](entity:magia:pap_szfera_termeszet) és a [Halál](entity:magia:pap_szfera_halal), szent jelképei a sólyomhold és a sólyomkarom.\n\n-----------\n\nAz Arel-papok - éppen sajátos életfelfogásuk miatt - rendkívül nehezen osztályozhatók, nemigen tűrik a skatulyákba szorítást. Tíltásra, parancsra egyikük sem hallgatnak, csak menmek mind a maguk feje után; nem csoda hát, hogy jószerivel ahányan vannak, annyifélék.\n\nA Sólyomasszony szolgái - ellentétben az ynevi papok zömével - nem a gondolatok, hanem a tettek emberei. Meghökkentően keveset törődnek elméjük pallérozásával: döntő többségükben írástudatlanok. Még a tulajdon vallásukat se tanulmányozzák mélyenszántóan, egyszerűen csak hagyják, hogy a szívük vezesse őket. Kiváltképp jeleskednek viszont a gyakorlati tudnivalókban. Több harci és alvilági képzettségből válogathatnak, mint bármely más istenség papjai, és nem haboznak kiaknázni a különféle kombinációkból fakadó előnyöket. Sokoldalúságukat némileg ellensúlyozza, hogy csak\nszabad ég alatt érzik magukat elemükben, a mesterséges környezet rendkívül nyomasztólag hat rájuk.\n\nRáadásul elég kevés Arel-pap járatos a mentalizmus tudományában, féktelen-csapongó gondolatviláguk nehezen fogadja be a szellem diszciplínáit. Az sem szolgál előnyükre, hogy - bármelyik irányzathoz is tartozzanak - csupán két szakrális szférához bírnak hozzáférhetéssel. Igaz, istennőjük néhány egyedi varázslatot is kínál nekik, melyek - akárcsak maga Arel - szeszélyesek és változékonyak: hol a hiúság legyezgetésére jók csupán, hol ravasz fondorlat munkál bennük, hol pedig brutális erővel sújtanak le, mint a viharfellegből alázúduló villámcsapás.\n",
+            "kepzettseg": "A Természet és a Harc úrnője kétfajta áldozatot fogad el és követel az őhozzá imádkozó papoktól és hívektől. Az egyik tulajdonképpen ételáldozat, amit papjaitól azok minden sikeres vadászata után elvár: a zsákmányt vagy annak legnemesebb részét kell elhelyezniük bármilyen arra alkalmas helyen, de mindenképpen a természetben, a nyílt ég alatt. Ez lehet egy vihar által kidöntött fatörzs, vagy akár egy szelek tépázta sziklaorom is; egyik-másik ilyen helyet többszáz éve használnak a hagyományaikat nemzedékről-nemzedékre örökítő papok. Legalább kétezer éve mutatnak be áldozatokat sorsdöntő cselekedeteik előtt elszánt Arel-papok az Úrnő Ujjaként emlegetett sziklaképződménynél, amely a Sheral északkeleti, különösen viharos részén található, de hasonlóan régi áldozóhely az Eren-Gianag határán elterülő erdőségben fellelhető Sólyomtölgy, melynek több méter vastag törzse elé elejtett szarvasbikát helyeznek.\n\nA másik áldozati mód tárgyáldozat, és mindig harc után mutatják be, mégpedig a viadalban legyőzött\nlegnagyobb ellenség egyik fegyverét vagy vértezetének darabját a fennhangon elkántált ima alatt az ég felé emelik. Az istennő mindkét esetben átható sólyomrikoltással és szélfuvallattal jelzi, hogy elfogadta a neki felajánlott ajándékot, ami ilyenkor percegő szikrák közepette eltűnik.",
+            "kulonlegesKepessegek": "Amíg nyílt égbolt, sátorvászon vagy zöldellő lombtakaró feszül a fejük fölött, addig az Arel-papok ritkán vesztik el a hidegvérüket. Mihelyt azonban zárt térbe vagy művi környezetbe kerülnek, mesterséges kő-, föld- vagy fafödém alá, rögvest erőt vesz rajtuk a szorongás. Úgy vélik, ha elszigetelik őket az eleven természettől, megszakad kapcsolatuk az istennőjükkel is. Ez aligha lehet igaz, hisz varázserejük jottányit sem csökken; zavaruk és nyugtalanságuk viszont tényleg szembeszökő. Harcértékeikre nincs különösebb befolyással - sőt, olykor még fel is tüzeli őket,\nhogy fegyverrel vágják ki magukat szorult helyzetükből. Ámde míg vissza nem jutnak a szabad levegőre, addig a szokásosnál is kiegyensúlyozatlanabbak és idegesek lesznek.\n\nEzért irtóznak anynyira a városoktól, ezért nem képesek összebarátkozni a törpenéppel, és ezért számít embertelen kínzásnak, ha földalatti tömlöcbe zárják őket.\n\nAz Arel-papokat - úrnőjükhöz hasonlatosan - érzelmeik vezérlik. Indulatosságuk, szeszélyesen kacskaringózó gondolataik nem túl jó táptalajt nyújtanak a szigorú belső önfegyelemnek, a Pszi legfőbb alapjának. Ezért 1. szinten csak 2. fokon ismerik a Pszit.\n\nAz istennő gondoskodásának köszönhetően az Arel-papnak minden tapasztalati szinten 1% esélye van ar-\nra, hogy patrónusa valamilyen módon megsegíti őt, ha igazán nagy bajban van. Ha a veszély a nyílt természetben szorongatja a papot az esély duplájára (2% szintenként), ha éjszaka, valamelyik hold fényénél, netán esős, viharos időben, az esély triplájára emelkedik (3% szintenként).\n\nTermészetesen Arel sem sérti meg az Ősi Egyezményt; a segítség általában valamiféle minden harci cselekményt beszüntető természeti jelenségként, viharos szélként, fákat kidöntő villámcsapásként stb. érkezik."
+        }
+    },
+    {
+        "fajta": "normal",
+        "id": "arel_pap_solyomsziv",
+        "name": "Arel pap (Sólyomszív)",
+        "fokaszt": "Pap",
+        "magiaKategoriak": [],
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "normál"
+        },
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "nyelv",
+                    "name": "Nyelvhasználat",
+                    "fok": 4
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "enek_zene",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "fegyver",
+                    "name": "Fegyverhasználat",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:ij",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "fegyverismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "legendaismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "herbalizmus",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "idojoslas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "tuleles",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_termeszet",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_lelek",
+                    "fok": 1
+                }
+            ]
+        ],
+        "kepessegDobas": {
+            "Asztrál": "Átlagos",
+            "Mentál": "Átlagos",
+            "Ügyesség": "Legendás",
             "Fizikum": "Átlagos"
         },
         "harcertekAlap": {
