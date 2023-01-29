@@ -83,7 +83,7 @@ const calculateModosito = (helyzet: typeof HarciHelyzetek[number]['id'], karakte
         // eslint-disable-next-line no-lone-blocks
         case 'chi-harc': {
             if (kepzettsegek.some(k => k.kepzettseg.id === 'pszi:slan' && k.fok >= 1)) {
-                const sor = Math.floor((karakter.szint.length - 1) / 2);
+                const sor = Math.floor((karakter.szint.length - 2) / 2);
                 const ke = 2 + sor * 2;
                 const te = 10 + sor * 5;
                 const ve = 10 + sor * 5;
