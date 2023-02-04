@@ -4,6 +4,7 @@ import { NamedEntity } from "./util";
 
 export interface Hatas extends NamedEntity {
     aktiv: boolean;
+    note: string;
     kepesseg?: Partial<Record<typeof KEPESSEGEK[0]['id'], number>>;
     harcertek?: Partial<Harcertek>;
     psziDiszciplina?: Array<string>;
@@ -12,7 +13,7 @@ export interface Hatas extends NamedEntity {
     manaPerSzint?: number;
     pszi?: number;
     psziPerSzint?: number;
-    kp?: number;
     ep?: number;
     fp?: number;
+    fpPerSzint?: number;
 };

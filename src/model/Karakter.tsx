@@ -160,7 +160,7 @@ export const Karakter = {
             kasztKp: 0,
             szazalek: 0,
             hatasok: [
-                { id: 'tesztHatas', name: 'TesztHatas', aktiv: true, kepesseg: { izom: 4 } }
+                { id: 'tesztHatas', name: 'TesztHatas', aktiv: true, kepesseg: { izom: 4 }, note: 'Teszt hatás' }
             ],
             temporary: {
                 harciHelyzet: []
