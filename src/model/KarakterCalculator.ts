@@ -1,7 +1,7 @@
 import { Calculation, CalculationArgument, CalculationBinary, CalculationValue } from "./Calculation";
 import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, MASODIK_TAMADAS_KE, SebzesTipus } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
-import { HarciHelyzet } from "./HarciHelyzet";
+import { HarciHelyzet, HarciHelyzetModositok } from "./HarciHelyzet";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Karakter, SzintInfo } from "./Karakter";
 import { Kasztok } from "./Kasztok";
@@ -53,37 +53,45 @@ export interface KarakterCalcResult {
     magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>;
 };
 
+class KarakterCalculation {
+    constructor(private readonly karakter: Karakter) { }
 
-const szintCalc = (karakter: Karakter, fn: (szint: SzintInfo) => number): Array<CalculationValue> =>
-    karakter.szint.map((sz, i) => Calculation.value(`${sz.kaszt.name} ${i}. szint`, fn(sz)));
+    szintCalc = (fn: (szint: SzintInfo) => number): Array<CalculationValue> =>
+        this.karakter.szint.map((sz, i) => Calculation.value(`${sz.kaszt.name} ${i}. szint`, fn(sz)));
 
-export const KarakterCalculator = {
-    calc: (karakter: Karakter): KarakterCalcResult => {
-        const kepessegek = transformRecord(karakter.kepessegek, (k, v) => v + (karakter.faj.kepessegek[k] ?? 0));
+    aktivHatasok = () => this.karakter.hatasok.filter(h => h.aktiv);
 
-        const normalKepzettsegek = karakter.szint.reduce((acc, curr) => {
-            curr.kepzettsegek.normal.forEach(kepz => mergeToArray(acc, kepz, i => i.kepzettseg.id));
-            return acc;
-        }, [] as SzintInfo['kepzettsegek']['normal']);
+    kepessegek = () => transformRecord(this.karakter.kepessegek, (k, v) => v + (this.karakter.faj.kepessegek[k] ?? 0) + sumArray(this.aktivHatasok(), h => h.kepesseg?.[k] ?? 0));
 
-        const szazalekosKepzettsegek = karakter.szint.reduce((acc, curr) => {
-            curr.kepzettsegek.szazalekos.forEach(kepz => {
-                const previous = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
-                if (previous === undefined) {
-                    acc.push(structuredClone(kepz));
-                } else {
-                    previous.szazalek += kepz.szazalek;
-                }
-            });
-            return acc;
-        }, [] as SzintInfo['kepzettsegek']['szazalekos']);
+    normalKepzettsegek = () => this.karakter.szint.reduce((acc, curr) => {
+        curr.kepzettsegek.normal.forEach(kepz => mergeToArray(acc, kepz, i => i.kepzettseg.id));
+        return acc;
+    }, [] as SzintInfo['kepzettsegek']['normal']);
 
-        const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(karakter.kezek.map(k => k?.ob) as any));
+    szazalekosKepzettsegek = () => this.karakter.szint.reduce((acc, curr) => {
+        curr.kepzettsegek.szazalekos.forEach(kepz => {
+            const previous = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
+            if (previous === undefined) {
+                acc.push(structuredClone(kepz));
+            } else {
+                previous.szazalek += kepz.szazalek;
+            }
+        });
+        return acc;
+    }, [] as SzintInfo['kepzettsegek']['szazalekos']);
+
+    harcmodor = (normalKepzettsegek: SzintInfo['kepzettsegek']['normal']) => {
+        const harcmodor = HARCMODOR_EFFEKTEK.find(e => e.isAvailable(this.karakter.kezek.map(k => k?.ob) as any));
         const harcmodorKepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `harcmodor:${harcmodor?.id}`);
-        const harcmodorHatasok = convertHarcmodorEffect(harcmodor?.szintek[harcmodorKepzettseg?.fok ?? 0] ?? []);
+        return {
+            harcmodor,
+            harcmodorHatasok: convertHarcmodorEffect(harcmodor?.szintek[harcmodorKepzettseg?.fok ?? 0] ?? [])
+        };
+    }
 
-        const pancelMgt = karakter.pancel?.ob.mgt ?? 0;
-        const pajzsMgt = karakter.kezek[1]?.ob.mgt ?? 0;
+    mgt = (normalKepzettsegek: SzintInfo['kepzettsegek']['normal'], harcmodorHatasok: Record<HarcmodorEffect, boolean>) => {
+        const pancelMgt = this.karakter.pancel?.ob.mgt ?? 0;
+        const pajzsMgt = this.karakter.kezek[1]?.ob.mgt ?? 0;
         const vertviselet = normalKepzettsegek.find(k => k.kepzettseg.id === 'vertviselet')?.fok ?? 0;
         const mgtCalc: Array<CalculationValue> = [];
         if (pancelMgt) {
@@ -99,8 +107,10 @@ export const KarakterCalculator = {
             mgtCalc.push(Calculation.value('Harcmodor', - pajzsMgt));
         }
 
-        const mgt = Calculation.plusz(...mgtCalc);
+        return Calculation.plusz(...mgtCalc);
+    }
 
+    pillKep = (kepessegek: Record<string, number>, mgt: CalculationArgument) => {
         const pillanatnyiKepessegek = transformRecord(kepessegek, k => {
             if (k === 'mozgaskoordinacio' || k === 'reflex') {
                 return Calculation.max(Calculation.value('Minimum', 10), Calculation.plusz(Calculation.value('Normál', kepessegek[k]), Calculation.value('MGT', -Calculation.calculate(mgt))));
@@ -108,207 +118,264 @@ export const KarakterCalculator = {
             return Calculation.value('Normál', kepessegek[k]);
         });
 
-        const pillKep = transformRecord(pillanatnyiKepessegek, k => Calculation.calculate(pillanatnyiKepessegek[k]));
-
-        const harcertek: KarakterCalcResult['harcertek'] = {
-            ke: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ke ?? 0)),
-            te: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'izom'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.te ?? 0)),
-            ve: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...szintCalc(karakter, sz => sz.harcertek.ve ?? 0)),
-            ce: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...szintCalc(karakter, sz => sz.harcertek.ce ?? 0)),
-            sebzes: Calculation.plusz(...szintCalc(karakter, sz => sz.harcertek.sebzes ?? 0))
+        return {
+            pillKepCalc: pillanatnyiKepessegek,
+            pillKep: transformRecord(pillanatnyiKepessegek, k => Calculation.calculate(pillanatnyiKepessegek[k]))
         };
+    }
 
-        const gyorsTamadas = Object.entries(Karakter.szintek(karakter)).some(([kasztId, { szint }]) => Kasztok.kasztInfo(kasztId, szint).kasztSpec?.includes('otodikSzintenGyorsTamadas') && szint >= 5);
+    harcertek = (pillKep: Record<string, number>): KarakterCalcResult['harcertek'] => ({
+        ke: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...this.szintCalc(sz => sz.harcertek.ke ?? 0)),
+        te: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'izom'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...this.szintCalc(sz => sz.harcertek.te ?? 0)),
+        ve: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'reflex'), Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), ...this.szintCalc(sz => sz.harcertek.ve ?? 0)),
+        ce: Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'mozgaskoordinacio'), Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...this.szintCalc(sz => sz.harcertek.ce ?? 0)),
+        sebzes: Calculation.plusz(...this.szintCalc(sz => sz.harcertek.sebzes ?? 0))
+    });
+    isVeteran = () => Object.entries(Karakter.szintek(this.karakter)).some(([kasztId, { szint }]) => Kasztok.kasztInfo(kasztId, szint).kasztSpec?.includes('otodikSzintenGyorsTamadas') && szint >= 5);
 
-        const helyzetek = karakter.temporary.harciHelyzet.map(h => HarciHelyzet.calculate(h, karakter, normalKepzettsegek));
+    helyzetek = (normalKepzettsegek: SzintInfo['kepzettsegek']['normal']) => this.karakter.temporary.harciHelyzet.map(h => HarciHelyzet.calculate(h, this.karakter, normalKepzettsegek));
 
-        const fegyverCalc = (idx: 0 | 1): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
-            const fegyver = karakter.kezek[idx]?.ob;
-            if (!fegyver) {
-                return undefined;
-            } else {
-                let fokMinusz = 0;
-                if ((idx === 0 && harcmodorHatasok.kez0minusz3) || (idx === 1 && harcmodorHatasok.kez1minusz3)) {
-                    fokMinusz = 3;
-                }
-                if ((idx === 0 && harcmodorHatasok.kez0minusz2) || (idx === 1 && harcmodorHatasok.kez1minusz2)) {
-                    fokMinusz = 2;
-                }
-                if ((idx === 0 && harcmodorHatasok.kez0minusz1) || (idx === 1 && harcmodorHatasok.kez1minusz1)) {
-                    fokMinusz = 1;
-                }
-                const kepzettseg = (idx === 1 && harcmodorHatasok.kez1pont2)
-                    ? FEGYVER_KEPZETTSEG_HARCERTEKEK[2]
-                    : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz)[0];
-                const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].ke)));
-                const te = (idx === 1 && harcmodorHatasok.kez1NoAttack) ? undefined : Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].te)));
-                const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.name, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].ve)));
-
-                const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
-                const erobonusz = erobonuszHatar === 0 ? 0 : Math.max(0, pillKep.izom - erobonuszHatar);
-
-                const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
-
-                const csak1Tamadas = (idx === 1 && (harcmodorHatasok.kez1SingleAttack || harcmodorHatasok.kez1NoAttack)) ? Calculation.value('Harcmodor', 0) : undefined;
-
-                const tobbTamadasKe = Calculation.mul(fegyverSebesseg, gyorsTamadas ? Calculation.value('Veterán', 0.8) : undefined, csak1Tamadas, ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].sebessegSzorzo)));
-
-                const sebzes: KockaDobas = {
-                    ...fegyver.sebzes,
-                    plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes) + erobonusz + sumArray(helyzetek.map(h => h.modositok[idx].sebzes))
-                }
-                return { ke, te, ve, sebzes, tobbTamadasKe };
+    fegyverCalc = (
+        idx: 0 | 1,
+        harcmodorHatasok: Record<HarcmodorEffect, boolean>,
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        harcertek: KarakterCalcResult['harcertek'],
+        helyzetek: Array<HarciHelyzetModositok>,
+        pillKep: Record<string, number>,
+        isVeteran: boolean
+    ): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
+        const fegyver = this.karakter.kezek[idx]?.ob;
+        if (!fegyver) {
+            return undefined;
+        } else {
+            let fokMinusz = 0;
+            if ((idx === 0 && harcmodorHatasok.kez0minusz3) || (idx === 1 && harcmodorHatasok.kez1minusz3)) {
+                fokMinusz = 3;
             }
-        };
-
-        const lofegyverCalc = (): KarakterCalcResult['lofegyverrel'] | undefined => {
-            if (!karakter.lofegyver?.ob) {
-                return;
+            if ((idx === 0 && harcmodorHatasok.kez0minusz2) || (idx === 1 && harcmodorHatasok.kez1minusz2)) {
+                fokMinusz = 2;
             }
-            const fegyver = karakter.lofegyver.ob;
-            const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, fegyver, 0);
-            const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ke)));
-            const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ce)));
-            const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
-            const lotav = fegyver.tipus !== 'ij' ? fegyver.lotav : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).lotav;
+            if ((idx === 0 && harcmodorHatasok.kez0minusz1) || (idx === 1 && harcmodorHatasok.kez1minusz1)) {
+                fokMinusz = 1;
+            }
+            const kepzettseg = (idx === 1 && harcmodorHatasok.kez1pont2)
+                ? FEGYVER_KEPZETTSEG_HARCERTEKEK[2]
+                : Fegyver.kepzettseg(normalKepzettsegek, fegyver, fokMinusz)[0];
+            const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg.ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].ke)));
+            const noAttack = helyzetek.some(h => h.modositok[idx].sebessegSzorzo === 0);
+            const te = (noAttack || (idx === 1 && harcmodorHatasok.kez1NoAttack)) ? undefined : Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.te)), Calculation.value(fegyver.name, fegyver.te), Calculation.value('Képzettség', kepzettseg.te), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].te)));
+            const ve = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ve)), Calculation.value(fegyver.name, fegyver.ve), Calculation.value('Képzettség', kepzettseg.ve), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].ve)));
+
+            const erobonuszHatar = fegyver.erobonusz ?? fegyver.kategoria.erobonusz;
+            const erobonusz = erobonuszHatar === 0 ? 0 : Math.max(0, pillKep.izom - erobonuszHatar);
 
             const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
 
-            const tobbTamadasKe = Calculation.mul(fegyverSebesseg, gyorsTamadas ? Calculation.value('Veterán', 0.8) : undefined, ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].sebessegSzorzo)))
+            const csak1Tamadas = (idx === 1 && (harcmodorHatasok.kez1SingleAttack || harcmodorHatasok.kez1NoAttack)) ? Calculation.value('Harcmodor', 0) : undefined;
 
-            return {
-                ke, ce, sebzes, lotav, tobbTamadasKe
+            const tobbTamadasKe = Calculation.mul(fegyverSebesseg, isVeteran ? Calculation.value('Veterán', 0.8) : undefined, csak1Tamadas, ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[idx].sebessegSzorzo)));
+
+            const sebzes: KockaDobas = {
+                ...fegyver.sebzes,
+                plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes) + erobonusz + sumArray(helyzetek.map(h => h.modositok[idx].sebzes))
             }
+            return { ke, te, ve, sebzes, tobbTamadasKe };
+        }
+    };
+
+    fegyverrel = (
+        harcertek: KarakterCalcResult['harcertek'],
+        harcmodorHatasok: Record<HarcmodorEffect, boolean>,
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        helyzetek: Array<HarciHelyzetModositok>,
+        pillKep: Record<string, number>,
+        isVeteran: boolean
+    ): KarakterCalcResult['fegyverrel'] => {
+        const kezek = [
+            this.fegyverCalc(0, harcmodorHatasok, normalKepzettsegek, harcertek, helyzetek, pillKep, isVeteran),
+            this.fegyverCalc(1, harcmodorHatasok, normalKepzettsegek, harcertek, helyzetek, pillKep, isVeteran),
+        ] as [ReturnType<KarakterCalculation['fegyverCalc']>, ReturnType<KarakterCalculation['fegyverCalc']>];
+        let ke = undefined;
+        let ve = undefined;
+        if (kezek[0] && kezek[1]) {
+            if (harcmodorHatasok.kez1NoAttack) {
+                ke = kezek[0].ke;
+            } else {
+                ke = Calculation.min(kezek[0].ke, kezek[1].ke);
+            }
+            if (harcmodorHatasok.mindketVE) {
+                ve = Calculation.plusz(kezek[0].ve, Calculation.remove(kezek[1].ve as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
+            } else {
+                ve = Calculation.max(kezek[0].ve, kezek[1].ve);
+            }
+            if (harcmodorHatasok.mindketTE) {
+                const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
+                const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
+                kezek[0].te = uj0;
+                kezek[1].te = uj1;
+            } else if (harcmodorHatasok.shiensuTE) {
+                const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
+                const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
+                kezek[0].te = uj0;
+                kezek[1].te = uj1;
+            }
+        } else if (kezek[0]) {
+            ke = kezek[0].ke;
+            ve = kezek[0].ve;
+        } else {
+            ke = harcertek.ke;
+            ve = harcertek.ve;
         }
 
-        const magiaKategoriak = karakter.szint.reduce((acc, curr) => {
-            curr.kaszt.magiaKategoriak?.forEach(k => acc.add(k));
-            return acc;
-        }, new Set<typeof MagiaKategoriak[number]['id']>());
+        return {
+            kezek,
+            ke,
+            ve
+        };
+    }
 
-        const mana = Calculation.max(Calculation.plusz(...karakter.szint.slice(1).map((szint, idx) => {
-            let pontok = 0;
-            if (szint.kaszt.mana && szint.mana > 0) {
-                pontok += szint.mana;
-                pontok += Math.max(pillKep[szint.kaszt.mana.kepesseg] - 10, 0);
-                if (szint.kaszt.mana.mennyiseg === 'kevés') {
-                    pontok /= 2;
-                }
+    lofegyverCalc = (
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        harcertek: KarakterCalcResult['harcertek'],
+        helyzetek: Array<HarciHelyzetModositok>,
+        pillKep: Record<string, number>,
+        isVeteran: boolean
+    ): KarakterCalcResult['lofegyverrel'] | undefined => {
+        if (!this.karakter.lofegyver?.ob) {
+            return;
+        }
+        const fegyver = this.karakter.lofegyver.ob;
+        const kepzettseg = Fegyver.kepzettseg(normalKepzettsegek, fegyver, 0);
+        const ke = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value(fegyver.name, fegyver.ke), Calculation.value('Képzettség', kepzettseg[0].ke), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ke)));
+        const ce = Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ce)), Calculation.value(fegyver.name, fegyver.ce), Calculation.value('Képzettség', kepzettseg[0].ce), ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].ce)));
+        const sebzes = fegyver.tipus !== 'ij' ? fegyver.sebzes : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).sebzes;
+        const lotav = fegyver.tipus !== 'ij' ? fegyver.lotav : Lofegyver.calculateIj(pillKep.izom, kepzettseg[1], fegyver).lotav;
+
+        const fegyverSebesseg = Calculation.value('Fegyver', - MASODIK_TAMADAS_KE[fegyver.sebesseg]);
+
+        const tobbTamadasKe = Calculation.mul(fegyverSebesseg, isVeteran ? Calculation.value('Veterán', 0.8) : undefined, ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].sebessegSzorzo)))
+
+        return {
+            ke, ce, sebzes, lotav, tobbTamadasKe
+        }
+    }
+
+    magiaKategoriak = () => this.karakter.szint.reduce((acc, curr) => {
+        curr.kaszt.magiaKategoriak?.forEach(k => acc.add(k));
+        return acc;
+    }, new Set<typeof MagiaKategoriak[number]['id']>());
+
+    mana = (
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        pillKep: Record<string, number>,
+    ) => Calculation.max(Calculation.plusz(...this.karakter.szint.slice(1).map((szint, idx) => {
+        let pontok = 0;
+        if (szint.kaszt.mana && szint.mana > 0) {
+            pontok += szint.mana;
+            pontok += Math.max(pillKep[szint.kaszt.mana.kepesseg] - 10, 0);
+            if (szint.kaszt.mana.mennyiseg === 'kevés') {
+                pontok /= 2;
             }
-            return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
-        })), Calculation.value(Magia.hasznalatKepzettseg.name, Magia.magiaHasznalatMana(normalKepzettsegek)));
+        }
+        return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
+    })), Calculation.value(Magia.hasznalatKepzettseg.name, Magia.magiaHasznalatMana(normalKepzettsegek)));
 
+    pszi = (pillKep: Record<string, number>) => {
         const psziKepz: SzintInfo['kepzettsegek']['normal'] = [];
-        const psziPontok = karakter.szint.map((szint, idx) => {
+        const psziPontok = this.karakter.szint.map((szint, idx) => {
             szint.kepzettsegek.normal.forEach(kepz => mergeToArray(psziKepz, kepz, i => i.kepzettseg.id));
             return idx === 0 ? 0 : Pszi.psziPont(psziKepz);
         }).slice(1);
 
-        const pszi = sumArray(psziPontok) > 0 ? Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, psziPontok[idx]))) : Calculation.value('Nincs pszi', 0);
+        return sumArray(psziPontok) > 0 ? Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...this.karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, psziPontok[idx]))) : Calculation.value('Nincs pszi', 0);
+    }
 
-        const psziDiszciplinak = Pszi.lista.filter(d => {
-            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${d.iskola}`);
+    psziDiszciplinak = (
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        harcertek: KarakterCalcResult['harcertek'],
+    ) => Pszi.lista.filter(d => {
+        const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${d.iskola}`);
+        const fok = kepzettseg?.fok ?? 0;
+        return d.fok <= fok;
+    }).map(v => {
+        if ('ke' in v) {
+            const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${v.iskola}`);
             const fok = kepzettseg?.fok ?? 0;
-            return d.fok <= fok;
-        }).map(v => {
-            if ('ke' in v) {
-                const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${v.iskola}`);
-                const fok = kepzettseg?.fok ?? 0;
-                return {
-                    ...v,
-                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Diszciplina', v.ke))
-                }
-            } else {
-                return v;
+            return {
+                ...v,
+                ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Diszciplina', v.ke))
             }
-        });
+        } else {
+            return v;
+        }
+    });
 
-        const varazslatok = Magia.lista.filter(v => {
+    varazslatok = (
+        normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
+        harcertek: KarakterCalcResult['harcertek'],
+        magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>
+    ) => Magia.lista.filter(v => {
+        const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
+        const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
+        const kategoriaOK = v.kategoriak?.every(k => magiaKategoriak.has(k)) ?? true;
+        return kategoriaOK && v.fok <= fok;
+    }).map(v => {
+        if ('ke' in v) {
             const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
             const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
-            const kategoriaOK = v.kategoriak?.every(k => magiaKategoriak.has(k)) ?? true;
-            return kategoriaOK && v.fok <= fok;
-        }).map(v => {
-            if ('ke' in v) {
-                const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
-                const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
-                return {
-                    ...v,
-                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Varázslat', v.ke))
-                }
-            } else {
-                return v;
+            return {
+                ...v,
+                ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Varázslat', v.ke))
             }
-        });
+        } else {
+            return v;
+        }
+    });
 
-        const fp = Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...szintCalc(karakter, sz => sz.fp));
+    fp = (kepessegek: Record<string, number>) => Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...this.szintCalc(sz => sz.fp));
+
+    ep = (kepessegek: Record<string, number>, fp: CalculationArgument) => Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', this.karakter.ep), Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50)));
+
+}
+
+export const KarakterCalculator = {
+    calc: (karakter: Karakter): KarakterCalcResult => {
+        const kc = new KarakterCalculation(karakter);
+
+        const kepessegek = kc.kepessegek();
+        const normalKepzettsegek = kc.normalKepzettsegek();
+        const { harcmodor, harcmodorHatasok } = kc.harcmodor(normalKepzettsegek);
+        const mgt = kc.mgt(normalKepzettsegek, harcmodorHatasok);
+        const { pillKepCalc, pillKep } = kc.pillKep(kepessegek, mgt);
+        const harcertek = kc.harcertek(pillKep);
+        const isVeteran = kc.isVeteran();
+        const helyzetek = kc.helyzetek(normalKepzettsegek);
+        const magiaKategoriak = kc.magiaKategoriak();
+        const fp = kc.fp(kepessegek);
+        const ep = kc.ep(kepessegek, fp);
 
         return {
             kepessegek,
             fp,
-            ep: Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', karakter.ep), Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50))),
+            ep,
             harcertek,
             harcmodor,
-            fegyverrel: calculateFegyverrel(harcertek, [fegyverCalc(0), fegyverCalc(1)], harcmodorHatasok),
-            lofegyverrel: lofegyverCalc(),
+            fegyverrel: kc.fegyverrel(harcertek, harcmodorHatasok, normalKepzettsegek, helyzetek, pillKep, isVeteran),
+            lofegyverrel: kc.lofegyverCalc(normalKepzettsegek, harcertek, helyzetek, pillKep, isVeteran),
             kepzettsegek: {
                 normal: normalKepzettsegek,
-                szazalekos: szazalekosKepzettsegek,
+                szazalekos: kc.szazalekosKepzettsegek(),
             },
             sfe: karakter.pancel?.ob.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
             mgt,
-            pillanatnyiKepessegek,
-            pszi,
-            psziDiszciplinak,
-            mana,
+            pillanatnyiKepessegek: pillKepCalc,
+            pszi: kc.pszi(pillKep),
+            psziDiszciplinak: kc.psziDiszciplinak(normalKepzettsegek, harcertek),
+            mana: kc.mana(normalKepzettsegek, pillKep),
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
             pendingKepzettsegekCount: sumArray(karakter.szint, sz => sz.pendingKepzettsegek.length),
-            varazslatok,
+            varazslatok: kc.varazslatok(normalKepzettsegek, harcertek, magiaKategoriak),
             magiaKategoriak
         };
     }
-}
-
-const calculateFegyverrel = (
-    harcertek: KarakterCalcResult['harcertek'],
-    kezek: [((CalcFegyver & { ke: CalculationArgument; ve: CalculationArgument; }) | undefined), ((CalcFegyver & { ke: CalculationArgument; ve: CalculationArgument; }) | undefined)],
-    harcmodorHatasok: Record<HarcmodorEffect, boolean>,
-): KarakterCalcResult['fegyverrel'] => {
-    let ke = undefined;
-    let ve = undefined;
-    if (kezek[0] && kezek[1]) {
-        if (harcmodorHatasok.kez1NoAttack) {
-            ke = kezek[0].ke;
-        } else {
-            ke = Calculation.min(kezek[0].ke, kezek[1].ke);
-        }
-        if (harcmodorHatasok.mindketVE) {
-            ve = Calculation.plusz(kezek[0].ve, Calculation.remove(kezek[1].ve as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
-        } else {
-            ve = Calculation.max(kezek[0].ve, kezek[1].ve);
-        }
-        if (harcmodorHatasok.mindketTE) {
-            const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
-            const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
-            kezek[0].te = uj0;
-            kezek[1].te = uj1;
-        } else if (harcmodorHatasok.shiensuTE) {
-            const uj0 = Calculation.plusz(kezek[0].te, Calculation.remove(kezek[1].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
-            const uj1 = Calculation.plusz(kezek[1].te, Calculation.remove(kezek[0].te as CalculationBinary, 'Fegyver nélkül', 'Chi-harc'));
-            kezek[0].te = uj0;
-            kezek[1].te = uj1;
-        }
-    } else if (kezek[0]) {
-        ke = kezek[0].ke;
-        ve = kezek[0].ve;
-    } else {
-        ke = harcertek.ke;
-        ve = harcertek.ve;
-    }
-
-    return {
-        kezek,
-        ke,
-        ve
-    };
 }

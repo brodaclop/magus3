@@ -3,6 +3,7 @@ import { Faj, Fajok } from "./Fajok";
 import { Fegyver, KozelharcFegyver } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
 import { HarciHelyzetek } from "./HarciHelyzet";
+import { Hatas } from "./Hatas";
 import { InventoryFegyver, InventoryItem, InventoryLofegyver, InventoryPancel } from "./Inventory";
 import { KarakterCalculator } from "./KarakterCalculator";
 import { KapottKepzettseg, KasztInfo, Kasztok } from "./Kasztok";
@@ -39,6 +40,7 @@ export interface Karakter extends NamedEntity {
     inventory: Array<InventoryItem>;
     elosztva?: boolean;
     szazalek: number;
+    hatasok: Array<Hatas>;
     temporary: {
         harciHelyzet: Array<typeof HarciHelyzetek[number]['id']>;
     };
@@ -157,6 +159,9 @@ export const Karakter = {
             kp: kasztInfo.kpAlap,
             kasztKp: 0,
             szazalek: 0,
+            hatasok: [
+                { id: 'tesztHatas', name: 'TesztHatas', aktiv: true, kepesseg: { izom: 4 } }
+            ],
             temporary: {
                 harciHelyzet: []
             }

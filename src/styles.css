@@ -94,3 +94,15 @@ ul.simpleList li {
     text-align: left;
     padding-right: 0.2rem;
 }
+
+/* .kombat tr>*:nth-child(odd) {
+    background-color: aqua;
+}
+
+.kombat tr>*:nth-child(even) {
+    background-color: blanchedalmond;
+} */
+
+.kombat>tbody>tr>th:nth-child(5) {
+    border-left: solid 1px black;
+}

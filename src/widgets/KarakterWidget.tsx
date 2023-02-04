@@ -3,6 +3,7 @@ import { Karakter } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
 import { HarcertekWidget } from './HarcertekWidget';
+import { HatasWidget } from './HatasWidget';
 import { InventoryWidget } from './InventoryWidget';
 import { KepessegWidget } from './KepessegWidget';
 import { KepzettsegWidget } from './KepzettsegWidget';
@@ -81,6 +82,9 @@ export const KarakterWidget: React.FC<{
             </div>
             <div>
                 <PancelWidget karakter={karakter} onChange={commit} />
+            </div>
+            <div>
+                <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
             </div>
             <div>
                 <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
