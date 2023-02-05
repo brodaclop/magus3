@@ -10,9 +10,10 @@ import { KasztSelectorWidget } from './KasztSelectorWidget';
 export const LifeWidget: React.FC<{
     calc: KarakterCalcResult,
     karakter: Karakter,
+    onChange: (karakter: Karakter) => unknown,
     levelUp: (id: string) => unknown,
     deleteKarakter: () => unknown
-}> = ({ calc, karakter, levelUp, deleteKarakter }) => {
+}> = ({ calc, karakter, onChange, levelUp, deleteKarakter }) => {
 
     const [ujKaszt, setUjKaszt] = useState<string>('');
 
@@ -52,19 +53,31 @@ export const LifeWidget: React.FC<{
             </tr>
             <tr>
                 <th>ÉP</th>
-                <td><CalculationWidget calculation={calc.ep} /></td>
+                <td><CalculationWidget calculation={calc.ep} /> / <input type='number' value={karakter.temporary.ep} onChange={e => {
+                    karakter.temporary.ep = Number(e.target.value);
+                    onChange(karakter);
+                }} /></td>
             </tr>
             <tr>
                 <th>FP</th>
-                <td><CalculationWidget calculation={calc.fp} /></td>
+                <td><CalculationWidget calculation={calc.fp} /> / <input type='number' value={karakter.temporary.fp} onChange={e => {
+                    karakter.temporary.fp = Number(e.target.value);
+                    onChange(karakter);
+                }} /></td>
             </tr>
             <tr>
                 <th>Mana</th>
-                <td><CalculationWidget calculation={calc.mana} /></td>
+                <td><CalculationWidget calculation={calc.mana} /> / <input type='number' value={karakter.temporary.mana} onChange={e => {
+                    karakter.temporary.mana = Number(e.target.value);
+                    onChange(karakter);
+                }} /></td>
             </tr>
             <tr>
                 <th>Pszi</th>
-                <td><CalculationWidget calculation={calc.pszi} /></td>
+                <td><CalculationWidget calculation={calc.pszi} /> / <input type='number' value={karakter.temporary.pszi} onChange={e => {
+                    karakter.temporary.pszi = Number(e.target.value);
+                    onChange(karakter);
+                }} /></td>
             </tr>
             <tr>
                 <td colSpan={2}><button className='fullWidth' onClick={deleteKarakter}>Töröl</button></td>

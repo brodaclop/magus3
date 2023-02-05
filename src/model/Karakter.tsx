@@ -43,6 +43,10 @@ export interface Karakter extends NamedEntity {
     hatasok: Array<Hatas>;
     temporary: {
         harciHelyzet: Array<typeof HarciHelyzetek[number]['id']>;
+        ep: number;
+        fp: number;
+        mana: number;
+        pszi: number;
     };
 }
 
@@ -132,6 +136,18 @@ export const Karakter = {
         if (karakter.hatasok === undefined) {
             karakter.hatasok = [];
         }
+        if (!karakter.temporary.ep) {
+            karakter.temporary.ep = 0;
+        }
+        if (!karakter.temporary.fp) {
+            karakter.temporary.fp = 0;
+        }
+        if (!karakter.temporary.mana) {
+            karakter.temporary.mana = 0;
+        }
+        if (!karakter.temporary.pszi) {
+            karakter.temporary.pszi = 0;
+        }
     },
     create: (template: KarakterTemplate): Karakter => {
         const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);
@@ -166,7 +182,11 @@ export const Karakter = {
             szazalek: 0,
             hatasok: [],
             temporary: {
-                harciHelyzet: []
+                harciHelyzet: [],
+                ep: 0,
+                fp: 0,
+                mana: 0,
+                pszi: 0,
             }
         };
         levelUp(ret, kasztInfo.id);
