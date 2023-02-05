@@ -31,7 +31,11 @@ export const Main: React.FC<{}> = () => {
     setKarakterek({ ...karakterek, [karakter.id]: karakter });
   }, [karakterek]);
 
-  const karakter = karakterId !== undefined ? Karakter.fixupLegacy(karakterek[karakterId]) : undefined;
+  const karakter = karakterId !== undefined ? karakterek[karakterId] : undefined;
+
+  if (karakter) {
+    Karakter.fixupLegacy(karakter);
+  }
 
   useEffect(() => {
     if (karakterId !== undefined && karakter === undefined) {
