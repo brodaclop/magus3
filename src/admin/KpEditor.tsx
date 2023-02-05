@@ -49,7 +49,7 @@ export const KpEditor: React.FC<{}> = () => {
                     {constructArray(5, fok => <td>
                         {osszKp(k, fok)}
                         {!k.__generated && <div>
-                            <input type='number' style={{ width: '2rem' }} value={k.kp[fok]} onChange={e => {
+                            <input type='number' value={k.kp[fok]} onChange={e => {
                                 k.kp[fok] = Number(e.target.value);
                                 setKepzettsegek([...kepzettsegek]);
                             }} />

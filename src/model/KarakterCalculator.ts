@@ -3,6 +3,7 @@ import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, MASODIK_TAMADAS_KE, SebzesTipu
 import { Harcertek } from "./Harcertek";
 import { HarciHelyzet, HarciHelyzetModositok } from "./HarciHelyzet";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
+import { Hatas } from "./Hatas";
 import { Karakter, SzintInfo } from "./Karakter";
 import { Kasztok } from "./Kasztok";
 import { KockaDobas } from "./Kocka";
@@ -59,9 +60,9 @@ class KarakterCalculation {
     szintCalc = (fn: (szint: SzintInfo) => number): Array<CalculationValue> =>
         this.karakter.szint.map((sz, i) => Calculation.value(`${sz.kaszt.name} ${i}. szint`, fn(sz)));
 
-    aktivHatasok = () => this.karakter.hatasok.filter(h => h.aktiv);
+    aktivHatasok = (filter: (hatas: Hatas) => unknown) => this.karakter.hatasok.filter(h => h.aktiv && !!filter(h));
 
-    kepessegek = () => transformRecord(this.karakter.kepessegek, (k, v) => v + (this.karakter.faj.kepessegek[k] ?? 0) + sumArray(this.aktivHatasok(), h => h.kepesseg?.[k] ?? 0));
+    kepessegek = () => transformRecord(this.karakter.kepessegek, (k, v) => v + (this.karakter.faj.kepessegek[k] ?? 0) + sumArray(this.aktivHatasok(h => h.kepesseg), h => h.kepesseg?.[k] ?? 0));
 
     normalKepzettsegek = () => this.karakter.szint.reduce((acc, curr) => {
         curr.kepzettsegek.normal.forEach(kepz => mergeToArray(acc, kepz, i => i.kepzettseg.id));
@@ -130,7 +131,7 @@ class KarakterCalculation {
         const osszpontositas = Calculation.tizFolottiResz(pillKep, 'osszpontositas');
         const izom = Calculation.tizFolottiResz(pillKep, 'izom');
         const he = (x: keyof Harcertek) => this.szintCalc(sz => sz.harcertek[x] ?? 0);
-        const heHatas = (x: keyof Harcertek) => this.aktivHatasok().filter(h => h.harcertek).map(h => Calculation.value(`Hatás: ${h.name}`, h.harcertek?.[x] ?? 0));
+        const heHatas = (x: keyof Harcertek) => this.aktivHatasok(h => h.harcertek).map(h => Calculation.value(`Hatás: ${h.name}`, h.harcertek?.[x] ?? 0));
         return {
             ke: Calculation.plusz(reflex, osszpontositas, ...he('ke'), ...heHatas('ke')),
             te: Calculation.plusz(reflex, izom, mozgaskoordinacio, ...he('te'), ...heHatas('te')),
@@ -278,7 +279,7 @@ class KarakterCalculation {
         pillKep: Record<string, number>,
     ) => {
 
-        const ret = Calculation.max(Calculation.plusz(...this.karakter.szint.slice(1).map((szint, idx) => {
+        const ret = Calculation.max(Calculation.plusz(...this.karakter.szint.slice(1).flatMap((szint, idx) => {
             let pontok = 0;
             if (szint.kaszt.mana && szint.mana > 0) {
                 pontok += szint.mana;
@@ -287,10 +288,13 @@ class KarakterCalculation {
                     pontok /= 2;
                 }
             }
-            return Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok);
+            return [
+                Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, pontok),
+                ...this.aktivHatasok(h => h.manaPerSzint).map(h => Calculation.value(`${idx + 1}. szint: ${h.name}`, h.manaPerSzint ?? 0))
+            ];
         })), Calculation.value(Magia.hasznalatKepzettseg.name, Magia.magiaHasznalatMana(normalKepzettsegek)));
 
-        return Calculation.plusz(ret, ...this.aktivHatasok().filter(h => h.mana).map(h => Calculation.value(h.name, h.mana ?? 0)));
+        return Calculation.plusz(ret, ...this.aktivHatasok(h => h.mana).map(h => Calculation.value(h.name, h.mana ?? 0)));
     }
 
     pszi = (pillKep: Record<string, number>) => {
@@ -300,14 +304,22 @@ class KarakterCalculation {
             return idx === 0 ? 0 : Pszi.psziPont(psziKepz);
         }).slice(1);
 
-        return sumArray(psziPontok) > 0 ? Calculation.plusz(Calculation.tizFolottiResz(pillKep, 'osszpontositas'), ...this.karakter.szint.slice(1).map((szint, idx) => Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, psziPontok[idx]))) : Calculation.value('Nincs pszi', 0);
+        return sumArray(psziPontok) > 0 ? Calculation.plusz(
+            Calculation.tizFolottiResz(pillKep, 'osszpontositas'),
+            ...this.aktivHatasok(h => h.pszi).map(h => Calculation.value(h.name, h.pszi ?? 0)),
+            ...this.karakter.szint.slice(1).flatMap((szint, idx) =>
+                [
+                    Calculation.value(`${idx + 1}. szint: ${szint.kaszt.name}`, psziPontok[idx]),
+                    ...this.aktivHatasok(h => h.psziPerSzint).map(h => Calculation.value(`${idx + 1}. szint: ${h.name}`, h.psziPerSzint ?? 0)),
+                ])
+        ) : Calculation.value('Nincs pszi', 0);
     }
 
     psziDiszciplinak = (
         normalKepzettsegek: SzintInfo['kepzettsegek']['normal'],
         harcertek: KarakterCalcResult['harcertek'],
     ) => {
-        const hatasDiszciplinak = this.aktivHatasok().flatMap(h => h.psziDiszciplina ?? []);
+        const hatasDiszciplinak = this.aktivHatasok(h => h.psziDiszciplina).flatMap(h => h.psziDiszciplina ?? []);
         return Pszi.lista.filter(d => {
             const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${d.iskola}`);
             const fok = kepzettseg?.fok ?? 0;
@@ -331,7 +343,7 @@ class KarakterCalculation {
         harcertek: KarakterCalcResult['harcertek'],
         magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>
     ) => {
-        const hatasVarazslatok = this.aktivHatasok().flatMap(h => h.varazslat ?? []);
+        const hatasVarazslatok = this.aktivHatasok(h => h.varazslat).flatMap(h => h.varazslat ?? []);
         return Magia.lista.filter(v => {
             const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
             const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
@@ -351,9 +363,22 @@ class KarakterCalculation {
         });
     };
 
-    fp = (kepessegek: Record<string, number>) => Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'allokepesseg'), Calculation.tizFolottiResz(kepessegek, 'onuralom'), ...this.szintCalc(sz => sz.fp));
+    fp = (kepessegek: Record<string, number>) => Calculation.plusz(
+        Calculation.tizFolottiResz(kepessegek, 'allokepesseg'),
+        Calculation.tizFolottiResz(kepessegek, 'onuralom'),
+        ...this.karakter.szint.flatMap((sz, i) =>
+            [
+                Calculation.value(`${sz.kaszt.name} ${i}. szint`, sz.fp),
+                ...this.aktivHatasok(h => h.fpPerSzint).map(h => Calculation.value(`${i + 1}. szint: ${h.name}`, h.fpPerSzint ?? 0)),
+            ]),
+        ...this.aktivHatasok(h => h.fp).map(h => Calculation.value(h.name, h.fp ?? 0))
+    );
 
-    ep = (kepessegek: Record<string, number>, fp: CalculationArgument) => Calculation.plusz(Calculation.tizFolottiResz(kepessegek, 'egeszseg'), Calculation.value('Alap ÉP', this.karakter.ep), Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50)));
+    ep = (kepessegek: Record<string, number>, fp: CalculationArgument) => Calculation.plusz(
+        Calculation.tizFolottiResz(kepessegek, 'egeszseg'),
+        Calculation.value('Alap ÉP', this.karakter.ep),
+        Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50)),
+        ...this.aktivHatasok(h => h.ep).map(h => Calculation.value(h.name, h.ep ?? 0)));
 
 }
 

@@ -64,7 +64,7 @@ export const MpEditor: React.FC<{}> = () => {
                     <td>
                         <VarazslatLeiras v={v} />
                     </td>
-                    <td><input style={{ width: '2rem' }} type='number' value={v.mp} onChange={e => {
+                    <td><input type='number' value={v.mp} onChange={e => {
                         v.mp = Number(e.target.value);
                         setVarazslatok([...varazslatok]);
                     }} /> </td>
@@ -76,7 +76,7 @@ export const MpEditor: React.FC<{}> = () => {
                         <div style={{ whiteSpace: 'pre-wrap' }}>{v.kepzettsegek ? v.kepzettsegek.map(k => Kepzettseg.name(k)).join('\n') : '?????'}</div>
                         <div>
                             <label>
-                                <input style={{ width: '2rem' }} type='number' value={v.fok} onChange={e => {
+                                <input type='number' value={v.fok} onChange={e => {
                                     v.fok = Number(e.target.value);
                                     setVarazslatok([...varazslatok]);
                                 }} />.fok</label>

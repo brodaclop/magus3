@@ -4,6 +4,11 @@
     margin: 0.5em;
 }
 
+input[type='number'] {
+    width: 2rem;
+}
+
+
 table.bordered>tbody:not(.unstriped)>tr:nth-child(odd) {
     background-color: #d3d8db;
 }
@@ -105,4 +110,9 @@ ul.simpleList li {
 
 .kombat>tbody>tr>th:nth-child(5) {
     border-left: solid 1px black;
+}
+
+.calculation ul {
+    padding-left: 1em;
+    padding-right: 1em;
 }
