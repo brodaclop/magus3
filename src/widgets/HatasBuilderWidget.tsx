@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { CiEdit } from 'react-icons/ci';
-import { GiBackpack, GiDiamonds, GiErlenmeyer } from 'react-icons/gi';
 import { ReactNode } from 'react-markdown/lib/ast-to-react';
 import { v4 } from 'uuid';
 import { Hatas } from '../model/Hatas';

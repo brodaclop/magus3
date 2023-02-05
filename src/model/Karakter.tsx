@@ -128,6 +128,11 @@ const levelUp = (karakter: Karakter, kasztId: string): Karakter => {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Karakter = {
     createTemplate: (options?: { faj?: Faj, kaszt?: string, name: string, jellem: string }): KarakterTemplate => ({ faj: options?.faj ?? Fajok.lista[0], kaszt: options?.kaszt ?? Kasztok.lista[0].id, szint: 1, kepessegKategoriak: { Fizikum: 0, Ügyesség: 0, Mentál: 0, Asztrál: 0 }, name: options?.name ?? '', jellem: options?.jellem ?? '' }),
+    fixupLegacy: (karakter: Karakter): void => {
+        if (karakter.hatasok === undefined) {
+            karakter.hatasok = [];
+        }
+    },
     create: (template: KarakterTemplate): Karakter => {
         const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);
         const ret: Karakter = {
@@ -159,9 +164,7 @@ export const Karakter = {
             kp: kasztInfo.kpAlap,
             kasztKp: 0,
             szazalek: 0,
-            hatasok: [
-                { id: 'tesztHatas', name: 'TesztHatas', aktiv: true, kepesseg: { izom: 4 }, note: 'Teszt hatás' }
-            ],
+            hatasok: [],
             temporary: {
                 harciHelyzet: []
             }
