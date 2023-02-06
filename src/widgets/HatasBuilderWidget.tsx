@@ -182,6 +182,23 @@ export const HatasBuilderWidget: React.FC<{ id?: string; karakter: Karakter, onC
                 <table className='bordered'>
                     <thead>
                         <tr>
+                            <th colSpan={2}>Mágiaellenállás</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Asztrál</th>
+                            <td><input type='number' value={hatas.mana} onChange={e => setHatas({ ...hatas, asztral: Number(e.target.value) })} /> </td>
+                        </tr>
+                        <tr>
+                            <th>Mentál</th>
+                            <td><input type='number' value={hatas.manaPerSzint} onChange={e => setHatas({ ...hatas, mental: Number(e.target.value) })} /> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table className='bordered'>
+                    <thead>
+                        <tr>
                             <th colSpan={2}>Egyéb</th>
                         </tr>
                     </thead>

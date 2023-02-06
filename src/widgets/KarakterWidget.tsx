@@ -9,6 +9,7 @@ import { KepessegWidget } from './KepessegWidget';
 import { KepzettsegWidget } from './KepzettsegWidget';
 import { KombatWidget } from './KombatWidget';
 import { LifeWidget } from './LifeWidget';
+import { MagiaEllenallasWidget } from './MagiaEllenallasWidget';
 import { PancelWidget } from './PancelWidget';
 import { PsziWidget } from './PsziWidget';
 import { VarazslatWidget } from './VarazslatWidget';
@@ -84,7 +85,7 @@ export const KarakterWidget: React.FC<{
                 <PancelWidget karakter={karakter} onChange={commit} />
             </div>
             <div>
-                <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
+                <MagiaEllenallasWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
             <div>
                 <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
@@ -94,6 +95,9 @@ export const KarakterWidget: React.FC<{
             </div>
             <div>
                 <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+            </div>
+            <div>
+                <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
             </div>
             <div>
                 <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />

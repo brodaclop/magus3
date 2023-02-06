@@ -42,6 +42,13 @@ export interface Karakter extends NamedEntity {
     szazalek: number;
     hatasok: Array<Hatas>;
     temporary: {
+        pajzs: {
+            [key in 'asztral' | 'mental']: {
+                statikus: number;
+                dinamikus: number;
+                egyeb: number;
+            }
+        }
         harciHelyzet: Array<typeof HarciHelyzetek[number]['id']>;
         ep: number;
         fp: number;
@@ -148,6 +155,20 @@ export const Karakter = {
         if (!karakter.temporary.pszi) {
             karakter.temporary.pszi = 0;
         }
+        if (!karakter.temporary.pajzs) {
+            karakter.temporary.pajzs = {
+                asztral: {
+                    statikus: 0,
+                    dinamikus: 0,
+                    egyeb: 0
+                },
+                mental: {
+                    statikus: 0,
+                    dinamikus: 0,
+                    egyeb: 0
+                }
+            };
+        }
     },
     create: (template: KarakterTemplate): Karakter => {
         const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);
@@ -182,6 +203,18 @@ export const Karakter = {
             szazalek: 0,
             hatasok: [],
             temporary: {
+                pajzs: {
+                    asztral: {
+                        statikus: 0,
+                        dinamikus: 0,
+                        egyeb: 0
+                    },
+                    mental: {
+                        statikus: 0,
+                        dinamikus: 0,
+                        egyeb: 0
+                    },
+                },
                 harciHelyzet: [],
                 ep: 0,
                 fp: 0,

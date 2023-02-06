@@ -16,4 +16,6 @@ export interface Hatas extends NamedEntity {
     ep?: number;
     fp?: number;
     fpPerSzint?: number;
+    asztral?: number;
+    mental?: number;
 };

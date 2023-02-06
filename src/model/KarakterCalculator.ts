@@ -52,6 +52,9 @@ export interface KarakterCalcResult {
     pszi: CalculationArgument;
     psziDiszciplinak: Array<CalcDiszciplina>;
     magiaKategoriak: Set<typeof MagiaKategoriak[number]['id']>;
+    magiaEllenallas: {
+        [key in 'asztral' | 'mental']: CalculationArgument;
+    }
 };
 
 class KarakterCalculation {
@@ -380,6 +383,25 @@ class KarakterCalculation {
         Calculation.value('FP/50', Math.floor(Calculation.calculate(fp) / 50)),
         ...this.aktivHatasok(h => h.ep).map(h => Calculation.value(h.name, h.ep ?? 0)));
 
+    magiaEllenallas = (kepessegek: Record<string, number>): KarakterCalcResult['magiaEllenallas'] => {
+        const asztral = Calculation.plusz(
+            Calculation.tizFolottiResz(kepessegek, 'onuralom'),
+            Calculation.value('Statikus pajzs', this.karakter.temporary.pajzs.asztral.statikus),
+            Calculation.value('Dinamikus pajzs', this.karakter.temporary.pajzs.asztral.dinamikus),
+            Calculation.value('Egyéb', this.karakter.temporary.pajzs.asztral.egyeb),
+            ...this.aktivHatasok(h => h.asztral).map(h => Calculation.value(h.name, h.asztral ?? 0))
+        );
+        const mental = Calculation.plusz(
+            Calculation.tizFolottiResz(kepessegek, 'osszpontositas'),
+            Calculation.value('Statikus pajzs', this.karakter.temporary.pajzs.mental.statikus),
+            Calculation.value('Dinamikus pajzs', this.karakter.temporary.pajzs.mental.dinamikus),
+            Calculation.value('Egyéb', this.karakter.temporary.pajzs.mental.egyeb),
+            ...this.aktivHatasok(h => h.mental).map(h => Calculation.value(h.name, h.mental ?? 0))
+        );
+        return { asztral, mental };
+
+    }
+
 }
 
 export const KarakterCalculator = {
@@ -419,7 +441,8 @@ export const KarakterCalculator = {
             findNormalKepzettseg: id => normalKepzettsegek.find(k => k.kepzettseg.id === id),
             pendingKepzettsegekCount: sumArray(karakter.szint, sz => sz.pendingKepzettsegek.length),
             varazslatok: kc.varazslatok(normalKepzettsegek, harcertek, magiaKategoriak),
-            magiaKategoriak
+            magiaKategoriak,
+            magiaEllenallas: kc.magiaEllenallas(kepessegek)
         };
     }
 }
