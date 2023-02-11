@@ -219,6 +219,7 @@ export const MagiaKategoriak = [
     { name: 'Rituálé', id: 'rituale' },
     { name: 'Darton egyedi', id: 'egyedi_darton' },
     { name: 'Domvik egyedi', id: 'egyedi_domvik' },
+    { name: 'Gilron egyedi', id: 'egyedi_gilron' },
 ] as const;
 
 export interface VarazslatBase extends NamedEntity {
