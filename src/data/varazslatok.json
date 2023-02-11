@@ -676,6 +676,46 @@
     },
     {
         "fajta": "normal",
+        "id": "pap_gilron_erckereses",
+        "name": "Érckeresés",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania",
+            "egyedi_gilron"
+        ],
+        "mp": 10,
+        "idotartam": "10 perc/szint",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "250",
+        "save": "nincs",
+        "leiras": "Ez a mágiaforma feltárja mindazokat az ásványi anyagokat (érceket, szenet, stb.) és azok elhelyezkedését, amelyek a varázslat hatókörén belül helyezkednek el, feltéve, ha azok tömege legalább 1 kg-nyi. Gilron szolgája ezek mennyiségét is hozzávetőleges pontossággal meg tudja határozni.\n\n\"Érc\" alatt kizárólag az anyag természetesen előforduló formája értendő, amely még nem volt megmunkálva, de még kibányászva sem. (Tehát egy tiszta aranytelér igen, de a szomszéd aranypénzzel teli bugyellárisa pl. nem.)"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gilron_erclelohely",
+        "name": "Érclelőhely",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale",
+            "egyedi_gilron"
+        ],
+        "mp": 24,
+        "idotartam": "10 perc/szint",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "1 km",
+        "save": "nincs",
+        "leiras": "Sokban hasonlít az [Érckeresés](entity:pap_gilron_erckereses) nevű varázslatra, azzal a különb-\nséggel, hogy ebben az esetben egy előre meghatározott érc, ásvány hozzávetőleges fellelhetőségét tudhatja meg a pap. Ha a hatótávon belül nincs a választott anyagból legalább ! kg-nyi, akkor a mágia megmutatja, hogy melyik irányba kell tovább kutakodni. Ez utóbbi esetben az alkalmazó nem fogja tudni, hogy milyen messze kell még mennie az adott anyagért, ám bizonyos lehet benne, hogy az irány megfelelő.\n\nA keresendő anyagból legalább egy körömdarabnyit mindenképpen a kezébe kell fognia ahhoz, hogy a\nvarázslat sikeres legyen. A varázslat hatótávolsága a varázslat erősítésével növelhető."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_erzekeles_atok",
         "name": "Érzékelés - átok",
         "kategoriak": [
@@ -1012,6 +1052,46 @@
         "range": "20",
         "save": "nincs",
         "leiras": "A varázslat hatására a tűz fénye és hőjének nagy része maró füstté változik. Végrehajtása után a tűzvarázsló Zónájában a kiválasztott tűz lelohad, szinte csak parázslik, sebzése is minimális lesz (Pl: 1Sp esetén 0 Sp, k6 Sp esetén 1Sp, 2k6 Sp esetén 2 Sp, stb.).\n\nFényt ezután nem ad, de eredeti fényerősségének határáíg sűrű szürkésfekete füstöt ereszt. A keletkező füst akadályozza a légzést, csípi a szemet és sűrűségéből adódóan a látótávolságot is rontja. A benne tartózkodók kötelesek a 4. szintűnek számító füst ellen Egészségpróbát dobni, s vétés esetén Rosszullét fogja el őket. Ha a képességpróbát sikeresen megdobták, úgy csak az Émelygés szabályai vonatkoznak tájuk. Ezen kívül a füstben képtelenség célzó és dobófegyvert használni, ezek automatikusan célt tévesztenek. A füstön kívülről érkező célzó és dobófegyverek támadó dobása 50-nel csökken, mivel a benne tartózkodók alig láthatók. A füstben a közelharc is módosul, minden támadás TÉ-je 25-tel csökken - a fentieken túl. A füst a tűzvarázslóra is hat, és a közelharcra vonatkozó levonások is sújtják.\n\nAkik kikerülnek a füstből, még kó percig nyögik a füst szervezetre gyakorolt hatását. A füst az időtartam lejárta előtt csak mágiával oszlatható el, utána a légmozgás játékszerévé válik. \n\nA varázslat időtartama alatt a füstöt eresztő tűzre semmilyen más közönséges tüzet befolyásoló varázslat nem alkalmazható."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gilron_gepek_lelke",
+        "name": "Gépek lelke",
+        "kategoriak": [
+            "nagy_arkanum",
+            "litania",
+            "egyedi_gilron"
+        ],
+        "mp": 25,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varázslat alkalmazója megtudhatja egy mechanikus szerkezet működési elvét anélkül, hogy szétszedné, vagy belső felépítését látná. A varázslás ideje alatt a pap egyik kezét a szerkezetre helyezi, lelki szemei előtt megjelenik a gépezet működő, belső mechanikája. Amennyiben a vizsgált eszköz nem működik, az elromlott alkatrész vagy alkatrészek — vörösen izzani fognak a képzeletbeli ábrán.\n\nIgazi előnye az, hogy használata után a [Javítás](entity:pap_gilron_javitas) nevű varázslatot\nanélkül is lehet alkalmazni, hogy a hibás alkatrészt valóban látná az illető. A Javítással természetesen ekkór is csak egyetlen alkatrész reparálható meg egyszerre (egy elgörbült tengely, egy eltörött fogaskerék, stb.)\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gilron_aldasa",
+        "name": "Gilron áldása",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania",
+            "egyedi_gilron"
+        ],
+        "mp": 2,
+        "idotartam": "1 hónap",
+        "varazslasIdeje": "10 perc",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A Gilron áldásával illetett tárgyakat, eszközöket, szerkezeteket az időtartam lejártáig nem lepi a por, nem fogja a rozsda, és általában minden fizikai behatással szemben ellenállóbbá válnak. Az ilyenformán megáldott eszközök nem minősülnek mágikusnak, sőt a varázslat mágikus tárgyakra nem is alkalmazható. A varázslat időtartama a varázslat erősítésével növelhető."
     },
     {
         "fajta": "normal",
@@ -1583,6 +1663,25 @@
         "range": "2",
         "save": "nincs",
         "leiras": "Az Izzó vér a vérmágia varázslatainak egyik leggonoszabbika: az áldozat saját vére válik önnön elpusztítójává, ha a körülmények megfelelnek erre.\n\nA varázslat hatása meglehetősen sajátos: a célpont vére, ha levegőre kerül - pl. vágott seb miatt -, lángra lobban. A hatás több szemtanú leírása szerint döbbenetes. A több sebből vérző áldozat, még ha sérülései nem is lennének végzetesek, a lángok örök oltásába hal bele, ha be nem kötözik.\n\nA varázslat kegyetlen, kizárólag Halál jellemű papok használhatják - ők viszont különös élvezetet találnak benne. Vér és tűz együtt - igazán nekik való móka.\n\nA fellobbanó tűz nagysága persze arányos az elvesztett vérrel, így a lángok sebzése is ettől függ. A tűz minden körben  fele annyi SP-t sebez, mint amennyi az eredeti seb okozta veszteség volt - amennyiben a sebzés csak FP vesztéssel járt. Az ÉP-csökkenéssel járó, különösen erősen vérző, komoly sebek a lángok igazi táplálói. Minden egyes elvesztett ÉP további k6 FP sebzést eredményez a lángoló vérnek köszönhetően.\n\nAmennyiben a célpont kizárólag sebei bekötözésével foglalkozik (és van erre alkmlmas kötszere, ami még nem kapott lángra), 2 kör után megfelezheti a sebzést, de teljesen elállítani a varázslat időtartamának lejárta előtt kizárólag [Sebgyógyítás](entity:sebgyogyitas)ban képzett társ segítségével tudja.\n"
+    },
+    {
+        "id": "pap_gilron_javitas",
+        "name": "Javítás",
+        "kategoriak": [
+            "kis_arkanum",
+            "litania",
+            "egyedi_gilron"
+        ],
+        "mp": 9,
+        "idotartam": "végleges",
+        "ke": 10,
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "Ez a mágiaforva egyszerűbb eszközök, mechanikus szerkentyűk megjavítására szolgál. Miután sike-\nrült a hiba feltérképezése, immár mágikus úton is lehetővé válik annak őrvoslása. Az ily módon megreparált fogaskerekek, összeforrasztott tengelyek, szerszámok ezentúl (azon a helyen) többé soha nem romolhatnak el. Más, további meghibásodásokat, azonban így sem lehet megelőzni."
     },
     {
         "id": "pap_jellemerzekeles",
@@ -2447,6 +2546,26 @@
         "range": "self",
         "save": "nincs",
         "leiras": "A varázslat hasonló a [Sárkány lehelete](entity:tv_sarkany_lehellete) nevűhöz, ám a lángsugár ezúttal még annál szélesebb és perzselőbb (30 méter hoszszú, kiszélesedő végén 7 méter átmérőjű kúp). Ez megmutatkozik abban is, hogy élőlényeknek 15k6 sebet okoz."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gilron_segitseg",
+        "name": "Segítség",
+        "kategoriak": [
+            "kis_arkanum",
+            "rituale",
+            "egyedi_gilron"
+        ],
+        "mp": 8,
+        "idotartam": "speciális",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "Gyakran előfordul, hogy nem áll valamely egyszerűbb szerszám Gilron szolgáinak rendelkezésére,\nha úgy hozza szükség. Ezt hivatott orvosolni ez a varázslat. Bármely kisebb segédeszköz megjeleníthető ily módon (kalapács, fogó, csavarhúzó), feltéve, hogy mérete nem haladja meg egy férfialkar nagyságát, s legfeljebb három darabból áll.\n\nEzek a szerszámok harcra semmilyen körülmények között nem használhatók. Addig vannak jelen, míg a\nszerelés sikeresen véget nem ér."
     },
     {
         "fajta": "normal",
@@ -3692,5 +3811,25 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
+    },
+    {
+        "fajta": "normal",
+        "id": "pap_gilron_gepszellem",
+        "name": "Gépszellem",
+        "kategoriak": [
+            "nagy_arkanum",
+            "rituale",
+            "egyedi_gilron"
+        ],
+        "mp": 60,
+        "idotartam": "végleges",
+        "varazslasIdeje": "1 nap",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A Gépszellem varázslat a Gilron-papok talán legkülönösebb praktikája. Arra szolgál, hogy a mechanikus gépezetek működéséhez szükséges energiát a manaháló megcsapolásával biztosíthassák. A varázslat kapcsolatot létesít a gépezet és a manaháló között, mely mindaddig fennmarad, míg azt erőszakkal meg nem szüntetik, vagy a szerkezet el nem romlik. A gép ugyanis a varázslat alkalmazása után sem minősül mágikus tárgynak — hacsak eleve nem volt az -, így könnyedén el\nis romolhat.\n\nA szerkezetet eleve úgy kell elkészíteni, hogy alkalmas legyen a mágikus energia hasznosítására, így a \"közönséges\" gépek nem alakíthatók át \"örökmozgóvá\". Ezzel a varázslattal lesznek teljesek többek között a különféle repülő szerkezetek, járó és beszélő babák, zenedobozok, stb. Amíg a varázslat tart, az így \"felszentelt\" szerkezetekre nem alkalmazható a Természetes anyagok mágiája. \n\nBelső körökben \"Gilron tüzének\" is nevezik ezt a mágiaformát. Egy varázslattal csak egy tárgyba lehet Gépszellemet költöztetni."
     }
 ]
