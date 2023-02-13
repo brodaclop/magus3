@@ -307,7 +307,7 @@ const generateNyelvKepzettsegek: () => Array<NormalKepzettseg> = () => {
         tipus: 'nyelv',
         kepesseg: 'emlekezet',
         linked: [],
-        kp: [1, 2, 3, 6, 21],
+        kp: [1, 1, 2, 3, 21],
         leiras: 'Ez a képzettség elsősorban az adott nyelven való beszéd és a beszéd értésének mértékét jelzi. Ha viszont a karakter képzett az [Írás/Olvasás](entity:iras_olvasas)ban, akkor automatikusan tud írni is ezen a nyelven.',
         szintleiras: [
             'A karakter pár tucat fontosabb szót ismer, amivel úgy-ahogy meg tudja értetni magát.',

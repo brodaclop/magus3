@@ -72,7 +72,7 @@ export const KarakterWidget: React.FC<{
     }
 
     return <div>
-        <button disabled={!karakter.elosztva} onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>Teszt</button>
+        <button disabled={!karakter.elosztva} onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>{freehand ? 'Játékos mód' : 'KM mód'}</button>
         <div className='karakterLap'>
 
             <div>
@@ -94,7 +94,7 @@ export const KarakterWidget: React.FC<{
                 <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
             </div>
             <div>
-                <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} freehand={freehand} />
             </div>
             <div>
                 <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
