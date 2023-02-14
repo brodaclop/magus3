@@ -22,6 +22,7 @@ export const KarakterWidget: React.FC<{
 }> = ({ karakter, setKarakter, deleteKarakter }) => {
     const karakterCalc = useMemo(() => KarakterCalculator.calc(karakter), [karakter]);
     const [freehand, setFreehand] = useState<boolean>(false);
+    const [page, setPage] = useState<'lap' | 'leiras'>('lap');
 
     const commit = (k?: Karakter) => {
         setKarakter(k ? { ...k } : { ...karakter });
@@ -72,45 +73,51 @@ export const KarakterWidget: React.FC<{
     }
 
     return <div>
-        <button disabled={!karakter.elosztva} onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>{freehand ? 'Játékos mód' : 'KM mód'}</button>
         <div className='karakterLap'>
-
-            <div>
-                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} onChange={commit} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, kasztId))} />
+            <div className='fullWidth' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <button onClick={() => setPage(page === 'lap' ? 'leiras' : 'lap')}>{page === 'lap' ? 'Leírás' : 'Karakterlap'}</button>
+                <button disabled={!karakter.elosztva} onClick={() => setFreehand(!freehand)} style={{ float: 'right' }}>{freehand ? 'Játékos mód' : 'KM mód'}</button>
             </div>
-            <div>
-                <HarcertekWidget karakter={karakter} setKarakter={commit} />
-            </div>
-            <div>
-                <PancelWidget karakter={karakter} onChange={commit} />
-            </div>
-            <div>
-                <MagiaEllenallasWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-            </div>
-            <div>
-                <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
-            </div>
-            <div className='fullWidth'>
-                <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-            </div>
-            <div>
-                <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} freehand={freehand} />
-            </div>
-            <div>
-                <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
-            </div>
-            <div>
-                <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
-            </div>
-            <div className='fullWidth'>
-                <PsziWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-            </div>
-            <div className='fullWidth'>
-                <VarazslatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
-            </div>
-            <div className='fullWidth'>
-                <VerboseKarakterInfo calc={karakterCalc} karakter={karakter} onChange={commit} />
-            </div>
+            {page === 'lap' && <>
+                <div>
+                    <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} onChange={commit} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, kasztId))} />
+                </div>
+                <div>
+                    <HarcertekWidget karakter={karakter} setKarakter={commit} />
+                </div>
+                <div>
+                    <PancelWidget karakter={karakter} onChange={commit} />
+                </div>
+                <div>
+                    <MagiaEllenallasWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                </div>
+                <div>
+                    <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />
+                </div>
+                <div className='fullWidth'>
+                    <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                </div>
+                <div>
+                    <KepzettsegWidget calc={karakterCalc} karakter={karakter} onChange={commit} freehand={freehand} />
+                </div>
+                <div>
+                    <HatasWidget karakter={karakter} onChange={commit} calc={karakterCalc} />
+                </div>
+                <div>
+                    <InventoryWidget karakter={karakter} calc={karakterCalc} onChange={commit} />
+                </div>
+                <div className='fullWidth'>
+                    <PsziWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                </div>
+                <div className='fullWidth'>
+                    <VarazslatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                </div>
+            </>}
+            {page === 'leiras' && <>
+                <div className='fullWidth'>
+                    <VerboseKarakterInfo calc={karakterCalc} karakter={karakter} onChange={commit} />
+                </div>
+            </>}
         </div>
     </div>
 };
