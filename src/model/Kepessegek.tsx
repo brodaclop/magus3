@@ -1,3 +1,4 @@
+import { Karakter } from "./Karakter";
 import { NamedEntity, namedEntityArray } from "./util";
 
 
@@ -87,4 +88,34 @@ const nea = namedEntityArray(KEPESSEGEK);
 export const Kepessegek = {
     ...nea,
     newErtekRecord: () => Object.fromEntries(nea.keys.map(k => [k, 0])),
+    plusz: (karakter: Karakter, k: Kepesseg, dmMode: boolean): boolean => {
+        const kategoria = k.kategoria;
+        if ((dmMode || karakter.kepessegKategoriak[kategoria] > 0) && karakter.kepessegek[k.id] < 20) {
+            karakter.kepessegek[k.id]++;
+            if (!dmMode) {
+                karakter.kepessegKategoriak[kategoria]--;
+            }
+            return true;
+        }
+        return false;
+    },
+    minusz: (karakter: Karakter, k: Kepesseg, dmMode: boolean): boolean => {
+        const kategoria = k.kategoria;
+        if (karakter.kepessegek[k.id] > 0) {
+            karakter.kepessegek[k.id]--;
+            if (!dmMode) {
+                karakter.kepessegKategoriak[kategoria]++;
+            }
+            return true;
+        }
+        return false;
+    },
+    eloszt: (karakter: Karakter, kategoria: KepessegKategoria) => {
+        const kepessegek = Kepessegek.lista.filter(k => k.kategoria === kategoria);
+        let end = false;
+        while (!end) {
+            end = kepessegek.map(k => Kepessegek.plusz(karakter, k, false)).every(b => !b);
+        }
+    }
+
 };

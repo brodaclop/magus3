@@ -1,5 +1,5 @@
 import { Fegyver, FEGYVER_KATEGORIAK, NYILPUSKA_KATEGORIA } from "./Fegyver";
-import { Karakter } from "./Karakter";
+import { Karakter, SzintInfo } from "./Karakter";
 import { mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
@@ -373,7 +373,7 @@ export const Kepzettseg = {
     },
     __taroltLista: () => Kepzettseg.lista.filter(k => k.fajta === 'normal' && !k.__generated),
     keres: (prefix: string): Array<Kepzettseg> => Kepzettseg.lista.filter(k => k.id.startsWith(prefix)),
-    kpEloszt: (
+    pluszKp: (
         calc: KarakterCalcResult,
         karakter: Karakter,
         kepzettseg: Kepzettseg,
@@ -394,7 +394,7 @@ export const Kepzettseg = {
             mergeToArray(current, { kepzettseg, kp, fok }, i => i.kepzettseg.id);
             if (transitive) {
                 karakter[kasztKp ? 'kasztKp' : 'kp'] -= pluszKp;
-                kepzettseg.linked?.forEach(l => Kepzettseg.kpEloszt(calc, karakter, Kepzettseg.find(l.id), pluszKp * l.strength, kasztKp, false));
+                kepzettseg.linked?.forEach(l => Kepzettseg.pluszKp(calc, karakter, Kepzettseg.find(l.id), pluszKp * l.strength, kasztKp, false));
             }
         } else {
             const current = karakter.szint.at(-1)!.kepzettsegek.szazalekos;
@@ -408,6 +408,47 @@ export const Kepzettseg = {
             }
         }
     },
+    dmPlusz: (karakter: Karakter, calc: KarakterCalcResult, kepzettseg: Kepzettseg) => {
+        if (kepzettseg.fajta === 'normal') {
+            const osszes = calc.kepzettsegek.normal;
+            const current = karakter.szint.at(-1)!.kepzettsegek.normal;
+            let { fok = 0, kp = 0 } = osszes.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
+            mergeToArray(current, { kepzettseg, kp, fok: Math.min(fok + 1, 5) }, i => i.kepzettseg.id);
+        } else {
+            const current = karakter.szint.at(-1)?.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id);
+            if (current === undefined) {
+                karakter.szint[karakter.szint.length - 1].kepzettsegek.szazalekos.push({
+                    kepzettseg,
+                    szazalek: 1
+                });
+            } else {
+                current.szazalek++;
+            }
+        }
+    },
+    previousSzazalekos: (karakter: Karakter, kepzettseg: SzazalekosKepzettseg): SzintInfo['kepzettsegek']['szazalekos'][0] | undefined | 'max' => {
+        const current = karakter.szint.at(-1)?.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id);
+        if (current && current.szazalek >= 15) {
+            return 'max';
+        }
+        return current;
+    },
+    addSzazalek: (karakter: Karakter, kepzettseg: SzazalekosKepzettseg, count: number): boolean => {
+        const curr = Kepzettseg.previousSzazalekos(karakter, kepzettseg);
+        if (curr === 'max') {
+            return false;
+        }
+        if (curr === undefined) {
+            karakter.szint[karakter.szint.length - 1].kepzettsegek.szazalekos.push({
+                kepzettseg,
+                szazalek: count
+            });
+        } else {
+            curr.szazalek += count;
+        }
+        karakter.szazalek -= count;
+        return true;
+    }
 }
 
 const KP_SZORZOK: Array<number> = [

@@ -50,9 +50,9 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
     const [ujkepzettseg, setUjKepzettseg] = useState<string>('');
     const [upgrade, setUpgrade] = useState<boolean>(false);
 
-    const pluszKP = (kasztKp: boolean) => {
+    const pluszKp = (kasztKp: boolean) => {
         const kepzettseg = Kepzettseg.find(ujkepzettseg);
-        Kepzettseg.kpEloszt(
+        Kepzettseg.pluszKp(
             calc,
             karakter,
             kepzettseg,
@@ -65,52 +65,12 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
 
     const kmPlusz = () => {
         const kepzettseg = Kepzettseg.find(ujkepzettseg);
-        if (kepzettseg.fajta === 'normal') {
-            const osszes = calc.kepzettsegek.normal;
-            const current = karakter.szint.at(-1)!.kepzettsegek.normal;
-            let { fok = 0, kp = 0 } = osszes.find(k => k.kepzettseg.id === kepzettseg.id) ?? {};
-            mergeToArray(current, { kepzettseg, kp, fok: Math.min(fok + 1, 5) }, i => i.kepzettseg.id);
-        } else {
-            const current = karakter.szint.at(-1)?.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id);
-            if (current === undefined) {
-                karakter.szint[karakter.szint.length - 1].kepzettsegek.szazalekos.push({
-                    kepzettseg,
-                    szazalek: 1
-                });
-            } else {
-                current.szazalek++;
-            }
-        }
+        Kepzettseg.dmPlusz(karakter, calc, kepzettseg);
         onChange(karakter);
     }
 
-    const previousSzazalekos = (kepzettseg: SzazalekosKepzettseg): SzintInfo['kepzettsegek']['szazalekos'][0] | undefined | 'max' => {
-        const current = karakter.szint.at(-1)?.kepzettsegek.szazalekos.find(k => k.kepzettseg.id === kepzettseg.id);
-        if (current && current.szazalek >= 15) {
-            return 'max';
-        }
-        return current;
-    }
-
-    const addSzazalek = (kepzettseg: SzazalekosKepzettseg, count: number): boolean => {
-        const curr = previousSzazalekos(kepzettseg);
-        if (curr === 'max') {
-            return false;
-        }
-        if (curr === undefined) {
-            karakter.szint[karakter.szint.length - 1].kepzettsegek.szazalekos.push({
-                kepzettseg,
-                szazalek: count
-            });
-        } else {
-            curr.szazalek += count;
-        }
-        return true;
-    }
-
     const pluszSzazalek = (kepzettseg: SzazalekosKepzettseg, count = 1) => {
-        if (addSzazalek(kepzettseg, count)) {
-            karakter.szazalek--;
+        if (Kepzettseg.addSzazalek(karakter, kepzettseg, count)) {
             onChange(karakter);
         }
     }
@@ -194,8 +154,8 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                     </td>
                     <td>
                         {freehand ? <button disabled={!ujkepzettseg || calc.pendingKepzettsegekCount > 0} onClick={kmPlusz}>+1 fok/%</button> : <>
-                            <button disabled={!ujkepzettseg || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={() => pluszKP(false)}>+1 KP</button>
-                            <button disabled={!isKasztKepzettseg(ujkepzettseg) || (karakter.kasztKp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && previousSzazalekos(ujKepzettsegOb) === 'max')} onClick={() => pluszKP(true)}>+1 kaszt KP</button>
+                            <button disabled={!ujkepzettseg || (karakter.kp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && Kepzettseg.previousSzazalekos(karakter, ujKepzettsegOb) === 'max')} onClick={() => pluszKp(false)}>+1 KP</button>
+                            <button disabled={!isKasztKepzettseg(ujkepzettseg) || (karakter.kasztKp < 1) || calc.pendingKepzettsegekCount > 0 || (ujKepzettsegOb?.fajta === 'szazalekos' && Kepzettseg.previousSzazalekos(karakter, ujKepzettsegOb) === 'max')} onClick={() => pluszKp(true)}>+1 kaszt KP</button>
                         </>}
                     </td>
                 </tr>
@@ -225,7 +185,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         <KepzettsegLeiras kepzettseg={k.kepzettseg} fok={k.szazalek} />
                     </td>
                     <td>
-                        <button disabled={karakter.szazalek < 1 || previousSzazalekos(k.kepzettseg) === 'max'} onClick={() => pluszSzazalek(k.kepzettseg)}>+</button>
+                        <button disabled={karakter.szazalek < 1 || Kepzettseg.previousSzazalekos(karakter, k.kepzettseg) === 'max'} onClick={() => pluszSzazalek(k.kepzettseg)}>+</button>
                     </td>
                 </tr>)}
 

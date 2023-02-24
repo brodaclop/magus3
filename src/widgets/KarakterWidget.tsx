@@ -28,42 +28,20 @@ export const KarakterWidget: React.FC<{
         setKarakter(k ? { ...k } : { ...karakter });
     }
 
-    const plusz = (k: Kepesseg, shouldCommit = true): boolean => {
-        const kategoria = k.kategoria;
-        if ((freehand || karakter.kepessegKategoriak[kategoria] > 0) && karakter.kepessegek[k.id] < 20) {
-            karakter.kepessegek[k.id]++;
-            if (!freehand) {
-                karakter.kepessegKategoriak[kategoria]--;
-            }
-            if (shouldCommit) {
-                commit();
-            }
-            return true;
+    const plusz = (k: Kepesseg): void => {
+        if (Kepessegek.plusz(karakter, k, freehand)) {
+            commit();
         }
-        return false;
     }
 
-    const minusz = (k: Kepesseg, shouldCommit = true): boolean => {
-        const kategoria = k.kategoria;
-        if (karakter.kepessegek[k.id] > 0) {
-            karakter.kepessegek[k.id]--;
-            if (!freehand) {
-                karakter.kepessegKategoriak[kategoria]++;
-            }
-            if (shouldCommit) {
-                commit();
-            }
-            return true;
+    const minusz = (k: Kepesseg): void => {
+        if (Kepessegek.minusz(karakter, k, freehand)) {
+            commit();
         }
-        return false;
     }
 
     const eloszt = (kategoria: KepessegKategoria) => {
-        const kepessegek = Kepessegek.lista.filter(k => k.kategoria === kategoria);
-        let end = false;
-        while (!end) {
-            end = kepessegek.map(k => plusz(k, false)).every(b => !b);
-        }
+        Kepessegek.eloszt(karakter, kategoria);
         commit();
     }
 
