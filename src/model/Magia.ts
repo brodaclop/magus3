@@ -201,6 +201,22 @@ A lények, ha találnak, mindig annyi E-s Őstűznek megfelelően sebeznek, ami 
 égési sérülést okoznak. Az így okozott sebzés duplázódik. A lények csapásaival szemben nem védenek nem-mágikus fegyverek és vértek, ezek VÉ-je és SFÉ-je nem érvényesül.
         `
     },
+    {
+        id: 'magia:bm_villammagia',
+        name: 'Villámmágia',
+        kepesseg: 'emlekezet',
+        leiras: `
+A villámok a mágikus energiák nyers, természeti erőként való megnyilvánulásai. Létrehozásuk, kezelésük, a velük való védekezés és támadás a boszorkánymesterek különleges, egyedi képessége. A módszer - esetükben nem meglepő - határesetet képez a fekete- és a fehérmágia között, hiszen jelentős mennyiségű többletenergiát juttat a természet kényes egyensúlyokon alapuló rendszerébe.
+
+A Villámmágia mind elméletileg, mind gyakorlatilag az Elemi Mágia kevéssé ismert, figyelemreméltó fejezeteként kezelendő. Varázslatai a nyers, lüktető energiát öntik kezelhető formákba a mágia segítségével. Kár is lenne persze tagadni, a cél nem különb, mint eddig volt: a pusztítás.
+
+A villámvarázslatok sebzését jelentősen befolyásolja az áldozat viselte ruha, vért. A bőrvértek, a vastag ruházat (értsd: szőrme, téli posztóköpeny) 2 Sp-t levonnak minden egyes sebzési célzattal tett kockadobás értékéből. (Ha tehát a sebzés 5k10, a levonás 5x2, azaz 10 Sp). Ha az áldozat bármilyen fémvértet visel, elesik a kedvezménytől. Igazán azonban akkor kerül bajba, ha a fémvért alatt nem visel vastag ruházatot vagy posztóvértet, mert ekkor a lehetséges sebzés maximumát szenvedi el (előző példánk esetében a sebzést dobni sem kell, az 5x10, azaz 50 Sp). A villámok sebzése ellen a páncélok hagyományos SFÉ-je nem érvényesül. További fontos megjegyzés, hogy az abbit - s azon ötvözetei, melyekben legalább 33 százalékban jelen van - nem vezetik az elektromosságot, jelen összefüggésben tehát bőrvértnek tekintendők.
+
+Villámokkal csak Fp sebzés okozható, Ép sebzés nem, kivéve a [kötelező ÉP-vesztést](entity:szabaly_kotelezo_ep_vesztes). Túlütésről villámok esetében nem beszélhetünk, 50-nel nagyobb dobásnál is csak Fp-t veszít az áldozat. Ha Fp-inek száma nullára vagy az alá csökken, menthetetlenül elveszti eszméletét, de a maradék sebzés ekkor sem vonódik le az Ép-ből.
+
+További különlegesség, hogy ha az áldozat 40 Fp-s vagy afölötti sebzés esetén elvéti Egészségpróbáját, izmai k6 körre felmondják a szolgálatot. Bénultan rogy a földre, s csak a görcs lejárta után képes újra megmozdulni.
+        `
+    },
 
 ] as const;
 

@@ -1075,6 +1075,26 @@
     },
     {
         "fajta": "normal",
+        "id": "pap_gilron_gepszellem",
+        "name": "Gépszellem",
+        "kategoriak": [
+            "nagy_arkanum",
+            "rituale",
+            "egyedi_gilron"
+        ],
+        "mp": 60,
+        "idotartam": "végleges",
+        "varazslasIdeje": "1 nap",
+        "kepzettsegek": [
+            "magia:pap_szfera_termeszet"
+        ],
+        "fok": 1,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A Gépszellem varázslat a Gilron-papok talán legkülönösebb praktikája. Arra szolgál, hogy a mechanikus gépezetek működéséhez szükséges energiát a manaháló megcsapolásával biztosíthassák. A varázslat kapcsolatot létesít a gépezet és a manaháló között, mely mindaddig fennmarad, míg azt erőszakkal meg nem szüntetik, vagy a szerkezet el nem romlik. A gép ugyanis a varázslat alkalmazása után sem minősül mágikus tárgynak — hacsak eleve nem volt az -, így könnyedén el\nis romolhat.\n\nA szerkezetet eleve úgy kell elkészíteni, hogy alkalmas legyen a mágikus energia hasznosítására, így a \"közönséges\" gépek nem alakíthatók át \"örökmozgóvá\". Ezzel a varázslattal lesznek teljesek többek között a különféle repülő szerkezetek, járó és beszélő babák, zenedobozok, stb. Amíg a varázslat tart, az így \"felszentelt\" szerkezetekre nem alkalmazható a Természetes anyagok mágiája. \n\nBelső körökben \"Gilron tüzének\" is nevezik ezt a mágiaformát. Egy varázslattal csak egy tárgyba lehet Gépszellemet költöztetni."
+    },
+    {
+        "fajta": "normal",
         "id": "pap_gilron_aldasa",
         "name": "Gilron áldása",
         "kategoriak": [
@@ -3813,23 +3833,17 @@
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
     },
     {
-        "fajta": "normal",
-        "id": "pap_gilron_gepszellem",
-        "name": "Gépszellem",
-        "kategoriak": [
-            "nagy_arkanum",
-            "rituale",
-            "egyedi_gilron"
-        ],
-        "mp": 60,
-        "idotartam": "végleges",
-        "varazslasIdeje": "1 nap",
         "kepzettsegek": [
-            "magia:pap_szfera_termeszet"
+            "magia:bm_villammagia"
         ],
+        "id": "magia_bm_villamtuk",
+        "name": "Villámtűk",
+        "mp": 4,
+        "idotartam": "1 kör/szint",
+        "ke": -10,
         "fok": 1,
-        "range": "touch",
+        "range": "15",
         "save": "nincs",
-        "leiras": "A Gépszellem varázslat a Gilron-papok talán legkülönösebb praktikája. Arra szolgál, hogy a mechanikus gépezetek működéséhez szükséges energiát a manaháló megcsapolásával biztosíthassák. A varázslat kapcsolatot létesít a gépezet és a manaháló között, mely mindaddig fennmarad, míg azt erőszakkal meg nem szüntetik, vagy a szerkezet el nem romlik. A gép ugyanis a varázslat alkalmazása után sem minősül mágikus tárgynak — hacsak eleve nem volt az -, így könnyedén el\nis romolhat.\n\nA szerkezetet eleve úgy kell elkészíteni, hogy alkalmas legyen a mágikus energia hasznosítására, így a \"közönséges\" gépek nem alakíthatók át \"örökmozgóvá\". Ezzel a varázslattal lesznek teljesek többek között a különféle repülő szerkezetek, járó és beszélő babák, zenedobozok, stb. Amíg a varázslat tart, az így \"felszentelt\" szerkezetekre nem alkalmazható a Természetes anyagok mágiája. \n\nBelső körökben \"Gilron tüzének\" is nevezik ezt a mágiaformát. Egy varázslattal csak egy tárgyba lehet Gépszellemet költöztetni."
+        "leiras": "A varázslat több tucat apró villámot idéz meg, melyeket a boszorkánymester bal tenyeréből lőhet ki. Maximum 15 méter távolságig lehet eljuttatni őket, azon túl energiájuk eloszlik.\n\nEgyszerre több ellenfél ellen is alkalmazhatóak: maximum annyi teremtmény támadható, amennyi a boszorkánymester tapasztalati szintje. A tűkkel nehéz pontosan célozni, csak az irány adható meg, aztán a többi már a véletlen dolga. Minden kiszemelt áldozat megpróbálhat félreugrani a villámtűk elől, ám kísérletét csak akkor koronázza siker, ha eredményes Reflexpróbát dob. Ez\nesetben semmilyen sebzést nem szenved el. Ha a próbát elbukta, legalább egy villámtű eltalálja, minden további 5 pont bukás még egy villámtűt jelent. (Tehát ha a Reflexpróbát 14-gyel bukja el, összesen 1 + 14/5 = 3 tű találja el.\n\nAz energiatűk komoly sebzést ritkán okoznak, darabonként mindössze 1 Sp-t - ami annyit tesz, hogy vastagabb ruházat, bőrvértek esetén semmilyen sebzés nincs.\n\nAz áldozatok a varázslat minden további E-je után -10-zel dobják a Reflexpróbájukat."
     }
 ]
