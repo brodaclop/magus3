@@ -1,4 +1,5 @@
 import fileDownload from 'js-file-download';
+import cloneDeep from 'lodash.clonedeep';
 import React, { useState } from 'react';
 
 import { Szabaly } from '../model/Szabaly';
@@ -44,7 +45,7 @@ export const SzabalyEditor: React.FC<{}> = () => {
         </select>
         <button onClick={startEdit}>Szerkeszt</button>
         <ObjectEditor desc={SZABALY_SCHEMA} value={object} onChange={ob => {
-            setObject(structuredClone(ob));
+            setObject(cloneDeep(ob));
         }} />
         <button onClick={ment}>Ment</button>
         <button onClick={exportLista}>Export</button>

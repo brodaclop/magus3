@@ -9,6 +9,7 @@ import { Kepzettseg } from '../../model/Kepzettseg';
 import { parseKocka, printKocka } from '../../model/Kocka';
 import { ModalWindow } from '../ModalWindow';
 import { GiAxeSword } from 'react-icons/gi';
+import cloneDeep from 'lodash.clonedeep';
 
 const EMPTY_FEGYVER: Partial<KozelharcFegyver> = {
     ke: 0,
@@ -50,7 +51,7 @@ export const FegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: 
                         <select value={fegyver.id ?? ''} onChange={e => {
                             if (e.target.value) {
                                 const alapFegyver = Fegyver.find(e.target.value);
-                                setFegyver(structuredClone(alapFegyver));
+                                setFegyver(cloneDeep(alapFegyver));
                                 setSebzes(printKocka(alapFegyver.sebzes));
                             } else {
                                 setFegyver({ ...EMPTY_FEGYVER });

@@ -1,3 +1,4 @@
+import cloneDeep from "lodash.clonedeep";
 import { v4 } from "uuid";
 import { KozelharcFegyver } from "./Fegyver";
 import { Karakter } from "./Karakter";
@@ -38,21 +39,21 @@ export const Inventory = {
     addPancel: (karakter: Karakter, pancel: Pancel, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'pancel',
-        ob: structuredClone(pancel),
+        ob: cloneDeep(pancel),
         quantity: 1,
         notes
     }),
     addFegyver: (karakter: Karakter, fegyver: KozelharcFegyver, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'fegyver',
-        ob: structuredClone(fegyver),
+        ob: cloneDeep(fegyver),
         quantity: 1,
         notes
     }),
     addLofegyver: (karakter: Karakter, fegyver: Lofegyver, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'lofegyver',
-        ob: structuredClone(fegyver),
+        ob: cloneDeep(fegyver),
         quantity: 1,
         notes
     }),

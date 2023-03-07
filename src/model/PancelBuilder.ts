@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash.clonedeep';
 import { SebzesTipus } from './Fegyver';
 import { Pancel } from './Pancel';
 
@@ -236,7 +237,7 @@ export const PancelBuilder = {
         name: idx === 0 ? 'Rúna nélkül' : `+${idx}`
     })) as Array<PancelBlokk>,
     removeIgazit: (pancel: Pancel): Pancel => {
-        const ret = structuredClone(pancel) as Pancel;
+        const ret = cloneDeep(pancel) as Pancel;
         ret.mgt = ret.mgt - ret.igazitas.mgt;
         ret.sfe.szuro = ret.sfe.szuro - ret.igazitas.sfe.szuro;
         ret.sfe.vago = ret.sfe.vago - ret.igazitas.sfe.vago;
@@ -260,7 +261,7 @@ export const PancelBuilder = {
             acc.sfe.vago += curr.sfe.vago;
             acc.sfe.zuzo += curr.sfe.zuzo;
             return acc;
-        }, structuredClone(alap));
+        }, cloneDeep(alap));
 
         normalize(tulajdonsagok);
 

@@ -1,4 +1,5 @@
 import fileDownload from 'js-file-download';
+import cloneDeep from 'lodash.clonedeep';
 import React, { useState } from 'react';
 import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg } from '../model/Kepzettseg';
@@ -61,7 +62,7 @@ export const KepzettsegEditor: React.FC<{}> = () => {
         <button onClick={startEdit}>Szerkeszt</button>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <ObjectEditor desc={NORMAL_KEPZETTSEG_SCHEMA} value={object} onChange={ob => {
-                setObject(structuredClone(ob));
+                setObject(cloneDeep(ob));
             }} />
             {kepesseg && kpk && <table className='bordered'>
                 <thead>

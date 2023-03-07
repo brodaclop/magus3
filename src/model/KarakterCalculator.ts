@@ -1,3 +1,4 @@
+import cloneDeep from "lodash.clonedeep";
 import { Calculation, CalculationArgument, CalculationBinary, CalculationValue } from "./Calculation";
 import { Fegyver, FEGYVER_KEPZETTSEG_HARCERTEKEK, MASODIK_TAMADAS_KE, SebzesTipus } from "./Fegyver";
 import { Harcertek } from "./Harcertek";
@@ -76,7 +77,7 @@ class KarakterCalculation {
         curr.kepzettsegek.szazalekos.forEach(kepz => {
             const previous = acc.find(k => k.kepzettseg.id === kepz.kepzettseg.id);
             if (previous === undefined) {
-                acc.push(structuredClone(kepz));
+                acc.push(cloneDeep(kepz));
             } else {
                 previous.szazalek += kepz.szazalek;
             }

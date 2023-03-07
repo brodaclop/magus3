@@ -4,6 +4,7 @@ import { DobasEredmeny, kockaDobas, KockaDobas } from "./Kocka";
 import { NamedEntity, namedEntityArray } from "./util";
 import KASZTOK from '../data/kasztok.json';
 import { MagiaKategoriak } from "./Magia";
+import cloneDeep from "lodash.clonedeep";
 
 export const KasztKepesseg = ['Legendás', 'Jó', 'Átlagos', 'Gyenge'] as const;
 export const ManaMennyiseg = ['normál', 'sok', 'kevés'] as const;
@@ -64,7 +65,7 @@ export interface KasztInfo extends NamedEntity {
 export const Kasztok = {
     ...namedEntityArray(KASZTOK as Array<KasztInfo>),
     kasztInfo: (kasztId: string, szint: number): KasztInfo => {
-        let ret = structuredClone(Kasztok.find(kasztId)) as KasztInfo;
+        let ret = cloneDeep(Kasztok.find(kasztId)) as KasztInfo;
         if (ret.fokaszt) {
             const alkaszt: Partial<KasztInfo> = ret;
             const fokaszt = Kasztok.find(ret.fokaszt);

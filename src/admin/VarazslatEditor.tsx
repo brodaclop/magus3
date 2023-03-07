@@ -1,4 +1,5 @@
 import fileDownload from 'js-file-download';
+import cloneDeep from 'lodash.clonedeep';
 import React, { useState } from 'react';
 import { Kepzettseg } from '../model/Kepzettseg';
 import { GyorsVarazslat, LassuVarazslat, Magia, MagiaKategoriak, Mentodobasok, Varazslat } from '../model/Magia';
@@ -76,7 +77,7 @@ export const VarázslatEditor: React.FC<{}> = () => {
         <button onClick={startEdit}>Szerkeszt</button>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
             <ChoiceEditor desc={VARAZSLAT_SCHEMA} value={object} onChange={ob => {
-                setObject(structuredClone(ob));
+                setObject(cloneDeep(ob) as any);
             }} />
         </div>
 

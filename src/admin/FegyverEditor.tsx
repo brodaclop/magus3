@@ -1,5 +1,7 @@
 import fileDownload from 'js-file-download';
+import cloneDeep from 'lodash.clonedeep';
 import React, { useState } from 'react';
+
 
 import { Fegyver, FegyverFlags, FegyverSebesseg, FEGYVER_KATEGORIAK, KozelharcFegyver, SebzesTipus } from '../model/Fegyver';
 import { Kepessegek } from '../model/Kepessegek';
@@ -82,7 +84,7 @@ export const FegyverEditor: React.FC<{}> = () => {
         </select>
         <button onClick={startEdit}>Szerkeszt</button>
         <ObjectEditor desc={FEGYVER_SCHEMA} value={object} onChange={ob => {
-            setObject(structuredClone(ob));
+            setObject(cloneDeep(ob) as any);
         }} />
         <button onClick={ment}>Ment</button>
         <button onClick={exportLista}>Export</button>

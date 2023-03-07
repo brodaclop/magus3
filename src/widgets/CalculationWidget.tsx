@@ -33,7 +33,7 @@ const printOperation = (op: CalculationOperation): ReactNode => {
                 return printArgument(op.args[0]);
             }
 
-            const max = op.args.map(arg => Calculation.calculate(arg)).sort().at(-1);
+            const max = Calculation.calculate(op);
             const maxIdx = op.args.findIndex(arg => Calculation.calculate(arg) === max);
 
             return <ul style={{ listStyleType: '"> "' }}>
@@ -46,7 +46,7 @@ const printOperation = (op: CalculationOperation): ReactNode => {
                 return printArgument(op.args[0]);
             }
 
-            const min = op.args.map(arg => Calculation.calculate(arg)).sort()[0];
+            const min = Calculation.calculate(op);
             const minIdx = op.args.findIndex(arg => Calculation.calculate(arg) === min);
 
             return <ul style={{ listStyleType: '"< "' }}>

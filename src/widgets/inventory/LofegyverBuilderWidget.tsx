@@ -8,6 +8,7 @@ import { parseKocka, printKocka } from '../../model/Kocka';
 import { FixSebzesuLofegyver, Lofegyver } from '../../model/Lofegyver';
 import { ModalWindow } from '../ModalWindow';
 import { GiCrossbow } from 'react-icons/gi';
+import cloneDeep from 'lodash.clonedeep';
 
 const EMPTY_LOFEGYVER: Partial<Lofegyver> = {
     ke: 0,
@@ -57,7 +58,7 @@ export const LofegyverBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k
                         <select value={fegyver.id ?? ''} onChange={e => {
                             if (e.target.value) {
                                 const alapFegyver = Lofegyver.find(e.target.value);
-                                setFegyver(structuredClone(alapFegyver));
+                                setFegyver(cloneDeep(alapFegyver));
                                 if (alapFegyver.tipus !== 'ij') {
                                     setSebzes(printKocka(alapFegyver.sebzes));
                                 }

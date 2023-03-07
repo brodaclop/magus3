@@ -81,11 +81,11 @@ ul.simpleList li {
     margin: 0.5em;
 }
 
-.markdown table>tbody>tr:nth-child(even) {
+.markdown table>tbody>tr:nth-child(odd) {
     background-color: #d3d8db;
 }
 
-.markdown table>tbody>tr:nth-child(odd) {
+.markdown table>tbody>tr:nth-child(even) {
     background-color: #fff;
 }
 
