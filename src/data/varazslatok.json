@@ -299,6 +299,21 @@
     },
     {
         "fajta": "normal",
+        "id": "magia_bm_bebortonzes",
+        "name": "Bebörtönzés",
+        "mp": 70,
+        "idotartam": "1 óra/szint",
+        "varazslasIdeje": "1 perc",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 5,
+        "range": "10",
+        "save": "nincs",
+        "leiras": "A varázslat segítségével a boszorkánymester nyers energiából való erőtérketrecbe zárhat egy emberi méretű vagy kisebb teremtményt. A ketrec kör alakú, sugara 1 méter, rácsai anyagtalanok és derengő kék fényt sugároznak - gyakorlatilag villámnak minősülnek. A bezárt lény nem képes kitörni börtönéből, csak ha vállalja a rácsokkal való érintkezés kockázatát. Ha hozzájuk ér, vagy áthatol rajtuk, körönként 7k10 Sp-t sebződik - ami érthetően erős fájdalommal jár -, s ha elvéti Egészségpróbáját, izmai k6 körre felmondják a szolgálatot. Bénultan rogy a földre, és szerencsésnek mondhatja magát, ha kellő távolságra zuhan az irtózatos energiarácsoktól.\n\nA ketrecből biztonságosan kijutni csak mágia segítségével lehet. A varázslat a boszorkánymester szintjeinek megfelelő számú óráig tart."
+    },
+    {
+        "fajta": "normal",
         "id": "tv_belso_tuz",
         "name": "Belső tűz",
         "mp": 23,
@@ -1037,6 +1052,21 @@
         "range": "5 km",
         "save": "nincs",
         "leiras": "Ez a hatalmas erejű varázslat vad földrengést idézhet, s ezzel falvakat, kisebb városokat, városrészeket dönthet romba. A pap kijelölheti a rengések epicentrumát, egy tőle maximum 5 km-re levő pontot. A rengések 3-4 km-re terjednek középpontjuktól, s legerősebben az epicentrumban lesznek érezhetők.\n\nA varázslat az epicentrumban 8k10 sebzést okoz az épületeknek és a bennük tartózkodóknak, 300 méterrel kijebb már csak 8k10/2, 600 méterre 8k10/3 és így tovább.\n"
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_fordulo_villam",
+        "name": "Forduló villám",
+        "mp": 15,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "Ez a villámforma nem visszaverődni, hanem fordulni képes. Segítségével falak mögött rejtőző vagy kanyarodó folyosón menekülő ellenfél is eltalálható. A varázslat használata mindenben megegyezik a [Visszaverődő villám](entity:magia_bm_visszaverodo_villam)nál leírtakkal, de ebben az eset-\nben a CÉ levonás csak -10, és nem visszaverődésenként, hanem megtett fordulatonként értendő."
     },
     {
         "fajta": "normal",
@@ -1871,6 +1901,21 @@
         "range": "10",
         "save": "mental",
         "leiras": "A bárd ezen varázslattal fájdalmat okozhat mindazoknak, akik a dalt hallják. A fájdalom borzalmas, hasogató fejfájásként jelentkezik, majd kínhullámként seper végig az egész\ntesten. A célpont [Mágiaellenállásra](entity:szabaly_magiaellenallas) jogosult a varázslat ellen.\n\nAmennyiben az ME dobás sikertelen, az áldozat 1k6 FP-t veszít körönként. A dal annyi ideig tartható fenn, míg a bárd kívánja, s Mana-pontjai ezt lehetővé teszik.\n\nFIGYELEM! A dalt énekelni, nem bömbölni kell, így a hatósugár - efféle módon - nem növelhető."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_kisules",
+        "name": "Kisülés",
+        "mp": 8,
+        "idotartam": "8 kör",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 1,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A boszorkánymester a varázslattal nyers, lüktető energiát gyűjthet a tenyerébe. A varázslás befejeztével megkezdődik az összegyűjtés fázisa - minél tovább tart, annál több energia halmozódik a boszorkánymester tenyerébe, s annál nagyobb lesz a kisüléskor okozott sebzés is. Minden egyes összegyűjtéssel töltött kör 1E-vel növeli a kisülés erősségét. Ez a fázis maximálisan 4 körig tarthat.\n\nAhhoz, hogy a boszorkánymester kisüthesse a tenyerében felhalmozódott energiát, meg kell érintenie kiszemelt áldozatát - ami természetesen sikeres támadást igényel. Sikeres támadás esetén az áldozat annyiszor k10 Sp-t veszít, amennyi\nerősségű (E) energiát a boszorkánymester az előző fázisban összegyűjtött. A támadást nem szükséges azonnal megejtenie, de ha az Időtartam lejártáig nem teszi meg, az összegyűjtött energia és az elhasznált Mana-pontok kárba vesznek."
     },
     {
         "fajta": "normal",
@@ -3765,6 +3810,124 @@
         ]
     },
     {
+        "id": "magia_bm_villamkeltes",
+        "varazslasIdeje": "1 kör",
+        "name": "Villámkeltés",
+        "mp": 6,
+        "idotartam": "1 kör/szint",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 3,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A boszorkánymester ezzel a varázslattal szabad folyást enged testén keresztül a nyers mágikus energiáknak; az időtartam alatt a sebzést okozó villámvarázslatokat feleannyi Mana-pontért lesz képes végrehajtani. Amennyiben ez nem egész szám, mindig felfelé kell kerekíteni. Minden okozott k10 sebzésért (a villámvarázslat minden egyes E-jéért) azonban a boszorkánymester is k6 Fp-t veszít a zabolázatlanul tomboló energiáknak köszönhetően."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_villamlanc",
+        "name": "Villámlánc",
+        "mp": 20,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A Villámlánccal több ellenfél is támadható, mindüknek a villám hatótávolságán belül kell tartózkodniuk. A kilőtt villám CÉ-je és sebzése a módosítandó [Villámvarázs](entity:magia_bm_villamvarazs) E-jének függvénye.\n\nA boszorkánymester célba veszi az első áldozatot: ha eltalálja, a villám a szokásos módon sebez. Eztán a boszorkánymester kijelölheti a következő célpontot; a villám az ő irányában folytatja az útját - ám CÉ-je 15-tel csökken. Új Célzó dobást kell dobni, a következő célpontra. Ha ez is célba talál, újból sebez, és CÉ-je újból 15-tel kevesebb lesz. Ez így folytatódik addig, míg a villám egyszer célt nem téveszt, vagy a boszorkánymester be nem szünteti a varázslatot.\n\nA varázslat tetszőleges számú ellenféllel szemben alkalmazható."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_villampenge",
+        "name": "Villámpenge",
+        "mp": 10,
+        "idotartam": "5 kör",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 2,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varázslattal a boszorkánymester nyers energiával övezheti egy tetszés szerinti formájú, egykezes kard pengéjét. A kékes derengés körbefonja a pengét, és a fegyver eredeti sebzésén túl megégeti mindazokat, akiken a fegyver sebet ejt. A kardot bárki megfoghatja, ha ügyel arra, hogy vastag bőr vagy posztó kerüljön a tenyere és a kard fémje közé. Ha ezt elmulasztaná megtenni, maga is körönként sebződik. A nyers energia sebzése körönként 1k10 Sp.\n\nA mágiával felruházott karddal a továbbiakban is harcolni szükséges, KÉ-je, TÉ-je, VÉ-je nem változik; sebzéséhez a kard eredeti sebzésén túl az energia sebzése járul. Az energia az Időtartam lejártával semmivé lesz, s a kard ismét közönsé-\nges fegyverré változik."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_villamtagadas",
+        "name": "Villámtagadás",
+        "mp": 7,
+        "idotartam": "1 kör/szint",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 5,
+        "range": "10",
+        "save": "nincs",
+        "leiras": "A boszorkánymester megvédheti magát - vagy a hatótávolságon belül tartózkodó egyetlen másik lényt - minden fajta nyers energia, villám sebzésétől, ha az természetes eredetű. A villám energiája ártalmatlanul a földbe vezetődik, és\nközben semmilyen módon nem károsítja a varázslat használóját. Ha mágikus villám csap a varázslat használójába, nem árthat neki, amennyiben erőssége nem haladja meg a védelem erősségét. Ha meghaladja, csak annyit sebez rajta, amennyivel erőssége több a védeleménél."
+    },
+    {
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "id": "magia_bm_villamtuk",
+        "name": "Villámtűk",
+        "mp": 4,
+        "idotartam": "1 kör/szint",
+        "ke": -10,
+        "fok": 1,
+        "range": "15",
+        "save": "nincs",
+        "leiras": "A varázslat több tucat apró villámot idéz meg, melyeket a boszorkánymester bal tenyeréből lőhet ki. Maximum 15 méter távolságig lehet eljuttatni őket, azon túl energiájuk eloszlik.\n\nEgyszerre több ellenfél ellen is alkalmazhatóak: maximum annyi teremtmény támadható, amennyi a boszorkánymester tapasztalati szintje. A tűkkel nehéz pontosan célozni, csak az irány adható meg, aztán a többi már a véletlen dolga. Minden kiszemelt áldozat megpróbálhat félreugrani a villámtűk elől, ám kísérletét csak akkor koronázza siker, ha eredményes Reflexpróbát dob. Ez\nesetben semmilyen sebzést nem szenved el. Ha a próbát elbukta, legalább egy villámtű eltalálja, minden további 5 pont bukás még egy villámtűt jelent. (Tehát ha a Reflexpróbát 14-gyel bukja el, összesen 1 + 14/5 = 3 tű találja el.\n\nAz energiatűk komoly sebzést ritkán okoznak, darabonként mindössze 1 Sp-t - ami annyit tesz, hogy vastagabb ruházat, bőrvértek esetén semmilyen sebzés nincs.\n\nAz áldozatok a varázslat minden további E-je után -10-zel dobják a Reflexpróbájukat."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_villamvarazs",
+        "name": "Villámvarázs",
+        "leiras": "A boszorkánymester a varázslattal egyetlen villámot lőhet ki bal kezének mutatóujjából. A villámmal céloznia kell, s célpontjának csak akkor okozhat sebet, ha el is találja. Ehhez sikeres Célzó Dobást kell tennie, ahol saját CÉ-jéhez hozzáadhatja a villám 35-ös CÉ-jét. A villámmal csak egyenes vonalban, maximum 20 méter távolságig lehet ellőni, ha semmi nem takarja el a kiszemelt áldozatot, és a sebzése k10. Az energianyalábot - értelemszerűen - nem lehet fegyverrel hárítani.\n\nTovábbi erősítéssel a villám sebzése növelhető, de megtöbbszörözhető a CÉ és a lőtávolság is. Tehát pl. egy 6-os erősségű villám lehet +105 CÉ-jű, 60 méterre elható, de mindössze 2k10-et sebző, vagy +70 CÉ/40m/3k10, esetleg +35 CÉ/20m/6k10.",
+        "mp": 10,
+        "idotartam": "azonnali",
+        "ke": 0,
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 3,
+        "range": "20",
+        "save": "nincs"
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_villamvert",
+        "name": "Villámvért",
+        "mp": 10,
+        "idotartam": "3 kör",
+        "varazslasIdeje": "1 kör",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 2,
+        "range": "touch",
+        "save": "nincs",
+        "leiras": "A varázslat nyers energiából való, kéken villózó aurát hoz létre a boszorkánymester - illetve azon személy körül, akit a boszorkánymester megérint. Akik az Időtartam alatt az így felvértezett illetőhöz érnek, vagy akiket ő érint meg, 1k10 Sp-t veszítenek. Ugyanez történik azzal, aki fém kézifegyverrel sikeres támadást hajt végre ellene, s nem gondoskodott fegyvere szigeteléséről. A boszorkánymester a varázslattal támadhat is."
+    },
+    {
+        "fajta": "normal",
+        "id": "magia_bm_visszaverodo_villam",
+        "name": "Visszaverődő villám",
+        "mp": 8,
+        "idotartam": "azonnali",
+        "varazslasIdeje": "azonnali",
+        "kepzettsegek": [
+            "magia:bm_villammagia"
+        ],
+        "fok": 4,
+        "range": "self",
+        "save": "nincs",
+        "leiras": "A varázslat kizárólag a [Villámvarázs](entity:magia_bm_villamvarazs) varázslattal együtt használható: ez esetben a kilőtt nyaláb a kőről, fáról, üvegről - és egyéb nem vezető anyagokról - visszaverődik, azokban semmilyen kárt nem teszt. Irányát megváltoztatva eltalálhatja a takarásban rejtőző célpontot, aki akkor is áldozatul esik a villámnak, ha tetőtől talpig szigetelő anyagokba burkolja magát. Az efféle - visszaverődésre alapozó - célzás visszaverődésenként 15-tel csökkenti a villám CÉ-jét. Ha a visszaverésre kiszemelt felület tükör, a CÉ nem változik.\n\nFIGYELEM: a visszaverődés révén a célpont távolsága nő - ez a célzásnál szerepet kap! A varázslat hatótávolságát nem csökkenti, mert az nem a villám által megtett utat jelenti, hanem a boszorkánymester körüli 20/40/60/stb. láb sugarú kört. Ha a villám elvéti a célpontot, vagy elhagyja a hatótávolság határát, ártalmatlanul elenyészik."
+    },
+    {
         "fajta": "normal",
         "id": "pap_vizfakasztas",
         "fok": 3,
@@ -3831,19 +3994,5 @@
         "range": "10",
         "save": "mental",
         "leiras": "A dal hatására az azt halló célpontok, ha 10 méternyi körön belül tartózkodnak és sikertelen volt [Mágiaellenállás](entity:szabaly_magiaellenallas)uk, teljesen zavarodottá válnak. Nem tudják, mit tegyenek, csak tétován álldogálnak. Ha megtámadják őket, védekeznek, de a támadásra kevésbé koncentrálnak, így TÉ-jük 25-tel csökken. A varázslat megszűnésével a zavarodott áldozatok k6 kör után nyerik vissza igazi cselekvőképességüket, addig még a dal hatása alatt állnak."
-    },
-    {
-        "kepzettsegek": [
-            "magia:bm_villammagia"
-        ],
-        "id": "magia_bm_villamtuk",
-        "name": "Villámtűk",
-        "mp": 4,
-        "idotartam": "1 kör/szint",
-        "ke": -10,
-        "fok": 1,
-        "range": "15",
-        "save": "nincs",
-        "leiras": "A varázslat több tucat apró villámot idéz meg, melyeket a boszorkánymester bal tenyeréből lőhet ki. Maximum 15 méter távolságig lehet eljuttatni őket, azon túl energiájuk eloszlik.\n\nEgyszerre több ellenfél ellen is alkalmazhatóak: maximum annyi teremtmény támadható, amennyi a boszorkánymester tapasztalati szintje. A tűkkel nehéz pontosan célozni, csak az irány adható meg, aztán a többi már a véletlen dolga. Minden kiszemelt áldozat megpróbálhat félreugrani a villámtűk elől, ám kísérletét csak akkor koronázza siker, ha eredményes Reflexpróbát dob. Ez\nesetben semmilyen sebzést nem szenved el. Ha a próbát elbukta, legalább egy villámtű eltalálja, minden további 5 pont bukás még egy villámtűt jelent. (Tehát ha a Reflexpróbát 14-gyel bukja el, összesen 1 + 14/5 = 3 tű találja el.\n\nAz energiatűk komoly sebzést ritkán okoznak, darabonként mindössze 1 Sp-t - ami annyit tesz, hogy vastagabb ruházat, bőrvértek esetén semmilyen sebzés nincs.\n\nAz áldozatok a varázslat minden további E-je után -10-zel dobják a Reflexpróbájukat."
     }
 ]
