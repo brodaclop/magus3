@@ -52,7 +52,7 @@ export const Main: React.FC<{}> = () => {
   }, [karakterek, ujKarakter, navigate]);
 
 
-  return <div>
+  return <div className='main'>
     <nav>
       <ul>
         <li>

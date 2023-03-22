@@ -15,6 +15,7 @@ import { LofegyverBuilderWidget } from './inventory/LofegyverBuilderWidget';
 import { PancelBuilderWidget } from './inventory/PancelBuilderWidget';
 import { PancelSzerkesztWidget } from './inventory/PancelSzerkesztWidget';
 import { formatSebzesTipus } from './KombatWidget';
+import { RiDeleteBin2Line } from 'react-icons/ri';
 
 export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: InventoryItem }> = ({ calc, item }) => {
 
@@ -189,11 +190,11 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                         onChange(karakter);
                     }}>+</button>
                 </td>
-                <td>
-                    <button disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
+                <td style={{ textAlign: 'right' }}>
+                    <button style={{ backgroundColor: 'tomato' }} disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
                         karakter.inventory.splice(idx, 1);
                         onChange(karakter);
-                    }}>x</button>
+                    }}><RiDeleteBin2Line /></button>
                 </td>
             </tr>)}
         </tbody>

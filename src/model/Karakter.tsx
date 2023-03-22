@@ -41,6 +41,7 @@ export interface Karakter extends NamedEntity {
     elosztva?: boolean;
     szazalek: number;
     hatasok: Array<Hatas>;
+    notes?: string;
     temporary: {
         pajzs: {
             [key in 'asztral' | 'mental']: {

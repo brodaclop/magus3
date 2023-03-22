@@ -61,6 +61,9 @@ export const HarcertekWidget: React.FC<{ karakter: Karakter, setKarakter: (k: Ka
 
     return <table className='bordered'>
         <thead>
+            <tr>
+                <th colSpan={4}>Harcérték</th>
+            </tr>
             {maradekHm + sumElosztott > 0 &&
                 <tr>
                     <th>

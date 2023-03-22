@@ -24,7 +24,7 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 <th>Varázslás ideje</th>
                 <th>Hatótáv</th>
                 <th>Időtartam</th>
-                <th>Mentődobás</th>
+                <th>Mentő</th>
                 <th>Képzettség</th>
                 <th>Kategóriák</th>
             </tr>
@@ -39,8 +39,17 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                 <td>{Magia.formatRange(v.range)} </td>
                 <td>{v.idotartam}</td>
                 <td>{arrayName(Magia.mentodobasok, v.save)} </td>
-                <td>{v.kepzettsegek.map(k => Kepzettseg.name(k)).join(', ')} {v.fok}.fok</td>
-                <td style={{ whiteSpace: 'pre-wrap' }}>{v.kategoriak?.map(k => arrayName(Magia.kategoriak, k))?.join('\n')}</td>
+                <td>
+                    <table>
+                        <tbody>
+                            {v.kepzettsegek.map((k, idx) => <tr>
+                                <td>{Kepzettseg.name(k)}</td>
+                                {idx === 0 && <td rowSpan={v.kepzettsegek.length}>{v.fok}.fok</td>}
+                            </tr>)}
+                        </tbody>
+                    </table>
+                </td>
+                <td>{v.kategoriak?.map(k => arrayName(Magia.kategoriak, k))?.map(n => <div>{n}</div>)}</td>
             </tr>)}
         </tbody>
     </table>;

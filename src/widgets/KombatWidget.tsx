@@ -144,16 +144,19 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
                 <th>Harci helyzetek:</th>
                 <td colSpan={5}>
                     <div style={{ display: 'flex', flexDirection: 'row', flexFlow: 'wrap' }}>
-                        {arraySort([...HarciHelyzetek], ob => ob.name).map(h => <div style={{ width: '15%' }}>
-                            <button style={{ borderColor: karakter.temporary.harciHelyzet.includes(h.id) ? 'green' : undefined }} key={h.id} onClick={() => {
-                                if (karakter.temporary.harciHelyzet.includes(h.id)) {
-                                    karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);
-                                } else {
-                                    karakter.temporary.harciHelyzet.push(h.id);
-                                }
-                                onChange(karakter);
-                            }}>{karakter.temporary.harciHelyzet.includes(h.id) ? '+' : '-'}&nbsp;{h.name}</button>
-                        </div>)}
+                        {arraySort([...HarciHelyzetek], ob => ob.name).map(h => {
+                            const on = karakter.temporary.harciHelyzet.includes(h.id);
+                            return <div style={{ flexBasis: '15%' }}>
+                                <button className={`helyzetbutton ${on ? 'on' : 'off'}`} key={h.id} onClick={() => {
+                                    if (on) {
+                                        karakter.temporary.harciHelyzet.splice(karakter.temporary.harciHelyzet.indexOf(h.id), 1);
+                                    } else {
+                                        karakter.temporary.harciHelyzet.push(h.id);
+                                    }
+                                    onChange(karakter);
+                                }}>{on ? '+' : '-'}&nbsp;{h.name}</button>
+                            </div>;
+                        })}
                     </div>
                 </td>
             </tr>

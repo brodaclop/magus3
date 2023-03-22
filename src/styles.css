@@ -5,12 +5,13 @@
 }
 
 input[type='number'] {
-    width: 3rem;
+    width: 2.5rem;
 }
 
 
 table.bordered>tbody:not(.unstriped)>tr:nth-child(odd) {
-    background-color: #d3d8db;
+    backdrop-filter: brightness(85%);
+    /* background-color: #d3d8db; */
 }
 
 table.bordered>tbody+tbody {
@@ -33,19 +34,6 @@ table.bordered>tbody>tr>th {
 table.fullWidth {
     margin-left: 0;
     margin-right: 0;
-}
-
-div.karakterLap {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 75em;
-    justify-content: space-between;
-    padding: 1em;
-    border: 5px groove lightgray;
-}
-
-div.karakterLap>div {
-    flex-basis: content;
 }
 
 div.karakterLap>div.fullWidth {
@@ -115,4 +103,114 @@ ul.simpleList li {
 .calculation ul {
     padding-left: 1em;
     padding-right: 1em;
+}
+
+div.karakterLap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+div.karakterLapBorder {
+    border: 5px groove lightgray;
+}
+
+.karakterLap .toprow {
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 100%;
+    justify-content: space-between;
+
+}
+
+.karakterLap .topleft {
+    flex-basis: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: aliceblue;
+}
+
+.karakterLap .topright {
+    flex-basis: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: antiquewhite;
+}
+
+.karakterLap .topright>* {
+
+    flex-basis: 34%;
+}
+
+.karakterLap .secondrow {
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 100%;
+    justify-content: space-between;
+
+}
+
+.karakterLap .secondrow>* {
+    flex-basis: 50%;
+}
+
+.karakterLap .secondrow .secondleft {
+    background-color: paleturquoise;
+}
+
+.karakterLap .secondrow .secondright {
+    background-color: cornsilk;
+    display: flex;
+    flex-direction: column;
+}
+
+.karakterLap .secondrow .secondright .notes {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.karakterLap .secondrow .secondright .notes textarea {
+    flex-basis: 100%;
+    margin: 0.5rem;
+}
+
+input,
+select,
+textarea {
+    opacity: 0.75;
+}
+
+.karakterLap .secondrow .secondright .notes div {
+    text-align: center;
+    font-weight: bold;
+}
+
+.karakterLap .kombat {
+    background-color: mintcream;
+}
+
+.karakterLap .kombat .helyzetbutton.on {
+    filter: brightness(120%);
+}
+
+.karakterLap .kombat .helyzetbutton.off {
+    filter: brightness(90%);
+}
+
+.karakterLap .bottomrow {
+    background-color: seashell;
+    display: flex;
+    flex-flow: column;
+    flex-basis: 100%;
+    justify-content: space-between;
+
+}
+
+
+.main {
+    width: 100%;
 }
