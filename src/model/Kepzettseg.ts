@@ -367,7 +367,6 @@ export const Kepzettseg = {
         try {
             return Math.ceil(kepzettseg.kp[fok - 1] * KP_SZORZOK[kepesseg]);
         } catch (e) {
-            debugger;
             return 0;
         }
     },

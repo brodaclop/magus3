@@ -85,31 +85,30 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 <tr>
                     <th colSpan={2} style={{ backgroundColor: 'lightpink' }}>Választható képzettségek</th>
                 </tr>
-                <tbody>
-                    {karakter.szint.map((sz, szintIdx) => <>
-                        {sz.pendingKepzettsegek.length > 0 && <tr>
-                            <th colSpan={2}>{szintIdx}. szint: {sz.kaszt.name}</th>
-                        </tr>}
-                        {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
-                            <td style={{ textAlign: 'left' }}>
-                                {pk.name ?? Kepzettseg.name(pk.kepzettsegId)} {pk.fok}. fok
-                            </td>
-                            <td style={{ textAlign: 'right' }}>
-                                <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
-                                    sz.pendingKepzettsegek.splice(pkIdx, 1);
-                                    sz.kepzettsegek.normal.push({
-                                        kepzettseg,
-                                        fok: pk.fok,
-                                        kp: 0
-                                    });
-                                    onChange(karakter);
-                                }} />
-                            </td>
-                        </tr>)}
-                    </>)}
-                </tbody>
-
             </thead>
+            <tbody>
+                {karakter.szint.map((sz, szintIdx) => <>
+                    {sz.pendingKepzettsegek.length > 0 && <tr>
+                        <th colSpan={2}>{szintIdx}. szint: {sz.kaszt.name}</th>
+                    </tr>}
+                    {sz.pendingKepzettsegek.map((pk, pkIdx) => <tr>
+                        <td style={{ textAlign: 'left' }}>
+                            {pk.name ?? Kepzettseg.name(pk.kepzettsegId)} {pk.fok}. fok
+                        </td>
+                        <td style={{ textAlign: 'right' }}>
+                            <PendingSelector key={pk.id} pk={pk} calc={calc} onSelected={kepzettseg => {
+                                sz.pendingKepzettsegek.splice(pkIdx, 1);
+                                sz.kepzettsegek.normal.push({
+                                    kepzettseg,
+                                    fok: pk.fok,
+                                    kp: 0
+                                });
+                                onChange(karakter);
+                            }} />
+                        </td>
+                    </tr>)}
+                </>)}
+            </tbody>
         </table>}
         <table className='bordered'>
             <thead>

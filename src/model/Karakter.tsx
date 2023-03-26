@@ -301,8 +301,6 @@ export const Karakter = {
                 private: json.private,
                 appearanceBlock
             };
-
-            debugger;
         }
     }
 }

@@ -135,8 +135,6 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
         });
     }
 
-    debugger;
-
     const ret: TPCharacter = convertInternalToExternal(internalChar);
 
     fileDownload(JSON.stringify(ret), `${karakter.name}.json`, 'text/json');
