@@ -33,6 +33,7 @@ export interface Karakter extends NamedEntity {
         appearanceBlock: unknown;
     };
     readonly faj: Faj;
+    balkezes: boolean;
     szint: Array<SzintInfo>;
     kepessegek: Record<string, number>;
     ep: number;
@@ -195,6 +196,7 @@ export const Karakter = {
             faj: template.faj,
             kepessegKategoriak: template.kepessegKategoriak,
             inventory: [],
+            balkezes: false,
             szint: [
                 {
                     kaszt: kasztInfo,

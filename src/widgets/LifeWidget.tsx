@@ -62,6 +62,13 @@ export const LifeWidget: React.FC<{
                 <td>{karakter.jellem}</td>
             </tr>
             <tr>
+                <th>Balkezes?</th>
+                <td><input checked={karakter.balkezes} type="checkbox" onChange={() => {
+                    karakter.balkezes = !karakter.balkezes;
+                    onChange(karakter);
+                }} /></td>
+            </tr>
+            <tr>
                 <th>Szint</th>
                 <td>
                     <ul className='simpleList'>

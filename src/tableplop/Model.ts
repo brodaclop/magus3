@@ -92,6 +92,13 @@ export interface InternalTPTab {
     children: Array<InternalTPChild>;
 }
 
+export interface InternalTPTitleSection {
+    type: 'title-section',
+    title: string;
+    children: Array<InternalTPChild>;
+}
+
+
 export interface InternalTPText {
     type: 'text';
     name: string;
@@ -126,7 +133,7 @@ export interface InternalTPAppearance {
     data: unknown;
 }
 
-export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance;
+export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection;
 
 export interface InternalTPCharacter {
     id: number;
@@ -220,15 +227,16 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
             case 'number': return convertNumber(child, parentId, idx);
             case 'health': return convertHealth(child, parentId, idx);
             case 'appearance': return convertAppearance(child, parentId, idx);
+            case 'title-section': return convertTab(child, parentId, idx);
         }
     }
 
-    const convertTab = (tab: InternalTPTab, idx: number): Array<TPProperty> => {
-        const main: TPTabSection = {
-            ...convert(null, idx),
+    const convertTab = (tab: InternalTPTab | InternalTPTitleSection, parentId: number | null, idx: number): Array<TPProperty> => {
+        const main: any = {
+            ...convert(parentId, idx),
             characterId: character.id,
-            type: 'tab-section',
-            data: {},
+            type: tab.type,
+            data: tab.type === 'tab-section' ? {} : { collapsed: false },
             value: tab.title,
         };
         const children = tab.children.flatMap((c, i) => convertChild(c, main.id, i));
@@ -239,7 +247,7 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         appearance: character.appearance,
         private: character.private,
         type: 'tableplop-character-v2',
-        properties: character.tabs.flatMap(convertTab),
+        properties: character.tabs.flatMap((tab, idx) => convertTab(tab, null, idx)),
     };
     return ret;
 }

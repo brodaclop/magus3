@@ -27,6 +27,13 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             <tr>
                 <th colSpan={6}>Harc</th>
             </tr>
+            <tr style={{ textAlign: 'left' }}>
+                <th />
+                <th>{karakter.balkezes ? 'Bal' : 'Jobb'} kéz</th>
+                <th />
+                <th>{!karakter.balkezes ? 'Bal' : 'Jobb'} kéz</th>
+                <th colSpan={2}>Lőfegyver</th>
+            </tr>
         </thead>
         <tbody>
             <tr>

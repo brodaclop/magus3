@@ -21,23 +21,23 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
 
     const fegyverrel: Array<InternalTPChild> = calc.fegyverrel.kezek.filter(i => !!(i?.te)).map((kez, idx) => ({
         type: 'message',
-        name: `TÉ - ${karakter.kezek[idx]?.ob.name}`,
-        message: `Támadás - ${karakter.kezek[idx]?.ob.name}: TÉ: {${Calculation.calculate(kez!.te!)} + 1d100} / Sebzés: {${formatRoll(kez!.sebzes)}} ${formatSebzesTipus(karakter.kezek[idx]?.ob.sebzestipus!)}`
+        name: `Támadás - ${karakter.balkezes === (idx === 0) ? 'Bal' : 'Jobb'} kéz: ${karakter.kezek[idx]?.ob.name}`,
+        message: `Támadás - ${karakter.balkezes === (idx === 0) ? 'Bal' : 'Jobb'} kéz: ${karakter.kezek[idx]?.ob.name}: TÉ: {${Calculation.calculate(kez!.te!)} + 1d100} / Sebzés: {${formatRoll(kez!.sebzes)}} ${formatSebzesTipus(karakter.kezek[idx]?.ob.sebzestipus!)}`
     }));
 
     const lofegyverrel: Array<InternalTPChild> = calc.lofegyverrel ? [{
         type: 'message',
-        name: `KÉ - ${karakter.lofegyver?.ob.name}`,
+        name: `KÉ - lőfegyver: ${karakter.lofegyver?.ob.name}`,
         message: `KÉ: {kezdemeny = ${Calculation.calculate(calc.lofegyverrel.ke)}+1d10} {initiative = kezdemeny}`
     },
     {
         type: 'message',
-        name: `Köv. támadás - ${karakter.lofegyver?.ob.name}`,
+        name: `Köv. támadás - lőfegyver: ${karakter.lofegyver?.ob.name}`,
         message: `Következő támadás KÉ-je: {kezdemeny = kezdemeny + ${Calculation.calculate(calc.lofegyverrel.tobbTamadasKe)}} {initiative = kezdemeny}`
     },
     {
         type: 'message',
-        name: `CÉ - ${karakter.lofegyver?.ob.name}`,
+        name: `Lövés - ${karakter.lofegyver?.ob.name}`,
         message: `Lövés - ${karakter.lofegyver?.ob.name}: CÉ: {${Calculation.calculate(calc.lofegyverrel.ce)} + 1d100} / Sebzés: {${formatRoll(calc.lofegyverrel.sebzes, true)}} ${formatSebzesTipus(karakter.lofegyver?.ob.sebzestipus!)}`
     }
     ] : [];
@@ -65,6 +65,32 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         type: 'text',
                         name: 'Jellem',
                         value: karakter.jellem,
+                    },
+                    {
+                        type: 'title-section',
+                        title: 'SFÉ',
+                        children: [
+                            {
+                                type: 'number',
+                                name: 'sfe-szuro',
+                                value: calc.sfe.szuro,
+                            },
+                            {
+                                type: 'number',
+                                name: 'sfe-vago',
+                                value: calc.sfe.vago,
+                            },
+                            {
+                                type: 'number',
+                                name: 'sfe-zuzo',
+                                value: calc.sfe.zuzo,
+                            },
+                            {
+                                type: 'number',
+                                name: 'mgt',
+                                value: Calculation.calculate(calc.mgt),
+                            }
+                        ]
                     },
                     {
                         type: 'number',

@@ -18,9 +18,9 @@ export const MASODIK_TAMADAS_KE: Record<typeof FegyverSebesseg[number], number> 
     gyors: 25,
     atlagos: 50,
     lassu: 75,
-    '3': 0,
-    '4': 0,
-    '5': 0
+    '3': 999,
+    '4': 999,
+    '5': 999
 };
 
 export const FegyverFlags = ['buckler', 'nagy-pajzs', 'slan-kard', 'slan-tor', 'pusztakez', 'kes'] as const;
