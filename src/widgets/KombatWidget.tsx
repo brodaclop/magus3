@@ -114,13 +114,11 @@ export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResu
             </tr>
             <tr>
                 <th>Második támadás KÉ</th>
-                <td>
-                    {calc.fegyverrel.kezek[0]?.te && <CalculationWidget calculation={calc.fegyverrel.kezek[0].tobbTamadasKe} />}
+                <td />
+                <td style={{ textAlign: 'center' }}>
+                    <CalculationWidget calculation={calc.fegyverrel.mtke} />
                 </td>
                 <td />
-                <td>
-                    {calc.fegyverrel.kezek[1]?.te && <CalculationWidget calculation={calc.fegyverrel.kezek[1].tobbTamadasKe} />}
-                </td>
                 <th>MTKÉ</th>
                 <td style={{ textAlign: 'center' }}>
                     {calc.lofegyverrel ? <CalculationWidget calculation={calc.lofegyverrel.tobbTamadasKe} /> : '-'}

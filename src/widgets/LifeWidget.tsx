@@ -2,10 +2,17 @@ import React, { useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { Kasztok } from '../model/Kasztok';
+import { exportTPCSV } from '../tableplop/TPExporter';
 import { CalculationWidget } from './CalculationWidget';
 import { FajLeiras } from './entities/FejLeiras';
 import { KasztLeiras } from './entities/KasztLeiras';
 import { KasztSelectorWidget } from './KasztSelectorWidget';
+import { GrConnect } from 'react-icons/gr';
+import { RiDeleteBin2Line } from 'react-icons/ri';
+import { AiOutlineExport } from 'react-icons/ai';
+import fileDownload from 'js-file-download';
+
+
 
 export const LifeWidget: React.FC<{
     calc: KarakterCalcResult,
@@ -24,6 +31,27 @@ export const LifeWidget: React.FC<{
             <tr>
                 <th>Név</th>
                 <td>{karakter.name}</td>
+            </tr>
+            <tr>
+                <th>Tableplop</th>
+                <td>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <label style={{ marginRight: '0.2rem', border: 'black 1px solid', borderRadius: '0.1rem', backgroundColor: 'lightgray', padding: '2px' }}>
+                            <input
+                                type="file"
+                                accept="text/json"
+                                style={{ display: 'none' }}
+                                onChange={async e => {
+                                    await Karakter.connectToTableplop(karakter, e.target.files?.[0]);
+                                    (e.target.value as any) = null;
+                                    onChange(karakter);
+                                }}
+                            />
+                            <span><GrConnect style={{ verticalAlign: 'text-bottom' }} /> Összeköt</span>
+                        </label>
+                        {karakter.tableplop && <button onClick={() => exportTPCSV(karakter, calc)}>Frissít (ID: {karakter.tableplop.characterId})</button>}
+                    </div>
+                </td>
             </tr>
             <tr>
                 <th>Faj</th>
@@ -80,7 +108,14 @@ export const LifeWidget: React.FC<{
                 }} /></td>
             </tr>
             <tr>
-                <td colSpan={2}><button className='fullWidth' onClick={deleteKarakter}>Töröl</button></td>
+                <td colSpan={2}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <button onClick={() => {
+                            fileDownload(JSON.stringify(karakter), `${karakter.name}.json`, 'text/json');
+                        }}>Export <AiOutlineExport style={{ verticalAlign: 'text-top' }} /></button>
+                        <button onClick={deleteKarakter}><RiDeleteBin2Line style={{ verticalAlign: 'text-top' }} /> Töröl</button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>;

@@ -16,8 +16,7 @@ import { mergeToArray, sumArray, transformRecord } from "./util";
 export interface CalcFegyver {
     te?: CalculationArgument,
     //TODO: kocka calculation?
-    sebzes: KockaDobas,
-    tobbTamadasKe: CalculationArgument,
+    sebzes: KockaDobas
 }
 
 export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
@@ -34,6 +33,7 @@ export interface KarakterCalcResult {
     fegyverrel: {
         ke: CalculationArgument,
         ve: CalculationArgument,
+        mtke: CalculationArgument,
         kezek: [CalcFegyver?, CalcFegyver?]
     },
     lofegyverrel?: {
@@ -156,7 +156,7 @@ class KarakterCalculation {
         helyzetek: Array<HarciHelyzetModositok>,
         pillKep: Record<string, number>,
         isVeteran: boolean
-    ): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument } | undefined => {
+    ): CalcFegyver & { ke: CalculationArgument, ve: CalculationArgument, tobbTamadasKe: CalculationArgument } | undefined => {
         const fegyver = this.karakter.kezek[idx]?.ob;
         if (!fegyver) {
             return undefined;
@@ -210,11 +210,14 @@ class KarakterCalculation {
         ] as [ReturnType<KarakterCalculation['fegyverCalc']>, ReturnType<KarakterCalculation['fegyverCalc']>];
         let ke = undefined;
         let ve = undefined;
+        let mtke = undefined;
         if (kezek[0] && kezek[1]) {
             if (harcmodorHatasok.kez1NoAttack) {
                 ke = kezek[0].ke;
+                mtke = kezek[0].tobbTamadasKe;
             } else {
                 ke = Calculation.min(kezek[0].ke, kezek[1].ke);
+                mtke = Calculation.min(kezek[0].tobbTamadasKe, kezek[1].tobbTamadasKe);
             }
             if (harcmodorHatasok.mindketVE) {
                 ve = Calculation.plusz(kezek[0].ve, Calculation.remove(kezek[1].ve as CalculationBinary, 'Fegyver nélkül', 'Képzettség', 'Chi-harc'));
@@ -234,16 +237,19 @@ class KarakterCalculation {
             }
         } else if (kezek[0]) {
             ke = kezek[0].ke;
+            mtke = kezek[0].tobbTamadasKe
             ve = kezek[0].ve;
         } else {
             ke = harcertek.ke;
+            mtke = Calculation.value('Alap', -50);
             ve = harcertek.ve;
         }
 
         return {
             kezek,
             ke,
-            ve
+            ve,
+            mtke
         };
     }
 

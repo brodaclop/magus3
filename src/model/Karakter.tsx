@@ -26,6 +26,12 @@ export type MegfogottFegyver = { tipus: 'pusztakez', ob: KozelharcFegyver, id: s
 
 export interface Karakter extends NamedEntity {
     jellem: string;
+    tableplop?: {
+        characterId: number;
+        tokenURL: string;
+        private: boolean;
+        appearanceBlock: unknown;
+    };
     readonly faj: Faj;
     szint: Array<SzintInfo>;
     kepessegek: Record<string, number>;
@@ -143,6 +149,15 @@ export const Karakter = {
     fixupLegacy: (karakter: Karakter): void => {
         if (karakter.hatasok === undefined) {
             karakter.hatasok = [];
+        }
+        if ((karakter as any).tableplopId) {
+            karakter.tableplop = {
+                characterId: (karakter as any).tableplopId,
+                tokenURL: '',
+                private: false,
+                appearanceBlock: undefined
+            }
+            delete (karakter as any).tableplopId;
         }
         if (!karakter.temporary.ep) {
             karakter.temporary.ep = 0;
@@ -275,5 +290,19 @@ export const Karakter = {
         });
         return [...new Set(kepzettsegek.map(k => k.kepzettsegId))];
     },
-    levelUp
+    levelUp,
+    connectToTableplop: async (karakter: Karakter, file: File | undefined): Promise<void> => {
+        if (file) {
+            const json = JSON.parse(await file.text());
+            const appearanceBlock = json.properties.find((p: any) => p.type === 'appearance')?.data;
+            karakter.tableplop = {
+                characterId: json.properties[0].characterId,
+                tokenURL: json.appearance,
+                private: json.private,
+                appearanceBlock
+            };
+
+            debugger;
+        }
+    }
 }
