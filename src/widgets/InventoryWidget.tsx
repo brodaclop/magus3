@@ -149,19 +149,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
 }
 
 export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
-    const worn: Record<string, number> = {};
-    if (karakter.pancel) {
-        worn[karakter.pancel.id] = 1;
-    }
-    if (karakter.kezek[0]?.tipus === 'fegyver') {
-        worn[karakter.kezek[0].id] = 1;
-    }
-    if (karakter.kezek[1]?.tipus === 'fegyver') {
-        worn[karakter.kezek[1].id] = (worn[karakter.kezek[1].id] ?? 0) + 1;
-    }
-    if (karakter.lofegyver) {
-        worn[karakter.lofegyver.id] = 1;
-    }
+    const worn: Record<string, number> = Karakter.worn(karakter);
 
     return <table className='bordered'>
         <thead>

@@ -22,7 +22,7 @@ export const formatSebzesTipus = (t: typeof SebzesTipus[number]['id'] | Array<ty
 export const KombatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
     const harcmodorKepzettseg = calc.harcmodor && Kepzettseg.find(`harcmodor:${calc.harcmodor?.id}`);
     const harcmodorFok = calc.kepzettsegek.normal.find(k => k.kepzettseg.id === harcmodorKepzettseg?.id)?.fok ?? 0;
-    return <table className='bordered kombat' style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
+    return <table className='bordered kombat-table'>
         <thead>
             <tr>
                 <th colSpan={6}>Harc</th>

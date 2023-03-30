@@ -41,6 +41,7 @@ export interface Karakter extends NamedEntity {
     kezek: [MegfogottFegyver?, MegfogottFegyver?];
     pancel?: InventoryPancel;
     lofegyver?: InventoryLofegyver;
+    bekeszitve?: Array<NamedEntity & Pick<Karakter, 'kezek' | 'lofegyver'>>;
     kp: number;
     kasztKp: number;
     kepessegKategoriak: Record<KepessegKategoria, number>;
@@ -304,5 +305,32 @@ export const Karakter = {
                 appearanceBlock
             };
         }
+    },
+    kez: (karakter: Karakter, idx: 0 | 1) => ((!!karakter.balkezes) === (idx === 0)) ? 'Bal' : 'Jobb',
+    worn: (karakter: Karakter) => {
+        const worn: Record<string, number> = {};
+        if (karakter.pancel) {
+            worn[karakter.pancel.id] = 1;
+        }
+        const wielded: Array<Record<string, number>> = [karakter, ...(karakter.bekeszitve ?? [])].map(k => {
+            const ret: Record<string, number> = {};
+            if (k.kezek[0]?.tipus === 'fegyver') {
+                ret[k.kezek[0].id] = 1;
+            }
+            if (k.kezek[1]?.tipus === 'fegyver') {
+                ret[k.kezek[1].id] = (ret[k.kezek[1].id] ?? 0) + 1;
+            }
+            if (k.lofegyver) {
+                ret[k.lofegyver.id] = 1;
+            }
+            return ret;
+        });
+
+        return wielded.reduce((acc, curr) => {
+            Object.keys(curr).forEach(key => {
+                acc[key] = Math.max(acc[key] ?? 0, curr[key]);
+            });
+            return acc;
+        }, worn);
     }
 }

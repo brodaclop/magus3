@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalculator } from '../model/KarakterCalculator';
 import { Kepesseg, Kepessegek, KepessegKategoria } from '../model/Kepessegek';
+import { BekeszitettWidget } from './BekeszitettWidget';
 import { HarcertekWidget } from './HarcertekWidget';
 import { HatasWidget } from './HatasWidget';
 import { InventoryWidget } from './InventoryWidget';
@@ -98,8 +99,9 @@ export const KarakterWidget: React.FC<{
                         </div>
 
                     </div>
-                    <div className='fullWidth kombat'>
+                    <div className='fullWidth kombat' style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <KombatWidget calc={karakterCalc} karakter={karakter} onChange={commit} />
+                        <BekeszitettWidget karakter={karakter} onChange={commit} />
                     </div>
                     <div className='bottomrow'>
                         <div>

@@ -96,7 +96,7 @@ ul.simpleList li {
     background-color: blanchedalmond;
 } */
 
-.kombat>tbody>tr>th:nth-child(5) {
+.kombat-table>tbody>tr>th:nth-child(5) {
     border-left: solid 1px black;
 }
 
