@@ -1,46 +1,198 @@
 import fileDownload from "js-file-download";
 import { Calculation } from "../model/Calculation";
 import { Karakter } from "../model/Karakter";
-import { KarakterCalcResult } from "../model/KarakterCalculator";
-import { KockaDobas, printKocka } from "../model/Kocka";
-import { formatSebzesTipus } from "../widgets/KombatWidget";
-import { convertInternalToExternal, InternalTPCharacter, InternalTPChild, TPCharacter } from "./Model";
+import { KarakterCalcResult, KarakterCalculator } from "../model/KarakterCalculator";
+import { convertInternalToExternal, InternalTPCharacter, InternalTPNumber, TPCharacter } from "./Model";
+
+const te = (calc: KarakterCalcResult, idx: 0 | 1) => {
+    const _te = calc.fegyverrel.kezek[idx]?.te;
+    return _te ? Calculation.calculate(_te) : 0;
+}
+
+const ce = (calc: KarakterCalcResult) => {
+    const _ce = calc.lofegyverrel?.ce;
+    return _ce ? Calculation.calculate(_ce) : 0;
+}
 
 
+const sebzes = (calc: KarakterCalcResult, idx: 0 | 1 | 2, resz: 0 | 1 | 2) => {
+    const _te = idx === 2 ? calc.lofegyverrel?.ce : calc.fegyverrel.kezek[idx]?.te;
+    if (!_te) {
+        return 0;
+    };
+    const dobas = idx === 2 ? calc.lofegyverrel!.sebzes : calc.fegyverrel.kezek[idx]!.sebzes;
+    switch (resz) {
+        case 0: return dobas.darab;
+        case 1: return dobas.kocka;
+        case 2: return dobas.plusz;
+        default: throw new Error('ilyen nincs és mégis van');
+    }
+}
+const sebzestipus = (calc: KarakterCalcResult, idx: 0 | 1 | 2) => {
+    const _te = idx === 2 ? calc.lofegyverrel?.ce : calc.fegyverrel.kezek[idx]?.te;
+    if (!_te) {
+        return 0;
+    };
+    const _st = idx === 2 ? calc.lofegyverrel!.sebzesTipus : calc.fegyverrel.kezek[idx]!.sebzesTipus;
+    let ret = 0;
+    if (_st.includes('szuro')) {
+        ret += 1;
+    }
+    if (_st.includes('vago')) {
+        ret += 2;
+    }
+    if (_st.includes('zuzo')) {
+        ret += 4;
+    }
+    return ret;
+}
+
+const ST = ['', 'Szúró', 'Vágó', 'Szúró/Vágó', 'Zúzó', 'Szúró/Zúzó', 'Vágó/Zúzó', 'Szúró/Vágó/Zúzó'];
+
+const sebzesTipusFormula = (field: string): string => {
+    let ret = '';
+    for (let i = 1; i < 8; i++) {
+        ret += field + '==' + i + ' ? \'' + ST[i] + '\':'
+    }
+    return ret + '\'\'';
+}
+
+const harcertekek = (karakter: Karakter): Array<InternalTPNumber> => {
+    const calc = KarakterCalculator.calc(karakter);
 
 
+    return [
+        {
+            type: 'number',
+            name: `internal-KE`,
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => Calculation.calculate(calc.fegyverrel.ke)) + Calculation.calculate(calc.fegyverrel.ke)
+        },
+        {
+            type: 'number',
+            name: `internal-MTKE`,
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => Calculation.calculate(calc.fegyverrel.mtke)) + Calculation.calculate(calc.fegyverrel.mtke)
+        },
+        {
+            type: 'number',
+            name: `internal-LoKE`,
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => Calculation.calculate(calc.lofegyverrel?.ke ?? Calculation.value('nincs', 0))) + Calculation.calculate(calc.lofegyverrel?.ke ?? Calculation.value('nincs', 0))
+        },
+        {
+            type: 'number',
+            name: `internal-LoMTKE`,
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => Calculation.calculate(calc.lofegyverrel?.tobbTamadasKe ?? Calculation.value('nincs', 0))) + Calculation.calculate(calc.lofegyverrel?.tobbTamadasKe ?? Calculation.value('nincs', 0))
+        },
+        {
+            type: 'number',
+            name: 'internal-jobbTE',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => te(calc, karakter.balkezes ? 1 : 0)) + te(calc, karakter.balkezes ? 1 : 0)
+        },
+        {
+            type: 'number',
+            name: 'internal-jobbSDarab',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 1 : 0, 0)) + sebzes(calc, karakter.balkezes ? 1 : 0, 0)
+        },
+        {
+            type: 'number',
+            name: 'internal-jobbSKocka',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 1 : 0, 1)) + sebzes(calc, karakter.balkezes ? 1 : 0, 1)
+        },
+        {
+            type: 'number',
+            name: 'internal-jobbSPlusz',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 1 : 0, 2)) + sebzes(calc, karakter.balkezes ? 1 : 0, 2)
+        },
+        {
+            type: 'number',
+            name: 'internal-jobbSTipus',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzestipus(calc, karakter.balkezes ? 1 : 0)) + sebzestipus(calc, karakter.balkezes ? 1 : 0)
+        },
+        {
+            type: 'number',
+            name: 'internal-balTE',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => te(calc, karakter.balkezes ? 0 : 1)) + te(calc, karakter.balkezes ? 0 : 1)
+        },
+        {
+            type: 'number',
+            name: 'internal-balSDarab',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 0 : 1, 0)) + sebzes(calc, karakter.balkezes ? 0 : 1, 0)
+        },
+        {
+            type: 'number',
+            name: 'internal-balSKocka',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 0 : 1, 1)) + sebzes(calc, karakter.balkezes ? 0 : 1, 1)
+        },
+        {
+            type: 'number',
+            name: 'internal-balSPlusz',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, karakter.balkezes ? 0 : 1, 2)) + sebzes(calc, karakter.balkezes ? 0 : 1, 2)
+        },
+        {
+            type: 'number',
+            name: 'internal-balSTipus',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzestipus(calc, karakter.balkezes ? 0 : 1)) + sebzestipus(calc, karakter.balkezes ? 0 : 1)
+        },
+        {
+            type: 'number',
+            name: 'internal-CE',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => ce(calc)) + ce(calc)
+        },
+        {
+            type: 'number',
+            name: 'internal-LoSDarab',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, 2, 0)) + sebzes(calc, 2, 0)
+        },
+        {
+            type: 'number',
+            name: 'internal-LoSKocka',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, 2, 1)) + sebzes(calc, 2, 1)
+        },
+        {
+            type: 'number',
+            name: 'internal-LoSPlusz',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzes(calc, 2, 2)) + sebzes(calc, 2, 2)
+        },
+        {
+            type: 'number',
+            name: 'internal-LoSTipus',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => sebzestipus(calc, 2)) + sebzestipus(calc, 2)
+        },
+    ];
+}
 
+const bekeszitFormula = (karakter: Karakter, fn: (calc: KarakterCalcResult) => number | ''): string => karakter.bekeszitve?.map(k => {
+    const ujkarakter: Karakter = JSON.parse(JSON.stringify(karakter));
+    ujkarakter.kezek = [...k.kezek];
+    ujkarakter.lofegyver = k.lofegyver;
+    const calc = KarakterCalculator.calc(ujkarakter);
+
+    return `Bekészít-${k.name} ? ${fn(calc)} : `
+})?.join('') ?? '';
 
 
 export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
     if (!karakter.tableplop) {
         return;
     }
-
-    const formatRoll = (d: KockaDobas, ijasz?: boolean) => printKocka(d, ijasz).replace('k', 'd');
-
-    const fegyverrel: Array<InternalTPChild> = calc.fegyverrel.kezek.filter(i => !!(i?.te)).map((kez, idx) => ({
-        type: 'message',
-        name: `Támadás - ${karakter.balkezes === (idx === 0) ? 'Bal' : 'Jobb'} kéz: ${karakter.kezek[idx]?.ob.name}`,
-        message: `Támadás - ${karakter.balkezes === (idx === 0) ? 'Bal' : 'Jobb'} kéz: ${karakter.kezek[idx]?.ob.name}: TÉ: {${Calculation.calculate(kez!.te!)} + 1d100} / Sebzés: {${formatRoll(kez!.sebzes)}} ${formatSebzesTipus(karakter.kezek[idx]?.ob.sebzestipus!)}`
-    }));
-
-    const lofegyverrel: Array<InternalTPChild> = calc.lofegyverrel ? [{
-        type: 'message',
-        name: `KÉ - lőfegyver: ${karakter.lofegyver?.ob.name}`,
-        message: `KÉ: {kezdemeny = ${Calculation.calculate(calc.lofegyverrel.ke)}+1d10} {initiative = kezdemeny}`
-    },
-    {
-        type: 'message',
-        name: `Köv. támadás - lőfegyver: ${karakter.lofegyver?.ob.name}`,
-        message: `Következő támadás KÉ-je: {kezdemeny = kezdemeny + ${Calculation.calculate(calc.lofegyverrel.tobbTamadasKe)}} {initiative = kezdemeny}`
-    },
-    {
-        type: 'message',
-        name: `Lövés - ${karakter.lofegyver?.ob.name}`,
-        message: `Lövés - ${karakter.lofegyver?.ob.name}: CÉ: {${Calculation.calculate(calc.lofegyverrel.ce)} + 1d100} / Sebzés: {${formatRoll(calc.lofegyverrel.sebzes, true)}} ${formatSebzesTipus(karakter.lofegyver?.ob.sebzestipus!)}`
-    }
-    ] : [];
 
     const internalChar: InternalTPCharacter = {
         id: karakter.tableplop.characterId,
@@ -69,6 +221,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                     {
                         type: 'title-section',
                         title: 'SFÉ',
+                        collapsed: true,
                         children: [
                             {
                                 type: 'number',
@@ -93,34 +246,74 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         ]
                     },
                     {
-                        type: 'number',
-                        name: 'kezdemeny',
-                        local: true,
-                        value: 0,
-                    },
+                        type: 'title-section',
+                        title: 'Nepiszka',
+                        collapsed: true,
+                        children: [
+                            {
+                                type: 'number',
+                                name: 'kezdemeny',
+                                local: true,
+                                value: 0,
+                            },
+                            ...harcertekek(karakter)
+                        ]
+                    }
                 ]
             },
             {
                 type: 'tab-section',
-                title: 'Dobások',
+                title: 'Dobás',
                 children: [
                     {
                         type: 'message',
                         name: 'KÉ',
-                        message: `KÉ: {kezdemeny = ${Calculation.calculate(calc.fegyverrel.ke)}+1d10} {initiative = kezdemeny}`
+                        message: `KÉ: {kezdemeny = @:internal-KE:+1d10} {initiative = kezdemeny}`
                     },
                     {
                         type: 'message',
                         name: 'Köv. támadás',
-                        message: `Következő támadás KÉ-je: {kezdemeny = kezdemeny + ${Calculation.calculate(calc.fegyverrel.mtke)}} {initiative = kezdemeny}`
+                        message: `Következő támadás KÉ-je: {kezdemeny = kezdemeny + @:internal-MTKE:} {initiative = kezdemeny}`
                     },
-                    ...fegyverrel,
-                    ...lofegyverrel
+                    {
+                        type: 'message',
+                        name: `Támadás - Jobb kéz`,
+                        message: `Támadás - Jobb kéz| TÉ: {@:internal-jobbTE: + 1d100} / Sebzés: {@:internal-jobbSDarab:d@:internal-jobbSKocka: + @:internal-jobbSPlusz:} {${sebzesTipusFormula('internal-jobbSTipus')}}`
+                    },
+                    {
+                        type: 'message',
+                        name: `Támadás - Bal kéz`,
+                        message: `Támadás - Bal kéz| TÉ: {@:internal-balTE: + 1d100} / Sebzés: {@:internal-balSDarab:d@:internal-balSKocka: + @:internal-balSPlusz:} {${sebzesTipusFormula('internal-balSTipus')}}`
+                    },
+                    {
+                        type: 'message',
+                        name: `KÉ - lövés`,
+                        message: `KÉ: {kezdemeny = @:internal-LoKE:+1d10} {initiative = kezdemeny}`
+                    },
+                    {
+                        type: 'message',
+                        name: `Köv. lövés`,
+                        message: `Következő lövés KÉ-je: {kezdemeny = kezdemeny + @:internal-LoMTKE:} {initiative = kezdemeny}`
+                    },
+                    {
+                        type: 'message',
+                        name: `Lövés`,
+                        message: `Lövés| CÉ: {@:internal-CE: + 1d100} / Sebzés: {@:internal-LoSDarab:d@:internal-LoSKocka:! + @:internal-LoSPlusz:} {${sebzesTipusFormula('internal-LoSTipus')}}`
+                    }
                 ]
             },
             {
                 type: 'tab-section',
-                title: 'Pontok',
+                title: 'Fegyver',
+                children: karakter.bekeszitve?.map(k => ({
+                    type: 'checkbox',
+                    name: `Bekészít-${k.name}`,
+                    value: false
+                })) ?? []
+            },
+            {
+                type: 'tab-section',
+                title: 'Pont',
                 children: [
                     {
                         type: 'health',
@@ -149,8 +342,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         curr: karakter.temporary.pszi,
                     },
                 ]
-            }
-
+            },
         ]
     };
 

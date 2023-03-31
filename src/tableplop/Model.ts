@@ -60,6 +60,12 @@ export interface TPNumber extends TPPropertyBase, TPNumericValue, TPCanHaveMessa
     data: {},
 }
 
+export interface TPCheckbox extends TPPropertyBase, TPCanHaveMessage, TPNamed {
+    type: 'checkbox';
+    value: boolean;
+    data: {},
+}
+
 export interface TPAbility extends TPPropertyBase, TPNumericValue, TPCanHaveMessage, TPNamed {
     type: 'ability';
     data: {},
@@ -68,6 +74,7 @@ export interface TPAbility extends TPPropertyBase, TPNumericValue, TPCanHaveMess
 export interface TPText extends TPPropertyBase, TPNamed {
     type: 'text';
     value: string;
+    formula?: string;
     data: {},
 }
 
@@ -77,7 +84,7 @@ export interface TPAppearance extends TPPropertyBase {
 }
 
 
-export type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPAbility | TPNumber | TPText | TPAppearance;
+export type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPAbility | TPNumber | TPText | TPAppearance | TPCheckbox;
 
 export interface TPCharacter {
     properties: Array<TPProperty>;
@@ -95,6 +102,7 @@ export interface InternalTPTab {
 export interface InternalTPTitleSection {
     type: 'title-section',
     title: string;
+    collapsed?: boolean;
     children: Array<InternalTPChild>;
 }
 
@@ -103,6 +111,7 @@ export interface InternalTPText {
     type: 'text';
     name: string;
     value: string;
+    formula?: string;
     local?: boolean;
 }
 
@@ -110,6 +119,14 @@ export interface InternalTPNumber {
     type: 'number';
     name: string;
     value: number;
+    formula?: string;
+    local?: boolean;
+}
+
+export interface InternalTPCheckbox {
+    type: 'checkbox';
+    name: string;
+    value: boolean;
     local?: boolean;
 }
 
@@ -133,7 +150,7 @@ export interface InternalTPAppearance {
     data: unknown;
 }
 
-export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection;
+export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox;
 
 export interface InternalTPCharacter {
     id: number;
@@ -171,6 +188,7 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         type: 'text',
         data: {},
         name: text.name,
+        formula: text.formula,
         value: text.value,
         local: text.local
     });
@@ -178,6 +196,16 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
     const convertNumber = (text: InternalTPNumber, parentId: number, idx: number): TPNumber => ({
         ...convert(parentId, idx),
         type: 'number',
+        data: {},
+        name: text.name,
+        value: text.value,
+        formula: text.formula,
+        local: text.local
+    });
+
+    const convertCheckbox = (text: InternalTPCheckbox, parentId: number, idx: number): TPCheckbox => ({
+        ...convert(parentId, idx),
+        type: 'checkbox',
         data: {},
         name: text.name,
         value: text.value,
@@ -228,6 +256,7 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
             case 'health': return convertHealth(child, parentId, idx);
             case 'appearance': return convertAppearance(child, parentId, idx);
             case 'title-section': return convertTab(child, parentId, idx);
+            case 'checkbox': return convertCheckbox(child, parentId, idx);
         }
     }
 
@@ -236,7 +265,7 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
             ...convert(parentId, idx),
             characterId: character.id,
             type: tab.type,
-            data: tab.type === 'tab-section' ? {} : { collapsed: false },
+            data: tab.type === 'tab-section' ? {} : { collapsed: tab.collapsed ?? false },
             value: tab.title,
         };
         const children = tab.children.flatMap((c, i) => convertChild(c, main.id, i));

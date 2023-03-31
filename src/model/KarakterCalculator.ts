@@ -16,7 +16,8 @@ import { mergeToArray, sumArray, transformRecord } from "./util";
 export interface CalcFegyver {
     te?: CalculationArgument,
     //TODO: kocka calculation?
-    sebzes: KockaDobas
+    sebzes: KockaDobas,
+    sebzesTipus: Array<typeof SebzesTipus[number]['id']>;
 }
 
 export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
@@ -40,6 +41,7 @@ export interface KarakterCalcResult {
         ke: CalculationArgument,
         ce: CalculationArgument,
         sebzes: KockaDobas,
+        sebzesTipus: Array<typeof SebzesTipus[number]['id']>;
         lotav: number,
         tobbTamadasKe: CalculationArgument,
     },
@@ -192,7 +194,7 @@ class KarakterCalculation {
                 ...fegyver.sebzes,
                 plusz: fegyver.sebzes.plusz + Calculation.calculate(harcertek.sebzes) + erobonusz + sumArray(helyzetek.map(h => h.modositok[idx].sebzes))
             }
-            return { ke, te, ve, sebzes, tobbTamadasKe };
+            return { ke, te, ve, sebzes, tobbTamadasKe, sebzesTipus: Array.isArray(fegyver.sebzestipus) ? fegyver.sebzestipus : [fegyver.sebzestipus] };
         }
     };
 
@@ -275,7 +277,7 @@ class KarakterCalculation {
         const tobbTamadasKe = Calculation.mul(fegyverSebesseg, isVeteran ? Calculation.value('Veterán', 0.8) : undefined, ...helyzetek.map(h => Calculation.value(h.helyzet.name, h.modositok[2].sebessegSzorzo)))
 
         return {
-            ke, ce, sebzes, lotav, tobbTamadasKe
+            ke, ce, sebzes, lotav, tobbTamadasKe, sebzesTipus: Array.isArray(fegyver.sebzestipus) ? fegyver.sebzestipus : [fegyver.sebzestipus]
         }
     }
 
