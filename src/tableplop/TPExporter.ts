@@ -2,7 +2,7 @@ import fileDownload from "js-file-download";
 import { Calculation } from "../model/Calculation";
 import { Karakter } from "../model/Karakter";
 import { KarakterCalcResult, KarakterCalculator } from "../model/KarakterCalculator";
-import { convertInternalToExternal, InternalTPCharacter, InternalTPNumber, TPCharacter } from "./Model";
+import { convertInternalToExternal, InternalTPCharacter, InternalTPMessage, InternalTPNumber, TPCharacter } from "./Model";
 
 const te = (calc: KarakterCalcResult, idx: 0 | 1) => {
     const _te = calc.fegyverrel.kezek[idx]?.te;
@@ -194,6 +194,29 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
         return;
     }
 
+    const psziKE = calc.psziDiszciplinak.filter(d => 'ke' in d).map(d => {
+        if ('ke' in d) {
+            return {
+                type: 'message',
+                name: `KÉ - ${d.name}`,
+                message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
+            } as InternalTPMessage
+        }
+        throw new Error('ilyen nincs és mégis van')
+    });
+
+    const varKE = calc.varazslatok.filter(d => 'ke' in d).map(d => {
+        if ('ke' in d) {
+            return {
+                type: 'message',
+                name: `KÉ - ${d.name}`,
+                message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
+            } as InternalTPMessage
+        }
+        throw new Error('ilyen nincs és mégis van')
+    });
+
+
     const internalChar: InternalTPCharacter = {
         id: karakter.tableplop.characterId,
         private: karakter.tableplop.private,
@@ -299,7 +322,9 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         type: 'message',
                         name: `Lövés`,
                         message: `Lövés| CÉ: {@:internal-CE: + 1d100} / Sebzés: {@:internal-LoSDarab:d@:internal-LoSKocka:! + @:internal-LoSPlusz:} {${sebzesTipusFormula('internal-LoSTipus')}}`
-                    }
+                    },
+                    ...psziKE,
+                    ...varKE
                 ]
             },
             {
@@ -343,6 +368,36 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                     },
                 ]
             },
+            {
+                type: 'tab-section',
+                title: 'Teszt',
+                children: [
+                    {
+                        type: 'checkboxes',
+                        name: 'Normal',
+                        value: 4,
+                        max: 8
+                    },
+                    {
+                        type: 'checkboxes',
+                        name: 'szamolt',
+                        value: 2,
+                        max: 0,
+                        maxFormula: 'normal'
+                    },
+                    {
+                        type: 'paragraph',
+                        value: 'Ez itt <strong>ilyen</strong> <i>szoveg</i>.'
+                    },
+                    {
+                        type: 'ability',
+                        name: 'fiktiv',
+                        score: 19,
+                        formula: 'fiktiv-score / 3',
+                        message: '{1d20 + fiktiv}'
+                    }
+                ]
+            }
         ]
     };
 

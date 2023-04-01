@@ -50,9 +50,8 @@ export interface TPTitleSection extends TPPropertyBase {
 export interface TPMessage extends TPPropertyBase, TPNamed {
     type: 'message';
     data: null;
-    icon?: string; // how is this populated?
+    icon?: string; // does not currently work
     message: string;
-    local?: never;
 }
 
 export interface TPNumber extends TPPropertyBase, TPNumericValue, TPCanHaveMessage, TPNamed {
@@ -66,16 +65,26 @@ export interface TPCheckbox extends TPPropertyBase, TPCanHaveMessage, TPNamed {
     data: {},
 }
 
+export interface TPCheckboxes extends TPPropertyBase, TPCanHaveMessage, TPNamed, TPNumericValue {
+    type: 'checkboxes';
+    data: null;
+}
+
 export interface TPAbility extends TPPropertyBase, TPNumericValue, TPCanHaveMessage, TPNamed {
     type: 'ability';
-    data: {},
+    data: null,
 }
 
 export interface TPText extends TPPropertyBase, TPNamed {
     type: 'text';
     value: string;
-    formula?: string;
     data: {},
+}
+
+export interface TPParagraph extends TPPropertyBase {
+    type: 'paragraph';
+    value: string;
+    data: null,
 }
 
 export interface TPAppearance extends TPPropertyBase {
@@ -84,7 +93,7 @@ export interface TPAppearance extends TPPropertyBase {
 }
 
 
-export type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPAbility | TPNumber | TPText | TPAppearance | TPCheckbox;
+export type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPAbility | TPNumber | TPText | TPAppearance | TPCheckbox | TPCheckboxes | TPParagraph;
 
 export interface TPCharacter {
     properties: Array<TPProperty>;
@@ -111,8 +120,12 @@ export interface InternalTPText {
     type: 'text';
     name: string;
     value: string;
-    formula?: string;
     local?: boolean;
+}
+
+export interface InternalTPParagraph {
+    type: 'paragraph';
+    value: string;
 }
 
 export interface InternalTPNumber {
@@ -123,10 +136,27 @@ export interface InternalTPNumber {
     local?: boolean;
 }
 
+export interface InternalTPAbility {
+    type: 'ability';
+    name: string;
+    score: number;
+    formula: string;
+    message?: string;
+}
+
 export interface InternalTPCheckbox {
     type: 'checkbox';
     name: string;
     value: boolean;
+    local?: boolean;
+}
+
+export interface InternalTPCheckboxes {
+    type: 'checkboxes';
+    name: string;
+    value: number;
+    max: number;
+    maxFormula?: string;
     local?: boolean;
 }
 
@@ -150,7 +180,7 @@ export interface InternalTPAppearance {
     data: unknown;
 }
 
-export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox;
+export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox | InternalTPCheckboxes | InternalTPParagraph | InternalTPAbility;
 
 export interface InternalTPCharacter {
     id: number;
@@ -158,6 +188,7 @@ export interface InternalTPCharacter {
     appearance: string;
     tabs: Array<InternalTPTab>;
 }
+
 
 export const convertInternalToExternal = (character: InternalTPCharacter): TPCharacter => {
     let nextId = 1;
@@ -169,116 +200,154 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         rank: idx + 1
     });
 
-    const convertAppearance = (ob: InternalTPAppearance, parentId: number, idx: number): TPAppearance => ({
-        ...convert(parentId, idx),
-        type: 'appearance',
-        data: ob.data,
-    })
-
-    const convertMessage = (message: InternalTPMessage, parentId: number, idx: number): TPMessage => ({
-        ...convert(parentId, idx),
-        type: 'message',
-        data: null,
-        name: message.name,
-        message: message.message,
-    })
-
-    const convertText = (text: InternalTPText, parentId: number, idx: number): TPText => ({
-        ...convert(parentId, idx),
-        type: 'text',
-        data: {},
-        name: text.name,
-        formula: text.formula,
-        value: text.value,
-        local: text.local
-    });
-
-    const convertNumber = (text: InternalTPNumber, parentId: number, idx: number): TPNumber => ({
-        ...convert(parentId, idx),
-        type: 'number',
-        data: {},
-        name: text.name,
-        value: text.value,
-        formula: text.formula,
-        local: text.local
-    });
-
-    const convertCheckbox = (text: InternalTPCheckbox, parentId: number, idx: number): TPCheckbox => ({
-        ...convert(parentId, idx),
-        type: 'checkbox',
-        data: {},
-        name: text.name,
-        value: text.value,
-        local: text.local
-    });
-
-    const convertHealth = (ob: InternalTPHealth, parentId: number, idx: number): Array<TPProperty> => {
-        const main: TPNumber = {
+    const convertChild = (child: InternalTPChild, parentId: number, idx: number): TPProperty | Array<TPProperty> => {
+        const convertAppearance = (ob: InternalTPAppearance, parentId: number, idx: number): TPAppearance => ({
             ...convert(parentId, idx),
-            type: 'health',
-            data: {},
-            name: ob.name,
-            value: ob.curr,
-            local: ob.local
-        }
+            ...ob
+        })
 
-        const ret: Array<TPProperty> = [main];
-        ret.push({
-            ...convert(main.id, 0),
-            type: 'number',
+        const convertMessage = (ob: InternalTPMessage, parentId: number, idx: number): TPMessage => ({
+            ...convert(parentId, idx),
+            data: null,
+            ...ob
+        })
+
+        const convertText = (ob: InternalTPText, parentId: number, idx: number): TPText => ({
+            ...convert(parentId, idx),
             data: {},
-            name: `${main.name}-maximum`,
-            value: ob.max,
-            local: ob.local
+            ...ob
         });
 
-        if (ob.temp !== undefined) {
-            ret.push({
-                ...convert(main.id, 1),
-                type: 'number',
-                data: {},
-                name: `${main.name}-temporary`,
-                value: ob.temp,
+        const convertParagraph = (ob: InternalTPParagraph, parentId: number, idx: number): TPParagraph => ({
+            ...convert(parentId, idx),
+            data: null,
+            ...ob
+        });
+
+
+        const convertNumber = (ob: InternalTPNumber, parentId: number, idx: number): TPNumber => ({
+            ...convert(parentId, idx),
+            data: {},
+            ...ob
+        });
+
+        const convertCheckbox = (ob: InternalTPCheckbox, parentId: number, idx: number): TPCheckbox => ({
+            ...convert(parentId, idx),
+            data: {},
+            ...ob
+        });
+
+        const convertCheckboxes = (ob: InternalTPCheckboxes, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPCheckboxes = {
+                ...convert(parentId, idx),
+                type: 'checkboxes',
+                data: null,
+                name: ob.name,
+                value: ob.value,
                 local: ob.local
-            });
+            }
+
+            return [main,
+                {
+                    ...convert(main.id, 0),
+                    type: 'number',
+                    data: {},
+                    name: `${main.name}-max`,
+                    value: ob.max,
+                    formula: ob.maxFormula,
+                    local: ob.local
+                }
+            ];
         }
 
-        return ret;
+        const convertAbility = (ob: InternalTPAbility, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPAbility = {
+                ...convert(parentId, idx),
+                type: 'ability',
+                data: null,
+                name: ob.name,
+                value: 0,
+                formula: ob.formula,
+                message: ob.message
+            };
 
-    }
+            return [main,
+                {
+                    ...convert(main.id, 0),
+                    type: 'number',
+                    data: {},
+                    name: `${main.name}-score`,
+                    value: ob.score,
+                }
+            ];
+        }
 
+        const convertHealth = (ob: InternalTPHealth, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPNumber = {
+                ...convert(parentId, idx),
+                type: 'health',
+                data: {},
+                name: ob.name,
+                value: ob.curr,
+                local: ob.local
+            }
 
-    const convertChild = (child: InternalTPChild, parentId: number, idx: number): TPProperty | Array<TPProperty> => {
+            const ret: Array<TPProperty> = [main,
+                {
+                    ...convert(main.id, 0),
+                    type: 'number',
+                    data: {},
+                    name: `${main.name}-maximum`,
+                    value: ob.max,
+                    local: ob.local
+                }
+            ];
+
+            if (ob.temp !== undefined) {
+                ret.push({
+                    ...convert(main.id, 1),
+                    type: 'number',
+                    data: {},
+                    name: `${main.name}-temporary`,
+                    value: ob.temp,
+                    local: ob.local
+                });
+            }
+
+            return ret;
+        }
+
         switch (child.type) {
             case 'message': return convertMessage(child, parentId, idx);
             case 'text': return convertText(child, parentId, idx);
             case 'number': return convertNumber(child, parentId, idx);
             case 'health': return convertHealth(child, parentId, idx);
             case 'appearance': return convertAppearance(child, parentId, idx);
-            case 'title-section': return convertTab(child, parentId, idx);
+            case 'title-section': return convertSection(child, parentId, idx);
             case 'checkbox': return convertCheckbox(child, parentId, idx);
+            case 'checkboxes': return convertCheckboxes(child, parentId, idx);
+            case 'paragraph': return convertParagraph(child, parentId, idx);
+            case 'ability': return convertAbility(child, parentId, idx);
         }
     }
 
-    const convertTab = (tab: InternalTPTab | InternalTPTitleSection, parentId: number | null, idx: number): Array<TPProperty> => {
+    const convertSection = (ob: InternalTPTab | InternalTPTitleSection, parentId: number | null, idx: number): Array<TPProperty> => {
         const main: any = {
             ...convert(parentId, idx),
-            characterId: character.id,
-            type: tab.type,
-            data: tab.type === 'tab-section' ? {} : { collapsed: tab.collapsed ?? false },
-            value: tab.title,
+            type: ob.type,
+            data: ob.type === 'tab-section' ? {} : { collapsed: ob.collapsed ?? false },
+            value: ob.title,
         };
-        const children = tab.children.flatMap((c, i) => convertChild(c, main.id, i));
+        const children = ob.children.flatMap((c, i) => convertChild(c, main.id, i));
         return [main, ...children];
     };
 
-    const ret: TPCharacter = {
+    return {
         appearance: character.appearance,
         private: character.private,
         type: 'tableplop-character-v2',
-        properties: character.tabs.flatMap((tab, idx) => convertTab(tab, null, idx)),
+        properties: character.tabs.flatMap((tab, idx) => convertSection(tab, null, idx)),
     };
-    return ret;
 }
 
 
