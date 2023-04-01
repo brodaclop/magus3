@@ -1,45 +1,38 @@
-export interface TPPropertyBase {
+interface TPPropertyBase {
     id: number;
     parentId: number | null;
     characterId: number;
     rank: number;
 }
 
-export interface TPNamed {
+interface TPNamed {
     name: string;
     local?: boolean;
 }
 
-export interface TPNumericValue {
-    value: number;
-    formula?: string;
-}
 
-export interface TPCanHaveMessage {
+interface TPCanHaveMessage {
     message?: string;
 }
 
-export interface TPSection extends TPPropertyBase {
+interface TPSection extends TPPropertyBase {
     type: 'section';
-    data: {};
     value: '';
     size: number;
 }
 
-export interface TPTabSection extends TPPropertyBase {
+interface TPTabSection extends TPPropertyBase {
     type: 'tab-section';
-    data: {};
     value: string;
 }
 
-export interface TPHorizontalSection extends TPPropertyBase {
+interface TPHorizontalSection extends TPPropertyBase {
     type: "horizontal-section";
-    data: {};
     value: '';
     size: number;
 }
 
-export interface TPTitleSection extends TPPropertyBase {
+interface TPTitleSection extends TPPropertyBase {
     type: 'title-section';
     value: string;
     data: {
@@ -47,53 +40,49 @@ export interface TPTitleSection extends TPPropertyBase {
     }
 }
 
-export interface TPMessage extends TPPropertyBase, TPNamed {
+interface TPMessage extends TPPropertyBase, TPNamed {
     type: 'message';
-    data: null;
     icon?: string; // does not currently work
     message: string;
 }
 
-export interface TPNumber extends TPPropertyBase, TPNumericValue, TPCanHaveMessage, TPNamed {
-    type: 'number' | 'health';
-    data: {},
-}
-
-export interface TPCheckbox extends TPPropertyBase, TPCanHaveMessage, TPNamed {
+interface TPCheckbox extends TPPropertyBase, TPCanHaveMessage, TPNamed {
     type: 'checkbox';
     value: boolean;
-    data: {},
 }
 
-export interface TPCheckboxes extends TPPropertyBase, TPCanHaveMessage, TPNamed, TPNumericValue {
-    type: 'checkboxes';
-    data: null;
+interface TPNumber extends TPPropertyBase, TPCanHaveMessage, TPNamed {
+    type: 'number';
+    value: number;
+    formula?: string;
+    local?: boolean;
+
 }
 
-export interface TPAbility extends TPPropertyBase, TPNumericValue, TPCanHaveMessage, TPNamed {
-    type: 'ability';
-    data: null,
+interface TPNumeric extends TPPropertyBase, TPCanHaveMessage, TPNamed {
+    type: 'health' | 'saving-throw' | 'ability' | 'checkboxes';
+    value: number;
+    formula?: string;
 }
 
-export interface TPText extends TPPropertyBase, TPNamed {
+
+interface TPText extends TPPropertyBase, TPNamed {
     type: 'text';
     value: string;
-    data: {},
 }
 
-export interface TPParagraph extends TPPropertyBase {
+interface TPParagraph extends TPPropertyBase {
     type: 'paragraph';
     value: string;
-    data: null,
 }
 
-export interface TPAppearance extends TPPropertyBase {
+interface TPAppearance extends TPPropertyBase {
     type: 'appearance';
     data: unknown;
 }
 
 
-export type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPAbility | TPNumber | TPText | TPAppearance | TPCheckbox | TPCheckboxes | TPParagraph;
+type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPNumber | TPText | TPAppearance | TPCheckbox | TPParagraph | TPNumeric;
 
 export interface TPCharacter {
     properties: Array<TPProperty>;
@@ -101,6 +90,9 @@ export interface TPCharacter {
     private: boolean;
     type: 'tableplop-character-v2';
 }
+
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
 export interface InternalTPTab {
     type: 'tab-section',
@@ -114,7 +106,6 @@ export interface InternalTPTitleSection {
     collapsed?: boolean;
     children: Array<InternalTPChild>;
 }
-
 
 export interface InternalTPText {
     type: 'text';
@@ -180,7 +171,16 @@ export interface InternalTPAppearance {
     data: unknown;
 }
 
-export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox | InternalTPCheckboxes | InternalTPParagraph | InternalTPAbility;
+export interface InternalTPSavingThrow {
+    type: 'saving-throw';
+    name: string;
+    value: number;
+    formula: string;
+    proficient: boolean;
+    message?: string;
+}
+
+export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox | InternalTPCheckboxes | InternalTPParagraph | InternalTPAbility | InternalTPSavingThrow;
 
 export interface InternalTPCharacter {
     id: number;
@@ -193,7 +193,7 @@ export interface InternalTPCharacter {
 export const convertInternalToExternal = (character: InternalTPCharacter): TPCharacter => {
     let nextId = 1;
 
-    const convert = (parentId: number | null, idx: number): Pick<TPProperty, 'id' | 'characterId' | 'parentId' | 'rank'> => ({
+    const convertCommon = (parentId: number | null, idx: number): Pick<TPProperty, 'id' | 'characterId' | 'parentId' | 'rank'> => ({
         id: nextId++,
         parentId,
         characterId: character.id,
@@ -201,47 +201,36 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
     });
 
     const convertChild = (child: InternalTPChild, parentId: number, idx: number): TPProperty | Array<TPProperty> => {
-        const convertAppearance = (ob: InternalTPAppearance, parentId: number, idx: number): TPAppearance => ({
-            ...convert(parentId, idx),
+        const convertSimple = (ob: InternalTPAppearance | InternalTPMessage | InternalTPText | InternalTPParagraph | InternalTPNumber | InternalTPCheckbox, parentId: number, idx: number): TPProperty => ({
+            ...convertCommon(parentId, idx),
             ...ob
         })
 
-        const convertMessage = (ob: InternalTPMessage, parentId: number, idx: number): TPMessage => ({
-            ...convert(parentId, idx),
-            data: null,
-            ...ob
-        })
+        const convertSavingThrow = (ob: InternalTPSavingThrow, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPNumeric = {
+                ...convertCommon(parentId, idx),
+                type: 'saving-throw',
+                name: ob.name,
+                value: ob.value,
+                formula: ob.formula,
+                message: ob.message
+            }
 
-        const convertText = (ob: InternalTPText, parentId: number, idx: number): TPText => ({
-            ...convert(parentId, idx),
-            data: {},
-            ...ob
-        });
-
-        const convertParagraph = (ob: InternalTPParagraph, parentId: number, idx: number): TPParagraph => ({
-            ...convert(parentId, idx),
-            data: null,
-            ...ob
-        });
-
-
-        const convertNumber = (ob: InternalTPNumber, parentId: number, idx: number): TPNumber => ({
-            ...convert(parentId, idx),
-            data: {},
-            ...ob
-        });
-
-        const convertCheckbox = (ob: InternalTPCheckbox, parentId: number, idx: number): TPCheckbox => ({
-            ...convert(parentId, idx),
-            data: {},
-            ...ob
-        });
+            return [
+                main,
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-proficiency`,
+                    value: ob.proficient,
+                }
+            ];
+        }
 
         const convertCheckboxes = (ob: InternalTPCheckboxes, parentId: number, idx: number): Array<TPProperty> => {
-            const main: TPCheckboxes = {
-                ...convert(parentId, idx),
+            const main: TPNumeric = {
+                ...convertCommon(parentId, idx),
                 type: 'checkboxes',
-                data: null,
                 name: ob.name,
                 value: ob.value,
                 local: ob.local
@@ -249,9 +238,8 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
 
             return [main,
                 {
-                    ...convert(main.id, 0),
+                    ...convertCommon(main.id, 0),
                     type: 'number',
-                    data: {},
                     name: `${main.name}-max`,
                     value: ob.max,
                     formula: ob.maxFormula,
@@ -261,10 +249,9 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         }
 
         const convertAbility = (ob: InternalTPAbility, parentId: number, idx: number): Array<TPProperty> => {
-            const main: TPAbility = {
-                ...convert(parentId, idx),
+            const main: TPNumeric = {
+                ...convertCommon(parentId, idx),
                 type: 'ability',
-                data: null,
                 name: ob.name,
                 value: 0,
                 formula: ob.formula,
@@ -273,9 +260,8 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
 
             return [main,
                 {
-                    ...convert(main.id, 0),
+                    ...convertCommon(main.id, 0),
                     type: 'number',
-                    data: {},
                     name: `${main.name}-score`,
                     value: ob.score,
                 }
@@ -283,10 +269,9 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         }
 
         const convertHealth = (ob: InternalTPHealth, parentId: number, idx: number): Array<TPProperty> => {
-            const main: TPNumber = {
-                ...convert(parentId, idx),
+            const main: TPNumeric = {
+                ...convertCommon(parentId, idx),
                 type: 'health',
-                data: {},
                 name: ob.name,
                 value: ob.curr,
                 local: ob.local
@@ -294,9 +279,8 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
 
             const ret: Array<TPProperty> = [main,
                 {
-                    ...convert(main.id, 0),
+                    ...convertCommon(main.id, 0),
                     type: 'number',
-                    data: {},
                     name: `${main.name}-maximum`,
                     value: ob.max,
                     local: ob.local
@@ -305,9 +289,8 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
 
             if (ob.temp !== undefined) {
                 ret.push({
-                    ...convert(main.id, 1),
+                    ...convertCommon(main.id, 1),
                     type: 'number',
-                    data: {},
                     name: `${main.name}-temporary`,
                     value: ob.temp,
                     local: ob.local
@@ -318,22 +301,23 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
         }
 
         switch (child.type) {
-            case 'message': return convertMessage(child, parentId, idx);
-            case 'text': return convertText(child, parentId, idx);
-            case 'number': return convertNumber(child, parentId, idx);
+            case 'appearance':
+            case 'message':
+            case 'text':
+            case 'number':
+            case 'paragraph':
+            case 'checkbox': return convertSimple(child, parentId, idx);
             case 'health': return convertHealth(child, parentId, idx);
-            case 'appearance': return convertAppearance(child, parentId, idx);
             case 'title-section': return convertSection(child, parentId, idx);
-            case 'checkbox': return convertCheckbox(child, parentId, idx);
             case 'checkboxes': return convertCheckboxes(child, parentId, idx);
-            case 'paragraph': return convertParagraph(child, parentId, idx);
             case 'ability': return convertAbility(child, parentId, idx);
+            case 'saving-throw': return convertSavingThrow(child, parentId, idx);
         }
     }
 
     const convertSection = (ob: InternalTPTab | InternalTPTitleSection, parentId: number | null, idx: number): Array<TPProperty> => {
         const main: any = {
-            ...convert(parentId, idx),
+            ...convertCommon(parentId, idx),
             type: ob.type,
             data: ob.type === 'tab-section' ? {} : { collapsed: ob.collapsed ?? false },
             value: ob.title,
@@ -351,4 +335,4 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
 }
 
 
-// type: | "saving-throw" | "paragraph" | "table"
+// type: | "table"

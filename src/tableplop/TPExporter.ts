@@ -395,6 +395,14 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         score: 19,
                         formula: 'fiktiv-score / 3',
                         message: '{1d20 + fiktiv}'
+                    },
+                    {
+                        type: 'saving-throw',
+                        name: 'mentok',
+                        value: 5,
+                        formula: '5 + (mentok-proficiency ? 1 : 0)',
+                        proficient: true,
+                        message: '{1d20 + mentok}'
                     }
                 ]
             }
