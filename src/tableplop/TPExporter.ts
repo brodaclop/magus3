@@ -272,6 +272,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         type: 'title-section',
                         title: 'Nepiszka',
                         collapsed: true,
+                        private: true,
                         children: [
                             {
                                 type: 'number',
@@ -386,23 +387,60 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         maxFormula: 'normal'
                     },
                     {
-                        type: 'paragraph',
-                        value: 'Ez itt <strong>ilyen</strong> <i>szoveg</i>.'
+                        type: 'horizontal-section',
+                        panels: [
+                            {
+                                size: 1,
+                                children: [
+                                    {
+                                        type: 'heading',
+                                        value: 'Cim'
+                                    },
+                                    {
+                                        type: 'paragraph',
+                                        value: 'Ez itt <strong>ilyen</strong> <i>szoveg</i>.'
+                                    },
+                                ]
+                            },
+                            {
+                                size: 2,
+                                children: [
+                                    {
+                                        type: 'ability',
+                                        name: 'fiktiv',
+                                        score: 19,
+                                        formula: 'fiktiv-score / 3',
+                                        message: '{1d20 + fiktiv}'
+                                    },
+                                    {
+                                        type: 'saving-throw',
+                                        name: 'mentok',
+                                        value: 5,
+                                        formula: '5 + (mentok-proficiency ? 1 : 0)',
+                                        proficient: true,
+                                        message: '{1d20 + mentok}'
+                                    },
+                                ]
+                            }
+                        ]
                     },
                     {
-                        type: 'ability',
-                        name: 'fiktiv',
-                        score: 19,
-                        formula: 'fiktiv-score / 3',
-                        message: '{1d20 + fiktiv}'
+                        type: 'skill',
+                        name: 'kepzettseg',
+                        value: 8,
+                        formula: '1 + (kepzettseg-proficiency ? 1 : 0) + (kepzettseg-expertise ? 1 : 0)',
+                        subtitle: 'Strength',
+                        message: '1d20 + kepzettseg',
+                        proficiency: 'expert'
                     },
                     {
-                        type: 'saving-throw',
-                        name: 'mentok',
-                        value: 5,
-                        formula: '5 + (mentok-proficiency ? 1 : 0)',
-                        proficient: true,
-                        message: '{1d20 + mentok}'
+                        type: 'skill-4',
+                        name: 'masik-kepzettseg',
+                        value: 8,
+                        formula: '1 + (masik-kepzettseg-trained ? 1 : 0) + (masik-kepzettseg-expert ? 1 : 0) + (masik-kepzettseg-master ? 1 : 0) + (masik-kepzettseg-legendary ? 1 : 0)',
+                        subtitle: 'Dex',
+                        message: '1d20 + masik-kepzettseg',
+                        proficiency: 'master'
                     }
                 ]
             }

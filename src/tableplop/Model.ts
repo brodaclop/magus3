@@ -17,7 +17,6 @@ interface TPCanHaveMessage {
 
 interface TPSection extends TPPropertyBase {
     type: 'section';
-    value: '';
     size: number;
 }
 
@@ -28,13 +27,12 @@ interface TPTabSection extends TPPropertyBase {
 
 interface TPHorizontalSection extends TPPropertyBase {
     type: "horizontal-section";
-    value: '';
-    size: number;
 }
 
 interface TPTitleSection extends TPPropertyBase {
     type: 'title-section';
     value: string;
+    private?: boolean;
     data: {
         collapsed: boolean;
     }
@@ -65,14 +63,23 @@ interface TPNumeric extends TPPropertyBase, TPCanHaveMessage, TPNamed {
     formula?: string;
 }
 
+interface TPSkill extends TPPropertyBase, TPCanHaveMessage, TPNamed {
+    type: 'skill' | 'skill-4';
+    value: number;
+    formula?: string;
+    data: {
+        subtitle: string;
+    }
+}
+
 
 interface TPText extends TPPropertyBase, TPNamed {
     type: 'text';
     value: string;
 }
 
-interface TPParagraph extends TPPropertyBase {
-    type: 'paragraph';
+interface TPParagraph extends TPPropertyBase { //TODO: find better name
+    type: 'paragraph' | 'heading';
     value: string;
 }
 
@@ -82,7 +89,7 @@ interface TPAppearance extends TPPropertyBase {
 }
 
 
-type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPNumber | TPText | TPAppearance | TPCheckbox | TPParagraph | TPNumeric;
+type TPProperty = TPSection | TPTabSection | TPHorizontalSection | TPTitleSection | TPMessage | TPNumber | TPNumber | TPText | TPAppearance | TPCheckbox | TPParagraph | TPNumeric | TPSkill;
 
 export interface TPCharacter {
     properties: Array<TPProperty>;
@@ -100,10 +107,23 @@ export interface InternalTPTab {
     children: Array<InternalTPChild>;
 }
 
+export interface InternalTPHorizontalSection {
+    type: 'horizontal-section',
+    panels: [{
+        size: number;
+        children: Array<InternalTPChild>;
+    }, {
+        size: number;
+        children: Array<InternalTPChild>;
+    }]
+
+}
+
 export interface InternalTPTitleSection {
     type: 'title-section',
     title: string;
     collapsed?: boolean;
+    private?: boolean;
     children: Array<InternalTPChild>;
 }
 
@@ -114,8 +134,8 @@ export interface InternalTPText {
     local?: boolean;
 }
 
-export interface InternalTPParagraph {
-    type: 'paragraph';
+export interface InternalTPParagraph { //TODO: find better name
+    type: 'paragraph' | 'heading';
     value: string;
 }
 
@@ -132,6 +152,26 @@ export interface InternalTPAbility {
     name: string;
     score: number;
     formula: string;
+    message?: string;
+}
+
+export interface InternalTPSkill {
+    type: 'skill';
+    name: string;
+    value: number;
+    formula: string;
+    proficiency?: 'proficient' | 'expert';
+    subtitle?: string;
+    message?: string;
+}
+
+export interface InternalTPSkill4 {
+    type: 'skill-4',
+    name: string;
+    value: number;
+    formula: string;
+    proficiency?: 'trained' | 'expert' | 'master' | 'legend';
+    subtitle?: string;
     message?: string;
 }
 
@@ -180,7 +220,7 @@ export interface InternalTPSavingThrow {
     message?: string;
 }
 
-export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox | InternalTPCheckboxes | InternalTPParagraph | InternalTPAbility | InternalTPSavingThrow;
+export type InternalTPChild = InternalTPMessage | InternalTPText | InternalTPNumber | InternalTPHealth | InternalTPAppearance | InternalTPTitleSection | InternalTPCheckbox | InternalTPCheckboxes | InternalTPParagraph | InternalTPAbility | InternalTPSavingThrow | InternalTPSkill | InternalTPSkill4 | InternalTPHorizontalSection;
 
 export interface InternalTPCharacter {
     id: number;
@@ -224,6 +264,88 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
                     name: `${main.name}-proficiency`,
                     value: ob.proficient,
                 }
+            ];
+        }
+
+        const convertSkill = (ob: InternalTPSkill | InternalTPSkill4, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPSkill = {
+                ...convertCommon(parentId, idx),
+                type: ob.type,
+                name: ob.name,
+                value: ob.value,
+                formula: ob.formula,
+                message: ob.message,
+                data: {
+                    subtitle: ob.subtitle ?? ''
+                }
+            };
+
+            const levels: Array<TPProperty> = ob.type === 'skill' ? [
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-proficiency`,
+                    value: !!ob.proficiency,
+                },
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-expertise`,
+                    value: ob.proficiency === 'expert',
+                }
+            ] : [
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-trained`,
+                    value: !!ob.proficiency,
+                },
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-expert`,
+                    value: ob.proficiency === 'expert' || ob.proficiency === 'master' || ob.proficiency === 'legend',
+                },
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-master`,
+                    value: ob.proficiency === 'master' || ob.proficiency === 'legend',
+                },
+                {
+                    ...convertCommon(main.id, 0),
+                    type: 'checkbox',
+                    name: `${main.name}-legendary`,
+                    value: ob.proficiency === 'legend',
+                }
+            ];
+
+            return [
+                main,
+                ...levels
+            ];
+        }
+
+        const convertHorizontalSection = (ob: InternalTPHorizontalSection, parentId: number, idx: number): Array<TPProperty> => {
+            const main: TPHorizontalSection = {
+                ...convertCommon(parentId, idx),
+                type: ob.type,
+            };
+
+            const sizeSum = ob.panels.reduce((acc, curr) => acc + curr.size, 0);
+
+            const panels: Array<TPSection> = ob.panels.map((panel, panelIdx) => ({
+                ...convertCommon(main.id, panelIdx),
+                type: 'section',
+                size: panel.size * 100.0 / sizeSum
+            } as TPSection))
+
+            const panelChildren: Array<TPProperty> = ob.panels.flatMap((panel, panelIdx) => panel.children.flatMap(child => convertChild(child, panels[panelIdx].id, panelIdx)));
+
+            return [
+                main,
+                ...panels,
+                ...panelChildren
             ];
         }
 
@@ -306,12 +428,16 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
             case 'text':
             case 'number':
             case 'paragraph':
+            case 'heading':
             case 'checkbox': return convertSimple(child, parentId, idx);
             case 'health': return convertHealth(child, parentId, idx);
             case 'title-section': return convertSection(child, parentId, idx);
+            case 'horizontal-section': return convertHorizontalSection(child, parentId, idx);
             case 'checkboxes': return convertCheckboxes(child, parentId, idx);
             case 'ability': return convertAbility(child, parentId, idx);
             case 'saving-throw': return convertSavingThrow(child, parentId, idx);
+            case 'skill-4':
+            case 'skill': return convertSkill(child, parentId, idx);
         }
     }
 
@@ -322,6 +448,9 @@ export const convertInternalToExternal = (character: InternalTPCharacter): TPCha
             data: ob.type === 'tab-section' ? {} : { collapsed: ob.collapsed ?? false },
             value: ob.title,
         };
+        if (ob.type === 'title-section') {
+            main.private = ob.private;
+        }
         const children = ob.children.flatMap((c, i) => convertChild(c, main.id, i));
         return [main, ...children];
     };
