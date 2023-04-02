@@ -2,7 +2,9 @@ import fileDownload from "js-file-download";
 import { Calculation } from "../model/Calculation";
 import { Karakter } from "../model/Karakter";
 import { KarakterCalcResult, KarakterCalculator } from "../model/KarakterCalculator";
-import { convertInternalToExternal, InternalTPCharacter, InternalTPMessage, InternalTPNumber, TPCharacter } from "./Model";
+import { example } from "./Example";
+import { Character, Message, NumberProp } from "./InternalTypes";
+import { convertInternalToExternal as convertToTablePlop } from "./TPConverter";
 
 const te = (calc: KarakterCalcResult, idx: 0 | 1) => {
     const _te = calc.fegyverrel.kezek[idx]?.te;
@@ -57,7 +59,7 @@ const sebzesTipusFormula = (field: string): string => {
     return ret + '\'\'';
 }
 
-const harcertekek = (karakter: Karakter): Array<InternalTPNumber> => {
+const harcertekek = (karakter: Karakter): Array<NumberProp> => {
     const calc = KarakterCalculator.calc(karakter);
 
 
@@ -200,7 +202,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                 type: 'message',
                 name: `KÉ - ${d.name}`,
                 message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
-            } as InternalTPMessage
+            } as Message
         }
         throw new Error('ilyen nincs és mégis van')
     });
@@ -211,13 +213,13 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                 type: 'message',
                 name: `KÉ - ${d.name}`,
                 message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
-            } as InternalTPMessage
+            } as Message
         }
         throw new Error('ilyen nincs és mégis van')
     });
 
 
-    const internalChar: InternalTPCharacter = {
+    const internalChar: Character = {
         id: karakter.tableplop.characterId,
         private: karakter.tableplop.private,
         appearance: karakter.tableplop.tokenURL,
@@ -368,81 +370,6 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         curr: karakter.temporary.pszi,
                     },
                 ]
-            },
-            {
-                type: 'tab-section',
-                title: 'Teszt',
-                children: [
-                    {
-                        type: 'checkboxes',
-                        name: 'Normal',
-                        value: 4,
-                        max: 8
-                    },
-                    {
-                        type: 'checkboxes',
-                        name: 'szamolt',
-                        value: 2,
-                        max: 0,
-                        maxFormula: 'normal'
-                    },
-                    {
-                        type: 'horizontal-section',
-                        panels: [
-                            {
-                                size: 1,
-                                children: [
-                                    {
-                                        type: 'heading',
-                                        value: 'Cim'
-                                    },
-                                    {
-                                        type: 'paragraph',
-                                        value: 'Ez itt <strong>ilyen</strong> <i>szoveg</i>.'
-                                    },
-                                ]
-                            },
-                            {
-                                size: 2,
-                                children: [
-                                    {
-                                        type: 'ability',
-                                        name: 'fiktiv',
-                                        score: 19,
-                                        formula: 'fiktiv-score / 3',
-                                        message: '{1d20 + fiktiv}'
-                                    },
-                                    {
-                                        type: 'saving-throw',
-                                        name: 'mentok',
-                                        value: 5,
-                                        formula: '5 + (mentok-proficiency ? 1 : 0)',
-                                        proficient: true,
-                                        message: '{1d20 + mentok}'
-                                    },
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        type: 'skill',
-                        name: 'kepzettseg',
-                        value: 8,
-                        formula: '1 + (kepzettseg-proficiency ? 1 : 0) + (kepzettseg-expertise ? 1 : 0)',
-                        subtitle: 'Strength',
-                        message: '1d20 + kepzettseg',
-                        proficiency: 'expert'
-                    },
-                    {
-                        type: 'skill-4',
-                        name: 'masik-kepzettseg',
-                        value: 8,
-                        formula: '1 + (masik-kepzettseg-trained ? 1 : 0) + (masik-kepzettseg-expert ? 1 : 0) + (masik-kepzettseg-master ? 1 : 0) + (masik-kepzettseg-legendary ? 1 : 0)',
-                        subtitle: 'Dex',
-                        message: '1d20 + masik-kepzettseg',
-                        proficiency: 'master'
-                    }
-                ]
             }
         ]
     };
@@ -454,7 +381,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
         });
     }
 
-    const ret: TPCharacter = convertInternalToExternal(internalChar);
+    const ret = convertToTablePlop(internalChar);
 
     fileDownload(JSON.stringify(ret), `${karakter.name}.json`, 'text/json');
 }
