@@ -794,6 +794,99 @@ következőben nem képes semmi olyasmit cselekedni, mely komoly koncentrációt
 azaz Pszit használni vagy varázsolni.
         `
     },
+];
+
+const PSZI_DZSENN: Array<PsziDiszciplina> = [
+    {
+        id: 'pszi_dzsenn_telepatia',
+        name: 'Dzsenn telepátia',
+        psziPont: 1,
+        idotartam: '1 kör',
+        varazslasIdeje: '1 kör',
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 1,
+        leiras: `
+A dzsennek telepatikus képességei legendásak, és alapjaiban különböznek a Pyarroni Iskola által kidolgozott technikáktól. Ennek ellenére játéktechnikailag igen hasonlóak, az alábbi pár különbséggel.
+
+A dzsennek képesek kétirányú telepatikus kapcsolatot létesíteni olyan lényekkel is, akik nem rendelkeznek Pszi képességekkel, sőt, a célpont "válaszolni" is tud, amennyiben egy dzsenn megtanítja neki, hogyan kell a gondolataira koncentrálnia ehhez.
+
+Képesek továbbá a Pszi-pontok megtöbbszörözésével egynél több elmével is kapcsolatot létesíteni, két pontért két célpontot, háromért hármat és így tovább, a maximum célpontok száma a dzsenn Pszi-képzettségének foka. Ilyen esetekben mindenki tisztában van vele, kik vesznek részt a beszélgetésben (amennyiben ismerik egymást, egyébként csak azt tudják, hogy hányan), és "hallja" mindenki más továbbított gondolatait.
+        `
+    },
+    {
+        id: 'pszi_felejtes',
+        name: 'Felejtés',
+        psziPont: 5,
+        idotartam: 'azonnali',
+        ke: 20,
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 2,
+        leiras: `
+Ezzel a diszciplinával a dzsenn kitörli a jelenlegi és az előző kör emlékeit a célpont elméjéből. Az áldozat elméje elveszett emlékei helyére új, logikusnak tűnő emlékeket alkot.
+
+Fontos megjegyezni azonban, hogy az érzelmeket a diszciplina változatlanul hagyja, és ez korlátot szab a hatékonyságának. Nagyon erős érzelmeket kiváltó emlékek (pl. a dzsenn előzőleg rátámadt az áldozatra) jó eséllyel nagyrészt az eredeti formában rekonstruálódnak, bár a részletek különbözhetnek (pl. az áldozat nem emlékszik pontosan a támadó fegyverre).
+
+A diszciplina által lefedett időtartam további erősítéssel kitolható, tehát 2-es E-nél az előző két kör emlékeire hat és így tovább.
+        `
+    },
+    {
+        id: 'pszi_osszezavaras',
+        name: 'Összezavarás',
+        psziPont: 3,
+        idotartam: '1 kör',
+        varazslasIdeje: 'azonnali',
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 3,
+        leiras: `
+Amennyiben elvéti Mentál mágiaellenállását, a célpont elfelejti, mit akart csinálni ebben es a következő körben. Tervezett cselekedetet így nem tud végrehajtani, de természetesen reagálni tud, tehát ha megtámadják, védekezik, azonnali parancsokat is képes végrehajtani.
+
+További E-kkel az időtartam kitolható, de a kezdeti meglepetés elmúltával, vagyis minden egyes további körben Összpontosítás próbát dobhat, amelynek sikere esetén abban a körben képes összeszedetten cselekedni.
+        `
+    },
+    {
+        id: 'pszi_mas_szemevel_latas',
+        name: 'Más szemével látás',
+        psziPont: 2,
+        idotartam: '1 kör',
+        varazslasIdeje: '1 kör',
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 3,
+        leiras: `
+A diszciplina időtartama alatt a használóa célpont érzékszetvein keresztül képes érzékelni a világot. Nem csak látásról van szó tehát, hanem minden érzékszervről. Ezzel egyidejűleg természetesen a saját érzékszervei
+jeleit csak tompán, távolról érzékeli, legfejlebb erős fényvillanás, ordítás, erőteljes rázogatás vagy FP-sebesülés jut el tudatához.
+        `
+    },
+    {
+        id: 'pszi_elnemitas',
+        name: 'Elnémítás',
+        psziPont: 5,
+        idotartam: '1 kör',
+        varazslasIdeje: 'azonnali',
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 4,
+        leiras: `
+A célpont beszédközpontja megbénul, se varézslat elmondására, se egyéb beszédra (jelbeszédet is beleértve) nem képes, de pszit használhat, a [Telepátiát](entity:telepatia) leszámítva.
+        `
+    },
+    {
+        id: 'pszi_benitas',
+        name: 'Bénítás',
+        psziPont: 6,
+        idotartam: '1 kör',
+        varazslasIdeje: 'azonnali',
+        save: 'mental',
+        iskola: 'dzsenn',
+        fok: 5,
+        leiras: `
+Amennyiben elvéti Mentál [mágiaellenállását](entity:szabaly_magiaellenallas), az áldozatra a "Harc bénultan" módosítói vonatkoznak, varázsolni sem tud, csak szavakkal.
+        `
+    },
+
 
 ]
 
@@ -1082,6 +1175,7 @@ azaz Pszit használni vagy varázsolni.
 const PSZI_DISZCILPLINAK = [
     ...PSZI_PYARRONI,
     ...PSZI_SLAN,
+    ...PSZI_DZSENN
 ];
 
 export const Pszi = {
