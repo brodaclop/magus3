@@ -1,7 +1,7 @@
 import { useRoutes, BrowserRouter as Router } from "react-router-dom";
 import { Main } from './Main';
 
-export const APP_BASE = '/magus3';
+export const APP_BASE = '/';
 
 const App: React.FC<{}> = () => {
 
