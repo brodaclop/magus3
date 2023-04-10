@@ -1,10 +1,12 @@
+import _ from 'lodash';
 import React, { useState } from 'react';
 import { GiSpikesFull, GiSpikesInit } from 'react-icons/gi';
-import { Karakter, SzintInfo } from '../model/Karakter';
+import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
+import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
-import { arrayName, arraySort, mergeToArray } from '../model/util';
+import { arrayName, arraySort, constructArray } from '../model/util';
 import { KepzettsegLeiras } from './entities/KepzettsegLeiras';
 
 
@@ -113,7 +115,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
         <table className='bordered'>
             <thead>
                 <tr>
-                    <th>Képzettségek</th>
+                    <th colSpan={3}>Képzettségek</th>
                 </tr>
             </thead>
             <tbody className='unstriped'>
@@ -158,6 +160,32 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                         </>}
                     </td>
                 </tr>
+                {ujKepzettsegOb && <tr>
+                    <td colSpan={3}>
+                        <table className='kpFokhozTable'>
+                            <thead style={{ textAlign: 'left' }}>
+                                <th />
+                                {constructArray(5, i => <th>{i + 1}. fok</th>)}
+                                <th><i>{ujKepzettsegOb.fajta === 'normal' && Kepessegek.name(ujKepzettsegOb.kepesseg)}</i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>KP</th>
+                                    {constructArray(5, i => {
+                                        const meglevo = calc.findNormalKepzettseg(ujkepzettseg);
+                                        if (ujKepzettsegOb.fajta === 'szazalekos' || (meglevo?.fok ?? 0) > i) {
+                                            return <td />;
+                                        }
+                                        const kp = Kepzettseg.kpFokhoz(calc.kepessegek, ujKepzettsegOb, i + 1) - ((meglevo?.fok ?? 0) === i ? (meglevo?.kp ?? 0) : 0);
+                                        return <td>{kp}</td>;
+                                    })}
+                                    <td />
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>}
             </tbody>
             {arraySort(Object.entries(csoportosit(calc.kepzettsegek.normal)), ([ob]) => ob).map(([tipus, kepzettsegek]) => <tbody>
                 <tr>

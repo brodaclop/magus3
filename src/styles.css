@@ -161,6 +161,11 @@ div.karakterLapBorder {
     background-color: paleturquoise;
 }
 
+.karakterLap .secondrow .secondleft .kpFokhozTable {
+    width: 100%;
+    backdrop-filter: brightness(115%);
+}
+
 .karakterLap .secondrow .secondright {
     background-color: cornsilk;
     display: flex;
