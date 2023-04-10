@@ -1,9 +1,9 @@
 import { Fegyver, FEGYVER_KATEGORIAK, NYILPUSKA_KATEGORIA } from "./Fegyver";
 import { Karakter, SzintInfo } from "./Karakter";
-import { mergeToArray, namedEntityArray } from "./util";
+import { arrayName, mergeToArray, namedEntityArray } from "./util";
 import taroltKepzettsegek from '../data/kepzettsegek.json';
 import { EgyebLofegyver, Lofegyver } from "./Lofegyver";
-import { Magia } from "./Magia";
+import { Magia, MagiaKategoriak } from "./Magia";
 import { Harcmuveszet } from "./Harcmuveszet";
 import { Pszi } from "./Pszi";
 import { KarakterCalcResult } from "./KarakterCalculator";
@@ -173,7 +173,7 @@ const generateMagiaKepzettsegek = (): Array<NormalKepzettseg> => Magia.kepzettse
 
 ${k.leiras}
 `,
-    szintleiras: k.varazslatok.map(lista => lista.map(v => `- [${v.name}](entity:${v.id})`).join('\n')) as any,
+    szintleiras: k.varazslatok.map(lista => lista.map(v => `- [${v.name}](entity:${v.id}) ${v.kategoriak ? '(' + v.kategoriak.map(k => arrayName(MagiaKategoriak, k)).join(', ') + ')' : ''}`).join('\n')) as any,
     __generated: true
 }));
 

@@ -383,5 +383,5 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
 
     const ret = convertToTablePlop(internalChar);
 
-    fileDownload(JSON.stringify(ret), `${karakter.name}.json`, 'text/json');
+    fileDownload(JSON.stringify(ret), `${karakter.name}-tableplop.json`, 'text/json');
 }

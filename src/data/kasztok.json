@@ -1203,6 +1203,120 @@
     },
     {
         "fajta": "normal",
+        "id": "fonix",
+        "name": "Főnix",
+        "fokaszt": "Paplovag",
+        "harcertekAlap": {
+            "ke": 5,
+            "te": 20,
+            "ve": 75
+        },
+        "harcertek": {
+            "te": 4,
+            "ve": 4
+        },
+        "hm": 2,
+        "mana": {
+            "kepesseg": "hit",
+            "mennyiseg": "kevés"
+        },
+        "magiaKategoriak": [
+            "kis_arkanum",
+            "litania",
+            "rituale"
+        ],
+        "leiras": {
+            "fo": "A Főnixek Sogron azon papjai, akik leginkább fegyverrel támogatják a Tűzkobra uralmát; Gyakorta Ordan legerősebb és legrendíthetetlenebb harcosaiként emlegetik őket. A Főnixek a Tűz Táplálói Rend vezetőinek engedelmeskednek, a gyakorlat azonban azt mutatja, hogy az Ordani Rend parancsait teljesítik. Legtöbbször védelmi feladatokat látnak el, ha azonban a Rend valamelyik Sogron temploma segítségre szorul, szinte biztos, hogy őket vetik be. Hihetetlen hatékonysággal és összehangoltsággal képesek megoldani a harci feladatokat.\nKülönleges kiképzésük során főként a kis számban - és egyedül - folytatott harcmodort sajátítják el.\n\nA M.A.G.U.S. játékrendszerében a Főnixek paplovagnak (harcospapnak) számítanak. Viselkedésükben és fegyverzetükben persze messze állnak a lovagoktól, de Képességeiket a Paplovag Kasztnál leírtak szerint dobják!\n\nA Főnixek fegyvertára nem mutat nagy változatosságot más ordani fegyverforgatóékhoz képest. Az első három fegyver, melyet megtanulnak forgatni: a lángkard, a lángtőt, és a lándzsa.  Természetesen gyakorta elsajátítják egyéb fegyverek használatát is.\n\nA pajzsot, a nehéz vérteket megvetik, ordani szokás szerint csak pikkelyvértet hordanak. A Rend már 1. Szinten biztosít számukra egy különleges, Sogron hatalmával átitatott lángvörös pikkelyvértet, melynek SFÉ-je 3, MGT-je pedig 1. Ez minden, a használóját érő tűz vagy\nhőhatásból képes 1E-t semlegesíteni. Az 5. Szintet elért veterán harcosok a Rend elismeréseként újabb vértet kapnak. Ez hasonló a másikhoz - bár szemmel láthatóan sötétebb árnyalatú - SFÉ-je 4, MGT-je pedig 0. Minden tűz és hőhatásból, ami a használóját éri 2E-t semlegesít\n\nA Főnixek ruházata egységesen fekete: nadrág, ing, zeke, mely felett földet seprő, lángvörös palástot vetnek a vállukra. Szent SzimbóTumukat nem szokásuk rejtegetni, kardjukat pedig - meglehetősen látványos módon - a hátukra szíjazva hordják. A pikkelyvértet a zeke helyett viselik. Megjelenésük és viselkedésük katonásan fegyelmezett.\n\nMinden Főnix Ordanban kapja kiképzését, ahova valószínűleg Lángőrnek jelentkezett. A rendszeres napi gyakorlatokat a Rend megfigyelői titokban kiemelik, s az arra érdemeseket kiválogatják. Ők a továbbiakban a Főnixek iskolájában folytatják tanulmányaikat. Kiképzésük - mint már említést nyert - kemény, a fejvadász klánok módszereihez hasonló. :\n\nA Főnixek hitüket, rendjüket, feljebbvalóikat az életük árán is megvédelmezik, a parancsot kérdés nélkül végrehajtják. Bíznak saját erejükben, de nem önteltek és főképp nem ostobák. Nem büszkeségből bátrak, tudják mikor kell félreállni vagy menekülni. Egyetlen céljuk a Rend, a Hit, a papok és a hívők védelmezése - ebben rendíthetetlen fanatikusok. Gyakorta látnak el testőri, kísérői szolgálatot Sogron-papok, vagy más rendtagok mellezt. Olykor - különleges és fontos esetekben - futárszolgálatra is igénybe veszik őket.\n\nAz Ordani Rend minden templomában - a városon belül és Ynev más tájain is - lakik egy osztagnyi (20 fő) Főnix. Köztük mindenkor akad legalább egy altiszt, aki a parancsnok távollétében - halálakor - döntést hozhat. Ha a rangidősíaltiszt ís életér veszti, úgy a rangban, rangsorban következő harcos veszi át. a szerepét - a Főnix-osztagon sosem uralkodik el a fejetlenség. Parancsnokuk (tisztjük) mindenkor az adott templom főpapja; vagy ha a létszám ezt megengedi - nagyobb templomoknál - egy, 4 Pusztító Tűz Útját járó tűzvarázsló. Nagyobb templomok védelmére a méreztől és a hitközösség lélekszámától\nfüggően - több osztagot is kirendelhet az Ordani Rend. Az 5. Szintet elért veterán kerül altiszti rangba, rá már egyéni küldetéseket és osztagok vezetésér bízzák.\n",
+            "kulonlegesKepessegek": "Mint a papok, vagy a paplovagok, a Tűz Harcosai is Imával szerzik Mana-pontjaikat. Minden Szinten - már az elsőn is - mindössze feleannyi Mp-t kapnak. Használhatják a Kis Arkánum Lélek és Természet szféráit, illetve a Tűzmágiából az Alapvető Tűzmágiát, a Tűzmágia Hat Iskola-\nformáját, és a Közönséges Tüzek Befolyásolását.\n\nSogron biztosít fanatikus harcosainak különleges képességeket is, 3. Tapasztalati Szinttől naponta egyszer képesek a kezükben tartott egykezes fegyvert vagy saját magukat tűzaurával övezni (lásd [Tűzkard](entity:tv_tuzkard) és [Tűzaura](entity:tv_tuzaura) varázslat). Ez mindössze rövid összpontósítást és a parancsszó (fohász) kimondását igényli, Mana pont felhasználását nem. A Tűzkard és a Tűzaura erőssége (E) két Szintenként TE (1. és\n2. TSZ-en 1E; 3. és 4. TSZ-en 2E, stb), időtartama Tapasztalati Szintenként 1 perc. Például: egy 4. Szintű Főnix a kezében tartott kardot 4 percre tudja 2E erejű tűzzel övezni, melynek sebzése körönként - a kard sebzésén túl - 2k6 Sp.\n\nA 9. Szintet elért Főnix, ha fohászban (1 kör) kéri a Tűzkobrát, azonnali segítséget kap. Tűz Elementál Szolga jelenik meg (lásd [Szolga hívása](entity:tv_szolga_hivasa) tűzvarázslat), és annyi percig mellette marad, amennyi a Főnix Tapasztalati Szintje."
+        },
+        "epAlap": 6,
+        "fpAlap": 6,
+        "fpPerSzint": 4,
+        "kepzettsegek": [
+            [
+                {
+                    "kepzettsegId": "fegyver:kard_hosszu",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:tor",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:landzsa",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "fegyver:okolharc",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "pszi:pyarroni",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "iras_olvasas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "vallasismeret",
+                    "fok": 3
+                },
+                {
+                    "kepzettsegId": "emberismeret",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "sebgyogyitas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "lovaglas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "hajozas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "uszas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "futas",
+                    "fok": 2
+                },
+                {
+                    "kepzettsegId": "maszas",
+                    "fok": 20
+                },
+                {
+                    "kepzettsegId": "eses",
+                    "fok": 25
+                },
+                {
+                    "kepzettsegId": "ugras",
+                    "fok": 15
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_termeszet",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_lelek"
+                },
+                {
+                    "kepzettsegId": "magia:tv_alapveto_tuzmagia"
+                },
+                {
+                    "kepzettsegId": "magia:tv_elemi_formai"
+                }
+            ]
+        ],
+        "szazalekPerSzint": 15
+    },
+    {
+        "fajta": "normal",
         "id": "gilron_pap_mernok",
         "name": "Gilron-pap (Mérnök)",
         "fokaszt": "Pap",

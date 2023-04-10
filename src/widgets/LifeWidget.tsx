@@ -118,7 +118,7 @@ export const LifeWidget: React.FC<{
                 <td colSpan={2}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <button onClick={() => {
-                            fileDownload(JSON.stringify(karakter), `${karakter.name}.json`, 'text/json');
+                            fileDownload(JSON.stringify(karakter), `${karakter.name}-zsongo.json`, 'text/json');
                         }}>Export <AiOutlineExport style={{ verticalAlign: 'text-top' }} /></button>
                         <button onClick={deleteKarakter}><RiDeleteBin2Line style={{ verticalAlign: 'text-top' }} /> Töröl</button>
                     </div>

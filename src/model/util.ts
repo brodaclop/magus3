@@ -19,7 +19,7 @@ export const arrayFind = <T extends NamedEntity>(array: readonly T[], id: string
     return ret as T;
 };
 
-export const arrayName = <T extends NamedEntity>(array: readonly T[], id: string): string => arrayFind(array, id).name;
+export const arrayName = <T extends NamedEntity>(array: readonly T[], id: string): string => arrayFind(array, id, true)?.name ?? '???';
 
 export const arraySort = <T>(array: Array<T>, fn: (ob: T) => string): Array<T> => array.sort((a, b) => fn(a).localeCompare(fn(b)));
 

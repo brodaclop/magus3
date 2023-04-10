@@ -134,7 +134,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
 
             {kaszt?.leiras?.kepzettseg && <MarkdownText>{kaszt.leiras.kepzettseg}</MarkdownText>}
 
-            {kaszt.magiaKategoriak && kaszt.magiaKategoriak.length > 0 && kaszt.mana && <>
+            {kaszt.mana && <>
                 <h3>Mágia</h3>
 
                 <table className='bordered'>
@@ -143,7 +143,7 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                             <th>MP/szint:</th>
                             <td>{Kepessegek.name(kaszt.mana.kepesseg)} 10 fölötti része + {kaszt.mana.mennyiseg === 'sok' ? '6' : 'k6'} {kaszt.mana.mennyiseg === 'kevés' && 'fele'}</td>
                         </tr>
-                        {kaszt.magiaKategoriak.length > 0 && <>
+                        {kaszt.magiaKategoriak && kaszt.magiaKategoriak.length > 0 && <>
                             <tr>
                                 <th rowSpan={kaszt.magiaKategoriak.length}>Szakrális mágia</th>
                                 <td>{arrayName(MagiaKategoriak, kaszt.magiaKategoriak[0])}</td>
@@ -152,11 +152,8 @@ export const KasztLeiras: React.FC<{ kaszt: KasztInfo, inline?: boolean }> = ({ 
                                 <td>{arrayName(MagiaKategoriak, mk)}</td>
                             </tr>)}
                         </>}
-
                     </tbody>
                 </table>
-
-
             </>}
 
             {kaszt?.leiras?.kulonlegesKepessegek && <>
