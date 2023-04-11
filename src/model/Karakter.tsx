@@ -187,6 +187,14 @@ export const Karakter = {
                 }
             };
         }
+        karakter.szint.forEach(szint => { // kepzettseg leirasok es kp-hatarok frissitese
+            szint.kepzettsegek.normal.forEach(kepz => {
+                kepz.kepzettseg = Kepzettseg.find(kepz.kepzettseg.id) as NormalKepzettseg;
+            })
+            szint.kepzettsegek.szazalekos.forEach(kepz => {
+                kepz.kepzettseg = Kepzettseg.find(kepz.kepzettseg.id) as SzazalekosKepzettseg;
+            })
+        });
     },
     create: (template: KarakterTemplate): Karakter => {
         const kasztInfo = Kasztok.kasztInfo(template.kaszt, 0);

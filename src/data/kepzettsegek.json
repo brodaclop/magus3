@@ -1013,7 +1013,7 @@
         ],
         "leiras": "A Heraldika tudománya a címerek, családi, kláni és rendi jelek ismeretét jelenti. Nem  lebecsülendő tudomány ez: megvannak a maga törvényszerűségei és szabályai. Milyen alapon  milyen figurák szerepelhetnek, milyen színek párosulhatnak, milyen minták alkalmazhatóak.  ",
         "szintleiras": [
-            "TODO: leiras/kp",
+            "A karakter felismeri országa legfontosabb címereit, kb. két tucatnyit.",
             "A karakter tisztában van országa, tájegysége jelentősebb címereit, nagyjából ismeri a  kisebbeket is. Van némi esélye a távolabbi tájak jelentős címereinek felismerésére is.  ",
             "A karakter tisztában van a heraldikai szabályokkal, és bármikor képes tökéletes címerek  megalkotására. Ismeri országa, tájegysége címereit, környezetében még a legjelentéktelenebbeket  is, mi több, Ynev távoli vidékeinek kiemelkedően fontos címereit is.\n\nIsmeri továbbá a jelentősebb alvilági szervezetek klántetoválásait is.",
             "A karakter előtt nem ismeretlenek a távoli tájak címerei sem,  még akkor sem, ha azok nem túl jelentősek. Saját országában a legapróbb családokéit is ismeri, mi  több, a régmúlt korok címereire és jeleire is emlékszik.\n\nIsmeretlen címerekből is tud továbbá következtetéseket levonni a tulajdonos származásáról, családjának történetéről.",
@@ -1645,7 +1645,7 @@
         ],
         "leiras": "A szájról olvasás tolvajok, fejvadászok, kémek kedvelt alvilági képzettsége. Életük során gyakran  lehet szükség rá, hogy olyan beszélgetéseknek is részesei legyenek, amely nem a fülük hallatára  zajlik. Ha ilyenkor a beszélő látótávolságon belül van, ezenkívül az arcvonásai is tisztán  kivehetők, a képzettség használója képes megérteni az elhangzott szavakat, pusztán a beszélő \nszájmozgását figyelve. Természetesen megnehezíti a helyzetet, ha két vagy több ember beszédét  kell ilyen módon kilesni, hiszen akkor valamelyik nagy valószínűséggel háttal lesz a  megfigyelőnek.  \nKülönösen jó eredményt lehet elérni, ha e képzettséget az Érzékélesítés Pszí diszciplínával együtt  használja a karakter, mivel így a látótávolság a kétszeresére növelhető, illetve a hangfoszlányok  alapján sokkal biztosabban végezhető a szájról olvasás.\n\nTermészetesen szájról olvasni mindenki csak olyan nyelven tud, amelyen ért, legalább 4. szinten.  \n",
         "szintleiras": [
-            "TODO: leiras/kp",
+            "A karakter képes elcsípni egy-egy hosszabb szót, de nem eleget ahhoz, hogy a mondatokat értelmezni tudja. Hasznos viszont olyan esetben, ha zajos helyen kell valakinek a beszédét megértenie, vagy ha előre ismert szöveget kell követnie.",
             "A karakter képes megérteni az általános, gyakran használt szavakat, nem képes azonban felismerni az idegen neveket, helyeket, ritkán használt vagy különleges szavakat.",
             "A karakter nagyjából már felismeri a ritkább szavakat, neveket is.",
             "A karakter szinte mindent megért, számára addig ismeretlen neveket is, egy két betű eltéréssel. Ezenfelül nem csak a megfigyelt beszélő száját, de egész arcát, mimikáját is tanulmányozza, ezért a beszélő hozzáállásáról, véleményéről is fogalmat alkothat. Teheti ez utóbbit még abban az esetben is, ha számára a beszélt nyelv ismeretlen.  \n",

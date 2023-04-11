@@ -166,6 +166,10 @@ div.karakterLapBorder {
     backdrop-filter: brightness(115%);
 }
 
+.karakterLap .secondrow .secondleft .kpFokhozTable tr {
+    backdrop-filter: brightness(115%);
+}
+
 .karakterLap .secondrow .secondright {
     background-color: cornsilk;
     display: flex;

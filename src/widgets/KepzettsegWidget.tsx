@@ -4,10 +4,10 @@ import { GiSpikesFull, GiSpikesInit } from 'react-icons/gi';
 import { Karakter } from '../model/Karakter';
 import { KarakterCalcResult } from '../model/KarakterCalculator';
 import { KapottKepzettseg } from '../model/Kasztok';
-import { Kepessegek } from '../model/Kepessegek';
 import { Kepzettseg, KepzettsegTipus, NormalKepzettseg, SzazalekosKepzettseg } from '../model/Kepzettseg';
-import { arrayName, arraySort, constructArray } from '../model/util';
+import { arrayName, arraySort } from '../model/util';
 import { KepzettsegLeiras } from './entities/KepzettsegLeiras';
+import { KepzettsegProjectionWidget } from './KepzettsegProjectionWidget';
 
 
 const PendingSelector: React.FC<{
@@ -162,28 +162,7 @@ export const KepzettsegWidget: React.FC<{ karakter: Karakter, calc: KarakterCalc
                 </tr>
                 {ujKepzettsegOb && <tr>
                     <td colSpan={3}>
-                        <table className='kpFokhozTable'>
-                            <thead style={{ textAlign: 'left' }}>
-                                <th />
-                                {constructArray(5, i => <th>{i + 1}. fok</th>)}
-                                <th><i>{ujKepzettsegOb.fajta === 'normal' && Kepessegek.name(ujKepzettsegOb.kepesseg)}</i></th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>KP</th>
-                                    {constructArray(5, i => {
-                                        const meglevo = calc.findNormalKepzettseg(ujkepzettseg);
-                                        if (ujKepzettsegOb.fajta === 'szazalekos' || (meglevo?.fok ?? 0) > i) {
-                                            return <td />;
-                                        }
-                                        const kp = Kepzettseg.kpFokhoz(calc.kepessegek, ujKepzettsegOb, i + 1) - ((meglevo?.fok ?? 0) === i ? (meglevo?.kp ?? 0) : 0);
-                                        return <td>{kp}</td>;
-                                    })}
-                                    <td />
-
-                                </tr>
-                            </tbody>
-                        </table>
+                        <KepzettsegProjectionWidget calc={calc} karakter={karakter} kepzettseg={ujKepzettsegOb} />
                     </td>
                 </tr>}
             </tbody>
