@@ -21,7 +21,7 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
             <tr>
                 <th>Név</th>
                 <th>MP</th>
-                <th>Varázslás ideje</th>
+                <th>Varázslás ideje(KÉ)</th>
                 <th>Hatótáv</th>
                 <th>Időtartam</th>
                 <th>Mentő</th>
@@ -35,7 +35,7 @@ export const VarazslatWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
                     <VarazslatLeiras v={v} />
                 </td>
                 <td>{v.mp}</td>
-                <td>{'ke' in v ? <CalculationWidget calculation={v.ke} /> : v.varazslasIdeje}</td>
+                <td>{'varazslasIdeje' in v && v.varazslasIdeje}{v.ke && <>(<CalculationWidget calculation={v.ke} />)</>}</td>
                 <td>{Magia.formatRange(v.range)} </td>
                 <td>{v.idotartam}</td>
                 <td>{arrayName(Magia.mentodobasok, v.save)} </td>

@@ -21,7 +21,7 @@ export const PsziWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult
             <tr>
                 <th>Név</th>
                 <th>ΨP</th>
-                <th>Meditáció ideje</th>
+                <th>Meditáció ideje(KÉ)</th>
                 <th>Időtartam</th>
                 <th>Mentődobás</th>
                 <th>Iskola</th>
@@ -33,7 +33,7 @@ export const PsziWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult
                     <PsziDiszciplinaLeiras d={v} />
                 </td>
                 <td>{v.psziPont}</td>
-                <td>{'ke' in v ? <CalculationWidget calculation={v.ke} /> : v.varazslasIdeje}</td>
+                <td>{'varazslasIdeje' in v && <>{v.varazslasIdeje}</>}{v.ke && <>(<CalculationWidget calculation={v.ke} />)</>}</td>
                 <td>{v.idotartam}</td>
                 <td>{arrayName(Magia.mentodobasok, v.save)} </td>
                 <td>{Kepzettseg.name(`pszi:${v.iskola}`)} {v.fok}. fok</td>

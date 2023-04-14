@@ -28,11 +28,13 @@ export const PsziDiszciplinaLeiras: React.FC<{ d: CalcDiszciplina | PsziDiszcipl
                         <th>Ψ-pont</th>
                         <td>{d.psziPont}</td>
                     </tr>
-                    {'ke' in d ?
+                    {'ke' in d && d.ke &&
                         <tr>
                             <th>KÉ</th>
                             <td>{typeof d.ke === 'number' ? d.ke : <CalculationWidget calculation={d.ke} />}</td>
-                        </tr> :
+                        </tr>
+                    }
+                    {'varazslasIdeje' in d &&
                         <tr>
                             <th>Meditáció ideje</th>
                             <td>{d.varazslasIdeje}</td>

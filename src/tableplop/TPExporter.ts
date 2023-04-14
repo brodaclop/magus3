@@ -2,7 +2,6 @@ import fileDownload from "js-file-download";
 import { Calculation } from "../model/Calculation";
 import { Karakter } from "../model/Karakter";
 import { KarakterCalcResult, KarakterCalculator } from "../model/KarakterCalculator";
-import { example } from "./Example";
 import { Character, Message, NumberProp } from "./InternalTypes";
 import { convertInternalToExternal as convertToTablePlop } from "./TPConverter";
 
@@ -64,6 +63,12 @@ const harcertekek = (karakter: Karakter): Array<NumberProp> => {
 
 
     return [
+        {
+            type: 'number',
+            name: 'VE',
+            value: 0,
+            formula: bekeszitFormula(karakter, calc => Calculation.calculate(calc.fegyverrel.ve)) + Calculation.calculate(calc.fegyverrel.ve)
+        },
         {
             type: 'number',
             name: `internal-KE`,
@@ -197,7 +202,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
     }
 
     const psziKE = calc.psziDiszciplinak.filter(d => 'ke' in d).map(d => {
-        if ('ke' in d) {
+        if ('ke' in d && d.ke) {
             return {
                 type: 'message',
                 name: `KÉ - ${d.name}`,
@@ -208,7 +213,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
     });
 
     const varKE = calc.varazslatok.filter(d => 'ke' in d).map(d => {
-        if ('ke' in d) {
+        if ('ke' in d && d.ke) {
             return {
                 type: 'message',
                 name: `KÉ - ${d.name}`,

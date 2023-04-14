@@ -62,7 +62,7 @@ export const KarakterWidget: React.FC<{
                     <div className='toprow'>
                         <div className='topleft'>
                             <div>
-                                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} onChange={commit} calc={karakterCalc} levelUp={kasztId => commit(Karakter.levelUp(karakter, kasztId))} />
+                                <LifeWidget deleteKarakter={deleteKarakter} karakter={karakter} onChange={commit} calc={karakterCalc} />
                             </div>
                             <div>
                                 <KepessegWidget karakter={karakter} eloszt={eloszt} minusz={minusz} plusz={plusz} lezar={lezar} calc={karakterCalc} freehand={freehand} />

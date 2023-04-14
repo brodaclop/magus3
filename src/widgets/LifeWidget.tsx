@@ -11,6 +11,7 @@ import { GrConnect } from 'react-icons/gr';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { AiOutlineExport } from 'react-icons/ai';
 import fileDownload from 'js-file-download';
+import { SzintlepesModal } from './SzintlepesModal';
 
 
 
@@ -18,9 +19,8 @@ export const LifeWidget: React.FC<{
     calc: KarakterCalcResult,
     karakter: Karakter,
     onChange: (karakter: Karakter) => unknown,
-    levelUp: (id: string) => unknown,
     deleteKarakter: () => unknown
-}> = ({ calc, karakter, onChange, levelUp, deleteKarakter }) => {
+}> = ({ calc, karakter, onChange, deleteKarakter }) => {
 
     const [ujKaszt, setUjKaszt] = useState<string>('');
 
@@ -74,14 +74,24 @@ export const LifeWidget: React.FC<{
                     <ul className='simpleList'>
                         {Object.entries(kasztok).map(([kasztId, kaszt]) => <li>
                             <KasztLeiras kaszt={Kasztok.kasztInfo(kasztId, kaszt.szint)} />: {kaszt.szint}
-                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0} onClick={() => levelUp(kasztId)}>+</button>
+                            <SzintlepesModal
+                                karakter={karakter}
+                                kasztId={kasztId}
+                                disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0}
+                                onChange={onChange}
+                            />
                         </li>)}
                         <li>
                             <KasztSelectorWidget kaszt={ujKaszt} onChange={setUjKaszt} />
-                            <button disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0 || ujKaszt === ''} onClick={() => {
-                                levelUp(ujKaszt);
-                                setUjKaszt('');
-                            }}>+</button>
+                            <SzintlepesModal
+                                karakter={karakter}
+                                kasztId={ujKaszt}
+                                disabled={!!karakter.hm || calc.pendingKepzettsegekCount > 0 || karakter.szazalek > 0 || ujKaszt === ''}
+                                onChange={karakter => {
+                                    onChange(karakter);
+                                    setUjKaszt('');
+                                }}
+                            />
                         </li>
                     </ul>
                 </td>

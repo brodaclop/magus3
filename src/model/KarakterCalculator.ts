@@ -20,9 +20,9 @@ export interface CalcFegyver {
     sebzesTipus: Array<typeof SebzesTipus[number]['id']>;
 }
 
-export type CalcVarazslat = ((Omit<GyorsVarazslat, 'ke'> & { ke: CalculationArgument }) | LassuVarazslat);
+export type CalcVarazslat = (Omit<GyorsVarazslat, 'ke'> | LassuVarazslat) & { ke?: CalculationArgument };
 
-export type CalcDiszciplina = ((Omit<GyorsPsziDiszicplina, 'ke'> & { ke: CalculationArgument }) | LassuPsziDiszciplina);
+export type CalcDiszciplina = (Omit<GyorsPsziDiszicplina, 'ke'> | LassuPsziDiszciplina) & { ke?: CalculationArgument };
 
 export interface KarakterCalcResult {
     fp: CalculationArgument;
@@ -337,12 +337,16 @@ class KarakterCalculation {
             const fok = kepzettseg?.fok ?? 0;
             return hatasDiszciplinak.includes(d.id) || d.fok <= fok;
         }).map(v => {
-            if ('ke' in v) {
+            if ('ke' in v || v.varazslasIdeje === 'azonnali') {
                 const kepzettseg = normalKepzettsegek.find(k => k.kepzettseg.id === `pszi:${v.iskola}`);
                 const fok = kepzettseg?.fok ?? 0;
                 return {
                     ...v,
-                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Diszciplina', v.ke))
+                    ke: Calculation.plusz(
+                        Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)),
+                        Calculation.value('Képzettség', fok * 5),
+                        Calculation.value('Diszciplina', 'ke' in v ? v.ke : 30)
+                    )
                 }
             } else {
                 return v;
@@ -362,12 +366,16 @@ class KarakterCalculation {
             const kategoriaOK = v.kategoriak?.every(k => magiaKategoriak.has(k)) ?? true;
             return hatasVarazslatok.includes(v.id) || (kategoriaOK && v.fok <= fok);
         }).map(v => {
-            if ('ke' in v) {
+            if ('ke' in v || v.varazslasIdeje === 'azonnali') {
                 const kepzettsegek = normalKepzettsegek.filter(k => v.kepzettsegek.includes(k.kepzettseg.id as Varazslat['kepzettsegek'][number]));
                 const fok = Math.max(0, ...kepzettsegek.map(k => k.fok));
                 return {
                     ...v,
-                    ke: Calculation.plusz(Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)), Calculation.value('Képzettség', fok * 5), Calculation.value('Varázslat', v.ke))
+                    ke: Calculation.plusz(
+                        Calculation.value('Fegyver nélkül', Calculation.calculate(harcertek.ke)),
+                        Calculation.value('Képzettség', fok * 5),
+                        Calculation.value('Varázslat', 'ke' in v ? v.ke : 30)
+                    )
                 }
             } else {
                 return v;

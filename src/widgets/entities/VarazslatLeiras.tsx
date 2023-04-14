@@ -28,11 +28,13 @@ export const VarazslatLeiras: React.FC<{ v: CalcVarazslat | Varazslat, inline?: 
                         <th>MP</th>
                         <td>{v.mp}</td>
                     </tr>
-                    {'ke' in v ?
+                    {'ke' in v && v.ke &&
                         <tr>
                             <th>KÉ</th>
                             <td>{typeof v.ke === 'number' ? v.ke : <CalculationWidget calculation={v.ke} />}</td>
-                        </tr> :
+                        </tr>
+                    }
+                    {'varazslasIdeje' in v &&
                         <tr>
                             <th>Varázslás ideje</th>
                             <td>{v.varazslasIdeje}</td>
