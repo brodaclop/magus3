@@ -28,6 +28,7 @@ export interface InventoryPancel extends InventoryItemBase {
 
 export interface InventoryEgyeb extends InventoryItemBase {
     tipus: 'egyeb';
+    penz?: boolean;
     ob: {
         name: string;
     }
@@ -57,10 +58,11 @@ export const Inventory = {
         quantity: 1,
         notes
     }),
-    addEgyeb: (karakter: Karakter, name: string, notes?: string) => karakter.inventory.push({
+    addEgyeb: (karakter: Karakter, name: string, penz: boolean, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'egyeb',
         ob: { name },
+        penz,
         quantity: 1,
         notes
     }),

@@ -10,15 +10,18 @@ export const PancelSzerkesztWidget: React.FC<{ karakter: Karakter, onChange: (k:
 
     const [igazitas, setIgazitas] = useState<number>(0);
     const [note, setNote] = useState<string>();
+    const [name, setName] = useState<string>();
 
     useEffect(() => {
         setNote(pancel.notes);
+        setName(pancel.ob.name);
     }, [pancel]);
 
     const createPancel = () => PancelBuilder.igazit(pancel.ob, PancelBuilder.igazitas[igazitas]);
 
     const build = () => {
         pancel.ob = createPancel();
+        pancel.ob.name = name ?? '';
         pancel.notes = note;
 
         onChange(karakter);
@@ -34,7 +37,7 @@ export const PancelSzerkesztWidget: React.FC<{ karakter: Karakter, onChange: (k:
             <tbody>
                 <tr>
                     <th>Páncél:</th>
-                    <td>{pancel.ob.name}</td>
+                    <td><input type="text" value={name} onChange={e => setName(e.target.value)} /></td>
                     <td>{renderBlokk(PancelBuilder.removeIgazit(pancel.ob))}</td>
                 </tr>
                 <tr>

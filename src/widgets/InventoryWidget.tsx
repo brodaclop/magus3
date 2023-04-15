@@ -151,6 +151,41 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
 export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
     const worn: Record<string, number> = Karakter.worn(karakter);
 
+    const renderBody = (items: Array<InventoryItem>) => items.map((i, idx) => <tr>
+        <td>
+            <Tooltip placement='top' overlay={<InventoryTooltip calc={calc} item={i} />}>
+                <span>{i.ob.name || 'Névtelen bigyó'}</span>
+            </Tooltip>
+        </td>
+        <td>
+            {i.tipus === 'pancel' ? <PancelSzerkesztWidget karakter={karakter} onChange={onChange} pancel={i} /> : <InventorySzerkesztWidget karakter={karakter} onChange={onChange} item={i} />}
+        </td>
+        <td style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <button disabled={i.quantity === 0 || (worn[i.id] ?? 0) === i.quantity} onClick={() => {
+                i.quantity--;
+                onChange(karakter);
+            }}>-</button>
+            <span style={{ marginLeft: '0.5rem', marginRight: '0.5rem' }}>
+                <input type="number" value={i.quantity} onChange={e => {
+                    const typed = Number(e.target.value);
+                    i.quantity = Math.max(worn[i.id] ?? 0, typed);
+                    onChange(karakter);
+                }} />
+            </span>
+            <button onClick={() => {
+                i.quantity++;
+                onChange(karakter);
+            }}>+</button>
+        </td>
+        <td style={{ textAlign: 'right' }}>
+            <button style={{ backgroundColor: 'tomato' }} disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
+                karakter.inventory.splice(idx, 1);
+                onChange(karakter);
+            }}><RiDeleteBin2Line /></button>
+        </td>
+    </tr>);
+
+
     return <table className='bordered'>
         <thead>
             <tr>
@@ -158,33 +193,13 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
             </tr>
         </thead>
         <tbody>
-            {karakter.inventory.map((i, idx) => <tr>
-                <td>
-                    <Tooltip placement='top' overlay={<InventoryTooltip calc={calc} item={i} />}>
-                        <span>{i.ob.name}</span>
-                    </Tooltip>
-                </td>
-                <td>
-                    {i.tipus === 'pancel' ? <PancelSzerkesztWidget karakter={karakter} onChange={onChange} pancel={i} /> : <InventorySzerkesztWidget karakter={karakter} onChange={onChange} item={i} />}
-                </td>
-                <td style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <button disabled={i.quantity === 0 || (worn[i.id] ?? 0) === i.quantity} onClick={() => {
-                        i.quantity--;
-                        onChange(karakter);
-                    }}>-</button>
-                    <span style={{ marginLeft: '0.5rem', marginRight: '0.5rem' }}>{i.quantity}</span>
-                    <button onClick={() => {
-                        i.quantity++;
-                        onChange(karakter);
-                    }}>+</button>
-                </td>
-                <td style={{ textAlign: 'right' }}>
-                    <button style={{ backgroundColor: 'tomato' }} disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
-                        karakter.inventory.splice(idx, 1);
-                        onChange(karakter);
-                    }}><RiDeleteBin2Line /></button>
-                </td>
-            </tr>)}
+            {renderBody(karakter.inventory.filter(i => i.tipus !== 'egyeb' || !i.penz))}
+        </tbody>
+        <tbody>
+            <tr>
+                <th colSpan={4} style={{ textAlign: 'center' }}>Pénz</th>
+            </tr>
+            {renderBody(karakter.inventory.filter(i => i.tipus === 'egyeb' && i.penz))}
         </tbody>
         <tfoot>
             <tr>

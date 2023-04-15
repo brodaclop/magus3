@@ -9,9 +9,10 @@ export const EgyebBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Ka
     const [open, setOpen] = useState<boolean>(false);
     const [note, setNote] = useState<string>();
     const [name, setName] = useState<string>('');
+    const [penz, setPenz] = useState<boolean>(false);
 
     const build = () => {
-        Inventory.addEgyeb(karakter, name, note);
+        Inventory.addEgyeb(karakter, name, penz, note);
         onChange(karakter);
         setOpen(false);
     };
@@ -22,6 +23,10 @@ export const EgyebBuilderWidget: React.FC<{ karakter: Karakter, onChange: (k: Ka
                 <tr>
                     <th>Név</th>
                     <td><input type='text' value={name} onChange={e => setName(e.target.value)} /> </td>
+                </tr>
+                <tr>
+                    <th>Pénz?</th>
+                    <td><input type='checkbox' checked={penz} onChange={e => setPenz(!penz)} /> </td>
                 </tr>
                 <tr>
                     <th>Leírás</th>

@@ -9,15 +9,17 @@ export const InventorySzerkesztWidget: React.FC<{ karakter: Karakter, onChange: 
     const [open, setOpen] = useState(false);
 
     const [note, setNote] = useState<string>();
+    const [name, setName] = useState<string>();
 
     useEffect(() => {
         setNote(item.notes);
+        setName(item.ob.name);
     }, [item]);
 
 
     const build = () => {
         item.notes = note;
-
+        item.ob.name = name ?? '';
         onChange(karakter);
         setOpen(false);
     };
@@ -27,7 +29,7 @@ export const InventorySzerkesztWidget: React.FC<{ karakter: Karakter, onChange: 
             <tbody>
                 <tr>
                     <th>Tárgy:</th>
-                    <td>{item.ob.name}</td>
+                    <td><input type="text" value={name} onChange={e => setName(e.target.value)} /></td>
                 </tr>
                 <tr>
                     <th>Leírás</th>
