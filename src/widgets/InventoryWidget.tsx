@@ -151,7 +151,7 @@ export const InventoryTooltip: React.FC<{ calc: KarakterCalcResult, item: Invent
 export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcResult, onChange: (karakter: Karakter) => unknown }> = ({ karakter, calc, onChange }) => {
     const worn: Record<string, number> = Karakter.worn(karakter);
 
-    const renderBody = (items: Array<InventoryItem>) => items.map((i, idx) => <tr>
+    const renderBody = (items: Array<InventoryItem>) => items.map(i => <tr>
         <td>
             <Tooltip placement='top' overlay={<InventoryTooltip calc={calc} item={i} />}>
                 <span>{i.ob.name || 'Névtelen bigyó'}</span>
@@ -179,6 +179,7 @@ export const InventoryWidget: React.FC<{ karakter: Karakter, calc: KarakterCalcR
         </td>
         <td style={{ textAlign: 'right' }}>
             <button style={{ backgroundColor: 'tomato' }} disabled={i.quantity !== 0 || !!worn[i.id]} onClick={() => {
+                const idx = karakter.inventory.findIndex(item => item.id === i.id);
                 karakter.inventory.splice(idx, 1);
                 onChange(karakter);
             }}><RiDeleteBin2Line /></button>
