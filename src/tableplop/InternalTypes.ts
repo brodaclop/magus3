@@ -42,6 +42,7 @@ export interface NumberProp {
     value: number;
     formula?: string;
     local?: boolean;
+    message?: string;
 }
 
 export interface Ability {

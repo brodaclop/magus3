@@ -5,6 +5,7 @@ import { Harcertek } from "./Harcertek";
 import { HarciHelyzet, HarciHelyzetModositok } from "./HarciHelyzet";
 import { convertHarcmodorEffect, HarcmodorCalculation, HarcmodorEffect, HARCMODOR_EFFEKTEK } from "./Harcmodor";
 import { Hatas } from "./Hatas";
+import { Inventory } from "./Inventory";
 import { Karakter, SzintInfo } from "./Karakter";
 import { Kasztok } from "./Kasztok";
 import { KockaDobas } from "./Kocka";
@@ -449,7 +450,7 @@ export const KarakterCalculator = {
                 normal: normalKepzettsegek,
                 szazalekos: kc.szazalekosKepzettsegek(),
             },
-            sfe: karakter.pancel?.ob.sfe ?? { zuzo: 0, szuro: 0, vago: 0 },
+            sfe: Inventory.calculateCurrentSfe(karakter.pancel?.ob),
             mgt,
             pillanatnyiKepessegek: pillKepCalc,
             pszi: kc.pszi(pillKep),

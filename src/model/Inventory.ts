@@ -4,6 +4,7 @@ import { KozelharcFegyver } from "./Fegyver";
 import { Karakter } from "./Karakter";
 import { Lofegyver } from "./Lofegyver";
 import { Pancel } from "./Pancel";
+import { PancelBlokk } from "./PancelBuilder";
 
 export interface InventoryItemBase {
     id: string;
@@ -37,6 +38,16 @@ export interface InventoryEgyeb extends InventoryItemBase {
 export type InventoryItem = InventoryFegyver | InventoryLofegyver | InventoryPancel | InventoryEgyeb;
 
 export const Inventory = {
+    calculateCurrentSfe: (pancel?: Pancel): PancelBlokk['sfe'] => {
+        if (!pancel) {
+            return { szuro: 0, vago: 0, zuzo: 0 };
+        }
+        return {
+            szuro: Math.max(0, pancel.sfe.szuro - (pancel.serules ?? 0)),
+            vago: Math.max(0, pancel.sfe.vago - (pancel.serules ?? 0)),
+            zuzo: Math.max(0, pancel.sfe.zuzo - (pancel.serules ?? 0)),
+        }
+    },
     addPancel: (karakter: Karakter, pancel: Pancel, notes?: string) => karakter.inventory.push({
         id: v4(),
         tipus: 'pancel',

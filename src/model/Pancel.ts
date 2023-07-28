@@ -3,4 +3,5 @@ import { NamedEntity } from "./util";
 
 export interface Pancel extends NamedEntity, PancelBlokk {
     igazitas: PancelBlokk;
+    serules?: number;
 }

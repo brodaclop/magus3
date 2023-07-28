@@ -40,6 +40,16 @@ export const PancelWidget: React.FC<{ karakter: Karakter, onChange: (k: Karakter
                 <td>{karakter.pancel?.ob.sfe[st.id] ?? 0}</td>
             </tr>
             )}
+            <tr>
+                <th>Sérülés</th>
+                <td>{karakter.pancel && <input type='number' value={karakter.pancel.ob.serules} onChange={e => {
+                    if (karakter.pancel) {
+                        const serules = Math.max(0, Math.floor(Number(e.target.value)));
+                        karakter.pancel.ob.serules = serules;
+                        onChange(karakter);
+                    }
+                }} />}</td>
+            </tr>
 
         </tbody>
     </table>

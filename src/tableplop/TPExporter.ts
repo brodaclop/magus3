@@ -195,6 +195,27 @@ const bekeszitFormula = (karakter: Karakter, fn: (calc: KarakterCalcResult) => n
     return `Bekészít-${k.name} ? ${fn(calc)} : `
 })?.join('') ?? '';
 
+const calculateSFE = (karakter: Karakter): Array<NumberProp> => {
+    const sfe = karakter.pancel?.ob.sfe;
+    return [{
+        type: 'number',
+        name: 'sfe-szuro',
+        formula: `max(0, ${sfe?.szuro ?? 0} - pancel-serules)`,
+        value: 0
+    },
+    {
+        type: 'number',
+        name: 'sfe-vago',
+        formula: `max(0, ${sfe?.vago ?? 0} - pancel-serules)`,
+        value: 0
+    },
+    {
+        type: 'number',
+        name: 'sfe-zuzo',
+        formula: `max(0, ${sfe?.zuzo ?? 0} - pancel-serules)`,
+        value: 0
+    }];
+}
 
 export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
     if (!karakter.tableplop) {
@@ -203,22 +224,28 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
 
     const psziKE = calc.psziDiszciplinak.filter(d => 'ke' in d).map(d => {
         if ('ke' in d && d.ke) {
+            const ke = Calculation.calculate(d.ke);
             return {
-                type: 'message',
+                type: 'number',
                 name: `KÉ - ${d.name}`,
-                message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
-            } as Message
+                formula: `${ke}`,
+                value: ke,
+                message: `KÉ: {kezdemeny = ${ke}+1d10} {initiative = kezdemeny}`
+            } as NumberProp
         }
         throw new Error('ilyen nincs és mégis van')
     });
 
     const varKE = calc.varazslatok.filter(d => 'ke' in d).map(d => {
         if ('ke' in d && d.ke) {
+            const ke = Calculation.calculate(d.ke);
             return {
-                type: 'message',
+                type: 'number',
                 name: `KÉ - ${d.name}`,
-                message: `KÉ: {kezdemeny = ${Calculation.calculate(d.ke)}+1d10} {initiative = kezdemeny}`
-            } as Message
+                formula: `${ke}`,
+                value: ke,
+                message: `KÉ: {kezdemeny = ${ke}+1d10} {initiative = kezdemeny}`
+            } as NumberProp
         }
         throw new Error('ilyen nincs és mégis van')
     });
@@ -253,21 +280,7 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         title: 'SFÉ',
                         collapsed: true,
                         children: [
-                            {
-                                type: 'number',
-                                name: 'sfe-szuro',
-                                value: calc.sfe.szuro,
-                            },
-                            {
-                                type: 'number',
-                                name: 'sfe-vago',
-                                value: calc.sfe.vago,
-                            },
-                            {
-                                type: 'number',
-                                name: 'sfe-zuzo',
-                                value: calc.sfe.zuzo,
-                            },
+                            ...calculateSFE(karakter),
                             {
                                 type: 'number',
                                 name: 'mgt',
@@ -297,38 +310,52 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                 title: 'Dobás',
                 children: [
                     {
-                        type: 'message',
+                        type: 'number',
                         name: 'KÉ',
+                        formula: 'internal-KE',
+                        value: 0,
                         message: `KÉ: {kezdemeny = @:internal-KE:+1d10} {initiative = kezdemeny}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: 'Köv. támadás',
+                        formula: 'internal-MTKE',
+                        value: 0,
                         message: `Következő támadás KÉ-je: {kezdemeny = kezdemeny + @:internal-MTKE:} {initiative = kezdemeny}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: `Támadás - Jobb kéz`,
+                        value: 0,
+                        formula: `internal-jobbTE`,
                         message: `Támadás - Jobb kéz| TÉ: {@:internal-jobbTE: + 1d100} / Sebzés: {@:internal-jobbSDarab:d@:internal-jobbSKocka: + @:internal-jobbSPlusz:} {${sebzesTipusFormula('internal-jobbSTipus')}}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: `Támadás - Bal kéz`,
+                        value: 0,
+                        formula: `internal-balTE`,
                         message: `Támadás - Bal kéz| TÉ: {@:internal-balTE: + 1d100} / Sebzés: {@:internal-balSDarab:d@:internal-balSKocka: + @:internal-balSPlusz:} {${sebzesTipusFormula('internal-balSTipus')}}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: `KÉ - lövés`,
+                        formula: 'internal-LoKE',
+                        value: 0,
                         message: `KÉ: {kezdemeny = @:internal-LoKE:+1d10} {initiative = kezdemeny}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: `Köv. lövés`,
+                        formula: 'internal-LoMTKE',
+                        value: 0,
                         message: `Következő lövés KÉ-je: {kezdemeny = kezdemeny + @:internal-LoMTKE:} {initiative = kezdemeny}`
                     },
                     {
-                        type: 'message',
+                        type: 'number',
                         name: `Lövés`,
+                        value: 0,
+                        formula: `internal-CE`,
                         message: `Lövés| CÉ: {@:internal-CE: + 1d100} / Sebzés: {@:internal-LoSDarab:d@:internal-LoSKocka:! + @:internal-LoSPlusz:} {${sebzesTipusFormula('internal-LoSTipus')}}`
                     },
                     ...psziKE,
@@ -374,6 +401,11 @@ export const exportTPCSV = (karakter: Karakter, calc: KarakterCalcResult) => {
                         max: Calculation.calculate(calc.pszi),
                         curr: karakter.temporary.pszi,
                     },
+                    {
+                        type: 'number',
+                        name: 'pancel-serules',
+                        value: karakter.pancel?.ob.serules ?? 0
+                    }
                 ]
             }
         ]

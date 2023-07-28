@@ -16,18 +16,25 @@ export const BekeszitettWidget: React.FC<{ karakter: Karakter, onChange: (karakt
             </tr>
             <tr>
                 <th colSpan={6}>
-                    Név: <input type="text" value={name} onChange={e => setName(e.target.value)} />
-                    <button disabled={!name || karakter.bekeszitve?.some(bk => bk.name === name)} onClick={e => {
-                        const bekeszitve = karakter.bekeszitve ?? [];
-                        bekeszitve.push({
-                            id: v4(),
-                            name,
-                            kezek: [...karakter.kezek],
-                            lofegyver: karakter.lofegyver
-                        });
-                        karakter.bekeszitve = bekeszitve;
-                        onChange(karakter);
-                    }}>Bekészít</button>
+                    <form>
+                        Név: <input type="text" value={name} onChange={e => {
+                            const value = e.target.value;
+                            if (value === '' || /^[a-zA-Z][a-zA-Z_-]*$/.test(value)) {
+                                setName(value);
+                            }
+                        }} />
+                        <button type='submit' disabled={!name || karakter.bekeszitve?.some(bk => bk.name === name)} onClick={e => {
+                            const bekeszitve = karakter.bekeszitve ?? [];
+                            bekeszitve.push({
+                                id: v4(),
+                                name,
+                                kezek: [...karakter.kezek],
+                                lofegyver: karakter.lofegyver
+                            });
+                            karakter.bekeszitve = bekeszitve;
+                            onChange(karakter);
+                        }}>Bekészít</button>
+                    </form>
                 </th>
             </tr>
             <tr>

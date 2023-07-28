@@ -1303,13 +1303,20 @@
                     "fok": 1
                 },
                 {
-                    "kepzettsegId": "magia:pap_szfera_lelek"
+                    "kepzettsegId": "magia:pap_szfera_lelek",
+                    "fok": 1
                 },
                 {
-                    "kepzettsegId": "magia:tv_alapveto_tuzmagia"
+                    "kepzettsegId": "magia:tv_alapveto_tuzmagia",
+                    "fok": 1
                 },
                 {
-                    "kepzettsegId": "magia:tv_elemi_formai"
+                    "kepzettsegId": "magia:tv_elemi_formai",
+                    "fok": 1
+                },
+                {
+                    "kepzettsegId": "magia:pap_szfera_altalanos",
+                    "fok": 1
                 }
             ]
         ],
